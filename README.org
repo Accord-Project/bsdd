@@ -26,7 +26,7 @@ We propose TODO
 * Introduction
 
 ** bSDD
-Beetz 2014)
+(Beetz 2014)
 "The buildingSMART Data Dictionary (bSDD) (Bell & Bjørkhaug 2006) is a structured vocabulary that currently consists of some 80,000 concepts with translations in multiple languages"
 
 
@@ -37,7 +37,15 @@ TODO We use the excellent tool GraphQL Voyager that can represent any GraphQL AP
 https://github.com/IvanGoncharov/graphql-voyager
 https://ivangoncharov.github.io/graphql-voyager/
 
+https://rawgit2.com/Accord-Project/bsdd/main/bsdd-graphql-voyager-orig.html
 
+Overview (uncheck "Show leaf fields"):
+
+[[bsdd-graphql-voyager-overview.png]]
+
+
+
+[[bsdd-graphql-voyager-Classification-ClassificationProperty.png]]
 
 ** Original vs Refactored Files
 bsdd-graphql-voyager-orig.html

@@ -1,0 +1,261 @@
+#+options: ':nil *:t -:t ::t <:t H:5 \n:nil ^:{} anchor:nil arch:headline author:t
+#+options: broken-links:nil c:nil creator:nil d:(not "LOGBOOK") date:t e:t email:nil f:t
+#+options: inline:t num:nil p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t
+#+options: timestamp:nil title:t toc:5 todo:t |:t
+#+title: Semantic bSDD: Improvements to bSDD GraphQL, JSON and RDF Representations
+#+date: <2022-12-09>
+#+author: Vladimir Alexiev, Mihail Radkov, Nataliya Keberle
+#+email: vladimir.alexiev@ontotext.com
+#+language: en
+#+select_tags: export
+#+exclude_tags: noexport
+#+creator: Emacs 28.1 (Org mode 9.5.2)
+#+cite_export:
+
+* Abstract
+The buildingSmart Data Dictionary (bSDD) is an important shared resource in the Architecture, Engineering, Construction and Operations (AECO) domain.
+It is a collection of datasets ("domains") that define various classifications (objects representing building components, products and materials) and their properties.
+bSDD defines a GraphQL API, as well as REST APIs that return JSON and RDF representations.
+This improves the interoperability of bSDD and its easier deployment in architectural CAD and other AECO software.
+
+However TODO
+
+We propose TODO
+
+
+* Introduction
+
+** bSDD
+Beetz 2014)
+"The buildingSMART Data Dictionary (bSDD) (Bell & Bjørkhaug 2006) is a structured vocabulary that currently consists of some 80,000 concepts with translations in multiple languages"
+
+
+** Benefits of GraphQL
+
+** Original BSDD Schema: GraphQL Voyager
+TODO We use the excellent tool GraphQL Voyager that can represent any GraphQL API as an interactive graph.
+https://github.com/IvanGoncharov/graphql-voyager
+https://ivangoncharov.github.io/graphql-voyager/
+
+
+
+** Original vs Refactored Files
+bsdd-graphql-voyager-orig.html
+bsdd-graphql-voyager-refact.html
+
+graphql-IntrospectionQuery.graphql
+
+bsdd-graphql-schema-orig.json
+bsdd-graphql-soml-orig.json
+bsdd-graphql-soml-orig.yaml
+bsdd-graphql-soml-refact.yaml
+
+IFC-cableSegment-rest-orig.json
+IFC-cableSegment-graphql-orig.json
+IFC-cableSegment-orig.ttl
+IFC-cableSegment-refact.ttl
+
+* Related Work
+TODO: proper bibliography
+TODO: review more ways of representing classes, props, prop sets, etc
+
+bSDD returns RDF
+
+(Beetz 2014) "bSDD vocabulary has been transformed into a configurable RDF dataset. On the meta-model level a number of different modeling approaches ranging from OWL to RDFS and SKOS have been implemented to evaluate the advantages and disadvantages of the respective modeling strategies
+
+(Oraskari 2021)
+- Generates specific RDF classes (e.g. ~IfcCableSegment~) and properties (e.g. ~ACResistance~).
+  Unlike it, we preserve the original bSDD structure (Domain, Classification, Property, etc) and only add specific improvements
+- It fetches bSDD elements on demand, rather than converting all of bSDD at once.
+
+* Suggestions for Improvement
+
+** Improve Property Names
+Property names should conform to naming conventions and be spelled consistently
+- Property (field) names should be spelled in singular, even when they refer to an array.
+  The arity is reflected in the property kind, e.g. in GraphQL that's ~SCALAR~ vs ~ARRAY~.
+  For example, ~String~ is a scalar string, whereas ~[String]~ is an array of strings.
+- The GraphQL and JSON field ~childs~ should be spelled properly as ~children~ (unless it's spelled in singular, see above)
+- RDF properties should conform to the ~lowerCamelCase~ convention, i.e. start with a lowercase letter
+- Equivalent properties should
+- ~namespaceUri~ is a misnomer since "namespace" means a set of URIs sharing the same prefix, but most BSDD URIs are *single* URIs.
+  URI is a general term that includes both URNs (non-resolvable) and URLs (resolvable).
+  According to Linked Data principles, it is better to use resolvable
+  
+** Use the same URL for Data and for Web Pages
+bSDD has implemented "entity URLs" i.e. for each kind of entity, it can return its data in JSON or RDF:
+#+begin_src 
+curl -s                      https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegmentCABLESEGMENT
+curl -s -Haccept:text/turtle https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegmentCABLESEGMENT
+#+end_src
+Note: to pretty-print the JSON, add this to the end of the command: ~| jq .~
+
+The same URL can be used to get a static web page in the browser:
+https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegmentCABLESEGMENT
+
+[[IFC-class-cableSegment-web.png]]
+
+However, the interactive [[https://search.bsdd.buildingsmart.org][bSDD Search]] UI uses a different URL that returns slightly different information:
+https://search.bsdd.buildingsmart.org/Classification/Index/58453
+
+[[IFC-class-cableSegment-search.png]]
+
+Is there need for two different web pages showing nearly the same info?
+We think that with some modest change in technology, the Search UI can use the first (semantic) URL directly, instead of an internal (non-semantic) "Index" URL.
+Otherwise there is danger that people will start copying these non-semantic URLs in communication, and in AECO data.
+
+** Improve URL Structure and Consistency
+
+** Return the Same Data Across APIs
+We have compared 3 representations returned by the bSDD server:
+- JSON from the GraphQL API
+- JSON from the REST (entity) API
+- RDF  from the REST (entity) API
+
+We obtained a couple of "rich" objects of each class (i.e. objects with maximum fields filled),
+and compared the fields in each of the 3 APIs.
+
+There are differences and omissions in some of the formats, as described in the table below.
+It would be best to return the same content in each of the formats.
+
+
+| **Class**/field            | GraphQL      | JSON API                                   | RDF API                | comment                                                                                                  |
+|----------------------------+--------------+--------------------------------------------+------------------------+----------------------------------------------------------------------------------------------------------|
+| **Classification**         |              |                                            |                        |                                                                                                          |
+| hierarchy                  | childs       | parentClassificationReference.namespaceUri | NONE                   | GraphQL points to child, JSON points to parent (1)                                                       |
+| **ClassificationProperty** |              |                                            |                        | GraphQL and JSON overload the URL and use it for both ClassificationProperty and Property (2)            |
+| link to general property   | namespaceUri | namespaceUri                               | propertyNamespaceUri   | GraphQL and JSON have no real link, just the overloaded URL. The RDF prop is a string, should be URL (3) |
+| link to classification     |              |                                            | classificationProperty | RDF prop is misnamed, should be "classification" (4)                                                     |
+|                            |              |                                            |                        |                                                                                                          |
+
+Illustrations of the points above:
+- (1) GraphQL field ~childs~ appears when one queries for ~classification (namespaceUri:"...", includeChilds:true)~.
+    It includes a list of children classifications but with simple properties only.
+#+begin_src json
+TODO
+#+end_src
+- (1) JSON includes the inverse link (from child to parent), e.g. when one fetches the subclass ~IfcCableSegmentCABLESEGMENT~, one gets a parent link to ~IfcCableSegment~
+#+begin_src json
+// curl -s https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegmentCABLESEGMENT
+{
+  "referenceCode": "IfcCableSegmentCABLESEGMENT",
+  "parentClassificationReference": {
+    "namespaceUri": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment",
+#+end_src  
+- (2,3) In GraphQL and JSON payload, a ~ClassificationProperty~ does not have a distinct URL, and cannot be obtained separately from the ~Classification~ in which it lives.
+  As a consequence, ClassificationProperties are not considered as first-class entities
+#+begin_src json
+// curl -s https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegmentCABLESEGMENT
+{
+  "referenceCode": "IfcCableSegmentCABLESEGMENT",
+  "classificationProperties": [
+    {
+      "name": "ACResistance",
+      "propertyCode": "ACResistance",
+      "propertyDomainName": "IFC",
+      "propertyNamespaceUri": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/ACResistance",
+#+end_src  
+
+- (3) RDF includes the following attribute (string). Instead, it should be a relation (object property), e.g.  ~bsdd:property <prop/ACResistance>~
+#+begin_src turtle
+@base <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/>.        
+<class/IfcCableSegmentCABLESEGMENT/ACResistance>
+  bsdd:PropertyNamespaceUri "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/ACResistance".
+#+end_src
+
+- (4) RDF includes the following relation. The source is a ~ClassificationProperty~ and the target is a ~Classification~, so the relation should be named ~classification~
+#+begin_src turtle
+@base <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/>.        
+<class/IfcCableSegmentCABLESEGMENT/ACResistance>
+  bsdd:ClassificationProperty <class/IfcCableSegmentCABLESEGMENT>.
+#+end_src
+
+** Improve Relations Between Objects
+BSDD includes numerous string attributes (codes or URLs) that should be converted to relations (object fields) in order to improve the connectedness of the GraphQL graph.
+TODO explain more.
+
+Here is a list of all strings that are candidates to be converted to objects:
+- 
+- relatedIfcEntityNames: since IFC is present as a BSDD Domain, could be converted to a link to the respective IFC Classification
+
+** Property vs ClassificationProperty: Use Distinct URLs
+ClassificationProperty is defined as a class, but it does not have a distinct URL in GraphQL and JSON (only in RDF).
+
+#+begin_src turtle
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegmentCABLESEGMENT/ACResistance>
+  bsdd:ClassificationProperty <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegmentCABLESEGMENT>;
+  bsdd:PropertyDomainName "IFC";
+  bsdd:PropertyNamespaceUri "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/ACResistance".
+#+end_src
+
+Also, it is not returned by the JSON or RDF entity API:
+#+begin_src 
+curl https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegmentCABLESEGMENT/ACResistance
+{"":["Classification with namespace URI
+ 'https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegmentCABLESEGMENT/ACResistance'
+  not found"]}
+#+end_src
+
+** Improve RDF Structure
+Overall, bSDD RDF represents the scope of bSDD data faithfully, although there are various omissions.
+
+Also, there are various problems that should be corrected.
+E.g. let's take the Turtle (RDF) fragment from the previous section:
+#+begin_src turtle
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegmentCABLESEGMENT/ACResistance>
+  bsdd:ClassificationProperty <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegmentCABLESEGMENT>;
+  bsdd:PropertyDomainName "IFC";
+  bsdd:PropertyNamespaceUri "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/ACResistance".
+#+end_src
+
+It has these defects:
+- No class is defined for the subject
+- Prop names should start with lowercase
+- String attributes should be converted to relations when applicable
+- URLs should be object properties instead of strings
+
+This fragment can be corrected as follows:
+#+begin_src turtle
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegmentCABLESEGMENT/ACResistance>
+  a bsdd:ClassificationProperty;
+  bsdd:classification <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegmentCABLESEGMENT>;
+  bsdd:domain <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3>;
+  bsdd:property <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/ACResistance>.
+#+end_src
+
+
+** Use Class Inheritance
+- Property vs ClassificationProperty
+- PropertyValue vs ClassificationPropertyValue
+
+** Add More Classes and Relations
+- PropertySet
+- DomainVersion
+- CountrySubdivision
+
+
+
+** Add GraphQL Pagination
+
+** Improve GraphQL Searchability
+
+** Eliminate Parallel Links Between Classes
+
+** Improve Multilingual Support
+bSDD accommodates multiple languages, but each domain seems to be present in one language only.
+
+** Deprecated Properties
+
+* Acknowledgements
+This work is part of the ACCORD project that has received funding from the European Union’s Horizon Europe research and innovation programme under grant agreement no. 101056973
+TODO compare to [[https://vttgroup.sharepoint.com/:p:/r/sites/EU-projectpreparationDigitalpermitsandcompliancecheck/_layouts/15/Doc.aspx?sourcedoc=%7BB9913B35-D290-4391-9588-0322584EF3BC%7D&file=ACCORD_EAB_meeting_02-12-2022.pptx&action=edit&mobileredirect=true][this pres]].
+
+All source code, scripts and example files are available as open source on Github: https://github.com/Accord-Project/bsdd/
+
+
+* References
+TODO: proper bibliography using Zotero
+
+- (Beetz 2014) Beetz, J., van den Braak, W., Botter, R., Zlatanova, S., de Laat, R. (2014). Interoperable data models for infrastructural artefacts – A novel IFC extension method using RDF vocabularies exemplified with quay wall structures for harbors. eWork and eBusiness in Architecture, Engineering and Construction, 135–140:
+  https://repository.tudelft.nl/islandora/object/uuid:bb9a7dff-52c7-4aaf-a6b8-898432270620/datastream/OBJ
+- (Oraskari 2021) Live Web Ontology for buildingSMART Data Dictionary, Bauinformatik 2021

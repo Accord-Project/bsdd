@@ -1,0 +1,19 @@
+{
+  "description": "The resistance under AC.",
+  "connectedPropertyCodes": [],
+  "dataType": "Real",
+  "propertyValueKind": "Single",
+  "units": [],
+  "qudtCodes": [],
+  "domainNamespaceUri": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3",
+  "activationDateUtc": "2022-11-01T00:00:00",
+  "code": "ACResistance",
+  "countriesOfUse": [],
+  "name": "ACResistance",
+  "namespaceUri": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/ACResistance",
+  "replacedObjectCodes": [],
+  "replacingObjectCodes": [],
+  "status": "Active",
+  "subdivisionsOfUse": [],
+  "versionDateUtc": "2022-11-01T00:00:00"
+}

@@ -1,0 +1,19 @@
+@base <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/ACResistance>.
+
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix bsdd: <http://bsdd.buildingsmart.org/def#>.
+@prefix qudtUnit: <http://qudt.org/vocab/unit/>.
+@prefix ifc4_3: <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3>.
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/ACResistance> bsdd:ActivationDateUtc "2022-11-01";
+                                                                                   bsdd:Code "ACResistance";
+                                                                                   bsdd:DataType "Real";
+                                                                                   bsdd:Description "The resistance under AC.";
+                                                                                   bsdd:Domain ifc4_3:;
+                                                                                   bsdd:Name "ACResistance";
+                                                                                   bsdd:PropertyValueKind "Single";
+                                                                                   bsdd:Status "Active";
+                                                                                   bsdd:VersionDateUtc "2022-11-01";
+                                                                                   a bsdd:Property.

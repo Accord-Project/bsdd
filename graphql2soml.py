@@ -62,16 +62,13 @@ RESERVED_PROPERTY_NAMES = ['value']
 # Loads the content of given file path as a string.
 def load_file(path):
     with open(path) as f:
-        content = f.read()
-        f.close()
-    return content
+        return f.read()
 
 
 # Writes the given content to the specified file path
 def save_file(path, content):
     with open(path, 'w') as f:
         f.write(content)
-        f.close()
 
 
 # Performs an introspection request and returns the JSON schema.

@@ -1,0 +1,9 @@
+query getDomainClassifications($URI: String!) {
+    domain(namespaceUri: $URI) {
+        classificationSearch {
+            namespaceUri
+            name
+            code
+        }
+    }
+}

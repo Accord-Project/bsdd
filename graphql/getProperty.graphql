@@ -1,0 +1,64 @@
+query getProperty($URI: String!) {
+  property(namespaceUri: $URI) {
+    namespaceUri
+    __typename
+    allowedValues {
+      namespaceUri
+      __typename
+      code
+      description
+      value
+      sortNumber
+    }
+    connectedPropertyCodes
+    dataType
+    description
+    dimension
+    dimensionLength
+    dimensionMass
+    dimensionTime
+    dimensionElectricCurrent
+    dimensionThermodynamicTemperature
+    dimensionAmountOfSubstance
+    dimensionLuminousIntensity
+    dynamicParameterPropertyCodes
+    example
+    isDynamic
+    maxExclusive
+    maxInclusive
+    methodOfMeasurement
+    minExclusive
+    minInclusive
+    pattern
+    physicalQuantity
+    propertyValueKind
+    relations {
+      relatedPropertyUri
+      __typename
+      relatedPropertyName
+      relationType
+    }
+    textFormat
+    units
+    activationDateUtc
+    code
+    creatorLanguageCode
+    countriesOfUse
+    countryOfOrigin
+    deActivationDateUtc
+    definition
+    deprecationExplanation
+    documentReference
+    name
+    replacedObjectCodes
+    replacingObjectCodes
+    revisionDateUtc
+    revisionNumber
+    status
+    subdivisionsOfUse
+    uid
+    versionDateUtc
+    versionNumber
+    visualRepresentationUri
+  }
+}

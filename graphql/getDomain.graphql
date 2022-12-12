@@ -1,0 +1,16 @@
+query getDomain($URI: String!) {
+  domain(namespaceUri: $URI) {
+    namespaceUri
+    __typename
+    name
+    version
+    status
+    releaseDate
+    license
+    licenseUrl
+    copyrightNotice
+    moreInfoUrl
+    lastUpdatedUtc
+    languageCode
+  }
+}

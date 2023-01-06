@@ -43,9 +43,25 @@ Overview (uncheck "Show leaf fields"):
 
 [[bsdd-graphql-voyager-overview.png]]
 
-
-
 [[bsdd-graphql-voyager-Classification-ClassificationProperty.png]]
+
+** GraphQL Conversion to SOML Schema
+
+Major goal of this project is to improve the bSDD GraphQL API.
+To achieve this, the existing GraphQL schema will be converted to a [[https://platform.ontotext.com/semantic-objects/soml/index.html][SOML schema]]
+which then will be manually improved and finally used to generate a better GraphQL API with the help of [[https://platform.ontotext.com/semantic-objects/][Ontotext Platform]].
+
+The repository contains a Python utility script [[./graphql2soml.py][graphql2soml.py]] that can generate a
+[[https://platform.ontotext.com/semantic-objects/soml/index.html][SOML schema]] from given GraphQL endpoint.
+
+Executing this script produces two files in the repository:
+
+- [[./bsdd-graphql-schema-orig.json][bsdd-graphql-schema-orig.json]] - JSON response of the GraphQL introspection
+- [[./bsdd-graphql-soml-orig.yaml][bsdd-graphql-soml-orig.yaml]] - SOML schema produced from the introspection
+
+The generated SOML schema is valid and can be used immediately. However, there are issues inherited from the GraphQL schema which are described later.
+The purpose of the generated SOML schema is to serve as a starting point (instead of starting from scratch) for resolving the issues and improving the schema.
+Once this is done, the resulting schema will be saved in [[./bsdd-graphql-soml-refact.yaml][bsdd-graphql-soml-refact.yaml]].
 
 ** Original vs Refactored Files
 bsdd-graphql-voyager-orig.html

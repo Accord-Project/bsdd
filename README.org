@@ -3,7 +3,7 @@
 #+options: inline:t num:t p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t
 #+options: timestamp:nil title:t toc:5 todo:t |:t
 #+title: Semantic bSDD: Improvements to bSDD GraphQL, JSON and RDF Representations
-#+date: <2022-12-09>
+#+date: <2022-12-21>
 #+author: Vladimir Alexiev, Mihail Radkov, Nataliya Keberle
 #+email: vladimir.alexiev@ontotext.com
 #+language: en
@@ -101,14 +101,15 @@ Property names should conform to naming conventions and be spelled consistently
   For example, ~String~ is a scalar string, whereas ~[String]~ is an array of strings.
 - The GraphQL and JSON field ~childs~ should be spelled properly as ~children~ (unless it's spelled in singular, see above)
 - RDF properties should conform to the ~lowerCamelCase~ convention, i.e. start with a lowercase letter
-- Equivalent properties should
-- ~namespaceUri~ is a misnomer since "namespace" means a set of URIs sharing the same prefix, but most BSDD URIs are *single* URIs.
+- Equivalent properties should be named the same in all cases.
+  For example, 
+- ~namespaceUri~ is a misnomer since "namespace" means a set of URIs sharing the same prefix, but most bSDD URIs are *single* URIs.
   URI is a general term that includes both URNs (non-resolvable) and URLs (resolvable).
   According to Linked Data principles, it is better to use resolvable
-  
+
 ** Use the same URL for Data and for Web Pages
 bSDD has implemented "entity URLs" i.e. for each kind of entity, it can return its data in JSON or RDF:
-#+begin_src 
+#+begin_src
 curl -s                      https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegmentCABLESEGMENT
 curl -s -Haccept:text/turtle https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegmentCABLESEGMENT
 #+end_src
@@ -129,6 +130,35 @@ We think that with some modest change in technology, the Search UI can use the f
 Otherwise there is danger that people will start copying these non-semantic URLs in communication, and in AECO data.
 
 ** Improve URL Structure and Consistency
+- Almost all domain URLs have the same structure: ~https://identifier.buildingsmart.org/uri/<org>/<domain>-<ver>~.
+  There are only 2 exceptions:
+#+begin_src 
+http://otl.amsterdam.nl
+http://rdf.vegdata.no/V440/v440-owl
+#+end_src
+
+- TODO: org vs domain vs domain version.
+  Refer to URL Hackability in LOD Patterns book
+  https://patterns.dataincubator.org/book/hierarchical-uris.html
+- In some cases the org name doesn't quite mesh with the domain name, perhaps due to the way bSDD allocates org identifiers to bSDD contributors
+  - bim-de/DINSPEC91400: the publisher of this spec is DIN (the German standards organization), not the ~bim-de~ initiative
+  - digibase/volkerwesselsbv: [[https://www.bimregister.nl/actueel/video/author/89-delanokenepa?start=250][bimregister.nl news from 2018]] suggest that ~digibase~ is a new company/initaitive within Volker Wessel
+  - digibase/nen2699: the publisher of this spec is NEN (the Netherlands standards organization), not the ~digibase~ company/initiative
+  - digibase/digibasebouwlagen: perhaps the org name ~digibase~ should not be repeated as prefix of the domain ~bouwlagen~ (building layers)
+- A few domains use ~http~ whereas all others use ~https~. All modern servers prefer ~https~ due to its better security.
+#+begin_src
+http://identifier.buildingsmart.org/uri/spr/spr-cfhios-0.1
+http://otl.amsterdam.nl
+http://rdf.vegdata.no/V440/v440-owl
+#+end_src
+
+** Declare URLs to be ~ID~
+TODO: refer to GraphQL recommendation that each node should have ID, and these should be declared as type ~ID~.
+
+Rather than the unwieldy prop name ~namespaceUri~, most GraphQL implementations call this simply ~id~.
+
+** GraphQL Arrays and Nullability
+TODO: all of  [Classification], [Classification!], [Classification]!, [Classification!]! are different. Their spec [Classification] allows [null,null,null] as an xanswer
 
 ** Return the Same Data Across APIs
 We have compared 3 representations returned by the bSDD server:
@@ -165,7 +195,7 @@ TODO
   "referenceCode": "IfcCableSegmentCABLESEGMENT",
   "parentClassificationReference": {
     "namespaceUri": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment",
-#+end_src  
+#+end_src
 - (2,3) In GraphQL and JSON payload, a ~ClassificationProperty~ does not have a distinct URL, and cannot be obtained separately from the ~Classification~ in which it lives.
   As a consequence, ClassificationProperties are not considered as first-class entities
 #+begin_src json
@@ -178,33 +208,109 @@ TODO
       "propertyCode": "ACResistance",
       "propertyDomainName": "IFC",
       "propertyNamespaceUri": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/ACResistance",
-#+end_src  
+#+end_src
 
 - (3) RDF includes the following attribute (string). Instead, it should be a relation (object property), e.g.  ~bsdd:property <prop/ACResistance>~
 #+begin_src turtle
-@base <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/>.        
+@base <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/>.
 <class/IfcCableSegmentCABLESEGMENT/ACResistance>
   bsdd:PropertyNamespaceUri "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/ACResistance".
 #+end_src
 
 - (4) RDF includes the following relation. The source is a ~ClassificationProperty~ and the target is a ~Classification~, so the relation should be named ~classification~
 #+begin_src turtle
-@base <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/>.        
+@base <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/>.
 <class/IfcCableSegmentCABLESEGMENT/ACResistance>
   bsdd:ClassificationProperty <class/IfcCableSegmentCABLESEGMENT>.
 #+end_src
 
+** Improve GraphQL Results and Eliminate Errors
+# This is from counting in Ontotext\project\ACCORD\bSDD\data:
+# - Source (Misho): classifications_export.log, domain_classifications.log
+# - Count (Vlado): domain-count.txt
+# - Gsheet (Vlado): https://docs.google.com/spreadsheets/d/1z_NRMlExlVuqWhBbSErQ9iiDBY4O_fKMd3avV3-NCmo/edit#gid=2024352985
+
+As of Dec 2022, the [[https://test.bsdd.buildingsmart.org/graphql/][bSDD Test GraphQL API]] returns the following results.
+- TODO Misho: can you access the Production GraphQL secured endpoint: https://api.bsdd.buildingsmart.org/graphqls/ ?
+Some of them can be improved as described below.
+
+The GraphQL API returns 90 domains.
+The distribution of classifications per domain is as follows:
+| from |   to | count | note                                                                                   |
+|------+------+-------+----------------------------------------------------------------------------------------|
+|    0 |    0 |    12 | 12 domains have no data at all (no classifications)                                    |
+|    1 |    9 |    28 |                                                                                        |
+|   11 |   99 |    19 |                                                                                        |
+|  100 |  499 |    15 |                                                                                        |
+|  500 |  999 |     3 |                                                                                        |
+| 1000 | 4999 |     9 |                                                                                        |
+| 5000 | 5000 |     1 | Has more than 5000, but returns only 5000 due to lack of pagination in the GraphQL API |
+
+Domains with no classifications:
+#+begin_src
+http://identifier.buildingsmart.org/uri/spr/spr-cfhios-0.1
+https://identifier.buildingsmart.org/uri/ArcDox/ArcDox-1.0
+https://identifier.buildingsmart.org/uri/BBRI/BBRI-0.1
+https://identifier.buildingsmart.org/uri/FCSI/keq-0.1
+https://identifier.buildingsmart.org/uri/MTR/MTR-1
+https://identifier.buildingsmart.org/uri/bimeta/bimeta-0.1
+https://identifier.buildingsmart.org/uri/bimlib/bimlib-ru-temp-1
+https://identifier.buildingsmart.org/uri/buildingsmart/demo-2-1.1
+https://identifier.buildingsmart.org/uri/csi/omniclass-1
+https://identifier.buildingsmart.org/uri/ethz/hosszu-0.1
+https://identifier.buildingsmart.org/uri/growingcircle/transsmart-0.1
+https://identifier.buildingsmart.org/uri/ifcrail/ifcrail-0.1
+#+end_src
+
+One domain has more than 5000 classifications, but returns only 5000 due to lack of pagination in the GraphQL API:
+#+begin_src
+https://identifier.buildingsmart.org/uri/nbs/uniclass2015-1
+#+end_src
+
+
+
+
+
+
+
+
+
+
+
+
+"Classification with namespace URI 'https://identifier.buildingsmart.org/uri/fvhf/vhf-0.002/class/G5.04.01' not found"
+]
+
+TODO Misho: add more
+
 ** Improve Relations Between Objects
 BSDD includes numerous string attributes (codes or URLs) that should be converted to relations (object fields) in order to improve the connectedness of the GraphQL graph.
+- ~ClassificationRelation~ and ~PropertyRelation~ do not have any outgoing relations, instead they use strings (e.g. ~relatedPropertyUri~), thus blocking further GraphQL navigation
+- There are a number of unused classes (~Country, Language, ReferenceDocument, Unit~).
+  Instead of relations pointing to these classes, the other classes have strings that represent the same information
+Problems related to this approach:
+- One cannot easily navigate in the GraphQL graph.
+  E.g. to find the country name for ~countriesOfUse: ["BG"]~, one needs to make a second query,
+  get all countries, and look for that code.
+- It represents data denormalization that creates opportunities for data inconsistency or redundancy,
+  e.g. if ~countriesOfUse~ includes a code "XX" that is not defined in ~Country~, is that a mistake, or is ~Country~ just an advisory table?
+
 TODO explain more.
 
+
 Here is a list of all strings that are candidates to be converted to objects:
-- 
-- relatedIfcEntityNames: since IFC is present as a BSDD Domain, could be converted to a link to the respective IFC Classification
+- ~countriesOfUse~: array of country code strings, should become array of relations to ~Country~
+- ~documentReference~: a string, and it's unclear whether it should be the URL of a ~ReferenceDocument~, a bibliographic reference, a title or some other free text.
+  Should become relation to ~ReferenceDocument~
+- ~relatedIfcEntityNames~: since IFC is present as a bSDD Domain, could be converted to a relation to the respective IFC Classification
 
+  TODO: PropSet should be made an entoity, it's too important to be a mere string
+  
 ** Property vs ClassificationProperty: Use Distinct URLs
-ClassificationProperty is defined as a class, but it does not have a distinct URL in GraphQL and JSON (only in RDF).
+~Property~ and ~ClassificationProperty~ are two different classes, but the latter does not have a distinct URL in GraphQL and JSON.
+We can say that the same URL is overloaded to identify entities of both classes.
 
+~ClassificationProperty~ is identified only in RDF since this format forces one to use different identities for different nodes:
 #+begin_src turtle
 <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegmentCABLESEGMENT/ACResistance>
   bsdd:ClassificationProperty <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegmentCABLESEGMENT>;
@@ -212,13 +318,31 @@ ClassificationProperty is defined as a class, but it does not have a distinct UR
   bsdd:PropertyNamespaceUri "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/ACResistance".
 #+end_src
 
-Also, it is not returned by the JSON or RDF entity API:
-#+begin_src 
+~ClassificationProperty~ are thus "second class" entities and are not returned separately by the JSON or RDF entity API,
+but only as part of the respective ~Classification~:
+#+begin_src
 curl https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegmentCABLESEGMENT/ACResistance
 {"":["Classification with namespace URI
  'https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegmentCABLESEGMENT/ACResistance'
   not found"]}
 #+end_src
+
+** Improve the Description of Local Properties
+Perhaps because there is no clearly defined distinction between global properties (~Property~) and local properties (~ClassificationProperty~)
+and no rules which attributes are inherited from one to the other,
+some local properties are not properly described.
+For example, let's look at the local property ~Status~ in classification [[https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcAirTerminalBox][IfcAirTerminalBox]]:
+
+#+begin_src json
+      "name": "Status",
+      "description": "The status currently assigned to the permit.",
+      "propertyCode": "Status",
+      "propertyNamespaceUri": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/Status",
+      "propertySet": "Pset_AirTerminalBoxTypeCommon",
+#+end_src
+
+The local definition refers to an appropriate propset ~Pset_AirTerminalBoxTypeCommon~,
+but the ~description~ is not appropriate to that classification (an "AirTerminalBox" is not a "permit"!).
 
 ** Improve RDF Structure
 Overall, bSDD RDF represents the scope of bSDD data faithfully, although there are various omissions.
@@ -249,8 +373,14 @@ This fragment can be corrected as follows:
 
 
 ** Use Class Inheritance
-- Property vs ClassificationProperty
-- PropertyValue vs ClassificationPropertyValue
+The following classes are very similar.
+Many of the same fields are copied between them, with no modularity or inheritance:
+- ~Property~ and ~ClassificationProperty~: we need to add some sort of relation or inheritance between them
+- ~PropertyValue~ and ~ClassificationPropertyValue~: in fact are the same.
+  These are "value objects" (simple immutable objecst), so there's absolutely no need to have two different classes
+
+~Property~ is a general property definition, while ~ClassificationProperty~ is a property defined (or modified) locally to a ~Classification~.
+TODO
 
 ** Add More Classes and Relations
 - PropertySet
@@ -269,6 +399,43 @@ This fragment can be corrected as follows:
 bSDD accommodates multiple languages, but each domain seems to be present in one language only.
 
 ** Deprecated Properties
+
+** Improve the Description of Structured Values
+
+~ClassificationPropertyValue~ are structured values with rich fields: ~code, value, namespaceUri, description, sortNumber~.
+These fields allow:
+- unique identification of values through ~namespaceUri~
+- potentially multilingual translations in the future (if ~value, description~ are made multivalued and attached a language tag)
+- logical ordering of values through ~sortNumber~ (as opposed to always alphabetical ordering)
+However, all structured values we've seen only ever have ~code, value~ and the other fields are null.
+
+For example, the property ~ArrangementType~ in classification [[https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcAirTerminalBox][IfcAirTerminalBox]] has values described like this:
+#+begin_src json
+      "code": "DUALDUCT",
+      "value": "DUALDUCT"
+#+end_src
+
+Value descriptions are intermingled with the property description (newline-separated) like this:
+#+begin_src json
+      "name": "ArrangementType",
+      "description": "Terminal box arrangement.\n\
+SingleDuct: Terminal box receives warm or cold air from a single air supply duct.\n\
+DualDuct: Terminal box receives warm and cold air from separate air supply ducts.",
+#+end_src
+
+The "standard" values (NOTKNOWN, OTHER, UNSET) are not described at all.
+
+Value URLs are missing, precluding unique identification.
+
+** Better Representation of Predefined Values
+
+~allowedValues~ (and its deprecated variant ~possibleValues~) store Structured Values (~ClassificationPropertyValue~).
+However, their "sibling" property ~predefinedValue~ holds a mere string and not a Structured Value.
+This means that even in the future, ~predefinedValue~ cannot be an enumeration value that is identified globally with a URL.
+We could think of two possible reasons for this discrepancy:
+- ~predefinedValue~ needs to hold not just enumeration values, but also Real, String, Boolean etc.
+  However, then it should be structured as a variant, and not cast down into a String.
+- It may be related to the poor description of Structured Values (see the previous section):
 
 * Acknowledgements
 This work is part of the ACCORD project that has received funding from the European Union’s Horizon Europe research and innovation programme under grant agreement no. 101056973

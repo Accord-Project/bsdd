@@ -3,7 +3,7 @@
 #+options: inline:t num:t p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t
 #+options: timestamp:nil title:t toc:5 todo:t |:t
 #+title: Semantic bSDD: Improvements to bSDD GraphQL, JSON and RDF Representations
-#+date: <2022-12-21>
+#+date: <2023-01-13>
 #+author: Vladimir Alexiev, Mihail Radkov, Nataliya Keberle
 #+email: vladimir.alexiev@ontotext.com
 #+language: en
@@ -100,9 +100,10 @@ Property names should conform to naming conventions and be spelled consistently
   The arity is reflected in the property kind, e.g. in GraphQL that's ~SCALAR~ vs ~ARRAY~.
   For example, ~String~ is a scalar string, whereas ~[String]~ is an array of strings.
 - The GraphQL and JSON field ~childs~ should be spelled properly as ~children~ (unless it's spelled in singular, see above)
-- RDF properties should conform to the ~lowerCamelCase~ convention, i.e. start with a lowercase letter
+- RDF properties should conform to the ~lowerCamelCase~ convention, i.e. start with a lowercase letter.
+  Most ontologies conform to this convention, eg see the [[https://schema.org/docs/styleguide.html][Schema.org Styleguide]]
 - Equivalent properties should be named the same in all cases.
-  For example, 
+  For example, TODO
 - ~namespaceUri~ is a misnomer since "namespace" means a set of URIs sharing the same prefix, but most bSDD URIs are *single* URIs.
   URI is a general term that includes both URNs (non-resolvable) and URLs (resolvable).
   According to Linked Data principles, it is better to use resolvable

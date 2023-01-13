@@ -1,0 +1,2 @@
+
+bsdd:relation owl:inverseOf bsdd:related.

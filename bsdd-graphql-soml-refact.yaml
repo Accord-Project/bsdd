@@ -68,14 +68,14 @@ objects:
         label: relation
         max: inf
         range: ClassificationRelation
-      parent:
-        label: parent classification
+      parentClassification:
+        label: Parent classification
         range: Classification
-      child:
-        label: child classification
+      childClassification:
+        label: Child classification
         max: inf
         range: Classification
-        inverseAlias: parent
+        inverseAlias: parentClassification
       activationDateUtc:
         label: Date of activation
         min: 1

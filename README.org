@@ -438,6 +438,216 @@ We could think of two possible reasons for this discrepancy:
   However, then it should be structured as a variant, and not cast down into a String.
 - It may be related to the poor description of Structured Values (see the previous section):
 
+* Implementing Improvements
+
+We implemented a lot (but not all) of the improvements suggested above by using the following process:
+- Fetching bSDD data as JSON
+- Converting it to RDF using [[https://sparql-anything.cc/][SPARQL Anything]]
+- Loading it to [[https://www.ontotext.com/products/graphdb/][GraphDB]]
+- Refactoring the RDF using SPARQL Update
+- 
+
+** Fetching bSDD GraphQL JSON
+Although bSDD is available in RDF, we decided to fetch all data in GraphQL JSON due to the RDF defects described above.
+
+TODO Misho
+
+** Converting JSON to Raw RDF using SPARQL Anything
+In the next step we convert the JSON files to RDF.
+We used the [[https://sparql-anything.cc/][SPARQL Anything]] tool (see [[https://sparql-anything.readthedocs.io/][documentation]]) that can convert various data formats to RDF by using SPARQL queries.
+
+We developed two scripts:
+- [[./scripts/rdfize.sparql][rdfize.sparql]] rdfizes one file. Parameter:
+  - ~-v file~: file (local) or URL
+- [[./scripts/rdfize-zip.sparql][rdfize-zip.sparql]] rdfizes an archive (zip) of files. Parameters:
+  - ~-v zip~: zip filename or URL
+  - ~-v file~: file regexp pattern (default ~.*~)
+
+You can invoke the scripts like this:
+: java -jar sparql-anything.jar -q rdfize.sparql    -v file=bSDD/ifc-4.3/IfcCableSegmentCABLESEGMENT.json
+: java -jar sparql-anything.jar -q rdfize-zip.sparql -v zip=bSDD/ifc-4.3.zip -v file=IfcCableSegmentCABLESEGMENT.json
+
+We explain the more complex script (~rdfize-zip.sparql~) below:
+#+begin_src sparql
+prefix bsdd: <http://bsdd.buildingsmart.org/def#>
+prefix xyz:  <http://sparql.xyz/facade-x/data/>
+prefix fx:   <http://sparql.xyz/facade-x/ns/>
+prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+prefix xsd:  <http://www.w3.org/2001/XMLSchema#>
+
+construct {
+  ?s ?p ?o
+} where {
+  service <x-sparql-anything:> {
+    bind(coalesce(?__file,".*") as ?pattern)
+    fx:properties fx:location ?_zip.
+    fx:properties fx:archive.matches ?pattern.
+    [] fx:anySlot ?file
+    service <x-sparql-anything:media-type=application/json> {
+      bind(str(bsdd:) as ?bsdd)
+      fx:properties fx:namespace ?bsdd.
+      fx:properties fx:location ?file.
+      fx:properties fx:from-archive ?_zip.
+      fx:properties fx:use-rdfs-member true.
+      ?s ?p ?o
+    }
+  }
+}
+#+end_src
+
+We use the simplest case of SPARQL Anything to convert JSON to RDF:
+  : construct {?s ?p ?o} where {?s ?p ?o}
+- The Raw RDF has similar form to the JSON, see next section
+- It is possible to write more complex queries to drill down into the RDF structure, but we preferred to refactor RDF using SPARQL Update, see the section after next
+- SPARQL Anything uses the prefix ~fx:~ for its features and functions.
+- We define the ~bsdd:~ ontology namespace same as the existing bSDD RDF data.
+- SPARQL Anything uses prefix ~xyz:~ to emit the output data.
+  However, we use ~fx:properties fx:namespace~ to cast the data to the ~bsdd:~ namespace, so we don't use the ~xyz:~ prefix.
+  The argument of this parameter is a string, so we use ~bind(str(bsdd:) as ?bsdd)~ to convert the respective namespace URL to a string
+- We use the option ~fx:properties fx:use-rdfs-member true~ to emit JSON array members as multiple values of ~rdfs:member~ rather than the predicates ~rdf:_1, rdf:_2 ...~
+
+All other lines of the script take care of handling input.
+- We use command-line parameters to pass ([[https://sparql-anything.readthedocs.io/en/latest/#query-templates-and-variable-bindings-cli-only][variable bindings to the SPARQL Anything CLI)]].
+  It uses the [[https://github.com/basilapi/basil/wiki/SPARQL-variable-name-convention-for-WEB-API-parameters-mapping][BASIL convention for variable names in queries]]:
+  ~?_zip~ is a mandatory param, and ~?__file~ is an optional param
+- The outer ~service~ invocation opens the zip archive:
+  - Provides a default value for ~?__file~ by using ~coalesce~
+  - Opens the ~?_zip~ archive using ~fx:location~
+  - Uses ~fx:archive.matches~ to find all filenames that match ~?pattern~
+  - The result is a list that we parse out by using ~fx:anySlot~ and feed it as multiple bindings to the variable ~?file~
+- The inner ~service~ invocation opens the respective files from the zip archive:
+  - Now we set ~fx:location~ to the filename found in the archive
+  - And we use [[https://sparql-anything.readthedocs.io/en/latest/Configuration/#from-archive][fx:from-archive]] to open the archive again, and to read the file
+
+*** JSON to Raw RDF Example
+Take for example ~class-IfcCableSegment-orig.json~ from URL https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegmentCABLESEGMENT (shortened for brevity):
+#+begin_src json
+{
+  "referenceCode": "IfcCableSegmentCABLESEGMENT",
+  "parentClassificationReference": {
+    "namespaceUri": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment",
+    "name": "IfcCableSegment",
+    "code": "IfcCableSegment"
+  },
+  "classificationProperties": [
+    {
+      "name": "ACResistance",
+      "description": "The resistance under AC.",
+      "dataType": "Real",
+      "propertyCode": "ACResistance",
+      "propertyDomainName": "IFC",
+      "propertyNamespaceUri": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/ACResistance",
+      "propertySet": "Pset_CableSegmentTypeCableSegment",
+      "propertyStatus": "Active",
+      "propertyValueKind": "Single"
+    }, {...}, {...}
+  ],
+  "domainNamespaceUri": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3",
+  "activationDateUtc": "2022-12-31T00:00:00",
+  "code": "IfcCableSegmentCABLESEGMENT",
+  "countriesOfUse": [],
+  "definition": "Cable with a specific purpose to lead electric current within a circuit or any other electric construction.",
+  "name": "IfcCableSegment.CABLESEGMENT",
+  "namespaceUri": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegmentCABLESEGMENT",
+  "replacedObjectCodes": [],
+  "replacingObjectCodes": [],
+  "status": "Preview",
+  "subdivisionsOfUse": [],
+  "versionDateUtc": "2022-12-31T00:00:00"
+}
+
+#+end_src
+
+It is converted to the following "raw" RDF (shortened for brevity):
+#+begin_src turtle
+@prefix bsdd: <http://bsdd.buildingsmart.org/def#> .
+@prefix fx:   <http://sparql.xyz/facade-x/ns/> .
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix xyz:  <http://sparql.xyz/facade-x/data/> .
+
+[ rdf:type                       fx:root ;
+  bsdd:activationDateUtc         "2022-12-31T00:00:00" ;
+  bsdd:classificationProperties  [ rdfs:member  
+      [ bsdd:dataType              "Real" ;
+        bsdd:description           "Indicates the Maximum transmission attenuation of feeder." ;
+        bsdd:name                  "MaximumTransmissionAttenuation" ;
+        bsdd:propertyCode          "MaximumTransmissionAttenuation" ;
+        bsdd:propertyDomainName    "IFC" ;
+        bsdd:propertyNamespaceUri  "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/MaximumTransmissionAttenuation" ;
+        bsdd:propertySet           "Pset_CoaxialCable" ;
+        bsdd:propertyStatus        "Active" ;
+        bsdd:propertyValueKind     "Single"
+      ], [...], [...] ;
+                                 ] ;
+  bsdd:code                      "IfcCableSegmentCABLESEGMENT" ;
+  bsdd:countriesOfUse            []  ;
+  bsdd:definition                "Cable with a specific purpose to lead electric current within a circuit or any other electric construction" ;
+  bsdd:domainNamespaceUri        "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3" ;
+  bsdd:name                      "IfcCableSegment.CABLESEGMENT" ;
+  bsdd:namespaceUri              "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegmentCABLESEGMENT" ;
+  bsdd:parentClassificationReference 
+      [ bsdd:code          "IfcCableSegment" ;
+        bsdd:name          "IfcCableSegment" ;
+        bsdd:namespaceUri  "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment"
+      ] ;
+  bsdd:referenceCode             "IfcCableSegmentCABLESEGMENT" ;
+  bsdd:replacedObjectCodes       []  ;
+  bsdd:replacingObjectCodes      []  ;
+  bsdd:status                    "Preview" ;
+  bsdd:subdivisionsOfUse         []  ;
+  bsdd:versionDateUtc            "2022-12-31T00:00:00"
+] .
+
+#+end_src
+
+** Transforming RDF using SPARQL Update
+
+There are various things to fix in the Raw RDF.
+We wrote the SPARQL Update script [[./scripts/transform.ru][transform.ru]] (~.ru~ is teh W3C standard extension for this type of file).
+It does the following:
+- Add datatype ~xsd:dateTime~ to date-times.
+  - This pertains to ~bsdd:activationDateUtc bsdd:deActivationDateUtc bsdd:revisionDateUtc bsdd:versionDateUtc~
+- Convert strings to URIs, and shorten props as appropriate
+  - This pertains to all props called ~*Uri~, and the following are shortened:
+| full                               | short                     | comment                                                                                |
+|------------------------------------+---------------------------+----------------------------------------------------------------------------------------|
+| bsdd:domainNamespaceUri            | bsdd:domain               | We point to the ~Domain~ not to its Uri                                                |
+| bsdd:relatedClassificationUri      | bsdd:related              | We use the pair ~relation/related~ for both ~PropertyRelation, ClassificationRelation~ |
+| bsdd:relatedPropertyUri            | bsdd:related              | We use the pair ~relation/related~ for both ~PropertyRelation, ClassificationRelation~ |
+| bsdd:parentClassificationReference | bsdd:parentClassification | We point to the parent ~Classification~, so "reference" is parasitic                   |
+
+- Drop redundant info of a referenced resource
+  - Eg inside ~parentClassificationReference~, the props ~code, name~ are dropped
+    because they are defined in the master record of that classification,
+    thus are redundant in the reference
+- Drop deprecated property ~bsdd:possibleValues~, since ~bsdd:allowedValue~ is used instead
+- Multi-valued props: skip a level (~rdfs:member~) and change prop name to singular:
+  - ~bsdd:objects [rdfs:member [...], [...]]~
+  - Becomes ~bsdd:object [...], [...]~
+  - Empty lists like ~bsdd:replacedObjectCodes []~ above disappear altogether, since that blank node representing the empty list is useless
+- Short-cut the property path ~bsdd:parentClassificationReference/bsdd:namespaceUri~ to just ~bsdd:parentClassification~
+- Add ~rdf:type~ based on GraphQL ~__typename~
+  - Eg ~"__typename": "Domain"~ becomes ~rdf:type bsdd:Domain~, etc
+- Drop parasitic ~rdf:type fx:root~
+- Add meaningful URIs to blank nodes whenever possible. In particular:
+  - ~ClassificationProperty~ gets URI: ~Classification.uri+"/"+propertyCode~ (here ~+~ indicates concatenation)
+  - ~ClassificationPropertyValue~ gets URI: ~Classification.uri+"/"+ClassificationProperty.propertyCode +"/"+value~.
+    This class has ~namespaceUri~, but that is optional and is almost never filled
+  - ~ClassificationPropertyValue~ gets URI: ~Classification.uri+"/"+ClassificationProperty.propertyCode +"/"+value~.
+    This class has ~namespaceUri~, but that is optional and is almost never filled
+- The following remain blank nodes:
+  - ~ReferenceDocument~: no id field (only ~name, title, date~)
+  - ~ClassificationRelation~: is just a pair of ~related~ Properties, no own URI
+  - ~PropertyRelation~: is just a pair of ~related~ Properties, no own URI
+- Remove redundant ~namespaceUri~ when equal to the node's URI
+
+This SPARQL Update script is class-independent (works on any Raw bSDD RDF), so it can be used in two ways:
+- On an individual RDF file by using Jena's ~update~, for testing
+- After loading all data to [[https://www.ontotext.com/products/graphdb/][GraphDB]], to transform all of it in one go
+  
 * Acknowledgements
 This work is part of the ACCORD project that has received funding from the European Union’s Horizon Europe research and innovation programme under grant agreement no. 101056973
 TODO compare to [[https://vttgroup.sharepoint.com/:p:/r/sites/EU-projectpreparationDigitalpermitsandcompliancecheck/_layouts/15/Doc.aspx?sourcedoc=%7BB9913B35-D290-4391-9588-0322584EF3BC%7D&file=ACCORD_EAB_meeting_02-12-2022.pptx&action=edit&mobileredirect=true][this pres]].

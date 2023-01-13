@@ -77,9 +77,9 @@ where {
   optional {?node rdfs:member ?y}
 };
 
-# short-cut bsdd:parentClassificationReference/bsdd:namespaceUri to just bsdd:parent
+# short-cut bsdd:parentClassificationReference/bsdd:namespaceUri to just bsdd:parentClassification
 delete {?x bsdd:parentClassificationReference ?y. ?y bsdd:namespaceUri ?z}
-insert {?x bsdd:parent ?z}
+insert {?x bsdd:parentClassification ?z}
 where {
   ?x bsdd:parentClassificationReference ?y. ?y bsdd:namespaceUri ?z
 };
@@ -97,9 +97,9 @@ delete where {?x a fx:root};
 # add meaningful URIs to nodes whenever possible. In particular:
 # - ClassificationProperty gets URI: Classification.uri+"/"+propertyCode
 # - ClassificationPropertyValue gets URI: Classification.uri+"/"+ClassificationProperty.propertyCode+"/"+value (because namespaceUri is optional)
+# - PropertyValue gets URI: Property.uri+"/"+value (because namespaceUri is optional)
 # The following remain blank nodes:
 # - ReferenceDocument: no id field (only name, title, date)
-# - PropertyValue: namespaceUri is optional (most often not filled)
 # - ClassificationRelation: is just a pair of ~related~ Properties, no own URI
 # - PropertyRelation: is just a pair of ~related~ Properties, no own URI
 base <https://identifier.buildingsmart.org/uri/buildingsmart/>
@@ -126,10 +126,14 @@ where {
     ?blank a bsdd:ClassificationProperty; bsdd:propertyCode ?prop
     bind(uri(concat(str(?class),"/",?prop)) as ?uri)
   } union {
-    ?class bsdd:classificationProperty ?prop.
-    ?prop a bsdd:ClassificationProperty; bsdd:propertyCode ?prop; bsdd:allowedValue ?blank.
-    ?blank a bsdd:ClassificationPropertyValue; bsdd:value value
+    ?class bsdd:classificationProperty ?property.
+    ?property a bsdd:ClassificationProperty; bsdd:propertyCode ?prop; bsdd:allowedValue ?blank.
+    ?blank a bsdd:ClassificationPropertyValue; bsdd:value ?value
     bind(uri(concat(str(?class),"/",?prop,"/",?value)) as ?uri)
+  } union {
+    ?property a bsdd:Property; bsdd:allowedValue ?blank.
+    ?blank a bsdd:PropertyValue; bsdd:value ?value
+    bind(uri(concat(str(?property),"/",?value)) as ?uri)
   }
   {?x ?p1 ?blank} union {?blank ?p2 ?y}
 };

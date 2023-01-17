@@ -1,0 +1,2 @@
+classification	relationType	relationName	relation
+https://identifier.buildingsmart.org/uri/efalbhm/arge-0.1/class/Door	HasReference		https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcDoor

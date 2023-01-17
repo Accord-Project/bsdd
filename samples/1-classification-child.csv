@@ -1,0 +1,8 @@
+classification	child
+https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcActuator	https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcActuatorELECTRICACTUATOR
+https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcActuator	https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcActuatorHANDOPERATEDACTUATOR
+https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcActuator	https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcActuatorHYDRAULICACTUATOR
+https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcActuator	https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcActuatorPNEUMATICACTUATOR
+https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcActuator	https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcActuatorTHERMOSTATICACTUATOR
+https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcActuator	https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcActuatorUSERDEFINED
+https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcActuator	https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcActuatorNOTDEFINED

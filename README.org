@@ -168,7 +168,7 @@ We have compared 3 representations returned by the bSDD server:
 - RDF  from the REST (entity) API
 
 We obtained a couple of "rich" objects of each class (i.e. objects with maximum fields filled),
-and compared the fields in each of the 3 APIs.
+and compared the fields in each of the 3 APIs, see [[https://github.com/Accord-Project/bsdd/tree/main/samples/1-*.csv]]
 
 There are differences and omissions in some of the formats, as described in the table below.
 It would be best to return the same content in each of the formats.

@@ -154,9 +154,8 @@ http://rdf.vegdata.no/V440/v440-owl
 #+end_src
 
 ** Declare URLs to be ~ID~
-TODO: refer to GraphQL recommendation that each node should have ID, and these should be declared as type ~ID~ [[https://graphql.org/learn/global-object-identification/#node-interface]].
-
-Rather than the unwieldy prop name ~namespaceUri~, most GraphQL implementations call this simply ~id~.
+TODO: refer to GraphQL recommendation that each node should have ID, and these should be declared as type ~ID~ 
+It is stated in Global Object Identification Guide for GraphQL [[https://graphql.org/learn/global-object-identification/#node-interface]] that the server must provide an interface called ~Node~. That interface must include exactly one field, called ~id~ that returns a non-null ~ID~. This ~id~ should be a ~globally unique identifier~ for this object, and given just this ~id~, the server should be able to refetch the object. For bSDD, instead of unwieldy property named ~namespaceUri~, most GraphQL implementations call this property simply ~id~.
 
 ** GraphQL Arrays and Nullability
 TODO: all of  [Classification], [Classification!], [Classification]!, [Classification!]! are different. Their spec [Classification] allows [null,null,null] as an xanswer

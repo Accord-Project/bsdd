@@ -189,7 +189,6 @@ Illustrations of the points above:
 - (1) GraphQL field ~childs~ appears when one queries for ~classification (namespaceUri:"...", includeChilds:true)~.
     It includes a list of children classifications but with simple properties only.
 #+begin_src json
-TODO
 {
   classification(namespaceUri: "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall", includeChilds: true) {
     name
@@ -214,14 +213,13 @@ results in
         {
           "classificationType": "CLASS",
           "name": "IfcWallStandardCase",
-          "__typename": "Classification"
         },
         {
           "classificationType": "CLASS",
           "name": "IfcWall.ELEMENTEDWALL",
-          "__typename": "Classification"
         },
-        ...}}}
+        ...
+        }}}
 #+end_src
 
 - (1) JSON includes the inverse link (from child to parent), e.g. when one fetches the subclass ~IfcCableSegmentCABLESEGMENT~, one gets a parent link to ~IfcCableSegment~

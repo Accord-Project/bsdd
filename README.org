@@ -109,7 +109,7 @@ Property names should conform to naming conventions and be spelled consistently
   According to Linked Data principles, it is better to use resolvable
 
 ** Use the same URL for Data and for Web Pages
-bSDD has implemented "entity URLs" i.e. for each kind of entity, it can return its data in JSON or RDF:
+bSDD has implemented "entity URLs", i.e. for each kind of entity it can return its data in JSON or RDF:
 #+begin_src
 curl -s                      https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegmentCABLESEGMENT
 curl -s -Haccept:text/turtle https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegmentCABLESEGMENT
@@ -154,7 +154,7 @@ http://rdf.vegdata.no/V440/v440-owl
 #+end_src
 
 ** Declare URLs to be ~ID~
-TODO: refer to GraphQL recommendation that each node should have ID, and these should be declared as type ~ID~.
+TODO: refer to GraphQL recommendation that each node should have ID, and these should be declared as type ~ID~ [[https://graphql.org/learn/global-object-identification/#node-interface]].
 
 Rather than the unwieldy prop name ~namespaceUri~, most GraphQL implementations call this simply ~id~.
 

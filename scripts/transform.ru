@@ -98,6 +98,7 @@ delete where {?x a fx:root};
 # - ClassificationProperty gets URI: Classification.uri+"/"+propertyCode
 # - ClassificationPropertyValue gets URI: Classification.uri+"/"+ClassificationProperty.propertyCode+"/"+value (because namespaceUri is optional)
 # - PropertyValue gets URI: Property.uri+"/"+value (because namespaceUri is optional)
+# TODO convert type bsdd:ClassificationPropertyValue to bsdd:PropertyValue because it's exactly the same thing
 # The following remain blank nodes:
 # - ReferenceDocument: no id field (only name, title, date)
 # - ClassificationRelation: is just a pair of ~related~ Properties, no own URI

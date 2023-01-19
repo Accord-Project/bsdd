@@ -190,7 +190,40 @@ Illustrations of the points above:
     It includes a list of children classifications but with simple properties only.
 #+begin_src json
 TODO
+{
+  classification(namespaceUri: "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall", includeChilds: true) {
+    name
+    code
+    namespaceUri
+    childs {
+      classificationType
+      name
+    }
+  }
+}
 #+end_src
+results in
+#+begin_src json
+{
+  "data": {
+    "classification": {
+      "name": "IfcWall",
+      "code": "IfcWall",
+      "namespaceUri": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall",
+      "childs": [
+        {
+          "classificationType": "CLASS",
+          "name": "IfcWallStandardCase",
+          "__typename": "Classification"
+        },
+        {
+          "classificationType": "CLASS",
+          "name": "IfcWall.ELEMENTEDWALL",
+          "__typename": "Classification"
+        },
+        ...}}}
+#+end_src
+
 - (1) JSON includes the inverse link (from child to parent), e.g. when one fetches the subclass ~IfcCableSegmentCABLESEGMENT~, one gets a parent link to ~IfcCableSegment~
 #+begin_src json
 // curl -s https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegmentCABLESEGMENT

@@ -173,14 +173,14 @@ There are differences and omissions in some of the formats, as described in the 
 It would be better to return the same content in each of the formats.
 
 
-| **Class**/field            | GraphQL      | JSON API                                   | RDF API                | comment                                                                                                  |
+| *Class*/field            | GraphQL      | JSON API                                   | RDF API                | comment                                                                                                  |
 |----------------------------+--------------+--------------------------------------------+------------------------+----------------------------------------------------------------------------------------------------------|
-| **Classification**/childs  | childs       | parentClassificationReference.namespaceUri | NONE                   | GraphQL points to child, JSON points to parent (1)
-| **Classification**/domain  | NONE         | NONE                                       | bsdd:Domain            | GraphQL and JSON API do not return property ~domain~ whereas RDF API returns it  |
-| **Classification**/domainNamespaceUri | NONE | domainNamespaceUri | NONE | GraphQL and RDF API do not return property ~domainNamespaceUri~ |
-| **Property**/domain  | NONE         | NONE                                       | bsdd:Domain            | GraphQL and JSON API do not return property ~domain~ whereas RDF API returns it  |
-| **Property**/domainNamespaceUri | NONE | domainNamespaceUri | NONE | GraphQL and RDF API do not return property ~domainNamespaceUri~ |
-| **ClassificationProperty** |              |                                            |                        | TODO: ClassificationProperty possesses 5 unique fields: ~isRequired~, ~isWritable~, ~predefinedValue~, ~propertySet~, ~symbol~. Property has uniquely ~connectedPropertyCodes~ and ~relations~ (TODO: think over: GraphQL and JSON overload the URL and use it for both ClassificationProperty and Property (2)            |
+| *Classification*/childs  | childs       | parentClassificationReference.namespaceUri | NONE                   | GraphQL points to child, JSON points to parent (1)
+| *Classification*/domain  | NONE         | NONE                                       | bsdd:Domain            | GraphQL and JSON API do not return property ~domain~ whereas RDF API returns it  |
+| *Classification*/domainNamespaceUri | NONE | domainNamespaceUri | NONE | GraphQL and RDF API do not return property ~domainNamespaceUri~ |
+| *Property*/domain  | NONE         | NONE                                       | bsdd:Domain            | GraphQL and JSON API do not return property ~domain~ whereas RDF API returns it  |
+| *Property*/domainNamespaceUri | NONE | domainNamespaceUri | NONE | GraphQL and RDF API do not return property ~domainNamespaceUri~ |
+| *ClassificationProperty* |              |                                            |                        | TODO: ClassificationProperty possesses 5 unique fields: ~isRequired~, ~isWritable~, ~predefinedValue~, ~propertySet~, ~symbol~. Property has uniquely ~connectedPropertyCodes~ and ~relations~ (TODO: think over: GraphQL and JSON overload the URL and use it for both ClassificationProperty and Property (2)            |
 | link to general property   | namespaceUri | namespaceUri                               | propertyNamespaceUri   | GraphQL and JSON have no real link, just the overloaded URL. The RDF prop is a string, should be URL (3) |
 | link to classification     |              |                                            | classificationProperty | RDF prop is misnamed, should be "classification" (4) |
 |                            |              |                                            |                        |                                                                                                          |

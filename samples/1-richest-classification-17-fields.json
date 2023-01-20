@@ -1,88 +1,88 @@
 {
-  "data": {
-    "classification": {
-      "activationDateUtc": "2022-09-15T00:00:00",
-      "childs": [
-        {
-          "__typename": "Classification",
-          "classificationType": "CLASS",
-          "name": "Ultrasonic Testing"
-        },
-        {
-          "__typename": "Classification",
-          "classificationType": "CLASS",
-          "name": "Ultrasonic Results"
+    "data": {
+        "classification": {
+            "activationDateUtc": "2022-09-15T00:00:00",
+            "childs": [
+                {
+                    "__typename": "Classification",
+                    "classificationType": "CLASS",
+                    "name": "Ultrasonic Testing"
+                },
+                {
+                    "__typename": "Classification",
+                    "classificationType": "CLASS",
+                    "name": "Ultrasonic Results"
+                }
+            ],
+            "classificationType": "CLASS",
+            "code": "Nondestructive",
+            "countriesOfUse": [
+                "GB",
+                "NL",
+                "IT",
+                "BE",
+                "DE"
+            ],
+            "countryOfOrigin": "DE",
+            "creatorLanguageCode": "de-DE",
+            "deActivationDateUtc": null,
+            "definition": "The wide group of analysis and techniques used in science and techonology industry to evaluate the properties material,component without causing a damage",
+            "deprecationExplanation": null,
+            "documentReference": null,
+            "name": "Non destructive Testing",
+            "namespaceUri": "https://identifier.buildingsmart.org/uri/uniweimar/uniweimar-0.1/class/Nondestructive",
+            "properties": [
+                {
+                    "description": "Identifier of the tested structure",
+                    "isRequired": true,
+                    "isWritable": true,
+                    "predefinedValue": null,
+                    "propertySet": "Single",
+                    "__typename": "ClassificationProperty"
+                },
+                {
+                    "description": "Identifier of the component to test",
+                    "isRequired": true,
+                    "isWritable": true,
+                    "predefinedValue": null,
+                    "propertySet": "Single",
+                    "__typename": "ClassificationProperty"
+                },
+                {
+                    "description": "Definition of the investigation objectives, e.g. localization of tendon ducts or reinforcement",
+                    "isRequired": true,
+                    "isWritable": true,
+                    "predefinedValue": null,
+                    "propertySet": "Single",
+                    "__typename": "ClassificationProperty"
+                }
+            ],
+            "referenceCode": "Non destructive Testing",
+            "relatedIfcEntityNames": [
+                "IfcTask"
+            ],
+            "relations": [
+                {
+                    "relationType": "HasReference",
+                    "relatedClassificationName": null,
+                    "__typename": "ClassificationRelation"
+                }
+            ],
+            "replacedObjectCodes": null,
+            "replacingObjectCodes": null,
+            "revisionDateUtc": null,
+            "revisionNumber": 0,
+            "status": "Preview",
+            "subdivisionsOfUse": null,
+            "synonyms": [
+                "Non Destructive Evaluation",
+                "Non Destructive Inspection"
+            ],
+            "uid": null,
+            "versionDateUtc": "2022-09-15T00:00:00",
+            "versionNumber": 1,
+            "visualRepresentationUri": null,
+            "__typename": "Classification"
         }
-      ],
-      "classificationType": "CLASS",
-      "code": "Nondestructive",
-      "countriesOfUse": [
-        "GB",
-        "NL",
-        "IT",
-        "BE",
-        "DE"
-      ],
-      "countryOfOrigin": "DE",
-      "creatorLanguageCode": "de-DE",
-      "deActivationDateUtc": null,
-      "definition": "The wide group of analysis and techniques used in science and techonology industry to evaluate the properties material,component without causing a damage",
-      "deprecationExplanation": null,
-      "documentReference": null,
-      "name": "Non destructive Testing",
-      "namespaceUri": "https://identifier.buildingsmart.org/uri/uniweimar/uniweimar-0.1/class/Nondestructive",
-      "properties": [
-        {
-          "description": "Identifier of the tested structure",
-          "isRequired": true,
-          "isWritable": true,
-          "predefinedValue": null,
-          "propertySet": "Single",
-          "__typename": "ClassificationProperty"
-        },
-        {
-          "description": "Identifier of the component to test",
-          "isRequired": true,
-          "isWritable": true,
-          "predefinedValue": null,
-          "propertySet": "Single",
-          "__typename": "ClassificationProperty"
-        },
-        {
-          "description": "Definition of the investigation objectives, e.g. localization of tendon ducts or reinforcement",
-          "isRequired": true,
-          "isWritable": true,
-          "predefinedValue": null,
-          "propertySet": "Single",
-          "__typename": "ClassificationProperty"
-        }
-      ],
-      "referenceCode": "Non destructive Testing",
-      "relatedIfcEntityNames": [
-        "IfcTask"
-      ],
-      "relations": [
-        {
-          "relationType": "HasReference",
-          "relatedClassificationName": null,
-          "__typename": "ClassificationRelation"
-        }
-      ],
-      "replacedObjectCodes": null,
-      "replacingObjectCodes": null,
-      "revisionDateUtc": null,
-      "revisionNumber": 0,
-      "status": "Preview",
-      "subdivisionsOfUse": null,
-      "synonyms": [
-        "Non Destructive Evaluation",
-        "Non Destructive Inspection"
-      ],
-      "uid": null,
-      "versionDateUtc": "2022-09-15T00:00:00",
-      "versionNumber": 1,
-      "visualRepresentationUri": null,
-      "__typename": "Classification"
     }
-  }
 }

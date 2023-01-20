@@ -1,0 +1,11 @@
+{
+  "data": {
+    "countries": [
+      {
+        "code": "FI",
+        "name": "Finland",
+        "__typename": "Country"
+      }
+   ]
+  }
+}

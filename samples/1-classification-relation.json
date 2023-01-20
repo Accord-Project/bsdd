@@ -1,0 +1,14 @@
+{
+	"data": {
+		"classification": {
+			"__typename": "Classification",
+			"relations": [
+				{
+					"relationType": "HasReference",
+					"relatedClassificationUri": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcDoor",
+					"__typename": "ClassificationRelation"
+				}
+			]
+		}
+	}
+}

@@ -1,0 +1,60 @@
+{
+	"data": {
+		"classification": {
+			"name": "Revêtement de sol résilient PVC à queues d'aronde et type puzzle",
+			"property": {
+				"name": "Epaisseur de la couche d'usure ou de surface d'un revêtement de sol résilient PVC à queues d'aronde et type puzzle",
+				"code": "1d2c6295-11d1-490d-b177-43cfbcc51c03",
+				"countriesOfUse": [
+					"FR"
+				],
+				"countryOfOrigin": "FR",
+				"creatorLanguageCode": null,
+				"isDynamic": false,
+				"description": null,
+				"dataType": "Real",
+				"dimension": "1 0 0 0 0 0 0",
+				"definition": "Détermination de l'épaisseur de la couche d'usure ou de surface d'un revêtement de sol résilient PVC à queues d'aronde et type puzzle selon la norme NF EN ISO 24340",
+				"deActivationDateUtc": null,
+				"deprecationExplanation": null,
+				"dimensionMass": 0,
+				"dimensionTime": 0,
+				"dimensionLength": 1,
+				"documentReference": null,
+				"dimensionElectricCurrent": 0,
+				"dimensionAmountOfSubstance": 0,
+				"dimensionLuminousIntensity": 0,
+				"dimensionThermodynamicTemperature": 0,
+				"dynamicParameterPropertyCodes": null,
+				"example": null,
+				"isRequired": null,
+				"isWritable": null,
+				"maxExclusive": null,
+				"minExclusive": null,
+				"maxInclusive": 2.5000,
+				"methodOfMeasurement": null,
+				"namespaceUri": "https://identifier.buildingsmart.org/uri/ATALANE/REX-OBJ-1.0/prop/1d2c6295-11d1-490d-b177-43cfbcc51c03",
+				"pattern": null,
+				"physicalQuantity": "Epaisseur",
+				"propertyValueKind": "SINGLE",
+				"revisionNumber": 1,
+				"revisionDateUtc": null,
+				"replacedObjectCodes": null,
+				"replacingObjectCodes": null,
+				"status": "Active",
+				"subdivisionsOfUse": null,
+				"uid": "1d2c6295-11d1-490d-b177-43cfbcc51c03",
+				"units": [
+					"mm"
+				],
+				"versionNumber": 1,
+				"versionDateUtc": "2022-02-15T00:00:00",
+				"visualRepresentationUri": null,
+				"predefinedValue": null,
+				"propertySet": null,
+				"symbol": null,
+				"allowedValues": []
+			}
+		}
+	}
+}

@@ -1,0 +1,11 @@
+{
+	"data": {
+		"units": [
+			{
+				"code": "kOhm",
+				"name": "kiloohm",
+				"symbol": "kΩ"
+			}
+		]
+	}
+}

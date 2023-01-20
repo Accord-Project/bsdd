@@ -1,0 +1,59 @@
+{
+  "data": {
+    "classification": {
+      "property": {
+        "allowedValues": [],
+        "dataType": "Real",
+        "description": "The volume of an apple",
+        "dimension": "3 0 0 0 0 0 0",
+        "dimensionLength": 3,
+        "dimensionMass": 0,
+        "dimensionTime": 0,
+        "dimensionElectricCurrent": 0,
+        "dimensionThermodynamicTemperature": 0,
+        "dimensionAmountOfSubstance": 0,
+        "dimensionLuminousIntensity": 0,
+        "dynamicParameterPropertyCodes": null,
+        "example": "For example, the space that a substance or 3D shape occupies or contains.",
+        "isDynamic": false,
+        "isRequired": true,
+        "isWritable": true,
+        "maxExclusive": null,
+        "maxInclusive": 20,
+        "methodOfMeasurement": "Archimedes’ Gold Crown method",
+        "minExclusive": 1,
+        "minInclusive": null,
+        "pattern": null,
+        "physicalQuantity": "Volume",
+        "possibleValues": [],
+        "predefinedValue": null,
+        "propertySet": "SizeSet",
+        "propertyValueKind": "SINGLE",
+        "symbol": null,
+        "units": [
+          "cm³"
+        ],
+        "activationDateUtc": "2019-01-25T00:00:00",
+        "code": "volume",
+        "creatorLanguageCode": "en-GB",
+        "countriesOfUse": null,
+        "countryOfOrigin": "FR",
+        "deActivationDateUtc": null,
+        "definition": "Volume is a scalar quantity expressing the amount of three-dimensional space enclosed by a closed surface. Volume is often quantified numerically using the SI derived unit, the cubic metre",
+        "deprecationExplanation": null,
+        "documentReference": null,
+        "name": "Volume",
+        "replacedObjectCodes": null,
+        "replacingObjectCodes": null,
+        "revisionDateUtc": "2022-09-26T00:00:00",
+        "revisionNumber": 0,
+        "status": "Active",
+        "subdivisionsOfUse": null,
+        "uid": null,
+        "versionDateUtc": "2021-10-01T00:00:00",
+        "versionNumber": 2,
+        "visualRepresentationUri": "https://images.twinkl.co.uk/tw1n/image/private/t_630/u/ux/screenshot-2021-02-19-at-10.29.40_ver_1.png"
+      }
+    }
+  }
+}

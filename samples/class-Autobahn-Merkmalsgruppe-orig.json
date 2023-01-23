@@ -14,7 +14,7 @@
   "deprecationExplanation": null,
   "documentReference": null,
   "name": "Verbindungsstueck",
-  "namespaceUri": "https://identifier.buildingsmart.org/uri/bim-de/AutobahnGmbH-1.0/class/006bd5d1-8bd6-431a-8cb9-679363c70110",
+  "id": "https://identifier.buildingsmart.org/uri/bim-de/AutobahnGmbH-1.0/class/006bd5d1-8bd6-431a-8cb9-679363c70110",
   "properties": [],
   "referenceCode": "006bd5d1-8bd6-431a-8cb9-679363c70110",
   "relatedIfcEntityNames": [],
@@ -29,6 +29,6 @@
   "uid": "006bd5d1-8bd6-431a-8cb9-679363c70110",
   "versionDateUtc": "2022-10-07T17:10:31.47898",
   "versionNumber": 1,
-  "visualRepresentationUri": null,
+  "visualRepresentationUri": null
 }
-}
+

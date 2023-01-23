@@ -130,6 +130,216 @@ Is there need for two different web pages showing nearly the same info?
 We think that with some modest change in technology, the Search UI can use the first (semantic) URL directly, instead of an internal (non-semantic) "Index" URL.
 Otherwise there is danger that people will start copying these non-semantic URLs in communication, and in AECO data.
 
+** GraphQL Implementation Errors
+
+*** Non Nullable Classifications
+Querying all domains including their classifications results in a GraphQL error.
+This is due to ~classificationSearch~ being marked as non nullable but the backend API is returning ~null~.
+
+#+begin_src graphql
+query getDomainsAndClassifications {
+  domains {
+    id: namespaceUri
+    classificationSearch {
+      id: namespaceUri
+    }
+  }
+}
+#+end_src
+will result into
+#+begin_src json
+{
+  "errors": [
+    {
+      "message": "Error trying to resolve field 'classificationSearch'.",
+      "locations": [
+        {
+          "line": 4,
+          "column": 5
+        }
+      ],
+      "path": [
+        "domains",
+        67,
+        "classificationSearch"
+      ],
+      "extensions": {
+        "code": "NULL_REFERENCE",
+        "codes": [
+          "NULL_REFERENCE"
+        ]
+      }
+    }
+  ],
+  "data": {
+    "domains": [
+      {
+...
+#+end_src
+
+You can test the query [[https://test.bsdd.buildingsmart.org/graphiql/?query=query%20getDomainsAndClassifications%20%7B%0A%20%20domains%20%7B%0A%20%20%20%20id%3A%20namespaceUri%0A%20%20%20%20classificationSearch%20%7B%0A%20%20%20%20%20%20id%3A%20namespaceUri%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D%0A&operationName=getDomainsAndClassifications][here]].
+
+*** Missing Objects
+The GraphQL API returns domains that cannot be queried independently, one such domain is ~http://identifier.buildingsmart.org/uri/spr/spr-cfhios-0.1~.
+
+#+begin_src graphql
+{
+  domains {
+    id: namespaceUri
+  }
+  domain(namespaceUri: "http://identifier.buildingsmart.org/uri/spr/spr-cfhios-0.1") {
+    id: namespaceUri
+  }
+}
+#+end_src
+
+The second response for ~domain~ will be ~null~ although the domain has been returned in the ~domains~ response.
+This is probably the same issue as the previous.
+
+You can test the query [[https://test.bsdd.buildingsmart.org/graphiql/?query=%7B%0A%20%20domains%20%7B%0A%20%20%20%20id%3A%20namespaceUri%0A%20%20%7D%0A%20%20domain(namespaceUri%3A%20%22http%3A%2F%2Fidentifier.buildingsmart.org%2Furi%2Fspr%2Fspr-cfhios-0.1%22)%20%7B%0A%20%20%20%20id%3A%20namespaceUri%0A%20%20%7D%0A%7D][here]].
+
+*** Classification Childs Nullability
+Similar to the first issue, ~Classification.childs~ is defined with type ~[Classification]~ which means it is OK to be ~null~.
+However, unless ~includeChilds:true~ is provided as input argument in ~classification~, queries will fail with NULL_REFERENCE errors thus
+breaking GraphQL spec compliance.
+
+#+begin_src json
+{
+  "errors": [
+    {
+      "message": "Error trying to resolve field 'childs'.",
+      "locations": [
+        {
+          "line": 71,
+          "column": 5
+        }
+      ],
+      "path": [
+        "classification",
+        "childs"
+      ],
+      "extensions": {
+        "code": "NULL_REFERENCE",
+        "codes": [
+          "NULL_REFERENCE"
+        ]
+      }
+    }
+  ],
+  "data": {
+    "classification": {
+    ...
+#+end_src
+
+You can test such a query [[https://test.bsdd.buildingsmart.org/graphiql/?query=query%20getClassificationProperties%20%7B%0A%20%20classification(namespaceUri%3A%20%22https%3A%2F%2Fidentifier.buildingsmart.org%2Furi%2Fbuildingsmart%2Fifc-4.3%2Fclass%2FIfcAirTerminalBox%22%2C%20includeChilds%3A%20false)%20%7B%0A%20%20%20%20id%3A%20namespaceUri%0A%20%20%20%20childs%20%7B%0A%20%20%20%20%20%20id%3A%20namespaceUri%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D&operationName=getClassificationProperties][here]]
+
+*** Additional Null Issues
+
+- There are classifications for which some of the properties cannot be returned and this results in ~NULL_REFERENCE~ errors although the fields are nullable.
+  #+begin_src graphql
+  query getClassificationProperties {
+    classification(namespaceUri: "https://identifier.buildingsmart.org/uri/molio/cciconstruction-1.0/class/L-NAA") {
+      name
+      properties {
+        name
+      }
+    }
+  }
+  #+end_src
+  This query will return the classification along with 4 out of 5 properties, the 5th property will be ~null~.
+  You can test the query [[https://test.bsdd.buildingsmart.org/graphiql/?query=query%20getClassificationProperties%20%7B%0A%20%20classification(namespaceUri%3A%20%22https%3A%2F%2Fidentifier.buildingsmart.org%2Furi%2Fmolio%2Fcciconstruction-1.0%2Fclass%2FL-NAA%22)%20%7B%0A%20%20%20%20name%0A%20%20%20%20properties%20%7B%0A%20%20%20%20%20%20name%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D%0A][here]].
+
+*** Classification Property Values
+
+The classification properties have ~allowedValues~ and ~possibleValues~ as fields which are objects of type ~ClassificationPropertyValue~,
+for example:
+#+begin_src json
+[
+  {
+    "namespaceUri": null,
+    "code": "DUALDUCT",
+    "description": null,
+    "sortNumber": null
+  },
+  {
+    "namespaceUri": null,
+    "code": "MULTIZONE",
+    "description": null,
+    "sortNumber": null
+  },
+  {
+    "namespaceUri": null,
+    "code": "NOTKNOWN",
+    "description": null,
+    "sortNumber": null
+  },
+  {
+    "namespaceUri": null,
+    "code": "OTHER",
+    "description": null,
+    "sortNumber": null
+  },
+  {
+    "namespaceUri": null,
+    "code": "SINGLEDUCT",
+    "description": null,
+    "sortNumber": null
+  },
+  {
+    "namespaceUri": null,
+    "code": "UNSET",
+    "description": null,
+    "sortNumber": null
+  }
+]
+#+end_src
+None of the inspected values have ~namespaceUri~, ~description~ or ~sortNumber~.
+
+The classification properties has a ~predefinedValue~ field but it is of type ~String~ instead of utilizing ~ClassificationPropertyValue~.
+
+*** Classification Properties Without Identity
+
+Every classification property is scoped within the owning classification and it may include data that is applicable only within that classification.
+They include a ~namespaceUri~ field but this is the global property identifier, not one within the classification and therefore they cannot be
+uniquely identified and located in the scope of the classification.
+
+For example, the following classification:
+#+begin_src graphql
+query getClassificationProperties {
+  classification(namespaceUri: "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegmentCABLESEGMENT") {
+    namespaceUri
+    properties {
+      namespaceUri
+    }
+  }
+}
+#+end_src
+will return
+#+begin_src json
+{
+  "data": {
+    "classification": {
+      "namespaceUri": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegmentCABLESEGMENT",
+      "properties": [
+        {
+          "namespaceUri": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/ACResistance"
+        },
+        {
+          "namespaceUri": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/CurrentCarryingCapacity"
+        },
+  ...
+#+end_src
+
+This is the case with responses from the JSON API as well, the properties have no unique identifier. However, the RDF TTL representation is the opposite.
+Requesting ~text/turtle~ from the JSON API will return the following part:
+
+#+begin_src turtle
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegmentCABLESEGMENT/ACResistance> bsdd:ClassificationProperty <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegmentCABLESEGMENT>;
+#+end_src
+
+It can be seen that ~ACResistance~ is scoped to the ~IfcCableSegmentCABLESEGMENT~ classification and thus it can be easily identified and located.
+This difference leads to very inconsistent results from the different APIs.
+
 ** Improve URL Structure and Consistency
 - Almost all domain URLs have the same structure: ~https://identifier.buildingsmart.org/uri/<org>/<domain>-<ver>~.
   There are only 2 exceptions:

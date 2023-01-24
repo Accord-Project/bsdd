@@ -3,7 +3,7 @@
 #+options: inline:t num:t p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t
 #+options: timestamp:nil title:t toc:5 todo:t |:t
 #+title: Semantic bSDD: Improvements to bSDD GraphQL, JSON and RDF Representations
-#+date: <2023-01-13>
+#+date: <2023-01-24>
 #+author: Vladimir Alexiev, Mihail Radkov, Nataliya Keberle
 #+email: vladimir.alexiev@ontotext.com
 #+language: en
@@ -363,9 +363,61 @@ http://otl.amsterdam.nl
 http://rdf.vegdata.no/V440/v440-owl
 #+end_src
 
-** Declare URLs to be ~ID~
-TODO: refer to GraphQL recommendation that each node should have ID, and these should be declared as type ~ID~ 
-It is stated in Global Object Identification Guide for GraphQL [[https://graphql.org/learn/global-object-identification/#node-interface]] that the server must provide an interface called ~Node~. That interface must include exactly one field, called ~id~ that returns a non-null ~ID~. This ~id~ should be a ~globally unique identifier~ for this object, and given just this ~id~, the server should be able to refetch the object. For bSDD, instead of unwieldy property named ~namespaceUri~, most GraphQL implementations call this property simply ~id~.
+** Declare URLs to be ~ID~ and use Field Name ~id~
+The [[https://spec.graphql.org/draft/#sec-ID][GraphQL specification sec 3.5.5. ID]] states
+"The ~ID~ scalar type represents a unique identifier,
+often used to refetch an object or as the key for a cache".
+This datatype is like String, but is specially designated to be used for identifiers.
+
+Furthermore, the [[https://graphql.org/learn/global-object-identification/#node-interface][Global Object Identification Guide for GraphQL]] recommends
+that states that objects should have a field ~id~ that returns non-null ~ID!~
+(through the ~Node~ interface).
+The ~id~ should be a "globally unique identifier" for the object,
+and given just this ~id~, the server should be able to refetch the object.
+
+Most GraphQL implementations call this field simply ~id~,
+whereas bSDD, uses unwieldy property names like ~namespaceUri~.
+
+** All Significant Classes Should Have URL
+Following the previous section, all significant classes should have ~ID~,
+(which in the case of linked data is really a URL).
+
+However, many bSDD classes don't have such a field:
+- ~Domain, Property, Classification~ do have ~namespaceUri~
+- ~Country, Language, Unit~ don't have an ID but have a field (~code, isocode~)
+  that can be used to make an ID, when prepended with an appropriate prefix.
+  However, ~Unit.code~ is not always fit to be used in a URL
+- ~ClassificationProperty~ doesn't have an ID in GraphQL.
+  We follow the bSDD RDF representation and assign a URL
+  from the URL of the owning object (~Classification~) and its own ~propertyCode~:
+:  Classification.namespaceUri+"/"+propertyCode
+- ~PropertyValue, ClassificationPropertyValue~ has ~namespaceUri~
+  but it's optional and is almost never filled.
+  We assign URL similarly to the previous case:
+  from the URL of the owning object and its own ~value~:
+: Property.namespaceUri+"/"+value OR
+: ClassificationProperty.namespaceUri+"/"+value
+- The following classes have no fields suitable to make a URL, so they remain blank nodes:
+  - ~ReferenceDocument~: only ~name, title, date~
+  - ~ClassificationRelation~: a pair of ~related~ Classifications, no own URL
+  - ~PropertyRelation~: a pair of ~related~ Properties, no own URL
+
+Unfortunately, the bSDD GraphQL endpoint doesn't
+
+TODO: this is not in the RDF API, so it's test junk. Remove this complaint below:
+For example, the classification indicated below has ClassificationProperties with no ~propertyCode~
+#+begin_src json
+"namespaceUri": "https://identifier.buildingsmart.org/uri/uniweimar/uniweimar-0.1/class/Nondestructive",
+"properties": [
+  {
+    "description": "Identifier of the tested structure",
+    "isRequired": true,
+    "isWritable": true,
+    "predefinedValue": null,
+    "propertySet": "Single",
+    "__typename": "ClassificationProperty"
+  }...]
+#+end_src
 
 ** GraphQL Arrays and Nullability
 TODO: all of  [Classification], [Classification!], [Classification]!, [Classification!]! are different. Their spec [Classification] allows [null,null,null] as an xanswer

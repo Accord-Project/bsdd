@@ -1,0 +1,13 @@
+{
+  "classification": {
+   "id": "https://identifier.buildingsmart.org/uri/efalbhm/arge-0.1/class/Door",
+   "__typename": "Classification",
+   "relations": [
+    {
+     "relationType": "HasReference",
+     "relatedClassificationUri": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcDoor",
+     "__typename": "ClassificationRelation"
+    }
+   ]
+  }
+ }

@@ -1,0 +1,14 @@
+{
+  "__typename": "Domain",
+  "name": "CCI Construction",
+  "version": "1.0",
+  "status": "Released",
+  "releaseDate": "2020-01-01T00:00:00",
+  "license": "MIT license",
+  "licenseUrl": "https://ccs.molio.dk/Home/News/EndUserLicense?sc_lang=en-gb",
+  "copyrightNotice": null,
+  "moreInfoUrl": "https://anvisninger.molio.dk/Gratis-vaerktojer/CCI_Klassifikation",
+  "lastUpdatedUtc": "2022-10-26T14:46:08.838408",
+  "languageCode": "en-GB",
+  "namespaceUri": "https://identifier.buildingsmart.org/uri/molio/cciconstruction-1.0"
+  }

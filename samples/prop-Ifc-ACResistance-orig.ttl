@@ -7,7 +7,7 @@
 @prefix qudtUnit: <http://qudt.org/vocab/unit/>.
 @prefix ifc4_3: <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3>.
 
-<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/ACResistance> bsdd:ActivationDateUtc "2022-11-01";
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/ACResistance> bsdd:ActivationDateUtc "2022-12-31";
                                                                                    bsdd:Code "ACResistance";
                                                                                    bsdd:DataType "Real";
                                                                                    bsdd:Description "The resistance under AC.";
@@ -15,5 +15,5 @@
                                                                                    bsdd:Name "ACResistance";
                                                                                    bsdd:PropertyValueKind "Single";
                                                                                    bsdd:Status "Active";
-                                                                                   bsdd:VersionDateUtc "2022-11-01";
+                                                                                   bsdd:VersionDateUtc "2022-12-31";
                                                                                    a bsdd:Property.

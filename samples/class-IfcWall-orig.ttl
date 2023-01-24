@@ -1,0 +1,670 @@
+@base <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall>.
+
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix bsdd: <http://bsdd.buildingsmart.org/def#>.
+@prefix qudtUnit: <http://qudt.org/vocab/unit/>.
+@prefix ifc4_3: <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3>.
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall> bsdd:ActivationDateUtc "2022-12-31";
+                                                                               bsdd:Code "IfcWall";
+                                                                               bsdd:Definition """The wall represents a vertical construction that may bound or subdivide spaces. Wall are usually vertical, or nearly vertical, planar elements, often designed to bear structural loads. A wall is however not required to be load bearing.{ .extDef}A wall may have openings, such as wall openings, openings used for windows or doors, or niches and recesses. They are defined by an IfcOpeningElement attached to the wall using the inverse relationship HasOpenings pointing to IfcRelVoidsElement. Walls with openings that have already been modeled within the enclosing geometry may use the relationship IfcRelConnectsElements to associate the wall with embedded elements such as doors and windows.There are two main representations for all occurrences:IfcWall with IfcMaterialLayerSetUsage is used for all occurrences of walls, that have a non-changing thickness along the wall path and where the thickness parameter can be fully described by a material layer set. These walls are always represented geometrically by an 'Axis' and a 'SweptSolid' shape representation (or by a 'Clipping' geometry based on 'SweptSolid'), if a 3D geometric representation is assigned.
+
+
+IfcWall without IfcMaterialLayerSetUsage is used for all other occurrences of wall, particularly for walls with changing thickness along the wall path (e.g. polygonal walls), or walls with a non-rectangular cross sections (e.g. L-shaped retaining walls), and walls having an extrusion axis that is unequal to the global Z axis of the project (i.e. non-vertical walls), or walls having only 'Brep', or 'SurfaceModel' geometry, or if a more parametric representation is not intended.REFERENCE  Definition according to ISO 6707-1: vertical construction usually in masonry or in concrete which bounds or subdivides a construction works and fulfils a load bearing or retaining function.
+NOTE  An arbitrary planar element to which this semantic information is not applicable (is not predominantly vertical), shall be modeled as IfcPlate.
+NOTE  The entity IfcWallStandardCase has been deprecated, IfcWall with IfcMaterialLayerSetUsage is used instead. The entity IfcWallElementedCase has been deleted, IfcWall with IfcRelAggregates is used to describe occurrences of wall which are aggregated from subordinate elements, such as wall panels.
+NOTE  There is a representation of walls for structural analysis provided by a proper subtype of IfcStructuralMember being part of the IfcStructuralAnalysisModel.
+HISTORY  New entity in IFC1.0""";
+                                                                               bsdd:Domain ifc4_3:;
+                                                                               bsdd:Name "IfcWall";
+                                                                               bsdd:ReferenceCode "IfcWall";
+                                                                               bsdd:Status "Preview";
+                                                                               bsdd:VersionDateUtc "2022-12-31";
+                                                                               a bsdd:Classification.
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/AcousticRating> bsdd:ClassificationProperty <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall>;
+                                                                                              bsdd:DataType "String";
+                                                                                              bsdd:Description """Acoustic rating for this object.
+It is provided according to the national building code. It indicates the sound transmission resistance of this object by an index ratio (instead of providing full sound absorption values).""";
+                                                                                              bsdd:Name "AcousticRating";
+                                                                                              bsdd:PropertyCode "AcousticRating";
+                                                                                              bsdd:PropertyDomainName "IFC";
+                                                                                              bsdd:PropertyNamespaceUri "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/AcousticRating";
+                                                                                              bsdd:PropertySet "Pset_WallCommon";
+                                                                                              bsdd:PropertyStatus "Active";
+                                                                                              bsdd:PropertyValueKind "Single".
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/ActualErectionDate> bsdd:ClassificationProperty <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall>;
+                                                                                                  bsdd:DataType "String";
+                                                                                                  bsdd:Description "Date erected.";
+                                                                                                  bsdd:Name "ActualErectionDate";
+                                                                                                  bsdd:PropertyCode "ActualErectionDate";
+                                                                                                  bsdd:PropertyDomainName "IFC";
+                                                                                                  bsdd:PropertyNamespaceUri "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/ActualErectionDate";
+                                                                                                  bsdd:PropertySet "Pset_PrecastConcreteElementFabrication";
+                                                                                                  bsdd:PropertyStatus "Active";
+                                                                                                  bsdd:PropertyValueKind "Single".
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/ActualProductionDate> bsdd:ClassificationProperty <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall>;
+                                                                                                    bsdd:DataType "String";
+                                                                                                    bsdd:Description "Production date (stripped from form).";
+                                                                                                    bsdd:Name "ActualProductionDate";
+                                                                                                    bsdd:PropertyCode "ActualProductionDate";
+                                                                                                    bsdd:PropertyDomainName "IFC";
+                                                                                                    bsdd:PropertyNamespaceUri "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/ActualProductionDate";
+                                                                                                    bsdd:PropertySet "Pset_PrecastConcreteElementFabrication";
+                                                                                                    bsdd:PropertyStatus "Active";
+                                                                                                    bsdd:PropertyValueKind "Single".
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/AsBuiltLocationNumber> bsdd:ClassificationProperty <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall>;
+                                                                                                     bsdd:DataType "String";
+                                                                                                     bsdd:Description "Defines a unique location within a structure, the ‘slot’ into which the piece was installed. Where pieces share the same piece mark, they can be interchanged. The value is only known after erection.";
+                                                                                                     bsdd:Name "AsBuiltLocationNumber";
+                                                                                                     bsdd:PropertyCode "AsBuiltLocationNumber";
+                                                                                                     bsdd:PropertyDomainName "IFC";
+                                                                                                     bsdd:PropertyNamespaceUri "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/AsBuiltLocationNumber";
+                                                                                                     bsdd:PropertySet "Pset_PrecastConcreteElementFabrication";
+                                                                                                     bsdd:PropertyStatus "Active";
+                                                                                                     bsdd:PropertyValueKind "Single".
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/AssemblyPlace> bsdd:ClassificationProperty <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall>;
+                                                                                             bsdd:DataType "String";
+                                                                                             bsdd:Description "Enumeration defining where the assembly is intended to take place, either in a factory, other offsite location or on the building site.";
+                                                                                             bsdd:Name "AssemblyPlace";
+                                                                                             bsdd:PropertyCode "AssemblyPlace";
+                                                                                             bsdd:PropertyDomainName "IFC";
+                                                                                             bsdd:PropertyNamespaceUri "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/AssemblyPlace";
+                                                                                             bsdd:PropertySet "Pset_ConcreteElementGeneral";
+                                                                                             bsdd:PropertyStatus "Active";
+                                                                                             bsdd:PropertyValueKind "Single".
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/BarAllocationType> bsdd:ClassificationProperty <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall>;
+                                                                                                 bsdd:DataType "String";
+                                                                                                 bsdd:Description "Defines the type of the reinforcement bar allocation.";
+                                                                                                 bsdd:Name "BarAllocationType";
+                                                                                                 bsdd:PropertyCode "BarAllocationType";
+                                                                                                 bsdd:PropertyDomainName "IFC";
+                                                                                                 bsdd:PropertyNamespaceUri "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/BarAllocationType";
+                                                                                                 bsdd:PropertySet "Pset_ReinforcementBarPitchOfWall";
+                                                                                                 bsdd:PropertyStatus "Active";
+                                                                                                 bsdd:PropertyValueKind "Single".
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/BatterAtEnd> bsdd:ClassificationProperty <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall>;
+                                                                                           bsdd:DataType "Real";
+                                                                                           bsdd:Description "The angle, in radians, by which the formwork at the ending face of a piece is to be rotated from the vertical in order to compensate for the rotation of the face that will occur once the piece is stripped from its form, inducing camber due to eccentric prestressing.";
+                                                                                           bsdd:Name "BatterAtEnd";
+                                                                                           bsdd:PropertyCode "BatterAtEnd";
+                                                                                           bsdd:PropertyDomainName "IFC";
+                                                                                           bsdd:PropertyNamespaceUri "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/BatterAtEnd";
+                                                                                           bsdd:PropertySet "Pset_PrecastConcreteElementGeneral";
+                                                                                           bsdd:PropertyStatus "Active";
+                                                                                           bsdd:PropertyValueKind "Single".
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/BatterAtStart> bsdd:ClassificationProperty <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall>;
+                                                                                             bsdd:DataType "Real";
+                                                                                             bsdd:Description "The angle, in radians, by which the formwork at the starting face of a piece is to be rotated from the vertical in order to compensate for the rotation of the face that will occur once the piece is stripped from its form, inducing camber due to eccentric prestressing.";
+                                                                                             bsdd:Name "BatterAtStart";
+                                                                                             bsdd:PropertyCode "BatterAtStart";
+                                                                                             bsdd:PropertyDomainName "IFC";
+                                                                                             bsdd:PropertyNamespaceUri "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/BatterAtStart";
+                                                                                             bsdd:PropertySet "Pset_PrecastConcreteElementGeneral";
+                                                                                             bsdd:PropertyStatus "Active";
+                                                                                             bsdd:PropertyValueKind "Single".
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/CamberAtMidspan> bsdd:ClassificationProperty <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall>;
+                                                                                               bsdd:DataType "Real";
+                                                                                               bsdd:Description "The camber deflection, measured from the midpoint of a cambered face of a piece to the midpoint of the chord joining the ends of the same face, as shown in the figure below, divided by the original (nominal) straight length of the face of the piece.";
+                                                                                               bsdd:Name "CamberAtMidspan";
+                                                                                               bsdd:PropertyCode "CamberAtMidspan";
+                                                                                               bsdd:PropertyDomainName "IFC";
+                                                                                               bsdd:PropertyNamespaceUri "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/CamberAtMidspan";
+                                                                                               bsdd:PropertySet "Pset_PrecastConcreteElementGeneral";
+                                                                                               bsdd:PropertyStatus "Active";
+                                                                                               bsdd:PropertyValueKind "Single".
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/CastingMethod> bsdd:ClassificationProperty <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall>;
+                                                                                             bsdd:DataType "String";
+                                                                                             bsdd:Description "The method of casting the concrete into its designed form.";
+                                                                                             bsdd:Name "CastingMethod";
+                                                                                             bsdd:PropertyCode "CastingMethod";
+                                                                                             bsdd:PropertyDomainName "IFC";
+                                                                                             bsdd:PropertyNamespaceUri "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/CastingMethod";
+                                                                                             bsdd:PropertySet "Pset_ConcreteElementGeneral";
+                                                                                             bsdd:PropertyStatus "Active";
+                                                                                             bsdd:PropertyValueKind "Single".
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/Combustible> bsdd:ClassificationProperty <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall>;
+                                                                                           bsdd:DataType "Boolean";
+                                                                                           bsdd:Description "Indication whether the object is made from combustible material (TRUE) or not (FALSE).";
+                                                                                           bsdd:Name "Combustible";
+                                                                                           bsdd:PropertyCode "Combustible";
+                                                                                           bsdd:PropertyDomainName "IFC";
+                                                                                           bsdd:PropertyNamespaceUri "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/Combustible";
+                                                                                           bsdd:PropertySet "Pset_WallCommon";
+                                                                                           bsdd:PropertyStatus "Active";
+                                                                                           bsdd:PropertyValueKind "Single".
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/Compartmentation> bsdd:ClassificationProperty <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall>;
+                                                                                                bsdd:DataType "Boolean";
+                                                                                                bsdd:Description "Indication whether the object is designed to serve as a fire compartmentation (TRUE) or not (FALSE).";
+                                                                                                bsdd:Name "Compartmentation";
+                                                                                                bsdd:PropertyCode "Compartmentation";
+                                                                                                bsdd:PropertyDomainName "IFC";
+                                                                                                bsdd:PropertyNamespaceUri "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/Compartmentation";
+                                                                                                bsdd:PropertySet "Pset_WallCommon";
+                                                                                                bsdd:PropertyStatus "Active";
+                                                                                                bsdd:PropertyValueKind "Single".
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/ConcreteCover> bsdd:ClassificationProperty <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall>;
+                                                                                             bsdd:DataType "Real";
+                                                                                             bsdd:Description "The protective concrete cover at the reinforcing bars according to local building regulations.";
+                                                                                             bsdd:Name "ConcreteCover";
+                                                                                             bsdd:PropertyCode "ConcreteCover";
+                                                                                             bsdd:PropertyDomainName "IFC";
+                                                                                             bsdd:PropertyNamespaceUri "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/ConcreteCover";
+                                                                                             bsdd:PropertySet "Pset_ConcreteElementGeneral";
+                                                                                             bsdd:PropertyStatus "Active";
+                                                                                             bsdd:PropertyValueKind "Single".
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/ConcreteCoverAtLinks> bsdd:ClassificationProperty <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall>;
+                                                                                                    bsdd:DataType "Real";
+                                                                                                    bsdd:Description "The protective concrete cover at the reinforcement links according to local building regulations.";
+                                                                                                    bsdd:Name "ConcreteCoverAtLinks";
+                                                                                                    bsdd:PropertyCode "ConcreteCoverAtLinks";
+                                                                                                    bsdd:PropertyDomainName "IFC";
+                                                                                                    bsdd:PropertyNamespaceUri "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/ConcreteCoverAtLinks";
+                                                                                                    bsdd:PropertySet "Pset_ConcreteElementGeneral";
+                                                                                                    bsdd:PropertyStatus "Active";
+                                                                                                    bsdd:PropertyValueKind "Single".
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/ConcreteCoverAtMainBars> bsdd:ClassificationProperty <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall>;
+                                                                                                       bsdd:DataType "Real";
+                                                                                                       bsdd:Description "The protective concrete cover at the main reinforcing bars according to local building regulations.";
+                                                                                                       bsdd:Name "ConcreteCoverAtMainBars";
+                                                                                                       bsdd:PropertyCode "ConcreteCoverAtMainBars";
+                                                                                                       bsdd:PropertyDomainName "IFC";
+                                                                                                       bsdd:PropertyNamespaceUri "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/ConcreteCoverAtMainBars";
+                                                                                                       bsdd:PropertySet "Pset_ConcreteElementGeneral";
+                                                                                                       bsdd:PropertyStatus "Active";
+                                                                                                       bsdd:PropertyValueKind "Single".
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/ConstructionToleranceClass> bsdd:ClassificationProperty <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall>;
+                                                                                                          bsdd:DataType "String";
+                                                                                                          bsdd:Description "Classification designation of the on-site construction tolerances according to local standards.";
+                                                                                                          bsdd:Name "ConstructionToleranceClass";
+                                                                                                          bsdd:PropertyCode "ConstructionToleranceClass";
+                                                                                                          bsdd:PropertyDomainName "IFC";
+                                                                                                          bsdd:PropertyNamespaceUri "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/ConstructionToleranceClass";
+                                                                                                          bsdd:PropertySet "Pset_ConcreteElementGeneral";
+                                                                                                          bsdd:PropertyStatus "Active";
+                                                                                                          bsdd:PropertyValueKind "Single".
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/CornerChamfer> bsdd:ClassificationProperty <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall>;
+                                                                                             bsdd:DataType "Real";
+                                                                                             bsdd:Description "The chamfer in the corners of the precast element. The chamfer is presumed to be equal in both directions.";
+                                                                                             bsdd:Name "CornerChamfer";
+                                                                                             bsdd:PropertyCode "CornerChamfer";
+                                                                                             bsdd:PropertyDomainName "IFC";
+                                                                                             bsdd:PropertyNamespaceUri "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/CornerChamfer";
+                                                                                             bsdd:PropertySet "Pset_PrecastConcreteElementGeneral";
+                                                                                             bsdd:PropertyStatus "Active";
+                                                                                             bsdd:PropertyValueKind "Single".
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/Description> bsdd:ClassificationProperty <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall>;
+                                                                                           bsdd:DataType "String";
+                                                                                           bsdd:Description "The Description of the object.";
+                                                                                           bsdd:Name "Description";
+                                                                                           bsdd:PropertyCode "Description";
+                                                                                           bsdd:PropertyDomainName "IFC";
+                                                                                           bsdd:PropertyNamespaceUri "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/Description";
+                                                                                           bsdd:PropertySet "Pset_ReinforcementBarPitchOfWall";
+                                                                                           bsdd:PropertyStatus "Active";
+                                                                                           bsdd:PropertyValueKind "Single".
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/DesignLocationNumber> bsdd:ClassificationProperty <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall>;
+                                                                                                    bsdd:DataType "String";
+                                                                                                    bsdd:Description "Defines a unique location within a structure, the ‘slot’ for which the piece was designed.";
+                                                                                                    bsdd:Name "DesignLocationNumber";
+                                                                                                    bsdd:PropertyCode "DesignLocationNumber";
+                                                                                                    bsdd:PropertyDomainName "IFC";
+                                                                                                    bsdd:PropertyNamespaceUri "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/DesignLocationNumber";
+                                                                                                    bsdd:PropertySet "Pset_PrecastConcreteElementGeneral";
+                                                                                                    bsdd:PropertyStatus "Active";
+                                                                                                    bsdd:PropertyValueKind "Single".
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/DimensionalAccuracyClass> bsdd:ClassificationProperty <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall>;
+                                                                                                        bsdd:DataType "String";
+                                                                                                        bsdd:Description "Classification designation of the dimensional accuracy requirement according to local standards.";
+                                                                                                        bsdd:Name "DimensionalAccuracyClass";
+                                                                                                        bsdd:PropertyCode "DimensionalAccuracyClass";
+                                                                                                        bsdd:PropertyDomainName "IFC";
+                                                                                                        bsdd:PropertyNamespaceUri "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/DimensionalAccuracyClass";
+                                                                                                        bsdd:PropertySet "Pset_ConcreteElementGeneral";
+                                                                                                        bsdd:PropertyStatus "Active";
+                                                                                                        bsdd:PropertyValueKind "Single".
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/ExposureClass> bsdd:ClassificationProperty <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall>;
+                                                                                             bsdd:DataType "String";
+                                                                                             bsdd:Description "Classification of exposure to environmental conditions, usually specified in accordance with the concrete design code which is applied in the project.";
+                                                                                             bsdd:Name "ExposureClass";
+                                                                                             bsdd:PropertyCode "ExposureClass";
+                                                                                             bsdd:PropertyDomainName "IFC";
+                                                                                             bsdd:PropertyNamespaceUri "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/ExposureClass";
+                                                                                             bsdd:PropertySet "Pset_ConcreteElementGeneral";
+                                                                                             bsdd:PropertyStatus "Active";
+                                                                                             bsdd:PropertyValueKind "Single".
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/ExtendToStructure> bsdd:ClassificationProperty <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall>;
+                                                                                                 bsdd:DataType "Boolean";
+                                                                                                 bsdd:Description "Indicates whether the object extend to the structure above (TRUE) or not (FALSE).";
+                                                                                                 bsdd:Name "ExtendToStructure";
+                                                                                                 bsdd:PropertyCode "ExtendToStructure";
+                                                                                                 bsdd:PropertyDomainName "IFC";
+                                                                                                 bsdd:PropertyNamespaceUri "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/ExtendToStructure";
+                                                                                                 bsdd:PropertySet "Pset_WallCommon";
+                                                                                                 bsdd:PropertyStatus "Active";
+                                                                                                 bsdd:PropertyValueKind "Single".
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/FireRating> bsdd:ClassificationProperty <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall>;
+                                                                                          bsdd:DataType "String";
+                                                                                          bsdd:Description "Fire rating for this object. It is given according to the national fire safety classification.";
+                                                                                          bsdd:Name "FireRating";
+                                                                                          bsdd:PropertyCode "FireRating";
+                                                                                          bsdd:PropertyDomainName "IFC";
+                                                                                          bsdd:PropertyNamespaceUri "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/FireRating";
+                                                                                          bsdd:PropertySet "Pset_WallCommon";
+                                                                                          bsdd:PropertyStatus "Active";
+                                                                                          bsdd:PropertyValueKind "Single".
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/FormStrippingStrength> bsdd:ClassificationProperty <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall>;
+                                                                                                     bsdd:DataType "Real";
+                                                                                                     bsdd:Description "The minimum required compressive strength of the concrete at form stripping time.";
+                                                                                                     bsdd:Name "FormStrippingStrength";
+                                                                                                     bsdd:PropertyCode "FormStrippingStrength";
+                                                                                                     bsdd:PropertyDomainName "IFC";
+                                                                                                     bsdd:PropertyNamespaceUri "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/FormStrippingStrength";
+                                                                                                     bsdd:PropertySet "Pset_PrecastConcreteElementGeneral";
+                                                                                                     bsdd:PropertyStatus "Active";
+                                                                                                     bsdd:PropertyValueKind "Single".
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/GrossFootPrintArea> bsdd:ClassificationProperty <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall>;
+                                                                                                  bsdd:DataType "Real";
+                                                                                                  bsdd:Description "https://github.com/buildingSMART/IFC4.3.x-development/edit/master/docs/properties/g/GrossFootPrintArea.md does not exist";
+                                                                                                  bsdd:Name "GrossFootPrintArea";
+                                                                                                  bsdd:PropertyCode "GrossFootPrintArea";
+                                                                                                  bsdd:PropertyDomainName "IFC";
+                                                                                                  bsdd:PropertyNamespaceUri "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/GrossFootPrintArea";
+                                                                                                  bsdd:PropertySet "Qto_WallBaseQuantities";
+                                                                                                  bsdd:PropertyStatus "Active";
+                                                                                                  bsdd:PropertyValueKind "Single".
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/GrossSideArea> bsdd:ClassificationProperty <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall>;
+                                                                                             bsdd:DataType "Real";
+                                                                                             bsdd:Description "Area of the wall as viewed by an elevation view of the middle plane of the wall.  It does not take into account any wall modifications (such as openings).";
+                                                                                             bsdd:Name "GrossSideArea";
+                                                                                             bsdd:PropertyCode "GrossSideArea";
+                                                                                             bsdd:PropertyDomainName "IFC";
+                                                                                             bsdd:PropertyNamespaceUri "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/GrossSideArea";
+                                                                                             bsdd:PropertySet "Qto_WallBaseQuantities";
+                                                                                             bsdd:PropertyStatus "Active";
+                                                                                             bsdd:PropertyValueKind "Single".
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/GrossVolume> bsdd:ClassificationProperty <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall>;
+                                                                                           bsdd:DataType "Real";
+                                                                                           bsdd:Description "Total gross volume of the object. Openings, recesses, enclosed objects and projections are not taken into account.";
+                                                                                           bsdd:Name "GrossVolume";
+                                                                                           bsdd:PropertyCode "GrossVolume";
+                                                                                           bsdd:PropertyDomainName "IFC";
+                                                                                           bsdd:PropertyNamespaceUri "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/GrossVolume";
+                                                                                           bsdd:PropertySet "Qto_WallBaseQuantities";
+                                                                                           bsdd:PropertyStatus "Active";
+                                                                                           bsdd:PropertyValueKind "Single".
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/GrossWeight> bsdd:ClassificationProperty <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall>;
+                                                                                           bsdd:DataType "Real";
+                                                                                           bsdd:Description "Total Gross Weight of the object without any add-on parts and not taking into account possible processing features (cut-out's, etc.) or openings and recesses.";
+                                                                                           bsdd:Name "GrossWeight";
+                                                                                           bsdd:PropertyCode "GrossWeight";
+                                                                                           bsdd:PropertyDomainName "IFC";
+                                                                                           bsdd:PropertyNamespaceUri "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/GrossWeight";
+                                                                                           bsdd:PropertySet "Qto_WallBaseQuantities";
+                                                                                           bsdd:PropertyStatus "Active";
+                                                                                           bsdd:PropertyValueKind "Single".
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/Height> bsdd:ClassificationProperty <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall>;
+                                                                                      bsdd:DataType "Real";
+                                                                                      bsdd:Description "Characteristic height";
+                                                                                      bsdd:Name "Height";
+                                                                                      bsdd:PropertyCode "Height";
+                                                                                      bsdd:PropertyDomainName "IFC";
+                                                                                      bsdd:PropertyNamespaceUri "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/Height";
+                                                                                      bsdd:PropertySet "Qto_WallBaseQuantities";
+                                                                                      bsdd:PropertyStatus "Active";
+                                                                                      bsdd:PropertyValueKind "Single".
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/HollowCorePlugging> bsdd:ClassificationProperty <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall>;
+                                                                                                  bsdd:DataType "String";
+                                                                                                  bsdd:Description "A descriptive label for how the hollow core ends are treated: they may be left open, closed with a plug, or sealed with cast concrete. Values would be, for example: 'Unplugged', 'Plugged', 'SealedWithConcrete'. This property applies to  hollow core slabs only.";
+                                                                                                  bsdd:Name "HollowCorePlugging";
+                                                                                                  bsdd:PropertyCode "HollowCorePlugging";
+                                                                                                  bsdd:PropertyDomainName "IFC";
+                                                                                                  bsdd:PropertyNamespaceUri "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/HollowCorePlugging";
+                                                                                                  bsdd:PropertySet "Pset_PrecastConcreteElementGeneral";
+                                                                                                  bsdd:PropertyStatus "Active";
+                                                                                                  bsdd:PropertyValueKind "Single".
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/HorizontalBarPitch> bsdd:ClassificationProperty <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall>;
+                                                                                                  bsdd:DataType "Real";
+                                                                                                  bsdd:Description "The pitch length of the horizontal bar.";
+                                                                                                  bsdd:Name "HorizontalBarPitch";
+                                                                                                  bsdd:PropertyCode "HorizontalBarPitch";
+                                                                                                  bsdd:PropertyDomainName "IFC";
+                                                                                                  bsdd:PropertyNamespaceUri "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/HorizontalBarPitch";
+                                                                                                  bsdd:PropertySet "Pset_ReinforcementBarPitchOfWall";
+                                                                                                  bsdd:PropertyStatus "Active";
+                                                                                                  bsdd:PropertyValueKind "Single".
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/InitialTension> bsdd:ClassificationProperty <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall>;
+                                                                                              bsdd:DataType "Real";
+                                                                                              bsdd:Description "The initial stress of the tendon. This property applies to prestressed concrete elements only.";
+                                                                                              bsdd:Name "InitialTension";
+                                                                                              bsdd:PropertyCode "InitialTension";
+                                                                                              bsdd:PropertyDomainName "IFC";
+                                                                                              bsdd:PropertyNamespaceUri "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/InitialTension";
+                                                                                              bsdd:PropertySet "Pset_PrecastConcreteElementGeneral";
+                                                                                              bsdd:PropertyStatus "Active";
+                                                                                              bsdd:PropertyValueKind "Single".
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/IsExternal> bsdd:ClassificationProperty <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall>;
+                                                                                          bsdd:DataType "Boolean";
+                                                                                          bsdd:Description "Indication whether the element is designed for use in the exterior (TRUE) or not (FALSE). If (TRUE) it is an external element and faces the outside of the building.";
+                                                                                          bsdd:Name "IsExternal";
+                                                                                          bsdd:PropertyCode "IsExternal";
+                                                                                          bsdd:PropertyDomainName "IFC";
+                                                                                          bsdd:PropertyNamespaceUri "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/IsExternal";
+                                                                                          bsdd:PropertySet "Pset_WallCommon";
+                                                                                          bsdd:PropertyStatus "Active";
+                                                                                          bsdd:PropertyValueKind "Single".
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/Length> bsdd:ClassificationProperty <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall>;
+                                                                                      bsdd:DataType "Real";
+                                                                                      bsdd:Description "The length of the object.";
+                                                                                      bsdd:Name "Length";
+                                                                                      bsdd:PropertyCode "Length";
+                                                                                      bsdd:PropertyDomainName "IFC";
+                                                                                      bsdd:PropertyNamespaceUri "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/Length";
+                                                                                      bsdd:PropertySet "Qto_WallBaseQuantities";
+                                                                                      bsdd:PropertyStatus "Active";
+                                                                                      bsdd:PropertyValueKind "Single".
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/LiftingStrength> bsdd:ClassificationProperty <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall>;
+                                                                                               bsdd:DataType "Real";
+                                                                                               bsdd:Description "The minimum required compressive strength of the concrete when the concrete element is lifted.";
+                                                                                               bsdd:Name "LiftingStrength";
+                                                                                               bsdd:PropertyCode "LiftingStrength";
+                                                                                               bsdd:PropertyDomainName "IFC";
+                                                                                               bsdd:PropertyNamespaceUri "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/LiftingStrength";
+                                                                                               bsdd:PropertySet "Pset_PrecastConcreteElementGeneral";
+                                                                                               bsdd:PropertyStatus "Active";
+                                                                                               bsdd:PropertyValueKind "Single".
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/LoadBearing> bsdd:ClassificationProperty <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall>;
+                                                                                           bsdd:DataType "Boolean";
+                                                                                           bsdd:Description "Indicates whether the object is intended to carry loads (TRUE) or not (FALSE).";
+                                                                                           bsdd:Name "LoadBearing";
+                                                                                           bsdd:PropertyCode "LoadBearing";
+                                                                                           bsdd:PropertyDomainName "IFC";
+                                                                                           bsdd:PropertyNamespaceUri "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/LoadBearing";
+                                                                                           bsdd:PropertySet "Pset_WallCommon";
+                                                                                           bsdd:PropertyStatus "Active";
+                                                                                           bsdd:PropertyValueKind "Single".
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/ManufacturingToleranceClass> bsdd:ClassificationProperty <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall>;
+                                                                                                           bsdd:DataType "String";
+                                                                                                           bsdd:Description "Classification designation of the manufacturing tolerances according to local standards.";
+                                                                                                           bsdd:Name "ManufacturingToleranceClass";
+                                                                                                           bsdd:PropertyCode "ManufacturingToleranceClass";
+                                                                                                           bsdd:PropertyDomainName "IFC";
+                                                                                                           bsdd:PropertyNamespaceUri "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/ManufacturingToleranceClass";
+                                                                                                           bsdd:PropertySet "Pset_PrecastConcreteElementGeneral";
+                                                                                                           bsdd:PropertyStatus "Active";
+                                                                                                           bsdd:PropertyValueKind "Single".
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/MinimumAllowableSupportLength> bsdd:ClassificationProperty <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall>;
+                                                                                                             bsdd:DataType "Real";
+                                                                                                             bsdd:Description "The minimum allowable support length.";
+                                                                                                             bsdd:Name "MinimumAllowableSupportLength";
+                                                                                                             bsdd:PropertyCode "MinimumAllowableSupportLength";
+                                                                                                             bsdd:PropertyDomainName "IFC";
+                                                                                                             bsdd:PropertyNamespaceUri "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/MinimumAllowableSupportLength";
+                                                                                                             bsdd:PropertySet "Pset_PrecastConcreteElementGeneral";
+                                                                                                             bsdd:PropertyStatus "Active";
+                                                                                                             bsdd:PropertyValueKind "Single".
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/NetFootPrintArea> bsdd:ClassificationProperty <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall>;
+                                                                                                bsdd:DataType "Real";
+                                                                                                bsdd:Description "https://github.com/buildingSMART/IFC4.3.x-development/edit/master/docs/properties/n/NetFootPrintArea.md does not exist";
+                                                                                                bsdd:Name "NetFootPrintArea";
+                                                                                                bsdd:PropertyCode "NetFootPrintArea";
+                                                                                                bsdd:PropertyDomainName "IFC";
+                                                                                                bsdd:PropertyNamespaceUri "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/NetFootPrintArea";
+                                                                                                bsdd:PropertySet "Qto_WallBaseQuantities";
+                                                                                                bsdd:PropertyStatus "Active";
+                                                                                                bsdd:PropertyValueKind "Single".
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/NetSideArea> bsdd:ClassificationProperty <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall>;
+                                                                                           bsdd:DataType "Real";
+                                                                                           bsdd:Description "Area of the object as viewed by an elevation view of the middle plane of the object. It does take into account all object modifications (such as openings).";
+                                                                                           bsdd:Name "NetSideArea";
+                                                                                           bsdd:PropertyCode "NetSideArea";
+                                                                                           bsdd:PropertyDomainName "IFC";
+                                                                                           bsdd:PropertyNamespaceUri "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/NetSideArea";
+                                                                                           bsdd:PropertySet "Qto_WallBaseQuantities";
+                                                                                           bsdd:PropertyStatus "Active";
+                                                                                           bsdd:PropertyValueKind "Single".
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/NetVolume> bsdd:ClassificationProperty <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall>;
+                                                                                         bsdd:DataType "Real";
+                                                                                         bsdd:Description "Total net volume of the object, taking into account possible processing features (cut-out's, etc.) or openings and recesses.";
+                                                                                         bsdd:Name "NetVolume";
+                                                                                         bsdd:PropertyCode "NetVolume";
+                                                                                         bsdd:PropertyDomainName "IFC";
+                                                                                         bsdd:PropertyNamespaceUri "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/NetVolume";
+                                                                                         bsdd:PropertySet "Qto_WallBaseQuantities";
+                                                                                         bsdd:PropertyStatus "Active";
+                                                                                         bsdd:PropertyValueKind "Single".
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/NetWeight> bsdd:ClassificationProperty <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall>;
+                                                                                         bsdd:DataType "Real";
+                                                                                         bsdd:Description "Total net weight of the object without add-on parts, taking into account possible processing features (cut-out's, etc.) or openings and recesses.";
+                                                                                         bsdd:Name "NetWeight";
+                                                                                         bsdd:PropertyCode "NetWeight";
+                                                                                         bsdd:PropertyDomainName "IFC";
+                                                                                         bsdd:PropertyNamespaceUri "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/NetWeight";
+                                                                                         bsdd:PropertySet "Qto_WallBaseQuantities";
+                                                                                         bsdd:PropertyStatus "Active";
+                                                                                         bsdd:PropertyValueKind "Single".
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/PieceMark> bsdd:ClassificationProperty <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall>;
+                                                                                         bsdd:DataType "String";
+                                                                                         bsdd:Description "Defines a unique piece for production purposes. All pieces with the same piece mark value are identical and interchangeable. The piece mark may be composed of sub-parts that have specific locally defined meaning (e.g. B-1A may denote a beam, of generic type ‘1’ and specific shape ‘A’).";
+                                                                                         bsdd:Name "PieceMark";
+                                                                                         bsdd:PropertyCode "PieceMark";
+                                                                                         bsdd:PropertyDomainName "IFC";
+                                                                                         bsdd:PropertyNamespaceUri "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/PieceMark";
+                                                                                         bsdd:PropertySet "Pset_PrecastConcreteElementFabrication",
+                                                                                                          "Pset_PrecastConcreteElementGeneral";
+                                                                                         bsdd:PropertyStatus "Active";
+                                                                                         bsdd:PropertyValueKind "Single".
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/ProductionLotId> bsdd:ClassificationProperty <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall>;
+                                                                                               bsdd:DataType "String";
+                                                                                               bsdd:Description "The manufacturer's production lot identifier.";
+                                                                                               bsdd:Name "ProductionLotId";
+                                                                                               bsdd:PropertyCode "ProductionLotId";
+                                                                                               bsdd:PropertyDomainName "IFC";
+                                                                                               bsdd:PropertyNamespaceUri "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/ProductionLotId";
+                                                                                               bsdd:PropertySet "Pset_PrecastConcreteElementFabrication";
+                                                                                               bsdd:PropertyStatus "Active";
+                                                                                               bsdd:PropertyValueKind "Single".
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/Reference> bsdd:ClassificationProperty <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall>;
+                                                                                         bsdd:DataType "String";
+                                                                                         bsdd:Description """Reference ID for this specified type in this project (e.g. type 'A-1'), Also referred to as \"construction type\". It should be provided as an alternative to the name of the \"object type\", if the software does not support object types and no classification reference to a recognized classification system used.IFC4.3.0.0 DEPRECATION  The Reference property is deprecated and shall no longer be used, use attribute Name on the relating type instead.""";
+                                                                                         bsdd:Name "Reference";
+                                                                                         bsdd:PropertyCode "Reference";
+                                                                                         bsdd:PropertyDomainName "IFC";
+                                                                                         bsdd:PropertyNamespaceUri "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/Reference";
+                                                                                         bsdd:PropertySet "Pset_WallCommon",
+                                                                                                          "Pset_ReinforcementBarPitchOfWall";
+                                                                                         bsdd:PropertyStatus "Active";
+                                                                                         bsdd:PropertyValueKind "Single".
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/ReinforcementAreaRatio> bsdd:ClassificationProperty <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall>;
+                                                                                                      bsdd:DataType "Real";
+                                                                                                      bsdd:Description "The required ratio of the effective area of the reinforcement to the effective area of the concrete At any section of a reinforced concrete structural element.";
+                                                                                                      bsdd:Name "ReinforcementAreaRatio";
+                                                                                                      bsdd:PropertyCode "ReinforcementAreaRatio";
+                                                                                                      bsdd:PropertyDomainName "IFC";
+                                                                                                      bsdd:PropertyNamespaceUri "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/ReinforcementAreaRatio";
+                                                                                                      bsdd:PropertySet "Pset_ConcreteElementGeneral";
+                                                                                                      bsdd:PropertyStatus "Active";
+                                                                                                      bsdd:PropertyValueKind "Single".
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/ReinforcementStrengthClass> bsdd:ClassificationProperty <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall>;
+                                                                                                          bsdd:DataType "String";
+                                                                                                          bsdd:Description "Classification of the reinforcement strength in accordance with the concrete design code which is applied in the project. The reinforcing strength class often combines strength and ductility.";
+                                                                                                          bsdd:Name "ReinforcementStrengthClass";
+                                                                                                          bsdd:PropertyCode "ReinforcementStrengthClass";
+                                                                                                          bsdd:PropertyDomainName "IFC";
+                                                                                                          bsdd:PropertyNamespaceUri "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/ReinforcementStrengthClass";
+                                                                                                          bsdd:PropertySet "Pset_ConcreteElementGeneral";
+                                                                                                          bsdd:PropertyStatus "Active";
+                                                                                                          bsdd:PropertyValueKind "Single".
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/ReinforcementVolumeRatio> bsdd:ClassificationProperty <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall>;
+                                                                                                        bsdd:DataType "Real";
+                                                                                                        bsdd:Description "The required ratio of the effective mass of the reinforcement to the effective volume of the concrete of a reinforced concrete structural element.";
+                                                                                                        bsdd:Name "ReinforcementVolumeRatio";
+                                                                                                        bsdd:PropertyCode "ReinforcementVolumeRatio";
+                                                                                                        bsdd:PropertyDomainName "IFC";
+                                                                                                        bsdd:PropertyNamespaceUri "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/ReinforcementVolumeRatio";
+                                                                                                        bsdd:PropertySet "Pset_ConcreteElementGeneral";
+                                                                                                        bsdd:PropertyStatus "Active";
+                                                                                                        bsdd:PropertyValueKind "Single".
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/ReleaseStrength> bsdd:ClassificationProperty <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall>;
+                                                                                               bsdd:DataType "Real";
+                                                                                               bsdd:Description "The minimum required compressive strength of the concrete when the tendon stress is released. This property applies to prestressed concrete elements only.";
+                                                                                               bsdd:Name "ReleaseStrength";
+                                                                                               bsdd:PropertyCode "ReleaseStrength";
+                                                                                               bsdd:PropertyDomainName "IFC";
+                                                                                               bsdd:PropertyNamespaceUri "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/ReleaseStrength";
+                                                                                               bsdd:PropertySet "Pset_PrecastConcreteElementGeneral";
+                                                                                               bsdd:PropertyStatus "Active";
+                                                                                               bsdd:PropertyValueKind "Single".
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/SerialNumber> bsdd:ClassificationProperty <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall>;
+                                                                                            bsdd:DataType "String";
+                                                                                            bsdd:Description "The manufacturer's serial number assigned to an occurrence of a product.";
+                                                                                            bsdd:Name "SerialNumber";
+                                                                                            bsdd:PropertyCode "SerialNumber";
+                                                                                            bsdd:PropertyDomainName "IFC";
+                                                                                            bsdd:PropertyNamespaceUri "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/SerialNumber";
+                                                                                            bsdd:PropertySet "Pset_PrecastConcreteElementFabrication";
+                                                                                            bsdd:PropertyStatus "Active";
+                                                                                            bsdd:PropertyValueKind "Single".
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/Shortening> bsdd:ClassificationProperty <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall>;
+                                                                                          bsdd:DataType "Real";
+                                                                                          bsdd:Description "The ratio of the distance by which a precast piece is shortened after release from its form (due to compression induced by prestressing) to its original (nominal) length.";
+                                                                                          bsdd:Name "Shortening";
+                                                                                          bsdd:PropertyCode "Shortening";
+                                                                                          bsdd:PropertyDomainName "IFC";
+                                                                                          bsdd:PropertyNamespaceUri "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/Shortening";
+                                                                                          bsdd:PropertySet "Pset_PrecastConcreteElementGeneral";
+                                                                                          bsdd:PropertyStatus "Active";
+                                                                                          bsdd:PropertyValueKind "Single".
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/SpacingBarPitch> bsdd:ClassificationProperty <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall>;
+                                                                                               bsdd:DataType "Real";
+                                                                                               bsdd:Description "The pitch length of the spacing bar.";
+                                                                                               bsdd:Name "SpacingBarPitch";
+                                                                                               bsdd:PropertyCode "SpacingBarPitch";
+                                                                                               bsdd:PropertyDomainName "IFC";
+                                                                                               bsdd:PropertyNamespaceUri "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/SpacingBarPitch";
+                                                                                               bsdd:PropertySet "Pset_ReinforcementBarPitchOfWall";
+                                                                                               bsdd:PropertyStatus "Active";
+                                                                                               bsdd:PropertyValueKind "Single".
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/Status> bsdd:ClassificationProperty <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall>;
+                                                                                      bsdd:DataType "String";
+                                                                                      bsdd:Description """Status of the element, predominately used in renovation or retrofitting projects. The status can be assigned to as \"New\" - element designed as new addition, \"Existing\" - element exists and remains, \"Demolish\" - element existed but is to be demolished,  \"Temporary\" - element will exists only temporary (like a temporary support structure).""";
+                                                                                      bsdd:Name "Status";
+                                                                                      bsdd:PropertyCode "Status";
+                                                                                      bsdd:PropertyDomainName "IFC";
+                                                                                      bsdd:PropertyNamespaceUri "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/Status";
+                                                                                      bsdd:PropertySet "Pset_WallCommon";
+                                                                                      bsdd:PropertyStatus "Active";
+                                                                                      bsdd:PropertyValueKind "Single".
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/StrengthClass> bsdd:ClassificationProperty <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall>;
+                                                                                             bsdd:DataType "String";
+                                                                                             bsdd:Description "Classification of the concrete strength in accordance with the concrete design code which is applied in the project.";
+                                                                                             bsdd:Name "StrengthClass";
+                                                                                             bsdd:PropertyCode "StrengthClass";
+                                                                                             bsdd:PropertyDomainName "IFC";
+                                                                                             bsdd:PropertyNamespaceUri "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/StrengthClass";
+                                                                                             bsdd:PropertySet "Pset_ConcreteElementGeneral";
+                                                                                             bsdd:PropertyStatus "Active";
+                                                                                             bsdd:PropertyValueKind "Single".
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/StructuralClass> bsdd:ClassificationProperty <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall>;
+                                                                                               bsdd:DataType "String";
+                                                                                               bsdd:Description "The structural class defined for the concrete structure (e.g. '1').";
+                                                                                               bsdd:Name "StructuralClass";
+                                                                                               bsdd:PropertyCode "StructuralClass";
+                                                                                               bsdd:PropertyDomainName "IFC";
+                                                                                               bsdd:PropertyNamespaceUri "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/StructuralClass";
+                                                                                               bsdd:PropertySet "Pset_ConcreteElementGeneral";
+                                                                                               bsdd:PropertyStatus "Active";
+                                                                                               bsdd:PropertyValueKind "Single".
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/SupportDuringTransportDescription> bsdd:ClassificationProperty <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall>;
+                                                                                                                 bsdd:DataType "String";
+                                                                                                                 bsdd:Description "Textual description of how the concrete element is supported during transportation.";
+                                                                                                                 bsdd:Name "SupportDuringTransportDescription";
+                                                                                                                 bsdd:PropertyCode "SupportDuringTransportDescription";
+                                                                                                                 bsdd:PropertyDomainName "IFC";
+                                                                                                                 bsdd:PropertyNamespaceUri "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/SupportDuringTransportDescription";
+                                                                                                                 bsdd:PropertySet "Pset_PrecastConcreteElementGeneral";
+                                                                                                                 bsdd:PropertyStatus "Active";
+                                                                                                                 bsdd:PropertyValueKind "Single".
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/SurfaceSpreadOfFlame> bsdd:ClassificationProperty <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall>;
+                                                                                                    bsdd:DataType "String";
+                                                                                                    bsdd:Description """Indication on how the flames spread around the surface,
+It is given according to the national building code that governs the fire behaviour for materials.""";
+                                                                                                    bsdd:Name "SurfaceSpreadOfFlame";
+                                                                                                    bsdd:PropertyCode "SurfaceSpreadOfFlame";
+                                                                                                    bsdd:PropertyDomainName "IFC";
+                                                                                                    bsdd:PropertyNamespaceUri "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/SurfaceSpreadOfFlame";
+                                                                                                    bsdd:PropertySet "Pset_WallCommon";
+                                                                                                    bsdd:PropertyStatus "Active";
+                                                                                                    bsdd:PropertyValueKind "Single".
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/TendonRelaxation> bsdd:ClassificationProperty <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall>;
+                                                                                                bsdd:DataType "Real";
+                                                                                                bsdd:Description "The maximum allowable relaxation of the tendon (usually expressed as %/1000 h).This property applies to prestressed concrete elements only.";
+                                                                                                bsdd:Name "TendonRelaxation";
+                                                                                                bsdd:PropertyCode "TendonRelaxation";
+                                                                                                bsdd:PropertyDomainName "IFC";
+                                                                                                bsdd:PropertyNamespaceUri "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/TendonRelaxation";
+                                                                                                bsdd:PropertySet "Pset_PrecastConcreteElementGeneral";
+                                                                                                bsdd:PropertyStatus "Active";
+                                                                                                bsdd:PropertyValueKind "Single".
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/ThermalTransmittance> bsdd:ClassificationProperty <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall>;
+                                                                                                    bsdd:DataType "Real";
+                                                                                                    bsdd:Description "Thermal transmittance coefficient (U-Value) of an element, within the direction of the thermal flow (including all materials).";
+                                                                                                    bsdd:Name "ThermalTransmittance";
+                                                                                                    bsdd:PropertyCode "ThermalTransmittance";
+                                                                                                    bsdd:PropertyDomainName "IFC";
+                                                                                                    bsdd:PropertyNamespaceUri "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/ThermalTransmittance";
+                                                                                                    bsdd:PropertySet "Pset_WallCommon";
+                                                                                                    bsdd:PropertyStatus "Active";
+                                                                                                    bsdd:PropertyValueKind "Single".
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/TransportationStrength> bsdd:ClassificationProperty <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall>;
+                                                                                                      bsdd:DataType "Real";
+                                                                                                      bsdd:Description "The minimum required compressive strength of the concrete required for transportation.";
+                                                                                                      bsdd:Name "TransportationStrength";
+                                                                                                      bsdd:PropertyCode "TransportationStrength";
+                                                                                                      bsdd:PropertyDomainName "IFC";
+                                                                                                      bsdd:PropertyNamespaceUri "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/TransportationStrength";
+                                                                                                      bsdd:PropertySet "Pset_PrecastConcreteElementGeneral";
+                                                                                                      bsdd:PropertyStatus "Active";
+                                                                                                      bsdd:PropertyValueKind "Single".
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/Twisting> bsdd:ClassificationProperty <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall>;
+                                                                                        bsdd:DataType "Real";
+                                                                                        bsdd:Description "The angle, in radians, through which the end face of a precast piece is rotated with respect to its starting face, along its longitudinal axis, as a result of non-aligned supports. This measure is also termed the ‘warping’ angle.";
+                                                                                        bsdd:Name "Twisting";
+                                                                                        bsdd:PropertyCode "Twisting";
+                                                                                        bsdd:PropertyDomainName "IFC";
+                                                                                        bsdd:PropertyNamespaceUri "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/Twisting";
+                                                                                        bsdd:PropertySet "Pset_PrecastConcreteElementGeneral";
+                                                                                        bsdd:PropertyStatus "Active";
+                                                                                        bsdd:PropertyValueKind "Single".
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/TypeDesignation> bsdd:ClassificationProperty <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall>;
+                                                                                               bsdd:DataType "String";
+                                                                                               bsdd:Description "Type designator for the element. The content depends on local standards. Eg. 'Bull nose', 'Half batter', 'Dropper', 'Chamfer' etc";
+                                                                                               bsdd:Name "TypeDesignation";
+                                                                                               bsdd:PropertyCode "TypeDesignation";
+                                                                                               bsdd:PropertyDomainName "IFC";
+                                                                                               bsdd:PropertyNamespaceUri "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/TypeDesignation";
+                                                                                               bsdd:PropertySet "Pset_PrecastConcreteElementFabrication",
+                                                                                                                "Pset_PrecastConcreteElementGeneral";
+                                                                                               bsdd:PropertyStatus "Active";
+                                                                                               bsdd:PropertyValueKind "Single".
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/VerticalBarPitch> bsdd:ClassificationProperty <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall>;
+                                                                                                bsdd:DataType "Real";
+                                                                                                bsdd:Description "The pitch length of the vertical bar.";
+                                                                                                bsdd:Name "VerticalBarPitch";
+                                                                                                bsdd:PropertyCode "VerticalBarPitch";
+                                                                                                bsdd:PropertyDomainName "IFC";
+                                                                                                bsdd:PropertyNamespaceUri "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/VerticalBarPitch";
+                                                                                                bsdd:PropertySet "Pset_ReinforcementBarPitchOfWall";
+                                                                                                bsdd:PropertyStatus "Active";
+                                                                                                bsdd:PropertyValueKind "Single".
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/Width> bsdd:ClassificationProperty <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall>;
+                                                                                     bsdd:DataType "Real";
+                                                                                     bsdd:Description "The width of the object. Only given, if the object has constant thickness (prismatic).";
+                                                                                     bsdd:Name "Width";
+                                                                                     bsdd:PropertyCode "Width";
+                                                                                     bsdd:PropertyDomainName "IFC";
+                                                                                     bsdd:PropertyNamespaceUri "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/Width";
+                                                                                     bsdd:PropertySet "Qto_WallBaseQuantities";
+                                                                                     bsdd:PropertyStatus "Active";
+                                                                                     bsdd:PropertyValueKind "Single".

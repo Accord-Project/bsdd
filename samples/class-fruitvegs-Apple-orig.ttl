@@ -1,0 +1,49 @@
+@base <https://identifier.buildingsmart.org/uri/bs-agri/fruitvegs-1.0/class/apple>.
+
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix bsdd: <http://bsdd.buildingsmart.org/def#>.
+@prefix qudtUnit: <http://qudt.org/vocab/unit/>.
+@prefix fruitvegs1_0: <https://identifier.buildingsmart.org/uri/bs-agri/fruitvegs-1.0>.
+
+<https://identifier.buildingsmart.org/uri/bs-agri/fruitvegs-1.0/class/apple> bsdd:ActivationDateUtc "2022-09-26";
+                                                                             bsdd:Code "apple";
+                                                                             bsdd:CreatorLanguageCode "en-GB";
+                                                                             bsdd:Definition "The round fruit of a tree of the rose family, which typically has thin green or red skin and crisp flesh";
+                                                                             bsdd:Domain fruitvegs1_0:;
+                                                                             bsdd:Name "Apple";
+                                                                             bsdd:ReferenceCode "apple";
+                                                                             bsdd:Status "Active";
+                                                                             bsdd:VersionDateUtc "2022-09-26";
+                                                                             <http://bsdd.buildingsmart.org/relation/def#HasReference> <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCommunicationAppliance>;
+                                                                             a bsdd:Classification.
+<https://identifier.buildingsmart.org/uri/bs-agri/fruitvegs-1.0/class/apple/height> bsdd:ClassificationProperty <https://identifier.buildingsmart.org/uri/bs-agri/fruitvegs-1.0/class/apple>;
+                                                                                    bsdd:DataType "Real";
+                                                                                    bsdd:Description "The height of an apple";
+                                                                                    bsdd:Dimension "1 0 0 0 0 0 0";
+                                                                                    bsdd:Name "Height";
+                                                                                    bsdd:PhysicalQuantity "Height";
+                                                                                    bsdd:PropertyCode "height";
+                                                                                    bsdd:PropertyDomainName "Fruit and vegetables";
+                                                                                    bsdd:PropertyNamespaceUri "https://identifier.buildingsmart.org/uri/bs-agri/fruitvegs-1.0/prop/height";
+                                                                                    bsdd:PropertySet "SizeSet";
+                                                                                    bsdd:PropertyStatus "Active";
+                                                                                    bsdd:PropertyValueKind "Single";
+                                                                                    bsdd:QudtUnit qudtUnit:CentiM;
+                                                                                    bsdd:Unit "cm".
+<https://identifier.buildingsmart.org/uri/bs-agri/fruitvegs-1.0/class/apple/volume> bsdd:ClassificationProperty <https://identifier.buildingsmart.org/uri/bs-agri/fruitvegs-1.0/class/apple>;
+                                                                                    bsdd:DataType "Real";
+                                                                                    bsdd:Description "The volume of an apple";
+                                                                                    bsdd:Dimension "3 0 0 0 0 0 0";
+                                                                                    bsdd:Example "For example, the space that a substance or 3D shape occupies or contains.";
+                                                                                    bsdd:Name "Volume";
+                                                                                    bsdd:PhysicalQuantity "Volume";
+                                                                                    bsdd:PropertyCode "volume";
+                                                                                    bsdd:PropertyDomainName "Fruit and vegetables";
+                                                                                    bsdd:PropertyNamespaceUri "https://identifier.buildingsmart.org/uri/bs-agri/fruitvegs-1.0/prop/volume";
+                                                                                    bsdd:PropertySet "SizeSet";
+                                                                                    bsdd:PropertyStatus "Active";
+                                                                                    bsdd:PropertyValueKind "Single";
+                                                                                    bsdd:QudtUnit qudtUnit:CentiM3;
+                                                                                    bsdd:Unit "cm³".

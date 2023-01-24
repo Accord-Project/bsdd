@@ -1,4 +1,5 @@
 {
+  "__typename": "Classification",
   "referenceCode": "IfcWall",
   "parentClassificationReference": {
     "namespaceUri": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcBuiltElement",
@@ -7,6 +8,7 @@
   },
   "classificationProperties": [
     {
+      "__typename": "ClassificationProperty",
       "name": "AcousticRating",
       "description": "Acoustic rating for this object.\nIt is provided according to the national building code. It indicates the sound transmission resistance of this object by an index ratio (instead of providing full sound absorption values).",
       "dataType": "String",
@@ -18,6 +20,7 @@
       "propertyValueKind": "Single"
     },
     {
+      "__typename": "ClassificationProperty",
       "name": "Combustible",
       "description": "Indication whether the object is made from combustible material (TRUE) or not (FALSE).",
       "dataType": "Boolean",
@@ -29,6 +32,7 @@
       "propertyValueKind": "Single"
     },
     {
+      "__typename": "ClassificationProperty",
       "name": "Compartmentation",
       "description": "Indication whether the object is designed to serve as a fire compartmentation (TRUE) or not (FALSE).",
       "dataType": "Boolean",
@@ -40,6 +44,7 @@
       "propertyValueKind": "Single"
     },
     {
+      "__typename": "ClassificationProperty",
       "name": "ExtendToStructure",
       "description": "Indicates whether the object extend to the structure above (TRUE) or not (FALSE).",
       "dataType": "Boolean",
@@ -51,6 +56,7 @@
       "propertyValueKind": "Single"
     },
     {
+      "__typename": "ClassificationProperty",
       "name": "FireRating",
       "description": "Fire rating for this object. It is given according to the national fire safety classification.",
       "dataType": "String",
@@ -62,6 +68,7 @@
       "propertyValueKind": "Single"
     },
     {
+      "__typename": "ClassificationProperty",
       "name": "IsExternal",
       "description": "Indication whether the element is designed for use in the exterior (TRUE) or not (FALSE). If (TRUE) it is an external element and faces the outside of the building.",
       "dataType": "Boolean",
@@ -73,6 +80,7 @@
       "propertyValueKind": "Single"
     },
     {
+      "__typename": "ClassificationProperty",
       "name": "LoadBearing",
       "description": "Indicates whether the object is intended to carry loads (TRUE) or not (FALSE).",
       "dataType": "Boolean",
@@ -84,6 +92,7 @@
       "propertyValueKind": "Single"
     },
     {
+      "__typename": "ClassificationProperty",
       "name": "Reference",
       "description": "Reference ID for this specified type in this project (e.g. type 'A-1'), Also referred to as \"construction type\". It should be provided as an alternative to the name of the \"object type\", if the software does not support object types and no classification reference to a recognized classification system used.IFC4.3.0.0 DEPRECATION  The Reference property is deprecated and shall no longer be used, use attribute Name on the relating type instead.",
       "dataType": "String",
@@ -95,35 +104,43 @@
       "propertyValueKind": "Single"
     },
     {
+      "__typename": "ClassificationProperty",
       "name": "Status",
       "description": "Status of the element, predominately used in renovation or retrofitting projects. The status can be assigned to as \"New\" - element designed as new addition, \"Existing\" - element exists and remains, \"Demolish\" - element existed but is to be demolished,  \"Temporary\" - element will exists only temporary (like a temporary support structure).",
       "dataType": "String",
       "possibleValues": [
         {
+          "__typename": "ClassificationProperty",
           "code": "DEMOLISH",
           "value": "DEMOLISH"
         },
         {
+          "__typename": "ClassificationProperty",
           "code": "EXISTING",
           "value": "EXISTING"
         },
         {
+          "__typename": "ClassificationProperty",
           "code": "NEW",
           "value": "NEW"
         },
         {
+          "__typename": "ClassificationProperty",
           "code": "NOTKNOWN",
           "value": "NOTKNOWN"
         },
         {
+          "__typename": "ClassificationProperty",
           "code": "OTHER",
           "value": "OTHER"
         },
         {
+          "__typename": "ClassificationProperty",
           "code": "TEMPORARY",
           "value": "TEMPORARY"
         },
         {
+          "__typename": "ClassificationProperty",
           "code": "UNSET",
           "value": "UNSET"
         }
@@ -136,6 +153,7 @@
       "propertyValueKind": "Single"
     },
     {
+      "__typename": "ClassificationProperty",
       "name": "SurfaceSpreadOfFlame",
       "description": "Indication on how the flames spread around the surface,\nIt is given according to the national building code that governs the fire behaviour for materials.",
       "dataType": "String",
@@ -147,6 +165,7 @@
       "propertyValueKind": "Single"
     },
     {
+      "__typename": "ClassificationProperty",
       "name": "ThermalTransmittance",
       "description": "Thermal transmittance coefficient (U-Value) of an element, within the direction of the thermal flow (including all materials).",
       "dataType": "Real",
@@ -158,6 +177,7 @@
       "propertyValueKind": "Single"
     },
     {
+      "__typename": "ClassificationProperty",
       "name": "GrossFootPrintArea",
       "description": "https://github.com/buildingSMART/IFC4.3.x-development/edit/master/docs/properties/g/GrossFootPrintArea.md does not exist",
       "dataType": "Real",
@@ -169,6 +189,7 @@
       "propertyValueKind": "Single"
     },
     {
+      "__typename": "ClassificationProperty",
       "name": "GrossSideArea",
       "description": "Area of the wall as viewed by an elevation view of the middle plane of the wall.  It does not take into account any wall modifications (such as openings).",
       "dataType": "Real",
@@ -180,6 +201,7 @@
       "propertyValueKind": "Single"
     },
     {
+      "__typename": "ClassificationProperty",
       "name": "GrossVolume",
       "description": "Total gross volume of the object. Openings, recesses, enclosed objects and projections are not taken into account.",
       "dataType": "Real",
@@ -191,6 +213,7 @@
       "propertyValueKind": "Single"
     },
     {
+      "__typename": "ClassificationProperty",
       "name": "GrossWeight",
       "description": "Total Gross Weight of the object without any add-on parts and not taking into account possible processing features (cut-out's, etc.) or openings and recesses.",
       "dataType": "Real",
@@ -202,6 +225,7 @@
       "propertyValueKind": "Single"
     },
     {
+      "__typename": "ClassificationProperty",
       "name": "Height",
       "description": "Characteristic height",
       "dataType": "Real",
@@ -213,6 +237,7 @@
       "propertyValueKind": "Single"
     },
     {
+      "__typename": "ClassificationProperty",
       "name": "Length",
       "description": "The length of the object.",
       "dataType": "Real",
@@ -224,6 +249,7 @@
       "propertyValueKind": "Single"
     },
     {
+      "__typename": "ClassificationProperty",
       "name": "NetFootPrintArea",
       "description": "https://github.com/buildingSMART/IFC4.3.x-development/edit/master/docs/properties/n/NetFootPrintArea.md does not exist",
       "dataType": "Real",
@@ -235,6 +261,7 @@
       "propertyValueKind": "Single"
     },
     {
+      "__typename": "ClassificationProperty",
       "name": "NetSideArea",
       "description": "Area of the object as viewed by an elevation view of the middle plane of the object. It does take into account all object modifications (such as openings).",
       "dataType": "Real",
@@ -246,6 +273,7 @@
       "propertyValueKind": "Single"
     },
     {
+      "__typename": "ClassificationProperty",
       "name": "NetVolume",
       "description": "Total net volume of the object, taking into account possible processing features (cut-out's, etc.) or openings and recesses.",
       "dataType": "Real",
@@ -257,6 +285,7 @@
       "propertyValueKind": "Single"
     },
     {
+      "__typename": "ClassificationProperty",
       "name": "NetWeight",
       "description": "Total net weight of the object without add-on parts, taking into account possible processing features (cut-out's, etc.) or openings and recesses.",
       "dataType": "Real",
@@ -268,6 +297,7 @@
       "propertyValueKind": "Single"
     },
     {
+      "__typename": "ClassificationProperty",
       "name": "Width",
       "description": "The width of the object. Only given, if the object has constant thickness (prismatic).",
       "dataType": "Real",
@@ -279,31 +309,38 @@
       "propertyValueKind": "Single"
     },
     {
+      "__typename": "ClassificationProperty",
       "name": "AssemblyPlace",
       "description": "Enumeration defining where the assembly is intended to take place, either in a factory, other offsite location or on the building site.",
       "dataType": "String",
       "possibleValues": [
         {
+          "__typename": "ClassificationProperty",
           "code": "FACTORY",
           "value": "FACTORY"
         },
         {
+          "__typename": "ClassificationProperty",
           "code": "NOTKNOWN",
           "value": "NOTKNOWN"
         },
         {
+          "__typename": "ClassificationProperty",
           "code": "OFFSITE",
           "value": "OFFSITE"
         },
         {
+          "__typename": "ClassificationProperty",
           "code": "OTHER",
           "value": "OTHER"
         },
         {
+          "__typename": "ClassificationProperty",
           "code": "SITE",
           "value": "SITE"
         },
         {
+          "__typename": "ClassificationProperty",
           "code": "UNSET",
           "value": "UNSET"
         }
@@ -316,35 +353,43 @@
       "propertyValueKind": "Single"
     },
     {
+      "__typename": "ClassificationProperty",
       "name": "CastingMethod",
       "description": "The method of casting the concrete into its designed form.",
       "dataType": "String",
       "possibleValues": [
         {
+          "__typename": "ClassificationProperty",
           "code": "INSITU",
           "value": "INSITU"
         },
         {
+          "__typename": "ClassificationProperty",
           "code": "PRECAST",
           "value": "PRECAST"
         },
         {
+          "__typename": "ClassificationProperty",
           "code": "PRINTED",
           "value": "PRINTED"
         },
         {
+          "__typename": "ClassificationProperty",
           "code": "MIXED",
           "value": "MIXED"
         },
         {
+          "__typename": "ClassificationProperty",
           "code": "OTHER",
           "value": "OTHER"
         },
         {
+          "__typename": "ClassificationProperty",
           "code": "NOTKNOWN",
           "value": "NOTKNOWN"
         },
         {
+          "__typename": "ClassificationProperty",
           "code": "UNSET",
           "value": "UNSET"
         }
@@ -357,6 +402,7 @@
       "propertyValueKind": "Single"
     },
     {
+      "__typename": "ClassificationProperty",
       "name": "ConcreteCover",
       "description": "The protective concrete cover at the reinforcing bars according to local building regulations.",
       "dataType": "Real",
@@ -368,6 +414,7 @@
       "propertyValueKind": "Single"
     },
     {
+      "__typename": "ClassificationProperty",
       "name": "ConcreteCoverAtLinks",
       "description": "The protective concrete cover at the reinforcement links according to local building regulations.",
       "dataType": "Real",
@@ -379,6 +426,7 @@
       "propertyValueKind": "Single"
     },
     {
+      "__typename": "ClassificationProperty",
       "name": "ConcreteCoverAtMainBars",
       "description": "The protective concrete cover at the main reinforcing bars according to local building regulations.",
       "dataType": "Real",
@@ -390,6 +438,7 @@
       "propertyValueKind": "Single"
     },
     {
+      "__typename": "ClassificationProperty",
       "name": "ConstructionToleranceClass",
       "description": "Classification designation of the on-site construction tolerances according to local standards.",
       "dataType": "String",
@@ -401,6 +450,7 @@
       "propertyValueKind": "Single"
     },
     {
+      "__typename": "ClassificationProperty",
       "name": "DimensionalAccuracyClass",
       "description": "Classification designation of the dimensional accuracy requirement according to local standards.",
       "dataType": "String",
@@ -412,6 +462,7 @@
       "propertyValueKind": "Single"
     },
     {
+      "__typename": "ClassificationProperty",
       "name": "ExposureClass",
       "description": "Classification of exposure to environmental conditions, usually specified in accordance with the concrete design code which is applied in the project.",
       "dataType": "String",
@@ -423,6 +474,7 @@
       "propertyValueKind": "Single"
     },
     {
+      "__typename": "ClassificationProperty",
       "name": "ReinforcementAreaRatio",
       "description": "The required ratio of the effective area of the reinforcement to the effective area of the concrete At any section of a reinforced concrete structural element.",
       "dataType": "Real",
@@ -434,6 +486,7 @@
       "propertyValueKind": "Single"
     },
     {
+      "__typename": "ClassificationProperty",
       "name": "ReinforcementStrengthClass",
       "description": "Classification of the reinforcement strength in accordance with the concrete design code which is applied in the project. The reinforcing strength class often combines strength and ductility.",
       "dataType": "String",
@@ -445,6 +498,7 @@
       "propertyValueKind": "Single"
     },
     {
+      "__typename": "ClassificationProperty",
       "name": "ReinforcementVolumeRatio",
       "description": "The required ratio of the effective mass of the reinforcement to the effective volume of the concrete of a reinforced concrete structural element.",
       "dataType": "Real",
@@ -456,6 +510,7 @@
       "propertyValueKind": "Single"
     },
     {
+      "__typename": "ClassificationProperty",
       "name": "StrengthClass",
       "description": "Classification of the concrete strength in accordance with the concrete design code which is applied in the project.",
       "dataType": "String",
@@ -467,6 +522,7 @@
       "propertyValueKind": "Single"
     },
     {
+      "__typename": "ClassificationProperty",
       "name": "StructuralClass",
       "description": "The structural class defined for the concrete structure (e.g. '1').",
       "dataType": "String",
@@ -478,6 +534,7 @@
       "propertyValueKind": "Single"
     },
     {
+      "__typename": "ClassificationProperty",
       "name": "ActualErectionDate",
       "description": "Date erected.",
       "dataType": "String",
@@ -489,6 +546,7 @@
       "propertyValueKind": "Single"
     },
     {
+      "__typename": "ClassificationProperty",
       "name": "ActualProductionDate",
       "description": "Production date (stripped from form).",
       "dataType": "String",
@@ -500,6 +558,7 @@
       "propertyValueKind": "Single"
     },
     {
+      "__typename": "ClassificationProperty",
       "name": "AsBuiltLocationNumber",
       "description": "Defines a unique location within a structure, the \u2018slot\u2019 into which the piece was installed. Where pieces share the same piece mark, they can be interchanged. The value is only known after erection.",
       "dataType": "String",
@@ -511,6 +570,7 @@
       "propertyValueKind": "Single"
     },
     {
+      "__typename": "ClassificationProperty",
       "name": "PieceMark",
       "description": "Defines a unique piece for production purposes. All pieces with the same piece mark value are identical and interchangeable. The piece mark may be composed of sub-parts that have specific locally defined meaning (e.g. B-1A may denote a beam, of generic type \u20181\u2019 and specific shape \u2018A\u2019).",
       "dataType": "String",
@@ -522,6 +582,7 @@
       "propertyValueKind": "Single"
     },
     {
+      "__typename": "ClassificationProperty",
       "name": "ProductionLotId",
       "description": "The manufacturer's production lot identifier.",
       "dataType": "String",
@@ -533,6 +594,7 @@
       "propertyValueKind": "Single"
     },
     {
+      "__typename": "ClassificationProperty",
       "name": "SerialNumber",
       "description": "The manufacturer's serial number assigned to an occurrence of a product.",
       "dataType": "String",
@@ -544,6 +606,7 @@
       "propertyValueKind": "Single"
     },
     {
+      "__typename": "ClassificationProperty",
       "name": "TypeDesignation",
       "description": "Type designator for the element. The content depends on local standards. Eg. 'Bull nose', 'Half batter', 'Dropper', 'Chamfer' etc",
       "dataType": "String",
@@ -555,6 +618,7 @@
       "propertyValueKind": "Single"
     },
     {
+      "__typename": "ClassificationProperty",
       "name": "BatterAtEnd",
       "description": "The angle, in radians, by which the formwork at the ending face of a piece is to be rotated from the vertical in order to compensate for the rotation of the face that will occur once the piece is stripped from its form, inducing camber due to eccentric prestressing.",
       "dataType": "Real",
@@ -566,6 +630,7 @@
       "propertyValueKind": "Single"
     },
     {
+      "__typename": "ClassificationProperty",
       "name": "BatterAtStart",
       "description": "The angle, in radians, by which the formwork at the starting face of a piece is to be rotated from the vertical in order to compensate for the rotation of the face that will occur once the piece is stripped from its form, inducing camber due to eccentric prestressing.",
       "dataType": "Real",
@@ -577,6 +642,7 @@
       "propertyValueKind": "Single"
     },
     {
+      "__typename": "ClassificationProperty",
       "name": "CamberAtMidspan",
       "description": "The camber deflection, measured from the midpoint of a cambered face of a piece to the midpoint of the chord joining the ends of the same face, as shown in the figure below, divided by the original (nominal) straight length of the face of the piece.",
       "dataType": "Real",
@@ -588,6 +654,7 @@
       "propertyValueKind": "Single"
     },
     {
+      "__typename": "ClassificationProperty",
       "name": "CornerChamfer",
       "description": "The chamfer in the corners of the precast element. The chamfer is presumed to be equal in both directions.",
       "dataType": "Real",
@@ -599,6 +666,7 @@
       "propertyValueKind": "Single"
     },
     {
+      "__typename": "ClassificationProperty",
       "name": "DesignLocationNumber",
       "description": "Defines a unique location within a structure, the \u2018slot\u2019 for which the piece was designed.",
       "dataType": "String",
@@ -610,6 +678,7 @@
       "propertyValueKind": "Single"
     },
     {
+      "__typename": "ClassificationProperty",
       "name": "FormStrippingStrength",
       "description": "The minimum required compressive strength of the concrete at form stripping time.",
       "dataType": "Real",
@@ -621,6 +690,7 @@
       "propertyValueKind": "Single"
     },
     {
+      "__typename": "ClassificationProperty",
       "name": "HollowCorePlugging",
       "description": "A descriptive label for how the hollow core ends are treated: they may be left open, closed with a plug, or sealed with cast concrete. Values would be, for example: 'Unplugged', 'Plugged', 'SealedWithConcrete'. This property applies to  hollow core slabs only.",
       "dataType": "String",
@@ -632,6 +702,7 @@
       "propertyValueKind": "Single"
     },
     {
+      "__typename": "ClassificationProperty",
       "name": "InitialTension",
       "description": "The initial stress of the tendon. This property applies to prestressed concrete elements only.",
       "dataType": "Real",
@@ -643,6 +714,7 @@
       "propertyValueKind": "Single"
     },
     {
+      "__typename": "ClassificationProperty",
       "name": "LiftingStrength",
       "description": "The minimum required compressive strength of the concrete when the concrete element is lifted.",
       "dataType": "Real",
@@ -654,6 +726,7 @@
       "propertyValueKind": "Single"
     },
     {
+      "__typename": "ClassificationProperty",
       "name": "ManufacturingToleranceClass",
       "description": "Classification designation of the manufacturing tolerances according to local standards.",
       "dataType": "String",
@@ -665,6 +738,7 @@
       "propertyValueKind": "Single"
     },
     {
+      "__typename": "ClassificationProperty",
       "name": "MinimumAllowableSupportLength",
       "description": "The minimum allowable support length.",
       "dataType": "Real",
@@ -676,6 +750,7 @@
       "propertyValueKind": "Single"
     },
     {
+      "__typename": "ClassificationProperty",
       "name": "PieceMark",
       "description": "Defines a unique piece for production purposes. All pieces with the same piece mark value are identical and interchangeable. The piece mark may be composed of sub-parts that have specific locally defined meaning (e.g. B-1A may denote a beam, of generic type \u20181\u2019 and specific shape \u2018A\u2019).",
       "dataType": "String",
@@ -687,6 +762,7 @@
       "propertyValueKind": "Single"
     },
     {
+      "__typename": "ClassificationProperty",
       "name": "ReleaseStrength",
       "description": "The minimum required compressive strength of the concrete when the tendon stress is released. This property applies to prestressed concrete elements only.",
       "dataType": "Real",
@@ -698,6 +774,7 @@
       "propertyValueKind": "Single"
     },
     {
+      "__typename": "ClassificationProperty",
       "name": "Shortening",
       "description": "The ratio of the distance by which a precast piece is shortened after release from its form (due to compression induced by prestressing) to its original (nominal) length.",
       "dataType": "Real",
@@ -709,6 +786,7 @@
       "propertyValueKind": "Single"
     },
     {
+      "__typename": "ClassificationProperty",
       "name": "SupportDuringTransportDescription",
       "description": "Textual description of how the concrete element is supported during transportation.",
       "dataType": "String",
@@ -720,6 +798,7 @@
       "propertyValueKind": "Single"
     },
     {
+      "__typename": "ClassificationProperty",
       "name": "TendonRelaxation",
       "description": "The maximum allowable relaxation of the tendon (usually expressed as %/1000 h).This property applies to prestressed concrete elements only.",
       "dataType": "Real",
@@ -731,6 +810,7 @@
       "propertyValueKind": "Single"
     },
     {
+      "__typename": "ClassificationProperty",
       "name": "TransportationStrength",
       "description": "The minimum required compressive strength of the concrete required for transportation.",
       "dataType": "Real",
@@ -742,6 +822,7 @@
       "propertyValueKind": "Single"
     },
     {
+      "__typename": "ClassificationProperty",
       "name": "Twisting",
       "description": "The angle, in radians, through which the end face of a precast piece is rotated with respect to its starting face, along its longitudinal axis, as a result of non-aligned supports. This measure is also termed the \u2018warping\u2019 angle.",
       "dataType": "Real",
@@ -753,6 +834,7 @@
       "propertyValueKind": "Single"
     },
     {
+      "__typename": "ClassificationProperty",
       "name": "TypeDesignation",
       "description": "Type designator for the element. The content depends on local standards. Eg. 'Bull nose', 'Half batter', 'Dropper', 'Chamfer' etc",
       "dataType": "String",
@@ -764,31 +846,38 @@
       "propertyValueKind": "Single"
     },
     {
+      "__typename": "ClassificationProperty",
       "name": "BarAllocationType",
       "description": "Defines the type of the reinforcement bar allocation.",
       "dataType": "String",
       "possibleValues": [
         {
+          "__typename": "ClassificationProperty",
           "code": "ALTERNATE",
           "value": "ALTERNATE"
         },
         {
+          "__typename": "ClassificationProperty",
           "code": "DOUBLE",
           "value": "DOUBLE"
         },
         {
+          "__typename": "ClassificationProperty",
           "code": "NOTDEFINED",
           "value": "NOTDEFINED"
         },
         {
+          "__typename": "ClassificationProperty",
           "code": "OTHER",
           "value": "OTHER"
         },
         {
+          "__typename": "ClassificationProperty",
           "code": "SINGLE",
           "value": "SINGLE"
         },
         {
+          "__typename": "ClassificationProperty",
           "code": "USERDEFINED",
           "value": "USERDEFINED"
         }
@@ -801,6 +890,7 @@
       "propertyValueKind": "Single"
     },
     {
+      "__typename": "ClassificationProperty",
       "name": "Description",
       "description": "The Description of the object.",
       "dataType": "String",
@@ -812,6 +902,7 @@
       "propertyValueKind": "Single"
     },
     {
+      "__typename": "ClassificationProperty",
       "name": "HorizontalBarPitch",
       "description": "The pitch length of the horizontal bar.",
       "dataType": "Real",
@@ -823,6 +914,7 @@
       "propertyValueKind": "Single"
     },
     {
+      "__typename": "ClassificationProperty",
       "name": "Reference",
       "description": "Reference ID for this specified type in this project (e.g. type 'A-1'), Also referred to as \"construction type\". It should be provided as an alternative to the name of the \"object type\", if the software does not support object types and no classification reference to a recognized classification system used.IFC4.3.0.0 DEPRECATION  The Reference property is deprecated and shall no longer be used, use attribute Name on the relating type instead.",
       "dataType": "String",
@@ -834,6 +926,7 @@
       "propertyValueKind": "Single"
     },
     {
+      "__typename": "ClassificationProperty",
       "name": "SpacingBarPitch",
       "description": "The pitch length of the spacing bar.",
       "dataType": "Real",
@@ -845,6 +938,7 @@
       "propertyValueKind": "Single"
     },
     {
+      "__typename": "ClassificationProperty",
       "name": "VerticalBarPitch",
       "description": "The pitch length of the vertical bar.",
       "dataType": "Real",

@@ -1,0 +1,22 @@
+@base <https://identifier.buildingsmart.org/uri/bim-de/AutobahnGmbH-1.0/class/006bd5d1-8bd6-431a-8cb9-679363c70110>.
+
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix bsdd: <http://bsdd.buildingsmart.org/def#>.
+@prefix qudtUnit: <http://qudt.org/vocab/unit/>.
+@prefix AutobahnGmbH1_0: <https://identifier.buildingsmart.org/uri/bim-de/AutobahnGmbH-1.0>.
+
+<https://identifier.buildingsmart.org/uri/bim-de/AutobahnGmbH-1.0/class/006bd5d1-8bd6-431a-8cb9-679363c70110> bsdd:ActivationDateUtc "2022-10-07";
+                                                                                                              bsdd:Code "006bd5d1-8bd6-431a-8cb9-679363c70110";
+                                                                                                              bsdd:CountryOfOrigin "DE";
+                                                                                                              bsdd:CreatorLanguageCode "de-DE";
+                                                                                                              bsdd:Definition "Merkmalsgruppe Verbindungsstueck";
+                                                                                                              bsdd:Domain AutobahnGmbH1_0:;
+                                                                                                              bsdd:Name "Verbindungsstueck";
+                                                                                                              bsdd:ReferenceCode "006bd5d1-8bd6-431a-8cb9-679363c70110";
+                                                                                                              bsdd:RevisionDateUtc "2022-10-07";
+                                                                                                              bsdd:Status "Active";
+                                                                                                              bsdd:Uid "006bd5d1-8bd6-431a-8cb9-679363c70110";
+                                                                                                              bsdd:VersionDateUtc "2022-10-07";
+                                                                                                              a bsdd:Classification.

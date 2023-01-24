@@ -1,0 +1,29 @@
+@base <https://identifier.buildingsmart.org/uri/bs-agri/fruitvegs-1.0/prop/volume>.
+
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix bsdd: <http://bsdd.buildingsmart.org/def#>.
+@prefix qudtUnit: <http://qudt.org/vocab/unit/>.
+@prefix fruitvegs1_0: <https://identifier.buildingsmart.org/uri/bs-agri/fruitvegs-1.0>.
+
+<https://identifier.buildingsmart.org/uri/bs-agri/fruitvegs-1.0/prop/volume> bsdd:ActivationDateUtc "2019-01-25";
+                                                                             bsdd:Code "volume";
+                                                                             bsdd:CountryOfOrigin "FR";
+                                                                             bsdd:CreatorLanguageCode "en-GB";
+                                                                             bsdd:DataType "Real";
+                                                                             bsdd:Definition "Volume is a scalar quantity expressing the amount of three-dimensional space enclosed by a closed surface. Volume is often quantified numerically using the SI derived unit, the cubic metre";
+                                                                             bsdd:Dimension "3 0 0 0 0 0 0";
+                                                                             bsdd:Domain fruitvegs1_0:;
+                                                                             bsdd:Example "For example, the space that a substance or 3D shape occupies or contains.";
+                                                                             bsdd:MethodOfMeasurement "Archimedes’ Gold Crown method";
+                                                                             bsdd:Name "Volume";
+                                                                             bsdd:PhysicalQuantity "Volume";
+                                                                             bsdd:PropertyValueKind "Single";
+                                                                             bsdd:QudtUnit qudtUnit:CentiM3;
+                                                                             bsdd:RevisionDateUtc "2022-09-26";
+                                                                             bsdd:Status "Active";
+                                                                             bsdd:Unit "cm³";
+                                                                             bsdd:VersionDateUtc "2021-10-01";
+                                                                             bsdd:VisualRepresentationUri "https://images.twinkl.co.uk/tw1n/image/private/t_630/u/ux/screenshot-2021-02-19-at-10.29.40_ver_1.png";
+                                                                             a bsdd:Property.

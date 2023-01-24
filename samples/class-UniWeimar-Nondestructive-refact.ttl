@@ -1,0 +1,54 @@
+@prefix bsdd: <http://bsdd.buildingsmart.org/def#> .
+@prefix fx:   <http://sparql.xyz/facade-x/ns/> .
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix xyz:  <http://sparql.xyz/facade-x/data/> .
+
+<https://identifier.buildingsmart.org/uri/uniweimar/uniweimar-0.1/class/Nondestructive>
+        rdf:type                     bsdd:Classification ;
+        bsdd:activationDateUtc       "2022-09-15T00:00:00"^^xsd:dateTime ;
+        bsdd:childs                  [ rdfs:member  [ rdf:type                 bsdd:Classification ;
+                                                      bsdd:classificationType  "CLASS" ;
+                                                      bsdd:name                "Ultrasonic Results"
+                                                    ] ;
+                                       rdfs:member  [ rdf:type                 bsdd:Classification ;
+                                                      bsdd:classificationType  "CLASS" ;
+                                                      bsdd:name                "Ultrasonic Testing"
+                                                    ]
+                                     ] ;
+        bsdd:classificationProperty  [ rdf:type          bsdd:ClassificationProperty ;
+                                       bsdd:description  "Identifier of the tested structure" ;
+                                       bsdd:isRequired   true ;
+                                       bsdd:isWritable   true ;
+                                       bsdd:propertySet  "Single"
+                                     ] ;
+        bsdd:classificationProperty  [ rdf:type          bsdd:ClassificationProperty ;
+                                       bsdd:description  "Definition of the investigation objectives, e.g. localization of tendon ducts or reinforcement" ;
+                                       bsdd:isRequired   true ;
+                                       bsdd:isWritable   true ;
+                                       bsdd:propertySet  "Single"
+                                     ] ;
+        bsdd:classificationProperty  [ rdf:type          bsdd:ClassificationProperty ;
+                                       bsdd:description  "Identifier of the component to test" ;
+                                       bsdd:isRequired   true ;
+                                       bsdd:isWritable   true ;
+                                       bsdd:propertySet  "Single"
+                                     ] ;
+        bsdd:classificationType      "CLASS" ;
+        bsdd:code                    "Nondestructive" ;
+        bsdd:countryOfOrigin         "DE" ;
+        bsdd:countryOfUse            "DE" , "BE" , "GB" , "NL" , "IT" ;
+        bsdd:creatorLanguageCode     "de-DE" ;
+        bsdd:definition              "The wide group of analysis and techniques used in science and techonology industry to evaluate the properties material,component without causing a damage" ;
+        bsdd:name                    "Non destructive Testing" ;
+        bsdd:referenceCode           "Non destructive Testing" ;
+        bsdd:relatedIfcEntityName    "IfcTask" ;
+        bsdd:relation                [ rdf:type           bsdd:ClassificationRelation ;
+                                       bsdd:relationType  "HasReference"
+                                     ] ;
+        bsdd:revisionNumber          "0"^^xsd:int ;
+        bsdd:status                  "Preview" ;
+        bsdd:synonym                 "Non Destructive Evaluation" , "Non Destructive Inspection" ;
+        bsdd:versionDateUtc          "2022-09-15T00:00:00"^^xsd:dateTime ;
+        bsdd:versionNumber           "1"^^xsd:int .

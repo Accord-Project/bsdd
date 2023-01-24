@@ -1,4 +1,5 @@
 {
+  "__typename": "Property",
   "description": "The resistance under AC.",
   "connectedPropertyCodes": [],
   "dataType": "Real",

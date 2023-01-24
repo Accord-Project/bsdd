@@ -1,0 +1,26 @@
+@prefix bsdd: <http://bsdd.buildingsmart.org/def#> .
+@prefix fx:   <http://sparql.xyz/facade-x/ns/> .
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix xyz:  <http://sparql.xyz/facade-x/data/> .
+
+<https://identifier.buildingsmart.org/uri/bim-de/AutobahnGmbH-1.0/class/006bd5d1-8bd6-431a-8cb9-679363c70110>
+        rdf:type                  bsdd:Classification ;
+        bsdd:activationDateUtc    "2022-10-07T17:10:31.478978"^^xsd:dateTime ;
+        bsdd:childs               []  ;
+        bsdd:classificationType   "CLASS" ;
+        bsdd:code                 "006bd5d1-8bd6-431a-8cb9-679363c70110" ;
+        bsdd:countryOfOrigin      "DE" ;
+        bsdd:countryOfUse         "DE" ;
+        bsdd:creatorLanguageCode  "de-DE" ;
+        bsdd:definition           "Merkmalsgruppe Verbindungsstueck" ;
+        bsdd:name                 "Verbindungsstueck" ;
+        bsdd:properties           []  ;
+        bsdd:referenceCode        "006bd5d1-8bd6-431a-8cb9-679363c70110" ;
+        bsdd:revisionDateUtc      "2022-10-07T17:10:31.47898"^^xsd:dateTime ;
+        bsdd:revisionNumber       "1"^^xsd:int ;
+        bsdd:status               "Active" ;
+        bsdd:uid                  "006bd5d1-8bd6-431a-8cb9-679363c70110" ;
+        bsdd:versionDateUtc       "2022-10-07T17:10:31.47898"^^xsd:dateTime ;
+        bsdd:versionNumber        "1"^^xsd:int .

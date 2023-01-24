@@ -8,6 +8,7 @@
   },
   "classificationProperties": [
     {
+      "__typename":  "ClassificationProperty",
       "name": "ACResistance",
       "description": "The resistance under AC.",
       "dataType": "Real",
@@ -19,6 +20,7 @@
       "propertyValueKind": "Single"
     },
     {
+      "__typename":  "ClassificationProperty",
       "name": "CurrentCarryingCapacity",
       "description": "Maximum value of electric current which can be carried continuously by a conductor, a device or an apparatus, under specified conditions without its steady-state temperature exceeding a  specified value. Based on IEC60826-11-13. NOTE: The temperature specified value is maximum Design Ambient Temperature.",
       "dataType": "Real",
@@ -30,6 +32,7 @@
       "propertyValueKind": "Single"
     },
     {
+      "__typename":  "ClassificationProperty",
       "name": "DCResistance",
       "description": "The resistance under direct current and 20 degrees centigrade.",
       "dataType": "Real",
@@ -41,6 +44,7 @@
       "propertyValueKind": "Single"
     },
     {
+      "__typename":  "ClassificationProperty",
       "name": "FunctionReliable",
       "description": "Element (such as cable, bus, core) maintain given properties/functions over a given (tested) time and conditions. According to IEC standard.",
       "dataType": "Boolean",
@@ -52,6 +56,7 @@
       "propertyValueKind": "Single"
     },
     {
+      "__typename":  "ClassificationProperty",
       "name": "HalogenProof",
       "description": "Produces small amount of smoke and irritating Deaerator/Gas.",
       "dataType": "Boolean",
@@ -63,6 +68,7 @@
       "propertyValueKind": "Single"
     },
     {
+      "__typename":  "ClassificationProperty",
       "name": "HasProtectiveEarth",
       "description": "Indicates whether the object has a protective earth connection (=TRUE) or not (= FALSE).",
       "dataType": "Boolean",
@@ -74,6 +80,7 @@
       "propertyValueKind": "Single"
     },
     {
+      "__typename":  "ClassificationProperty",
       "name": "InsulationVoltage",
       "description": "The insulation voltage.",
       "dataType": "Real",
@@ -85,6 +92,7 @@
       "propertyValueKind": "Single"
     },
     {
+      "__typename":  "ClassificationProperty",
       "name": "MassPerLength",
       "description": "Mass per length, i.e. mass of a beam with a unit length of extrusion. For example measured in kg/m.",
       "dataType": "Real",
@@ -96,6 +104,7 @@
       "propertyValueKind": "Single"
     },
     {
+      "__typename":  "ClassificationProperty",
       "name": "MaximumBendingRadius",
       "description": "The maximum bending radius that the cable could withstand.",
       "dataType": "Real",
@@ -107,6 +116,7 @@
       "propertyValueKind": "Single"
     },
     {
+      "__typename":  "ClassificationProperty",
       "name": "MaximumCurrent",
       "description": "The maximum allowed current that a device is certified to handle.",
       "dataType": "Real",
@@ -118,6 +128,7 @@
       "propertyValueKind": "Single"
     },
     {
+      "__typename":  "ClassificationProperty",
       "name": "MaximumOperatingTemperature",
       "description": "The maximum temperature at which a cable or bus is certified to operate.",
       "dataType": "Real",
@@ -129,6 +140,7 @@
       "propertyValueKind": "Single"
     },
     {
+      "__typename":  "ClassificationProperty",
       "name": "MaximumShortCircuitTemperature",
       "description": "The maximum short circuit temperature at which a cable or bus is certified to operate.",
       "dataType": "Real",
@@ -140,6 +152,7 @@
       "propertyValueKind": "Single"
     },
     {
+      "__typename":  "ClassificationProperty",
       "name": "NumberOfCores",
       "description": "The number of cores.",
       "dataType": "Integer",
@@ -151,6 +164,7 @@
       "propertyValueKind": "Single"
     },
     {
+      "__typename":  "ClassificationProperty",
       "name": "NumberOfWires",
       "description": "The number of wires used in the element.",
       "dataType": "Integer",
@@ -162,6 +176,7 @@
       "propertyValueKind": "Single"
     },
     {
+      "__typename":  "ClassificationProperty",
       "name": "OverallDiameter",
       "description": "The overall diameter of a object.",
       "dataType": "Real",
@@ -173,6 +188,7 @@
       "propertyValueKind": "Single"
     },
     {
+      "__typename":  "ClassificationProperty",
       "name": "ScreenDiameter",
       "description": "The diameter of the screen around an object (if present).",
       "dataType": "Real",
@@ -184,6 +200,7 @@
       "propertyValueKind": "Single"
     },
     {
+      "__typename":  "ClassificationProperty",
       "name": "SelfExtinguishing60332_1",
       "description": "Self Extinguishing cable/core according to IEC 60332.1.",
       "dataType": "Boolean",
@@ -195,6 +212,7 @@
       "propertyValueKind": "Single"
     },
     {
+      "__typename":  "ClassificationProperty",
       "name": "SelfExtinguishing60332_3",
       "description": "Self Extinguishing cable/core according to IEC 60332.3.",
       "dataType": "Boolean",
@@ -206,6 +224,7 @@
       "propertyValueKind": "Single"
     },
     {
+      "__typename":  "ClassificationProperty",
       "name": "SpecialConstruction",
       "description": "Special construction capabilities like self-supporting, flat devidable cable or bus flat non devidable cable or bus supporting elements inside (steal, textile, concentric conductor). Note that materials used should be agreed between exchange participants before use.",
       "dataType": "String",
@@ -217,6 +236,7 @@
       "propertyValueKind": "Single"
     },
     {
+      "__typename":  "ClassificationProperty",
       "name": "Standard",
       "description": "The designation of the standard applicable for the definition of the object used.",
       "dataType": "String",
@@ -228,6 +248,7 @@
       "propertyValueKind": "Single"
     },
     {
+      "__typename":  "ClassificationProperty",
       "name": "Weight",
       "description": "Total weight of object",
       "dataType": "Real",
@@ -239,6 +260,7 @@
       "propertyValueKind": "Single"
     },
     {
+      "__typename":  "ClassificationProperty",
       "name": "CharacteristicImpedance",
       "description": "A quantity defined for a mode of propagation at a given frequency in a specific uniform transmission line or uniform waveguide by one of the three following relations:\nZ1 = S/ |I|2\nZ2 = |U|2 / S\nZ3 = U / I\nwhere Z is the complex characteristic impedance, S the complex power and U and I are the values, usually complex, respectively of a voltage and a current conventionally defined for each type of mode by analogy with transmission line equations.",
       "dataType": "Real",
@@ -250,6 +272,7 @@
       "propertyValueKind": "Single"
     },
     {
+      "__typename":  "ClassificationProperty",
       "name": "CouplingLoss",
       "description": "Indicates the coupling loss of a leaky coaxial cable (radiating cable).",
       "dataType": "Real",
@@ -261,6 +284,7 @@
       "propertyValueKind": "Single"
     },
     {
+      "__typename":  "ClassificationProperty",
       "name": "MaximumTransmissionAttenuation",
       "description": "Indicates the Maximum transmission attenuation of feeder.",
       "dataType": "Real",
@@ -272,6 +296,7 @@
       "propertyValueKind": "Single"
     },
     {
+      "__typename":  "ClassificationProperty",
       "name": "NumberOfCoaxialPairs",
       "description": "Indicates the total number of coaxial pairs in the coaxial cable.",
       "dataType": "Integer",
@@ -283,6 +308,7 @@
       "propertyValueKind": "Single"
     },
     {
+      "__typename":  "ClassificationProperty",
       "name": "PropagationSpeedCoefficient",
       "description": "Indicates the propagation speed coefficient.",
       "dataType": "Real",
@@ -294,6 +320,7 @@
       "propertyValueKind": "Single"
     },
     {
+      "__typename":  "ClassificationProperty",
       "name": "RadiantFrequency",
       "description": "Indicates the radiant frequency of the leaky coaxial cable (radiating cable).",
       "dataType": "Real",
@@ -305,6 +332,7 @@
       "propertyValueKind": "Single"
     },
     {
+      "__typename":  "ClassificationProperty",
       "name": "TransmissionLoss",
       "description": "Indicates the transmission loss of the leaky coaxial cable (radiating cable).",
       "dataType": "Real",
@@ -316,6 +344,7 @@
       "propertyValueKind": "Single"
     },
     {
+      "__typename":  "ClassificationProperty",
       "name": "JacketColour",
       "description": "Indicates the colour of the cable or fitting jacket.",
       "dataType": "String",
@@ -327,6 +356,7 @@
       "propertyValueKind": "Single"
     },
     {
+      "__typename":  "ClassificationProperty",
       "name": "NumberOfTwistedPairs",
       "description": "Total number of twisted wire pairs in copper pair cables.",
       "dataType": "Integer",
@@ -338,6 +368,7 @@
       "propertyValueKind": "Single"
     },
     {
+      "__typename":  "ClassificationProperty",
       "name": "NumberOfUntwistedPairs",
       "description": "Total number of untwisted wire pairs in the copper pair cable.",
       "dataType": "Integer",

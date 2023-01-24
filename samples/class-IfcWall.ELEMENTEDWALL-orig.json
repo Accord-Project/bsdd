@@ -1,4 +1,5 @@
 {
+  "__typename":  "Classification",
   "referenceCode": "IfcWallELEMENTEDWALL",
   "parentClassificationReference": {
     "namespaceUri": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall",

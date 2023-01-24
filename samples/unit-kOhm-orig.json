@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
 		"units": [
 			{
 				"code": "kOhm",
@@ -7,3 +8,10 @@
 			}
 		]
 	}
+=======
+  "__typename":  "Unit",
+  "code": "kOhm",
+  "name": "kiloohm",
+  "symbol": "kΩ"
+}
+>>>>>>> 4a2dc0e (add Makefile and start debugging transform.ru)

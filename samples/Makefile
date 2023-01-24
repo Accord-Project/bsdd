@@ -3,10 +3,10 @@ update = c:/prog/apache-jena/bat/update.bat
 json = $(wildcard *-orig.json)
 refact-ttl = $(json:%-orig.json=%-refact.ttl)
 
-# Get "orig" sample files: JSON with TODO-get.py from GraphQL endpoint, Turtle with curl from RDF entity API
+# Get "orig" sample files: JSON with bsdd_export.py from GraphQL endpoint, Turtle with curl from RDF entity API.
 # Arguments: $1=query (eg getClassification), $2=URL, $3=filename stem
 define get
-  TODO-get.py $1 $2 > $3-orig.json
+  python bsdd_export.py $1 $2 $3-orig.json
   curl -s -H Accept:text/turtle $2 > $3-orig.ttl
 endef
 

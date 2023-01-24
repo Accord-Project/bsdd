@@ -16,7 +16,6 @@
         bsdd:creatorLanguageCode  "de-DE" ;
         bsdd:definition           "Merkmalsgruppe Verbindungsstueck" ;
         bsdd:name                 "Verbindungsstueck" ;
-        bsdd:properties           []  ;
         bsdd:referenceCode        "006bd5d1-8bd6-431a-8cb9-679363c70110" ;
         bsdd:revisionDateUtc      "2022-10-07T17:10:31.47898"^^xsd:dateTime ;
         bsdd:revisionNumber       "1"^^xsd:int ;

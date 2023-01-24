@@ -57,12 +57,6 @@
     "versionNumber": 2,
     "visualRepresentationUri": "https://images.twinkl.co.uk/tw1n/image/private/t_630/u/ux/screenshot-2021-02-19-at-10.29.40_ver_1.png"
    },
-   "childs": [
-    {
-     "id": "https://identifier.buildingsmart.org/uri/bs-agri/fruitvegs-1.0/class/grannysmith",
-     "__typename": "Classification"
-    }
-   ],
    "relations": [
     {
      "id": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCommunicationAppliance",

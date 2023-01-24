@@ -1,0 +1,18 @@
+@prefix bsdd: <http://bsdd.buildingsmart.org/def#> .
+@prefix fx:   <http://sparql.xyz/facade-x/ns/> .
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix xyz:  <http://sparql.xyz/facade-x/data/> .
+
+<https://identifier.buildingsmart.org/uri/molio/cciconstruction-1.0>
+        rdf:type             bsdd:Domain ;
+        bsdd:languageCode    "en-GB" ;
+        bsdd:lastUpdatedUtc  "2022-10-26T14:46:08.838408" ;
+        bsdd:license         "MIT license" ;
+        bsdd:licenseUrl      "https://ccs.molio.dk/Home/News/EndUserLicense?sc_lang=en-gb" ;
+        bsdd:moreInfoUrl     "https://anvisninger.molio.dk/Gratis-vaerktojer/CCI_Klassifikation" ;
+        bsdd:name            "CCI Construction" ;
+        bsdd:releaseDate     "2020-01-01T00:00:00" ;
+        bsdd:status          "Released" ;
+        bsdd:version         "1.0" .

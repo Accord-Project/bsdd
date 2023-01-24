@@ -106,8 +106,15 @@ Property names should conform to naming conventions and be spelled consistently
   For example, TODO
 - ~namespaceUri~ is a misnomer since "namespace" means a set of URIs sharing the same prefix, but most bSDD URIs are *single* URIs.
   URI is a general term that includes both URNs (non-resolvable) and URLs (resolvable).
-  According to Linked Data principles, it is better to use resolvable
-
+  According to Linked Data principles, it is better to use resolvable URLs.
+  Also see sec [[*All Significant Classes Should Have URL]] for more considerations about this field.
+- RDF properties should use one consistent namespace.
+  Most props use ~bsdd: <http://bsdd.buildingsmart.org/def#>~,
+  except ~hasReference~, which uses a different namespace:
+  ~<http://bsdd.buildingsmart.org/relation/def#>~.
+  You can see this problem by fetching:
+: curl -s -H Accept:text/turtle  https://identifier.buildingsmart.org/uri/bs-agri/fruitvegs-1.0/class/apple
+  
 ** Use the same URL for Data and for Web Pages
 bSDD has implemented "entity URLs", i.e. for each kind of entity it can return its data in JSON or RDF:
 #+begin_src

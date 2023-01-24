@@ -24,6 +24,7 @@ where {
   values (?long ?short) {
     (bsdd:namespaceUri             bsdd:namespaceUri            )
     (bsdd:domainNamespaceUri       bsdd:domain                  )
+    (bsdd:propertyNamespaceUri     bsdd:property                )
     (bsdd:relatedClassificationUri bsdd:related                 )
     (bsdd:relatedPropertyUri       bsdd:related                 )
     (bsdd:visualRepresentationUri  bsdd:visualRepresentationUri )
@@ -101,19 +102,18 @@ delete where {?x a fx:root};
 
 # add meaningful URIs to nodes whenever possible.
 # First we do the independent nodes:
-base <https://identifier.buildingsmart.org/uri/buildingsmart/>
 delete {?x ?p1 ?blank. ?blank ?p2 ?y}
 insert {?x ?p1 ?uri.   ?uri   ?p2 ?y}
 where {
   {
     ?blank a bsdd:Country; bsdd:code ?code
-    bind(uri(concat("country/",?code)) as ?uri)
+    bind(uri(concat("https://identifier.buildingsmart.org/uri/buildingsmart/country/",?code)) as ?uri)
   } union {
     ?blank a bsdd:Language; bsdd:isocode ?code
-    bind(uri(concat("language/",?code)) as ?uri)
+    bind(uri(concat("https://identifier.buildingsmart.org/uri/buildingsmart/language/",?code)) as ?uri)
   } union {
     ?blank a bsdd:Unit; bsdd:code ?code
-    bind(uri(concat("unit/",?code)) as ?uri)
+    bind(uri(concat("https://identifier.buildingsmart.org/uri/buildingsmart/unit/",?code)) as ?uri)
   } union {
     ?blank a bsdd:Domain; bsdd:namespaceUri ?uri
   } union {

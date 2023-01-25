@@ -1,0 +1,8 @@
+query getUnits {
+    units {
+        __typename
+        code
+        name
+        symbol
+    }
+}

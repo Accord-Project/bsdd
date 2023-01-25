@@ -63,6 +63,51 @@ The generated SOML schema is valid and can be used immediately. However, there a
 The purpose of the generated SOML schema is to serve as a starting point (instead of starting from scratch) for resolving the issues and improving the schema.
 Once this is done, the resulting schema will be saved in [[./bsdd-graphql-soml-refact.yaml][bsdd-graphql-soml-refact.yaml]].
 
+** Exporting bSDD data
+
+The repository includes several Python scripts used to work with bSDD data for which we need to create a virtual Python enthronement
+before using them:
+
+- Create a virtual environment with ~python3.9 -m venv .venv~
+- Activate it ~source .venv/bin/activate~
+- Install the required libraries ~pip install -r requirements.txt~
+
+*** GraphQL Data Dumps
+
+The repository includes a Python script ~bsdd2json.py~ that can connect to the bSDD GraphQL API and export all objects in the
+GraphQL schema as JSONs including domains, classifications, classification properties etc.
+
+The exported data will be located under the ~data/~ directory once the script is executed. Running this script takes around ~10 hours due to
+the large quantity of classifications and classification properties in the GraphQL API.
+
+The overall process is of the script is
+
+- Exports all "root" types with their complete information except relations (object properties)
+  - bSDD domains in ~data/domains.json~ (~Domain~ in GraphQL)
+  - Countries in ~data/domains.json~ (~Country~ in GraphQL)
+  - Languages in ~data/languages.json~ (~Language~ in GraphQL)
+  - Measurements units in ~data/units.json~ (~Unit~ in GraphQL)
+  - Reference documents in ~data/reference_documents.json~ (~ReferenceDocument~ in GraphQL)
+- For each exported domain, it creates a sub directory and exports all classification in that domain in separate JSONs (~Classification~ in GraphQL)
+- Collects all unique classification properties, tries to resolve them as global properties and finally exports them in ~properties.json~ (~Property~ in GraphQL)
+
+*** Exporting Data
+
+The repository includes a Python script ~bsdd_export.py~ which works with the GraphQL queries within the ~graphql/~ folder.
+It can invoke given query with or without variables and return the response to the user in JSON.
+
+Example for getting all domains:
+
+#+begin_src bash
+python bsdd_export.py getDomains -o domains.json
+#+end_src
+
+Example for getting particular domain:
+
+#+begin_src bash
+python bsdd_export.py getDomain -v "URI=https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3" -o ifc-4.3.json
+#+end_src
+
 ** Original vs Refactored Files
 bsdd-graphql-voyager-orig.html
 bsdd-graphql-voyager-refact.html
@@ -114,7 +159,7 @@ Property names should conform to naming conventions and be spelled consistently
   ~<http://bsdd.buildingsmart.org/relation/def#>~.
   You can see this problem by fetching:
 : curl -s -H Accept:text/turtle  https://identifier.buildingsmart.org/uri/bs-agri/fruitvegs-1.0/class/apple
-  
+
 ** Use the same URL for Data and for Web Pages
 bSDD has implemented "entity URLs", i.e. for each kind of entity it can return its data in JSON or RDF:
 #+begin_src
@@ -350,7 +395,7 @@ This difference leads to very inconsistent results from the different APIs.
 ** Improve URL Structure and Consistency
 - Almost all domain URLs have the same structure: ~https://identifier.buildingsmart.org/uri/<org>/<domain>-<ver>~.
   There are only 2 exceptions:
-#+begin_src 
+#+begin_src
 http://otl.amsterdam.nl
 http://rdf.vegdata.no/V440/v440-owl
 #+end_src
@@ -442,7 +487,7 @@ There are differences and omissions in some of the formats, as described in the 
 It would be better to return the same content in each of the formats.
 
 
-| Classification/property | GraphQL      | JSON API                                   | RDF API                |comment 
+| Classification/property | GraphQL      | JSON API                                   | RDF API                |comment
 |------------------------+--------------+--------------------------------------------+------------------------+--------------------------------------------|
 | Classification/childs  | childs       | parentClassificationReference.namespaceUri | NONE                   | GraphQL points to child, JSON points to parent (1)
 | Classification/domain  | NONE         | NONE                                       | bsdd:Domain            | GraphQL and JSON API do not return property ~domain~ whereas RDF API returns it  |
@@ -608,7 +653,7 @@ Here is a list of all strings that are candidates to be converted to objects:
 - ~relatedIfcEntityNames~: since IFC is present as a bSDD Domain, could be converted to a relation to the respective IFC Classification
 
   TODO: PropSet should be made an entoity, it's too important to be a mere string
-  
+
 ** Property vs ClassificationProperty: Use Distinct URLs
 ~Property~ and ~ClassificationProperty~ are two different classes, but the latter does not have a distinct URL in GraphQL and JSON.
 We can say that the same URL is overloaded to identify entities of both classes.
@@ -747,7 +792,7 @@ We implemented a lot (but not all) of the improvements suggested above by using 
 - Converting it to RDF using [[https://sparql-anything.cc/][SPARQL Anything]]
 - Loading it to [[https://www.ontotext.com/products/graphdb/][GraphDB]]
 - Refactoring the RDF using SPARQL Update
-- 
+-
 
 ** Fetching bSDD GraphQL JSON
 Although bSDD is available in RDF, we decided to fetch all data in GraphQL JSON due to the RDF defects described above.
@@ -872,7 +917,7 @@ It is converted to the following "raw" RDF (shortened for brevity):
 
 [ rdf:type                       fx:root ;
   bsdd:activationDateUtc         "2022-12-31T00:00:00" ;
-  bsdd:classificationProperties  [ rdfs:member  
+  bsdd:classificationProperties  [ rdfs:member
       [ bsdd:dataType              "Real" ;
         bsdd:description           "Indicates the Maximum transmission attenuation of feeder." ;
         bsdd:name                  "MaximumTransmissionAttenuation" ;
@@ -890,7 +935,7 @@ It is converted to the following "raw" RDF (shortened for brevity):
   bsdd:domainNamespaceUri        "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3" ;
   bsdd:name                      "IfcCableSegment.CABLESEGMENT" ;
   bsdd:namespaceUri              "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegmentCABLESEGMENT" ;
-  bsdd:parentClassificationReference 
+  bsdd:parentClassificationReference
       [ bsdd:code          "IfcCableSegment" ;
         bsdd:name          "IfcCableSegment" ;
         bsdd:namespaceUri  "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment"
@@ -952,7 +997,7 @@ It does the following:
 This SPARQL Update script is class-independent (works on any Raw bSDD RDF), so it can be used in two ways:
 - On an individual RDF file by using Jena's ~update~, for testing
 - After loading all data to [[https://www.ontotext.com/products/graphdb/][GraphDB]], to transform all of it in one go
-  
+
 * Acknowledgements
 This work is part of the ACCORD project that has received funding from the European Union’s Horizon Europe research and innovation programme under grant agreement no. 101056973
 TODO compare to [[https://vttgroup.sharepoint.com/:p:/r/sites/EU-projectpreparationDigitalpermitsandcompliancecheck/_layouts/15/Doc.aspx?sourcedoc=%7BB9913B35-D290-4391-9588-0322584EF3BC%7D&file=ACCORD_EAB_meeting_02-12-2022.pptx&action=edit&mobileredirect=true][this pres]].

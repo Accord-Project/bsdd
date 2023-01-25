@@ -1,0 +1,7 @@
+query getCountries {
+    countries {
+        __typename
+        code
+        name
+    }
+}

@@ -1,0 +1,8 @@
+query getReferenceDocuments {
+    referenceDocuments {
+        __typename
+        title
+        name
+        date
+    }
+}

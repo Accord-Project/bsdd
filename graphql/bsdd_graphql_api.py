@@ -9,7 +9,7 @@ GRAPHQL_API = "https://test.bsdd.buildingsmart.org/graphql"
 
 def read_query(query_file):
     current_dir = Path(__file__).parent.absolute()
-    return open(current_dir.name + '/' + query_file, 'r').read()
+    return open(current_dir.as_posix() + '/' + query_file, 'r').read()
 
 
 def query_graphql(endpoint, query, variables=None):

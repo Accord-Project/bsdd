@@ -7,8 +7,8 @@ refact-ttl = $(json:%-orig.json=%-refact.ttl)
 # Some GraphQL entities don't have a way to select one so we get all.
 # Domain is special: GraphQL gets all, but one can still get one RDF
 # Arguments: $1=query (eg getClassification), $2=URL, $3=filename stem for one entity, $4=filename stem for all entities
-get-one-json = python3 bsdd_export.py $1 -v URL=$2 > $3-orig.json
-get-all-json = python3 bsdd_export.py $1 > $4-orig.json
+get-one-json = python3 ../bsdd_export.py $1 -v URI=$2 > $3-orig.json
+get-all-json = python3 ../bsdd_export.py $1 > $4-orig.json
 get-ttl = curl -s -H Accept:text/turtle $2 > $3-orig.ttl
 get-one = $(get-one-json); $(get-ttl)
 get-all = $(get-all-json)

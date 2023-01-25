@@ -1,5 +1,4 @@
 {
-  "classification": {
    "id": "https://identifier.buildingsmart.org/uri/bs-agri/fruitvegs-1.0/class/apple",
    "__typename": "Classification",
    "name": "Apple",
@@ -65,5 +64,4 @@
      "type": "HasReference"
     }
    ]
-  }
- }
+}

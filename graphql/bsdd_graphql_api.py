@@ -7,6 +7,10 @@ logger = logging.getLogger(__name__)
 GRAPHQL_API = "https://test.bsdd.buildingsmart.org/graphql"
 
 
+class NoDataException(Exception):
+    pass
+
+
 def read_query(query_file):
     current_dir = Path(__file__).parent.absolute()
     return open(current_dir.as_posix() + '/' + query_file, 'r').read()
@@ -17,6 +21,13 @@ def query_graphql(endpoint, query, variables=None):
         "query": query,
         "variables": variables or {}
     })
+    json_response = response.json()
+    if "errors" in json_response:
+        logger.debug(f"GraphQL response returned errors: {json_response['errors']}")
+    if "data" not in json_response:
+        if "errors" in json_response:
+            logger.error(f"GraphQL response returned errors: {json_response['errors']}")
+        raise NoDataException("GraphQL response has no data!")
     return response.json()["data"]
 
 

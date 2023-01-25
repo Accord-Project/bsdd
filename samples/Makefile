@@ -7,12 +7,11 @@ refact-ttl = $(json:%-orig.json=%-refact.ttl)
 # Some GraphQL entities don't have a way to select one so we get all.
 # Domain is special: GraphQL gets all, but one can still get one RDF
 # Arguments: $1=query (eg getClassification), $2=URL, $3=filename stem for one entity, $4=filename stem for all entities
-get-one-json = python bsdd_export_one.py $1 $2 $3-orig.json
-get-all-json = python bsdd_export_all.py $1 $4-orig.json
+get-one-json = python3 bsdd_export.py $1 -v URL=$2 > $3-orig.json
+get-all-json = python3 bsdd_export.py $1 > $4-orig.json
 get-ttl = curl -s -H Accept:text/turtle $2 > $3-orig.ttl
 get-one = $(get-one-json); $(get-ttl)
 get-all = $(get-all-json)
-get-mix = $(get-all-json); $(get-ttl)
 
 .ONESHELL:
 .PHONY: get refact-ttl
@@ -32,7 +31,7 @@ get:
 	$(call get-one,getClassification,https://identifier.buildingsmart.org/uri/efalbhm/arge-0.1/class/Door,class-Arge-Door)                                                      # ClassificationRelation
 	$(call get-one,getProperty,https://identifier.buildingsmart.org/uri/bs-agri/fruitvegs-1.0/prop/volume,prop-fruitvegs-Volume)                                                # richest Property
 	$(call get-one,getProperty,https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/ACResistance,prop-Ifc-ACResistance)                                          # Property
-	$(call get-mix,getDomains,https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3,domain-Ifc,domains)                                                                # all domains,and the IFC domain
+	$(call get-one,getDomain,https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3,domain-Ifc)                                                                         #  the IFC Domain
 	$(call get-all,getLanguages,,,languages)                                                                                                                                    # all languages
 	$(call get-all,getCountries,,,countries)                                                                                                                                    # all countries
 	$(call get-all,getUnits,,,units)                                                                                                                                            # all units

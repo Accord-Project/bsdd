@@ -100,6 +100,13 @@ where {
 # drop parasitic type fx:root
 delete where {?x a fx:root};
 
+# rename ClassificationProperty.namespaceUri to ClassificationProperty.property because that link refers to a Property specifically
+delete {?x bsdd:namespaceUri ?y}
+insert {?x bsdd:property ?y}
+where {
+  ?x a bsdd:ClassificationProperty; bsdd:namespaceUri ?y
+};
+
 # add meaningful URIs to nodes whenever possible.
 # First we do the independent nodes:
 delete {?x ?p1 ?blank. ?blank ?p2 ?y}
@@ -130,7 +137,7 @@ delete {?x ?p1 ?blank. ?blank ?p2 ?y}
 insert {?x ?p1 ?uri.   ?uri   ?p2 ?y}
 where {
   ?class bsdd:classificationProperty ?blank.
-  ?blank a bsdd:ClassificationProperty; bsdd:propertyCode ?prop
+  ?blank a bsdd:ClassificationProperty; bsdd:code ?prop
   bind(uri(concat(str(?class),"/",?prop)) as ?uri)
   {?x ?p1 ?blank} union {?blank ?p2 ?y}
 };

@@ -3,7 +3,7 @@
 #+options: inline:t num:t p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t
 #+options: timestamp:nil title:t toc:5 todo:t |:t
 #+title: Semantic bSDD: Improvements to bSDD GraphQL, JSON and RDF Representations
-#+date: <2023-01-24>
+#+date: <2023-01-25>
 #+author: Vladimir Alexiev, Mihail Radkov, Nataliya Keberle
 #+email: vladimir.alexiev@ontotext.com
 #+language: en
@@ -932,13 +932,16 @@ It does the following:
   - Empty lists like ~bsdd:replacedObjectCodes []~ above disappear altogether, since that blank node representing the empty list is useless
 - Short-cut the property path ~bsdd:parentClassificationReference/bsdd:namespaceUri~ to just ~bsdd:parentClassification~
 - Add ~rdf:type~ based on GraphQL ~__typename~
-  - Eg ~"__typename": "Domain"~ becomes ~rdf:type bsdd:Domain~, etc
+  - Eg ~"__typename": "Domain"~ becomes ~rdf:type bsdd:Domain~
+  - However, ~"__typename": "ClassificationPropertyValue"~ becomes ~rdf:type bsdd:PropertyValue~
+    because the GraphQL class ~ClassificationPropertyValue~ is exactly the same as ~PropertyValue~
 - Drop parasitic ~rdf:type fx:root~
+- Rename ~ClassificationProperty.namespaceUri~ to ~ClassificationProperty.property~ because that link refers to a ~Property~ specifically
 - Add meaningful URIs to blank nodes whenever possible. In particular:
   - ~ClassificationProperty~ gets URI: ~Classification.uri+"/"+propertyCode~ (here ~+~ indicates concatenation)
   - ~ClassificationPropertyValue~ gets URI: ~Classification.uri+"/"+ClassificationProperty.propertyCode +"/"+value~.
     This class has ~namespaceUri~, but that is optional and is almost never filled
-  - ~ClassificationPropertyValue~ gets URI: ~Classification.uri+"/"+ClassificationProperty.propertyCode +"/"+value~.
+  - ~PropertyValue~ gets URI: ~Classification.uri+"/"+Property.propertyCode +"/"+value~.
     This class has ~namespaceUri~, but that is optional and is almost never filled
 - The following remain blank nodes:
   - ~ReferenceDocument~: no id field (only ~name, title, date~)

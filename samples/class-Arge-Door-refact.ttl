@@ -1,0 +1,309 @@
+@prefix bsdd: <http://bsdd.buildingsmart.org/def#> .
+@prefix fx:   <http://sparql.xyz/facade-x/ns/> .
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix xyz:  <http://sparql.xyz/facade-x/data/> .
+
+<https://identifier.buildingsmart.org/uri/efalbhm/arge-0.1/class/Door/SelfClosing>
+        rdf:type                bsdd:ClassificationProperty ;
+        bsdd:activationDateUtc  "2022-12-31T00:00:00"^^xsd:dateTime ;
+        bsdd:code               "SelfClosing" ;
+        bsdd:dataType           "Boolean" ;
+        bsdd:description        "Indication whether this object is designed to close automatically after use (TRUE) or not (FALSE)." ;
+        bsdd:isDynamic          false ;
+        bsdd:name               "SelfClosing" ;
+        bsdd:property           <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/SelfClosing> ;
+        bsdd:propertySet        "Pset_DoorCommon" ;
+        bsdd:propertyValueKind  "SINGLE" ;
+        bsdd:status             "Active" ;
+        bsdd:versionDateUtc     "2022-12-31T00:00:00"^^xsd:dateTime .
+
+<https://identifier.buildingsmart.org/uri/efalbhm/arge-0.1/class/Door/FireExit>
+        rdf:type                bsdd:ClassificationProperty ;
+        bsdd:activationDateUtc  "2022-12-31T00:00:00"^^xsd:dateTime ;
+        bsdd:code               "FireExit" ;
+        bsdd:dataType           "Boolean" ;
+        bsdd:description        "Indication whether this object is designed to serve as an exit in the case of fire (TRUE) or not (FALSE)." ;
+        bsdd:isDynamic          false ;
+        bsdd:name               "FireExit" ;
+        bsdd:property           <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/FireExit> ;
+        bsdd:propertySet        "Pset_DoorCommon" ;
+        bsdd:propertyValueKind  "SINGLE" ;
+        bsdd:status             "Active" ;
+        bsdd:versionDateUtc     "2022-12-31T00:00:00"^^xsd:dateTime .
+
+<https://identifier.buildingsmart.org/uri/efalbhm/arge-0.1/class/Door/MyProperty>
+        rdf:type                bsdd:ClassificationProperty ;
+        bsdd:activationDateUtc  "2020-10-19T00:00:00"^^xsd:dateTime ;
+        bsdd:code               "MyProperty" ;
+        bsdd:dataType           "Real" ;
+        bsdd:definition         "This is an example property" ;
+        bsdd:description        "An example of a property" ;
+        bsdd:isDynamic          false ;
+        bsdd:maxExclusive       "10"^^xsd:int ;
+        bsdd:minInclusive       "0.1"^^xsd:double ;
+        bsdd:name               "Example property" ;
+        bsdd:property           <https://identifier.buildingsmart.org/uri/efalbhm/arge-0.1/prop/MyProperty> ;
+        bsdd:propertySet        "ArgeSet_Common" ;
+        bsdd:propertyValueKind  "SINGLE" ;
+        bsdd:status             "Inactive" ;
+        bsdd:unit               "cm" ;
+        bsdd:versionDateUtc     "2020-10-19T00:00:00"^^xsd:dateTime .
+
+<https://identifier.buildingsmart.org/uri/efalbhm/arge-0.1/class/Door>
+        rdf:type                     bsdd:Classification ;
+        bsdd:activationDateUtc       "2020-10-19T00:00:00"^^xsd:dateTime ;
+        bsdd:classificationProperty  <https://identifier.buildingsmart.org/uri/efalbhm/arge-0.1/class/Door/SelfClosing> , <https://identifier.buildingsmart.org/uri/efalbhm/arge-0.1/class/Door/FireExit> , <https://identifier.buildingsmart.org/uri/efalbhm/arge-0.1/class/Door/MyProperty> , <https://identifier.buildingsmart.org/uri/efalbhm/arge-0.1/class/Door/DurabilityRating> , <https://identifier.buildingsmart.org/uri/efalbhm/arge-0.1/class/Door/HandicapAccessible> , <https://identifier.buildingsmart.org/uri/efalbhm/arge-0.1/class/Door/HasDrive> , <https://identifier.buildingsmart.org/uri/efalbhm/arge-0.1/class/Door/Reference> , <https://identifier.buildingsmart.org/uri/efalbhm/arge-0.1/class/Door/WaterTightnessRating> , <https://identifier.buildingsmart.org/uri/efalbhm/arge-0.1/class/Door/Status> , <https://identifier.buildingsmart.org/uri/efalbhm/arge-0.1/class/Door/FireRating> , <https://identifier.buildingsmart.org/uri/efalbhm/arge-0.1/class/Door/ThermalTransmittance> , <https://identifier.buildingsmart.org/uri/efalbhm/arge-0.1/class/Door/MechanicalLoadRating> , <https://identifier.buildingsmart.org/uri/efalbhm/arge-0.1/class/Door/IsExternal> , <https://identifier.buildingsmart.org/uri/efalbhm/arge-0.1/class/Door/GlazingAreaFraction> , <https://identifier.buildingsmart.org/uri/efalbhm/arge-0.1/class/Door/AcousticRating> , <https://identifier.buildingsmart.org/uri/efalbhm/arge-0.1/class/Door/WindLoadRating> , <https://identifier.buildingsmart.org/uri/efalbhm/arge-0.1/class/Door/SecurityRating> , <https://identifier.buildingsmart.org/uri/efalbhm/arge-0.1/class/Door/Infiltration> , <https://identifier.buildingsmart.org/uri/efalbhm/arge-0.1/class/Door/HygrothermalRating> , <https://identifier.buildingsmart.org/uri/efalbhm/arge-0.1/class/Door/SmokeStop> ;
+        bsdd:classificationType      "CLASS" ;
+        bsdd:code                    "Door" ;
+        bsdd:creatorLanguageCode     "EN" ;
+        bsdd:name                    "ARGE Door" ;
+        bsdd:referenceCode           "Door" ;
+        bsdd:relatedIfcEntityName    "IfcDoor" ;
+        bsdd:relation                [ rdf:type           bsdd:ClassificationRelation ;
+                                       bsdd:related       <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcDoor> ;
+                                       bsdd:relationType  "HasReference"
+                                     ] ;
+        bsdd:revisionNumber          "0"^^xsd:int ;
+        bsdd:status                  "Active" ;
+        bsdd:versionDateUtc          "2020-10-19T00:00:00"^^xsd:dateTime ;
+        bsdd:versionNumber           "1"^^xsd:int .
+
+<https://identifier.buildingsmart.org/uri/efalbhm/arge-0.1/class/Door/DurabilityRating>
+        rdf:type                bsdd:ClassificationProperty ;
+        bsdd:activationDateUtc  "2022-12-31T00:00:00"^^xsd:dateTime ;
+        bsdd:code               "DurabilityRating" ;
+        bsdd:dataType           "String" ;
+        bsdd:description        "Durability against mechanical stress. It is given according to the national code or regulation." ;
+        bsdd:isDynamic          false ;
+        bsdd:name               "DurabilityRating" ;
+        bsdd:property           <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/DurabilityRating> ;
+        bsdd:propertySet        "Pset_DoorCommon" ;
+        bsdd:propertyValueKind  "SINGLE" ;
+        bsdd:status             "Active" ;
+        bsdd:versionDateUtc     "2022-12-31T00:00:00"^^xsd:dateTime .
+
+<https://identifier.buildingsmart.org/uri/efalbhm/arge-0.1/class/Door/HandicapAccessible>
+        rdf:type                bsdd:ClassificationProperty ;
+        bsdd:activationDateUtc  "2022-12-31T00:00:00"^^xsd:dateTime ;
+        bsdd:code               "HandicapAccessible" ;
+        bsdd:dataType           "Boolean" ;
+        bsdd:description        "Indication that this object is designed to be accessible by the handicapped. Set to (TRUE) if this object is rated as handicap accessible according the local building codes, otherwise (FALSE).\nIt is giving according to the requirements of the national building code." ;
+        bsdd:isDynamic          false ;
+        bsdd:name               "HandicapAccessible" ;
+        bsdd:property           <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/HandicapAccessible> ;
+        bsdd:propertySet        "Pset_DoorCommon" ;
+        bsdd:propertyValueKind  "SINGLE" ;
+        bsdd:status             "Active" ;
+        bsdd:versionDateUtc     "2022-12-31T00:00:00"^^xsd:dateTime .
+
+<https://identifier.buildingsmart.org/uri/efalbhm/arge-0.1/class/Door/HasDrive>
+        rdf:type                bsdd:ClassificationProperty ;
+        bsdd:activationDateUtc  "2022-12-31T00:00:00"^^xsd:dateTime ;
+        bsdd:code               "HasDrive" ;
+        bsdd:dataType           "Boolean" ;
+        bsdd:description        "Indication whether this object has an automatic drive to operate it (TRUE) or no drive (FALSE)" ;
+        bsdd:isDynamic          false ;
+        bsdd:name               "HasDrive" ;
+        bsdd:property           <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/HasDrive> ;
+        bsdd:propertySet        "Pset_DoorCommon" ;
+        bsdd:propertyValueKind  "SINGLE" ;
+        bsdd:status             "Active" ;
+        bsdd:versionDateUtc     "2022-12-31T00:00:00"^^xsd:dateTime .
+
+<https://identifier.buildingsmart.org/uri/efalbhm/arge-0.1/class/Door/Reference>
+        rdf:type                bsdd:ClassificationProperty ;
+        bsdd:activationDateUtc  "2022-12-31T00:00:00"^^xsd:dateTime ;
+        bsdd:code               "Reference" ;
+        bsdd:dataType           "String" ;
+        bsdd:description        "Reference ID for this specified type in this project (e.g. type 'A-1'), Also referred to as \"construction type\". It should be provided as an alternative to the name of the \"object type\", if the software does not support object types and no classification reference to a recognized classification system used.IFC4.3.0.0 DEPRECATION  The Reference property is deprecated and shall no longer be used, use attribute Name on the relating type instead." ;
+        bsdd:isDynamic          false ;
+        bsdd:name               "Reference" ;
+        bsdd:property           <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/Reference> ;
+        bsdd:propertySet        "Pset_DoorCommon" ;
+        bsdd:propertyValueKind  "SINGLE" ;
+        bsdd:status             "Active" ;
+        bsdd:versionDateUtc     "2022-12-31T00:00:00"^^xsd:dateTime .
+
+<https://identifier.buildingsmart.org/uri/efalbhm/arge-0.1/class/Door/WaterTightnessRating>
+        rdf:type                bsdd:ClassificationProperty ;
+        bsdd:activationDateUtc  "2022-12-31T00:00:00"^^xsd:dateTime ;
+        bsdd:code               "WaterTightnessRating" ;
+        bsdd:dataType           "String" ;
+        bsdd:description        "Water tightness rating for this object.\nIt is provided according to the national building code." ;
+        bsdd:isDynamic          false ;
+        bsdd:name               "WaterTightnessRating" ;
+        bsdd:property           <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/WaterTightnessRating> ;
+        bsdd:propertySet        "Pset_DoorCommon" ;
+        bsdd:propertyValueKind  "SINGLE" ;
+        bsdd:status             "Active" ;
+        bsdd:versionDateUtc     "2022-12-31T00:00:00"^^xsd:dateTime .
+
+<https://identifier.buildingsmart.org/uri/efalbhm/arge-0.1/class/Door/Status>
+        rdf:type                bsdd:ClassificationProperty ;
+        bsdd:activationDateUtc  "2022-12-31T00:00:00"^^xsd:dateTime ;
+        bsdd:code               "Status" ;
+        bsdd:dataType           "String" ;
+        bsdd:description        "The status currently assigned to the permit." ;
+        bsdd:isDynamic          false ;
+        bsdd:name               "Status" ;
+        bsdd:property           <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/Status> ;
+        bsdd:propertySet        "Pset_DoorCommon" ;
+        bsdd:propertyValueKind  "SINGLE" ;
+        bsdd:status             "Active" ;
+        bsdd:versionDateUtc     "2022-12-31T00:00:00"^^xsd:dateTime .
+
+<https://identifier.buildingsmart.org/uri/efalbhm/arge-0.1/class/Door/FireRating>
+        rdf:type                bsdd:ClassificationProperty ;
+        bsdd:activationDateUtc  "2022-12-31T00:00:00"^^xsd:dateTime ;
+        bsdd:code               "FireRating" ;
+        bsdd:dataType           "String" ;
+        bsdd:description        "Fire rating for this object. It is given according to the national fire safety classification." ;
+        bsdd:isDynamic          false ;
+        bsdd:name               "FireRating" ;
+        bsdd:property           <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/FireRating> ;
+        bsdd:propertySet        "Pset_DoorCommon" ;
+        bsdd:propertyValueKind  "SINGLE" ;
+        bsdd:status             "Active" ;
+        bsdd:versionDateUtc     "2022-12-31T00:00:00"^^xsd:dateTime .
+
+<https://identifier.buildingsmart.org/uri/efalbhm/arge-0.1/class/Door/ThermalTransmittance>
+        rdf:type                bsdd:ClassificationProperty ;
+        bsdd:activationDateUtc  "2022-12-31T00:00:00"^^xsd:dateTime ;
+        bsdd:code               "ThermalTransmittance" ;
+        bsdd:dataType           "Real" ;
+        bsdd:description        "Thermal transmittance coefficient (U-Value) of an element, within the direction of the thermal flow (including all materials)." ;
+        bsdd:isDynamic          false ;
+        bsdd:name               "ThermalTransmittance" ;
+        bsdd:property           <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/ThermalTransmittance> ;
+        bsdd:propertySet        "Pset_DoorCommon" ;
+        bsdd:propertyValueKind  "SINGLE" ;
+        bsdd:status             "Active" ;
+        bsdd:versionDateUtc     "2022-12-31T00:00:00"^^xsd:dateTime .
+
+<https://identifier.buildingsmart.org/uri/efalbhm/arge-0.1/class/Door/MechanicalLoadRating>
+        rdf:type                bsdd:ClassificationProperty ;
+        bsdd:activationDateUtc  "2022-12-31T00:00:00"^^xsd:dateTime ;
+        bsdd:code               "MechanicalLoadRating" ;
+        bsdd:dataType           "String" ;
+        bsdd:description        "Mechanical load rating for this object.\nIt is provided according to the national building code." ;
+        bsdd:isDynamic          false ;
+        bsdd:name               "MechanicalLoadRating" ;
+        bsdd:property           <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/MechanicalLoadRating> ;
+        bsdd:propertySet        "Pset_DoorCommon" ;
+        bsdd:propertyValueKind  "SINGLE" ;
+        bsdd:status             "Active" ;
+        bsdd:versionDateUtc     "2022-12-31T00:00:00"^^xsd:dateTime .
+
+<https://identifier.buildingsmart.org/uri/efalbhm/arge-0.1/class/Door/IsExternal>
+        rdf:type                bsdd:ClassificationProperty ;
+        bsdd:activationDateUtc  "2022-12-31T00:00:00"^^xsd:dateTime ;
+        bsdd:code               "IsExternal" ;
+        bsdd:dataType           "Boolean" ;
+        bsdd:description        "Indication whether the element is designed for use in the exterior (TRUE) or not (FALSE). If (TRUE) it is an external element and faces the outside of the building." ;
+        bsdd:isDynamic          false ;
+        bsdd:name               "IsExternal" ;
+        bsdd:property           <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/IsExternal> ;
+        bsdd:propertySet        "Pset_DoorCommon" ;
+        bsdd:propertyValueKind  "SINGLE" ;
+        bsdd:status             "Active" ;
+        bsdd:versionDateUtc     "2022-12-31T00:00:00"^^xsd:dateTime .
+
+<https://identifier.buildingsmart.org/uri/efalbhm/arge-0.1/class/Door/GlazingAreaFraction>
+        rdf:type                bsdd:ClassificationProperty ;
+        bsdd:activationDateUtc  "2022-12-31T00:00:00"^^xsd:dateTime ;
+        bsdd:code               "GlazingAreaFraction" ;
+        bsdd:dataType           "Real" ;
+        bsdd:description        "Fraction of the glazing area relative to the total area of the filling element.\nIt shall be used, if the glazing area is not given separately for all panels within the filling element." ;
+        bsdd:isDynamic          false ;
+        bsdd:name               "GlazingAreaFraction" ;
+        bsdd:property           <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/GlazingAreaFraction> ;
+        bsdd:propertySet        "Pset_DoorCommon" ;
+        bsdd:propertyValueKind  "SINGLE" ;
+        bsdd:status             "Active" ;
+        bsdd:versionDateUtc     "2022-12-31T00:00:00"^^xsd:dateTime .
+
+<https://identifier.buildingsmart.org/uri/efalbhm/arge-0.1/class/Door/AcousticRating>
+        rdf:type                bsdd:ClassificationProperty ;
+        bsdd:activationDateUtc  "2022-12-31T00:00:00"^^xsd:dateTime ;
+        bsdd:code               "AcousticRating" ;
+        bsdd:dataType           "String" ;
+        bsdd:description        "Acoustic rating for this object.\nIt is provided according to the national building code. It indicates the sound transmission resistance of this object by an index ratio (instead of providing full sound absorption values)." ;
+        bsdd:isDynamic          false ;
+        bsdd:name               "AcousticRating" ;
+        bsdd:property           <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/AcousticRating> ;
+        bsdd:propertySet        "Pset_DoorCommon" ;
+        bsdd:propertyValueKind  "SINGLE" ;
+        bsdd:status             "Active" ;
+        bsdd:versionDateUtc     "2022-12-31T00:00:00"^^xsd:dateTime .
+
+<https://identifier.buildingsmart.org/uri/efalbhm/arge-0.1/class/Door/WindLoadRating>
+        rdf:type                bsdd:ClassificationProperty ;
+        bsdd:activationDateUtc  "2022-12-31T00:00:00"^^xsd:dateTime ;
+        bsdd:code               "WindLoadRating" ;
+        bsdd:dataType           "String" ;
+        bsdd:description        "Wind load resistance rating for this object.\nIt is provided according to the national building code." ;
+        bsdd:isDynamic          false ;
+        bsdd:name               "WindLoadRating" ;
+        bsdd:property           <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/WindLoadRating> ;
+        bsdd:propertySet        "Pset_DoorCommon" ;
+        bsdd:propertyValueKind  "SINGLE" ;
+        bsdd:status             "Active" ;
+        bsdd:versionDateUtc     "2022-12-31T00:00:00"^^xsd:dateTime .
+
+<https://identifier.buildingsmart.org/uri/efalbhm/arge-0.1/class/Door/SecurityRating>
+        rdf:type                bsdd:ClassificationProperty ;
+        bsdd:activationDateUtc  "2022-12-31T00:00:00"^^xsd:dateTime ;
+        bsdd:code               "SecurityRating" ;
+        bsdd:dataType           "String" ;
+        bsdd:description        "Index based rating system indicating security level.\nIt is giving according to the national building code." ;
+        bsdd:isDynamic          false ;
+        bsdd:name               "SecurityRating" ;
+        bsdd:property           <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/SecurityRating> ;
+        bsdd:propertySet        "Pset_DoorCommon" ;
+        bsdd:propertyValueKind  "SINGLE" ;
+        bsdd:status             "Active" ;
+        bsdd:versionDateUtc     "2022-12-31T00:00:00"^^xsd:dateTime .
+
+<https://identifier.buildingsmart.org/uri/efalbhm/arge-0.1/class/Door/Infiltration>
+        rdf:type                bsdd:ClassificationProperty ;
+        bsdd:activationDateUtc  "2022-12-31T00:00:00"^^xsd:dateTime ;
+        bsdd:code               "Infiltration" ;
+        bsdd:dataType           "Real" ;
+        bsdd:description        "Infiltration flowrate of outside air for the filler object based on the area of the filler object at a pressure level of 50 Pascals. It shall be used, if the length of all joints is unknown." ;
+        bsdd:isDynamic          false ;
+        bsdd:name               "Infiltration" ;
+        bsdd:property           <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/Infiltration> ;
+        bsdd:propertySet        "Pset_DoorCommon" ;
+        bsdd:propertyValueKind  "SINGLE" ;
+        bsdd:status             "Active" ;
+        bsdd:versionDateUtc     "2022-12-31T00:00:00"^^xsd:dateTime .
+
+<https://identifier.buildingsmart.org/uri/efalbhm/arge-0.1/class/Door/HygrothermalRating>
+        rdf:type                bsdd:ClassificationProperty ;
+        bsdd:activationDateUtc  "2022-12-31T00:00:00"^^xsd:dateTime ;
+        bsdd:code               "HygrothermalRating" ;
+        bsdd:dataType           "String" ;
+        bsdd:description        "Resistance against hygrothermal impact from different temperatures and humidities inside and outside. It is given according to the national code or regulation." ;
+        bsdd:isDynamic          false ;
+        bsdd:name               "HygrothermalRating" ;
+        bsdd:property           <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/HygrothermalRating> ;
+        bsdd:propertySet        "Pset_DoorCommon" ;
+        bsdd:propertyValueKind  "SINGLE" ;
+        bsdd:status             "Active" ;
+        bsdd:versionDateUtc     "2022-12-31T00:00:00"^^xsd:dateTime .
+
+<https://identifier.buildingsmart.org/uri/efalbhm/arge-0.1/class/Door/SmokeStop>
+        rdf:type                bsdd:ClassificationProperty ;
+        bsdd:activationDateUtc  "2022-12-31T00:00:00"^^xsd:dateTime ;
+        bsdd:code               "SmokeStop" ;
+        bsdd:dataType           "Boolean" ;
+        bsdd:description        "Indication whether the object is designed to provide a smoke stop (TRUE) or not (FALSE)." ;
+        bsdd:isDynamic          false ;
+        bsdd:name               "SmokeStop" ;
+        bsdd:property           <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/SmokeStop> ;
+        bsdd:propertySet        "Pset_DoorCommon" ;
+        bsdd:propertyValueKind  "SINGLE" ;
+        bsdd:status             "Active" ;
+        bsdd:versionDateUtc     "2022-12-31T00:00:00"^^xsd:dateTime .

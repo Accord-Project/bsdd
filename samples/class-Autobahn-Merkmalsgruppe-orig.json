@@ -1,7 +1,6 @@
 {
   "__typename":  "Classification",
   "activationDateUtc": "2022-10-07T17:10:31.478978",
-  "childs": [],
   "classificationType": "CLASS",
   "code": "006bd5d1-8bd6-431a-8cb9-679363c70110",
   "countriesOfUse": [

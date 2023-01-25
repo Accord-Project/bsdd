@@ -8,7 +8,6 @@
 <https://identifier.buildingsmart.org/uri/bim-de/AutobahnGmbH-1.0/class/006bd5d1-8bd6-431a-8cb9-679363c70110>
         rdf:type                  bsdd:Classification ;
         bsdd:activationDateUtc    "2022-10-07T17:10:31.478978"^^xsd:dateTime ;
-        bsdd:childs               []  ;
         bsdd:classificationType   "CLASS" ;
         bsdd:code                 "006bd5d1-8bd6-431a-8cb9-679363c70110" ;
         bsdd:countryOfOrigin      "DE" ;

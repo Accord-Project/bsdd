@@ -1,0 +1,14 @@
+{
+  "namespaceUri": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3",
+  "__typename": "Domain",
+  "name": "IFC",
+  "version": "4.3",
+  "status": "Preview",
+  "releaseDate": null,
+  "license": "Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International",
+  "licenseUrl": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+  "copyrightNotice": null,
+  "moreInfoUrl": "https://www.buildingsmart.org/standards/bsi-standards/industry-foundation-classes/",
+  "lastUpdatedUtc": "2022-12-31T13:31:09.165062",
+  "languageCode": "EN"
+}

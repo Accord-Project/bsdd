@@ -1,0 +1,3620 @@
+[
+  {
+    "__typename": "Unit",
+    "code": "Kg",
+    "name": "kilogram",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "N/m2",
+    "name": "newton per square metre",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "%",
+    "name": "percent",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "% m/md",
+    "name": "% m/md",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "%/100%",
+    "name": "%/100%",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "%/K",
+    "name": "%/K",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "%/s",
+    "name": "percent per second",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "%obsc/ft",
+    "name": "percent obscuration per foot",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "%obsc/m",
+    "name": "percent obscuration per meter",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "%RH",
+    "name": "percent relative humidity",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "/h",
+    "name": "per hour",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "/min",
+    "name": "per minute",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "/s",
+    "name": "per second",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "\u00b0",
+    "name": "grad (angel degree)",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "\u00b0C",
+    "name": "celsius",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "\u00b0C/h",
+    "name": "degrees celsius per hour",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "\u00b0C/min",
+    "name": "degrees celsius per minute",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "\u00b0daysC",
+    "name": "degree days celsius",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "\u00b0daysF",
+    "name": "degree days fahrenheit",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "\u00b0dH",
+    "name": "\u00b0dH",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "\u00b0F",
+    "name": "fahrenheit",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "\u00b0F/h",
+    "name": "degrees fahrenheit per hour",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "\u00b0F/min",
+    "name": "degrees fahrenheit per minute",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "\u00b5F",
+    "name": "microfarad",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "\u00b5g/m\u00b3",
+    "name": "micrograms per cubic meter",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "\u00b5H",
+    "name": "microhenry",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "\u00b5m",
+    "name": "micrometer",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "\u00b5s",
+    "name": "microsecond",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "\u00b5S/cm",
+    "name": "microsiemens per centimeter",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "1/min",
+    "name": "per minute",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "A",
+    "name": "ampere",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "A/m",
+    "name": "ampere per meter",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "A/m\u00b2",
+    "name": "ampere per square meter",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "ACH",
+    "name": "air changes per hour",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "acre",
+    "name": "acre",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "AED",
+    "name": "uae dirham",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "AFN",
+    "name": "afghani",
+    "symbol": "Af"
+  },
+  {
+    "__typename": "Unit",
+    "code": "Ah",
+    "name": "ampere hour",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "AirWatt",
+    "name": "AirWatt",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "ALL",
+    "name": "lek",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "Am\u00b2",
+    "name": "ampere square meter",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "AMD",
+    "name": "armenian dram",
+    "symbol": "\u0534"
+  },
+  {
+    "__typename": "Unit",
+    "code": "AOA",
+    "name": "kwanza",
+    "symbol": "Kz"
+  },
+  {
+    "__typename": "Unit",
+    "code": "ARS",
+    "name": "argentine peso",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "atm",
+    "name": "atmosphere",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "AUD",
+    "name": "australian dollar",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "AWG",
+    "name": "aruban guilder florin",
+    "symbol": "\u0192"
+  },
+  {
+    "__typename": "Unit",
+    "code": "AX",
+    "name": "AX",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "AZN",
+    "name": "azerbaijanian manat",
+    "symbol": "\u043c\u0430\u043d"
+  },
+  {
+    "__typename": "Unit",
+    "code": "BAM",
+    "name": "konvertibilna marka",
+    "symbol": "\u041a\u041c"
+  },
+  {
+    "__typename": "Unit",
+    "code": "bar",
+    "name": "bar",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "BBD",
+    "name": "barbados dollar",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "Bd",
+    "name": "Bd",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "BDT",
+    "name": "taka",
+    "symbol": "\u09f3"
+  },
+  {
+    "__typename": "Unit",
+    "code": "Bft",
+    "name": "beaufort",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "BGN",
+    "name": "bulgarian lev",
+    "symbol": "\u043b\u0432"
+  },
+  {
+    "__typename": "Unit",
+    "code": "BHD",
+    "name": "bahraini dinar",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "BIF",
+    "name": "burundi franc",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "BMD",
+    "name": "bermudian dollar",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "BND",
+    "name": "brunei dollar",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "BOB",
+    "name": "boliviano",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "BRL",
+    "name": "brazilian real",
+    "symbol": "R$"
+  },
+  {
+    "__typename": "Unit",
+    "code": "BSD",
+    "name": "bahamian dollar",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "BTN",
+    "name": "ngultrum",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "BTU",
+    "name": "british thermal unit",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "BTU/h",
+    "name": "btus per hour",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "BTU/lb",
+    "name": "btus per pound",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "btu/lb dry",
+    "name": "btus per pound dry air",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "Btu/Wh",
+    "name": "energy efficiency ratio",
+    "symbol": "EER"
+  },
+  {
+    "__typename": "Unit",
+    "code": "BWP",
+    "name": "pula",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "BYR",
+    "name": "belarussian ruble",
+    "symbol": "Br"
+  },
+  {
+    "__typename": "Unit",
+    "code": "byte",
+    "name": "byte",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "BZD",
+    "name": "belize dollar",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "C",
+    "name": "coulomb",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "c (contacts)",
+    "name": "c (contacts)",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "c/h",
+    "name": "c/h",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "c/min",
+    "name": "c/min",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "CAD",
+    "name": "canadian dollar",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "cal",
+    "name": "calorie",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "cal/cm\u00b2",
+    "name": "calorie per square centimeter",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "cal/g",
+    "name": "calorie per gram",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "cd",
+    "name": "candela",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "cd/ft\u00b2",
+    "name": "candelas per square foot",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "cd/m\u00b2",
+    "name": "candelas per square meter",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "CDF",
+    "name": "congolese franc",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "cfh",
+    "name": "cubic feet per hour",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "cfm",
+    "name": "cubic feet per minute",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "cfs",
+    "name": "cubic feet per second",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "CHF",
+    "name": "swiss franc",
+    "symbol": "SFr"
+  },
+  {
+    "__typename": "Unit",
+    "code": "CLP",
+    "name": "chilean peso",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "cm",
+    "name": "centimeter",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "cm\u00b2",
+    "name": "square centimeter",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "cm\u00b3",
+    "name": "cubic centimeter",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "cmH\u2082O",
+    "name": "centimeter of water",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "cmHg",
+    "name": "centimeter of mercury",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "CNY",
+    "name": "chinese yuan",
+    "symbol": "\u5143"
+  },
+  {
+    "__typename": "Unit",
+    "code": "COP",
+    "name": "coefficient of performance",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "cph",
+    "name": "cycles per hour",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "cpm",
+    "name": "cycles per minute",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "CRC",
+    "name": "costa rican colon",
+    "symbol": "\u20a1"
+  },
+  {
+    "__typename": "Unit",
+    "code": "cs",
+    "name": "hundredths second",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "cSt",
+    "name": "centistokes",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "CUP",
+    "name": "cuban peso",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "CVE",
+    "name": "cape verde escudo",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "CZK",
+    "name": "czech koruna",
+    "symbol": "K\u010d"
+  },
+  {
+    "__typename": "Unit",
+    "code": "day",
+    "name": "day",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "Days",
+    "name": "Days",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "dB",
+    "name": "decibel",
+    "symbol": "dB"
+  },
+  {
+    "__typename": "Unit",
+    "code": "dB(A)",
+    "name": "dB(A)",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "dB(A) re 1 pW",
+    "name": "dB(A) re 1 pW",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "dB(C)",
+    "name": "dB(C)",
+    "symbol": "dBc"
+  },
+  {
+    "__typename": "Unit",
+    "code": "dB\u00b5V",
+    "name": "db microvolt",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "dBi",
+    "name": "dBi",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "dBmV",
+    "name": "db millivolt",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "DCIE",
+    "name": "data center infrastructure efficiency",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "deg",
+    "name": "degrees angular",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "degPh",
+    "name": "degrees phase",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "DJF",
+    "name": "djibouti franc",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "DKK",
+    "name": "danish krone",
+    "symbol": "kr"
+  },
+  {
+    "__typename": "Unit",
+    "code": "dm",
+    "name": "decimeter",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "DOP",
+    "name": "dominican peso",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "DPI",
+    "name": "dots pre inch",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "ds",
+    "name": "tenths second",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "DZD",
+    "name": "algerian dinar",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "EGP",
+    "name": "egyptian pound",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "ERN",
+    "name": "nakfa",
+    "symbol": "Nfk"
+  },
+  {
+    "__typename": "Unit",
+    "code": "ETB",
+    "name": "ethiopian birr",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "EUR",
+    "name": "euro",
+    "symbol": "\u20ac"
+  },
+  {
+    "__typename": "Unit",
+    "code": "F",
+    "name": "farad",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "fc",
+    "name": "footcandle",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "FJD",
+    "name": "fiji dollar",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "FKP",
+    "name": "falkland islands pound",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "fl oz",
+    "name": "fluid ounce",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "fnu",
+    "name": "formazin nephelometric unit",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "ft",
+    "name": "foot",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "ft/min",
+    "name": "feet per minute",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "ft/s",
+    "name": "feet per second",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "ft\u00b2",
+    "name": "square foot",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "ft\u00b3",
+    "name": "cubic foot",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "ft\u00b3 gas",
+    "name": "cubic feet natural gas",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "ftlbs/sec",
+    "name": "foot pounds per second",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "g",
+    "name": "gram",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "g/cm\u00b3",
+    "name": "gram per cubic centimeter",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "g/h",
+    "name": "gram per hour",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "g/kg",
+    "name": "gram per kilogram",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "g/l",
+    "name": "gram per liter",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "g/m\u00b2",
+    "name": "gram per square meter",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "g/m\u00b3",
+    "name": "gram per cubic meter",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "g/min",
+    "name": "gram per minute",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "g/s",
+    "name": "gram per second",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "gal",
+    "name": "gallon",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "gal/hr",
+    "name": "gallons per hour",
+    "symbol": "gph"
+  },
+  {
+    "__typename": "Unit",
+    "code": "gal/min",
+    "name": "gallons per minute",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "galUK",
+    "name": "imperial gallon",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "galUK/min",
+    "name": "imperial gallons per minute",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "GB",
+    "name": "gigabyte",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "Gbit/s",
+    "name": "Gigabits per second",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "GBP",
+    "name": "pound sterling",
+    "symbol": "\u00a3"
+  },
+  {
+    "__typename": "Unit",
+    "code": "GEL",
+    "name": "lari",
+    "symbol": "\u10da"
+  },
+  {
+    "__typename": "Unit",
+    "code": "gH\u2082O/kgAir",
+    "name": "grams of water per kilogram dry air",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "GHS",
+    "name": "cedi (ghana)",
+    "symbol": "\u20b5"
+  },
+  {
+    "__typename": "Unit",
+    "code": "GHz",
+    "name": "GHz",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "GIP",
+    "name": "gibraltar pound",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "GJ",
+    "name": "gigajoule",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "GJ/h",
+    "name": "gigajoule per hour",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "GJ/jaar",
+    "name": "GJ/jaar",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "GJ/year",
+    "name": "Gigajoule per year",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "GMD",
+    "name": "dalasi",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "GNF",
+    "name": "guinea franc",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "GTQ",
+    "name": "quetzal",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "GW",
+    "name": "gigawatt",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "GYD",
+    "name": "guyana dollar",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "h",
+    "name": "h",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "H",
+    "name": "henry",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "hft\u00b3",
+    "name": "hecto cubic foot",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "HKD",
+    "name": "hong kong dollar",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "hL",
+    "name": "hectoliter",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "hL/s",
+    "name": "hectoliters per second",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "HNL",
+    "name": "lempira",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "hp",
+    "name": "horsepower",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "hPa",
+    "name": "hectopascal",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "hph",
+    "name": "horsepower hour",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "hr",
+    "name": "hour",
+    "symbol": "h"
+  },
+  {
+    "__typename": "Unit",
+    "code": "HRC",
+    "name": "HRC",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "HRK",
+    "name": "croatian kuna",
+    "symbol": "Kn"
+  },
+  {
+    "__typename": "Unit",
+    "code": "HTG",
+    "name": "gourde",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "HUF",
+    "name": "forint",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "hundred cubic feet natural gas",
+    "name": "hundred cubic feet natural gas",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "Hz",
+    "name": "hertz",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "IDR",
+    "name": "rupiah",
+    "symbol": "Rp"
+  },
+  {
+    "__typename": "Unit",
+    "code": "ILS",
+    "name": "new israeli shekel",
+    "symbol": "\u20aa"
+  },
+  {
+    "__typename": "Unit",
+    "code": "Imp/kWh (kvarh)",
+    "name": "Imp/kWh (kvarh)",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "in",
+    "name": "inch",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "in/wc",
+    "name": "inch of water",
+    "symbol": "inH\u2082O"
+  },
+  {
+    "__typename": "Unit",
+    "code": "in\u00b2",
+    "name": "square inch",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "in\u00b3",
+    "name": "cubic inch",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "inHg",
+    "name": "inches of mercury",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "INR",
+    "name": "indian rupee",
+    "symbol": "\u20b9"
+  },
+  {
+    "__typename": "Unit",
+    "code": "IQD",
+    "name": "iraqi dinar",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "IRR",
+    "name": "iranian rial",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "ISK",
+    "name": "iceland krona",
+    "symbol": "Kr"
+  },
+  {
+    "__typename": "Unit",
+    "code": "J",
+    "name": "joule",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "J/(kg\u00b7K)",
+    "name": "joule per kilogram kelvin",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "J/g",
+    "name": "joule per gram",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "J/h",
+    "name": "joule per hour",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "J/kg",
+    "name": "joule per kilogram",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "J/kg dry",
+    "name": "joule per kilogram dry air",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "J/kg\u00b0K",
+    "name": "joules per kilogram degree kelvin",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "J/m\u00b2",
+    "name": "joule per square meter",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "Jaar",
+    "name": "Jaar",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "JMD",
+    "name": "jamaican dollar",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "JOD",
+    "name": "jordanian dinar",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "JPY",
+    "name": "yen",
+    "symbol": "\u00a5"
+  },
+  {
+    "__typename": "Unit",
+    "code": "Js",
+    "name": "joule second",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "K",
+    "name": "kelvin",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "K/h",
+    "name": "kelvin per hour",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "K/min",
+    "name": "kelvin per minute",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "K/s",
+    "name": "kelvin per second",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "kA",
+    "name": "kA",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "kB",
+    "name": "kilobyte",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "kBit/s",
+    "name": "kBit/s",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "kBTU",
+    "name": "kilobtu",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "kBTU/ft\u00b2",
+    "name": "kilobtu per square foot",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "kBTU/h",
+    "name": "kilobtus per hour",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "kBTU/h/ft\u00b2",
+    "name": "kilobtus per hour per square foot",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "kByte",
+    "name": "kByte",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "kcfm",
+    "name": "kilocubic feet per minute",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "kcmil",
+    "name": "kcmil",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "KES",
+    "name": "kenyan shilling",
+    "symbol": "Sh"
+  },
+  {
+    "__typename": "Unit",
+    "code": "kg",
+    "name": "kilogram",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "kg/24h",
+    "name": "kilogram per day",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "kg/cm/m\u00b2",
+    "name": "kg/cm/m\u00b2",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "kg/h",
+    "name": "kilogram per hour",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "kg/km",
+    "name": "kilogram per kilomter",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "kg/m",
+    "name": "kilogram per meter",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "kg/m\u00b2",
+    "name": "kilogram per square meter",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "kg/m\u00b3",
+    "name": "kilogram per cubic meter",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "kg/min",
+    "name": "kilogram per minute",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "kg/s",
+    "name": "kilogram per second",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "kg\u00b7m\u00b2",
+    "name": "kilogram square meter",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "kgal",
+    "name": "kilogallon",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "KGS",
+    "name": "som",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "KHR",
+    "name": "riel",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "kHz",
+    "name": "kilohertz",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "kJ",
+    "name": "kilojoule",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "kJ/h",
+    "name": "kilojoule per hour",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "kJ/kg",
+    "name": "kilojoule per kilogram",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "kJ/kg dry",
+    "name": "kilojoule per kilogram dry air",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "kJ/m\u00b2",
+    "name": "kJ/m\u00b2",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "kJ/Ohm",
+    "name": "kJ/Ohm",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "kL",
+    "name": "kiloliter",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "klb",
+    "name": "kilopound",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "klb/h",
+    "name": "kilopounds per hour",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "km",
+    "name": "kilometer",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "km/h",
+    "name": "kilometer per hour",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "km/s",
+    "name": "kilometer per second",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "km\u00b2",
+    "name": "square kilometer",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "kN",
+    "name": "kilonewton",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "kN/m\u00b2",
+    "name": "kilonewton per square meter",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "knot",
+    "name": "knot",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "kOhm",
+    "name": "kiloohm",
+    "symbol": "k\u2126"
+  },
+  {
+    "__typename": "Unit",
+    "code": "kPa",
+    "name": "kilopascal",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "KPW",
+    "name": "north korean won",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "KRW",
+    "name": "south korean won",
+    "symbol": "\u20a9"
+  },
+  {
+    "__typename": "Unit",
+    "code": "kV",
+    "name": "kilovolt",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "kVA",
+    "name": "kilovolt ampere",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "kVAh",
+    "name": "kilovolt ampere hour",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "kVAR",
+    "name": "kilovolt ampere reactive",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "kVARh",
+    "name": "kilovolt ampere reactive hour",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "kW",
+    "name": "kilowatt",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "kW/(m\u00b3/s)",
+    "name": "kW/(m\u00b3/s)",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "kW/ft\u00b2",
+    "name": "kilowatts per square foot",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "kW/gal/min",
+    "name": "kilowatts per gallons per minute",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "kW/kcfm",
+    "name": "kilowatts per kilocubic feet per minute",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "kW/m\u00b2",
+    "name": "kilowatts per square meter",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "kW/ton",
+    "name": "kilowatt per ton",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "KWD",
+    "name": "kuwaiti dinar",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "kWh",
+    "name": "kilowatt hour",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "kWh/ft\u00b2",
+    "name": "kilowatt hours per square foot",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "kWh/m\u00b2",
+    "name": "kilowatt hours per square meter",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "kWp",
+    "name": "kWp",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "KYD",
+    "name": "cayman islands dollar",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "KZT",
+    "name": "tenge",
+    "symbol": "\u3012"
+  },
+  {
+    "__typename": "Unit",
+    "code": "k\u03a9",
+    "name": "kiloohm",
+    "symbol": "k\u2126"
+  },
+  {
+    "__typename": "Unit",
+    "code": "l",
+    "name": "liter",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "L",
+    "name": "liter",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "l/h",
+    "name": "liter per hour",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "L/h",
+    "name": "liter per hour",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "l/min",
+    "name": "liter per minute",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "L/min",
+    "name": "liter per minute",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "l/s",
+    "name": "liter per second",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "L/s",
+    "name": "liter per second",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "LAK",
+    "name": "kip",
+    "symbol": "\u20ad"
+  },
+  {
+    "__typename": "Unit",
+    "code": "lb",
+    "name": "pound",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "lb/h",
+    "name": "pound per hour",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "lb/min",
+    "name": "pound per minute",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "lb/s",
+    "name": "pound per second",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "lbf",
+    "name": "pound force",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "LBP",
+    "name": "lebanese pound",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "LKR",
+    "name": "sri lanka rupee",
+    "symbol": "Rs"
+  },
+  {
+    "__typename": "Unit",
+    "code": "lm",
+    "name": "lumen",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "lm/W",
+    "name": "lm/W",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "LRD",
+    "name": "liberian dollar",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "LSL",
+    "name": "loti",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "lx",
+    "name": "lux",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "LYD",
+    "name": "libyan dinar",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "m",
+    "name": "meter",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "m rad",
+    "name": "m rad",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "m/h",
+    "name": "meter per hour",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "m/min",
+    "name": "meter per minute",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "m/s",
+    "name": "meter per second",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "m/s\u00b2",
+    "name": "meter per square second",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "m\u00b2",
+    "name": "square meter",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "m\u00b2/h",
+    "name": "square meter per hour",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "m\u00b2/l",
+    "name": "square meter per liter",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "m\u00b2/m",
+    "name": "square meter per meter",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "m\u00b2/N",
+    "name": "square meter per newton",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "m\u00b3",
+    "name": "cubic meter",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "m\u00b3 gas",
+    "name": "cubic meter natural gas",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "m\u00b3/h",
+    "name": "cubic meter per hour",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "m\u00b3/m\u00b2h50Pa",
+    "name": "m\u00b3/m\u00b2h50Pa",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "m\u00b3/min",
+    "name": "cubic meter per minute",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "m\u00b3/s",
+    "name": "cubic meter per second",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "mA",
+    "name": "milliampere",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "MAD",
+    "name": "moroccan dirham",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "mAh",
+    "name": "mAh",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "MB",
+    "name": "megabyte",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "mbar",
+    "name": "millibar",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "Mbit/s",
+    "name": "Mbit/s",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "MBTU",
+    "name": "megabtu",
+    "symbol": "MMBTU"
+  },
+  {
+    "__typename": "Unit",
+    "code": "MBTU/ft\u00b2",
+    "name": "megabtu per square foot",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "MBTU/h",
+    "name": "megabtus per hour",
+    "symbol": "MMBTU/h"
+  },
+  {
+    "__typename": "Unit",
+    "code": "Mbyte",
+    "name": "Mbyte",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "MDL",
+    "name": "moldavian leu",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "Megapixel",
+    "name": "Megapixel",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "mg",
+    "name": "milligram",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "mg/l",
+    "name": "milligram per liter",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "MGA",
+    "name": "malagasy ariary",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "mH",
+    "name": "millihenry",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "mH2O",
+    "name": "mH2O",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "MHz",
+    "name": "megahertz",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "mile",
+    "name": "mile",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "mile\u00b2",
+    "name": "square mile",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "Milligram",
+    "name": "Milligram",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "million cubic feet natural gas",
+    "name": "million cubic feet natural gas",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "min",
+    "name": "minute",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "MJ",
+    "name": "megajoule",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "MJ/ft\u00b2",
+    "name": "megajoule per square foot",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "MJ/h",
+    "name": "megajoule per hour",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "MJ/kg dry",
+    "name": "megajoule per kilogram dry air",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "MJ/m\u00b2",
+    "name": "megajoule per square meter",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "MKD",
+    "name": "denar",
+    "symbol": "\u0434\u0435\u043d"
+  },
+  {
+    "__typename": "Unit",
+    "code": "ml",
+    "name": "milliliter",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "mL",
+    "name": "milliliter",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "mL/s",
+    "name": "milliliter per second",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "mm",
+    "name": "millimeter",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "mm/m",
+    "name": "millimeter per meter",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "mm/min",
+    "name": "millimeter per minute",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "mm/s",
+    "name": "millimeter per second",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "mm\u00b2",
+    "name": "square millimeter",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "mm\u00b2/m",
+    "name": "square millimeter per meter",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "mm\u00b3",
+    "name": "cubic millimeter",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "mmHg",
+    "name": "millimeter of mercury",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "MMK",
+    "name": "kyat",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "MNT",
+    "name": "tugrik",
+    "symbol": "\u20ae"
+  },
+  {
+    "__typename": "Unit",
+    "code": "mo",
+    "name": "julian month",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "mOhm",
+    "name": "mOhm",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "MOhm",
+    "name": "MOhm",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "Month",
+    "name": "Month",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "MOP",
+    "name": "pataca",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "MP",
+    "name": "MP",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "mph",
+    "name": "miles per hour",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "MRO",
+    "name": "ouguiya",
+    "symbol": "UM"
+  },
+  {
+    "__typename": "Unit",
+    "code": "ms",
+    "name": "millisecond",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "MUR",
+    "name": "mauritius rupee",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "mV",
+    "name": "millivolt",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "MV",
+    "name": "megavolt",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "MVAh",
+    "name": "megavolt ampere hour",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "MVAR",
+    "name": "megavolt ampere reactive",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "MVARh",
+    "name": "megavolt ampere reactive hour",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "MVR",
+    "name": "rufiyaa",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "mW",
+    "name": "milliwatt",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "MW",
+    "name": "megawatt",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "MWh",
+    "name": "megawatt hour",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "MWh/ft\u00b2",
+    "name": "megawatt hours per square foot",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "MWh/m\u00b2",
+    "name": "megawatt hours per square meter",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "MWK",
+    "name": "kwacha",
+    "symbol": "MK"
+  },
+  {
+    "__typename": "Unit",
+    "code": "MXN",
+    "name": "mexican peso",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "MYR",
+    "name": "malaysian ringgit",
+    "symbol": "RM"
+  },
+  {
+    "__typename": "Unit",
+    "code": "MZN",
+    "name": "metical",
+    "symbol": "MTn"
+  },
+  {
+    "__typename": "Unit",
+    "code": "m\u03a9",
+    "name": "milliohm",
+    "symbol": "m\u2126"
+  },
+  {
+    "__typename": "Unit",
+    "code": "M\u03a9",
+    "name": "megaohm",
+    "symbol": "M\u2126"
+  },
+  {
+    "__typename": "Unit",
+    "code": "N",
+    "name": "newton",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "N/m",
+    "name": "newton per meter",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "N/m\u00b2",
+    "name": "newton per square meter",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "N/mm",
+    "name": "newton per millimeter",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "N/mm\u00b2",
+    "name": "newton per square millimeter",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "NAD",
+    "name": "namibian dollar",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "NGN",
+    "name": "naira",
+    "symbol": "\u20a6"
+  },
+  {
+    "__typename": "Unit",
+    "code": "NIO",
+    "name": "cordoba oro",
+    "symbol": "C$"
+  },
+  {
+    "__typename": "Unit",
+    "code": "nm",
+    "name": "nm",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "Nm",
+    "name": "newton meter",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "nmi",
+    "name": "nmi",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "NOK",
+    "name": "norwegian krone",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "NPR",
+    "name": "nepalese rupee",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "ns",
+    "name": "nanosecond",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "Ns",
+    "name": "newton second",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "ntu",
+    "name": "nephelometric turbidity unit",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "NZD",
+    "name": "new zealand dollar",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "Ohm",
+    "name": "ohm",
+    "symbol": "\u03a9"
+  },
+  {
+    "__typename": "Unit",
+    "code": "Ohm/km",
+    "name": "ohm per kilometer",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "OMR",
+    "name": "rial omani",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "opm",
+    "name": "opm",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "oz",
+    "name": "ounce",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "Pa",
+    "name": "pascal",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "PAB",
+    "name": "balboa",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "Pa-s",
+    "name": "Pa-s",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "Pascal-seconde",
+    "name": "Pascal-seconde",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "PB",
+    "name": "petabyte",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "PEN",
+    "name": "nuevo sol",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "pf",
+    "name": "power factor",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "PGK",
+    "name": "kina",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "pH",
+    "name": "ph",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "phot",
+    "name": "phot",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "PHP",
+    "name": "philippine peso",
+    "symbol": "\u20b1"
+  },
+  {
+    "__typename": "Unit",
+    "code": "PKR",
+    "name": "pakistan rupee",
+    "symbol": "\u20a8"
+  },
+  {
+    "__typename": "Unit",
+    "code": "PLN",
+    "name": "pzloty",
+    "symbol": "z\u0142"
+  },
+  {
+    "__typename": "Unit",
+    "code": "ppb",
+    "name": "parts per billion",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "ppm",
+    "name": "parts per million",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "ppu",
+    "name": "parts per unit",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "psi",
+    "name": "pound force per square inch (lbf/in\u00b2)",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "psi/\u00b0F",
+    "name": "psi per degree fahrenheit",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "PSU",
+    "name": "practical salinity unit",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "pt",
+    "name": "point",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "PUE",
+    "name": "power usage effectiveness",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "px",
+    "name": "pixel",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "PYG",
+    "name": "guarani",
+    "symbol": "\u20b2"
+  },
+  {
+    "__typename": "Unit",
+    "code": "QAR",
+    "name": "qatari rial",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "qt",
+    "name": "quart",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "rad",
+    "name": "radian",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "rad/s",
+    "name": "radian per second",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "rad/s\u00b2",
+    "name": "radian per square second",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "RON",
+    "name": "romanian new leu",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "rpm",
+    "name": "revolution per minute",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "Rpm",
+    "name": "Rates per minute",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "RSD",
+    "name": "serbian dinar",
+    "symbol": "din"
+  },
+  {
+    "__typename": "Unit",
+    "code": "RUB",
+    "name": "russian ruble",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "RWF",
+    "name": "rwanda franc",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "s",
+    "name": "second",
+    "symbol": "s"
+  },
+  {
+    "__typename": "Unit",
+    "code": "S",
+    "name": "siemens",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "S/m",
+    "name": "siemens per meter",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "SAR",
+    "name": "saudi riyal",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "SBD",
+    "name": "solomon islands dollar",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "SCR",
+    "name": "seychelles rupee",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "SDG",
+    "name": "sudanese pound",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "sec",
+    "name": "second",
+    "symbol": "s"
+  },
+  {
+    "__typename": "Unit",
+    "code": "SEK",
+    "name": "swedish krona",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "SGD",
+    "name": "singapore dollar",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "SHP",
+    "name": "saint helena pound",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "SLL",
+    "name": "leone",
+    "symbol": "Le"
+  },
+  {
+    "__typename": "Unit",
+    "code": "SOS",
+    "name": "somali shilling",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "sr",
+    "name": "steradian",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "SRD",
+    "name": "surinam dollar",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "STD",
+    "name": "dobra",
+    "symbol": "Db"
+  },
+  {
+    "__typename": "Unit",
+    "code": "SYP",
+    "name": "syrian pound",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "SZL",
+    "name": "lilangeni",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "t",
+    "name": "short ton",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "T",
+    "name": "tesla",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "TB",
+    "name": "terabyte",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "THB",
+    "name": "baht",
+    "symbol": "\u0e3f"
+  },
+  {
+    "__typename": "Unit",
+    "code": "therm",
+    "name": "therm",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "therm/h",
+    "name": "therms per hour",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "thousand cubic feet natural gas",
+    "name": "thousand cubic feet natural gas",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "TJS",
+    "name": "somoni",
+    "symbol": "\u0405\u041c"
+  },
+  {
+    "__typename": "Unit",
+    "code": "TMT",
+    "name": "manat",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "TND",
+    "name": "tunisian dinar",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "ton",
+    "name": "metric ton",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "ton/h",
+    "name": "metric ton per hour",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "tonref",
+    "name": "ton of refrigeration",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "tonrefh",
+    "name": "tons refrigeration hour",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "TRY",
+    "name": "turkish lira",
+    "symbol": "\u20a4"
+  },
+  {
+    "__typename": "Unit",
+    "code": "TTD",
+    "name": "trinidad and tobago dollar",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "TWD",
+    "name": "taiwan dollar",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "TZS",
+    "name": "tanzanian shilling",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "UAH",
+    "name": "hryvnia",
+    "symbol": "\u20b4"
+  },
+  {
+    "__typename": "Unit",
+    "code": "UGX",
+    "name": "uganda shilling",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "USD",
+    "name": "us dollar",
+    "symbol": "$"
+  },
+  {
+    "__typename": "Unit",
+    "code": "UYU",
+    "name": "peso uruguayo",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "UZS",
+    "name": "uzbekistan som",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "V",
+    "name": "V",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "V/K",
+    "name": "volt per degree kelvin",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "V/m",
+    "name": "volt per meter",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "VA",
+    "name": "volt ampere",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "VAh",
+    "name": "volt ampere hour",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "VAR",
+    "name": "volt ampere reactive",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "VARh",
+    "name": "volt ampere reactive hour",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "VEF",
+    "name": "bolivar fuerte",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "VND",
+    "name": "dong",
+    "symbol": "\u20ab"
+  },
+  {
+    "__typename": "Unit",
+    "code": "Volt",
+    "name": "volt",
+    "symbol": "V"
+  },
+  {
+    "__typename": "Unit",
+    "code": "VUV",
+    "name": "vatu",
+    "symbol": "Vt"
+  },
+  {
+    "__typename": "Unit",
+    "code": "W",
+    "name": "watt",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "W/cfm",
+    "name": "watt per cubic feet per minute",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "W/ft\u00b2",
+    "name": "watt per square foot",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "W/ft\u00b2 irr",
+    "name": "watt per square foot irradiance",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "W/K",
+    "name": "W/K",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "W/m",
+    "name": "W/m",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "W/m\u00b0K",
+    "name": "watt per meter kelvin",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "W/m\u00b2",
+    "name": "watt per square meter",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "W/m\u00b2 irr",
+    "name": "watt per square meter irradiance",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "W/m\u00b2K",
+    "name": "watt per square meter kelvin",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "W/m\u00b3/s",
+    "name": "watt per cubic meter per second",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "W/mK",
+    "name": "watt per meter kelvin",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "Wb",
+    "name": "weber",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "Wh",
+    "name": "watt hour",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "Wh/ft\u00b2",
+    "name": "watt hours per square foot",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "Wh/m\u00b2",
+    "name": "watt hours per square meter",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "wk",
+    "name": "week",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "Wp",
+    "name": "Wp",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "WST",
+    "name": "tala",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "XAF",
+    "name": "cfa franc bceao",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "XCD",
+    "name": "east caribbean dollar",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "XPF",
+    "name": "cfp franc",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "yd",
+    "name": "yard",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "yd\u00b2",
+    "name": "square yard",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "yd\u00b3",
+    "name": "cubic yard",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "Year",
+    "name": "Year",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "YER",
+    "name": "yemeni rial",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "yr",
+    "name": "year",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "ZAR",
+    "name": "rand",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "ZMW",
+    "name": "zambian kwacha",
+    "symbol": "ZK"
+  },
+  {
+    "__typename": "Unit",
+    "code": "ZWL",
+    "name": "zimbabwe dollar",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "\u0394\u00b0C",
+    "name": "celsius degrees",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "\u0394\u00b0F",
+    "name": "fahrenheit degrees",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "\u0394K",
+    "name": "kelvin degrees",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "\u03a9",
+    "name": "ohm",
+    "symbol": "\u2126"
+  },
+  {
+    "__typename": "Unit",
+    "code": "\u03a9m",
+    "name": "ohm meter",
+    "symbol": "\u2126m"
+  },
+  {
+    "__typename": "Unit",
+    "code": "(m\u00b2\u00b7K)/W",
+    "name": "(m\u00b2\u00b7K)/W",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "Gbit/sec",
+    "name": "Gbit/sec.",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "MPa",
+    "name": "Megapascal",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "W/(m\u00b7K)",
+    "name": "watt per meter kelvin",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "W/(m\u00b2\u00b7K)",
+    "name": "watt per square meter kelvin",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "W/(m\u00b2\u00b7K\u00b2)",
+    "name": "W/(m\u00b2\u00b7K\u00b2)",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "dBm",
+    "name": "decibel-milliwatts",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "dBmW",
+    "name": "decibel-milliwatts",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "kg/100m",
+    "name": "kg/100m",
+    "symbol": " NULL"
+  },
+  {
+    "__typename": "Unit",
+    "code": "kg/dm\u00b3",
+    "name": "kilogram per cubic decimeter",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "mm/(m\u22c5K)",
+    "name": "mm/(m\u22c5K)",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "Ohm\u22c5m",
+    "name": "ohm meter",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "TPI",
+    "name": "turns per inch",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "cm\u2074",
+    "name": "area moment of intertia",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "m\u2074",
+    "name": "area moment of intertia",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "mm\u2074",
+    "name": "area moment of intertia",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "'",
+    "name": "arc minute",
+    "symbol": "'"
+  },
+  {
+    "__typename": "Unit",
+    "code": "\u00b5A",
+    "name": "microampere",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "A/\u00b0C",
+    "name": "ampere per degree celsius",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "A/cm",
+    "name": "ampere per centimeter",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "A/cm\u00b2",
+    "name": "ampere per square centimeter",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "A/J",
+    "name": "ampere per joule",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "A/mm",
+    "name": "ampere per millimeter",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "A/mm\u00b2",
+    "name": "ampere per square millimeter",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "A/(m\u00b2\u00b7K\u00b2)",
+    "name": "ampere per square meter square kelvin",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "A/rad",
+    "name": "ampere per radian",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "Am\u00b2/Js",
+    "name": "ampere square meter per joule second",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "Ao",
+    "name": "angstrom",
+    "symbol": "\u00c5"
+  },
+  {
+    "__typename": "Unit",
+    "code": "ar",
+    "name": "area moment of intertia",
+    "symbol": "a"
+  },
+  {
+    "__typename": "Unit",
+    "code": "As",
+    "name": "ampere second",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "At",
+    "name": "ampere turn",
+    "symbol": "At"
+  },
+  {
+    "__typename": "Unit",
+    "code": "bbl",
+    "name": "barrel",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "bit",
+    "name": "bit",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "bit/s",
+    "name": "bit per second",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "Bq",
+    "name": "becquerel",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "BTU/lb dry",
+    "name": "btus per pound dry air",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "BTU/Wh",
+    "name": "energy efficiency ratio",
+    "symbol": "EER"
+  },
+  {
+    "__typename": "Unit",
+    "code": "C\u00b7m",
+    "name": "coulomb meter",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "cL",
+    "name": "centiliter",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "CYP",
+    "name": "cyprus pound",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "J/K",
+    "name": "joule per kelvin",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "J/kg\u00b7K",
+    "name": "joule per kilogram kelvin",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "kJ/K",
+    "name": "kilojoule per degree kelvin",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "MJ/K",
+    "name": "megajoule per degree kelvin",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "MVA",
+    "name": "megavolt ampere",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "u",
+    "name": "atomic mass unit",
+    "symbol": "\u03bc"
+  },
+  {
+    "__typename": "Unit",
+    "code": "Pa\u22c5s",
+    "name": "pascal second",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "kN/m",
+    "name": "kilonewton per meter",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "/K",
+    "name": "per kelving",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "/m",
+    "name": "per meter",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "/m\u00b2",
+    "name": "per square meter",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "1/K",
+    "name": "per kelvin",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "1/m",
+    "name": "per meter",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "1/m\u00b2",
+    "name": "per square meter",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "cm\u00b2/m",
+    "name": "square centimetre per meter",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "kJ/kg\u00b7K",
+    "name": "kilojoule per kilogram kelvin",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "kPa\u00b7s/m\u00b3",
+    "name": "kilo pascal second per cubic meter",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "?",
+    "name": "[unknown]",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "kN/m\u00b3",
+    "name": "kilonewton per cubic meter",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "MN/m\u00b2",
+    "name": "meganewton per square meter",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "MN/m\u00b3",
+    "name": "meganewton per cubic meter",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "mol",
+    "name": "mol",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "mol/l",
+    "name": "mol per liter",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "mS/cm",
+    "name": "millisecond per centimeter",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "\u00b5T",
+    "name": "micro tesla",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "m/Nm\u00b2",
+    "name": "meter per newton square meter",
+    "symbol": null
+  },
+  {
+    "__typename": "Unit",
+    "code": "\u03bcT",
+    "name": "micro tesla",
+    "symbol": null
+  }
+]

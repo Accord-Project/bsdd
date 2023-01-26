@@ -79,7 +79,7 @@
       "isDynamic": false,
       "isRequired": null,
       "isWritable": null,
-      "maxExclusive": 10,
+      "maxExclusive": 10.0,
       "maxInclusive": null,
       "methodOfMeasurement": null,
       "minExclusive": null,

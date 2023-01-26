@@ -28,9 +28,9 @@
       "isRequired": true,
       "isWritable": true,
       "maxExclusive": null,
-      "maxInclusive": 20,
-      "methodOfMeasurement": "Archimedes’ Gold Crown method",
-      "minExclusive": 1,
+      "maxInclusive": 20.0,
+      "methodOfMeasurement": "Archimedes\u2019 Gold Crown method",
+      "minExclusive": 1.0,
       "minInclusive": null,
       "pattern": null,
       "physicalQuantity": "Volume",
@@ -39,7 +39,7 @@
       "propertyValueKind": "SINGLE",
       "symbol": null,
       "units": [
-        "cm³"
+        "cm\u00b3"
       ],
       "activationDateUtc": "2019-01-25T00:00:00",
       "code": "volume",
@@ -82,9 +82,9 @@
       "isRequired": true,
       "isWritable": true,
       "maxExclusive": null,
-      "maxInclusive": 25,
+      "maxInclusive": 25.0,
       "methodOfMeasurement": null,
-      "minExclusive": 1,
+      "minExclusive": 1.0,
       "minInclusive": null,
       "pattern": null,
       "physicalQuantity": "Height",

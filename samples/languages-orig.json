@@ -1,0 +1,197 @@
+[
+  {
+    "__typename": "Language",
+    "isocode": "EN",
+    "name": "English"
+  },
+  {
+    "__typename": "Language",
+    "isocode": "en-GB",
+    "name": "English"
+  },
+  {
+    "__typename": "Language",
+    "isocode": "nl-NL",
+    "name": "Dutch"
+  },
+  {
+    "__typename": "Language",
+    "isocode": "nb-NO",
+    "name": "Norwegian (Bokm\u00e5l)"
+  },
+  {
+    "__typename": "Language",
+    "isocode": "nl-BE",
+    "name": "Dutch (BE)"
+  },
+  {
+    "__typename": "Language",
+    "isocode": "fr-BE",
+    "name": "French (BE)"
+  },
+  {
+    "__typename": "Language",
+    "isocode": "de-DE",
+    "name": "German"
+  },
+  {
+    "__typename": "Language",
+    "isocode": "it-IT",
+    "name": "Italian"
+  },
+  {
+    "__typename": "Language",
+    "isocode": "sv-SE",
+    "name": "Swedish"
+  },
+  {
+    "__typename": "Language",
+    "isocode": "fr-FR",
+    "name": "French"
+  },
+  {
+    "__typename": "Language",
+    "isocode": "es-ES",
+    "name": "Spanish"
+  },
+  {
+    "__typename": "Language",
+    "isocode": "en-AU",
+    "name": "ENGLISH"
+  },
+  {
+    "__typename": "Language",
+    "isocode": "fa-IR",
+    "name": "Persian"
+  },
+  {
+    "__typename": "Language",
+    "isocode": "pl-PL",
+    "name": "Polish"
+  },
+  {
+    "__typename": "Language",
+    "isocode": "lv-LV",
+    "name": "Latvian"
+  },
+  {
+    "__typename": "Language",
+    "isocode": "en-NZ",
+    "name": "English (NZ)"
+  },
+  {
+    "__typename": "Language",
+    "isocode": "sr-SP",
+    "name": "Serbian"
+  },
+  {
+    "__typename": "Language",
+    "isocode": "zh-CN",
+    "name": "Chinese"
+  },
+  {
+    "__typename": "Language",
+    "isocode": "ru-RU",
+    "name": "Russian"
+  },
+  {
+    "__typename": "Language",
+    "isocode": "vi-VN",
+    "name": "Vietnamese"
+  },
+  {
+    "__typename": "Language",
+    "isocode": "bg-BG",
+    "name": "Bulgarian"
+  },
+  {
+    "__typename": "Language",
+    "isocode": "kr-KR",
+    "name": "Korean"
+  },
+  {
+    "__typename": "Language",
+    "isocode": "ar-SA",
+    "name": "Arabic"
+  },
+  {
+    "__typename": "Language",
+    "isocode": "el-GR",
+    "name": "Greek"
+  },
+  {
+    "__typename": "Language",
+    "isocode": "de-AT",
+    "name": "German"
+  },
+  {
+    "__typename": "Language",
+    "isocode": "mn-MN",
+    "name": "Mongolean"
+  },
+  {
+    "__typename": "Language",
+    "isocode": "en-CA",
+    "name": "English (CA)"
+  },
+  {
+    "__typename": "Language",
+    "isocode": "lt-LT",
+    "name": "Lithuanian"
+  },
+  {
+    "__typename": "Language",
+    "isocode": "de-CH",
+    "name": "German (CH)"
+  },
+  {
+    "__typename": "Language",
+    "isocode": "et-EE",
+    "name": "Estonian"
+  },
+  {
+    "__typename": "Language",
+    "isocode": "cs-CZ",
+    "name": "Czech"
+  },
+  {
+    "__typename": "Language",
+    "isocode": "nn-NO",
+    "name": "Norwegian (Nynorsk)"
+  },
+  {
+    "__typename": "Language",
+    "isocode": "en-US",
+    "name": "English (US)"
+  },
+  {
+    "__typename": "Language",
+    "isocode": "pt-BR",
+    "name": "Portuguese (BR)"
+  },
+  {
+    "__typename": "Language",
+    "isocode": "fi-FI",
+    "name": "Finnish"
+  },
+  {
+    "__typename": "Language",
+    "isocode": "ja-JP",
+    "name": "Japanese"
+  },
+  {
+    "__typename": "Language",
+    "isocode": "da-DK",
+    "name": "Danish"
+  },
+  {
+    "__typename": "Language",
+    "isocode": "no-NO",
+    "name": "Norwegian"
+  },
+  {
+    "__typename": "Language",
+    "isocode": "pt-PT",
+    "name": "Portuguese"
+  }
+]

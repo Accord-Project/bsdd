@@ -33,5 +33,6 @@ get:
 	$(call get-one,getProperty,https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/ACResistance,prop-Ifc-ACResistance)                                          # Property
 	$(call get-one,getDomain,https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3,domain-Ifc)                                                                         #  the IFC Domain
 	$(call get-all,getLanguages,,,languages)                                                                                                                                    # all languages
-	$(call get-all,getCountries,,,countries)                                                                                                                                    # all countries
-	$(call get-all,getUnits,,,units)                                                                                                                                            # all units
+	$(call get-all,getCountries,,,countries)
+	$(call get-all,getUnits,,,units)
+	$(call get-all,getReferenceDocuments,,,refDocs)                                                                                                                                            # all units

@@ -106,6 +106,8 @@ The purpose of this thesis is to determine how a property development and constr
 :PROPERTIES:
 :CUSTOM_ID: benefits-of-graphql
 :END:
+GraphQL[@graphql] as a query language for APIs and a runtime for fulfilling those queries with the existing data has many benefits over the traditional REST APIs: ability to avoid overfetching by specifying exactly which data and in which structure are to be returned from the server; ability to retrieve many resources in a single request; GraphQL service defines a set of types which completely describe the set of possible data queriable with that service. bSDD makes use of [@graphiql] - a graphical interactive in-browser GraphQL IDE, available at [[https://test.bsdd.buildingsmart.org/graphiql/]]. 
+
 
 ** Original BSDD Schema: GraphQL Voyager
 :PROPERTIES:

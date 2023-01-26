@@ -6,15 +6,13 @@
 @prefix xyz:  <http://sparql.xyz/facade-x/data/> .
 
 <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/ACResistance>
-        rdf:type                     bsdd:Property ;
-        bsdd:activationDateUtc       "2022-11-01T00:00:00"^^xsd:dateTime ;
-        bsdd:code                    "ACResistance" ;
-        bsdd:connectedPropertyCodes  []  ;
-        bsdd:dataType                "Real" ;
-        bsdd:description             "The resistance under AC." ;
-        bsdd:domain                  <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3> ;
-        bsdd:name                    "ACResistance" ;
-        bsdd:propertyValueKind       "Single" ;
-        bsdd:qudtCodes               []  ;
-        bsdd:status                  "Active" ;
-        bsdd:versionDateUtc          "2022-11-01T00:00:00"^^xsd:dateTime .
+        rdf:type                bsdd:Property ;
+        bsdd:activationDateUtc  "2022-11-01T00:00:00"^^xsd:dateTime ;
+        bsdd:code               "ACResistance" ;
+        bsdd:dataType           "Real" ;
+        bsdd:description        "The resistance under AC." ;
+        bsdd:domain             <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3> ;
+        bsdd:name               "ACResistance" ;
+        bsdd:propertyValueKind  "Single" ;
+        bsdd:status             "Active" ;
+        bsdd:versionDateUtc     "2022-11-01T00:00:00"^^xsd:dateTime .

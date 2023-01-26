@@ -28,6 +28,8 @@ get:
 	$(call get-one,getClassification,https://identifier.buildingsmart.org/uri/bim-de/AutobahnGmbH-1.0/class/006bd5d1-8bd6-431a-8cb9-679363c70110,class-Autobahn-Merkmalsgruppe) # richest Classification,has different fields
 	$(call get-one,getClassification,https://identifier.buildingsmart.org/uri/bs-agri/fruitvegs-1.0/class/apple,class-fruitvegs-Apple)                                          # richest ClassificationProperty: Volume
 	$(call get-one,getClassification,https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall,class-IfcWall)                                                # parentClassification
+	$(call get-one,getClassification,https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWallELEMENTEDWALL,class-IfcWall.ELEMENTEDWALL)
+	$(call get-one,getClassification,https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment,class-IfcCableSegment)
 	$(call get-one,getClassification,https://identifier.buildingsmart.org/uri/efalbhm/arge-0.1/class/Door,class-Arge-Door)                                                      # ClassificationRelation
 	$(call get-one,getProperty,https://identifier.buildingsmart.org/uri/bs-agri/fruitvegs-1.0/prop/volume,prop-fruitvegs-Volume)                                                # richest Property
 	$(call get-one,getProperty,https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/ACResistance,prop-Ifc-ACResistance)                                          # Property

@@ -1,0 +1,2975 @@
+@prefix bsdd: <http://bsdd.buildingsmart.org/def#> .
+@prefix fx:   <http://sparql.xyz/facade-x/ns/> .
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix xyz:  <http://sparql.xyz/facade-x/data/> .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/W>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "W" ;
+        bsdd:name  "watt" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/CDF>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "CDF" ;
+        bsdd:name  "congolese franc" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/MYR>
+        rdf:type     bsdd:Unit ;
+        bsdd:code    "MYR" ;
+        bsdd:name    "malaysian ringgit" ;
+        bsdd:symbol  "RM" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/BZD>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "BZD" ;
+        bsdd:name  "belize dollar" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/AFN>
+        rdf:type     bsdd:Unit ;
+        bsdd:code    "AFN" ;
+        bsdd:name    "afghani" ;
+        bsdd:symbol  "Af" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/VND>
+        rdf:type     bsdd:Unit ;
+        bsdd:code    "VND" ;
+        bsdd:name    "dong" ;
+        bsdd:symbol  "₫" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/μT>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "μT" ;
+        bsdd:name  "micro tesla" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/?>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "?" ;
+        bsdd:name  "[unknown]" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/TMT>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "TMT" ;
+        bsdd:name  "manat" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/SGD>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "SGD" ;
+        bsdd:name  "singapore dollar" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/kV>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "kV" ;
+        bsdd:name  "kilovolt" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/h>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "h" ;
+        bsdd:name  "h" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/(m²·K)/W>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "(m²·K)/W" ;
+        bsdd:name  "(m²·K)/W" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/l>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "l" ;
+        bsdd:name  "liter" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/dBµV>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "dBµV" ;
+        bsdd:name  "db microvolt" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/Wh>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "Wh" ;
+        bsdd:name  "watt hour" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/SRD>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "SRD" ;
+        bsdd:name  "surinam dollar" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/phot>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "phot" ;
+        bsdd:name  "phot" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/°>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "°" ;
+        bsdd:name  "grad (angel degree)" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/Bft>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "Bft" ;
+        bsdd:name  "beaufort" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/kWh/m²>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "kWh/m²" ;
+        bsdd:name  "kilowatt hours per square meter" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/J/(kg·K)>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "J/(kg·K)" ;
+        bsdd:name  "joule per kilogram kelvin" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/MJ/h>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "MJ/h" ;
+        bsdd:name  "megajoule per hour" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/J/K>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "J/K" ;
+        bsdd:name  "joule per kelvin" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/Am²>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "Am²" ;
+        bsdd:name  "ampere square meter" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/kByte>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "kByte" ;
+        bsdd:name  "kByte" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/A/°C>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "A/°C" ;
+        bsdd:name  "ampere per degree celsius" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/lb>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "lb" ;
+        bsdd:name  "pound" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/m²/l>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "m²/l" ;
+        bsdd:name  "square meter per liter" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/AOA>
+        rdf:type     bsdd:Unit ;
+        bsdd:code    "AOA" ;
+        bsdd:name    "kwanza" ;
+        bsdd:symbol  "Kz" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/kg/100m>
+        rdf:type     bsdd:Unit ;
+        bsdd:code    "kg/100m" ;
+        bsdd:name    "kg/100m" ;
+        bsdd:symbol  " NULL" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/kW/(m³/s)>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "kW/(m³/s)" ;
+        bsdd:name  "kW/(m³/s)" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/SAR>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "SAR" ;
+        bsdd:name  "saudi riyal" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/fnu>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "fnu" ;
+        bsdd:name  "formazin nephelometric unit" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/MJ/K>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "MJ/K" ;
+        bsdd:name  "megajoule per degree kelvin" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/MJ/ft²>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "MJ/ft²" ;
+        bsdd:name  "megajoule per square foot" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/W/ft²>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "W/ft²" ;
+        bsdd:name  "watt per square foot" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/TZS>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "TZS" ;
+        bsdd:name  "tanzanian shilling" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/kg/km>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "kg/km" ;
+        bsdd:name  "kilogram per kilomter" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/dBm>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "dBm" ;
+        bsdd:name  "decibel-milliwatts" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/kB>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "kB" ;
+        bsdd:name  "kilobyte" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/VUV>
+        rdf:type     bsdd:Unit ;
+        bsdd:code    "VUV" ;
+        bsdd:name    "vatu" ;
+        bsdd:symbol  "Vt" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/HUF>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "HUF" ;
+        bsdd:name  "forint" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/MBTU/h>
+        rdf:type     bsdd:Unit ;
+        bsdd:code    "MBTU/h" ;
+        bsdd:name    "megabtus per hour" ;
+        bsdd:symbol  "MMBTU/h" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/GHz>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "GHz" ;
+        bsdd:name  "GHz" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/dB(C)>
+        rdf:type     bsdd:Unit ;
+        bsdd:code    "dB(C)" ;
+        bsdd:name    "dB(C)" ;
+        bsdd:symbol  "dBc" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/Js>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "Js" ;
+        bsdd:name  "joule second" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/Ohm⋅m>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "Ohm⋅m" ;
+        bsdd:name  "ohm meter" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/mph>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "mph" ;
+        bsdd:name  "miles per hour" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/cpm>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "cpm" ;
+        bsdd:name  "cycles per minute" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/1/K>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "1/K" ;
+        bsdd:name  "per kelvin" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/H>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "H" ;
+        bsdd:name  "henry" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/GJ/year>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "GJ/year" ;
+        bsdd:name  "Gigajoule per year" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/S>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "S" ;
+        bsdd:name  "siemens" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/1/m>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "1/m" ;
+        bsdd:name  "per meter" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/bit>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "bit" ;
+        bsdd:name  "bit" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/kW/gal/min>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "kW/gal/min" ;
+        bsdd:name  "kilowatts per gallons per minute" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/cL>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "cL" ;
+        bsdd:name  "centiliter" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/Pa-s>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "Pa-s" ;
+        bsdd:name  "Pa-s" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/PYG>
+        rdf:type     bsdd:Unit ;
+        bsdd:code    "PYG" ;
+        bsdd:name    "guarani" ;
+        bsdd:symbol  "₲" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/Ns>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "Ns" ;
+        bsdd:name  "newton second" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/CYP>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "CYP" ;
+        bsdd:name  "cyprus pound" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/psi/°F>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "psi/°F" ;
+        bsdd:name  "psi per degree fahrenheit" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/LYD>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "LYD" ;
+        bsdd:name  "libyan dinar" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/RWF>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "RWF" ;
+        bsdd:name  "rwanda franc" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/hph>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "hph" ;
+        bsdd:name  "horsepower hour" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/W/m>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "W/m" ;
+        bsdd:name  "W/m" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/knot>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "knot" ;
+        bsdd:name  "knot" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/mΩ>
+        rdf:type     bsdd:Unit ;
+        bsdd:code    "mΩ" ;
+        bsdd:name    "milliohm" ;
+        bsdd:symbol  "mΩ" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/m²/N>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "m²/N" ;
+        bsdd:name  "square meter per newton" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/Gbit/s>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "Gbit/s" ;
+        bsdd:name  "Gigabits per second" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/µs>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "µs" ;
+        bsdd:name  "microsecond" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/T>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "T" ;
+        bsdd:name  "tesla" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/C·m>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "C·m" ;
+        bsdd:name  "coulomb meter" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/MV>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "MV" ;
+        bsdd:name  "megavolt" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/IDR>
+        rdf:type     bsdd:Unit ;
+        bsdd:code    "IDR" ;
+        bsdd:name    "rupiah" ;
+        bsdd:symbol  "Rp" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/°C/h>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "°C/h" ;
+        bsdd:name  "degrees celsius per hour" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/hPa>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "hPa" ;
+        bsdd:name  "hectopascal" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/GJ/jaar>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "GJ/jaar" ;
+        bsdd:name  "GJ/jaar" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/m/min>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "m/min" ;
+        bsdd:name  "meter per minute" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/W/(m²·K²)>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "W/(m²·K²)" ;
+        bsdd:name  "W/(m²·K²)" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/ftlbs/sec>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "ftlbs/sec" ;
+        bsdd:name  "foot pounds per second" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/AUD>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "AUD" ;
+        bsdd:name  "australian dollar" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/Volt>
+        rdf:type     bsdd:Unit ;
+        bsdd:code    "Volt" ;
+        bsdd:name    "volt" ;
+        bsdd:symbol  "V" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/mol>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "mol" ;
+        bsdd:name  "mol" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/SZL>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "SZL" ;
+        bsdd:name  "lilangeni" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/A/mm>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "A/mm" ;
+        bsdd:name  "ampere per millimeter" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/MGA>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "MGA" ;
+        bsdd:name  "malagasy ariary" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/KES>
+        rdf:type     bsdd:Unit ;
+        bsdd:code    "KES" ;
+        bsdd:name    "kenyan shilling" ;
+        bsdd:symbol  "Sh" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/MOhm>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "MOhm" ;
+        bsdd:name  "MOhm" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/VARh>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "VARh" ;
+        bsdd:name  "volt ampere reactive hour" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/MJ/m²>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "MJ/m²" ;
+        bsdd:name  "megajoule per square meter" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/A/cm>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "A/cm" ;
+        bsdd:name  "ampere per centimeter" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/Month>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "Month" ;
+        bsdd:name  "Month" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/JOD>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "JOD" ;
+        bsdd:name  "jordanian dinar" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/DOP>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "DOP" ;
+        bsdd:name  "dominican peso" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/HRK>
+        rdf:type     bsdd:Unit ;
+        bsdd:code    "HRK" ;
+        bsdd:name    "croatian kuna" ;
+        bsdd:symbol  "Kn" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/kg>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "kg" ;
+        bsdd:name  "kilogram" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/ntu>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "ntu" ;
+        bsdd:name  "nephelometric turbidity unit" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/g/l>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "g/l" ;
+        bsdd:name  "gram per liter" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/kΩ>
+        rdf:type     bsdd:Unit ;
+        bsdd:code    "kΩ" ;
+        bsdd:name    "kiloohm" ;
+        bsdd:symbol  "kΩ" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/MN/m³>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "MN/m³" ;
+        bsdd:name  "meganewton per cubic meter" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/PKR>
+        rdf:type     bsdd:Unit ;
+        bsdd:code    "PKR" ;
+        bsdd:name    "pakistan rupee" ;
+        bsdd:symbol  "₨" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/BGN>
+        rdf:type     bsdd:Unit ;
+        bsdd:code    "BGN" ;
+        bsdd:name    "bulgarian lev" ;
+        bsdd:symbol  "лв" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/IQD>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "IQD" ;
+        bsdd:name  "iraqi dinar" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/mm>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "mm" ;
+        bsdd:name  "millimeter" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/GMD>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "GMD" ;
+        bsdd:name  "dalasi" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/J/h>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "J/h" ;
+        bsdd:name  "joule per hour" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/ACH>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "ACH" ;
+        bsdd:name  "air changes per hour" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/cm⁴>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "cm⁴" ;
+        bsdd:name  "area moment of intertia" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/BMD>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "BMD" ;
+        bsdd:name  "bermudian dollar" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/N>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "N" ;
+        bsdd:name  "newton" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/V/m>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "V/m" ;
+        bsdd:name  "volt per meter" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/kW>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "kW" ;
+        bsdd:name  "kilowatt" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/u>
+        rdf:type     bsdd:Unit ;
+        bsdd:code    "u" ;
+        bsdd:name    "atomic mass unit" ;
+        bsdd:symbol  "μ" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/dBi>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "dBi" ;
+        bsdd:name  "dBi" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/KWD>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "KWD" ;
+        bsdd:name  "kuwaiti dinar" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/kg·m²>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "kg·m²" ;
+        bsdd:name  "kilogram square meter" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/CZK>
+        rdf:type     bsdd:Unit ;
+        bsdd:code    "CZK" ;
+        bsdd:name    "czech koruna" ;
+        bsdd:symbol  "Kč" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/m³>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "m³" ;
+        bsdd:name  "cubic meter" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/GEL>
+        rdf:type     bsdd:Unit ;
+        bsdd:code    "GEL" ;
+        bsdd:name    "lari" ;
+        bsdd:symbol  "ლ" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/ALL>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "ALL" ;
+        bsdd:name  "lek" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/DZD>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "DZD" ;
+        bsdd:name  "algerian dinar" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/°F/min>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "°F/min" ;
+        bsdd:name  "degrees fahrenheit per minute" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/WST>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "WST" ;
+        bsdd:name  "tala" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/Am²/Js>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "Am²/Js" ;
+        bsdd:name  "ampere square meter per joule second" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/mm/m>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "mm/m" ;
+        bsdd:name  "millimeter per meter" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/BTU>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "BTU" ;
+        bsdd:name  "british thermal unit" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/c/min>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "c/min" ;
+        bsdd:name  "c/min" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/MVAR>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "MVAR" ;
+        bsdd:name  "megavolt ampere reactive" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/SDG>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "SDG" ;
+        bsdd:name  "sudanese pound" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/mH2O>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "mH2O" ;
+        bsdd:name  "mH2O" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/cm³>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "cm³" ;
+        bsdd:name  "cubic centimeter" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/ft²>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "ft²" ;
+        bsdd:name  "square foot" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/USD>
+        rdf:type     bsdd:Unit ;
+        bsdd:code    "USD" ;
+        bsdd:name    "us dollar" ;
+        bsdd:symbol  "$" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/W/m²K>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "W/m²K" ;
+        bsdd:name  "watt per square meter kelvin" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/kWh>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "kWh" ;
+        bsdd:name  "kilowatt hour" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/Pascal-seconde>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "Pascal-seconde" ;
+        bsdd:name  "Pascal-seconde" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/COP>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "COP" ;
+        bsdd:name  "coefficient of performance" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/BSD>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "BSD" ;
+        bsdd:name  "bahamian dollar" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/kN>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "kN" ;
+        bsdd:name  "kilonewton" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/dB>
+        rdf:type     bsdd:Unit ;
+        bsdd:code    "dB" ;
+        bsdd:name    "decibel" ;
+        bsdd:symbol  "dB" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/W/cfm>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "W/cfm" ;
+        bsdd:name  "watt per cubic feet per minute" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/DJF>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "DJF" ;
+        bsdd:name  "djibouti franc" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/µg/m³>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "µg/m³" ;
+        bsdd:name  "micrograms per cubic meter" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/kg/dm³>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "kg/dm³" ;
+        bsdd:name  "kilogram per cubic decimeter" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/kOhm>
+        rdf:type     bsdd:Unit ;
+        bsdd:code    "kOhm" ;
+        bsdd:name    "kiloohm" ;
+        bsdd:symbol  "kΩ" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/YER>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "YER" ;
+        bsdd:name  "yemeni rial" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/lb/s>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "lb/s" ;
+        bsdd:name  "pound per second" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/MJ>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "MJ" ;
+        bsdd:name  "megajoule" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/tonrefh>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "tonrefh" ;
+        bsdd:name  "tons refrigeration hour" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/µH>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "µH" ;
+        bsdd:name  "microhenry" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/ms>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "ms" ;
+        bsdd:name  "millisecond" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/DKK>
+        rdf:type     bsdd:Unit ;
+        bsdd:code    "DKK" ;
+        bsdd:name    "danish krone" ;
+        bsdd:symbol  "kr" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/GTQ>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "GTQ" ;
+        bsdd:name  "quetzal" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/therm>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "therm" ;
+        bsdd:name  "therm" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/µA>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "µA" ;
+        bsdd:name  "microampere" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/hL/s>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "hL/s" ;
+        bsdd:name  "hectoliters per second" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/PGK>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "PGK" ;
+        bsdd:name  "kina" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/W/m²>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "W/m²" ;
+        bsdd:name  "watt per square meter" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/UZS>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "UZS" ;
+        bsdd:name  "uzbekistan som" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/UAH>
+        rdf:type     bsdd:Unit ;
+        bsdd:code    "UAH" ;
+        bsdd:name    "hryvnia" ;
+        bsdd:symbol  "₴" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/J/kg>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "J/kg" ;
+        bsdd:name  "joule per kilogram" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/J>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "J" ;
+        bsdd:name  "joule" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/MMK>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "MMK" ;
+        bsdd:name  "kyat" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/mS/cm>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "mS/cm" ;
+        bsdd:name  "millisecond per centimeter" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/mbar>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "mbar" ;
+        bsdd:name  "millibar" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/kBTU/h/ft²>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "kBTU/h/ft²" ;
+        bsdd:name  "kilobtus per hour per square foot" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/cd>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "cd" ;
+        bsdd:name  "candela" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/Δ°F>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "Δ°F" ;
+        bsdd:name  "fahrenheit degrees" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/therm/h>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "therm/h" ;
+        bsdd:name  "therms per hour" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/ar>
+        rdf:type     bsdd:Unit ;
+        bsdd:code    "ar" ;
+        bsdd:name    "area moment of intertia" ;
+        bsdd:symbol  "a" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/ft/s>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "ft/s" ;
+        bsdd:name  "feet per second" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/°C/min>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "°C/min" ;
+        bsdd:name  "degrees celsius per minute" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/hr>
+        rdf:type     bsdd:Unit ;
+        bsdd:code    "hr" ;
+        bsdd:name    "hour" ;
+        bsdd:symbol  "h" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/sec>
+        rdf:type     bsdd:Unit ;
+        bsdd:code    "sec" ;
+        bsdd:name    "second" ;
+        bsdd:symbol  "s" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/dBmW>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "dBmW" ;
+        bsdd:name  "decibel-milliwatts" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/NIO>
+        rdf:type     bsdd:Unit ;
+        bsdd:code    "NIO" ;
+        bsdd:name    "cordoba oro" ;
+        bsdd:symbol  "C$" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/rad>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "rad" ;
+        bsdd:name  "radian" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/m>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "m" ;
+        bsdd:name  "meter" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/kW/ft²>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "kW/ft²" ;
+        bsdd:name  "kilowatts per square foot" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/Wh/m²>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "Wh/m²" ;
+        bsdd:name  "watt hours per square meter" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/N/mm>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "N/mm" ;
+        bsdd:name  "newton per millimeter" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit//m²>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "/m²" ;
+        bsdd:name  "per square meter" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/SEK>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "SEK" ;
+        bsdd:name  "swedish krona" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/s>
+        rdf:type     bsdd:Unit ;
+        bsdd:code    "s" ;
+        bsdd:name    "second" ;
+        bsdd:symbol  "s" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/m²>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "m²" ;
+        bsdd:name  "square meter" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/kJ>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "kJ" ;
+        bsdd:name  "kilojoule" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/MNT>
+        rdf:type     bsdd:Unit ;
+        bsdd:code    "MNT" ;
+        bsdd:name    "tugrik" ;
+        bsdd:symbol  "₮" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit//min>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "/min" ;
+        bsdd:name  "per minute" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/min>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "min" ;
+        bsdd:name  "minute" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/km²>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "km²" ;
+        bsdd:name  "square kilometer" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/kWh/ft²>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "kWh/ft²" ;
+        bsdd:name  "kilowatt hours per square foot" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/K>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "K" ;
+        bsdd:name  "kelvin" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/day>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "day" ;
+        bsdd:name  "day" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/l/s>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "l/s" ;
+        bsdd:name  "liter per second" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/W/(m·K)>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "W/(m·K)" ;
+        bsdd:name  "watt per meter kelvin" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/K/min>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "K/min" ;
+        bsdd:name  "kelvin per minute" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/nm>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "nm" ;
+        bsdd:name  "nm" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/m/s>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "m/s" ;
+        bsdd:name  "meter per second" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/GB>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "GB" ;
+        bsdd:name  "gigabyte" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/in²>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "in²" ;
+        bsdd:name  "square inch" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/BND>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "BND" ;
+        bsdd:name  "brunei dollar" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/kVA>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "kVA" ;
+        bsdd:name  "kilovolt ampere" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/kg/m²>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "kg/m²" ;
+        bsdd:name  "kilogram per square meter" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/m³/min>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "m³/min" ;
+        bsdd:name  "cubic meter per minute" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/MW>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "MW" ;
+        bsdd:name  "megawatt" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/L/s>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "L/s" ;
+        bsdd:name  "liter per second" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/atm>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "atm" ;
+        bsdd:name  "atmosphere" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/KPW>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "KPW" ;
+        bsdd:name  "north korean won" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/MUR>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "MUR" ;
+        bsdd:name  "mauritius rupee" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/Rpm>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "Rpm" ;
+        bsdd:name  "Rates per minute" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/CUP>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "CUP" ;
+        bsdd:name  "cuban peso" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/BTU/Wh>
+        rdf:type     bsdd:Unit ;
+        bsdd:code    "BTU/Wh" ;
+        bsdd:name    "energy efficiency ratio" ;
+        bsdd:symbol  "EER" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/in/wc>
+        rdf:type     bsdd:Unit ;
+        bsdd:code    "in/wc" ;
+        bsdd:name    "inch of water" ;
+        bsdd:symbol  "inH₂O" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/ppm>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "ppm" ;
+        bsdd:name  "parts per million" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/VA>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "VA" ;
+        bsdd:name  "volt ampere" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/Mbyte>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "Mbyte" ;
+        bsdd:name  "Mbyte" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/PLN>
+        rdf:type     bsdd:Unit ;
+        bsdd:code    "PLN" ;
+        bsdd:name    "pzloty" ;
+        bsdd:symbol  "zł" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/MHz>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "MHz" ;
+        bsdd:name  "megahertz" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/EUR>
+        rdf:type     bsdd:Unit ;
+        bsdd:code    "EUR" ;
+        bsdd:name    "euro" ;
+        bsdd:symbol  "€" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/TJS>
+        rdf:type     bsdd:Unit ;
+        bsdd:code    "TJS" ;
+        bsdd:name    "somoni" ;
+        bsdd:symbol  "ЅМ" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/A/m>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "A/m" ;
+        bsdd:name  "ampere per meter" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/PSU>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "PSU" ;
+        bsdd:name  "practical salinity unit" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/MWK>
+        rdf:type     bsdd:Unit ;
+        bsdd:code    "MWK" ;
+        bsdd:name    "kwacha" ;
+        bsdd:symbol  "MK" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/TTD>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "TTD" ;
+        bsdd:name  "trinidad and tobago dollar" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/JPY>
+        rdf:type     bsdd:Unit ;
+        bsdd:code    "JPY" ;
+        bsdd:name    "yen" ;
+        bsdd:symbol  "¥" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/cfm>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "cfm" ;
+        bsdd:name  "cubic feet per minute" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/m³/s>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "m³/s" ;
+        bsdd:name  "cubic meter per second" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/MVAh>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "MVAh" ;
+        bsdd:name  "megavolt ampere hour" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit//h>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "/h" ;
+        bsdd:name  "per hour" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/ton/h>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "ton/h" ;
+        bsdd:name  "metric ton per hour" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/Hz>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "Hz" ;
+        bsdd:name  "hertz" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/degPh>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "degPh" ;
+        bsdd:name  "degrees phase" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/MN/m²>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "MN/m²" ;
+        bsdd:name  "meganewton per square meter" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/J/kg°K>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "J/kg°K" ;
+        bsdd:name  "joules per kilogram degree kelvin" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/km>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "km" ;
+        bsdd:name  "kilometer" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/SOS>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "SOS" ;
+        bsdd:name  "somali shilling" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit//m>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "/m" ;
+        bsdd:name  "per meter" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/Ωm>
+        rdf:type     bsdd:Unit ;
+        bsdd:code    "Ωm" ;
+        bsdd:name    "ohm meter" ;
+        bsdd:symbol  "Ωm" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/bbl>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "bbl" ;
+        bsdd:name  "barrel" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/in>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "in" ;
+        bsdd:name  "inch" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/ft³>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "ft³" ;
+        bsdd:name  "cubic foot" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/mm/s>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "mm/s" ;
+        bsdd:name  "millimeter per second" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/AWG>
+        rdf:type     bsdd:Unit ;
+        bsdd:code    "AWG" ;
+        bsdd:name    "aruban guilder florin" ;
+        bsdd:symbol  "ƒ" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/NAD>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "NAD" ;
+        bsdd:name  "namibian dollar" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/m³/m²h50Pa>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "m³/m²h50Pa" ;
+        bsdd:name  "m³/m²h50Pa" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/pH>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "pH" ;
+        bsdd:name  "ph" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/At>
+        rdf:type     bsdd:Unit ;
+        bsdd:code    "At" ;
+        bsdd:name    "ampere turn" ;
+        bsdd:symbol  "At" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/SHP>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "SHP" ;
+        bsdd:name  "saint helena pound" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/VAh>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "VAh" ;
+        bsdd:name  "volt ampere hour" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/°daysF>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "°daysF" ;
+        bsdd:name  "degree days fahrenheit" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/mAh>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "mAh" ;
+        bsdd:name  "mAh" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/XPF>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "XPF" ;
+        bsdd:name  "cfp franc" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/BTN>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "BTN" ;
+        bsdd:name  "ngultrum" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/Bq>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "Bq" ;
+        bsdd:name  "becquerel" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit//s>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "/s" ;
+        bsdd:name  "per second" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/1/min>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "1/min" ;
+        bsdd:name  "per minute" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/BOB>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "BOB" ;
+        bsdd:name  "boliviano" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/ft/min>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "ft/min" ;
+        bsdd:name  "feet per minute" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit//K>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "/K" ;
+        bsdd:name  "per kelving" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/sr>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "sr" ;
+        bsdd:name  "steradian" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/A/J>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "A/J" ;
+        bsdd:name  "ampere per joule" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/µT>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "µT" ;
+        bsdd:name  "micro tesla" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/PUE>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "PUE" ;
+        bsdd:name  "power usage effectiveness" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/mL>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "mL" ;
+        bsdd:name  "milliliter" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/µS/cm>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "µS/cm" ;
+        bsdd:name  "microsiemens per centimeter" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/MDL>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "MDL" ;
+        bsdd:name  "moldavian leu" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/°F/h>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "°F/h" ;
+        bsdd:name  "degrees fahrenheit per hour" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/RSD>
+        rdf:type     bsdd:Unit ;
+        bsdd:code    "RSD" ;
+        bsdd:name    "serbian dinar" ;
+        bsdd:symbol  "din" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/PB>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "PB" ;
+        bsdd:name  "petabyte" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/in³>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "in³" ;
+        bsdd:name  "cubic inch" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/px>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "px" ;
+        bsdd:name  "pixel" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/mH>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "mH" ;
+        bsdd:name  "millihenry" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/Year>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "Year" ;
+        bsdd:name  "Year" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/TB>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "TB" ;
+        bsdd:name  "terabyte" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/BIF>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "BIF" ;
+        bsdd:name  "burundi franc" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/ERN>
+        rdf:type     bsdd:Unit ;
+        bsdd:code    "ERN" ;
+        bsdd:name    "nakfa" ;
+        bsdd:symbol  "Nfk" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/lbf>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "lbf" ;
+        bsdd:name  "pound force" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/GBP>
+        rdf:type     bsdd:Unit ;
+        bsdd:code    "GBP" ;
+        bsdd:name    "pound sterling" ;
+        bsdd:symbol  "£" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/MXN>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "MXN" ;
+        bsdd:name  "mexican peso" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/MOP>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "MOP" ;
+        bsdd:name  "pataca" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/L>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "L" ;
+        bsdd:name  "liter" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/nmi>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "nmi" ;
+        bsdd:name  "nmi" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/QAR>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "QAR" ;
+        bsdd:name  "qatari rial" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/cm²>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "cm²" ;
+        bsdd:name  "square centimeter" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/Δ°C>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "Δ°C" ;
+        bsdd:name  "celsius degrees" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/deg>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "deg" ;
+        bsdd:name  "degrees angular" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/ISK>
+        rdf:type     bsdd:Unit ;
+        bsdd:code    "ISK" ;
+        bsdd:name    "iceland krona" ;
+        bsdd:symbol  "Kr" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/mA>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "mA" ;
+        bsdd:name  "milliampere" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/mo>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "mo" ;
+        bsdd:name  "julian month" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/cs>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "cs" ;
+        bsdd:name  "hundredths second" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/BDT>
+        rdf:type     bsdd:Unit ;
+        bsdd:code    "BDT" ;
+        bsdd:name    "taka" ;
+        bsdd:symbol  "৳" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/kg/24h>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "kg/24h" ;
+        bsdd:name  "kilogram per day" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/acre>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "acre" ;
+        bsdd:name  "acre" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/CHF>
+        rdf:type     bsdd:Unit ;
+        bsdd:code    "CHF" ;
+        bsdd:name    "swiss franc" ;
+        bsdd:symbol  "SFr" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/BAM>
+        rdf:type     bsdd:Unit ;
+        bsdd:code    "BAM" ;
+        bsdd:name    "konvertibilna marka" ;
+        bsdd:symbol  "КМ" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/Btu/Wh>
+        rdf:type     bsdd:Unit ;
+        bsdd:code    "Btu/Wh" ;
+        bsdd:name    "energy efficiency ratio" ;
+        bsdd:symbol  "EER" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/J/kg·K>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "J/kg·K" ;
+        bsdd:name  "joule per kilogram kelvin" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/MB>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "MB" ;
+        bsdd:name  "megabyte" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/Wp>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "Wp" ;
+        bsdd:name  "Wp" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/NOK>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "NOK" ;
+        bsdd:name  "norwegian krone" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/qt>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "qt" ;
+        bsdd:name  "quart" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/mm²/m>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "mm²/m" ;
+        bsdd:name  "square millimeter per meter" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/BBD>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "BBD" ;
+        bsdd:name  "barbados dollar" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/Ao>
+        rdf:type     bsdd:Unit ;
+        bsdd:code    "Ao" ;
+        bsdd:name    "angstrom" ;
+        bsdd:symbol  "Å" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/W/mK>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "W/mK" ;
+        bsdd:name  "watt per meter kelvin" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/m³/h>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "m³/h" ;
+        bsdd:name  "cubic meter per hour" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/mV>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "mV" ;
+        bsdd:name  "millivolt" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/lb/min>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "lb/min" ;
+        bsdd:name  "pound per minute" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/m/s²>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "m/s²" ;
+        bsdd:name  "meter per square second" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/VEF>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "VEF" ;
+        bsdd:name  "bolivar fuerte" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/kW/ton>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "kW/ton" ;
+        bsdd:name  "kilowatt per ton" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/BRL>
+        rdf:type     bsdd:Unit ;
+        bsdd:code    "BRL" ;
+        bsdd:name    "brazilian real" ;
+        bsdd:symbol  "R$" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/klb>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "klb" ;
+        bsdd:name  "kilopound" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/opm>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "opm" ;
+        bsdd:name  "opm" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/wk>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "wk" ;
+        bsdd:name  "week" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/KZT>
+        rdf:type     bsdd:Unit ;
+        bsdd:code    "KZT" ;
+        bsdd:name    "tenge" ;
+        bsdd:symbol  "〒" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/galUK>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "galUK" ;
+        bsdd:name  "imperial gallon" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/cSt>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "cSt" ;
+        bsdd:name  "centistokes" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/UYU>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "UYU" ;
+        bsdd:name  "peso uruguayo" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/ppb>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "ppb" ;
+        bsdd:name  "parts per billion" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/MWh/ft²>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "MWh/ft²" ;
+        bsdd:name  "megawatt hours per square foot" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/MWh>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "MWh" ;
+        bsdd:name  "megawatt hour" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/W/m°K>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "W/m°K" ;
+        bsdd:name  "watt per meter kelvin" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/MRO>
+        rdf:type     bsdd:Unit ;
+        bsdd:code    "MRO" ;
+        bsdd:name    "ouguiya" ;
+        bsdd:symbol  "UM" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/°dH>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "°dH" ;
+        bsdd:name  "°dH" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/g>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "g" ;
+        bsdd:name  "gram" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/N/m2>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "N/m2" ;
+        bsdd:name  "newton per square metre" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/MP>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "MP" ;
+        bsdd:name  "MP" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/kN/m>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "kN/m" ;
+        bsdd:name  "kilonewton per meter" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/A/mm²>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "A/mm²" ;
+        bsdd:name  "ampere per square millimeter" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/TRY>
+        rdf:type     bsdd:Unit ;
+        bsdd:code    "TRY" ;
+        bsdd:name    "turkish lira" ;
+        bsdd:symbol  "₤" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/kBTU/ft²>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "kBTU/ft²" ;
+        bsdd:name  "kilobtu per square foot" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/NGN>
+        rdf:type     bsdd:Unit ;
+        bsdd:code    "NGN" ;
+        bsdd:name    "naira" ;
+        bsdd:symbol  "₦" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/PHP>
+        rdf:type     bsdd:Unit ;
+        bsdd:code    "PHP" ;
+        bsdd:name    "philippine peso" ;
+        bsdd:symbol  "₱" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/MVR>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "MVR" ;
+        bsdd:name  "rufiyaa" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/mm/(m⋅K)>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "mm/(m⋅K)" ;
+        bsdd:name  "mm/(m⋅K)" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/hL>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "hL" ;
+        bsdd:name  "hectoliter" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/HNL>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "HNL" ;
+        bsdd:name  "lempira" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/gal/min>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "gal/min" ;
+        bsdd:name  "gallons per minute" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/SCR>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "SCR" ;
+        bsdd:name  "seychelles rupee" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/BWP>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "BWP" ;
+        bsdd:name  "pula" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/g/kg>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "g/kg" ;
+        bsdd:name  "gram per kilogram" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/IRR>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "IRR" ;
+        bsdd:name  "iranian rial" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/cmHg>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "cmHg" ;
+        bsdd:name  "centimeter of mercury" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/Wh/ft²>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "Wh/ft²" ;
+        bsdd:name  "watt hours per square foot" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/A/cm²>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "A/cm²" ;
+        bsdd:name  "ampere per square centimeter" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/CAD>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "CAD" ;
+        bsdd:name  "canadian dollar" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/KGS>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "KGS" ;
+        bsdd:name  "som" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/DCIE>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "DCIE" ;
+        bsdd:name  "data center infrastructure efficiency" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/ETB>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "ETB" ;
+        bsdd:name  "ethiopian birr" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/l/min>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "l/min" ;
+        bsdd:name  "liter per minute" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/Milligram>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "Milligram" ;
+        bsdd:name  "Milligram" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/PAB>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "PAB" ;
+        bsdd:name  "balboa" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/gal/hr>
+        rdf:type     bsdd:Unit ;
+        bsdd:code    "gal/hr" ;
+        bsdd:name    "gallons per hour" ;
+        bsdd:symbol  "gph" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/AED>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "AED" ;
+        bsdd:name  "uae dirham" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/OMR>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "OMR" ;
+        bsdd:name  "rial omani" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/m/Nm²>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "m/Nm²" ;
+        bsdd:name  "meter per newton square meter" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/mOhm>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "mOhm" ;
+        bsdd:name  "mOhm" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/BHD>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "BHD" ;
+        bsdd:name  "bahraini dinar" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/W/(m²·K)>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "W/(m²·K)" ;
+        bsdd:name  "watt per square meter kelvin" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/Ω>
+        rdf:type     bsdd:Unit ;
+        bsdd:code    "Ω" ;
+        bsdd:name    "ohm" ;
+        bsdd:symbol  "Ω" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/mol/l>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "mol/l" ;
+        bsdd:name  "mol per liter" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/J/m²>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "J/m²" ;
+        bsdd:name  "joule per square meter" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/ARS>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "ARS" ;
+        bsdd:name  "argentine peso" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/GJ/h>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "GJ/h" ;
+        bsdd:name  "gigajoule per hour" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/XCD>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "XCD" ;
+        bsdd:name  "east caribbean dollar" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/kg/m>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "kg/m" ;
+        bsdd:name  "kilogram per meter" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/dBmV>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "dBmV" ;
+        bsdd:name  "db millivolt" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/mmHg>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "mmHg" ;
+        bsdd:name  "millimeter of mercury" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/Wb>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "Wb" ;
+        bsdd:name  "weber" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/gal>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "gal" ;
+        bsdd:name  "gallon" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/cd/ft²>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "cd/ft²" ;
+        bsdd:name  "candelas per square foot" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/rad/s²>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "rad/s²" ;
+        bsdd:name  "radian per square second" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/CLP>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "CLP" ;
+        bsdd:name  "chilean peso" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/Megapixel>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "Megapixel" ;
+        bsdd:name  "Megapixel" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/dB(A)>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "dB(A)" ;
+        bsdd:name  "dB(A)" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/Bd>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "Bd" ;
+        bsdd:name  "Bd" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/kN/m²>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "kN/m²" ;
+        bsdd:name  "kilonewton per square meter" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/mm³>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "mm³" ;
+        bsdd:name  "cubic millimeter" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/kBTU/h>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "kBTU/h" ;
+        bsdd:name  "kilobtus per hour" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/hft³>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "hft³" ;
+        bsdd:name  "hecto cubic foot" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/c/h>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "c/h" ;
+        bsdd:name  "c/h" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/g/s>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "g/s" ;
+        bsdd:name  "gram per second" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/BYR>
+        rdf:type     bsdd:Unit ;
+        bsdd:code    "BYR" ;
+        bsdd:name    "belarussian ruble" ;
+        bsdd:symbol  "Br" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/g/h>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "g/h" ;
+        bsdd:name  "gram per hour" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/oz>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "oz" ;
+        bsdd:name  "ounce" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/kg/m³>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "kg/m³" ;
+        bsdd:name  "kilogram per cubic meter" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/A/m²>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "A/m²" ;
+        bsdd:name  "ampere per square meter" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/THB>
+        rdf:type     bsdd:Unit ;
+        bsdd:code    "THB" ;
+        bsdd:name    "baht" ;
+        bsdd:symbol  "฿" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/cal>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "cal" ;
+        bsdd:name  "calorie" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/LAK>
+        rdf:type     bsdd:Unit ;
+        bsdd:code    "LAK" ;
+        bsdd:name    "kip" ;
+        bsdd:symbol  "₭" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/m/h>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "m/h" ;
+        bsdd:name  "meter per hour" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/kVARh>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "kVARh" ;
+        bsdd:name  "kilovolt ampere reactive hour" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/lx>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "lx" ;
+        bsdd:name  "lux" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/ft>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "ft" ;
+        bsdd:name  "foot" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/CRC>
+        rdf:type     bsdd:Unit ;
+        bsdd:code    "CRC" ;
+        bsdd:name    "costa rican colon" ;
+        bsdd:symbol  "₡" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/bar>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "bar" ;
+        bsdd:name  "bar" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/cm>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "cm" ;
+        bsdd:name  "centimeter" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/EGP>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "EGP" ;
+        bsdd:name  "egyptian pound" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/galUK/min>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "galUK/min" ;
+        bsdd:name  "imperial gallons per minute" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/gH₂O/kgAir>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "gH₂O/kgAir" ;
+        bsdd:name  "grams of water per kilogram dry air" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/As>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "As" ;
+        bsdd:name  "ampere second" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/kBit/s>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "kBit/s" ;
+        bsdd:name  "kBit/s" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/Jaar>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "Jaar" ;
+        bsdd:name  "Jaar" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/TPI>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "TPI" ;
+        bsdd:name  "turns per inch" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/kJ/Ohm>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "kJ/Ohm" ;
+        bsdd:name  "kJ/Ohm" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/AZN>
+        rdf:type     bsdd:Unit ;
+        bsdd:code    "AZN" ;
+        bsdd:name    "azerbaijanian manat" ;
+        bsdd:symbol  "ман" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/AX>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "AX" ;
+        bsdd:name  "AX" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/L/min>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "L/min" ;
+        bsdd:name  "liter per minute" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/JMD>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "JMD" ;
+        bsdd:name  "jamaican dollar" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/A>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "A" ;
+        bsdd:name  "ampere" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/STD>
+        rdf:type     bsdd:Unit ;
+        bsdd:code    "STD" ;
+        bsdd:name    "dobra" ;
+        bsdd:symbol  "Db" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/yd³>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "yd³" ;
+        bsdd:name  "cubic yard" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/kJ/kg·K>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "kJ/kg·K" ;
+        bsdd:name  "kilojoule per kilogram kelvin" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/kg/h>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "kg/h" ;
+        bsdd:name  "kilogram per hour" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/VAR>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "VAR" ;
+        bsdd:name  "volt ampere reactive" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/mile>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "mile" ;
+        bsdd:name  "mile" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/GHS>
+        rdf:type     bsdd:Unit ;
+        bsdd:code    "GHS" ;
+        bsdd:name    "cedi (ghana)" ;
+        bsdd:symbol  "₵" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/LRD>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "LRD" ;
+        bsdd:name  "liberian dollar" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/fc>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "fc" ;
+        bsdd:name  "footcandle" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/kHz>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "kHz" ;
+        bsdd:name  "kilohertz" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/HRC>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "HRC" ;
+        bsdd:name  "HRC" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/Pa⋅s>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "Pa⋅s" ;
+        bsdd:name  "pascal second" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/GJ>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "GJ" ;
+        bsdd:name  "gigajoule" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/A/(m²·K²)>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "A/(m²·K²)" ;
+        bsdd:name  "ampere per square meter square kelvin" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/rad/s>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "rad/s" ;
+        bsdd:name  "radian per second" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/kW/m²>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "kW/m²" ;
+        bsdd:name  "kilowatts per square meter" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/N/mm²>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "N/mm²" ;
+        bsdd:name  "newton per square millimeter" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/CVE>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "CVE" ;
+        bsdd:name  "cape verde escudo" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/SYP>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "SYP" ;
+        bsdd:name  "syrian pound" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/kPa·s/m³>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "kPa·s/m³" ;
+        bsdd:name  "kilo pascal second per cubic meter" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/cal/cm²>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "cal/cm²" ;
+        bsdd:name  "calorie per square centimeter" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/km/s>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "km/s" ;
+        bsdd:name  "kilometer per second" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/Pa>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "Pa" ;
+        bsdd:name  "pascal" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/MVA>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "MVA" ;
+        bsdd:name  "megavolt ampere" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/MKD>
+        rdf:type     bsdd:Unit ;
+        bsdd:code    "MKD" ;
+        bsdd:name    "denar" ;
+        bsdd:symbol  "ден" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/kg/s>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "kg/s" ;
+        bsdd:name  "kilogram per second" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/mg/l>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "mg/l" ;
+        bsdd:name  "milligram per liter" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/NPR>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "NPR" ;
+        bsdd:name  "nepalese rupee" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/kA>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "kA" ;
+        bsdd:name  "kA" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/mg>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "mg" ;
+        bsdd:name  "milligram" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/ZMW>
+        rdf:type     bsdd:Unit ;
+        bsdd:code    "ZMW" ;
+        bsdd:name    "zambian kwacha" ;
+        bsdd:symbol  "ZK" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/kcmil>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "kcmil" ;
+        bsdd:name  "kcmil" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/inHg>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "inHg" ;
+        bsdd:name  "inches of mercury" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/1/m²>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "1/m²" ;
+        bsdd:name  "per square meter" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/MPa>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "MPa" ;
+        bsdd:name  "Megapascal" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/MVARh>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "MVARh" ;
+        bsdd:name  "megavolt ampere reactive hour" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/Days>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "Days" ;
+        bsdd:name  "Days" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/K/s>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "K/s" ;
+        bsdd:name  "kelvin per second" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/DPI>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "DPI" ;
+        bsdd:name  "dots pre inch" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/kW/kcfm>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "kW/kcfm" ;
+        bsdd:name  "kilowatts per kilocubic feet per minute" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/kWp>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "kWp" ;
+        bsdd:name  "kWp" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/W/K>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "W/K" ;
+        bsdd:name  "W/K" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/HKD>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "HKD" ;
+        bsdd:name  "hong kong dollar" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/t>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "t" ;
+        bsdd:name  "short ton" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/byte>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "byte" ;
+        bsdd:name  "byte" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/m⁴>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "m⁴" ;
+        bsdd:name  "area moment of intertia" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/kPa>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "kPa" ;
+        bsdd:name  "kilopascal" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/GW>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "GW" ;
+        bsdd:name  "gigawatt" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/mW>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "mW" ;
+        bsdd:name  "milliwatt" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/lm>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "lm" ;
+        bsdd:name  "lumen" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/Mbit/s>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "Mbit/s" ;
+        bsdd:name  "Mbit/s" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/dm>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "dm" ;
+        bsdd:name  "decimeter" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/mm/min>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "mm/min" ;
+        bsdd:name  "millimeter per minute" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/cal/g>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "cal/g" ;
+        bsdd:name  "calorie per gram" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/MZN>
+        rdf:type     bsdd:Unit ;
+        bsdd:code    "MZN" ;
+        bsdd:name    "metical" ;
+        bsdd:symbol  "MTn" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/MBTU/ft²>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "MBTU/ft²" ;
+        bsdd:name  "megabtu per square foot" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/°C>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "°C" ;
+        bsdd:name  "celsius" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/hp>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "hp" ;
+        bsdd:name  "horsepower" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/HTG>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "HTG" ;
+        bsdd:name  "gourde" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/kJ/h>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "kJ/h" ;
+        bsdd:name  "kilojoule per hour" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/NZD>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "NZD" ;
+        bsdd:name  "new zealand dollar" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/MWh/m²>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "MWh/m²" ;
+        bsdd:name  "megawatt hours per square meter" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/F>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "F" ;
+        bsdd:name  "farad" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/kVAR>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "kVAR" ;
+        bsdd:name  "kilovolt ampere reactive" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/rpm>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "rpm" ;
+        bsdd:name  "revolution per minute" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/ml>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "ml" ;
+        bsdd:name  "milliliter" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/µF>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "µF" ;
+        bsdd:name  "microfarad" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/kgal>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "kgal" ;
+        bsdd:name  "kilogallon" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/TND>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "TND" ;
+        bsdd:name  "tunisian dinar" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/g/cm³>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "g/cm³" ;
+        bsdd:name  "gram per cubic centimeter" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/cfs>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "cfs" ;
+        bsdd:name  "cubic feet per second" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/g/m²>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "g/m²" ;
+        bsdd:name  "gram per square meter" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/klb/h>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "klb/h" ;
+        bsdd:name  "kilopounds per hour" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/V/K>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "V/K" ;
+        bsdd:name  "volt per degree kelvin" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/kBTU>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "kBTU" ;
+        bsdd:name  "kilobtu" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/Kg>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "Kg" ;
+        bsdd:name  "kilogram" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/SBD>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "SBD" ;
+        bsdd:name  "solomon islands dollar" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/bit/s>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "bit/s" ;
+        bsdd:name  "bit per second" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/KHR>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "KHR" ;
+        bsdd:name  "riel" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/lm/W>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "lm/W" ;
+        bsdd:name  "lm/W" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/pt>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "pt" ;
+        bsdd:name  "point" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/mm⁴>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "mm⁴" ;
+        bsdd:name  "area moment of intertia" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/Ah>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "Ah" ;
+        bsdd:name  "ampere hour" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/UGX>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "UGX" ;
+        bsdd:name  "uganda shilling" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/AirWatt>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "AirWatt" ;
+        bsdd:name  "AirWatt" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/ton>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "ton" ;
+        bsdd:name  "metric ton" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/Nm>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "Nm" ;
+        bsdd:name  "newton meter" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/GIP>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "GIP" ;
+        bsdd:name  "gibraltar pound" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/kVAh>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "kVAh" ;
+        bsdd:name  "kilovolt ampere hour" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/ILS>
+        rdf:type     bsdd:Unit ;
+        bsdd:code    "ILS" ;
+        bsdd:name    "new israeli shekel" ;
+        bsdd:symbol  "₪" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/lb/h>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "lb/h" ;
+        bsdd:name  "pound per hour" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/CNY>
+        rdf:type     bsdd:Unit ;
+        bsdd:code    "CNY" ;
+        bsdd:name    "chinese yuan" ;
+        bsdd:symbol  "元" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/S/m>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "S/m" ;
+        bsdd:name  "siemens per meter" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/RON>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "RON" ;
+        bsdd:name  "romanian new leu" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/kcfm>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "kcfm" ;
+        bsdd:name  "kilocubic feet per minute" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/°F>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "°F" ;
+        bsdd:name  "fahrenheit" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/µm>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "µm" ;
+        bsdd:name  "micrometer" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/ns>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "ns" ;
+        bsdd:name  "nanosecond" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/BTU/lb>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "BTU/lb" ;
+        bsdd:name  "btus per pound" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/INR>
+        rdf:type     bsdd:Unit ;
+        bsdd:code    "INR" ;
+        bsdd:name    "indian rupee" ;
+        bsdd:symbol  "₹" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/ZWL>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "ZWL" ;
+        bsdd:name  "zimbabwe dollar" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/C>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "C" ;
+        bsdd:name  "coulomb" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/LKR>
+        rdf:type     bsdd:Unit ;
+        bsdd:code    "LKR" ;
+        bsdd:name    "sri lanka rupee" ;
+        bsdd:symbol  "Rs" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/W/m³/s>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "W/m³/s" ;
+        bsdd:name  "watt per cubic meter per second" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/cfh>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "cfh" ;
+        bsdd:name  "cubic feet per hour" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/A/rad>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "A/rad" ;
+        bsdd:name  "ampere per radian" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/psi>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "psi" ;
+        bsdd:name  "pound force per square inch (lbf/in²)" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/kg/min>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "kg/min" ;
+        bsdd:name  "kilogram per minute" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/yr>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "yr" ;
+        bsdd:name  "year" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/m²/m>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "m²/m" ;
+        bsdd:name  "square meter per meter" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/MBTU>
+        rdf:type     bsdd:Unit ;
+        bsdd:code    "MBTU" ;
+        bsdd:name    "megabtu" ;
+        bsdd:symbol  "MMBTU" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/MAD>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "MAD" ;
+        bsdd:name  "moroccan dirham" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/ppu>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "ppu" ;
+        bsdd:name  "parts per unit" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/RUB>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "RUB" ;
+        bsdd:name  "russian ruble" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/l/h>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "l/h" ;
+        bsdd:name  "liter per hour" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/km/h>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "km/h" ;
+        bsdd:name  "kilometer per hour" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/MΩ>
+        rdf:type     bsdd:Unit ;
+        bsdd:code    "MΩ" ;
+        bsdd:name    "megaohm" ;
+        bsdd:symbol  "MΩ" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/°daysC>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "°daysC" ;
+        bsdd:name  "degree days celsius" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/ΔK>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "ΔK" ;
+        bsdd:name  "kelvin degrees" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/pf>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "pf" ;
+        bsdd:name  "power factor" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/SLL>
+        rdf:type     bsdd:Unit ;
+        bsdd:code    "SLL" ;
+        bsdd:name    "leone" ;
+        bsdd:symbol  "Le" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/kJ/m²>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "kJ/m²" ;
+        bsdd:name  "kJ/m²" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/ds>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "ds" ;
+        bsdd:name  "tenths second" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/kL>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "kL" ;
+        bsdd:name  "kiloliter" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/mm²>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "mm²" ;
+        bsdd:name  "square millimeter" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/XAF>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "XAF" ;
+        bsdd:name  "cfa franc bceao" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/yd>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "yd" ;
+        bsdd:name  "yard" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/g/min>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "g/min" ;
+        bsdd:name  "gram per minute" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/PEN>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "PEN" ;
+        bsdd:name  "nuevo sol" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/L/h>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "L/h" ;
+        bsdd:name  "liter per hour" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/kg/cm/m²>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "kg/cm/m²" ;
+        bsdd:name  "kg/cm/m²" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/kJ/kg>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "kJ/kg" ;
+        bsdd:name  "kilojoule per kilogram" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/ZAR>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "ZAR" ;
+        bsdd:name  "rand" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/KYD>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "KYD" ;
+        bsdd:name  "cayman islands dollar" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/cmH₂O>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "cmH₂O" ;
+        bsdd:name  "centimeter of water" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/GYD>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "GYD" ;
+        bsdd:name  "guyana dollar" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/FKP>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "FKP" ;
+        bsdd:name  "falkland islands pound" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/TWD>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "TWD" ;
+        bsdd:name  "taiwan dollar" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/cm²/m>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "cm²/m" ;
+        bsdd:name  "square centimetre per meter" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/AMD>
+        rdf:type     bsdd:Unit ;
+        bsdd:code    "AMD" ;
+        bsdd:name    "armenian dram" ;
+        bsdd:symbol  "Դ" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/V>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "V" ;
+        bsdd:name  "V" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/yd²>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "yd²" ;
+        bsdd:name  "square yard" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/Gbit/sec>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "Gbit/sec" ;
+        bsdd:name  "Gbit/sec." .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/N/m>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "N/m" ;
+        bsdd:name  "newton per meter" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/GNF>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "GNF" ;
+        bsdd:name  "guinea franc" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/KRW>
+        rdf:type     bsdd:Unit ;
+        bsdd:code    "KRW" ;
+        bsdd:name    "south korean won" ;
+        bsdd:symbol  "₩" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/g/m³>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "g/m³" ;
+        bsdd:name  "gram per cubic meter" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/'>
+        rdf:type     bsdd:Unit ;
+        bsdd:code    "'" ;
+        bsdd:name    "arc minute" ;
+        bsdd:symbol  "'" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/m²/h>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "m²/h" ;
+        bsdd:name  "square meter per hour" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/mile²>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "mile²" ;
+        bsdd:name  "square mile" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/tonref>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "tonref" ;
+        bsdd:name  "ton of refrigeration" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/BTU/h>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "BTU/h" ;
+        bsdd:name  "btus per hour" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/J/g>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "J/g" ;
+        bsdd:name  "joule per gram" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/mL/s>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "mL/s" ;
+        bsdd:name  "milliliter per second" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/N/m²>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "N/m²" ;
+        bsdd:name  "newton per square meter" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/Ohm/km>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "Ohm/km" ;
+        bsdd:name  "ohm per kilometer" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/K/h>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "K/h" ;
+        bsdd:name  "kelvin per hour" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/LBP>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "LBP" ;
+        bsdd:name  "lebanese pound" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/Ohm>
+        rdf:type     bsdd:Unit ;
+        bsdd:code    "Ohm" ;
+        bsdd:name    "ohm" ;
+        bsdd:symbol  "Ω" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/kN/m³>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "kN/m³" ;
+        bsdd:name  "kilonewton per cubic meter" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/LSL>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "LSL" ;
+        bsdd:name  "loti" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/cph>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "cph" ;
+        bsdd:name  "cycles per hour" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/kJ/K>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "kJ/K" ;
+        bsdd:name  "kilojoule per degree kelvin" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/FJD>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "FJD" ;
+        bsdd:name  "fiji dollar" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/unit/cd/m²>
+        rdf:type   bsdd:Unit ;
+        bsdd:code  "cd/m²" ;
+        bsdd:name  "candelas per square meter" .

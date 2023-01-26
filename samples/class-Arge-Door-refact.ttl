@@ -41,7 +41,7 @@
         bsdd:definition         "This is an example property" ;
         bsdd:description        "An example of a property" ;
         bsdd:isDynamic          false ;
-        bsdd:maxExclusive       "10"^^xsd:int ;
+        bsdd:maxExclusive       "10.0"^^xsd:double ;
         bsdd:minInclusive       "0.1"^^xsd:double ;
         bsdd:name               "Example property" ;
         bsdd:property           <https://identifier.buildingsmart.org/uri/efalbhm/arge-0.1/prop/MyProperty> ;

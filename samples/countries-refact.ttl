@@ -1,0 +1,1238 @@
+@prefix bsdd: <http://bsdd.buildingsmart.org/def#> .
+@prefix fx:   <http://sparql.xyz/facade-x/ns/> .
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix xyz:  <http://sparql.xyz/facade-x/data/> .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/AG>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "AG" ;
+        bsdd:name  "Antigua and Barbuda" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/MN>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "MN" ;
+        bsdd:name  "Mongolia" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/CX>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "CX" ;
+        bsdd:name  "Christmas Island" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/LT>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "LT" ;
+        bsdd:name  "Lithuania" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/SR>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "SR" ;
+        bsdd:name  "Suriname" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/NF>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "NF" ;
+        bsdd:name  "Norfolk Island" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/AN>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "AN" ;
+        bsdd:name  "Netherlands Antilles" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/MU>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "MU" ;
+        bsdd:name  "Mauritius" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/BY>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "BY" ;
+        bsdd:name  "Belarus" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/SJ>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "SJ" ;
+        bsdd:name  "Svalbard and Jan Mayen" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/MZ>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "MZ" ;
+        bsdd:name  "Mozambique" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/TT>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "TT" ;
+        bsdd:name  "Trinidad and Tobago" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/MA>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "MA" ;
+        bsdd:name  "Morocco" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/CM>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "CM" ;
+        bsdd:name  "Cameroon" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/SC>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "SC" ;
+        bsdd:name  "Seychelles" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/IE>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "IE" ;
+        bsdd:name  "Ireland" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/MQ>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "MQ" ;
+        bsdd:name  "Martinique" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/LA>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "LA" ;
+        bsdd:name  "Lao People's Democratic Republic" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/YE>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "YE" ;
+        bsdd:name  "Yemen" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/TF>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "TF" ;
+        bsdd:name  "French Southern Territories" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/VN>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "VN" ;
+        bsdd:name  "Viet Nam" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/EE>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "EE" ;
+        bsdd:name  "Estonia" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/MD>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "MD" ;
+        bsdd:name  "Moldova, Republic of" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/SK>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "SK" ;
+        bsdd:name  "Slovakia" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/GW>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "GW" ;
+        bsdd:name  "Guinea-Bissau" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/AO>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "AO" ;
+        bsdd:name  "Angola" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/BJ>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "BJ" ;
+        bsdd:name  "Benin" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/BB>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "BB" ;
+        bsdd:name  "Barbados" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/FO>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "FO" ;
+        bsdd:name  "Faroe Islands" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/MH>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "MH" ;
+        bsdd:name  "Marshall Islands" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/BG>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "BG" ;
+        bsdd:name  "Bulgaria" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/ZM>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "ZM" ;
+        bsdd:name  "Zambia" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/JO>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "JO" ;
+        bsdd:name  "Jordan" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/US>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "US" ;
+        bsdd:name  "United States" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/RS>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "RS" ;
+        bsdd:name  "Serbia" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/FK>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "FK" ;
+        bsdd:name  "Falkland Islands (Malvinas)" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/PS>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "PS" ;
+        bsdd:name  "Palestinian Territory, Occupied" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/KR>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "KR" ;
+        bsdd:name  "Korea, Republic of" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/GR>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "GR" ;
+        bsdd:name  "Greece" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/VE>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "VE" ;
+        bsdd:name  "Venezuela, Bolivarian Republic of" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/GN>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "GN" ;
+        bsdd:name  "Guinea" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/PE>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "PE" ;
+        bsdd:name  "Peru" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/UA>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "UA" ;
+        bsdd:name  "Ukraine" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/PK>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "PK" ;
+        bsdd:name  "Pakistan" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/PY>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "PY" ;
+        bsdd:name  "Paraguay" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/KY>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "KY" ;
+        bsdd:name  "Cayman Islands" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/BM>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "BM" ;
+        bsdd:name  "Bermuda" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/KG>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "KG" ;
+        bsdd:name  "Kyrgyzstan" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/IQ>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "IQ" ;
+        bsdd:name  "Iraq" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/IL>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "IL" ;
+        bsdd:name  "Israel" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/AD>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "AD" ;
+        bsdd:name  "Andorra" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/TC>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "TC" ;
+        bsdd:name  "Turks and Caicos Islands" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/BS>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "BS" ;
+        bsdd:name  "Bahamas" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/EG>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "EG" ;
+        bsdd:name  "Egypt" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/SA>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "SA" ;
+        bsdd:name  "Saudi Arabia" .
+
+[ rdfs:member  <https://identifier.buildingsmart.org/uri/buildingsmart/country/AG> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/MN> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/CX> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/LT> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/SR> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/NF> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/AN> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/MU> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/BY> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/SJ> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/MZ> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/TT> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/MA> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/CM> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/SC> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/IE> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/MQ> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/LA> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/YE> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/TF> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/VN> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/EE> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/MD> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/SK> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/GW> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/AO> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/BJ> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/BB> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/FO> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/MH> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/BG> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/ZM> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/JO> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/US> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/RS> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/FK> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/PS> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/KR> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/GR> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/VE> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/GN> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/PE> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/UA> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/PK> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/PY> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/KY> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/BM> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/KG> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/IQ> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/IL> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/AD> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/TC> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/BS> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/EG> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/SA> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/NG> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/MW> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/GD> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/CA> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/WS> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/PL> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/TO> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/GH> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/AX> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/CF> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/LI> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/BI> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/AM> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/VC> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/PT> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/RU> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/UZ> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/VU> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/MC> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/CN> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/MS> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/PM> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/MV> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/VG> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/EC> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/SY> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/WF> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/AU> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/CO> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/HR> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/DZ> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/MR> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/ML> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/IR> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/IT> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/NA> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/TW> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/TR> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/HU> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/KM> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/CI> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/BT> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/DE> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/TJ> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/SB> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/DM> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/SG> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/QA> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/ID> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/GS> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/HN> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/PF> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/AQ> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/EH> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/BF> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/KI> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/RW> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/GA> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/GE> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/CZ> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/PN> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/NR> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/RO> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/SO> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/GI> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/TD> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/UM> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/PA> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/UY> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/PH> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/TL> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/UG> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/ZA> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/ME> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/MO> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/MK> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/BR> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/TN> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/NO> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/CC> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/IN> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/BZ> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/BW> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/HT> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/AF> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/CK> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/TH> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/AT> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/BO> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/PG> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/TV> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/ST> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/MX> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/NI> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/SN> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/RE> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/TM> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/HM> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/KE> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/NL> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/JM> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/CR> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/AL> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/GF> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/DK> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/BE> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/AZ> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/LY> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/AR> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/GB> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/LS> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/LU> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/LC> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/HK> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/NE> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/FM> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/ET> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/NZ> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/SH> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/MT> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/CH> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/CU> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/KP> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/GP> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/TK> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/GL> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/GT> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/IS> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/SZ> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/KW> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/OM> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/MY> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/CV> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/BH> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/NP> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/AW> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/BA> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/SI> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/NU> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/ZW> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/LV> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/KN> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/NC> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/TZ> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/SD> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/IM> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/SL> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/MF> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/CL> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/MG> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/CD> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/TG> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/IO> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/AE> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/SV> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/DJ> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/MM> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/ER> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/GY> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/BL> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/LB> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/MP> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/LR> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/SE> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/VA> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/GM> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/BD> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/PR> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/GU> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/SM> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/AS> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/GQ> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/FI> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/VI> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/JP> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/DO> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/JE> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/GG> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/BN> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/PW> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/YT> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/LK> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/KZ> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/KH> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/CG> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/ES> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/CY> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/AI> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/FJ> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/BV> , <https://identifier.buildingsmart.org/uri/buildingsmart/country/FR> ] .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/NG>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "NG" ;
+        bsdd:name  "Nigeria" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/MW>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "MW" ;
+        bsdd:name  "Malawi" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/GD>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "GD" ;
+        bsdd:name  "Grenada" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/CA>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "CA" ;
+        bsdd:name  "Canada" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/WS>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "WS" ;
+        bsdd:name  "Samoa" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/PL>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "PL" ;
+        bsdd:name  "Poland" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/TO>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "TO" ;
+        bsdd:name  "Tonga" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/GH>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "GH" ;
+        bsdd:name  "Ghana" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/AX>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "AX" ;
+        bsdd:name  "Åland Islands" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/CF>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "CF" ;
+        bsdd:name  "Central African Republic" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/LI>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "LI" ;
+        bsdd:name  "Liechtenstein" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/BI>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "BI" ;
+        bsdd:name  "Burundi" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/AM>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "AM" ;
+        bsdd:name  "Armenia" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/VC>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "VC" ;
+        bsdd:name  "Saint Vincent and the Grenadines" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/PT>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "PT" ;
+        bsdd:name  "Portugal" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/RU>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "RU" ;
+        bsdd:name  "Russian Federation" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/UZ>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "UZ" ;
+        bsdd:name  "Uzbekistan" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/VU>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "VU" ;
+        bsdd:name  "Vanuatu" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/MC>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "MC" ;
+        bsdd:name  "Monaco" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/CN>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "CN" ;
+        bsdd:name  "China" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/MS>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "MS" ;
+        bsdd:name  "Montserrat" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/PM>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "PM" ;
+        bsdd:name  "Saint Pierre and Miquelon" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/MV>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "MV" ;
+        bsdd:name  "Maldives" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/VG>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "VG" ;
+        bsdd:name  "Virgin Islands, British" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/EC>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "EC" ;
+        bsdd:name  "Ecuador" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/SY>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "SY" ;
+        bsdd:name  "Syrian Arab Republic" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/WF>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "WF" ;
+        bsdd:name  "Wallis and Futuna" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/AU>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "AU" ;
+        bsdd:name  "Australia" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/CO>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "CO" ;
+        bsdd:name  "Colombia" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/HR>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "HR" ;
+        bsdd:name  "Croatia" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/DZ>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "DZ" ;
+        bsdd:name  "Algeria" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/MR>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "MR" ;
+        bsdd:name  "Mauritania" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/ML>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "ML" ;
+        bsdd:name  "Mali" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/IR>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "IR" ;
+        bsdd:name  "Iran, Islamic Republic of" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/IT>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "IT" ;
+        bsdd:name  "Italy" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/NA>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "NA" ;
+        bsdd:name  "Namibia" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/TW>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "TW" ;
+        bsdd:name  "Taiwan, Province of China" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/TR>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "TR" ;
+        bsdd:name  "Turkey" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/HU>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "HU" ;
+        bsdd:name  "Hungary" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/KM>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "KM" ;
+        bsdd:name  "Comoros" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/CI>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "CI" ;
+        bsdd:name  "Côte d'Ivoire" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/BT>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "BT" ;
+        bsdd:name  "Bhutan" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/DE>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "DE" ;
+        bsdd:name  "Germany" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/TJ>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "TJ" ;
+        bsdd:name  "Tajikistan" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/SB>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "SB" ;
+        bsdd:name  "Solomon Islands" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/DM>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "DM" ;
+        bsdd:name  "Dominica" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/SG>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "SG" ;
+        bsdd:name  "Singapore" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/QA>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "QA" ;
+        bsdd:name  "Qatar" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/ID>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "ID" ;
+        bsdd:name  "Indonesia" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/GS>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "GS" ;
+        bsdd:name  "South Georgia and the South Sandwich Islands" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/HN>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "HN" ;
+        bsdd:name  "Honduras" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/PF>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "PF" ;
+        bsdd:name  "French Polynesia" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/AQ>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "AQ" ;
+        bsdd:name  "Antarctica" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/EH>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "EH" ;
+        bsdd:name  "Western Sahara" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/BF>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "BF" ;
+        bsdd:name  "Burkina Faso" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/KI>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "KI" ;
+        bsdd:name  "Kiribati" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/RW>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "RW" ;
+        bsdd:name  "Rwanda" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/GA>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "GA" ;
+        bsdd:name  "Gabon" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/GE>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "GE" ;
+        bsdd:name  "Georgia" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/CZ>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "CZ" ;
+        bsdd:name  "Czech Republic" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/PN>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "PN" ;
+        bsdd:name  "Pitcairn" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/NR>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "NR" ;
+        bsdd:name  "Nauru" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/RO>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "RO" ;
+        bsdd:name  "Romania" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/SO>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "SO" ;
+        bsdd:name  "Somalia" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/GI>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "GI" ;
+        bsdd:name  "Gibraltar" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/TD>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "TD" ;
+        bsdd:name  "Chad" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/UM>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "UM" ;
+        bsdd:name  "United States Minor Outlying Islands" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/PA>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "PA" ;
+        bsdd:name  "Panama" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/UY>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "UY" ;
+        bsdd:name  "Uruguay" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/PH>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "PH" ;
+        bsdd:name  "Philippines" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/TL>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "TL" ;
+        bsdd:name  "Timor-Leste" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/UG>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "UG" ;
+        bsdd:name  "Uganda" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/ZA>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "ZA" ;
+        bsdd:name  "South Africa" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/ME>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "ME" ;
+        bsdd:name  "Montenegro" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/MO>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "MO" ;
+        bsdd:name  "Macao" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/MK>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "MK" ;
+        bsdd:name  "Macedonia, the former Yugoslav Republic of" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/BR>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "BR" ;
+        bsdd:name  "Brazil" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/TN>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "TN" ;
+        bsdd:name  "Tunisia" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/NO>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "NO" ;
+        bsdd:name  "Norway" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/CC>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "CC" ;
+        bsdd:name  "Cocos (Keeling) Islands" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/IN>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "IN" ;
+        bsdd:name  "India" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/BZ>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "BZ" ;
+        bsdd:name  "Belize" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/BW>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "BW" ;
+        bsdd:name  "Botswana" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/HT>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "HT" ;
+        bsdd:name  "Haiti" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/AF>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "AF" ;
+        bsdd:name  "Afghanistan" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/CK>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "CK" ;
+        bsdd:name  "Cook Islands" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/TH>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "TH" ;
+        bsdd:name  "Thailand" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/AT>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "AT" ;
+        bsdd:name  "Austria" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/BO>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "BO" ;
+        bsdd:name  "Bolivia, Plurinational State of" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/PG>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "PG" ;
+        bsdd:name  "Papua New Guinea" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/TV>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "TV" ;
+        bsdd:name  "Tuvalu" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/ST>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "ST" ;
+        bsdd:name  "Sao Tome and Principe" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/MX>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "MX" ;
+        bsdd:name  "Mexico" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/NI>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "NI" ;
+        bsdd:name  "Nicaragua" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/SN>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "SN" ;
+        bsdd:name  "Senegal" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/RE>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "RE" ;
+        bsdd:name  "Réunion" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/TM>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "TM" ;
+        bsdd:name  "Turkmenistan" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/HM>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "HM" ;
+        bsdd:name  "Heard Island and McDonald Islands" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/KE>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "KE" ;
+        bsdd:name  "Kenya" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/NL>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "NL" ;
+        bsdd:name  "Netherlands" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/JM>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "JM" ;
+        bsdd:name  "Jamaica" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/CR>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "CR" ;
+        bsdd:name  "Costa Rica" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/AL>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "AL" ;
+        bsdd:name  "Albania" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/GF>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "GF" ;
+        bsdd:name  "French Guiana" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/DK>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "DK" ;
+        bsdd:name  "Denmark" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/BE>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "BE" ;
+        bsdd:name  "Belgium" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/AZ>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "AZ" ;
+        bsdd:name  "Azerbaijan" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/LY>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "LY" ;
+        bsdd:name  "Libyan Arab Jamahiriya" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/AR>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "AR" ;
+        bsdd:name  "Argentina" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/GB>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "GB" ;
+        bsdd:name  "United Kingdom" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/LS>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "LS" ;
+        bsdd:name  "Lesotho" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/LU>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "LU" ;
+        bsdd:name  "Luxembourg" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/LC>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "LC" ;
+        bsdd:name  "Saint Lucia" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/HK>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "HK" ;
+        bsdd:name  "Hong Kong" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/NE>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "NE" ;
+        bsdd:name  "Niger" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/FM>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "FM" ;
+        bsdd:name  "Micronesia, Federated States of" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/ET>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "ET" ;
+        bsdd:name  "Ethiopia" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/NZ>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "NZ" ;
+        bsdd:name  "New Zealand" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/SH>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "SH" ;
+        bsdd:name  "Saint Helena, Ascension and Tristan da Cunha" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/MT>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "MT" ;
+        bsdd:name  "Malta" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/CH>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "CH" ;
+        bsdd:name  "Switzerland" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/CU>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "CU" ;
+        bsdd:name  "Cuba" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/KP>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "KP" ;
+        bsdd:name  "Korea, Democratic People's Republic of" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/GP>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "GP" ;
+        bsdd:name  "Guadeloupe" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/TK>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "TK" ;
+        bsdd:name  "Tokelau" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/GL>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "GL" ;
+        bsdd:name  "Greenland" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/GT>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "GT" ;
+        bsdd:name  "Guatemala" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/IS>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "IS" ;
+        bsdd:name  "Iceland" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/SZ>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "SZ" ;
+        bsdd:name  "Swaziland" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/KW>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "KW" ;
+        bsdd:name  "Kuwait" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/OM>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "OM" ;
+        bsdd:name  "Oman" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/MY>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "MY" ;
+        bsdd:name  "Malaysia" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/CV>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "CV" ;
+        bsdd:name  "Cape Verde" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/BH>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "BH" ;
+        bsdd:name  "Bahrain" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/NP>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "NP" ;
+        bsdd:name  "Nepal" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/AW>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "AW" ;
+        bsdd:name  "Aruba" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/BA>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "BA" ;
+        bsdd:name  "Bosnia and Herzegovina" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/SI>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "SI" ;
+        bsdd:name  "Slovenia" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/NU>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "NU" ;
+        bsdd:name  "Niue" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/ZW>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "ZW" ;
+        bsdd:name  "Zimbabwe" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/LV>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "LV" ;
+        bsdd:name  "Latvia" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/KN>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "KN" ;
+        bsdd:name  "Saint Kitts and Nevis" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/NC>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "NC" ;
+        bsdd:name  "New Caledonia" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/TZ>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "TZ" ;
+        bsdd:name  "Tanzania, United Republic of" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/SD>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "SD" ;
+        bsdd:name  "Sudan" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/IM>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "IM" ;
+        bsdd:name  "Isle of Man" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/SL>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "SL" ;
+        bsdd:name  "Sierra Leone" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/MF>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "MF" ;
+        bsdd:name  "Saint Martin (French part)" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/CL>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "CL" ;
+        bsdd:name  "Chile" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/MG>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "MG" ;
+        bsdd:name  "Madagascar" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/CD>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "CD" ;
+        bsdd:name  "Congo, the Democratic Republic of the" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/TG>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "TG" ;
+        bsdd:name  "Togo" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/IO>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "IO" ;
+        bsdd:name  "British Indian Ocean Territory" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/AE>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "AE" ;
+        bsdd:name  "United Arab Emirates" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/SV>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "SV" ;
+        bsdd:name  "El Salvador" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/DJ>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "DJ" ;
+        bsdd:name  "Djibouti" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/MM>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "MM" ;
+        bsdd:name  "Myanmar" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/ER>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "ER" ;
+        bsdd:name  "Eritrea" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/GY>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "GY" ;
+        bsdd:name  "Guyana" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/BL>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "BL" ;
+        bsdd:name  "Saint Barthélemy" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/LB>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "LB" ;
+        bsdd:name  "Lebanon" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/MP>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "MP" ;
+        bsdd:name  "Northern Mariana Islands" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/LR>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "LR" ;
+        bsdd:name  "Liberia" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/SE>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "SE" ;
+        bsdd:name  "Sweden" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/VA>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "VA" ;
+        bsdd:name  "Holy See (Vatican City State)" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/GM>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "GM" ;
+        bsdd:name  "Gambia" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/BD>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "BD" ;
+        bsdd:name  "Bangladesh" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/PR>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "PR" ;
+        bsdd:name  "Puerto Rico" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/GU>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "GU" ;
+        bsdd:name  "Guam" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/SM>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "SM" ;
+        bsdd:name  "San Marino" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/AS>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "AS" ;
+        bsdd:name  "American Samoa" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/GQ>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "GQ" ;
+        bsdd:name  "Equatorial Guinea" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/FI>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "FI" ;
+        bsdd:name  "Finland" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/VI>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "VI" ;
+        bsdd:name  "Virgin Islands, U.S." .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/JP>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "JP" ;
+        bsdd:name  "Japan" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/DO>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "DO" ;
+        bsdd:name  "Dominican Republic" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/JE>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "JE" ;
+        bsdd:name  "Jersey" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/GG>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "GG" ;
+        bsdd:name  "Guernsey" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/BN>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "BN" ;
+        bsdd:name  "Brunei Darussalam" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/PW>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "PW" ;
+        bsdd:name  "Palau" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/YT>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "YT" ;
+        bsdd:name  "Mayotte" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/LK>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "LK" ;
+        bsdd:name  "Sri Lanka" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/KZ>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "KZ" ;
+        bsdd:name  "Kazakhstan" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/KH>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "KH" ;
+        bsdd:name  "Cambodia" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/CG>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "CG" ;
+        bsdd:name  "Congo" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/ES>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "ES" ;
+        bsdd:name  "Spain" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/CY>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "CY" ;
+        bsdd:name  "Cyprus" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/AI>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "AI" ;
+        bsdd:name  "Anguilla" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/FJ>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "FJ" ;
+        bsdd:name  "Fiji" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/BV>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "BV" ;
+        bsdd:name  "Bouvet Island" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/country/FR>
+        rdf:type   bsdd:Country ;
+        bsdd:code  "FR" ;
+        bsdd:name  "France" .

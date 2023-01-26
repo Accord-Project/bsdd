@@ -1,0 +1,71 @@
+@prefix bsdd: <http://bsdd.buildingsmart.org/def#> .
+@prefix fx:   <http://sparql.xyz/facade-x/ns/> .
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix xyz:  <http://sparql.xyz/facade-x/data/> .
+
+<https://identifier.buildingsmart.org/uri/uniweimar/uniweimar-0.1/class/Nondestructive/ComponentID>
+        rdf:type                  bsdd:ClassificationProperty ;
+        bsdd:activationDateUtc    "2022-09-15T00:00:00"^^xsd:dateTime ;
+        bsdd:code                 "ComponentID" ;
+        bsdd:countryOfOrigin      "DE" ;
+        bsdd:countryOfUse         "DK" , "CN" , "CZ" , "NL" , "EE" , "NP" ;
+        bsdd:creatorLanguageCode  "de-DE" ;
+        bsdd:dataType             "String" ;
+        bsdd:definition           "identifier of the tested structure" ;
+        bsdd:description          "Identifier of the component to test" ;
+        bsdd:isDynamic            true ;
+        bsdd:isRequired           true ;
+        bsdd:isWritable           true ;
+        bsdd:name                 "Component ID" ;
+        bsdd:property             <https://identifier.buildingsmart.org/uri/uniweimar/uniweimar-0.1/prop/ComponentID> ;
+        bsdd:propertySet          "Single" ;
+        bsdd:propertyValueKind    "SINGLE" ;
+        bsdd:status               "Preview" ;
+        bsdd:versionDateUtc       "2022-09-15T00:00:00"^^xsd:dateTime ;
+        bsdd:versionNumber        "1"^^xsd:int .
+
+<https://identifier.buildingsmart.org/uri/uniweimar/uniweimar-0.1/class/Nondestructive>
+        rdf:type                     bsdd:Classification ;
+        bsdd:activationDateUtc       "2022-09-15T00:00:00"^^xsd:dateTime ;
+        bsdd:classificationProperty  <https://identifier.buildingsmart.org/uri/uniweimar/uniweimar-0.1/class/Nondestructive/ComponentID> , <https://identifier.buildingsmart.org/uri/uniweimar/uniweimar-0.1/class/Nondestructive/TestObjective> ;
+        bsdd:classificationType      "CLASS" ;
+        bsdd:code                    "Nondestructive" ;
+        bsdd:countryOfOrigin         "DE" ;
+        bsdd:countryOfUse            "DE" , "BE" , "GB" , "NL" , "IT" ;
+        bsdd:creatorLanguageCode     "de-DE" ;
+        bsdd:definition              "The wide group of analysis and techniques used in science and techonology industry to evaluate the properties material,component without causing a damage" ;
+        bsdd:name                    "Non destructive Testing" ;
+        bsdd:referenceCode           "Non destructive Testing" ;
+        bsdd:relatedIfcEntityName    "IfcTask" ;
+        bsdd:relation                [ rdf:type           bsdd:ClassificationRelation ;
+                                       bsdd:related       <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcTask> ;
+                                       bsdd:relationType  "HasReference"
+                                     ] ;
+        bsdd:revisionNumber          "0"^^xsd:int ;
+        bsdd:status                  "Preview" ;
+        bsdd:synonym                 "Non Destructive Evaluation" , "Non Destructive Inspection" ;
+        bsdd:versionDateUtc          "2022-09-15T00:00:00"^^xsd:dateTime ;
+        bsdd:versionNumber           "1"^^xsd:int .
+
+<https://identifier.buildingsmart.org/uri/uniweimar/uniweimar-0.1/class/Nondestructive/TestObjective>
+        rdf:type                  bsdd:ClassificationProperty ;
+        bsdd:activationDateUtc    "2022-09-15T00:00:00"^^xsd:dateTime ;
+        bsdd:code                 "TestObjective" ;
+        bsdd:countryOfOrigin      "DE" ;
+        bsdd:countryOfUse         "DK" , "CN" , "CZ" , "NL" , "EE" , "NP" ;
+        bsdd:creatorLanguageCode  "de-DE" ;
+        bsdd:dataType             "String" ;
+        bsdd:definition           "Definition of the investigation objectives ,Example localization of tendons ducts or reinforcement" ;
+        bsdd:description          "Definition of the investigation objectives, e.g. localization of tendon ducts or reinforcement" ;
+        bsdd:isDynamic            true ;
+        bsdd:isRequired           true ;
+        bsdd:isWritable           true ;
+        bsdd:name                 "Test Objective" ;
+        bsdd:property             <https://identifier.buildingsmart.org/uri/uniweimar/uniweimar-0.1/prop/TestObjective> ;
+        bsdd:propertySet          "Single" ;
+        bsdd:propertyValueKind    "SINGLE" ;
+        bsdd:status               "Preview" ;
+        bsdd:versionDateUtc       "2022-09-15T00:00:00"^^xsd:dateTime ;
+        bsdd:versionNumber        "1"^^xsd:int .

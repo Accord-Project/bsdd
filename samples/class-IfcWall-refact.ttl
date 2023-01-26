@@ -36,34 +36,7 @@
 <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/Status>
         rdf:type                bsdd:ClassificationProperty ;
         bsdd:activationDateUtc  "2022-12-31T00:00:00"^^xsd:dateTime ;
-        bsdd:allowedValues      [ rdf:type    bsdd:PropertyValue ;
-                                  bsdd:code   "NOTKNOWN" ;
-                                  bsdd:value  "NOTKNOWN"
-                                ] ;
-        bsdd:allowedValues      [ rdf:type    bsdd:PropertyValue ;
-                                  bsdd:code   "UNSET" ;
-                                  bsdd:value  "UNSET"
-                                ] ;
-        bsdd:allowedValues      [ rdf:type    bsdd:PropertyValue ;
-                                  bsdd:code   "EXISTING" ;
-                                  bsdd:value  "EXISTING"
-                                ] ;
-        bsdd:allowedValues      [ rdf:type    bsdd:PropertyValue ;
-                                  bsdd:code   "TEMPORARY" ;
-                                  bsdd:value  "TEMPORARY"
-                                ] ;
-        bsdd:allowedValues      [ rdf:type    bsdd:PropertyValue ;
-                                  bsdd:code   "NEW" ;
-                                  bsdd:value  "NEW"
-                                ] ;
-        bsdd:allowedValues      [ rdf:type    bsdd:PropertyValue ;
-                                  bsdd:code   "DEMOLISH" ;
-                                  bsdd:value  "DEMOLISH"
-                                ] ;
-        bsdd:allowedValues      [ rdf:type    bsdd:PropertyValue ;
-                                  bsdd:code   "OTHER" ;
-                                  bsdd:value  "OTHER"
-                                ] ;
+        bsdd:allowedValue       <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/Status/UNSET> , <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/Status/DEMOLISH> , <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/Status/OTHER> , <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/Status/NOTKNOWN> , <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/Status/EXISTING> , <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/Status/TEMPORARY> , <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/Status/NEW> ;
         bsdd:code               "Status" ;
         bsdd:dataType           "String" ;
         bsdd:description        "Status of the element, predominately used in renovation or retrofitting projects. The status can be assigned to as \"New\" - element designed as new addition, \"Existing\" - element exists and remains, \"Demolish\" - element existed but is to be demolished,  \"Temporary\" - element will exists only temporary (like a temporary support structure)." ;
@@ -102,6 +75,11 @@
         bsdd:propertyValueKind  "SINGLE" ;
         bsdd:status             "Active" ;
         bsdd:versionDateUtc     "2022-12-31T00:00:00"^^xsd:dateTime .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/CastingMethod/OTHER>
+        rdf:type    bsdd:PropertyValue ;
+        bsdd:code   "OTHER" ;
+        bsdd:value  "OTHER" .
 
 <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/ProductionLotId>
         rdf:type                bsdd:ClassificationProperty ;
@@ -159,6 +137,11 @@
         bsdd:status             "Active" ;
         bsdd:versionDateUtc     "2022-12-31T00:00:00"^^xsd:dateTime .
 
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/Status/UNSET>
+        rdf:type    bsdd:PropertyValue ;
+        bsdd:code   "UNSET" ;
+        bsdd:value  "UNSET" .
+
 <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/Length>
         rdf:type                bsdd:ClassificationProperty ;
         bsdd:activationDateUtc  "2022-12-31T00:00:00"^^xsd:dateTime ;
@@ -172,6 +155,11 @@
         bsdd:propertyValueKind  "SINGLE" ;
         bsdd:status             "Active" ;
         bsdd:versionDateUtc     "2022-12-31T00:00:00"^^xsd:dateTime .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/BarAllocationType/OTHER>
+        rdf:type    bsdd:PropertyValue ;
+        bsdd:code   "OTHER" ;
+        bsdd:value  "OTHER" .
 
 <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/BatterAtEnd>
         rdf:type                bsdd:ClassificationProperty ;
@@ -204,30 +192,7 @@
 <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/BarAllocationType>
         rdf:type                bsdd:ClassificationProperty ;
         bsdd:activationDateUtc  "2022-12-31T00:00:00"^^xsd:dateTime ;
-        bsdd:allowedValues      [ rdf:type    bsdd:PropertyValue ;
-                                  bsdd:code   "ALTERNATE" ;
-                                  bsdd:value  "ALTERNATE"
-                                ] ;
-        bsdd:allowedValues      [ rdf:type    bsdd:PropertyValue ;
-                                  bsdd:code   "USERDEFINED" ;
-                                  bsdd:value  "USERDEFINED"
-                                ] ;
-        bsdd:allowedValues      [ rdf:type    bsdd:PropertyValue ;
-                                  bsdd:code   "OTHER" ;
-                                  bsdd:value  "OTHER"
-                                ] ;
-        bsdd:allowedValues      [ rdf:type    bsdd:PropertyValue ;
-                                  bsdd:code   "SINGLE" ;
-                                  bsdd:value  "SINGLE"
-                                ] ;
-        bsdd:allowedValues      [ rdf:type    bsdd:PropertyValue ;
-                                  bsdd:code   "DOUBLE" ;
-                                  bsdd:value  "DOUBLE"
-                                ] ;
-        bsdd:allowedValues      [ rdf:type    bsdd:PropertyValue ;
-                                  bsdd:code   "NOTDEFINED" ;
-                                  bsdd:value  "NOTDEFINED"
-                                ] ;
+        bsdd:allowedValue       <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/BarAllocationType/OTHER> , <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/BarAllocationType/SINGLE> , <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/BarAllocationType/USERDEFINED> , <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/BarAllocationType/DOUBLE> , <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/BarAllocationType/NOTDEFINED> , <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/BarAllocationType/ALTERNATE> ;
         bsdd:code               "BarAllocationType" ;
         bsdd:dataType           "String" ;
         bsdd:description        "Defines the type of the reinforcement bar allocation." ;
@@ -323,6 +288,16 @@
         bsdd:status             "Active" ;
         bsdd:versionDateUtc     "2022-12-31T00:00:00"^^xsd:dateTime .
 
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/Status/DEMOLISH>
+        rdf:type    bsdd:PropertyValue ;
+        bsdd:code   "DEMOLISH" ;
+        bsdd:value  "DEMOLISH" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/AssemblyPlace/SITE>
+        rdf:type    bsdd:PropertyValue ;
+        bsdd:code   "SITE" ;
+        bsdd:value  "SITE" .
+
 <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/SerialNumber>
         rdf:type                bsdd:ClassificationProperty ;
         bsdd:activationDateUtc  "2022-12-31T00:00:00"^^xsd:dateTime ;
@@ -379,6 +354,11 @@
         bsdd:status             "Active" ;
         bsdd:versionDateUtc     "2022-12-31T00:00:00"^^xsd:dateTime .
 
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/CastingMethod/NOTKNOWN>
+        rdf:type    bsdd:PropertyValue ;
+        bsdd:code   "NOTKNOWN" ;
+        bsdd:value  "NOTKNOWN" .
+
 <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/Description>
         rdf:type                bsdd:ClassificationProperty ;
         bsdd:activationDateUtc  "2022-12-31T00:00:00"^^xsd:dateTime ;
@@ -407,6 +387,11 @@
         bsdd:status             "Active" ;
         bsdd:versionDateUtc     "2022-12-31T00:00:00"^^xsd:dateTime .
 
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/CastingMethod/INSITU>
+        rdf:type    bsdd:PropertyValue ;
+        bsdd:code   "INSITU" ;
+        bsdd:value  "INSITU" .
+
 <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/Combustible>
         rdf:type                bsdd:ClassificationProperty ;
         bsdd:activationDateUtc  "2022-12-31T00:00:00"^^xsd:dateTime ;
@@ -420,6 +405,21 @@
         bsdd:propertyValueKind  "SINGLE" ;
         bsdd:status             "Active" ;
         bsdd:versionDateUtc     "2022-12-31T00:00:00"^^xsd:dateTime .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/BarAllocationType/SINGLE>
+        rdf:type    bsdd:PropertyValue ;
+        bsdd:code   "SINGLE" ;
+        bsdd:value  "SINGLE" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/AssemblyPlace/OTHER>
+        rdf:type    bsdd:PropertyValue ;
+        bsdd:code   "OTHER" ;
+        bsdd:value  "OTHER" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/Status/OTHER>
+        rdf:type    bsdd:PropertyValue ;
+        bsdd:code   "OTHER" ;
+        bsdd:value  "OTHER" .
 
 <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/ExtendToStructure>
         rdf:type                bsdd:ClassificationProperty ;
@@ -463,37 +463,15 @@
         bsdd:status             "Active" ;
         bsdd:versionDateUtc     "2022-12-31T00:00:00"^^xsd:dateTime .
 
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/BarAllocationType/USERDEFINED>
+        rdf:type    bsdd:PropertyValue ;
+        bsdd:code   "USERDEFINED" ;
+        bsdd:value  "USERDEFINED" .
+
 <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/CastingMethod>
         rdf:type                bsdd:ClassificationProperty ;
         bsdd:activationDateUtc  "2022-12-31T00:00:00"^^xsd:dateTime ;
-        bsdd:allowedValues      [ rdf:type    bsdd:PropertyValue ;
-                                  bsdd:code   "PRECAST" ;
-                                  bsdd:value  "PRECAST"
-                                ] ;
-        bsdd:allowedValues      [ rdf:type    bsdd:PropertyValue ;
-                                  bsdd:code   "NOTKNOWN" ;
-                                  bsdd:value  "NOTKNOWN"
-                                ] ;
-        bsdd:allowedValues      [ rdf:type    bsdd:PropertyValue ;
-                                  bsdd:code   "MIXED" ;
-                                  bsdd:value  "MIXED"
-                                ] ;
-        bsdd:allowedValues      [ rdf:type    bsdd:PropertyValue ;
-                                  bsdd:code   "INSITU" ;
-                                  bsdd:value  "INSITU"
-                                ] ;
-        bsdd:allowedValues      [ rdf:type    bsdd:PropertyValue ;
-                                  bsdd:code   "OTHER" ;
-                                  bsdd:value  "OTHER"
-                                ] ;
-        bsdd:allowedValues      [ rdf:type    bsdd:PropertyValue ;
-                                  bsdd:code   "PRINTED" ;
-                                  bsdd:value  "PRINTED"
-                                ] ;
-        bsdd:allowedValues      [ rdf:type    bsdd:PropertyValue ;
-                                  bsdd:code   "UNSET" ;
-                                  bsdd:value  "UNSET"
-                                ] ;
+        bsdd:allowedValue       <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/CastingMethod/OTHER> , <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/CastingMethod/NOTKNOWN> , <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/CastingMethod/INSITU> , <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/CastingMethod/PRINTED> , <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/CastingMethod/UNSET> , <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/CastingMethod/PRECAST> , <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/CastingMethod/MIXED> ;
         bsdd:code               "CastingMethod" ;
         bsdd:dataType           "String" ;
         bsdd:description        "The method of casting the concrete into its designed form." ;
@@ -504,6 +482,11 @@
         bsdd:propertyValueKind  "SINGLE" ;
         bsdd:status             "Active" ;
         bsdd:versionDateUtc     "2022-12-31T00:00:00"^^xsd:dateTime .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/BarAllocationType/DOUBLE>
+        rdf:type    bsdd:PropertyValue ;
+        bsdd:code   "DOUBLE" ;
+        bsdd:value  "DOUBLE" .
 
 <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/ConcreteCoverAtLinks>
         rdf:type                bsdd:ClassificationProperty ;
@@ -518,6 +501,11 @@
         bsdd:propertyValueKind  "SINGLE" ;
         bsdd:status             "Active" ;
         bsdd:versionDateUtc     "2022-12-31T00:00:00"^^xsd:dateTime .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/BarAllocationType/NOTDEFINED>
+        rdf:type    bsdd:PropertyValue ;
+        bsdd:code   "NOTDEFINED" ;
+        bsdd:value  "NOTDEFINED" .
 
 <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/SpacingBarPitch>
         rdf:type                bsdd:ClassificationProperty ;
@@ -546,6 +534,11 @@
         bsdd:propertyValueKind  "SINGLE" ;
         bsdd:status             "Active" ;
         bsdd:versionDateUtc     "2022-12-31T00:00:00"^^xsd:dateTime .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/AssemblyPlace/NOTKNOWN>
+        rdf:type    bsdd:PropertyValue ;
+        bsdd:code   "NOTKNOWN" ;
+        bsdd:value  "NOTKNOWN" .
 
 <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/LoadBearing>
         rdf:type                bsdd:ClassificationProperty ;
@@ -592,30 +585,7 @@
 <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/AssemblyPlace>
         rdf:type                bsdd:ClassificationProperty ;
         bsdd:activationDateUtc  "2022-12-31T00:00:00"^^xsd:dateTime ;
-        bsdd:allowedValues      [ rdf:type    bsdd:PropertyValue ;
-                                  bsdd:code   "OFFSITE" ;
-                                  bsdd:value  "OFFSITE"
-                                ] ;
-        bsdd:allowedValues      [ rdf:type    bsdd:PropertyValue ;
-                                  bsdd:code   "OTHER" ;
-                                  bsdd:value  "OTHER"
-                                ] ;
-        bsdd:allowedValues      [ rdf:type    bsdd:PropertyValue ;
-                                  bsdd:code   "NOTKNOWN" ;
-                                  bsdd:value  "NOTKNOWN"
-                                ] ;
-        bsdd:allowedValues      [ rdf:type    bsdd:PropertyValue ;
-                                  bsdd:code   "UNSET" ;
-                                  bsdd:value  "UNSET"
-                                ] ;
-        bsdd:allowedValues      [ rdf:type    bsdd:PropertyValue ;
-                                  bsdd:code   "FACTORY" ;
-                                  bsdd:value  "FACTORY"
-                                ] ;
-        bsdd:allowedValues      [ rdf:type    bsdd:PropertyValue ;
-                                  bsdd:code   "SITE" ;
-                                  bsdd:value  "SITE"
-                                ] ;
+        bsdd:allowedValue       <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/AssemblyPlace/SITE> , <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/AssemblyPlace/OTHER> , <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/AssemblyPlace/NOTKNOWN> , <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/AssemblyPlace/FACTORY> , <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/AssemblyPlace/UNSET> , <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/AssemblyPlace/OFFSITE> ;
         bsdd:code               "AssemblyPlace" ;
         bsdd:dataType           "String" ;
         bsdd:description        "Enumeration defining where the assembly is intended to take place, either in a factory, other offsite location or on the building site." ;
@@ -654,6 +624,16 @@
         bsdd:propertyValueKind  "SINGLE" ;
         bsdd:status             "Active" ;
         bsdd:versionDateUtc     "2022-12-31T00:00:00"^^xsd:dateTime .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/AssemblyPlace/FACTORY>
+        rdf:type    bsdd:PropertyValue ;
+        bsdd:code   "FACTORY" ;
+        bsdd:value  "FACTORY" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/Status/NOTKNOWN>
+        rdf:type    bsdd:PropertyValue ;
+        bsdd:code   "NOTKNOWN" ;
+        bsdd:value  "NOTKNOWN" .
 
 <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/ActualProductionDate>
         rdf:type                bsdd:ClassificationProperty ;
@@ -725,6 +705,11 @@
         bsdd:status             "Active" ;
         bsdd:versionDateUtc     "2022-12-31T00:00:00"^^xsd:dateTime .
 
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/Status/EXISTING>
+        rdf:type    bsdd:PropertyValue ;
+        bsdd:code   "EXISTING" ;
+        bsdd:value  "EXISTING" .
+
 <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/ReleaseStrength>
         rdf:type                bsdd:ClassificationProperty ;
         bsdd:activationDateUtc  "2022-12-31T00:00:00"^^xsd:dateTime ;
@@ -781,6 +766,16 @@
         bsdd:status             "Active" ;
         bsdd:versionDateUtc     "2022-12-31T00:00:00"^^xsd:dateTime .
 
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/AssemblyPlace/UNSET>
+        rdf:type    bsdd:PropertyValue ;
+        bsdd:code   "UNSET" ;
+        bsdd:value  "UNSET" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/Status/TEMPORARY>
+        rdf:type    bsdd:PropertyValue ;
+        bsdd:code   "TEMPORARY" ;
+        bsdd:value  "TEMPORARY" .
+
 <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/DesignLocationNumber>
         rdf:type                bsdd:ClassificationProperty ;
         bsdd:activationDateUtc  "2022-12-31T00:00:00"^^xsd:dateTime ;
@@ -794,6 +789,11 @@
         bsdd:propertyValueKind  "SINGLE" ;
         bsdd:status             "Active" ;
         bsdd:versionDateUtc     "2022-12-31T00:00:00"^^xsd:dateTime .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/AssemblyPlace/OFFSITE>
+        rdf:type    bsdd:PropertyValue ;
+        bsdd:code   "OFFSITE" ;
+        bsdd:value  "OFFSITE" .
 
 <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall>
         rdf:type                     bsdd:Classification ;
@@ -834,6 +834,11 @@
         bsdd:propertyValueKind  "SINGLE" ;
         bsdd:status             "Active" ;
         bsdd:versionDateUtc     "2022-12-31T00:00:00"^^xsd:dateTime .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/CastingMethod/PRINTED>
+        rdf:type    bsdd:PropertyValue ;
+        bsdd:code   "PRINTED" ;
+        bsdd:value  "PRINTED" .
 
 <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/ReinforcementAreaRatio>
         rdf:type                bsdd:ClassificationProperty ;
@@ -905,6 +910,16 @@
         bsdd:status             "Active" ;
         bsdd:versionDateUtc     "2022-12-31T00:00:00"^^xsd:dateTime .
 
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/BarAllocationType/ALTERNATE>
+        rdf:type    bsdd:PropertyValue ;
+        bsdd:code   "ALTERNATE" ;
+        bsdd:value  "ALTERNATE" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/CastingMethod/UNSET>
+        rdf:type    bsdd:PropertyValue ;
+        bsdd:code   "UNSET" ;
+        bsdd:value  "UNSET" .
+
 <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/HollowCorePlugging>
         rdf:type                bsdd:ClassificationProperty ;
         bsdd:activationDateUtc  "2022-12-31T00:00:00"^^xsd:dateTime ;
@@ -918,6 +933,11 @@
         bsdd:propertyValueKind  "SINGLE" ;
         bsdd:status             "Active" ;
         bsdd:versionDateUtc     "2022-12-31T00:00:00"^^xsd:dateTime .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/Status/NEW>
+        rdf:type    bsdd:PropertyValue ;
+        bsdd:code   "NEW" ;
+        bsdd:value  "NEW" .
 
 <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/GrossSideArea>
         rdf:type                bsdd:ClassificationProperty ;
@@ -947,6 +967,11 @@
         bsdd:status             "Active" ;
         bsdd:versionDateUtc     "2022-12-31T00:00:00"^^xsd:dateTime .
 
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/CastingMethod/PRECAST>
+        rdf:type    bsdd:PropertyValue ;
+        bsdd:code   "PRECAST" ;
+        bsdd:value  "PRECAST" .
+
 <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/ConcreteCoverAtMainBars>
         rdf:type                bsdd:ClassificationProperty ;
         bsdd:activationDateUtc  "2022-12-31T00:00:00"^^xsd:dateTime ;
@@ -960,6 +985,11 @@
         bsdd:propertyValueKind  "SINGLE" ;
         bsdd:status             "Active" ;
         bsdd:versionDateUtc     "2022-12-31T00:00:00"^^xsd:dateTime .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/CastingMethod/MIXED>
+        rdf:type    bsdd:PropertyValue ;
+        bsdd:code   "MIXED" ;
+        bsdd:value  "MIXED" .
 
 <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall/StrengthClass>
         rdf:type                bsdd:ClassificationProperty ;

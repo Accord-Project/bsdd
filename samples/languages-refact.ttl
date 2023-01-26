@@ -1,0 +1,201 @@
+@prefix bsdd: <http://bsdd.buildingsmart.org/def#> .
+@prefix fx:   <http://sparql.xyz/facade-x/ns/> .
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix xyz:  <http://sparql.xyz/facade-x/data/> .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/language/lv-LV>
+        rdf:type      bsdd:Language ;
+        bsdd:isocode  "lv-LV" ;
+        bsdd:name     "Latvian" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/language/de-CH>
+        rdf:type      bsdd:Language ;
+        bsdd:isocode  "de-CH" ;
+        bsdd:name     "German (CH)" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/language/nl-BE>
+        rdf:type      bsdd:Language ;
+        bsdd:isocode  "nl-BE" ;
+        bsdd:name     "Dutch (BE)" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/language/lt-LT>
+        rdf:type      bsdd:Language ;
+        bsdd:isocode  "lt-LT" ;
+        bsdd:name     "Lithuanian" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/language/fi-FI>
+        rdf:type      bsdd:Language ;
+        bsdd:isocode  "fi-FI" ;
+        bsdd:name     "Finnish" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/language/fr-BE>
+        rdf:type      bsdd:Language ;
+        bsdd:isocode  "fr-BE" ;
+        bsdd:name     "French (BE)" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/language/it-IT>
+        rdf:type      bsdd:Language ;
+        bsdd:isocode  "it-IT" ;
+        bsdd:name     "Italian" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/language/et-EE>
+        rdf:type      bsdd:Language ;
+        bsdd:isocode  "et-EE" ;
+        bsdd:name     "Estonian" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/language/no-NO>
+        rdf:type      bsdd:Language ;
+        bsdd:isocode  "no-NO" ;
+        bsdd:name     "Norwegian" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/language/sr-SP>
+        rdf:type      bsdd:Language ;
+        bsdd:isocode  "sr-SP" ;
+        bsdd:name     "Serbian" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/language/nb-NO>
+        rdf:type      bsdd:Language ;
+        bsdd:isocode  "nb-NO" ;
+        bsdd:name     "Norwegian (Bokmål)" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/language/mn-MN>
+        rdf:type      bsdd:Language ;
+        bsdd:isocode  "mn-MN" ;
+        bsdd:name     "Mongolean" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/language/kr-KR>
+        rdf:type      bsdd:Language ;
+        bsdd:isocode  "kr-KR" ;
+        bsdd:name     "Korean" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/language/pl-PL>
+        rdf:type      bsdd:Language ;
+        bsdd:isocode  "pl-PL" ;
+        bsdd:name     "Polish" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/language/de-DE>
+        rdf:type      bsdd:Language ;
+        bsdd:isocode  "de-DE" ;
+        bsdd:name     "German" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/language/es-ES>
+        rdf:type      bsdd:Language ;
+        bsdd:isocode  "es-ES" ;
+        bsdd:name     "Spanish" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/language/en-CA>
+        rdf:type      bsdd:Language ;
+        bsdd:isocode  "en-CA" ;
+        bsdd:name     "English (CA)" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/language/fr-FR>
+        rdf:type      bsdd:Language ;
+        bsdd:isocode  "fr-FR" ;
+        bsdd:name     "French" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/language/ru-RU>
+        rdf:type      bsdd:Language ;
+        bsdd:isocode  "ru-RU" ;
+        bsdd:name     "Russian" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/language/fa-IR>
+        rdf:type      bsdd:Language ;
+        bsdd:isocode  "fa-IR" ;
+        bsdd:name     "Persian" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/language/cs-CZ>
+        rdf:type      bsdd:Language ;
+        bsdd:isocode  "cs-CZ" ;
+        bsdd:name     "Czech" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/language/en-AU>
+        rdf:type      bsdd:Language ;
+        bsdd:isocode  "en-AU" ;
+        bsdd:name     "ENGLISH" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/language/pt-PT>
+        rdf:type      bsdd:Language ;
+        bsdd:isocode  "pt-PT" ;
+        bsdd:name     "Portuguese" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/language/sv-SE>
+        rdf:type      bsdd:Language ;
+        bsdd:isocode  "sv-SE" ;
+        bsdd:name     "Swedish" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/language/ja-JP>
+        rdf:type      bsdd:Language ;
+        bsdd:isocode  "ja-JP" ;
+        bsdd:name     "Japanese" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/language/vi-VN>
+        rdf:type      bsdd:Language ;
+        bsdd:isocode  "vi-VN" ;
+        bsdd:name     "Vietnamese" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/language/da-DK>
+        rdf:type      bsdd:Language ;
+        bsdd:isocode  "da-DK" ;
+        bsdd:name     "Danish" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/language/nn-NO>
+        rdf:type      bsdd:Language ;
+        bsdd:isocode  "nn-NO" ;
+        bsdd:name     "Norwegian (Nynorsk)" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/language/ar-SA>
+        rdf:type      bsdd:Language ;
+        bsdd:isocode  "ar-SA" ;
+        bsdd:name     "Arabic" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/language/en-US>
+        rdf:type      bsdd:Language ;
+        bsdd:isocode  "en-US" ;
+        bsdd:name     "English (US)" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/language/EN>
+        rdf:type      bsdd:Language ;
+        bsdd:isocode  "EN" ;
+        bsdd:name     "English" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/language/nl-NL>
+        rdf:type      bsdd:Language ;
+        bsdd:isocode  "nl-NL" ;
+        bsdd:name     "Dutch" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/language/en-NZ>
+        rdf:type      bsdd:Language ;
+        bsdd:isocode  "en-NZ" ;
+        bsdd:name     "English (NZ)" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/language/el-GR>
+        rdf:type      bsdd:Language ;
+        bsdd:isocode  "el-GR" ;
+        bsdd:name     "Greek" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/language/bg-BG>
+        rdf:type      bsdd:Language ;
+        bsdd:isocode  "bg-BG" ;
+        bsdd:name     "Bulgarian" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/language/zh-CN>
+        rdf:type      bsdd:Language ;
+        bsdd:isocode  "zh-CN" ;
+        bsdd:name     "Chinese" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/language/de-AT>
+        rdf:type      bsdd:Language ;
+        bsdd:isocode  "de-AT" ;
+        bsdd:name     "German" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/language/pt-BR>
+        rdf:type      bsdd:Language ;
+        bsdd:isocode  "pt-BR" ;
+        bsdd:name     "Portuguese (BR)" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/language/en-GB>
+        rdf:type      bsdd:Language ;
+        bsdd:isocode  "en-GB" ;
+        bsdd:name     "English" .

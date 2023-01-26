@@ -26,8 +26,8 @@
         bsdd:isDynamic                 false ;
         bsdd:isRequired                true ;
         bsdd:isWritable                true ;
-        bsdd:maxInclusive              "25"^^xsd:int ;
-        bsdd:minExclusive              "1"^^xsd:int ;
+        bsdd:maxInclusive              "25.0"^^xsd:double ;
+        bsdd:minExclusive              "1.0"^^xsd:double ;
         bsdd:name                      "Height" ;
         bsdd:physicalQuantity          "Height" ;
         bsdd:property                  <https://identifier.buildingsmart.org/uri/bs-agri/fruitvegs-1.0/prop/height> ;
@@ -84,9 +84,9 @@
         bsdd:isDynamic                 false ;
         bsdd:isRequired                true ;
         bsdd:isWritable                true ;
-        bsdd:maxInclusive              "20"^^xsd:int ;
+        bsdd:maxInclusive              "20.0"^^xsd:double ;
         bsdd:methodOfMeasurement       "Archimedes’ Gold Crown method" ;
-        bsdd:minExclusive              "1"^^xsd:int ;
+        bsdd:minExclusive              "1.0"^^xsd:double ;
         bsdd:name                      "Volume" ;
         bsdd:physicalQuantity          "Volume" ;
         bsdd:property                  <https://identifier.buildingsmart.org/uri/bs-agri/fruitvegs-1.0/prop/volume> ;

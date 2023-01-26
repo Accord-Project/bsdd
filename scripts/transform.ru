@@ -22,8 +22,10 @@ delete {?x ?long  ?old}
 insert {?x ?short ?new}
 where {
   values (?long ?short) {
-    (bsdd:namespaceUri             bsdd:namespaceUri            )
     (bsdd:domainNamespaceUri       bsdd:domain                  )
+    (bsdd:licenseUrl               bsdd:licenseUrl              )
+    (bsdd:moreInfoUrl              bsdd:moreInfoUrl             )
+    (bsdd:namespaceUri             bsdd:namespaceUri            )
     (bsdd:propertyNamespaceUri     bsdd:property                )
     (bsdd:relatedClassificationUri bsdd:related                 )
     (bsdd:relatedPropertyUri       bsdd:related                 )
@@ -80,6 +82,15 @@ where {
   }
   ?x ?plural ?node.
   optional {?node rdfs:member ?y}
+};
+
+# Collections (eg ReferenceDocuments, Languages, etc) are top-level JSON arrays that come out as:
+# [] rdfs:member element1, element2...
+# Remove these rdfs:member links, since they are not useful (we can select the elements by class)
+delete {?blank rdfs:member ?y}
+where {
+  ?blank rdfs:member ?y
+  filter(isBlank(?blank))
 };
 
 # short-cut bsdd:parentClassificationReference/bsdd:namespaceUri to just bsdd:parentClassification

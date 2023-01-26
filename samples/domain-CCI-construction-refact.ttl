@@ -10,8 +10,8 @@
         bsdd:languageCode    "en-GB" ;
         bsdd:lastUpdatedUtc  "2022-10-26T14:46:08.838408" ;
         bsdd:license         "MIT license" ;
-        bsdd:licenseUrl      "https://ccs.molio.dk/Home/News/EndUserLicense?sc_lang=en-gb" ;
-        bsdd:moreInfoUrl     "https://anvisninger.molio.dk/Gratis-vaerktojer/CCI_Klassifikation" ;
+        bsdd:licenseUrl      <https://ccs.molio.dk/Home/News/EndUserLicense?sc_lang=en-gb> ;
+        bsdd:moreInfoUrl     <https://anvisninger.molio.dk/Gratis-vaerktojer/CCI_Klassifikation> ;
         bsdd:name            "CCI Construction" ;
         bsdd:releaseDate     "2020-01-01T00:00:00" ;
         bsdd:status          "Released" ;

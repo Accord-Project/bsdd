@@ -8,8 +8,7 @@
 [ rdf:type                       bsdd:Property ;
   bsdd:activationDateUtc         "2019-01-25T00:00:00"^^xsd:dateTime ;
   bsdd:code                      "volume" ;
-  bsdd:connectedPropertyCodes    [ rdfs:member
-                    "diameter" , "width" , "height" , "depth" ] ;
+  bsdd:connectedPropertyCode     "diameter" , "width" , "height" , "depth" ;
   bsdd:countryOfOrigin           "FR" ;
   bsdd:creatorLanguageCode       "en-GB" ;
   bsdd:dataType                  "Real" ;

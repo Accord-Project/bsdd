@@ -65,9 +65,11 @@ where {
   values (?plural ?singular) {
     (bsdd:allowedValues                  bsdd:allowedValue                 )
     (bsdd:classificationProperties       bsdd:classificationProperty       )
-    (bsdd:properties                     bsdd:classificationProperty       )
+    (bsdd:connectedPropertyCodes         bsdd:connectedPropertyCode        )
     (bsdd:countriesOfUse                 bsdd:countryOfUse                 )
     (bsdd:dynamicParameterPropertyCodes  bsdd:dynamicParameterPropertyCode )
+    (bsdd:properties                     bsdd:classificationProperty       )
+    (bsdd:qudtCodes                      bsdd:qudtCode                     )
     (bsdd:relatedIfcEntityNames          bsdd:relatedIfcEntityName         )
     (bsdd:relations                      bsdd:relation                     )         
     (bsdd:replacedObjectCodes            bsdd:replacedObjectCode           )

@@ -1,0 +1,555 @@
+{
+  "referenceCode": "IfcCableSegment",
+  "parentClassificationReference": {
+    "namespaceUri": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcFlowSegment",
+    "name": "IfcFlowSegment",
+    "code": "IfcFlowSegment"
+  },
+  "classificationProperties": [
+    {
+      "name": "CarrierStackNumber",
+      "description": "Number of carrier segments (tray, ladder etc.) that are vertically stacked (vertical is measured as the z-axis of the local coordinate system of the carrier segment).",
+      "dataType": "Integer",
+      "propertyCode": "CarrierStackNumber",
+      "propertyDomainName": "IFC",
+      "propertyNamespaceUri": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/CarrierStackNumber",
+      "propertySet": "Pset_CableSegmentOccurrence",
+      "propertyStatus": "Active",
+      "propertyValueKind": "Single"
+    },
+    {
+      "name": "CurrentCarryingCapacity",
+      "description": "Maximum value of electric current which can be carried continuously by a conductor, a device or an apparatus, under specified conditions without its steady-state temperature exceeding a  specified value. Based on IEC60826-11-13. NOTE: The temperature specified value is maximum Design Ambient Temperature.",
+      "dataType": "Real",
+      "propertyCode": "CurrentCarryingCapacity",
+      "propertyDomainName": "IFC",
+      "propertyNamespaceUri": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/CurrentCarryingCapacity",
+      "propertySet": "Pset_CableSegmentOccurrence",
+      "propertyStatus": "Active",
+      "propertyValueKind": "Single"
+    },
+    {
+      "name": "DistanceBetweenParallelCircuits",
+      "description": "Distance measured between parallel circuits.",
+      "dataType": "Real",
+      "propertyCode": "DistanceBetweenParallelCircuits",
+      "propertyDomainName": "IFC",
+      "propertyNamespaceUri": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/DistanceBetweenParallelCircuits",
+      "propertySet": "Pset_CableSegmentOccurrence",
+      "propertyStatus": "Active",
+      "propertyValueKind": "Single"
+    },
+    {
+      "name": "InstallationMethod",
+      "description": "Method of installation of cable/conductor. Installation methods are typically defined by reference in standards such as IEC 60364-5-52, table 52A-1 or BS7671 Appendix 4 Table 4A1 etc. Selection of the value to be used should be determined from such a standard according to local usage.",
+      "dataType": "String",
+      "propertyCode": "InstallationMethod",
+      "propertyDomainName": "IFC",
+      "propertyNamespaceUri": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/InstallationMethod",
+      "propertySet": "Pset_CableSegmentOccurrence",
+      "propertyStatus": "Active",
+      "propertyValueKind": "Single"
+    },
+    {
+      "name": "InstallationMethodFlagEnum",
+      "description": "Special installation conditions relating to particular types of installation based on IEC60364-5-52:2001 reference installation methods C and D.",
+      "dataType": "String",
+      "possibleValues": [
+        {
+          "code": "BELOWCEILING",
+          "value": "BELOWCEILING"
+        },
+        {
+          "code": "INDUCT",
+          "value": "INDUCT"
+        },
+        {
+          "code": "INSOIL",
+          "value": "INSOIL"
+        },
+        {
+          "code": "NOTKNOWN",
+          "value": "NOTKNOWN"
+        },
+        {
+          "code": "ONWALL",
+          "value": "ONWALL"
+        },
+        {
+          "code": "OTHER",
+          "value": "OTHER"
+        },
+        {
+          "code": "UNSET",
+          "value": "UNSET"
+        }
+      ],
+      "propertyCode": "InstallationMethodFlagEnum",
+      "propertyDomainName": "IFC",
+      "propertyNamespaceUri": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/InstallationMethodFlagEnum",
+      "propertySet": "Pset_CableSegmentOccurrence",
+      "propertyStatus": "Active",
+      "propertyValueKind": "Single"
+    },
+    {
+      "name": "IsHorizontalCable",
+      "description": "Indication of whether the cable occurrences are mounted horizontally (= TRUE) or vertically (= FALSE).",
+      "dataType": "Boolean",
+      "propertyCode": "IsHorizontalCable",
+      "propertyDomainName": "IFC",
+      "propertyNamespaceUri": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/IsHorizontalCable",
+      "propertySet": "Pset_CableSegmentOccurrence",
+      "propertyStatus": "Active",
+      "propertyValueKind": "Single"
+    },
+    {
+      "name": "IsMountedFlatCable",
+      "description": "Indication of whether the cable occurrences are mounted flat (= TRUE) or in a trefoil pattern (= FALSE).",
+      "dataType": "Boolean",
+      "propertyCode": "IsMountedFlatCable",
+      "propertyDomainName": "IFC",
+      "propertyNamespaceUri": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/IsMountedFlatCable",
+      "propertySet": "Pset_CableSegmentOccurrence",
+      "propertyStatus": "Active",
+      "propertyValueKind": "Single"
+    },
+    {
+      "name": "MaximumCableLength",
+      "description": "Maximum cable length based on voltagedrop. NOTE: This value may also be specified as a constraint within an IFC model if required but is included within the property set at this stage pending implementation of the required capabilities within software applications.",
+      "dataType": "Real",
+      "propertyCode": "MaximumCableLength",
+      "propertyDomainName": "IFC",
+      "propertyNamespaceUri": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/MaximumCableLength",
+      "propertySet": "Pset_CableSegmentOccurrence",
+      "propertyStatus": "Active",
+      "propertyValueKind": "Single"
+    },
+    {
+      "name": "MountingMethod",
+      "description": "The method of mounting cable segment occurrences on a cable carrier occurrence from which the method required can be selected. This is for the purpose of carrying out 'worst case' cable sizing calculations and may be a conceptual requirement rather than a statement of the physical occurrences of cable and carrier segments.",
+      "dataType": "String",
+      "possibleValues": [
+        {
+          "code": "LADDER",
+          "value": "LADDER"
+        },
+        {
+          "code": "NOTKNOWN",
+          "value": "NOTKNOWN"
+        },
+        {
+          "code": "OTHER",
+          "value": "OTHER"
+        },
+        {
+          "code": "PERFORATEDTRAY",
+          "value": "PERFORATEDTRAY"
+        },
+        {
+          "code": "UNSET",
+          "value": "UNSET"
+        }
+      ],
+      "propertyCode": "MountingMethod",
+      "propertyDomainName": "IFC",
+      "propertyNamespaceUri": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/MountingMethod",
+      "propertySet": "Pset_CableSegmentOccurrence",
+      "propertyStatus": "Active",
+      "propertyValueKind": "Single"
+    },
+    {
+      "name": "NumberOfParallelCircuits",
+      "description": "Number of parallel circuits.",
+      "dataType": "Integer",
+      "propertyCode": "NumberOfParallelCircuits",
+      "propertyDomainName": "IFC",
+      "propertyNamespaceUri": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/NumberOfParallelCircuits",
+      "propertySet": "Pset_CableSegmentOccurrence",
+      "propertyStatus": "Active",
+      "propertyValueKind": "Single"
+    },
+    {
+      "name": "PowerLoss",
+      "description": "The power loss in [W].",
+      "dataType": "Real",
+      "propertyCode": "PowerLoss",
+      "propertyDomainName": "IFC",
+      "propertyNamespaceUri": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/PowerLoss",
+      "propertySet": "Pset_CableSegmentOccurrence",
+      "propertyStatus": "Active",
+      "propertyValueKind": "Single"
+    },
+    {
+      "name": "SequentialCode",
+      "description": "Indicates the sequential code of the cable or wire.",
+      "dataType": "String",
+      "propertyCode": "SequentialCode",
+      "propertyDomainName": "IFC",
+      "propertyNamespaceUri": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/SequentialCode",
+      "propertySet": "Pset_CableSegmentOccurrence",
+      "propertyStatus": "Active",
+      "propertyValueKind": "Single"
+    },
+    {
+      "name": "SoilConductivity",
+      "description": "Thermal conductivity of soil. Generally, within standards such as IEC 60364-5-52, table 52A-16, the resistivity of soil is required (measured in [SI] units of degK.m /W). This is the reciprocal of the conductivity value and needs to be calculated accordingly.",
+      "dataType": "Real",
+      "propertyCode": "SoilConductivity",
+      "propertyDomainName": "IFC",
+      "propertyNamespaceUri": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/SoilConductivity",
+      "propertySet": "Pset_CableSegmentOccurrence",
+      "propertyStatus": "Active",
+      "propertyValueKind": "Single"
+    },
+    {
+      "name": "UserCorrectionFactor",
+      "description": "An arbitrary correction factor that may be applied by the user.",
+      "dataType": "Real",
+      "propertyCode": "UserCorrectionFactor",
+      "propertyDomainName": "IFC",
+      "propertyNamespaceUri": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/UserCorrectionFactor",
+      "propertySet": "Pset_CableSegmentOccurrence",
+      "propertyStatus": "Active",
+      "propertyValueKind": "Single"
+    },
+    {
+      "name": "Reference",
+      "description": "Reference ID for this specified type in this project (e.g. type 'A-1'), Also referred to as \"construction type\". It should be provided as an alternative to the name of the \"object type\", if the software does not support object types and no classification reference to a recognized classification system used.IFC4.3.0.0 DEPRECATION  The Reference property is deprecated and shall no longer be used, use attribute Name on the relating type instead.",
+      "dataType": "String",
+      "propertyCode": "Reference",
+      "propertyDomainName": "IFC",
+      "propertyNamespaceUri": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/Reference",
+      "propertySet": "Pset_CableSegmentTypeCommon",
+      "propertyStatus": "Active",
+      "propertyValueKind": "Single"
+    },
+    {
+      "name": "Status",
+      "description": "The status currently assigned to the permit.",
+      "dataType": "String",
+      "possibleValues": [
+        {
+          "code": "DEMOLISH",
+          "value": "DEMOLISH"
+        },
+        {
+          "code": "EXISTING",
+          "value": "EXISTING"
+        },
+        {
+          "code": "NEW",
+          "value": "NEW"
+        },
+        {
+          "code": "NOTKNOWN",
+          "value": "NOTKNOWN"
+        },
+        {
+          "code": "OTHER",
+          "value": "OTHER"
+        },
+        {
+          "code": "TEMPORARY",
+          "value": "TEMPORARY"
+        },
+        {
+          "code": "UNSET",
+          "value": "UNSET"
+        }
+      ],
+      "propertyCode": "Status",
+      "propertyDomainName": "IFC",
+      "propertyNamespaceUri": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/Status",
+      "propertySet": "Pset_CableSegmentTypeCommon",
+      "propertyStatus": "Active",
+      "propertyValueKind": "Single"
+    },
+    {
+      "name": "CrossSectionArea",
+      "description": "The effective cross-section area of the reinforcing bar.",
+      "dataType": "Real",
+      "propertyCode": "CrossSectionArea",
+      "propertyDomainName": "IFC",
+      "propertyNamespaceUri": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/CrossSectionArea",
+      "propertySet": "Qto_CableSegmentBaseQuantities",
+      "propertyStatus": "Active",
+      "propertyValueKind": "Single"
+    },
+    {
+      "name": "GrossWeight",
+      "description": "Total Gross Weight of the object without any add-on parts and not taking into account possible processing features (cut-out's, etc.) or openings and recesses.",
+      "dataType": "Real",
+      "propertyCode": "GrossWeight",
+      "propertyDomainName": "IFC",
+      "propertyNamespaceUri": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/GrossWeight",
+      "propertySet": "Qto_CableSegmentBaseQuantities",
+      "propertyStatus": "Active",
+      "propertyValueKind": "Single"
+    },
+    {
+      "name": "Length",
+      "description": "The length of the object.",
+      "dataType": "Real",
+      "propertyCode": "Length",
+      "propertyDomainName": "IFC",
+      "propertyNamespaceUri": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/Length",
+      "propertySet": "Qto_CableSegmentBaseQuantities",
+      "propertyStatus": "Active",
+      "propertyValueKind": "Single"
+    },
+    {
+      "name": "OuterSurfaceArea",
+      "description": "Total area of the surfaces of the object (not taking into account the end cap areas), normally generated as perimeter * length in case of extrusions.",
+      "dataType": "Real",
+      "propertyCode": "OuterSurfaceArea",
+      "propertyDomainName": "IFC",
+      "propertyNamespaceUri": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/OuterSurfaceArea",
+      "propertySet": "Qto_CableSegmentBaseQuantities",
+      "propertyStatus": "Active",
+      "propertyValueKind": "Single"
+    },
+    {
+      "name": "ConnectorAColour",
+      "description": "Indicates the colour A- end of connector.",
+      "dataType": "String",
+      "propertyCode": "ConnectorAColour",
+      "propertyDomainName": "IFC",
+      "propertyNamespaceUri": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/ConnectorAColour",
+      "propertySet": "Pset_CableSegmentConnector",
+      "propertyStatus": "Active",
+      "propertyValueKind": "Single"
+    },
+    {
+      "name": "ConnectorAGender",
+      "description": "Indicates the gender of A-end connector.",
+      "dataType": "String",
+      "possibleValues": [
+        {
+          "code": "FEMALE",
+          "value": "FEMALE"
+        },
+        {
+          "code": "MALE",
+          "value": "MALE"
+        },
+        {
+          "code": "NOTKNOWN",
+          "value": "NOTKNOWN"
+        },
+        {
+          "code": "OTHER",
+          "value": "OTHER"
+        },
+        {
+          "code": "UNSET",
+          "value": "UNSET"
+        }
+      ],
+      "propertyCode": "ConnectorAGender",
+      "propertyDomainName": "IFC",
+      "propertyNamespaceUri": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/ConnectorAGender",
+      "propertySet": "Pset_CableSegmentConnector",
+      "propertyStatus": "Active",
+      "propertyValueKind": "Single"
+    },
+    {
+      "name": "ConnectorAType",
+      "description": "Indicates the type of A-end connector.",
+      "dataType": "String",
+      "propertyCode": "ConnectorAType",
+      "propertyDomainName": "IFC",
+      "propertyNamespaceUri": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/ConnectorAType",
+      "propertySet": "Pset_CableSegmentConnector",
+      "propertyStatus": "Active",
+      "propertyValueKind": "Single"
+    },
+    {
+      "name": "ConnectorBColour",
+      "description": "Indicates the colour B- end of connector.",
+      "dataType": "String",
+      "propertyCode": "ConnectorBColour",
+      "propertyDomainName": "IFC",
+      "propertyNamespaceUri": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/ConnectorBColour",
+      "propertySet": "Pset_CableSegmentConnector",
+      "propertyStatus": "Active",
+      "propertyValueKind": "Single"
+    },
+    {
+      "name": "ConnectorBGender",
+      "description": "Indicates the gender of B-end connector.",
+      "dataType": "String",
+      "possibleValues": [
+        {
+          "code": "FEMALE",
+          "value": "FEMALE"
+        },
+        {
+          "code": "MALE",
+          "value": "MALE"
+        },
+        {
+          "code": "NOTKNOWN",
+          "value": "NOTKNOWN"
+        },
+        {
+          "code": "OTHER",
+          "value": "OTHER"
+        },
+        {
+          "code": "UNSET",
+          "value": "UNSET"
+        }
+      ],
+      "propertyCode": "ConnectorBGender",
+      "propertyDomainName": "IFC",
+      "propertyNamespaceUri": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/ConnectorBGender",
+      "propertySet": "Pset_CableSegmentConnector",
+      "propertyStatus": "Active",
+      "propertyValueKind": "Single"
+    },
+    {
+      "name": "ConnectorBType",
+      "description": "Indicates the type of B-end connector.",
+      "dataType": "String",
+      "propertyCode": "ConnectorBType",
+      "propertyDomainName": "IFC",
+      "propertyNamespaceUri": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/ConnectorBType",
+      "propertySet": "Pset_CableSegmentConnector",
+      "propertyStatus": "Active",
+      "propertyValueKind": "Single"
+    },
+    {
+      "name": "Attenuation",
+      "description": "Indicates the optical or electrical attenuation of the cable measured in dB, at a certain wavelength or frequency, changing with the length of the cable.",
+      "dataType": "Real",
+      "propertyCode": "Attenuation",
+      "propertyDomainName": "IFC",
+      "propertyNamespaceUri": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/Attenuation",
+      "propertySet": "Pset_TelecomCableGeneral",
+      "propertyStatus": "Active",
+      "propertyValueKind": "Single"
+    },
+    {
+      "name": "CableArmourType",
+      "description": "The armour type of the cable for mechanical protection.",
+      "dataType": "String",
+      "possibleValues": [
+        {
+          "code": "DIELECTRIC",
+          "value": "DIELECTRIC"
+        },
+        {
+          "code": "METALLIC",
+          "value": "METALLIC"
+        },
+        {
+          "code": "NOTKNOWN",
+          "value": "NOTKNOWN"
+        },
+        {
+          "code": "OTHER",
+          "value": "OTHER"
+        },
+        {
+          "code": "UNSET",
+          "value": "UNSET"
+        }
+      ],
+      "propertyCode": "CableArmourType",
+      "propertyDomainName": "IFC",
+      "propertyNamespaceUri": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/CableArmourType",
+      "propertySet": "Pset_TelecomCableGeneral",
+      "propertyStatus": "Active",
+      "propertyValueKind": "Single"
+    },
+    {
+      "name": "CableFunctionType",
+      "description": "Distinguishes between Telecom and Power Supply cables.",
+      "dataType": "String",
+      "possibleValues": [
+        {
+          "code": "NOTKNOWN",
+          "value": "NOTKNOWN"
+        },
+        {
+          "code": "OTHER",
+          "value": "OTHER"
+        },
+        {
+          "code": "POWERSUPPLY",
+          "value": "POWERSUPPLY"
+        },
+        {
+          "code": "TELECOMMUNICATION",
+          "value": "TELECOMMUNICATION"
+        },
+        {
+          "code": "UNSET",
+          "value": "UNSET"
+        }
+      ],
+      "propertyCode": "CableFunctionType",
+      "propertyDomainName": "IFC",
+      "propertyNamespaceUri": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/CableFunctionType",
+      "propertySet": "Pset_TelecomCableGeneral",
+      "propertyStatus": "Active",
+      "propertyValueKind": "Single"
+    },
+    {
+      "name": "FireRating",
+      "description": "Fire rating for this object. It is given according to the national fire safety classification.",
+      "dataType": "String",
+      "propertyCode": "FireRating",
+      "propertyDomainName": "IFC",
+      "propertyNamespaceUri": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/FireRating",
+      "propertySet": "Pset_TelecomCableGeneral",
+      "propertyStatus": "Active",
+      "propertyValueKind": "Single"
+    },
+    {
+      "name": "IsFireResistant",
+      "description": "Indicates whether the cable is fire resistant.",
+      "dataType": "Boolean",
+      "propertyCode": "IsFireResistant",
+      "propertyDomainName": "IFC",
+      "propertyNamespaceUri": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/IsFireResistant",
+      "propertySet": "Pset_TelecomCableGeneral",
+      "propertyStatus": "Active",
+      "propertyValueKind": "Single"
+    },
+    {
+      "name": "JacketColour",
+      "description": "Indicates the colour of the cable or fitting jacket.",
+      "dataType": "String",
+      "propertyCode": "JacketColour",
+      "propertyDomainName": "IFC",
+      "propertyNamespaceUri": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/JacketColour",
+      "propertySet": "Pset_TelecomCableGeneral",
+      "propertyStatus": "Active",
+      "propertyValueKind": "Single"
+    },
+    {
+      "name": "NominalDiameter",
+      "description": "Nominal diameter or width of the object.",
+      "dataType": "Real",
+      "propertyCode": "NominalDiameter",
+      "propertyDomainName": "IFC",
+      "propertyNamespaceUri": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/NominalDiameter",
+      "propertySet": "Pset_TelecomCableGeneral",
+      "propertyStatus": "Active",
+      "propertyValueKind": "Single"
+    }
+  ],
+  "domainNamespaceUri": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3",
+  "activationDateUtc": "2022-12-31T00:00:00",
+  "code": "IfcCableSegment",
+  "countriesOfUse": [],
+  "definition": "A cable segment is a flow segment used to carry electrical power, data, or telecommunications signals.A cable segment is used to typically join two sections of an electrical network or a network of components carrying the electrical service.HISTORY  New entity in IFC4{ .note}",
+  "name": "IfcCableSegment",
+  "namespaceUri": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment",
+  "replacedObjectCodes": [],
+  "replacingObjectCodes": [],
+  "status": "Preview",
+  "subdivisionsOfUse": [],
+  "versionDateUtc": "2022-12-31T00:00:00"
+}

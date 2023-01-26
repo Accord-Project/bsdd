@@ -1,4 +1,4 @@
-#+options: ':nil *:t -:t ::t <:t H:5 \n:nil ^:{} anchor:nil arch:headline author:t
+#+options: ':nil *:t -:t ::t <:t H:5 \n:nil ^:{} anchor:t arch:headline author:t
 #+options: broken-links:nil c:nil creator:nil d:(not "LOGBOOK") date:t e:t email:nil f:t
 #+options: inline:t num:t p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t
 #+options: timestamp:nil title:t toc:5 todo:t |:t
@@ -12,7 +12,66 @@
 #+creator: Emacs 28.1 (Org mode 9.5.2)
 #+cite_export:
 
+* Table of Contents                                 :TOC:noexport:
+:PROPERTIES:
+:TOC:      :include all
+:CUSTOM_ID: table-of-contents
+:END:
+
+:CONTENTS:
+- [[#abstract][Abstract]]
+- [[#introduction][Introduction]]
+  - [[#bsdd][bSDD]]
+  - [[#benefits-of-graphql][Benefits of GraphQL]]
+  - [[#original-bsdd-schema-graphql-voyager][Original BSDD Schema: GraphQL Voyager]]
+  - [[#graphql-conversion-to-soml-schema][GraphQL Conversion to SOML Schema]]
+  - [[#original-vs-refactored-files][Original vs Refactored Files]]
+- [[#related-work][Related Work]]
+- [[#suggestions-for-improvement][Suggestions for Improvement]]
+  - [[#improve-property-names][Improve Property Names]]
+  - [[#use-the-same-url-for-data-and-for-web-pages][Use the same URL for Data and for Web Pages]]
+  - [[#graphql-implementation-errors][GraphQL Implementation Errors]]
+    - [[#non-nullable-classifications][Non Nullable Classifications]]
+    - [[#missing-objects][Missing Objects]]
+    - [[#classification-childs-nullability][Classification Childs Nullability]]
+    - [[#additional-null-issues][Additional Null Issues]]
+    - [[#classification-property-values][Classification Property Values]]
+    - [[#classification-properties-without-identity][Classification Properties Without Identity]]
+  - [[#improve-url-structure-and-consistency][Improve URL Structure and Consistency]]
+  - [[#declare-urls-to-be-id-and-use-field-name-id][Declare URLs to be ID and use Field Name id]]
+  - [[#all-significant-classes-should-have-url][All Significant Classes Should Have URL]]
+  - [[#graphql-arrays-and-nullability][GraphQL Arrays and Nullability]]
+  - [[#return-the-same-data-across-apis][Return the Same Data Across APIs]]
+  - [[#improve-graphql-results-and-eliminate-errors][Improve GraphQL Results and Eliminate Errors]]
+  - [[#improve-relations-between-objects][Improve Relations Between Objects]]
+  - [[#property-vs-classificationproperty-use-distinct-urls][Property vs ClassificationProperty: Use Distinct URLs]]
+  - [[#improve-the-description-of-local-properties][Improve the Description of Local Properties]]
+  - [[#improve-rdf-structure][Improve RDF Structure]]
+  - [[#use-class-inheritance][Use Class Inheritance]]
+  - [[#add-more-classes-and-relations][Add More Classes and Relations]]
+  - [[#add-graphql-pagination][Add GraphQL Pagination]]
+  - [[#improve-graphql-searchability][Improve GraphQL Searchability]]
+  - [[#eliminate-parallel-links-between-classes][Eliminate Parallel Links Between Classes]]
+  - [[#improve-multilingual-support][Improve Multilingual Support]]
+  - [[#deprecated-properties][Deprecated Properties]]
+  - [[#improve-the-description-of-structured-values][Improve the Description of Structured Values]]
+  - [[#better-representation-of-predefined-values][Better Representation of Predefined Values]]
+- [[#implementing-improvements][Implementing Improvements]]
+  - [[#fetching-bsdd-graphql-json][Fetching bSDD GraphQL JSON]]
+  - [[#converting-json-to-raw-rdf-using-sparql-anything][Converting JSON to Raw RDF using SPARQL Anything]]
+    - [[#raw-json-example][Raw JSON Example]]
+    - [[#raw-rdf-example][Raw RDF Example]]
+  - [[#transforming-rdf-using-sparql-update][Transforming RDF using SPARQL Update]]
+    - [[#original-rdf-example][Original RDF Example]]
+    - [[#refactored-rdf-example][Refactored RDF Example]]
+- [[#acknowledgements][Acknowledgements]]
+- [[#references][References]]
+:END:
+
 * Abstract
+:PROPERTIES:
+:CUSTOM_ID: abstract
+:END:
 The buildingSmart Data Dictionary (bSDD) is an important shared resource in the Architecture, Engineering, Construction and Operations (AECO) domain.
 It is a collection of datasets ("domains") that define various classifications (objects representing building components, products and materials) and their properties.
 bSDD defines a GraphQL API, as well as REST APIs that return JSON and RDF representations.
@@ -24,15 +83,34 @@ We propose TODO
 
 
 * Introduction
+:PROPERTIES:
+:CUSTOM_ID: introduction
+:END:
 
 ** bSDD
-(Beetz 2014)
-"The buildingSMART Data Dictionary (bSDD) (Bell & Bjørkhaug 2006) is a structured vocabulary that currently consists of some 80,000 concepts with translations in multiple languages"
+:PROPERTIES:
+:CUSTOM_ID: bsdd
+:END:
+The buildingSMART Data Dictionary (bSDD) [@buildingsmartinternationalBuildingSMARTDataDictionary] is a vocabulary
+structured according to ISO 12006-3 (2022) [@ISO1200632022] and ISO 23386 (2020) [@ISO233862020]
+that TODO.
+Basis for Interoperability TODO
+TODO currently consists of some 80,000 concepts with translations in multiple languages"
 
+@palosStateoftheartAnalysisProduct2012 "International Framework for Dictionaries (IFD) aka buildingSMART Data Dictionary (bSDD) is a very comprehensive solution, which aims to provide open complementary product data definitions, identification and distribution methods. The bSDD is a unified reference library of terms and properties, intended to support improved interoperability in the building and construction industry. The bSDD will be an open, shared, international terminology library for structuring object-oriented information exchange. ThebSDDisanobject-orienteddatabase,programmed with EXPRESS data modeling language. The library classifies and defines properties for structured identification of commonly used terms and concepts. The system assigns a Global Unique Identifier (GUID) for all defined terms entered into the system in order to enable data utilization in variety of structured documents and applications.
+
+@erikjonssonConsequencesImplementingBuildingSMART2015 "bSDD is an international standard developed by the neutral organization buildingSMART. It is a standard that defines the terminology surrounding BIM objects. Much research has been done on the potential benefits of BIM in general.
+The purpose of this thesis is to determine how a property development and construction company, that already works with BIM in many of its projects, would be affected by an implementation of the bsDD. The possible consequences of bsDD implementation are mapped out and analyzed through a literature review. In addition to this, a simulation is conducted with the purpose of showing how object libraries can be created on an organizational level.
 
 ** Benefits of GraphQL
+:PROPERTIES:
+:CUSTOM_ID: benefits-of-graphql
+:END:
 
 ** Original BSDD Schema: GraphQL Voyager
+:PROPERTIES:
+:CUSTOM_ID: original-bsdd-schema-graphql-voyager
+:END:
 TODO We use the excellent tool GraphQL Voyager that can represent any GraphQL API as an interactive graph.
 https://github.com/IvanGoncharov/graphql-voyager
 https://ivangoncharov.github.io/graphql-voyager/
@@ -46,6 +124,9 @@ Overview (uncheck "Show leaf fields"):
 [[bsdd-graphql-voyager-Classification-ClassificationProperty.png]]
 
 ** GraphQL Conversion to SOML Schema
+:PROPERTIES:
+:CUSTOM_ID: graphql-conversion-to-soml-schema
+:END:
 
 Major goal of this project is to improve the bSDD GraphQL API.
 To achieve this, the existing GraphQL schema will be converted to a [[https://platform.ontotext.com/semantic-objects/soml/index.html][SOML schema]]
@@ -109,6 +190,9 @@ python bsdd_export.py getDomain -v "URI=https://identifier.buildingsmart.org/uri
 #+end_src
 
 ** Original vs Refactored Files
+:PROPERTIES:
+:CUSTOM_ID: original-vs-refactored-files
+:END:
 bsdd-graphql-voyager-orig.html
 bsdd-graphql-voyager-refact.html
 
@@ -125,21 +209,35 @@ IFC-cableSegment-orig.ttl
 IFC-cableSegment-refact.ttl
 
 * Related Work
-TODO: proper bibliography
-TODO: review more ways of representing classes, props, prop sets, etc
+:PROPERTIES:
+:CUSTOM_ID: related-work
+:END:
 
 bSDD returns RDF
 
-(Beetz 2014) "bSDD vocabulary has been transformed into a configurable RDF dataset. On the meta-model level a number of different modeling approaches ranging from OWL to RDFS and SKOS have been implemented to evaluate the advantages and disadvantages of the respective modeling strategies
+TODO: proper overview
 
-(Oraskari 2021)
+TODO MAYBE: review more ways of representing classes, props, prop sets. Eg IEC CDD (ISO PLIB), eClass...
+
+@beetzInteroperableDataModels2014 "bSDD vocabulary has been transformed into a configurable RDF dataset. On the meta-model level a number of different modeling approaches ranging from OWL to RDFS and SKOS have been implemented to evaluate the advantages and disadvantages of the respective modeling strategies"
+
+@oraskariLiveWebOntology2021
 - Generates specific RDF classes (e.g. ~IfcCableSegment~) and properties (e.g. ~ACResistance~).
   Unlike it, we preserve the original bSDD structure (Domain, Classification, Property, etc) and only add specific improvements
 - It fetches bSDD elements on demand, rather than converting all of bSDD at once.
 
+@kebedeIntegrationManufacturersProduct2022 "bSDD is a service deployed to facilitate a common language in the built environment while allowing the creation of multilingual dictionaries to enable designers to enrich their model and extend IFC.
+The Building Product Ontology (BPO) was developed as a core ontology for linked building product data to describe real product structures and properties. BPO uses bSDD to allow users to semantically enrich product descriptions by referencing the terms using bSDD URLs, selected as it comprises a wide range of terms employed in the AEC industry. This work shows where and how the bsDD can fit in the LBD ecosystem. The new development of bSDD, which embraces a shift toward publishing data classifications and properties as Linked Data, indicates a substantial step forward for the industry to take advantage of these technologies [55].  
+  
 * Suggestions for Improvement
+:PROPERTIES:
+:CUSTOM_ID: suggestions-for-improvement
+:END:
 
 ** Improve Property Names
+:PROPERTIES:
+:CUSTOM_ID: improve-property-names
+:END:
 Property names should conform to naming conventions and be spelled consistently
 - Property (field) names should be spelled in singular, even when they refer to an array.
   The arity is reflected in the property kind, e.g. in GraphQL that's ~SCALAR~ vs ~ARRAY~.
@@ -161,6 +259,9 @@ Property names should conform to naming conventions and be spelled consistently
 : curl -s -H Accept:text/turtle  https://identifier.buildingsmart.org/uri/bs-agri/fruitvegs-1.0/class/apple
 
 ** Use the same URL for Data and for Web Pages
+:PROPERTIES:
+:CUSTOM_ID: use-the-same-url-for-data-and-for-web-pages
+:END:
 bSDD has implemented "entity URLs", i.e. for each kind of entity it can return its data in JSON or RDF:
 #+begin_src
 curl -s                      https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegmentCABLESEGMENT
@@ -183,8 +284,14 @@ We think that with some modest change in technology, the Search UI can use the f
 Otherwise there is danger that people will start copying these non-semantic URLs in communication, and in AECO data.
 
 ** GraphQL Implementation Errors
+:PROPERTIES:
+:CUSTOM_ID: graphql-implementation-errors
+:END:
 
 *** Non Nullable Classifications
+:PROPERTIES:
+:CUSTOM_ID: non-nullable-classifications
+:END:
 Querying all domains including their classifications results in a GraphQL error.
 This is due to ~classificationSearch~ being marked as non nullable but the backend API is returning ~null~.
 
@@ -232,6 +339,9 @@ will result into
 You can test the query [[https://test.bsdd.buildingsmart.org/graphiql/?query=query%20getDomainsAndClassifications%20%7B%0A%20%20domains%20%7B%0A%20%20%20%20id%3A%20namespaceUri%0A%20%20%20%20classificationSearch%20%7B%0A%20%20%20%20%20%20id%3A%20namespaceUri%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D%0A&operationName=getDomainsAndClassifications][here]].
 
 *** Missing Objects
+:PROPERTIES:
+:CUSTOM_ID: missing-objects
+:END:
 The GraphQL API returns domains that cannot be queried independently, one such domain is ~http://identifier.buildingsmart.org/uri/spr/spr-cfhios-0.1~.
 
 #+begin_src graphql
@@ -251,6 +361,9 @@ This is probably the same issue as the previous.
 You can test the query [[https://test.bsdd.buildingsmart.org/graphiql/?query=%7B%0A%20%20domains%20%7B%0A%20%20%20%20id%3A%20namespaceUri%0A%20%20%7D%0A%20%20domain(namespaceUri%3A%20%22http%3A%2F%2Fidentifier.buildingsmart.org%2Furi%2Fspr%2Fspr-cfhios-0.1%22)%20%7B%0A%20%20%20%20id%3A%20namespaceUri%0A%20%20%7D%0A%7D][here]].
 
 *** Classification Childs Nullability
+:PROPERTIES:
+:CUSTOM_ID: classification-childs-nullability
+:END:
 Similar to the first issue, ~Classification.childs~ is defined with type ~[Classification]~ which means it is OK to be ~null~.
 However, unless ~includeChilds:true~ is provided as input argument in ~classification~, queries will fail with NULL_REFERENCE errors thus
 breaking GraphQL spec compliance.
@@ -286,6 +399,9 @@ breaking GraphQL spec compliance.
 You can test such a query [[https://test.bsdd.buildingsmart.org/graphiql/?query=query%20getClassificationProperties%20%7B%0A%20%20classification(namespaceUri%3A%20%22https%3A%2F%2Fidentifier.buildingsmart.org%2Furi%2Fbuildingsmart%2Fifc-4.3%2Fclass%2FIfcAirTerminalBox%22%2C%20includeChilds%3A%20false)%20%7B%0A%20%20%20%20id%3A%20namespaceUri%0A%20%20%20%20childs%20%7B%0A%20%20%20%20%20%20id%3A%20namespaceUri%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D&operationName=getClassificationProperties][here]]
 
 *** Additional Null Issues
+:PROPERTIES:
+:CUSTOM_ID: additional-null-issues
+:END:
 
 - There are classifications for which some of the properties cannot be returned and this results in ~NULL_REFERENCE~ errors although the fields are nullable.
   #+begin_src graphql
@@ -302,6 +418,9 @@ You can test such a query [[https://test.bsdd.buildingsmart.org/graphiql/?query=
   You can test the query [[https://test.bsdd.buildingsmart.org/graphiql/?query=query%20getClassificationProperties%20%7B%0A%20%20classification(namespaceUri%3A%20%22https%3A%2F%2Fidentifier.buildingsmart.org%2Furi%2Fmolio%2Fcciconstruction-1.0%2Fclass%2FL-NAA%22)%20%7B%0A%20%20%20%20name%0A%20%20%20%20properties%20%7B%0A%20%20%20%20%20%20name%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D%0A][here]].
 
 *** Classification Property Values
+:PROPERTIES:
+:CUSTOM_ID: classification-property-values
+:END:
 
 The classification properties have ~allowedValues~ and ~possibleValues~ as fields which are objects of type ~ClassificationPropertyValue~,
 for example:
@@ -350,6 +469,9 @@ None of the inspected values have ~namespaceUri~, ~description~ or ~sortNumber~.
 The classification properties has a ~predefinedValue~ field but it is of type ~String~ instead of utilizing ~ClassificationPropertyValue~.
 
 *** Classification Properties Without Identity
+:PROPERTIES:
+:CUSTOM_ID: classification-properties-without-identity
+:END:
 
 Every classification property is scoped within the owning classification and it may include data that is applicable only within that classification.
 They include a ~namespaceUri~ field but this is the global property identifier, not one within the classification and therefore they cannot be
@@ -393,6 +515,9 @@ It can be seen that ~ACResistance~ is scoped to the ~IfcCableSegmentCABLESEGMENT
 This difference leads to very inconsistent results from the different APIs.
 
 ** Improve URL Structure and Consistency
+:PROPERTIES:
+:CUSTOM_ID: improve-url-structure-and-consistency
+:END:
 - Almost all domain URLs have the same structure: ~https://identifier.buildingsmart.org/uri/<org>/<domain>-<ver>~.
   There are only 2 exceptions:
 #+begin_src
@@ -416,6 +541,9 @@ http://rdf.vegdata.no/V440/v440-owl
 #+end_src
 
 ** Declare URLs to be ~ID~ and use Field Name ~id~
+:PROPERTIES:
+:CUSTOM_ID: declare-urls-to-be-id-and-use-field-name-id
+:END:
 The [[https://spec.graphql.org/draft/#sec-ID][GraphQL specification sec 3.5.5. ID]] states
 "The ~ID~ scalar type represents a unique identifier,
 often used to refetch an object or as the key for a cache".
@@ -431,6 +559,9 @@ Most GraphQL implementations call this field simply ~id~,
 whereas bSDD, uses unwieldy property names like ~namespaceUri~.
 
 ** All Significant Classes Should Have URL
+:PROPERTIES:
+:CUSTOM_ID: all-significant-classes-should-have-url
+:END:
 Following the previous section, all significant classes should have ~ID~,
 (which in the case of linked data is really a URL).
 
@@ -472,9 +603,15 @@ For example, the classification indicated below has ClassificationProperties wit
 #+end_src
 
 ** GraphQL Arrays and Nullability
+:PROPERTIES:
+:CUSTOM_ID: graphql-arrays-and-nullability
+:END:
 TODO: all of  [Classification], [Classification!], [Classification]!, [Classification!]! are different. Their spec [Classification] allows [null,null,null] as an xanswer
 
 ** Return the Same Data Across APIs
+:PROPERTIES:
+:CUSTOM_ID: return-the-same-data-across-apis
+:END:
 We have compared 3 representations returned by the bSDD server:
 - JSON from the GraphQL API
 - JSON from the REST (entity) API
@@ -573,6 +710,9 @@ results in
 #+end_src
 
 ** Improve GraphQL Results and Eliminate Errors
+:PROPERTIES:
+:CUSTOM_ID: improve-graphql-results-and-eliminate-errors
+:END:
 # This is from counting in Ontotext\project\ACCORD\bSDD\data:
 # - Source (Misho): classifications_export.log, domain_classifications.log
 # - Count (Vlado): domain-count.txt
@@ -632,6 +772,9 @@ https://identifier.buildingsmart.org/uri/nbs/uniclass2015-1
 TODO Misho: add more
 
 ** Improve Relations Between Objects
+:PROPERTIES:
+:CUSTOM_ID: improve-relations-between-objects
+:END:
 BSDD includes numerous string attributes (codes or URLs) that should be converted to relations (object fields) in order to improve the connectedness of the GraphQL graph.
 - ~ClassificationRelation~ and ~PropertyRelation~ do not have any outgoing relations, instead they use strings (e.g. ~relatedPropertyUri~), thus blocking further GraphQL navigation
 - There are a number of unused classes (~Country, Language, ReferenceDocument, Unit~).
@@ -655,6 +798,9 @@ Here is a list of all strings that are candidates to be converted to objects:
   TODO: PropSet should be made an entoity, it's too important to be a mere string
 
 ** Property vs ClassificationProperty: Use Distinct URLs
+:PROPERTIES:
+:CUSTOM_ID: property-vs-classificationproperty-use-distinct-urls
+:END:
 ~Property~ and ~ClassificationProperty~ are two different classes, but the latter does not have a distinct URL in GraphQL and JSON.
 We can say that the same URL is overloaded to identify entities of both classes.
 
@@ -676,6 +822,9 @@ curl https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCab
 #+end_src
 
 ** Improve the Description of Local Properties
+:PROPERTIES:
+:CUSTOM_ID: improve-the-description-of-local-properties
+:END:
 Perhaps because there is no clearly defined distinction between global properties (~Property~) and local properties (~ClassificationProperty~)
 and no rules which attributes are inherited from one to the other,
 some local properties are not properly described.
@@ -693,6 +842,9 @@ The local definition refers to an appropriate propset ~Pset_AirTerminalBoxTypeCo
 but the ~description~ is not appropriate to that classification (an "AirTerminalBox" is not a "permit"!).
 
 ** Improve RDF Structure
+:PROPERTIES:
+:CUSTOM_ID: improve-rdf-structure
+:END:
 Overall, bSDD RDF represents the scope of bSDD data faithfully, although there are various omissions.
 
 Also, there are various problems that should be corrected.
@@ -721,6 +873,9 @@ This fragment can be corrected as follows:
 
 
 ** Use Class Inheritance
+:PROPERTIES:
+:CUSTOM_ID: use-class-inheritance
+:END:
 The following classes are very similar.
 Many of the same fields are copied between them, with no modularity or inheritance:
 - ~Property~ and ~ClassificationProperty~: we need to add some sort of relation or inheritance between them
@@ -731,6 +886,9 @@ Many of the same fields are copied between them, with no modularity or inheritan
 TODO
 
 ** Add More Classes and Relations
+:PROPERTIES:
+:CUSTOM_ID: add-more-classes-and-relations
+:END:
 - PropertySet
 - DomainVersion
 - CountrySubdivision
@@ -738,17 +896,35 @@ TODO
 
 
 ** Add GraphQL Pagination
+:PROPERTIES:
+:CUSTOM_ID: add-graphql-pagination
+:END:
 
 ** Improve GraphQL Searchability
+:PROPERTIES:
+:CUSTOM_ID: improve-graphql-searchability
+:END:
 
 ** Eliminate Parallel Links Between Classes
+:PROPERTIES:
+:CUSTOM_ID: eliminate-parallel-links-between-classes
+:END:
 
 ** Improve Multilingual Support
+:PROPERTIES:
+:CUSTOM_ID: improve-multilingual-support
+:END:
 bSDD accommodates multiple languages, but each domain seems to be present in one language only.
 
 ** Deprecated Properties
+:PROPERTIES:
+:CUSTOM_ID: deprecated-properties
+:END:
 
 ** Improve the Description of Structured Values
+:PROPERTIES:
+:CUSTOM_ID: improve-the-description-of-structured-values
+:END:
 
 ~ClassificationPropertyValue~ are structured values with rich fields: ~code, value, namespaceUri, description, sortNumber~.
 These fields allow:
@@ -776,6 +952,9 @@ The "standard" values (NOTKNOWN, OTHER, UNSET) are not described at all.
 Value URLs are missing, precluding unique identification.
 
 ** Better Representation of Predefined Values
+:PROPERTIES:
+:CUSTOM_ID: better-representation-of-predefined-values
+:END:
 
 ~allowedValues~ (and its deprecated variant ~possibleValues~) store Structured Values (~ClassificationPropertyValue~).
 However, their "sibling" property ~predefinedValue~ holds a mere string and not a Structured Value.
@@ -786,20 +965,29 @@ We could think of two possible reasons for this discrepancy:
 - It may be related to the poor description of Structured Values (see the previous section):
 
 * Implementing Improvements
+:PROPERTIES:
+:CUSTOM_ID: implementing-improvements
+:END:
 
 We implemented a lot (but not all) of the improvements suggested above by using the following process:
 - Fetching bSDD data as JSON
 - Converting it to RDF using [[https://sparql-anything.cc/][SPARQL Anything]]
 - Loading it to [[https://www.ontotext.com/products/graphdb/][GraphDB]]
 - Refactoring the RDF using SPARQL Update
--
+- TODO
 
 ** Fetching bSDD GraphQL JSON
+:PROPERTIES:
+:CUSTOM_ID: fetching-bsdd-graphql-json
+:END:
 Although bSDD is available in RDF, we decided to fetch all data in GraphQL JSON due to the RDF defects described above.
 
 TODO Misho
 
 ** Converting JSON to Raw RDF using SPARQL Anything
+:PROPERTIES:
+:CUSTOM_ID: converting-json-to-raw-rdf-using-sparql-anything
+:END:
 In the next step we convert the JSON files to RDF.
 We used the [[https://sparql-anything.cc/][SPARQL Anything]] tool (see [[https://sparql-anything.readthedocs.io/][documentation]]) that can convert various data formats to RDF by using SPARQL queries.
 
@@ -867,46 +1055,164 @@ All other lines of the script take care of handling input.
   - Now we set ~fx:location~ to the filename found in the archive
   - And we use [[https://sparql-anything.readthedocs.io/en/latest/Configuration/#from-archive][fx:from-archive]] to open the archive again, and to read the file
 
-*** JSON to Raw RDF Example
-Take for example ~class-IfcCableSegment-orig.json~ from URL https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegmentCABLESEGMENT (shortened for brevity):
+*** Raw JSON Example
+:PROPERTIES:
+:CUSTOM_ID: raw-json-example
+:END:
+Take for example a classification in JSON obtained with the following command (shortened for brevity):
+: curl -s https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment | jq . > class-IfcCableSegment-orig1.json
 #+begin_src json
 {
-  "referenceCode": "IfcCableSegmentCABLESEGMENT",
+  "referenceCode": "IfcCableSegment",
   "parentClassificationReference": {
-    "namespaceUri": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment",
-    "name": "IfcCableSegment",
-    "code": "IfcCableSegment"
+    "namespaceUri": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcFlowSegment",
+    "name": "IfcFlowSegment",
+    "code": "IfcFlowSegment"
   },
   "classificationProperties": [
     {
-      "name": "ACResistance",
-      "description": "The resistance under AC.",
-      "dataType": "Real",
-      "propertyCode": "ACResistance",
+      "name": "InstallationMethodFlagEnum",
+      "description": "Special installation conditions relating to particular types of installation based on IEC60364-5-52:2001 reference installation methods C and D.",
+      "dataType": "String",
+      "possibleValues": [
+        {
+          "code": "BELOWCEILING",
+          "value": "BELOWCEILING"
+        }
+      ],
+      "propertyCode": "InstallationMethodFlagEnum",
       "propertyDomainName": "IFC",
-      "propertyNamespaceUri": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/ACResistance",
-      "propertySet": "Pset_CableSegmentTypeCableSegment",
+      "propertyNamespaceUri": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/InstallationMethodFlagEnum",
+      "propertySet": "Pset_CableSegmentOccurrence",
       "propertyStatus": "Active",
       "propertyValueKind": "Single"
-    }, {...}, {...}
+    },
   ],
   "domainNamespaceUri": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3",
   "activationDateUtc": "2022-12-31T00:00:00",
-  "code": "IfcCableSegmentCABLESEGMENT",
+  "code": "IfcCableSegment",
   "countriesOfUse": [],
-  "definition": "Cable with a specific purpose to lead electric current within a circuit or any other electric construction.",
-  "name": "IfcCableSegment.CABLESEGMENT",
-  "namespaceUri": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegmentCABLESEGMENT",
+  "definition": "A cable segment is a flow segment used to carry electrical power, data, or telecommunications signals...",
+  "name": "IfcCableSegment",
+  "namespaceUri": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment",
   "replacedObjectCodes": [],
   "replacingObjectCodes": [],
   "status": "Preview",
   "subdivisionsOfUse": [],
   "versionDateUtc": "2022-12-31T00:00:00"
 }
+#+end_src
+
+The JSON representation obtained from the GraphQL API is very similar but not identical:
+- We include ~__typename~ for each node to help assigning ~rdf:type~ later
+- All fields are present, even when they are ~null~
+- GraphQL fields are sometimes named differently (eg ~properties~ instead of ~classificationProperties~)
+- There are some other differences
+Eg see ~class-IfcCableSegment-orig.json~ (shortened for brevity):
+#+begin_src json
+{
+  "namespaceUri": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment",
+  "__typename": "Classification",
+  "classificationType": "CLASS",
+  "relatedIfcEntityNames": [],
+  "synonyms": [],
+  "referenceCode": "IfcCableSegment",
+  "properties": [
+    {
+      "namespaceUri": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/InstallationMethodFlagEnum",
+      "__typename": "ClassificationProperty",
+      "allowedValues": [
+        {
+          "namespaceUri": null,
+          "__typename": "ClassificationPropertyValue",
+          "code": "BELOWCEILING",
+          "description": null,
+          "value": "BELOWCEILING",
+          "sortNumber": null
+        },
+      ],
+      "dataType": "String",
+      "description": "Special installation conditions relating to particular types of installation based on IEC60364-5-52:2001 reference installation methods C and D.",
+      "dimension": null,
+      "dimensionLength": null,
+      "dimensionMass": null,
+      "dimensionTime": null,
+      "dimensionElectricCurrent": null,
+      "dimensionThermodynamicTemperature": null,
+      "dimensionAmountOfSubstance": null,
+      "dimensionLuminousIntensity": null,
+      "dynamicParameterPropertyCodes": null,
+      "example": null,
+      "isDynamic": false,
+      "isRequired": null,
+      "isWritable": null,
+      "maxExclusive": null,
+      "maxInclusive": null,
+      "methodOfMeasurement": null,
+      "minExclusive": null,
+      "minInclusive": null,
+      "pattern": null,
+      "physicalQuantity": null,
+      "predefinedValue": null,
+      "propertySet": "Pset_CableSegmentOccurrence",
+      "propertyValueKind": "SINGLE",
+      "symbol": null,
+      "units": null,
+      "activationDateUtc": "2022-12-31T00:00:00",
+      "code": "InstallationMethodFlagEnum",
+      "creatorLanguageCode": null,
+      "countriesOfUse": null,
+      "countryOfOrigin": null,
+      "deActivationDateUtc": null,
+      "definition": null,
+      "deprecationExplanation": null,
+      "documentReference": null,
+      "name": "InstallationMethodFlagEnum",
+      "replacedObjectCodes": null,
+      "replacingObjectCodes": null,
+      "revisionDateUtc": null,
+      "revisionNumber": null,
+      "status": "Active",
+      "subdivisionsOfUse": null,
+      "uid": null,
+      "versionDateUtc": "2022-12-31T00:00:00",
+      "versionNumber": null,
+      "visualRepresentationUri": null
+    },
+  ],
+  "relations": [],
+  "childs": null,
+  "activationDateUtc": "2022-12-31T00:00:00",
+  "code": "IfcCableSegment",
+  "creatorLanguageCode": null,
+  "countriesOfUse": null,
+  "countryOfOrigin": null,
+  "deActivationDateUtc": null,
+  "definition": "A cable segment is a flow segment used to carry electrical power, data, or telecommunications signals...",
+  "deprecationExplanation": null,
+  "documentReference": null,
+  "name": "IfcCableSegment",
+  "replacedObjectCodes": null,
+  "replacingObjectCodes": null,
+  "revisionDateUtc": null,
+  "revisionNumber": null,
+  "status": "Preview",
+  "subdivisionsOfUse": null,
+  "uid": null,
+  "versionDateUtc": "2022-12-31T00:00:00",
+  "versionNumber": null,
+  "visualRepresentationUri": null
+}
 
 #+end_src
 
-It is converted to the following "raw" RDF (shortened for brevity):
+*** Raw RDF Example
+:PROPERTIES:
+:CUSTOM_ID: raw-rdf-example
+:END:
+The example GraphQL JSON is converted to the following "raw" RDF (shortened for brevity).
+As you can see the structure is very similar, with empty blank nodes in various places, strings instead of URLs, etc.
+
 #+begin_src turtle
 @prefix bsdd: <http://bsdd.buildingsmart.org/def#> .
 @prefix fx:   <http://sparql.xyz/facade-x/ns/> .
@@ -915,42 +1221,49 @@ It is converted to the following "raw" RDF (shortened for brevity):
 @prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
 @prefix xyz:  <http://sparql.xyz/facade-x/data/> .
 
-[ rdf:type                       fx:root ;
-  bsdd:activationDateUtc         "2022-12-31T00:00:00" ;
-  bsdd:classificationProperties  [ rdfs:member
-      [ bsdd:dataType              "Real" ;
-        bsdd:description           "Indicates the Maximum transmission attenuation of feeder." ;
-        bsdd:name                  "MaximumTransmissionAttenuation" ;
-        bsdd:propertyCode          "MaximumTransmissionAttenuation" ;
-        bsdd:propertyDomainName    "IFC" ;
-        bsdd:propertyNamespaceUri  "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/MaximumTransmissionAttenuation" ;
-        bsdd:propertySet           "Pset_CoaxialCable" ;
-        bsdd:propertyStatus        "Active" ;
-        bsdd:propertyValueKind     "Single"
-      ], [...], [...] ;
-                                 ] ;
-  bsdd:code                      "IfcCableSegmentCABLESEGMENT" ;
-  bsdd:countriesOfUse            []  ;
-  bsdd:definition                "Cable with a specific purpose to lead electric current within a circuit or any other electric construction" ;
-  bsdd:domainNamespaceUri        "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3" ;
-  bsdd:name                      "IfcCableSegment.CABLESEGMENT" ;
-  bsdd:namespaceUri              "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegmentCABLESEGMENT" ;
-  bsdd:parentClassificationReference
-      [ bsdd:code          "IfcCableSegment" ;
-        bsdd:name          "IfcCableSegment" ;
-        bsdd:namespaceUri  "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment"
-      ] ;
-  bsdd:referenceCode             "IfcCableSegmentCABLESEGMENT" ;
-  bsdd:replacedObjectCodes       []  ;
-  bsdd:replacingObjectCodes      []  ;
-  bsdd:status                    "Preview" ;
-  bsdd:subdivisionsOfUse         []  ;
-  bsdd:versionDateUtc            "2022-12-31T00:00:00"
+[ rdf:type                    fx:root ;
+  bsdd:__typename             "Classification" ;
+  bsdd:activationDateUtc      "2022-12-31T00:00:00" ;
+  bsdd:classificationType     "CLASS" ;
+  bsdd:code                   "IfcCableSegment" ;
+  bsdd:definition             "A cable segment is a flow segment used to carry electrical power, data, or telecommunications signals..." ;
+  bsdd:name                   "IfcCableSegment" ;
+  bsdd:namespaceUri           "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment" ;
+  bsdd:properties [
+    rdfs:member  [ 
+    bsdd:__typename         "ClassificationProperty" ;
+    bsdd:activationDateUtc  "2022-12-31T00:00:00" ;
+    bsdd:allowedValues [
+      rdfs:member  [
+      bsdd:__typename  "ClassificationPropertyValue" ;
+      bsdd:code        "BELOWCEILING" ;
+      bsdd:value       "BELOWCEILING"
+    ]] ;
+    bsdd:code               "InstallationMethodFlagEnum" ;
+    bsdd:dataType           "String" ;
+    bsdd:description        "Special installation conditions relating to particular types of installation based on IEC60364-5-52:2001 reference installation methods C and D." ;
+    bsdd:isDynamic          false ;
+    bsdd:name               "InstallationMethodFlagEnum" ;
+    bsdd:namespaceUri       "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/InstallationMethodFlagEnum" ;
+    bsdd:propertySet        "Pset_CableSegmentOccurrence" ;
+    bsdd:propertyValueKind  "SINGLE" ;
+    bsdd:status             "Active" ;
+    bsdd:versionDateUtc     "2022-12-31T00:00:00"
+  ]] ;
+  bsdd:referenceCode          "IfcCableSegment" ;
+  bsdd:relatedIfcEntityNames  []  ;
+  bsdd:relations              []  ;
+  bsdd:status                 "Preview" ;
+  bsdd:synonyms               []  ;
+  bsdd:versionDateUtc         "2022-12-31T00:00:00"
 ] .
 
 #+end_src
 
 ** Transforming RDF using SPARQL Update
+:PROPERTIES:
+:CUSTOM_ID: transforming-rdf-using-sparql-update
+:END:
 
 There are various things to fix in the Raw RDF.
 We wrote the SPARQL Update script [[./scripts/transform.ru][transform.ru]] (~.ru~ is teh W3C standard extension for this type of file).
@@ -998,7 +1311,106 @@ This SPARQL Update script is class-independent (works on any Raw bSDD RDF), so i
 - On an individual RDF file by using Jena's ~update~, for testing
 - After loading all data to [[https://www.ontotext.com/products/graphdb/][GraphDB]], to transform all of it in one go
 
+*** Original RDF Example
+:PROPERTIES:
+:CUSTOM_ID: original-rdf-example
+:END:
+Now let's take a look at the original bSDD RDF ~class-IfcCableSegment-orig.ttl~ obtained with the following (shortened for brevity):
+: curl -s -Haccept:text/turtle https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment > class-IfcCableSegment-orig.ttl
+#+begin_src turtle
+@base <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment>.
+
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix bsdd: <http://bsdd.buildingsmart.org/def#>.
+@prefix qudtUnit: <http://qudt.org/vocab/unit/>.
+@prefix ifc4_3: <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3>.
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment>
+  bsdd:ActivationDateUtc "2022-12-31";
+  bsdd:Code "IfcCableSegment";
+  bsdd:Definition "A cable segment is a flow segment used to carry electrical power, data, or telecommunications signals...";
+  bsdd:Domain ifc4_3:;
+  bsdd:Name "IfcCableSegment";
+  bsdd:ReferenceCode "IfcCableSegment";
+  bsdd:Status "Preview";
+  bsdd:VersionDateUtc "2022-12-31";
+  a bsdd:Classification.
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/InstallationMethodFlagEnum>
+  bsdd:ClassificationProperty <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment>;
+  bsdd:DataType "String";
+  bsdd:Description "Special installation conditions relating to particular types of installation based on IEC60364-5-52:2001 reference installation methods C and D.";
+  bsdd:Name "InstallationMethodFlagEnum";
+  bsdd:PropertyCode "InstallationMethodFlagEnum";
+  bsdd:PropertyDomainName "IFC";
+  bsdd:PropertyNamespaceUri "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/InstallationMethodFlagEnum";
+  bsdd:PropertySet "Pset_CableSegmentOccurrence";
+  bsdd:PropertyStatus "Active";
+  bsdd:PropertyValueKind "Single".
+#+end_src
+It has numerous problems:
+- RDF naming conventions are not followed (prop names are in uppercase)
+- Classification Properties don't have ~rdf:type bsdd:ClassificationProperty~
+- The relation from Classification Property to Classification is in the wrong direction
+  (or should be renamed from ~bsdd:ClassificationProperty~ to ~bsdd:classification~)
+- ~bsdd:PropertyNamespaceUri~ should be a URL (object property) instead of string (datatype property)
+  and should be called ~bsdd:property~
+- Dates (eg ~"2022-12-31"~) are rendered differently from JSON (have no timestamp), and lack appropriate datatype
+- ~allowedValues~ and the respective ~ClassificationPropertyValue~ are missing altogether 
+
+*** Refactored RDF Example
+:PROPERTIES:
+:CUSTOM_ID: refactored-rdf-example
+:END:
+After applying the transformation in sec [[*Transforming RDF using SPARQL Update]], we get the following refactored RDF ~class-IfcCableSegment-refact.ttl~ (shortened for brevity).
+Compare it to both the original RDF (sec [[*Original RDF Example]]) and the raw RDF (sec [[*Raw RDF Example]]):
+#+begin_src turtle
+@prefix bsdd: <http://bsdd.buildingsmart.org/def#> .
+@prefix fx:   <http://sparql.xyz/facade-x/ns/> .
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix xyz:  <http://sparql.xyz/facade-x/data/> .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment>
+  rdf:type                     bsdd:Classification ;
+  bsdd:activationDateUtc       "2022-12-31T00:00:00"^^xsd:dateTime ;
+  bsdd:classificationProperty  <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/InstallationMethodFlagEnum>, ... ;
+  bsdd:classificationType      "CLASS" ;
+  bsdd:code                    "IfcCableSegment" ;
+  bsdd:definition              "A cable segment is a flow segment used to carry electrical power, data, or telecommunications signals..." ;
+  bsdd:name                    "IfcCableSegment" ;
+  bsdd:referenceCode           "IfcCableSegment" ;
+  bsdd:status                  "Preview" ;
+  bsdd:versionDateUtc          "2022-12-31T00:00:00"^^xsd:dateTime .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/InstallationMethodFlagEnum>
+  rdf:type                bsdd:ClassificationProperty ;
+  bsdd:activationDateUtc  "2022-12-31T00:00:00"^^xsd:dateTime ;
+  bsdd:allowedValue       <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/InstallationMethodFlagEnum/BELOWCEILING> , ... ;
+  bsdd:code               "InstallationMethodFlagEnum" ;
+  bsdd:dataType           "String" ;
+  bsdd:description        "Special installation conditions relating to particular types of installation based on IEC60364-5-52:2001 reference installation methods C and D." ;
+  bsdd:isDynamic          false ;
+  bsdd:name               "InstallationMethodFlagEnum" ;
+  bsdd:property           <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/InstallationMethodFlagEnum> ;
+  bsdd:propertySet        "Pset_CableSegmentOccurrence" ;
+  bsdd:propertyValueKind  "SINGLE" ;
+  bsdd:status             "Active" ;
+  bsdd:versionDateUtc     "2022-12-31T00:00:00"^^xsd:dateTime .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/InstallationMethodFlagEnum/BELOWCEILING>
+  rdf:type    bsdd:PropertyValue ;
+  bsdd:code   "BELOWCEILING" ;
+  bsdd:value  "BELOWCEILING" .
+#+end_src
+
 * Acknowledgements
+:PROPERTIES:
+:CUSTOM_ID: acknowledgements
+:END:
 This work is part of the ACCORD project that has received funding from the European Union’s Horizon Europe research and innovation programme under grant agreement no. 101056973
 TODO compare to [[https://vttgroup.sharepoint.com/:p:/r/sites/EU-projectpreparationDigitalpermitsandcompliancecheck/_layouts/15/Doc.aspx?sourcedoc=%7BB9913B35-D290-4391-9588-0322584EF3BC%7D&file=ACCORD_EAB_meeting_02-12-2022.pptx&action=edit&mobileredirect=true][this pres]].
 
@@ -1006,8 +1418,12 @@ All source code, scripts and example files are available as open source on Githu
 
 
 * References
+:PROPERTIES:
+:CUSTOM_ID: references
+:END:
 TODO: proper bibliography using Zotero
 
 - (Beetz 2014) Beetz, J., van den Braak, W., Botter, R., Zlatanova, S., de Laat, R. (2014). Interoperable data models for infrastructural artefacts – A novel IFC extension method using RDF vocabularies exemplified with quay wall structures for harbors. eWork and eBusiness in Architecture, Engineering and Construction, 135–140:
   https://repository.tudelft.nl/islandora/object/uuid:bb9a7dff-52c7-4aaf-a6b8-898432270620/datastream/OBJ
 - (Oraskari 2021) Live Web Ontology for buildingSMART Data Dictionary, Bauinformatik 2021
+

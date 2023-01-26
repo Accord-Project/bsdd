@@ -1,3 +1,4 @@
+
 @prefix bsdd: <http://bsdd.buildingsmart.org/def#> .
 @prefix fx:   <http://sparql.xyz/facade-x/ns/> .
 @prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -5,355 +6,678 @@
 @prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
 @prefix xyz:  <http://sparql.xyz/facade-x/data/> .
 
-<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegmentCABLESEGMENT>
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment>
         rdf:type                     bsdd:Classification ;
         bsdd:activationDateUtc       "2022-12-31T00:00:00"^^xsd:dateTime ;
-        bsdd:classificationProperty  [ rdf:type                 bsdd:ClassificationProperty ;
-                                       bsdd:dataType            "Real" ;
-                                       bsdd:description         "Mass per length, i.e. mass of a beam with a unit length of extrusion. For example measured in kg/m." ;
-                                       bsdd:name                "MassPerLength" ;
-                                       bsdd:property            <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/MassPerLength> ;
-                                       bsdd:propertyCode        "MassPerLength" ;
-                                       bsdd:propertyDomainName  "IFC" ;
-                                       bsdd:propertySet         "Pset_CableSegmentTypeCableSegment" ;
-                                       bsdd:propertyStatus      "Active" ;
-                                       bsdd:propertyValueKind   "Single"
-                                     ] ;
-        bsdd:classificationProperty  [ rdf:type                 bsdd:ClassificationProperty ;
-                                       bsdd:dataType            "Real" ;
-                                       bsdd:description         "The overall diameter of a object." ;
-                                       bsdd:name                "OverallDiameter" ;
-                                       bsdd:property            <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/OverallDiameter> ;
-                                       bsdd:propertyCode        "OverallDiameter" ;
-                                       bsdd:propertyDomainName  "IFC" ;
-                                       bsdd:propertySet         "Pset_CableSegmentTypeCableSegment" ;
-                                       bsdd:propertyStatus      "Active" ;
-                                       bsdd:propertyValueKind   "Single"
-                                     ] ;
-        bsdd:classificationProperty  [ rdf:type                 bsdd:ClassificationProperty ;
-                                       bsdd:dataType            "Real" ;
-                                       bsdd:description         "Total weight of object" ;
-                                       bsdd:name                "Weight" ;
-                                       bsdd:property            <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/Weight> ;
-                                       bsdd:propertyCode        "Weight" ;
-                                       bsdd:propertyDomainName  "IFC" ;
-                                       bsdd:propertySet         "Pset_CableSegmentTypeCableSegment" ;
-                                       bsdd:propertyStatus      "Active" ;
-                                       bsdd:propertyValueKind   "Single"
-                                     ] ;
-        bsdd:classificationProperty  [ rdf:type                 bsdd:ClassificationProperty ;
-                                       bsdd:dataType            "Real" ;
-                                       bsdd:description         "The diameter of the screen around an object (if present)." ;
-                                       bsdd:name                "ScreenDiameter" ;
-                                       bsdd:property            <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/ScreenDiameter> ;
-                                       bsdd:propertyCode        "ScreenDiameter" ;
-                                       bsdd:propertyDomainName  "IFC" ;
-                                       bsdd:propertySet         "Pset_CableSegmentTypeCableSegment" ;
-                                       bsdd:propertyStatus      "Active" ;
-                                       bsdd:propertyValueKind   "Single"
-                                     ] ;
-        bsdd:classificationProperty  [ rdf:type                 bsdd:ClassificationProperty ;
-                                       bsdd:dataType            "String" ;
-                                       bsdd:description         "Special construction capabilities like self-supporting, flat devidable cable or bus flat non devidable cable or bus supporting elements inside (steal, textile, concentric conductor). Note that materials used should be agreed between exchange participants before use." ;
-                                       bsdd:name                "SpecialConstruction" ;
-                                       bsdd:property            <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/SpecialConstruction> ;
-                                       bsdd:propertyCode        "SpecialConstruction" ;
-                                       bsdd:propertyDomainName  "IFC" ;
-                                       bsdd:propertySet         "Pset_CableSegmentTypeCableSegment" ;
-                                       bsdd:propertyStatus      "Active" ;
-                                       bsdd:propertyValueKind   "Single"
-                                     ] ;
-        bsdd:classificationProperty  [ rdf:type                 bsdd:ClassificationProperty ;
-                                       bsdd:dataType            "Real" ;
-                                       bsdd:description         "A quantity defined for a mode of propagation at a given frequency in a specific uniform transmission line or uniform waveguide by one of the three following relations:\nZ1 = S/ |I|2\nZ2 = |U|2 / S\nZ3 = U / I\nwhere Z is the complex characteristic impedance, S the complex power and U and I are the values, usually complex, respectively of a voltage and a current conventionally defined for each type of mode by analogy with transmission line equations." ;
-                                       bsdd:name                "CharacteristicImpedance" ;
-                                       bsdd:property            <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/CharacteristicImpedance> ;
-                                       bsdd:propertyCode        "CharacteristicImpedance" ;
-                                       bsdd:propertyDomainName  "IFC" ;
-                                       bsdd:propertySet         "Pset_CoaxialCable" ;
-                                       bsdd:propertyStatus      "Active" ;
-                                       bsdd:propertyValueKind   "Single"
-                                     ] ;
-        bsdd:classificationProperty  [ rdf:type                 bsdd:ClassificationProperty ;
-                                       bsdd:dataType            "String" ;
-                                       bsdd:description         "Indicates the colour of the cable or fitting jacket." ;
-                                       bsdd:name                "JacketColour" ;
-                                       bsdd:property            <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/JacketColour> ;
-                                       bsdd:propertyCode        "JacketColour" ;
-                                       bsdd:propertyDomainName  "IFC" ;
-                                       bsdd:propertySet         "Pset_PatchCordCable" ;
-                                       bsdd:propertyStatus      "Active" ;
-                                       bsdd:propertyValueKind   "Single"
-                                     ] ;
-        bsdd:classificationProperty  [ rdf:type                 bsdd:ClassificationProperty ;
-                                       bsdd:dataType            "Real" ;
-                                       bsdd:description         "The resistance under direct current and 20 degrees centigrade." ;
-                                       bsdd:name                "DCResistance" ;
-                                       bsdd:property            <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/DCResistance> ;
-                                       bsdd:propertyCode        "DCResistance" ;
-                                       bsdd:propertyDomainName  "IFC" ;
-                                       bsdd:propertySet         "Pset_CableSegmentTypeCableSegment" ;
-                                       bsdd:propertyStatus      "Active" ;
-                                       bsdd:propertyValueKind   "Single"
-                                     ] ;
-        bsdd:classificationProperty  [ rdf:type                 bsdd:ClassificationProperty ;
-                                       bsdd:dataType            "Real" ;
-                                       bsdd:description         "Maximum value of electric current which can be carried continuously by a conductor, a device or an apparatus, under specified conditions without its steady-state temperature exceeding a  specified value. Based on IEC60826-11-13. NOTE: The temperature specified value is maximum Design Ambient Temperature." ;
-                                       bsdd:name                "CurrentCarryingCapacity" ;
-                                       bsdd:property            <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/CurrentCarryingCapacity> ;
-                                       bsdd:propertyCode        "CurrentCarryingCapacity" ;
-                                       bsdd:propertyDomainName  "IFC" ;
-                                       bsdd:propertySet         "Pset_CableSegmentTypeCableSegment" ;
-                                       bsdd:propertyStatus      "Active" ;
-                                       bsdd:propertyValueKind   "Single"
-                                     ] ;
-        bsdd:classificationProperty  [ rdf:type                 bsdd:ClassificationProperty ;
-                                       bsdd:dataType            "Real" ;
-                                       bsdd:description         "The resistance under AC." ;
-                                       bsdd:name                "ACResistance" ;
-                                       bsdd:property            <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/ACResistance> ;
-                                       bsdd:propertyCode        "ACResistance" ;
-                                       bsdd:propertyDomainName  "IFC" ;
-                                       bsdd:propertySet         "Pset_CableSegmentTypeCableSegment" ;
-                                       bsdd:propertyStatus      "Active" ;
-                                       bsdd:propertyValueKind   "Single"
-                                     ] ;
-        bsdd:classificationProperty  [ rdf:type                 bsdd:ClassificationProperty ;
-                                       bsdd:dataType            "Integer" ;
-                                       bsdd:description         "Total number of untwisted wire pairs in the copper pair cable." ;
-                                       bsdd:name                "NumberOfUntwistedPairs" ;
-                                       bsdd:property            <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/NumberOfUntwistedPairs> ;
-                                       bsdd:propertyCode        "NumberOfUntwistedPairs" ;
-                                       bsdd:propertyDomainName  "IFC" ;
-                                       bsdd:propertySet         "Pset_SymmetricPairCable" ;
-                                       bsdd:propertyStatus      "Active" ;
-                                       bsdd:propertyValueKind   "Single"
-                                     ] ;
-        bsdd:classificationProperty  [ rdf:type                 bsdd:ClassificationProperty ;
-                                       bsdd:dataType            "Integer" ;
-                                       bsdd:description         "The number of cores." ;
-                                       bsdd:name                "NumberOfCores" ;
-                                       bsdd:property            <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/NumberOfCores> ;
-                                       bsdd:propertyCode        "NumberOfCores" ;
-                                       bsdd:propertyDomainName  "IFC" ;
-                                       bsdd:propertySet         "Pset_CableSegmentTypeCableSegment" ;
-                                       bsdd:propertyStatus      "Active" ;
-                                       bsdd:propertyValueKind   "Single"
-                                     ] ;
-        bsdd:classificationProperty  [ rdf:type                 bsdd:ClassificationProperty ;
-                                       bsdd:dataType            "Boolean" ;
-                                       bsdd:description         "Self Extinguishing cable/core according to IEC 60332.3." ;
-                                       bsdd:name                "SelfExtinguishing60332_3" ;
-                                       bsdd:property            <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/SelfExtinguishing603323> ;
-                                       bsdd:propertyCode        "SelfExtinguishing603323" ;
-                                       bsdd:propertyDomainName  "IFC" ;
-                                       bsdd:propertySet         "Pset_CableSegmentTypeCableSegment" ;
-                                       bsdd:propertyStatus      "Active" ;
-                                       bsdd:propertyValueKind   "Single"
-                                     ] ;
-        bsdd:classificationProperty  [ rdf:type                 bsdd:ClassificationProperty ;
-                                       bsdd:dataType            "Boolean" ;
-                                       bsdd:description         "Self Extinguishing cable/core according to IEC 60332.1." ;
-                                       bsdd:name                "SelfExtinguishing60332_1" ;
-                                       bsdd:property            <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/SelfExtinguishing603321> ;
-                                       bsdd:propertyCode        "SelfExtinguishing603321" ;
-                                       bsdd:propertyDomainName  "IFC" ;
-                                       bsdd:propertySet         "Pset_CableSegmentTypeCableSegment" ;
-                                       bsdd:propertyStatus      "Active" ;
-                                       bsdd:propertyValueKind   "Single"
-                                     ] ;
-        bsdd:classificationProperty  [ rdf:type                 bsdd:ClassificationProperty ;
-                                       bsdd:dataType            "Real" ;
-                                       bsdd:description         "The maximum temperature at which a cable or bus is certified to operate." ;
-                                       bsdd:name                "MaximumOperatingTemperature" ;
-                                       bsdd:property            <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/MaximumOperatingTemperature> ;
-                                       bsdd:propertyCode        "MaximumOperatingTemperature" ;
-                                       bsdd:propertyDomainName  "IFC" ;
-                                       bsdd:propertySet         "Pset_CableSegmentTypeCableSegment" ;
-                                       bsdd:propertyStatus      "Active" ;
-                                       bsdd:propertyValueKind   "Single"
-                                     ] ;
-        bsdd:classificationProperty  [ rdf:type                 bsdd:ClassificationProperty ;
-                                       bsdd:dataType            "Real" ;
-                                       bsdd:description         "Indicates the propagation speed coefficient." ;
-                                       bsdd:name                "PropagationSpeedCoefficient" ;
-                                       bsdd:property            <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/PropagationSpeedCoefficient> ;
-                                       bsdd:propertyCode        "PropagationSpeedCoefficient" ;
-                                       bsdd:propertyDomainName  "IFC" ;
-                                       bsdd:propertySet         "Pset_CoaxialCable" ;
-                                       bsdd:propertyStatus      "Active" ;
-                                       bsdd:propertyValueKind   "Single"
-                                     ] ;
-        bsdd:classificationProperty  [ rdf:type                 bsdd:ClassificationProperty ;
-                                       bsdd:dataType            "Real" ;
-                                       bsdd:description         "Indicates the coupling loss of a leaky coaxial cable (radiating cable)." ;
-                                       bsdd:name                "CouplingLoss" ;
-                                       bsdd:property            <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/CouplingLoss> ;
-                                       bsdd:propertyCode        "CouplingLoss" ;
-                                       bsdd:propertyDomainName  "IFC" ;
-                                       bsdd:propertySet         "Pset_CoaxialCable" ;
-                                       bsdd:propertyStatus      "Active" ;
-                                       bsdd:propertyValueKind   "Single"
-                                     ] ;
-        bsdd:classificationProperty  [ rdf:type                 bsdd:ClassificationProperty ;
-                                       bsdd:dataType            "Real" ;
-                                       bsdd:description         "Indicates the transmission loss of the leaky coaxial cable (radiating cable)." ;
-                                       bsdd:name                "TransmissionLoss" ;
-                                       bsdd:property            <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/TransmissionLoss> ;
-                                       bsdd:propertyCode        "TransmissionLoss" ;
-                                       bsdd:propertyDomainName  "IFC" ;
-                                       bsdd:propertySet         "Pset_CoaxialCable" ;
-                                       bsdd:propertyStatus      "Active" ;
-                                       bsdd:propertyValueKind   "Single"
-                                     ] ;
-        bsdd:classificationProperty  [ rdf:type                 bsdd:ClassificationProperty ;
-                                       bsdd:dataType            "Real" ;
-                                       bsdd:description         "Indicates the radiant frequency of the leaky coaxial cable (radiating cable)." ;
-                                       bsdd:name                "RadiantFrequency" ;
-                                       bsdd:property            <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/RadiantFrequency> ;
-                                       bsdd:propertyCode        "RadiantFrequency" ;
-                                       bsdd:propertyDomainName  "IFC" ;
-                                       bsdd:propertySet         "Pset_CoaxialCable" ;
-                                       bsdd:propertyStatus      "Active" ;
-                                       bsdd:propertyValueKind   "Single"
-                                     ] ;
-        bsdd:classificationProperty  [ rdf:type                 bsdd:ClassificationProperty ;
-                                       bsdd:dataType            "Integer" ;
-                                       bsdd:description         "Total number of twisted wire pairs in copper pair cables." ;
-                                       bsdd:name                "NumberOfTwistedPairs" ;
-                                       bsdd:property            <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/NumberOfTwistedPairs> ;
-                                       bsdd:propertyCode        "NumberOfTwistedPairs" ;
-                                       bsdd:propertyDomainName  "IFC" ;
-                                       bsdd:propertySet         "Pset_SymmetricPairCable" ;
-                                       bsdd:propertyStatus      "Active" ;
-                                       bsdd:propertyValueKind   "Single"
-                                     ] ;
-        bsdd:classificationProperty  [ rdf:type                 bsdd:ClassificationProperty ;
-                                       bsdd:dataType            "Real" ;
-                                       bsdd:description         "The maximum allowed current that a device is certified to handle." ;
-                                       bsdd:name                "MaximumCurrent" ;
-                                       bsdd:property            <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/MaximumCurrent> ;
-                                       bsdd:propertyCode        "MaximumCurrent" ;
-                                       bsdd:propertyDomainName  "IFC" ;
-                                       bsdd:propertySet         "Pset_CableSegmentTypeCableSegment" ;
-                                       bsdd:propertyStatus      "Active" ;
-                                       bsdd:propertyValueKind   "Single"
-                                     ] ;
-        bsdd:classificationProperty  [ rdf:type                 bsdd:ClassificationProperty ;
-                                       bsdd:dataType            "Real" ;
-                                       bsdd:description         "The maximum bending radius that the cable could withstand." ;
-                                       bsdd:name                "MaximumBendingRadius" ;
-                                       bsdd:property            <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/MaximumBendingRadius> ;
-                                       bsdd:propertyCode        "MaximumBendingRadius" ;
-                                       bsdd:propertyDomainName  "IFC" ;
-                                       bsdd:propertySet         "Pset_CableSegmentTypeCableSegment" ;
-                                       bsdd:propertyStatus      "Active" ;
-                                       bsdd:propertyValueKind   "Single"
-                                     ] ;
-        bsdd:classificationProperty  [ rdf:type                 bsdd:ClassificationProperty ;
-                                       bsdd:dataType            "Integer" ;
-                                       bsdd:description         "Indicates the total number of coaxial pairs in the coaxial cable." ;
-                                       bsdd:name                "NumberOfCoaxialPairs" ;
-                                       bsdd:property            <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/NumberOfCoaxialPairs> ;
-                                       bsdd:propertyCode        "NumberOfCoaxialPairs" ;
-                                       bsdd:propertyDomainName  "IFC" ;
-                                       bsdd:propertySet         "Pset_CoaxialCable" ;
-                                       bsdd:propertyStatus      "Active" ;
-                                       bsdd:propertyValueKind   "Single"
-                                     ] ;
-        bsdd:classificationProperty  [ rdf:type                 bsdd:ClassificationProperty ;
-                                       bsdd:dataType            "Real" ;
-                                       bsdd:description         "Indicates the Maximum transmission attenuation of feeder." ;
-                                       bsdd:name                "MaximumTransmissionAttenuation" ;
-                                       bsdd:property            <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/MaximumTransmissionAttenuation> ;
-                                       bsdd:propertyCode        "MaximumTransmissionAttenuation" ;
-                                       bsdd:propertyDomainName  "IFC" ;
-                                       bsdd:propertySet         "Pset_CoaxialCable" ;
-                                       bsdd:propertyStatus      "Active" ;
-                                       bsdd:propertyValueKind   "Single"
-                                     ] ;
-        bsdd:classificationProperty  [ rdf:type                 bsdd:ClassificationProperty ;
-                                       bsdd:dataType            "Integer" ;
-                                       bsdd:description         "The number of wires used in the element." ;
-                                       bsdd:name                "NumberOfWires" ;
-                                       bsdd:property            <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/NumberOfWires> ;
-                                       bsdd:propertyCode        "NumberOfWires" ;
-                                       bsdd:propertyDomainName  "IFC" ;
-                                       bsdd:propertySet         "Pset_CableSegmentTypeCableSegment" ;
-                                       bsdd:propertyStatus      "Active" ;
-                                       bsdd:propertyValueKind   "Single"
-                                     ] ;
-        bsdd:classificationProperty  [ rdf:type                 bsdd:ClassificationProperty ;
-                                       bsdd:dataType            "Real" ;
-                                       bsdd:description         "The maximum short circuit temperature at which a cable or bus is certified to operate." ;
-                                       bsdd:name                "MaximumShortCircuitTemperature" ;
-                                       bsdd:property            <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/MaximumShortCircuitTemperature> ;
-                                       bsdd:propertyCode        "MaximumShortCircuitTemperature" ;
-                                       bsdd:propertyDomainName  "IFC" ;
-                                       bsdd:propertySet         "Pset_CableSegmentTypeCableSegment" ;
-                                       bsdd:propertyStatus      "Active" ;
-                                       bsdd:propertyValueKind   "Single"
-                                     ] ;
-        bsdd:classificationProperty  [ rdf:type                 bsdd:ClassificationProperty ;
-                                       bsdd:dataType            "Boolean" ;
-                                       bsdd:description         "Element (such as cable, bus, core) maintain given properties/functions over a given (tested) time and conditions. According to IEC standard." ;
-                                       bsdd:name                "FunctionReliable" ;
-                                       bsdd:property            <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/FunctionReliable> ;
-                                       bsdd:propertyCode        "FunctionReliable" ;
-                                       bsdd:propertyDomainName  "IFC" ;
-                                       bsdd:propertySet         "Pset_CableSegmentTypeCableSegment" ;
-                                       bsdd:propertyStatus      "Active" ;
-                                       bsdd:propertyValueKind   "Single"
-                                     ] ;
-        bsdd:classificationProperty  [ rdf:type                 bsdd:ClassificationProperty ;
-                                       bsdd:dataType            "String" ;
-                                       bsdd:description         "The designation of the standard applicable for the definition of the object used." ;
-                                       bsdd:name                "Standard" ;
-                                       bsdd:property            <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/Standard> ;
-                                       bsdd:propertyCode        "Standard" ;
-                                       bsdd:propertyDomainName  "IFC" ;
-                                       bsdd:propertySet         "Pset_CableSegmentTypeCableSegment" ;
-                                       bsdd:propertyStatus      "Active" ;
-                                       bsdd:propertyValueKind   "Single"
-                                     ] ;
-        bsdd:classificationProperty  [ rdf:type                 bsdd:ClassificationProperty ;
-                                       bsdd:dataType            "Boolean" ;
-                                       bsdd:description         "Produces small amount of smoke and irritating Deaerator/Gas." ;
-                                       bsdd:name                "HalogenProof" ;
-                                       bsdd:property            <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/HalogenProof> ;
-                                       bsdd:propertyCode        "HalogenProof" ;
-                                       bsdd:propertyDomainName  "IFC" ;
-                                       bsdd:propertySet         "Pset_CableSegmentTypeCableSegment" ;
-                                       bsdd:propertyStatus      "Active" ;
-                                       bsdd:propertyValueKind   "Single"
-                                     ] ;
-        bsdd:classificationProperty  [ rdf:type                 bsdd:ClassificationProperty ;
-                                       bsdd:dataType            "Real" ;
-                                       bsdd:description         "The insulation voltage." ;
-                                       bsdd:name                "InsulationVoltage" ;
-                                       bsdd:property            <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/InsulationVoltage> ;
-                                       bsdd:propertyCode        "InsulationVoltage" ;
-                                       bsdd:propertyDomainName  "IFC" ;
-                                       bsdd:propertySet         "Pset_CableSegmentTypeCableSegment" ;
-                                       bsdd:propertyStatus      "Active" ;
-                                       bsdd:propertyValueKind   "Single"
-                                     ] ;
-        bsdd:classificationProperty  [ rdf:type                 bsdd:ClassificationProperty ;
-                                       bsdd:dataType            "Boolean" ;
-                                       bsdd:description         "Indicates whether the object has a protective earth connection (=TRUE) or not (= FALSE)." ;
-                                       bsdd:name                "HasProtectiveEarth" ;
-                                       bsdd:property            <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/HasProtectiveEarth> ;
-                                       bsdd:propertyCode        "HasProtectiveEarth" ;
-                                       bsdd:propertyDomainName  "IFC" ;
-                                       bsdd:propertySet         "Pset_CableSegmentTypeCableSegment" ;
-                                       bsdd:propertyStatus      "Active" ;
-                                       bsdd:propertyValueKind   "Single"
-                                     ] ;
-        bsdd:code                    "IfcCableSegmentCABLESEGMENT" ;
-        bsdd:definition              "Cable with a specific purpose to lead electric current within a circuit or any other electric construction. Includes all types of electric cables, mainly several core segments or conductor segments wrapped together." ;
-        bsdd:domain                  <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3> ;
-        bsdd:name                    "IfcCableSegment.CABLESEGMENT" ;
-        bsdd:parentClassification    <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment> ;
-        bsdd:referenceCode           "IfcCableSegmentCABLESEGMENT" ;
+        bsdd:classificationProperty  <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/InstallationMethod> , <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/ConnectorAColour> , <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/IsMountedFlatCable> , <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/UserCorrectionFactor> , <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/ConnectorAType> , <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/CableArmourType> , <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/Status> , <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/PowerLoss> , <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/SoilConductivity> , <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/CarrierStackNumber> , <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/FireRating> , <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/MaximumCableLength> , <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/Reference> , <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/NominalDiameter> , <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/DistanceBetweenParallelCircuits> , <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/NumberOfParallelCircuits> , <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/Attenuation> , <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/IsHorizontalCable> , <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/CurrentCarryingCapacity> , <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/MountingMethod> , <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/CrossSectionArea> , <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/IsFireResistant> , <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/ConnectorAGender> , <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/Length> , <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/CableFunctionType> , <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/GrossWeight> , <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/ConnectorBColour> , <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/ConnectorBGender> , <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/OuterSurfaceArea> , <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/JacketColour> , <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/ConnectorBType> , <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/SequentialCode> , <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/InstallationMethodFlagEnum> ;
+        bsdd:classificationType      "CLASS" ;
+        bsdd:code                    "IfcCableSegment" ;
+        bsdd:definition              "A cable segment is a flow segment used to carry electrical power, data, or telecommunications signals.A cable segment is used to typically join two sections of an electrical network or a network of components carrying the electrical service.HISTORY  New entity in IFC4{ .note}" ;
+        bsdd:name                    "IfcCableSegment" ;
+        bsdd:referenceCode           "IfcCableSegment" ;
         bsdd:status                  "Preview" ;
         bsdd:versionDateUtc          "2022-12-31T00:00:00"^^xsd:dateTime .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/Attenuation>
+        rdf:type                bsdd:ClassificationProperty ;
+        bsdd:activationDateUtc  "2022-12-31T00:00:00"^^xsd:dateTime ;
+        bsdd:code               "Attenuation" ;
+        bsdd:dataType           "Real" ;
+        bsdd:description        "Indicates the optical or electrical attenuation of the cable measured in dB, at a certain wavelength or frequency, changing with the length of the cable." ;
+        bsdd:isDynamic          false ;
+        bsdd:name               "Attenuation" ;
+        bsdd:property           <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/Attenuation> ;
+        bsdd:propertySet        "Pset_TelecomCableGeneral" ;
+        bsdd:propertyValueKind  "SINGLE" ;
+        bsdd:status             "Active" ;
+        bsdd:versionDateUtc     "2022-12-31T00:00:00"^^xsd:dateTime .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/CableArmourType/DIELECTRIC>
+        rdf:type    bsdd:PropertyValue ;
+        bsdd:code   "DIELECTRIC" ;
+        bsdd:value  "DIELECTRIC" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/CableArmourType/METALLIC>
+        rdf:type    bsdd:PropertyValue ;
+        bsdd:code   "METALLIC" ;
+        bsdd:value  "METALLIC" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/CableArmourType/NOTKNOWN>
+        rdf:type    bsdd:PropertyValue ;
+        bsdd:code   "NOTKNOWN" ;
+        bsdd:value  "NOTKNOWN" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/CableArmourType/OTHER>
+        rdf:type    bsdd:PropertyValue ;
+        bsdd:code   "OTHER" ;
+        bsdd:value  "OTHER" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/CableArmourType/UNSET>
+        rdf:type    bsdd:PropertyValue ;
+        bsdd:code   "UNSET" ;
+        bsdd:value  "UNSET" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/CableArmourType>
+        rdf:type                bsdd:ClassificationProperty ;
+        bsdd:activationDateUtc  "2022-12-31T00:00:00"^^xsd:dateTime ;
+        bsdd:allowedValue       <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/CableArmourType/OTHER> , <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/CableArmourType/DIELECTRIC> , <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/CableArmourType/UNSET> , <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/CableArmourType/METALLIC> , <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/CableArmourType/NOTKNOWN> ;
+        bsdd:code               "CableArmourType" ;
+        bsdd:dataType           "String" ;
+        bsdd:description        "The armour type of the cable for mechanical protection." ;
+        bsdd:isDynamic          false ;
+        bsdd:name               "CableArmourType" ;
+        bsdd:property           <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/CableArmourType> ;
+        bsdd:propertySet        "Pset_TelecomCableGeneral" ;
+        bsdd:propertyValueKind  "SINGLE" ;
+        bsdd:status             "Active" ;
+        bsdd:versionDateUtc     "2022-12-31T00:00:00"^^xsd:dateTime .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/CableFunctionType/NOTKNOWN>
+        rdf:type    bsdd:PropertyValue ;
+        bsdd:code   "NOTKNOWN" ;
+        bsdd:value  "NOTKNOWN" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/CableFunctionType/OTHER>
+        rdf:type    bsdd:PropertyValue ;
+        bsdd:code   "OTHER" ;
+        bsdd:value  "OTHER" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/CableFunctionType/POWERSUPPLY>
+        rdf:type    bsdd:PropertyValue ;
+        bsdd:code   "POWERSUPPLY" ;
+        bsdd:value  "POWERSUPPLY" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/CableFunctionType/TELECOMMUNICATION>
+        rdf:type    bsdd:PropertyValue ;
+        bsdd:code   "TELECOMMUNICATION" ;
+        bsdd:value  "TELECOMMUNICATION" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/CableFunctionType/UNSET>
+        rdf:type    bsdd:PropertyValue ;
+        bsdd:code   "UNSET" ;
+        bsdd:value  "UNSET" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/CableFunctionType>
+        rdf:type                bsdd:ClassificationProperty ;
+        bsdd:activationDateUtc  "2022-12-31T00:00:00"^^xsd:dateTime ;
+        bsdd:allowedValue       <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/CableFunctionType/POWERSUPPLY> , <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/CableFunctionType/UNSET> , <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/CableFunctionType/NOTKNOWN> , <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/CableFunctionType/OTHER> , <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/CableFunctionType/TELECOMMUNICATION> ;
+        bsdd:code               "CableFunctionType" ;
+        bsdd:dataType           "String" ;
+        bsdd:description        "Distinguishes between Telecom and Power Supply cables." ;
+        bsdd:isDynamic          false ;
+        bsdd:name               "CableFunctionType" ;
+        bsdd:property           <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/CableFunctionType> ;
+        bsdd:propertySet        "Pset_TelecomCableGeneral" ;
+        bsdd:propertyValueKind  "SINGLE" ;
+        bsdd:status             "Active" ;
+        bsdd:versionDateUtc     "2022-12-31T00:00:00"^^xsd:dateTime .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/CarrierStackNumber>
+        rdf:type                bsdd:ClassificationProperty ;
+        bsdd:activationDateUtc  "2022-12-31T00:00:00"^^xsd:dateTime ;
+        bsdd:code               "CarrierStackNumber" ;
+        bsdd:dataType           "Integer" ;
+        bsdd:description        "Number of carrier segments (tray, ladder etc.) that are vertically stacked (vertical is measured as the z-axis of the local coordinate system of the carrier segment)." ;
+        bsdd:isDynamic          false ;
+        bsdd:name               "CarrierStackNumber" ;
+        bsdd:property           <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/CarrierStackNumber> ;
+        bsdd:propertySet        "Pset_CableSegmentOccurrence" ;
+        bsdd:propertyValueKind  "SINGLE" ;
+        bsdd:status             "Active" ;
+        bsdd:versionDateUtc     "2022-12-31T00:00:00"^^xsd:dateTime .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/ConnectorAColour>
+        rdf:type                bsdd:ClassificationProperty ;
+        bsdd:activationDateUtc  "2022-12-31T00:00:00"^^xsd:dateTime ;
+        bsdd:code               "ConnectorAColour" ;
+        bsdd:dataType           "String" ;
+        bsdd:description        "Indicates the colour A- end of connector." ;
+        bsdd:isDynamic          false ;
+        bsdd:name               "ConnectorAColour" ;
+        bsdd:property           <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/ConnectorAColour> ;
+        bsdd:propertySet        "Pset_CableSegmentConnector" ;
+        bsdd:propertyValueKind  "SINGLE" ;
+        bsdd:status             "Active" ;
+        bsdd:versionDateUtc     "2022-12-31T00:00:00"^^xsd:dateTime .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/ConnectorAGender/FEMALE>
+        rdf:type    bsdd:PropertyValue ;
+        bsdd:code   "FEMALE" ;
+        bsdd:value  "FEMALE" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/ConnectorAGender/MALE>
+        rdf:type    bsdd:PropertyValue ;
+        bsdd:code   "MALE" ;
+        bsdd:value  "MALE" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/ConnectorAGender/NOTKNOWN>
+        rdf:type    bsdd:PropertyValue ;
+        bsdd:code   "NOTKNOWN" ;
+        bsdd:value  "NOTKNOWN" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/ConnectorAGender/OTHER>
+        rdf:type    bsdd:PropertyValue ;
+        bsdd:code   "OTHER" ;
+        bsdd:value  "OTHER" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/ConnectorAGender/UNSET>
+        rdf:type    bsdd:PropertyValue ;
+        bsdd:code   "UNSET" ;
+        bsdd:value  "UNSET" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/ConnectorAGender>
+        rdf:type                bsdd:ClassificationProperty ;
+        bsdd:activationDateUtc  "2022-12-31T00:00:00"^^xsd:dateTime ;
+        bsdd:allowedValue       <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/ConnectorAGender/UNSET> , <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/ConnectorAGender/FEMALE> , <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/ConnectorAGender/NOTKNOWN> , <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/ConnectorAGender/MALE> , <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/ConnectorAGender/OTHER> ;
+        bsdd:code               "ConnectorAGender" ;
+        bsdd:dataType           "String" ;
+        bsdd:description        "Indicates the gender of A-end connector." ;
+        bsdd:isDynamic          false ;
+        bsdd:name               "ConnectorAGender" ;
+        bsdd:property           <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/ConnectorAGender> ;
+        bsdd:propertySet        "Pset_CableSegmentConnector" ;
+        bsdd:propertyValueKind  "SINGLE" ;
+        bsdd:status             "Active" ;
+        bsdd:versionDateUtc     "2022-12-31T00:00:00"^^xsd:dateTime .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/ConnectorAType>
+        rdf:type                bsdd:ClassificationProperty ;
+        bsdd:activationDateUtc  "2022-12-31T00:00:00"^^xsd:dateTime ;
+        bsdd:code               "ConnectorAType" ;
+        bsdd:dataType           "String" ;
+        bsdd:description        "Indicates the type of A-end connector." ;
+        bsdd:isDynamic          false ;
+        bsdd:name               "ConnectorAType" ;
+        bsdd:property           <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/ConnectorAType> ;
+        bsdd:propertySet        "Pset_CableSegmentConnector" ;
+        bsdd:propertyValueKind  "SINGLE" ;
+        bsdd:status             "Active" ;
+        bsdd:versionDateUtc     "2022-12-31T00:00:00"^^xsd:dateTime .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/ConnectorBColour>
+        rdf:type                bsdd:ClassificationProperty ;
+        bsdd:activationDateUtc  "2022-12-31T00:00:00"^^xsd:dateTime ;
+        bsdd:code               "ConnectorBColour" ;
+        bsdd:dataType           "String" ;
+        bsdd:description        "Indicates the colour B- end of connector." ;
+        bsdd:isDynamic          false ;
+        bsdd:name               "ConnectorBColour" ;
+        bsdd:property           <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/ConnectorBColour> ;
+        bsdd:propertySet        "Pset_CableSegmentConnector" ;
+        bsdd:propertyValueKind  "SINGLE" ;
+        bsdd:status             "Active" ;
+        bsdd:versionDateUtc     "2022-12-31T00:00:00"^^xsd:dateTime .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/ConnectorBGender/FEMALE>
+        rdf:type    bsdd:PropertyValue ;
+        bsdd:code   "FEMALE" ;
+        bsdd:value  "FEMALE" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/ConnectorBGender/MALE>
+        rdf:type    bsdd:PropertyValue ;
+        bsdd:code   "MALE" ;
+        bsdd:value  "MALE" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/ConnectorBGender/NOTKNOWN>
+        rdf:type    bsdd:PropertyValue ;
+        bsdd:code   "NOTKNOWN" ;
+        bsdd:value  "NOTKNOWN" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/ConnectorBGender/OTHER>
+        rdf:type    bsdd:PropertyValue ;
+        bsdd:code   "OTHER" ;
+        bsdd:value  "OTHER" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/ConnectorBGender/UNSET>
+        rdf:type    bsdd:PropertyValue ;
+        bsdd:code   "UNSET" ;
+        bsdd:value  "UNSET" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/ConnectorBGender>
+        rdf:type                bsdd:ClassificationProperty ;
+        bsdd:activationDateUtc  "2022-12-31T00:00:00"^^xsd:dateTime ;
+        bsdd:allowedValue       <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/ConnectorBGender/MALE> , <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/ConnectorBGender/NOTKNOWN> , <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/ConnectorBGender/UNSET> , <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/ConnectorBGender/OTHER> , <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/ConnectorBGender/FEMALE> ;
+        bsdd:code               "ConnectorBGender" ;
+        bsdd:dataType           "String" ;
+        bsdd:description        "Indicates the gender of B-end connector." ;
+        bsdd:isDynamic          false ;
+        bsdd:name               "ConnectorBGender" ;
+        bsdd:property           <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/ConnectorBGender> ;
+        bsdd:propertySet        "Pset_CableSegmentConnector" ;
+        bsdd:propertyValueKind  "SINGLE" ;
+        bsdd:status             "Active" ;
+        bsdd:versionDateUtc     "2022-12-31T00:00:00"^^xsd:dateTime .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/ConnectorBType>
+        rdf:type                bsdd:ClassificationProperty ;
+        bsdd:activationDateUtc  "2022-12-31T00:00:00"^^xsd:dateTime ;
+        bsdd:code               "ConnectorBType" ;
+        bsdd:dataType           "String" ;
+        bsdd:description        "Indicates the type of B-end connector." ;
+        bsdd:isDynamic          false ;
+        bsdd:name               "ConnectorBType" ;
+        bsdd:property           <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/ConnectorBType> ;
+        bsdd:propertySet        "Pset_CableSegmentConnector" ;
+        bsdd:propertyValueKind  "SINGLE" ;
+        bsdd:status             "Active" ;
+        bsdd:versionDateUtc     "2022-12-31T00:00:00"^^xsd:dateTime .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/CrossSectionArea>
+        rdf:type                bsdd:ClassificationProperty ;
+        bsdd:activationDateUtc  "2022-12-31T00:00:00"^^xsd:dateTime ;
+        bsdd:code               "CrossSectionArea" ;
+        bsdd:dataType           "Real" ;
+        bsdd:description        "The effective cross-section area of the reinforcing bar." ;
+        bsdd:isDynamic          false ;
+        bsdd:name               "CrossSectionArea" ;
+        bsdd:property           <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/CrossSectionArea> ;
+        bsdd:propertySet        "Qto_CableSegmentBaseQuantities" ;
+        bsdd:propertyValueKind  "SINGLE" ;
+        bsdd:status             "Active" ;
+        bsdd:versionDateUtc     "2022-12-31T00:00:00"^^xsd:dateTime .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/CurrentCarryingCapacity>
+        rdf:type                bsdd:ClassificationProperty ;
+        bsdd:activationDateUtc  "2022-12-31T00:00:00"^^xsd:dateTime ;
+        bsdd:code               "CurrentCarryingCapacity" ;
+        bsdd:dataType           "Real" ;
+        bsdd:description        "Maximum value of electric current which can be carried continuously by a conductor, a device or an apparatus, under specified conditions without its steady-state temperature exceeding a  specified value. Based on IEC60826-11-13. NOTE: The temperature specified value is maximum Design Ambient Temperature." ;
+        bsdd:isDynamic          false ;
+        bsdd:name               "CurrentCarryingCapacity" ;
+        bsdd:property           <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/CurrentCarryingCapacity> ;
+        bsdd:propertySet        "Pset_CableSegmentOccurrence" ;
+        bsdd:propertyValueKind  "SINGLE" ;
+        bsdd:status             "Active" ;
+        bsdd:versionDateUtc     "2022-12-31T00:00:00"^^xsd:dateTime .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/DistanceBetweenParallelCircuits>
+        rdf:type                bsdd:ClassificationProperty ;
+        bsdd:activationDateUtc  "2022-12-31T00:00:00"^^xsd:dateTime ;
+        bsdd:code               "DistanceBetweenParallelCircuits" ;
+        bsdd:dataType           "Real" ;
+        bsdd:description        "Distance measured between parallel circuits." ;
+        bsdd:isDynamic          false ;
+        bsdd:name               "DistanceBetweenParallelCircuits" ;
+        bsdd:property           <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/DistanceBetweenParallelCircuits> ;
+        bsdd:propertySet        "Pset_CableSegmentOccurrence" ;
+        bsdd:propertyValueKind  "SINGLE" ;
+        bsdd:status             "Active" ;
+        bsdd:versionDateUtc     "2022-12-31T00:00:00"^^xsd:dateTime .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/FireRating>
+        rdf:type                bsdd:ClassificationProperty ;
+        bsdd:activationDateUtc  "2022-12-31T00:00:00"^^xsd:dateTime ;
+        bsdd:code               "FireRating" ;
+        bsdd:dataType           "String" ;
+        bsdd:description        "Fire rating for this object. It is given according to the national fire safety classification." ;
+        bsdd:isDynamic          false ;
+        bsdd:name               "FireRating" ;
+        bsdd:property           <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/FireRating> ;
+        bsdd:propertySet        "Pset_TelecomCableGeneral" ;
+        bsdd:propertyValueKind  "SINGLE" ;
+        bsdd:status             "Active" ;
+        bsdd:versionDateUtc     "2022-12-31T00:00:00"^^xsd:dateTime .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/GrossWeight>
+        rdf:type                bsdd:ClassificationProperty ;
+        bsdd:activationDateUtc  "2022-12-31T00:00:00"^^xsd:dateTime ;
+        bsdd:code               "GrossWeight" ;
+        bsdd:dataType           "Real" ;
+        bsdd:description        "Total Gross Weight of the object without any add-on parts and not taking into account possible processing features (cut-out's, etc.) or openings and recesses." ;
+        bsdd:isDynamic          false ;
+        bsdd:name               "GrossWeight" ;
+        bsdd:property           <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/GrossWeight> ;
+        bsdd:propertySet        "Qto_CableSegmentBaseQuantities" ;
+        bsdd:propertyValueKind  "SINGLE" ;
+        bsdd:status             "Active" ;
+        bsdd:versionDateUtc     "2022-12-31T00:00:00"^^xsd:dateTime .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/InstallationMethod>
+        rdf:type                bsdd:ClassificationProperty ;
+        bsdd:activationDateUtc  "2022-12-31T00:00:00"^^xsd:dateTime ;
+        bsdd:code               "InstallationMethod" ;
+        bsdd:dataType           "String" ;
+        bsdd:description        "Method of installation of cable/conductor. Installation methods are typically defined by reference in standards such as IEC 60364-5-52, table 52A-1 or BS7671 Appendix 4 Table 4A1 etc. Selection of the value to be used should be determined from such a standard according to local usage." ;
+        bsdd:isDynamic          false ;
+        bsdd:name               "InstallationMethod" ;
+        bsdd:property           <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/InstallationMethod> ;
+        bsdd:propertySet        "Pset_CableSegmentOccurrence" ;
+        bsdd:propertyValueKind  "SINGLE" ;
+        bsdd:status             "Active" ;
+        bsdd:versionDateUtc     "2022-12-31T00:00:00"^^xsd:dateTime .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/InstallationMethodFlagEnum/BELOWCEILING>
+        rdf:type    bsdd:PropertyValue ;
+        bsdd:code   "BELOWCEILING" ;
+        bsdd:value  "BELOWCEILING" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/InstallationMethodFlagEnum/INDUCT>
+        rdf:type    bsdd:PropertyValue ;
+        bsdd:code   "INDUCT" ;
+        bsdd:value  "INDUCT" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/InstallationMethodFlagEnum/INSOIL>
+        rdf:type    bsdd:PropertyValue ;
+        bsdd:code   "INSOIL" ;
+        bsdd:value  "INSOIL" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/InstallationMethodFlagEnum/NOTKNOWN>
+        rdf:type    bsdd:PropertyValue ;
+        bsdd:code   "NOTKNOWN" ;
+        bsdd:value  "NOTKNOWN" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/InstallationMethodFlagEnum/ONWALL>
+        rdf:type    bsdd:PropertyValue ;
+        bsdd:code   "ONWALL" ;
+        bsdd:value  "ONWALL" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/InstallationMethodFlagEnum/OTHER>
+        rdf:type    bsdd:PropertyValue ;
+        bsdd:code   "OTHER" ;
+        bsdd:value  "OTHER" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/InstallationMethodFlagEnum/UNSET>
+        rdf:type    bsdd:PropertyValue ;
+        bsdd:code   "UNSET" ;
+        bsdd:value  "UNSET" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/InstallationMethodFlagEnum>
+        rdf:type                bsdd:ClassificationProperty ;
+        bsdd:activationDateUtc  "2022-12-31T00:00:00"^^xsd:dateTime ;
+        bsdd:allowedValue       <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/InstallationMethodFlagEnum/UNSET> , <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/InstallationMethodFlagEnum/ONWALL> , <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/InstallationMethodFlagEnum/NOTKNOWN> , <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/InstallationMethodFlagEnum/INDUCT> , <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/InstallationMethodFlagEnum/BELOWCEILING> , <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/InstallationMethodFlagEnum/INSOIL> , <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/InstallationMethodFlagEnum/OTHER> ;
+        bsdd:code               "InstallationMethodFlagEnum" ;
+        bsdd:dataType           "String" ;
+        bsdd:description        "Special installation conditions relating to particular types of installation based on IEC60364-5-52:2001 reference installation methods C and D." ;
+        bsdd:isDynamic          false ;
+        bsdd:name               "InstallationMethodFlagEnum" ;
+        bsdd:property           <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/InstallationMethodFlagEnum> ;
+        bsdd:propertySet        "Pset_CableSegmentOccurrence" ;
+        bsdd:propertyValueKind  "SINGLE" ;
+        bsdd:status             "Active" ;
+        bsdd:versionDateUtc     "2022-12-31T00:00:00"^^xsd:dateTime .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/IsFireResistant>
+        rdf:type                bsdd:ClassificationProperty ;
+        bsdd:activationDateUtc  "2022-12-31T00:00:00"^^xsd:dateTime ;
+        bsdd:code               "IsFireResistant" ;
+        bsdd:dataType           "Boolean" ;
+        bsdd:description        "Indicates whether the cable is fire resistant." ;
+        bsdd:isDynamic          false ;
+        bsdd:name               "IsFireResistant" ;
+        bsdd:property           <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/IsFireResistant> ;
+        bsdd:propertySet        "Pset_TelecomCableGeneral" ;
+        bsdd:propertyValueKind  "SINGLE" ;
+        bsdd:status             "Active" ;
+        bsdd:versionDateUtc     "2022-12-31T00:00:00"^^xsd:dateTime .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/IsHorizontalCable>
+        rdf:type                bsdd:ClassificationProperty ;
+        bsdd:activationDateUtc  "2022-12-31T00:00:00"^^xsd:dateTime ;
+        bsdd:code               "IsHorizontalCable" ;
+        bsdd:dataType           "Boolean" ;
+        bsdd:description        "Indication of whether the cable occurrences are mounted horizontally (= TRUE) or vertically (= FALSE)." ;
+        bsdd:isDynamic          false ;
+        bsdd:name               "IsHorizontalCable" ;
+        bsdd:property           <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/IsHorizontalCable> ;
+        bsdd:propertySet        "Pset_CableSegmentOccurrence" ;
+        bsdd:propertyValueKind  "SINGLE" ;
+        bsdd:status             "Active" ;
+        bsdd:versionDateUtc     "2022-12-31T00:00:00"^^xsd:dateTime .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/IsMountedFlatCable>
+        rdf:type                bsdd:ClassificationProperty ;
+        bsdd:activationDateUtc  "2022-12-31T00:00:00"^^xsd:dateTime ;
+        bsdd:code               "IsMountedFlatCable" ;
+        bsdd:dataType           "Boolean" ;
+        bsdd:description        "Indication of whether the cable occurrences are mounted flat (= TRUE) or in a trefoil pattern (= FALSE)." ;
+        bsdd:isDynamic          false ;
+        bsdd:name               "IsMountedFlatCable" ;
+        bsdd:property           <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/IsMountedFlatCable> ;
+        bsdd:propertySet        "Pset_CableSegmentOccurrence" ;
+        bsdd:propertyValueKind  "SINGLE" ;
+        bsdd:status             "Active" ;
+        bsdd:versionDateUtc     "2022-12-31T00:00:00"^^xsd:dateTime .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/JacketColour>
+        rdf:type                bsdd:ClassificationProperty ;
+        bsdd:activationDateUtc  "2022-12-31T00:00:00"^^xsd:dateTime ;
+        bsdd:code               "JacketColour" ;
+        bsdd:dataType           "String" ;
+        bsdd:description        "Indicates the colour of the cable or fitting jacket." ;
+        bsdd:isDynamic          false ;
+        bsdd:name               "JacketColour" ;
+        bsdd:property           <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/JacketColour> ;
+        bsdd:propertySet        "Pset_TelecomCableGeneral" ;
+        bsdd:propertyValueKind  "SINGLE" ;
+        bsdd:status             "Active" ;
+        bsdd:versionDateUtc     "2022-12-31T00:00:00"^^xsd:dateTime .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/Length>
+        rdf:type                bsdd:ClassificationProperty ;
+        bsdd:activationDateUtc  "2022-12-31T00:00:00"^^xsd:dateTime ;
+        bsdd:code               "Length" ;
+        bsdd:dataType           "Real" ;
+        bsdd:description        "The length of the object." ;
+        bsdd:isDynamic          false ;
+        bsdd:name               "Length" ;
+        bsdd:property           <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/Length> ;
+        bsdd:propertySet        "Qto_CableSegmentBaseQuantities" ;
+        bsdd:propertyValueKind  "SINGLE" ;
+        bsdd:status             "Active" ;
+        bsdd:versionDateUtc     "2022-12-31T00:00:00"^^xsd:dateTime .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/MaximumCableLength>
+        rdf:type                bsdd:ClassificationProperty ;
+        bsdd:activationDateUtc  "2022-12-31T00:00:00"^^xsd:dateTime ;
+        bsdd:code               "MaximumCableLength" ;
+        bsdd:dataType           "Real" ;
+        bsdd:description        "Maximum cable length based on voltagedrop. NOTE: This value may also be specified as a constraint within an IFC model if required but is included within the property set at this stage pending implementation of the required capabilities within software applications." ;
+        bsdd:isDynamic          false ;
+        bsdd:name               "MaximumCableLength" ;
+        bsdd:property           <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/MaximumCableLength> ;
+        bsdd:propertySet        "Pset_CableSegmentOccurrence" ;
+        bsdd:propertyValueKind  "SINGLE" ;
+        bsdd:status             "Active" ;
+        bsdd:versionDateUtc     "2022-12-31T00:00:00"^^xsd:dateTime .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/MountingMethod/LADDER>
+        rdf:type    bsdd:PropertyValue ;
+        bsdd:code   "LADDER" ;
+        bsdd:value  "LADDER" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/MountingMethod/NOTKNOWN>
+        rdf:type    bsdd:PropertyValue ;
+        bsdd:code   "NOTKNOWN" ;
+        bsdd:value  "NOTKNOWN" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/MountingMethod/OTHER>
+        rdf:type    bsdd:PropertyValue ;
+        bsdd:code   "OTHER" ;
+        bsdd:value  "OTHER" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/MountingMethod/PERFORATEDTRAY>
+        rdf:type    bsdd:PropertyValue ;
+        bsdd:code   "PERFORATEDTRAY" ;
+        bsdd:value  "PERFORATEDTRAY" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/MountingMethod/UNSET>
+        rdf:type    bsdd:PropertyValue ;
+        bsdd:code   "UNSET" ;
+        bsdd:value  "UNSET" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/MountingMethod>
+        rdf:type                bsdd:ClassificationProperty ;
+        bsdd:activationDateUtc  "2022-12-31T00:00:00"^^xsd:dateTime ;
+        bsdd:allowedValue       <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/MountingMethod/UNSET> , <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/MountingMethod/PERFORATEDTRAY> , <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/MountingMethod/OTHER> , <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/MountingMethod/LADDER> , <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/MountingMethod/NOTKNOWN> ;
+        bsdd:code               "MountingMethod" ;
+        bsdd:dataType           "String" ;
+        bsdd:description        "The method of mounting cable segment occurrences on a cable carrier occurrence from which the method required can be selected. This is for the purpose of carrying out 'worst case' cable sizing calculations and may be a conceptual requirement rather than a statement of the physical occurrences of cable and carrier segments." ;
+        bsdd:isDynamic          false ;
+        bsdd:name               "MountingMethod" ;
+        bsdd:property           <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/MountingMethod> ;
+        bsdd:propertySet        "Pset_CableSegmentOccurrence" ;
+        bsdd:propertyValueKind  "SINGLE" ;
+        bsdd:status             "Active" ;
+        bsdd:versionDateUtc     "2022-12-31T00:00:00"^^xsd:dateTime .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/NominalDiameter>
+        rdf:type                bsdd:ClassificationProperty ;
+        bsdd:activationDateUtc  "2022-12-31T00:00:00"^^xsd:dateTime ;
+        bsdd:code               "NominalDiameter" ;
+        bsdd:dataType           "Real" ;
+        bsdd:description        "Nominal diameter or width of the object." ;
+        bsdd:isDynamic          false ;
+        bsdd:name               "NominalDiameter" ;
+        bsdd:property           <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/NominalDiameter> ;
+        bsdd:propertySet        "Pset_TelecomCableGeneral" ;
+        bsdd:propertyValueKind  "SINGLE" ;
+        bsdd:status             "Active" ;
+        bsdd:versionDateUtc     "2022-12-31T00:00:00"^^xsd:dateTime .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/NumberOfParallelCircuits>
+        rdf:type                bsdd:ClassificationProperty ;
+        bsdd:activationDateUtc  "2022-12-31T00:00:00"^^xsd:dateTime ;
+        bsdd:code               "NumberOfParallelCircuits" ;
+        bsdd:dataType           "Integer" ;
+        bsdd:description        "Number of parallel circuits." ;
+        bsdd:isDynamic          false ;
+        bsdd:name               "NumberOfParallelCircuits" ;
+        bsdd:property           <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/NumberOfParallelCircuits> ;
+        bsdd:propertySet        "Pset_CableSegmentOccurrence" ;
+        bsdd:propertyValueKind  "SINGLE" ;
+        bsdd:status             "Active" ;
+        bsdd:versionDateUtc     "2022-12-31T00:00:00"^^xsd:dateTime .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/OuterSurfaceArea>
+        rdf:type                bsdd:ClassificationProperty ;
+        bsdd:activationDateUtc  "2022-12-31T00:00:00"^^xsd:dateTime ;
+        bsdd:code               "OuterSurfaceArea" ;
+        bsdd:dataType           "Real" ;
+        bsdd:description        "Total area of the surfaces of the object (not taking into account the end cap areas), normally generated as perimeter * length in case of extrusions." ;
+        bsdd:isDynamic          false ;
+        bsdd:name               "OuterSurfaceArea" ;
+        bsdd:property           <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/OuterSurfaceArea> ;
+        bsdd:propertySet        "Qto_CableSegmentBaseQuantities" ;
+        bsdd:propertyValueKind  "SINGLE" ;
+        bsdd:status             "Active" ;
+        bsdd:versionDateUtc     "2022-12-31T00:00:00"^^xsd:dateTime .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/PowerLoss>
+        rdf:type                bsdd:ClassificationProperty ;
+        bsdd:activationDateUtc  "2022-12-31T00:00:00"^^xsd:dateTime ;
+        bsdd:code               "PowerLoss" ;
+        bsdd:dataType           "Real" ;
+        bsdd:description        "The power loss in [W]." ;
+        bsdd:isDynamic          false ;
+        bsdd:name               "PowerLoss" ;
+        bsdd:property           <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/PowerLoss> ;
+        bsdd:propertySet        "Pset_CableSegmentOccurrence" ;
+        bsdd:propertyValueKind  "SINGLE" ;
+        bsdd:status             "Active" ;
+        bsdd:versionDateUtc     "2022-12-31T00:00:00"^^xsd:dateTime .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/Reference>
+        rdf:type                bsdd:ClassificationProperty ;
+        bsdd:activationDateUtc  "2022-12-31T00:00:00"^^xsd:dateTime ;
+        bsdd:code               "Reference" ;
+        bsdd:dataType           "String" ;
+        bsdd:description        "Reference ID for this specified type in this project (e.g. type 'A-1'), Also referred to as \"construction type\". It should be provided as an alternative to the name of the \"object type\", if the software does not support object types and no classification reference to a recognized classification system used.IFC4.3.0.0 DEPRECATION  The Reference property is deprecated and shall no longer be used, use attribute Name on the relating type instead." ;
+        bsdd:isDynamic          false ;
+        bsdd:name               "Reference" ;
+        bsdd:property           <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/Reference> ;
+        bsdd:propertySet        "Pset_CableSegmentTypeCommon" ;
+        bsdd:propertyValueKind  "SINGLE" ;
+        bsdd:status             "Active" ;
+        bsdd:versionDateUtc     "2022-12-31T00:00:00"^^xsd:dateTime .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/SequentialCode>
+        rdf:type                bsdd:ClassificationProperty ;
+        bsdd:activationDateUtc  "2022-12-31T00:00:00"^^xsd:dateTime ;
+        bsdd:code               "SequentialCode" ;
+        bsdd:dataType           "String" ;
+        bsdd:description        "Indicates the sequential code of the cable or wire." ;
+        bsdd:isDynamic          false ;
+        bsdd:name               "SequentialCode" ;
+        bsdd:property           <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/SequentialCode> ;
+        bsdd:propertySet        "Pset_CableSegmentOccurrence" ;
+        bsdd:propertyValueKind  "SINGLE" ;
+        bsdd:status             "Active" ;
+        bsdd:versionDateUtc     "2022-12-31T00:00:00"^^xsd:dateTime .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/SoilConductivity>
+        rdf:type                bsdd:ClassificationProperty ;
+        bsdd:activationDateUtc  "2022-12-31T00:00:00"^^xsd:dateTime ;
+        bsdd:code               "SoilConductivity" ;
+        bsdd:dataType           "Real" ;
+        bsdd:description        "Thermal conductivity of soil. Generally, within standards such as IEC 60364-5-52, table 52A-16, the resistivity of soil is required (measured in [SI] units of degK.m /W). This is the reciprocal of the conductivity value and needs to be calculated accordingly." ;
+        bsdd:isDynamic          false ;
+        bsdd:name               "SoilConductivity" ;
+        bsdd:property           <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/SoilConductivity> ;
+        bsdd:propertySet        "Pset_CableSegmentOccurrence" ;
+        bsdd:propertyValueKind  "SINGLE" ;
+        bsdd:status             "Active" ;
+        bsdd:versionDateUtc     "2022-12-31T00:00:00"^^xsd:dateTime .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/Status/DEMOLISH>
+        rdf:type    bsdd:PropertyValue ;
+        bsdd:code   "DEMOLISH" ;
+        bsdd:value  "DEMOLISH" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/Status/EXISTING>
+        rdf:type    bsdd:PropertyValue ;
+        bsdd:code   "EXISTING" ;
+        bsdd:value  "EXISTING" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/Status/NEW>
+        rdf:type    bsdd:PropertyValue ;
+        bsdd:code   "NEW" ;
+        bsdd:value  "NEW" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/Status/NOTKNOWN>
+        rdf:type    bsdd:PropertyValue ;
+        bsdd:code   "NOTKNOWN" ;
+        bsdd:value  "NOTKNOWN" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/Status/OTHER>
+        rdf:type    bsdd:PropertyValue ;
+        bsdd:code   "OTHER" ;
+        bsdd:value  "OTHER" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/Status/TEMPORARY>
+        rdf:type    bsdd:PropertyValue ;
+        bsdd:code   "TEMPORARY" ;
+        bsdd:value  "TEMPORARY" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/Status/UNSET>
+        rdf:type    bsdd:PropertyValue ;
+        bsdd:code   "UNSET" ;
+        bsdd:value  "UNSET" .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/Status>
+        rdf:type                bsdd:ClassificationProperty ;
+        bsdd:activationDateUtc  "2022-12-31T00:00:00"^^xsd:dateTime ;
+        bsdd:allowedValue       <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/Status/UNSET> , <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/Status/DEMOLISH> , <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/Status/EXISTING> , <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/Status/TEMPORARY> , <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/Status/OTHER> , <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/Status/NEW> , <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/Status/NOTKNOWN> ;
+        bsdd:code               "Status" ;
+        bsdd:dataType           "String" ;
+        bsdd:description        "The status currently assigned to the permit." ;
+        bsdd:isDynamic          false ;
+        bsdd:name               "Status" ;
+        bsdd:property           <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/Status> ;
+        bsdd:propertySet        "Pset_CableSegmentTypeCommon" ;
+        bsdd:propertyValueKind  "SINGLE" ;
+        bsdd:status             "Active" ;
+        bsdd:versionDateUtc     "2022-12-31T00:00:00"^^xsd:dateTime .
+
+<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment/UserCorrectionFactor>
+        rdf:type                bsdd:ClassificationProperty ;
+        bsdd:activationDateUtc  "2022-12-31T00:00:00"^^xsd:dateTime ;
+        bsdd:code               "UserCorrectionFactor" ;
+        bsdd:dataType           "Real" ;
+        bsdd:description        "An arbitrary correction factor that may be applied by the user." ;
+        bsdd:isDynamic          false ;
+        bsdd:name               "UserCorrectionFactor" ;
+        bsdd:property           <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/UserCorrectionFactor> ;
+        bsdd:propertySet        "Pset_CableSegmentOccurrence" ;
+        bsdd:propertyValueKind  "SINGLE" ;
+        bsdd:status             "Active" ;
+        bsdd:versionDateUtc     "2022-12-31T00:00:00"^^xsd:dateTime .

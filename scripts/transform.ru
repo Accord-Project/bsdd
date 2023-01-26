@@ -63,7 +63,7 @@ delete {?x ?plural ?node. ?node rdfs:member ?y}
 insert {?x ?singular ?y}
 where {
   values (?plural ?singular) {
-    (bsdd:allowedValues                  bsdd:allowedValues                )
+    (bsdd:allowedValues                  bsdd:allowedValue                 )
     (bsdd:classificationProperties       bsdd:classificationProperty       )
     (bsdd:properties                     bsdd:classificationProperty       )
     (bsdd:countriesOfUse                 bsdd:countryOfUse                 )

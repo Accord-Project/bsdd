@@ -16,12 +16,11 @@ construct {
   ?s ?p ?o .
 } where {
   service <x-sparql-anything:> {
-    fx:properties fx:location         ?_zip .
+    fx:properties fx:location         ?_folder .
     fx:properties fx:archive.matches  ?_file .
     ?selection    fx:anySlot          ?file .
     service <x-sparql-anything:> {
       fx:properties fx:location         ?file .
-      fx:properties fx:from-archive     ?_zip .
       fx:properties fx:namespace        bsdd: .
       fx:properties fx:use-rdfs-member  true .
       fx:properties fx:trim-strings     true .

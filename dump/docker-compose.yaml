@@ -1,0 +1,7 @@
+version: "3"
+
+services:
+  sparql-anything:
+    build:
+      context: .
+    image: sparql-anything

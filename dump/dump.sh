@@ -1,101 +1,28 @@
-sparql-anything.bat -q ../scripts/rdfize-zip.sparql -v zip=graphql-2023-01-24.zip -v "file=\w+.json"                                         > ALL-OTHER.ttl
-sparql-anything.bat -q ../scripts/rdfize-zip.sparql -v zip=graphql-2023-01-24.zip -v "file=domains/ATALANE_REX-OBJ-1.0/.*"                   > ATALANE_REX-OBJ-1.0.ttl
-sparql-anything.bat -q ../scripts/rdfize-zip.sparql -v zip=graphql-2023-01-24.zip -v "file=domains/ArcDox_ArcDox-1.0/.*"                     > ArcDox_ArcDox-1.0.ttl
-sparql-anything.bat -q ../scripts/rdfize-zip.sparql -v zip=graphql-2023-01-24.zip -v "file=domains/BBRI_BBRI-0.1/.*"                         > BBRI_BBRI-0.1.ttl
-sparql-anything.bat -q ../scripts/rdfize-zip.sparql -v zip=graphql-2023-01-24.zip -v "file=domains/BBRI_CCTB-2020/.*"                        > BBRI_CCTB-2020.ttl
-sparql-anything.bat -q ../scripts/rdfize-zip.sparql -v zip=graphql-2023-01-24.zip -v "file=domains/BBRI_VMSW-2015/.*"                        > BBRI_VMSW-2015.ttl
-sparql-anything.bat -q ../scripts/rdfize-zip.sparql -v zip=graphql-2023-01-24.zip -v "file=domains/BBRI_VMSW-2020/.*"                        > BBRI_VMSW-2020.ttl
-sparql-anything.bat -q ../scripts/rdfize-zip.sparql -v zip=graphql-2023-01-24.zip -v "file=domains/FCSI_keq-0.1/.*"                          > FCSI_keq-0.1.ttl
-sparql-anything.bat -q ../scripts/rdfize-zip.sparql -v zip=graphql-2023-01-24.zip -v "file=domains/FTIA_FTIA-1.0/.*"                         > FTIA_FTIA-1.0.ttl
-sparql-anything.bat -q ../scripts/rdfize-zip.sparql -v zip=graphql-2023-01-24.zip -v "file=domains/FTIA_FTIA-Rata-1.0/.*"                    > FTIA_FTIA-Rata-1.0.ttl
-sparql-anything.bat -q ../scripts/rdfize-zip.sparql -v zip=graphql-2023-01-24.zip -v "file=domains/FTIA_FTIAtie-1.0/.*"                      > FTIA_FTIAtie-1.0.ttl
-sparql-anything.bat -q ../scripts/rdfize-zip.sparql -v zip=graphql-2023-01-24.zip -v "file=domains/LCA_LCA-1.0/.*"                           > LCA_LCA-1.0.ttl
-sparql-anything.bat -q ../scripts/rdfize-zip.sparql -v zip=graphql-2023-01-24.zip -v "file=domains/MEP-Fin_MEP-Fin-0.1/.*"                   > MEP-Fin_MEP-Fin-0.1.ttl
-sparql-anything.bat -q ../scripts/rdfize-zip.sparql -v zip=graphql-2023-01-24.zip -v "file=domains/MTR_MTR-1/.*"                             > MTR_MTR-1.ttl
-sparql-anything.bat -q ../scripts/rdfize-zip.sparql -v zip=graphql-2023-01-24.zip -v "file=domains/SIUE_nbe-0.1/.*"                          > SIUE_nbe-0.1.ttl
-sparql-anything.bat -q ../scripts/rdfize-zip.sparql -v zip=graphql-2023-01-24.zip -v "file=domains/VDMAPumpsSystems_VDMAPumpsSystems-1.0/.*" > VDMAPumpsSystems_VDMAPumpsSystems-1.0.ttl
-sparql-anything.bat -q ../scripts/rdfize-zip.sparql -v zip=graphql-2023-01-24.zip -v "file=domains/acca_AASHTO-1.0/.*"                       > acca_AASHTO-1.0.ttl
-sparql-anything.bat -q ../scripts/rdfize-zip.sparql -v zip=graphql-2023-01-24.zip -v "file=domains/acca_ACCABMS-1.0/.*"                      > acca_ACCABMS-1.0.ttl
-sparql-anything.bat -q ../scripts/rdfize-zip.sparql -v zip=graphql-2023-01-24.zip -v "file=domains/acca_ACCADomainCode-1.0/.*"               > acca_ACCADomainCode-1.0.ttl
-sparql-anything.bat -q ../scripts/rdfize-zip.sparql -v zip=graphql-2023-01-24.zip -v "file=domains/acca_ACCAtest-0.1/.*"                     > acca_ACCAtest-0.1.ttl
-sparql-anything.bat -q ../scripts/rdfize-zip.sparql -v zip=graphql-2023-01-24.zip -v "file=domains/acca_ACCAtest-0.35/.*"                    > acca_ACCAtest-0.35.ttl
-sparql-anything.bat -q ../scripts/rdfize-zip.sparql -v zip=graphql-2023-01-24.zip -v "file=domains/acca_ACCAtest-0.40/.*"                    > acca_ACCAtest-0.40.ttl
-sparql-anything.bat -q ../scripts/rdfize-zip.sparql -v zip=graphql-2023-01-24.zip -v "file=domains/acca_ACCAtest-0.41/.*"                    > acca_ACCAtest-0.41.ttl
-sparql-anything.bat -q ../scripts/rdfize-zip.sparql -v zip=graphql-2023-01-24.zip -v "file=domains/acca_ACCAtest-1.0/.*"                     > acca_ACCAtest-1.0.ttl
-sparql-anything.bat -q ../scripts/rdfize-zip.sparql -v zip=graphql-2023-01-24.zip -v "file=domains/acca_ACCAtest-8.0/.*"                     > acca_ACCAtest-8.0.ttl
-sparql-anything.bat -q ../scripts/rdfize-zip.sparql -v zip=graphql-2023-01-24.zip -v "file=domains/acca_ACCAtest-9.0/.*"                     > acca_ACCAtest-9.0.ttl
-sparql-anything.bat -q ../scripts/rdfize-zip.sparql -v zip=graphql-2023-01-24.zip -v "file=domains/acca_ACME-1.0/.*"                         > acca_ACME-1.0.ttl
-sparql-anything.bat -q ../scripts/rdfize-zip.sparql -v zip=graphql-2023-01-24.zip -v "file=domains/acca_IRAI-0.10/.*"                        > acca_IRAI-0.10.ttl
-sparql-anything.bat -q ../scripts/rdfize-zip.sparql -v zip=graphql-2023-01-24.zip -v "file=domains/acca_LCCrg-1.0/.*"                        > acca_LCCrg-1.0.ttl
-sparql-anything.bat -q ../scripts/rdfize-zip.sparql -v zip=graphql-2023-01-24.zip -v "file=domains/acca_PropInheritanceTest-1.0/.*"          > acca_PropInheritanceTest-1.0.ttl
-sparql-anything.bat -q ../scripts/rdfize-zip.sparql -v zip=graphql-2023-01-24.zip -v "file=domains/acca_UNINABridgeTest-1.0/.*"              > acca_UNINABridgeTest-1.0.ttl
-sparql-anything.bat -q ../scripts/rdfize-zip.sparql -v zip=graphql-2023-01-24.zip -v "file=domains/acca_accaTest01-1.2/.*"                   > acca_accaTest01-1.2.ttl
-sparql-anything.bat -q ../scripts/rdfize-zip.sparql -v zip=graphql-2023-01-24.zip -v "file=domains/acca_testValidazione-1.0/.*"              > acca_testValidazione-1.0.ttl
-sparql-anything.bat -q ../scripts/rdfize-zip.sparql -v zip=graphql-2023-01-24.zip -v "file=domains/alma_TestMaterial-0.1/.*"                 > alma_TestMaterial-0.1.ttl
-sparql-anything.bat -q ../scripts/rdfize-zip.sparql -v zip=graphql-2023-01-24.zip -v "file=domains/alma_TestMaterial-0.2/.*"                 > alma_TestMaterial-0.2.ttl
-sparql-anything.bat -q ../scripts/rdfize-zip.sparql -v zip=graphql-2023-01-24.zip -v "file=domains/alma_TestMaterial-0.3/.*"                 > alma_TestMaterial-0.3.ttl
-sparql-anything.bat -q ../scripts/rdfize-zip.sparql -v zip=graphql-2023-01-24.zip -v "file=domains/alma_TestMaterial-0.4/.*"                 > alma_TestMaterial-0.4.ttl
-sparql-anything.bat -q ../scripts/rdfize-zip.sparql -v zip=graphql-2023-01-24.zip -v "file=domains/alma_TestMaterial-0.5/.*"                 > alma_TestMaterial-0.5.ttl
-sparql-anything.bat -q ../scripts/rdfize-zip.sparql -v zip=graphql-2023-01-24.zip -v "file=domains/alma_hprops-1.0/.*"                       > alma_hprops-1.0.ttl
-sparql-anything.bat -q ../scripts/rdfize-zip.sparql -v zip=graphql-2023-01-24.zip -v "file=domains/bca_ifc-sg-0.1/.*"                        > bca_ifc-sg-0.1.ttl
-sparql-anything.bat -q ../scripts/rdfize-zip.sparql -v zip=graphql-2023-01-24.zip -v "file=domains/bim-de_AutobahnGmbH-1.0/.*"               > bim-de_AutobahnGmbH-1.0.ttl
-sparql-anything.bat -q ../scripts/rdfize-zip.sparql -v zip=graphql-2023-01-24.zip -v "file=domains/bim-de_BIMAllianz-1.0/.*"                 > bim-de_BIMAllianz-1.0.ttl
-sparql-anything.bat -q ../scripts/rdfize-zip.sparql -v zip=graphql-2023-01-24.zip -v "file=domains/bim-de_BIMHamburg-1.0/.*"                 > bim-de_BIMHamburg-1.0.ttl
-sparql-anything.bat -q ../scripts/rdfize-zip.sparql -v zip=graphql-2023-01-24.zip -v "file=domains/bim-de_DBNetzAG-1.0/.*"                   > bim-de_DBNetzAG-1.0.ttl
-sparql-anything.bat -q ../scripts/rdfize-zip.sparql -v zip=graphql-2023-01-24.zip -v "file=domains/bim-de_DINSPEC91400-1.0/.*"               > bim-de_DINSPEC91400-1.0.ttl
-sparql-anything.bat -q ../scripts/rdfize-zip.sparql -v zip=graphql-2023-01-24.zip -v "file=domains/bim-de_OKSTRA-1.0/.*"                     > bim-de_OKSTRA-1.0.ttl
-sparql-anything.bat -q ../scripts/rdfize-zip.sparql -v zip=graphql-2023-01-24.zip -v "file=domains/bim-de_WSV-1.0/.*"                        > bim-de_WSV-1.0.ttl
-sparql-anything.bat -q ../scripts/rdfize-zip.sparql -v zip=graphql-2023-01-24.zip -v "file=domains/bimdata_bimdata-1.0/.*"                   > bimdata_bimdata-1.0.ttl
-sparql-anything.bat -q ../scripts/rdfize-zip.sparql -v zip=graphql-2023-01-24.zip -v "file=domains/bimeta_bimeta-0.1/.*"                     > bimeta_bimeta-0.1.ttl
-sparql-anything.bat -q ../scripts/rdfize-zip.sparql -v zip=graphql-2023-01-24.zip -v "file=domains/bimeta_bimeta-1.0/.*"                     > bimeta_bimeta-1.0.ttl
-sparql-anything.bat -q ../scripts/rdfize-zip.sparql -v zip=graphql-2023-01-24.zip -v "file=domains/bimlib_bimlib-ru-temp-1/.*"               > bimlib_bimlib-ru-temp-1.ttl
-sparql-anything.bat -q ../scripts/rdfize-zip.sparql -v zip=graphql-2023-01-24.zip -v "file=domains/bimloket_naakt-0.1/.*"                    > bimloket_naakt-0.1.ttl
-sparql-anything.bat -q ../scripts/rdfize-zip.sparql -v zip=graphql-2023-01-24.zip -v "file=domains/bs-agri_fruitvegs-1.0/.*"                 > bs-agri_fruitvegs-1.0.ttl
-sparql-anything.bat -q ../scripts/rdfize-zip.sparql -v zip=graphql-2023-01-24.zip -v "file=domains/bs-agri_fruitvegs-1.1/.*"                 > bs-agri_fruitvegs-1.1.ttl
-sparql-anything.bat -q ../scripts/rdfize-zip.sparql -v zip=graphql-2023-01-24.zip -v "file=domains/buildingsmart-ch_UCM-CH-Demo-1.0/.*"      > buildingsmart-ch_UCM-CH-Demo-1.0.ttl
-sparql-anything.bat -q ../scripts/rdfize-zip.sparql -v zip=graphql-2023-01-24.zip -v "file=domains/buildingsmart-de_bSDTLS-1/.*"             > buildingsmart-de_bSDTLS-1.ttl
-sparql-anything.bat -q ../scripts/rdfize-zip.sparql -v zip=graphql-2023-01-24.zip -v "file=domains/buildingsmart-de_bsdbp-1/.*"              > buildingsmart-de_bsdbp-1.ttl
-sparql-anything.bat -q ../scripts/rdfize-zip.sparql -v zip=graphql-2023-01-24.zip -v "file=domains/buildingsmart-fr_BRIDGE-MINnD-1.0/.*"     > buildingsmart-fr_BRIDGE-MINnD-1.0.ttl
-sparql-anything.bat -q ../scripts/rdfize-zip.sparql -v zip=graphql-2023-01-24.zip -v "file=domains/buildingsmart-fr_MINnD-1.0/.*"            > buildingsmart-fr_MINnD-1.0.ttl
-sparql-anything.bat -q ../scripts/rdfize-zip.sparql -v zip=graphql-2023-01-24.zip -v "file=domains/buildingsmart-fr_MINnD-Earthwork-1.0/.*"  > buildingsmart-fr_MINnD-Earthwork-1.0.ttl
-sparql-anything.bat -q ../scripts/rdfize-zip.sparql -v zip=graphql-2023-01-24.zip -v "file=domains/buildingsmart-fr_MINnD-Pavement-1.0/.*"   > buildingsmart-fr_MINnD-Pavement-1.0.ttl
-sparql-anything.bat -q ../scripts/rdfize-zip.sparql -v zip=graphql-2023-01-24.zip -v "file=domains/buildingsmart-fr_MINnD-Tunnel-1.0/.*"     > buildingsmart-fr_MINnD-Tunnel-1.0.ttl
-sparql-anything.bat -q ../scripts/rdfize-zip.sparql -v zip=graphql-2023-01-24.zip -v "file=domains/buildingsmart_bSI-wd-0.1/.*"              > buildingsmart_bSI-wd-0.1.ttl
-sparql-anything.bat -q ../scripts/rdfize-zip.sparql -v zip=graphql-2023-01-24.zip -v "file=domains/buildingsmart_ifc-4.3/.*"                 > buildingsmart_ifc-4.3.ttl
-sparql-anything.bat -q ../scripts/rdfize-zip.sparql -v zip=graphql-2023-01-24.zip -v "file=domains/certi_ogsub-0.1/.*"                       > certi_ogsub-0.1.ttl
-sparql-anything.bat -q ../scripts/rdfize-zip.sparql -v zip=graphql-2023-01-24.zip -v "file=domains/digibase_digibasebouwlagen-0.1/.*"        > digibase_digibasebouwlagen-0.1.ttl
-sparql-anything.bat -q ../scripts/rdfize-zip.sparql -v zip=graphql-2023-01-24.zip -v "file=domains/digibase_nen2699-0.1/.*"                  > digibase_nen2699-0.1.ttl
-sparql-anything.bat -q ../scripts/rdfize-zip.sparql -v zip=graphql-2023-01-24.zip -v "file=domains/digibase_volkerwesselsbv-0.1/.*"          > digibase_volkerwesselsbv-0.1.ttl
-sparql-anything.bat -q ../scripts/rdfize-zip.sparql -v zip=graphql-2023-01-24.zip -v "file=domains/dreso_din276plus-1.0/.*"                  > dreso_din276plus-1.0.ttl
-sparql-anything.bat -q ../scripts/rdfize-zip.sparql -v zip=graphql-2023-01-24.zip -v "file=domains/dtc_dtdl-1/.*"                            > dtc_dtdl-1.ttl
-sparql-anything.bat -q ../scripts/rdfize-zip.sparql -v zip=graphql-2023-01-24.zip -v "file=domains/efalbhm_arge-0.1/.*"                      > efalbhm_arge-0.1.ttl
-sparql-anything.bat -q ../scripts/rdfize-zip.sparql -v zip=graphql-2023-01-24.zip -v "file=domains/engisis_RFI-01/.*"                        > engisis_RFI-01.ttl
-sparql-anything.bat -q ../scripts/rdfize-zip.sparql -v zip=graphql-2023-01-24.zip -v "file=domains/engisis_RFI-02/.*"                        > engisis_RFI-02.ttl
-sparql-anything.bat -q ../scripts/rdfize-zip.sparql -v zip=graphql-2023-01-24.zip -v "file=domains/engisis_RFI-03/.*"                        > engisis_RFI-03.ttl
-sparql-anything.bat -q ../scripts/rdfize-zip.sparql -v zip=graphql-2023-01-24.zip -v "file=domains/ethz_hosszu-0.1/.*"                       > ethz_hosszu-0.1.ttl
-sparql-anything.bat -q ../scripts/rdfize-zip.sparql -v zip=graphql-2023-01-24.zip -v "file=domains/etim_etim-9.0/.*"                         > etim_etim-9.0.ttl
-sparql-anything.bat -q ../scripts/rdfize-zip.sparql -v zip=graphql-2023-01-24.zip -v "file=domains/fvhf_vhf-0.002/.*"                        > fvhf_vhf-0.002.ttl
-sparql-anything.bat -q ../scripts/rdfize-zip.sparql -v zip=graphql-2023-01-24.zip -v "file=domains/fvhf_vhf-0.10/.*"                         > fvhf_vhf-0.10.ttl
-sparql-anything.bat -q ../scripts/rdfize-zip.sparql -v zip=graphql-2023-01-24.zip -v "file=domains/growingcircle_transsmart-0.1/.*"          > growingcircle_transsmart-0.1.ttl
-sparql-anything.bat -q ../scripts/rdfize-zip.sparql -v zip=graphql-2023-01-24.zip -v "file=domains/gsa_gsaspace-23/.*"                       > gsa_gsaspace-23.ttl
-sparql-anything.bat -q ../scripts/rdfize-zip.sparql -v zip=graphql-2023-01-24.zip -v "file=domains/http___otl.amsterdam.nl/.*"               > http___otl.amsterdam.nl.ttl
-sparql-anything.bat -q ../scripts/rdfize-zip.sparql -v zip=graphql-2023-01-24.zip -v "file=domains/http___rdf.vegdata.no_V440_v440-owl/.*"   > http___rdf.vegdata.no_V440_v440-owl.ttl
-sparql-anything.bat -q ../scripts/rdfize-zip.sparql -v zip=graphql-2023-01-24.zip -v "file=domains/https___www.naco.nl/.*"                   > https___www.naco.nl.ttl
-sparql-anything.bat -q ../scripts/rdfize-zip.sparql -v zip=graphql-2023-01-24.zip -v "file=domains/ifcairport_ifcairport-1.0/.*"             > ifcairport_ifcairport-1.0.ttl
-sparql-anything.bat -q ../scripts/rdfize-zip.sparql -v zip=graphql-2023-01-24.zip -v "file=domains/ifcrail_ifcrail-0.1/.*"                   > ifcrail_ifcrail-0.1.ttl
-sparql-anything.bat -q ../scripts/rdfize-zip.sparql -v zip=graphql-2023-01-24.zip -v "file=domains/ifcrail_ifcrail-1.0/.*"                   > ifcrail_ifcrail-1.0.ttl
-sparql-anything.bat -q ../scripts/rdfize-zip.sparql -v zip=graphql-2023-01-24.zip -v "file=domains/jacic_jacic-0.0/.*"                       > jacic_jacic-0.0.ttl
-sparql-anything.bat -q ../scripts/rdfize-zip.sparql -v zip=graphql-2023-01-24.zip -v "file=domains/jacic_jacic-1.0/.*"                       > jacic_jacic-1.0.ttl
-sparql-anything.bat -q ../scripts/rdfize-zip.sparql -v zip=graphql-2023-01-24.zip -v "file=domains/jacic_jacic-1.1/.*"                       > jacic_jacic-1.1.ttl
-sparql-anything.bat -q ../scripts/rdfize-zip.sparql -v zip=graphql-2023-01-24.zip -v "file=domains/limlab_PN001-1.1/.*"                      > limlab_PN001-1.1.ttl
-sparql-anything.bat -q ../scripts/rdfize-zip.sparql -v zip=graphql-2023-01-24.zip -v "file=domains/limlab_Test01-1.2/.*"                     > limlab_Test01-1.2.ttl
-sparql-anything.bat -q ../scripts/rdfize-zip.sparql -v zip=graphql-2023-01-24.zip -v "file=domains/molio_cciconstruction-1.0/.*"             > molio_cciconstruction-1.0.ttl
-sparql-anything.bat -q ../scripts/rdfize-zip.sparql -v zip=graphql-2023-01-24.zip -v "file=domains/mssk_mssk-0.1/.*"                         > mssk_mssk-0.1.ttl
-sparql-anything.bat -q ../scripts/rdfize-zip.sparql -v zip=graphql-2023-01-24.zip -v "file=domains/nbs_uniclass2015-1/.*"                    > nbs_uniclass2015-1.ttl
-sparql-anything.bat -q ../scripts/rdfize-zip.sparql -v zip=graphql-2023-01-24.zip -v "file=domains/pdt_pdt-1.0/.*"                           > pdt_pdt-1.0.ttl
-sparql-anything.bat -q ../scripts/rdfize-zip.sparql -v zip=graphql-2023-01-24.zip -v "file=domains/planbim_planbim-1/.*"                     > planbim_planbim-1.ttl
-sparql-anything.bat -q ../scripts/rdfize-zip.sparql -v zip=graphql-2023-01-24.zip -v "file=domains/promaterial_universaltypes-1.0/.*"        > promaterial_universaltypes-1.0.ttl
-sparql-anything.bat -q ../scripts/rdfize-zip.sparql -v zip=graphql-2023-01-24.zip -v "file=domains/sbe_swedishmaterials-1/.*"                > sbe_swedishmaterials-1.ttl
-sparql-anything.bat -q ../scripts/rdfize-zip.sparql -v zip=graphql-2023-01-24.zip -v "file=domains/testorg_TEST-0.1/.*"                      > testorg_TEST-0.1.ttl
-sparql-anything.bat -q ../scripts/rdfize-zip.sparql -v zip=graphql-2023-01-24.zip -v "file=domains/uniweimar_uniweimar-0.1/.*"               > uniweimar_uniweimar-0.1.ttl
-sparql-anything.bat -q ../scripts/rdfize-zip.sparql -v zip=graphql-2023-01-24.zip -v "file=domains/nlsfb_nlsfb2005-2.2/.*"                   > nlsfb_nlsfb2005-2.2.ttl
+#!/usr/bin/env bash
+
+set -eu
+
+# Prepare folders
+rm -rf ./tmp/ ./output/
+mkdir -p ./tmp/
+mkdir -p ./output/
+mkdir -p ./output/domains/
+
+ZIP=$1
+EXPORT_FOLDER=./tmp/
+unzip -q "$ZIP" -d "$EXPORT_FOLDER"
+
+# Export root data
+for json in "${EXPORT_FOLDER}"/*.json ; do
+  json_name=$(basename "$json" .json)
+  echo "Processing domain: $json_name"
+  sparql-anything -q ../scripts/rdfize.sparql -v "file=${json}" > "output/${json_name}.ttl"
+done
+
+# Export domain data from non empty domain folders
+find ./tmp/domains/* -type d -not -empty -print0 | while IFS= read -r -d '' domain_path
+do
+  domain_name=$(basename "${domain_path}")
+  echo "Processing domain: $domain_name"
+  sparql-anything -q ../scripts/rdfize-folder.sparql -v "folder=${domain_path}" -v "file=.*json" > "output/domains/${domain_name}.ttl"
+done

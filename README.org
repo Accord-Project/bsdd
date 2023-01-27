@@ -134,7 +134,7 @@ The Building Product Ontology (BPO) was developed as a core ontology for linked 
 :PROPERTIES:
 :CUSTOM_ID: benefits-of-graphql
 :END:
-GraphQL[[https://graphql.com]] as a query language for APIs and a runtime for fulfilling those queries with the existing data has many benefits over the traditional REST APIs: ability to avoid overfetching by specifying exactly which data and in which structure are to be returned from the server; ability to retrieve many resources in a single request; GraphQL service defines a set of types which completely describe the set of possible data queriable with that service. bSDD makes use of [[graphiql]] - a graphical interactive in-browser GraphQL IDE, available at [[https://test.bsdd.buildingsmart.org/graphiql/]]. 
+GraphQL [[https://graphql.com]] as a query language for APIs and a runtime for fulfilling those queries with the existing data has many benefits over the traditional REST APIs: ability to avoid overfetching by specifying exactly which data and in which structure are to be returned from the server; ability to retrieve many resources in a single request; GraphQL service defines a set of types which completely describe the set of possible data queriable with that service. bSDD makes use of [[graphiql]] - a graphical interactive in-browser GraphQL IDE, available at [[https://test.bsdd.buildingsmart.org/graphiql/]]. 
 Interactive browsing of GraphQL set of types available for bSDD can be obtained with GraphQL Voyager[[https://github.com/IvanGoncharov/graphql-voyager]] or [[https://ivangoncharov.github.io/graphql-voyager/]]. 
 
 ** Original BSDD Schema: GraphQL Voyager
@@ -145,9 +145,9 @@ We investigated original bSDD schema and datasets available at [[https://test.bs
 
 Overview (uncheck "Show leaf fields"):
 
-[[bsdd-graphql-voyager-overview.png][Figure 1a. ]]
+[[bsdd-graphql-voyager-overview.png]] Figure 1a.
 
-[[bsdd-graphql-voyager-Classification-ClassificationProperty.png][Figure 1b. ]]
+[[bsdd-graphql-voyager-Classification-ClassificationProperty.png]] Figure 1b.
 
 ** GraphQL Conversion to SOML Schema
 :PROPERTIES:

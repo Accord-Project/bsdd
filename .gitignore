@@ -3,7 +3,7 @@
 
 # Python
 .venv/
+graphql/__pycache__/*
 
 # Export
 data/
-graphql/__pycache__/bsdd_graphql_api.cpython-310.pyc

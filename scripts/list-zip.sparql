@@ -1,0 +1,24 @@
+# List files from a zip.
+# parameter values:
+# -v zip: zip filename or URL
+# -v file: file regexp pattern (default ~.*~)
+# sparql-anything -q list-zip.sparql -v zip=graphql-2023-01-24.zip -v file=domains/.*
+# See https://sparql-anything.readthedocs.io/en/latest/Configuration/#from-archive
+
+prefix xyz:  <http://sparql.xyz/facade-x/data/>
+prefix fx:   <http://sparql.xyz/facade-x/ns/>
+prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+prefix xsd:  <http://www.w3.org/2001/XMLSchema#>
+
+select ?file
+where {
+  service <x-sparql-anything:> {
+    bind(coalesce(?__file,".*") as ?pattern)
+    fx:properties fx:location ?_zip.
+    fx:properties fx:archive.matches ?pattern.
+    [] fx:anySlot ?file
+  }
+}
+
+# note: it returns only files not folders, eg 'file=domains/[^/]+' matches nothing

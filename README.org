@@ -140,6 +140,8 @@ Overview (uncheck "Show leaf fields"):
 
 [[bsdd-graphql-voyager-Classification-ClassificationProperty.png]] Figure 1b.
 
+As we can see, bSDD has 11 basic object types: Domains, Languages, Countries, Units (of measure), ReferenceDocuments, Classifications, Properties, ClassificationRelations, ClassificationProperties, ClassificationPropertyValues, PropertyValues, PropertyRelations. Properties and ClassificationProperties have most fields the same and differ in five fields: ~connectedPropertyCodes~[String] and ~relations~[PropertyRelation] belongs uniquely to ~Property~, ~isRequired~(Boolean), ~isWritable~(boolean), ~predefinedValue~(String), ~propertySet~(String) and ~symbol~9String) - to ~ClassificationProperty~. 
+
 ** GraphQL Conversion to SOML Schema
 :PROPERTIES:
 :CUSTOM_ID: graphql-conversion-to-soml-schema
@@ -210,7 +212,7 @@ python bsdd_export.py getDomain -v "URI=https://identifier.buildingsmart.org/uri
 bsdd-graphql-voyager-orig.html
 bsdd-graphql-voyager-refact.html
 
-graphql-IntrospectionQuery.graphql
+[[graphql-IntrospectionQuery.graphql]]
 
 bsdd-graphql-schema-orig.json
 bsdd-graphql-soml-orig.json
@@ -226,6 +228,106 @@ IFC-cableSegment-refact.ttl
 :PROPERTIES:
 :CUSTOM_ID: suggestions-for-improvement
 :END:
+
+** Return the Same Data Across APIs
+:PROPERTIES:
+:CUSTOM_ID: return-the-same-data-across-apis
+:END:
+We have compared three representations returned by the bSDD server:
+- JSON from the GraphQL API
+- JSON from the REST (entity) API
+- RDF  from the REST (entity) API
+
+We selected the most filled objects of each class (i.e. objects with maximum fields filled) and compared the fields in each of the three APIs, see [[https://github.com/Accord-Project/bsdd/tree/main/samples/1-*.json]]
+
+There are differences and omissions in some of the formats, as described in the table below.
+It would be better to return the same content in each of the formats.
+
+
+| Classification/property | GraphQL      | JSON API                                   | RDF API                |comment
+|------------------------+--------------+--------------------------------------------+------------------------+--------------------------------------------|
+| Classification/childs  | childs       | parentClassificationReference.namespaceUri | NONE                   | GraphQL points to child, JSON points to parent (1)
+| Classification/domain  | NONE         | NONE                                       | bsdd:Domain            | GraphQL and JSON API do not return property ~domain~ whereas RDF API returns it  |
+| Classification/domainNamespaceUri | NONE | domainNamespaceUri | NONE | GraphQL and RDF API do not return property ~domainNamespaceUri~ |
+| Property/domain  | NONE         | NONE                                       | bsdd:Domain            | GraphQL and JSON API do not return property ~domain~ whereas RDF API returns it  |
+| Property/domainNamespaceUri | NONE | domainNamespaceUri | NONE | GraphQL and RDF API do not return property ~domainNamespaceUri~ |
+| ClassificationProperty |              |                                            |                        | TODO: ClassificationProperty possesses 5 unique fields: ~isRequired~, ~isWritable~, ~predefinedValue~, ~propertySet~, ~symbol~. Property has uniquely ~connectedPropertyCodes~ and ~relations~ (TODO: think over: GraphQL and JSON overload the URL and use it for both ClassificationProperty and Property (2)            |
+| link to general property   | namespaceUri | namespaceUri                               | propertyNamespaceUri   | GraphQL and JSON have no real link, just the overloaded URL. The RDF prop is a string, should be URL (3) |
+| link to classification     |              |                                            | classificationProperty | RDF prop is misnamed, should be "classification" (4) |
+|                            |              |                                            |                        |                                                                                                          |
+
+Illustrations of the points above:
+- (1) GraphQL field ~childs~ appears when one queries for ~classification (namespaceUri:"...", includeChilds:true)~.
+    It includes a list of children classifications but with simple properties only.
+#+begin_src
+{
+  classification(namespaceUri: "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall", includeChilds: true) {
+    name
+    code
+    namespaceUri
+    childs {
+      classificationType
+      name
+    }
+  }
+}
+#+end_src
+results in
+#+begin_src json
+{
+  "data": {
+    "classification": {
+      "name": "IfcWall",
+      "code": "IfcWall",
+      "namespaceUri": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall",
+      "childs": [
+        {
+          "classificationType": "CLASS",
+          "name": "IfcWallStandardCase",
+        },
+        {
+          "classificationType": "CLASS",
+          "name": "IfcWall.ELEMENTEDWALL",
+        },
+        ...
+        }}}
+#+end_src
+
+- (1) JSON includes the inverse link (from child to parent), e.g. when one fetches the subclass ~IfcCableSegmentCABLESEGMENT~, one gets a parent link to ~IfcCableSegment~
+#+begin_src json
+// curl -s https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegmentCABLESEGMENT
+{
+  "referenceCode": "IfcCableSegmentCABLESEGMENT",
+  "parentClassificationReference": {
+    "namespaceUri": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment",
+#+end_src
+- (2,3) In GraphQL and JSON payload, a ~ClassificationProperty~ does not have a distinct URL, and cannot be obtained separately from the ~Classification~ in which it lives.
+  As a consequence, ClassificationProperties are not considered as first-class entities
+#+begin_src json
+// curl -s https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegmentCABLESEGMENT
+{
+  "referenceCode": "IfcCableSegmentCABLESEGMENT",
+  "classificationProperties": [
+    {
+      "name": "ACResistance",
+      "propertyCode": "ACResistance",
+      "propertyDomainName": "IFC",
+      "propertyNamespaceUri": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/ACResistance",
+#+end_src
+
+- (3) RDF includes the following attribute (string). Instead, it should be a relation (object property), e.g.  ~bsdd:property <prop/ACResistance>~
+#+begin_src turtle
+@base <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/>.
+<class/IfcCableSegmentCABLESEGMENT/ACResistance>
+  bsdd:PropertyNamespaceUri "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/ACResistance".
+#+end_src
+
+- (4) RDF includes the following relation. The source is a ~ClassificationProperty~ and the target is a ~Classification~, so the relation should be named ~classification~
+#+begin_src turtle
+@base <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/>.
+<class/IfcCableSegmentCABLESEGMENT/ACResistance>
+  bsdd:ClassificationProperty <class/IfcCableSegmentCABLESEGMENT>.
+#+end_src
 
 ** Improve Property Names
 :PROPERTIES:
@@ -601,107 +703,6 @@ For example, the classification indicated below has ClassificationProperties wit
 :END:
 TODO: all of  [Classification], [Classification!], [Classification]!, [Classification!]! are different. Their spec [Classification] allows [null,null,null] as an xanswer
 
-** Return the Same Data Across APIs
-:PROPERTIES:
-:CUSTOM_ID: return-the-same-data-across-apis
-:END:
-We have compared 3 representations returned by the bSDD server:
-- JSON from the GraphQL API
-- JSON from the REST (entity) API
-- RDF  from the REST (entity) API
-
-We obtained a couple of "rich" objects of each class (i.e. objects with maximum fields filled),
-and compared the fields in each of the 3 APIs, see [[https://github.com/Accord-Project/bsdd/tree/main/samples/1-*.json]]
-
-There are differences and omissions in some of the formats, as described in the table below.
-It would be better to return the same content in each of the formats.
-
-
-| Classification/property | GraphQL      | JSON API                                   | RDF API                |comment
-|------------------------+--------------+--------------------------------------------+------------------------+--------------------------------------------|
-| Classification/childs  | childs       | parentClassificationReference.namespaceUri | NONE                   | GraphQL points to child, JSON points to parent (1)
-| Classification/domain  | NONE         | NONE                                       | bsdd:Domain            | GraphQL and JSON API do not return property ~domain~ whereas RDF API returns it  |
-| Classification/domainNamespaceUri | NONE | domainNamespaceUri | NONE | GraphQL and RDF API do not return property ~domainNamespaceUri~ |
-| Property/domain  | NONE         | NONE                                       | bsdd:Domain            | GraphQL and JSON API do not return property ~domain~ whereas RDF API returns it  |
-| Property/domainNamespaceUri | NONE | domainNamespaceUri | NONE | GraphQL and RDF API do not return property ~domainNamespaceUri~ |
-| ClassificationProperty |              |                                            |                        | TODO: ClassificationProperty possesses 5 unique fields: ~isRequired~, ~isWritable~, ~predefinedValue~, ~propertySet~, ~symbol~. Property has uniquely ~connectedPropertyCodes~ and ~relations~ (TODO: think over: GraphQL and JSON overload the URL and use it for both ClassificationProperty and Property (2)            |
-| link to general property   | namespaceUri | namespaceUri                               | propertyNamespaceUri   | GraphQL and JSON have no real link, just the overloaded URL. The RDF prop is a string, should be URL (3) |
-| link to classification     |              |                                            | classificationProperty | RDF prop is misnamed, should be "classification" (4) |
-|                            |              |                                            |                        |                                                                                                          |
-
-Illustrations of the points above:
-- (1) GraphQL field ~childs~ appears when one queries for ~classification (namespaceUri:"...", includeChilds:true)~.
-    It includes a list of children classifications but with simple properties only.
-#+begin_src
-{
-  classification(namespaceUri: "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall", includeChilds: true) {
-    name
-    code
-    namespaceUri
-    childs {
-      classificationType
-      name
-    }
-  }
-}
-#+end_src
-results in
-#+begin_src json
-{
-  "data": {
-    "classification": {
-      "name": "IfcWall",
-      "code": "IfcWall",
-      "namespaceUri": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall",
-      "childs": [
-        {
-          "classificationType": "CLASS",
-          "name": "IfcWallStandardCase",
-        },
-        {
-          "classificationType": "CLASS",
-          "name": "IfcWall.ELEMENTEDWALL",
-        },
-        ...
-        }}}
-#+end_src
-
-- (1) JSON includes the inverse link (from child to parent), e.g. when one fetches the subclass ~IfcCableSegmentCABLESEGMENT~, one gets a parent link to ~IfcCableSegment~
-#+begin_src json
-// curl -s https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegmentCABLESEGMENT
-{
-  "referenceCode": "IfcCableSegmentCABLESEGMENT",
-  "parentClassificationReference": {
-    "namespaceUri": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment",
-#+end_src
-- (2,3) In GraphQL and JSON payload, a ~ClassificationProperty~ does not have a distinct URL, and cannot be obtained separately from the ~Classification~ in which it lives.
-  As a consequence, ClassificationProperties are not considered as first-class entities
-#+begin_src json
-// curl -s https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegmentCABLESEGMENT
-{
-  "referenceCode": "IfcCableSegmentCABLESEGMENT",
-  "classificationProperties": [
-    {
-      "name": "ACResistance",
-      "propertyCode": "ACResistance",
-      "propertyDomainName": "IFC",
-      "propertyNamespaceUri": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/ACResistance",
-#+end_src
-
-- (3) RDF includes the following attribute (string). Instead, it should be a relation (object property), e.g.  ~bsdd:property <prop/ACResistance>~
-#+begin_src turtle
-@base <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/>.
-<class/IfcCableSegmentCABLESEGMENT/ACResistance>
-  bsdd:PropertyNamespaceUri "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/ACResistance".
-#+end_src
-
-- (4) RDF includes the following relation. The source is a ~ClassificationProperty~ and the target is a ~Classification~, so the relation should be named ~classification~
-#+begin_src turtle
-@base <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/>.
-<class/IfcCableSegmentCABLESEGMENT/ACResistance>
-  bsdd:ClassificationProperty <class/IfcCableSegmentCABLESEGMENT>.
-#+end_src
-
 ** Improve GraphQL Results and Eliminate Errors
 :PROPERTIES:
 :CUSTOM_ID: improve-graphql-results-and-eliminate-errors
@@ -747,17 +748,6 @@ One domain has more than 5000 classifications, but returns only 5000 due to lack
 #+begin_src
 https://identifier.buildingsmart.org/uri/nbs/uniclass2015-1
 #+end_src
-
-
-
-
-
-
-
-
-
-
-
 
 "Classification with namespace URI 'https://identifier.buildingsmart.org/uri/fvhf/vhf-0.002/class/G5.04.01' not found"
 ]

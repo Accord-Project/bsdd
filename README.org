@@ -97,38 +97,29 @@ Linked building data, buildingSMART Data Dictionary, FAIR data, TODO more
 :PROPERTIES:
 :CUSTOM_ID: bsdd
 :END:
-The buildingSMART Data Dictionary (bSDD) [@buildingsmartinternationalBuildingSMARTDataDictionary] is a vocabulary
-structured according to ISO 12006-3 (2022) [@ISO1200632022] and ISO 23386 (2020) [@ISO233862020]
-that TODO.
+The buildingSMART Data Dictionary (bSDD) [@buildingsmartinternationalBuildingSMARTDataDictionary] is a multilingual hierarchically structured encyclopedia [@oraskariLiveWebOntology2021] of object concepts and their properties used in building information models (BIM). Predefined by some vendors sets of properties extending common property sets of Industry Foundation Classes (IFC) allow to describe specific domains (e.g. transportation) or specific building elements (e.g. doors, windows, stairs). bSDD is
+organised according to the Building Information Modelling methodology defined in ISO 23386 (2020) [@ISO233862020] following the language-independent information model used for the development of dictionaries storing information about construction work defined in ISO 12006-3 (2022) [@ISO1200632022]. 
 Basis for Interoperability TODO
 TODO currently consists of some 80,000 concepts with translations in multiple languages"
 
 @palosStateoftheartAnalysisProduct2012 "International Framework for Dictionaries (IFD) aka buildingSMART Data Dictionary (bSDD) is a very comprehensive solution, which aims to provide open complementary product data definitions, identification and distribution methods. The bSDD is a unified reference library of terms and properties, intended to support improved interoperability in the building and construction industry. The bSDD will be an open, shared, international terminology library for structuring object-oriented information exchange. ThebSDDisanobject-orienteddatabase,programmed with EXPRESS data modeling language. The library classifies and defines properties for structured identification of commonly used terms and concepts. The system assigns a Global Unique Identifier (GUID) for all defined terms entered into the system in order to enable data utilization in variety of structured documents and applications.
 
-@erikjonssonConsequencesImplementingBuildingSMART2015 "bSDD is an international standard developed by the neutral organization buildingSMART. It is a standard that defines the terminology surrounding BIM objects. Much research has been done on the potential benefits of BIM in general.
-The purpose of this thesis is to determine how a property development and construction company, that already works with BIM in many of its projects, would be affected by an implementation of the bsDD. The possible consequences of bsDD implementation are mapped out and analyzed through a literature review. In addition to this, a simulation is conducted with the purpose of showing how object libraries can be created on an organizational level.
+Reusable data dictionaries serving interoperation purposes are widely known in industry, for example, IEC Common Data Dictionary (IEC CDD) [@ieccdd] and eCl@ss[@eclass] - for electronic exchange of digital information across industries, ISO 15926 part 4 Reference Data Libraries [[https://rds.posccaesar.org/]] - for electronic exchange of digital information across process plant industries. 
 
-Reusable data dictionaries serving interoperation purposes are widely used in industry, for example, eClass[[]], ISO 15926 part 4 Reference Data Libraries [[https://rds.posccaesar.org/]], TODO more.    
 * Related Work
 :PROPERTIES:
 :CUSTOM_ID: related-work
 :END:
 
-bSDD returns RDF
-
-TODO: proper overview
-
-TODO MAYBE: review more ways of representing classes, props, prop sets. Eg IEC CDD (ISO PLIB), eClass...
-
-@beetzInteroperableDataModels2014 "bSDD vocabulary has been transformed into a configurable RDF dataset. On the meta-model level a number of different modeling approaches ranging from OWL to RDFS and SKOS have been implemented to evaluate the advantages and disadvantages of the respective modeling strategies"
-
-@oraskariLiveWebOntology2021
-- Generates specific RDF classes (e.g. ~IfcCableSegment~) and properties (e.g. ~ACResistance~).
-  Unlike it, we preserve the original bSDD structure (Domain, Classification, Property, etc) and only add specific improvements
-- It fetches bSDD elements on demand, rather than converting all of bSDD at once.
+According to buildingSMART technical roadmap [[https://www.buildingsmart.org/about/technical-roadmap/]] bSDD service provides output data in various formats and APIs, including RDF, thus making bSDD content higher reusable in Linked Data ecosystem, particularly with geographical data, regulations, product manufacturer data. However, Pauwels et al. in @pauwelsetal2016 note that there is no standard method to generate RDF graphs from bSDD API. Starting from @beetzInteroperableDataModels2014 where "bSDD vocabulary has been transformed into a configurable RDF dataset. On the meta-model level a number of different modeling approaches ranging from OWL to RDFS and SKOS have been implemented to evaluate the advantages and disadvantages of the respective modeling strategies" the work was continued In @pauwelterkaj2016 a complete translation of IFC from EXPRESS to OWL is presented,however lacking modularity and extensibility inherent to best Semantic Web practices @kebedeIntegrationManufacturersProduct2022. In @oraskariLiveWebOntology2021 it is proposed and implemented to generate from bSDD an OWL representation of a selected IFC element together with its property sets on the fly.    
 
 @kebedeIntegrationManufacturersProduct2022 "bSDD is a service deployed to facilitate a common language in the built environment while allowing the creation of multilingual dictionaries to enable designers to enrich their model and extend IFC.
 The Building Product Ontology (BPO) was developed as a core ontology for linked building product data to describe real product structures and properties. BPO uses bSDD to allow users to semantically enrich product descriptions by referencing the terms using bSDD URLs, selected as it comprises a wide range of terms employed in the AEC industry. This work shows where and how the bsDD can fit in the LBD ecosystem. The new development of bSDD, which embraces a shift toward publishing data classifications and properties as Linked Data, indicates a substantial step forward for the industry to take advantage of these technologies [55].
+
+TODO MAYBE: review more ways of representing classes, props, prop sets. Eg IEC CDD (ISO PLIB), eClass...
+
+Unlike @oraskariLiveWebOntology2021, we preserve the original bSDD structure (Domain, Classification, Property, etc) and only add specific improvements, described below, and convert the whole bSDD at once, taking more attention to preserving FAIR principles. 
+
 
 ** Benefits of GraphQL
 :PROPERTIES:
@@ -141,7 +132,7 @@ Interactive browsing of GraphQL set of types available for bSDD can be obtained 
 :PROPERTIES:
 :CUSTOM_ID: original-bsdd-schema-graphql-voyager
 :END:
-We investigated original bSDD schema and datasets available at [[https://test.bsdd.buildingsmart.org]] with [[https://rawgit2.com/Accord-Project/bsdd/main/bsdd-graphql-voyager-orig.html][GraphQL Voyager]]. In the Figure 1 the original schema is depicted in class and class+properties views.
+We investigated original bSDD schema and datasets available at [[https://test.bsdd.buildingsmart.org]] with [[https://rawgit2.com/Accord-Project/bsdd/main/bsdd-graphql-voyager-orig.html][GraphQL Voyager]]. In the Figure 1 the original schema is depicted in class and class+fields views.
 
 Overview (uncheck "Show leaf fields"):
 
@@ -159,7 +150,7 @@ To achieve this, the existing GraphQL schema will be converted to a [[https://pl
 which then will be manually improved and finally used to generate a better GraphQL API with the help of [[https://platform.ontotext.com/semantic-objects/][Ontotext Platform]].
 
 The repository contains a Python utility script [[./graphql2soml.py][graphql2soml.py]] that can generate a
-[[https://platform.ontotext.com/semantic-objects/soml/index.html][SOML schema]] from given GraphQL endpoint.
+[[https://platform.ontotext.com/semantic-objects/soml/index.html][SOML schema]] from a given GraphQL endpoint.
 
 Executing this script produces two files in the repository:
 
@@ -169,15 +160,6 @@ Executing this script produces two files in the repository:
 The generated SOML schema is valid and can be used immediately. However, there are issues inherited from the GraphQL schema which are described later.
 The purpose of the generated SOML schema is to serve as a starting point (instead of starting from scratch) for resolving the issues and improving the schema.
 Once this is done, the resulting schema will be saved in [[./bsdd-graphql-soml-refact.yaml][bsdd-graphql-soml-refact.yaml]].
-
-** Exporting bSDD data
-
-The repository includes several Python scripts used to work with bSDD data for which we need to create a virtual Python enthronement
-before using them:
-
-- Create a virtual environment with ~python3.9 -m venv .venv~
-- Activate it ~source .venv/bin/activate~
-- Install the required libraries ~pip install -r requirements.txt~
 
 *** GraphQL Data Dumps
 
@@ -201,15 +183,21 @@ The overall process is of the script is
 *** Exporting Data
 
 The repository includes a Python script ~bsdd_export.py~ which works with the GraphQL queries within the ~graphql/~ folder.
-It can invoke given query with or without variables and return the response to the user in JSON.
+It can invoke given query with or without variables and return the response to the user in JSON. To work with the script we need to create a virtual Python enthronement:
 
-Example for getting all domains:
+- Create a virtual environment with ~python3.9 -m venv .venv~
+- Activate it ~source .venv/bin/activate~
+- Install the required libraries ~pip install -r requirements.txt~
+
+Then, we can ask for particular types. Here are several examples: 
+
+Get all the domains:
 
 #+begin_src bash
 python bsdd_export.py getDomains -o domains.json
 #+end_src
 
-Example for getting particular domain:
+Get a particular domain:
 
 #+begin_src bash
 python bsdd_export.py getDomain -v "URI=https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3" -o ifc-4.3.json

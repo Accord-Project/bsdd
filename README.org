@@ -97,14 +97,15 @@ Linked building data, buildingSMART Data Dictionary, FAIR data, TODO more
 :PROPERTIES:
 :CUSTOM_ID: bsdd
 :END:
+Reusable data dictionaries serving interoperation purposes are widely known in industry, for example, IEC Common Data Dictionary (IEC CDD) [@ieccdd] and eCl@ss[@eclass] - for electronic exchange of digital information across industries, ISO 15926 part 4 Reference Data Libraries [[https://rds.posccaesar.org/]] - for electronic exchange of digital information across process plant industries. bsDD is the solution for the AECO domain.
+
 The buildingSMART Data Dictionary (bSDD) [@buildingsmartinternationalBuildingSMARTDataDictionary] is a multilingual hierarchically structured encyclopedia [@oraskariLiveWebOntology2021] of object concepts and their properties used in building information models (BIM). Predefined by some vendors sets of properties extending common property sets of Industry Foundation Classes (IFC) allow to describe specific domains (e.g. transportation) or specific building elements (e.g. doors, windows, stairs). bSDD is
 organised according to the Building Information Modelling methodology defined in ISO 23386 (2020) [@ISO233862020] following the language-independent information model used for the development of dictionaries storing information about construction work defined in ISO 12006-3 (2022) [@ISO1200632022]. 
-Basis for Interoperability TODO
-TODO currently consists of some 80,000 concepts with translations in multiple languages"
+bSDD was initiated to support improved interoperability in the building and construction industry.
+Palos et al. @palosStateoftheartAnalysisProduct2012 noted that bSDD is a very comprehensive solution aiming at provisioning of open complementary product data definitions, identification and distribution methods.
+bSDD currently keeps descriptions of nearly 80,000 concepts with translations in multiple languages, with 90+ domains ranging from roads and rails to DIN, Omniclass, Uniclass, IFC with extensions etc thus making it a widely accepted source of BIM-oriented and BIM-based data.
+The reference system assigns a Global Unique Identifier (GUID) for all defined terms entered into the system in order to enable data utilization in variety of structured documents and applications.
 
-@palosStateoftheartAnalysisProduct2012 "International Framework for Dictionaries (IFD) aka buildingSMART Data Dictionary (bSDD) is a very comprehensive solution, which aims to provide open complementary product data definitions, identification and distribution methods. The bSDD is a unified reference library of terms and properties, intended to support improved interoperability in the building and construction industry. The bSDD will be an open, shared, international terminology library for structuring object-oriented information exchange. ThebSDDisanobject-orienteddatabase,programmed with EXPRESS data modeling language. The library classifies and defines properties for structured identification of commonly used terms and concepts. The system assigns a Global Unique Identifier (GUID) for all defined terms entered into the system in order to enable data utilization in variety of structured documents and applications.
-
-Reusable data dictionaries serving interoperation purposes are widely known in industry, for example, IEC Common Data Dictionary (IEC CDD) [@ieccdd] and eCl@ss[@eclass] - for electronic exchange of digital information across industries, ISO 15926 part 4 Reference Data Libraries [[https://rds.posccaesar.org/]] - for electronic exchange of digital information across process plant industries. 
 
 * Related Work
 :PROPERTIES:
@@ -113,12 +114,13 @@ Reusable data dictionaries serving interoperation purposes are widely known in i
 
 According to buildingSMART technical roadmap [[https://www.buildingsmart.org/about/technical-roadmap/]] bSDD service provides output data in various formats and APIs, including RDF, thus making bSDD content higher reusable in Linked Data ecosystem, particularly with geographical data, regulations, product manufacturer data. However, Pauwels et al. in @pauwelsetal2016 note that there is no standard method to generate RDF graphs from bSDD API. Starting from @beetzInteroperableDataModels2014 where "bSDD vocabulary has been transformed into a configurable RDF dataset. On the meta-model level a number of different modeling approaches ranging from OWL to RDFS and SKOS have been implemented to evaluate the advantages and disadvantages of the respective modeling strategies" the work was continued In @pauwelterkaj2016 a complete translation of IFC from EXPRESS to OWL is presented,however lacking modularity and extensibility inherent to best Semantic Web practices @kebedeIntegrationManufacturersProduct2022. In @oraskariLiveWebOntology2021 it is proposed and implemented to generate from bSDD an OWL representation of a selected IFC element together with its property sets on the fly.    
 
-@kebedeIntegrationManufacturersProduct2022 "bSDD is a service deployed to facilitate a common language in the built environment while allowing the creation of multilingual dictionaries to enable designers to enrich their model and extend IFC.
-The Building Product Ontology (BPO) was developed as a core ontology for linked building product data to describe real product structures and properties. BPO uses bSDD to allow users to semantically enrich product descriptions by referencing the terms using bSDD URLs, selected as it comprises a wide range of terms employed in the AEC industry. This work shows where and how the bsDD can fit in the LBD ecosystem. The new development of bSDD, which embraces a shift toward publishing data classifications and properties as Linked Data, indicates a substantial step forward for the industry to take advantage of these technologies [55].
+In the survey @kebedeIntegrationManufacturersProduct2022 discussed is the question where and how the bsDD can fit in the Linked building data (LBD) ecosystem. Authors mention that bsDD has undertaken a new round of development showing a shift towards publishing data classifications and properties as Linked Data
 
 TODO MAYBE: review more ways of representing classes, props, prop sets. Eg IEC CDD (ISO PLIB), eClass...
 
-Unlike @oraskariLiveWebOntology2021, we preserve the original bSDD structure (Domain, Classification, Property, etc) and only add specific improvements, described below, and convert the whole bSDD at once, taking more attention to preserving FAIR principles. 
+Admitting the advances of bsDD community at providing data in RDF format we met some issues where accomodating these data for our purposes in the frame of ACCORD project [[https://github.com/Accord-Project/bsdd]], among them are different results obtained with different APIs, multiple URIs for same entities, various GraphQL implementatuon errors. In this paper we discuss these issues and propose a set of technical improvements following the best practices of Semantic Web and linked data to obtain "a semantically better version" of bsDD. We implemented and made available our solution using Ontotext Platform[[https://bsdd.ontotext.com/workbench/graphql]].
+
+Unlike @oraskariLiveWebOntology2021, we preserve the original bSDD structure (Domain, Classification, Property, etc) and only add specific improvements, described below, and convert the whole bSDD at once, taking more attention to preserving FAIR [[@GarijoPoveda2020]] principles. 
 
 
 ** Benefits of GraphQL

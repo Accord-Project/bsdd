@@ -9,12 +9,14 @@ delete {?x ?p ?old}
 insert {?x ?p ?new}
 where {
   values ?p {
-    bsdd:activationDateUtc
-    bsdd:deActivationDateUtc
-    bsdd:revisionDateUtc
-    bsdd:versionDateUtc}
+      bsdd:activationDateUtc
+      bsdd:deActivationDateUtc
+      bsdd:revisionDateUtc
+      bsdd:versionDateUtc
+      bsdd:lastUpdatedUtc
+    }
   ?x ?p ?old
-  bind(xsd:dateTime(replace(str(?old),"(.*?)\\..*","$1")) as ?new)
+  bind(xsd:dateTime(replace(str(?old), "(.*?)\\..*", "$1")) as ?new)
 };
 
 # convert strings to URIs, and shorten props as appropriate

@@ -1,34 +1,36 @@
 id: /soml/bsdd
-label: null
-creator: null
-created: null
-updated: null
-versionInfo: null
-config: null
+label: SOML schema for buildingSMART Data Dictionary (bSDD)
+creator: Vladimir Alexiev, Mihail Radkov
+created: 2022-01-13
+updated: 2022-02-01
+versionInfo: 1.0
+
 types:
   ClassificationType:
     values:
-    - name: CLASS
-    - name: COMPOSED_PROPERTY
-    - name: DOMAIN
-    - name: GROUP_OF_PROPERTIES
-    - name: REFERENCE_DOCUMENT
-    - name: ALTERNATIVE_USE
-    - name: MATERIAL
+      - name: CLASS
+      - name: COMPOSED_PROPERTY
+      - name: DOMAIN
+      - name: GROUP_OF_PROPERTIES
+      - name: REFERENCE_DOCUMENT
+      - name: ALTERNATIVE_USE
+      - name: MATERIAL
   PropertyValueKind:
     values:
-    - name: SINGLE
-    - name: RANGE
-    - name: LIST
-    - name: COMPLEX
-    - name: COMPLEX_LIST
+      - name: SINGLE
+      - name: RANGE
+      - name: LIST
+      - name: COMPLEX
+      - name: COMPLEX_LIST
+
 prefixes:
   bsdd: http://bsdd.buildingsmart.org/def#
+
 specialPrefixes:
   base_iri: https://identifier.buildingsmart.org/uri/
   vocab_iri: http://bsdd.buildingsmart.org/def#
   vocab_prefix: bsdd
-properties: {}
+
 objects:
   Country:
     type: bsdd:Country
@@ -661,5 +663,6 @@ objects:
       symbol:
         label: Unit symbol
         range: string
+
 rbac:
-  roles: {}
+  roles: { }

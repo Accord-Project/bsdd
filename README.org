@@ -655,6 +655,136 @@ and given just this ~id~, the server should be able to refetch the object.
 Most GraphQL implementations call this field simply ~id~,
 whereas bSDD, uses unwieldy property names like ~namespaceUri~.
 
+** Overlap of Entity Classes with classificationType
+Classifications are supposed to be single entities such as building components or materials.
+
+The key field ~classificationType~ specifies the kind of classification. Let's do a count:
+#+begin_src sparql
+PREFIX bsdd: <http://bsdd.buildingsmart.org/def#>
+select (count(*) as ?c) ?type where { 
+	?d bsdd:classificationType ?type
+} group by ?type order by desc(?c)
+#+end_src
+
+Here are the results, and we see that some ~classificationType~ overlap with predefined entity types:
+|     c | type                 | overlaps with       |
+|-------+----------------------+---------------------|
+| 29434 | "CLASS"              | ok                  |
+|   489 | "MATERIAL"           | ok                  |
+|   387 | "COMPOSED_PROPERTY"  | see next section    |
+|    29 | "DOMAIN"             | ~Domain~            |
+|    18 | "REFERENCE_DOCUMENT" | ~ReferenceDocument~ |
+
+We can examine some of these unusual classifications with this query:
+#+begin_src sparql
+PREFIX bsdd: <http://bsdd.buildingsmart.org/def#>
+select ?x ?name ?type {
+  ?x a bsdd:Classification; bsdd:classificationType ?type; bsdd:name ?name
+  filter(?type not in ("CLASS", "MATERIAL"))
+}
+#+end_src
+
+Examples of unusual classifications:
+- https://identifier.buildingsmart.org/uri/ATALANE/REX-OBJ-1.0/class/589b06ad-f802-468b-939c-e60436601a7a	
+  is a "REFERENCE_DOCUMENT" with name "décret 2011-321 (23/03/2011)"
+- https://identifier.buildingsmart.org/uri/acca/AASHTO-1.0/class/06	
+  is a "DOMAIN" with name "Bridge Superstructure".
+  This reflects the hierarchical nature of the AASHTO-1.0 classification, which we can see clearly with the following query.
+  But since bSDD allows the definition of domain hierarchy, we're not sure why "Bridge Superstructure" is "DOMAIN" and not "CLASS"
+
+#+begin_src sparql
+PREFIX bsdd: <http://bsdd.buildingsmart.org/def#>
+select ?code ?name ?type where { 
+  ?x a bsdd:Classification; bsdd:name ?name; bsdd:code ?code; bsdd:classificationType ?type.
+  filter(strstarts(str(?x),"https://identifier.buildingsmart.org/uri/acca/AASHTO-1.0/class/06"))
+} order by ?code
+#+end_src
+|  code | name                  | type   |
+|-------+-----------------------+--------|
+|    06 | Bridge Superstructure | DOMAIN |
+| 06.01 | Bearing               | CLASS  |
+| 06.02 | Curb                  | CLASS  |
+| 06.03 | Deck                  | CLASS  |
+| 06.04 | Deck Drain            | CLASS  |
+| 06.05 | Deck Joints           | CLASS  |
+| 06.06 | Haunch                | CLASS  |
+| 06.07 | Girder                | CLASS  |
+| 06.08 | Median                | CLASS  |
+| 06.09 | Parapet (Barrier)     | CLASS  |
+| 06.10 | Railing               | CLASS  |
+| 06.11 | Sidewalk              | CLASS  |
+| 06.12 | Sound Wall (Barrier)  | CLASS  |
+| 06.13 | Transverse Member     | CLASS  |
+
+
+We can posit (guess) two reasons for this structural problem:
+- The bSDD data model does not provide a way to model sub-domains, or attach reference documents to specific domains
+- Some bSDD data contributors use ~Classification~ as a "dump" of all kinds of data, not just single entities
+
+** Modeling of Complex Properties
+
+The bSDD data model allows the modeling of complex properties that are composed of other properties:
+The key attribute ~propertyValueKind~ has values "Complex" and "ComplexList", used in combination with ~connectedProperties~.
+- These key values are defined for ~Property~ and ~ClassificationProperty~
+- However, ~connectedPropertyCodes~ is defined only for ~Property~
+- More importantly, these key values are not actually used:
+
+#+begin_src sparql
+PREFIX bsdd: <http://bsdd.buildingsmart.org/def#>
+select (count(?prop) as ?props) (count(?classProp) as ?classProps) ?kind where { 
+    {?prop a bsdd:Property; bsdd:propertyValueKind ?kind} union
+    {?classProp a bsdd:ClassificationProperty; bsdd:propertyValueKind ?kind}
+} group by ?type ?kind order by desc(?props)
+#+end_src  
+| props | classProps | kind     |
+|-------+------------+----------|
+| 33038 |      95241 | "SINGLE" |
+|  1257 |       4833 | "LIST"   |
+|   820 |       3490 | "RANGE"  |
+
+~connectedProperty~ is used only on 7 props (and no classificationProps):
+#+begin_src sparql
+PREFIX bsdd: <http://bsdd.buildingsmart.org/def#>
+select ?prop (group_concat(?code) as ?connectedPropCodes) where { 
+	?prop  bsdd:connectedPropertyCode ?code
+} group by ?prop
+#+end_src
+| prop                                                                                | connectedPropCodes            | comments                                                 |
+|-------------------------------------------------------------------------------------+-------------------------------+----------------------------------------------------------|
+| https://identifier.buildingsmart.org/uri/bs-agri/fruitvegs-1.0/prop/volume          | "height depth width diameter" | Just a sample, not a real domain                         |
+| https://identifier.buildingsmart.org/uri/bs-agri/fruitvegs-1.1/prop/volume          | "height depth width diameter" | Just a sample, not a real domain                         |
+| https://identifier.buildingsmart.org/uri/uniweimar/uniweimar-0.1/prop/TestObjective | "ComponentID StructureID"     | TestObjective relates to ComponentID and StructureID     |
+| https://identifier.buildingsmart.org/uri/uniweimar/uniweimar-0.1/prop/ExpansionWave | "Frequency"                   | Seems the connection should be symmetric, why is it not? |
+| https://identifier.buildingsmart.org/uri/uniweimar/uniweimar-0.1/prop/CPicture      | "BPicture APicture"           | A complete cluster of 3 connected props                  |
+| https://identifier.buildingsmart.org/uri/uniweimar/uniweimar-0.1/prop/BPicture      | "CPicture APicture"           | A complete cluster of 3 connected props                  |
+| https://identifier.buildingsmart.org/uri/uniweimar/uniweimar-0.1/prop/APicture      | "CPicture BPicture"           | A complete cluster of 3 connected props                  |
+
+The meaniing of ~connectedPropertyCodes~ is not defined:
+- Is it a symmetric/equivalence relation between properties?
+- Or is it used to point from a "master" property to its "subsidiary properties"?
+The examples don't clarify this question.
+
+Instead of using ~connectedPropertyCode~ to describe complex properties, some people have used classifications with type "COMPOSED_PROPERTY".
+One such example is https://identifier.buildingsmart.org/uri/buildingsmart-fr/BRIDGE-MINnD-1.0/class/609952491
+with name "Pile location" and definition "Gather properties to locate a pile".
+We can see the properties comprising this "COMPOSED_PROPERTY" by using the usual link ~Classification.classificationProperty~:
+#+begin_src sparql
+PREFIX bsdd: <http://bsdd.buildingsmart.org/def#>
+select ?type ?code ?name ?def {
+  bind(<https://identifier.buildingsmart.org/uri/buildingsmart-fr/BRIDGE-MINnD-1.0/class/609952491> as ?class)
+  {bind(?class as ?x)} union {?class bsdd:classificationProperty ?x}
+  ?x a ?type; bsdd:code ?code; bsdd:name ?name
+  optional {?x bsdd:definition ?def}
+}
+#+end_src
+| type                                                     | code         | name                            | def                                             |
+|----------------------------------------------------------+--------------+---------------------------------+-------------------------------------------------|
+| http://bsdd.buildingsmart.org/def#Classification         | 609952491    | Pile location                   | Gather properties to locate a pile              |
+| http://bsdd.buildingsmart.org/def#ClassificationProperty | PR277312330  | Elevation at the bottom of pile | Height at the bottom of the pile                |
+| http://bsdd.buildingsmart.org/def#ClassificationProperty | PR1084319020 | Elevation at the top of pile    | Height at the top of the pile                   |
+| http://bsdd.buildingsmart.org/def#ClassificationProperty | PR1964355937 | Skew angle at pile location     | Angle between the bridge axis and the pile axis |
+| http://bsdd.buildingsmart.org/def#ClassificationProperty | PR993801653  | Station at pile location        | Curvilinear abscissa at pile location           |
+
 ** All Significant Classes Should Have URL
 :PROPERTIES:
 :CUSTOM_ID: all-significant-classes-should-have-url
@@ -780,7 +910,7 @@ Here is a list of all strings that are candidates to be converted to objects:
   Should become relation to ~ReferenceDocument~
 - ~relatedIfcEntityNames~: since IFC is present as a bSDD Domain, could be converted to a relation to the respective IFC Classification
 
-  TODO: PropSet should be made an entoity, it's too important to be a mere string
+TODO: PropSet should be made an entity, it's too important to be a mere string
 
 ** Property vs ClassificationProperty: Use Distinct URLs
 :PROPERTIES:
@@ -863,12 +993,223 @@ This fragment can be corrected as follows:
 :END:
 The following classes are very similar.
 Many of the same fields are copied between them, with no modularity or inheritance:
-- ~Property~ and ~ClassificationProperty~: we need to add some sort of relation or inheritance between them
+- ~Property~ and ~ClassificationProperty~
 - ~PropertyValue~ and ~ClassificationPropertyValue~: in fact are the same.
   These are "value objects" (simple immutable objecst), so there's absolutely no need to have two different classes
 
-~Property~ is a general property definition, while ~ClassificationProperty~ is a property defined (or modified) locally to a ~Classification~.
-TODO
+~Property~ is a general property definition, while ~ClassificationProperty~ is a property modified locally to a ~Classification~.
+But since there are no rules which fields of ~Property~ are reused in  ~ClassificationProperty~,
+the latter copies pretty much all fields from the former.
+
+For example, the prop https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/HandicapAccessible
+"Indication that this object is designed to be accessible by the handicapped"
+is used for all kinds of spaces, as indicated by its ~propertySet~ "Pset_SpaceCommon".
+There are over 300 classProps that use the indicated prop:
+#+begin_src sparql
+PREFIX bsdd: <http://bsdd.buildingsmart.org/def#>
+select ?propName ?class ?className ?classPropName where {
+  bind(<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/HandicapAccessible> as ?prop)
+  ?prop bsdd:name ?propName.
+  ?classProp bsdd:property ?prop; bsdd:name ?classPropName. 
+  ?class bsdd:classificationProperty ?classProp; bsdd:name ?className
+} order by ?className
+#+end_src
+
+Note: a lot of these are duplicated between the two domains ~acca/ACCAtest-0.1, molio/cciconstruction-1.0~, eg:
+- https://identifier.buildingsmart.org/uri/acca/ACCAtest-0.1/class/A-FAA vs
+- https://identifier.buildingsmart.org/uri/molio/cciconstruction-1.0/class/A-FAA
+
+The problem is that all these classProps copy the same field values from the prop, over and over again:
+#+begin_src sparql
+PREFIX bsdd: <http://bsdd.buildingsmart.org/def#>
+select ?className ?classPropName ?field ?value1 ?value2 where {
+  bind(<https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/HandicapAccessible> as ?prop)
+  ?classProp bsdd:property ?prop; bsdd:name ?classPropName.
+  ?class bsdd:classificationProperty ?classProp; bsdd:name ?className.
+  ?prop ?field ?value1.
+  ?classProp ?field ?value2.
+  filter(?field not in (rdf:type))
+  filter(?value1 != ?value2)
+}
+#+end_src
+
+We also investigated the same problems across **all** props.
+We ended up with a lot more complicated query:
+#+begin_src sparql
+PREFIX bsdd: <http://bsdd.buildingsmart.org/def#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+select ?className ?classPropName ?field ?value1 ?value2 where {
+  ?classProp bsdd:property ?prop; bsdd:name ?classPropName.
+  ?class bsdd:classificationProperty ?classProp; bsdd:name ?className.
+  optional {?prop ?field ?val1}
+  optional {?classProp ?field ?val2}
+  filter(?field not in (rdf:type, bsdd:allowedValue, bsdd:connectedPropertyCode, bsdd:countryOfUse, bsdd:name, bsdd:description, bsdd:textFormat))
+  bind(replace(str(?val1),"[ \\n\\t]*(.*?)[ \\n\\t]*","$1") as ?value1)
+  bind(replace(str(?val2),"[ \\n\\t]*(.*?)[ \\n\\t]*","$1") as ?value2)
+  filter(!bound(?value1) || !bound(?value2) || ?value1 != ?value2)
+}
+#+end_src
+
+It does the following:
+- Allows for differences of optional fields, i.e. present in Property but missing in ClassificationProperty or vice versa
+- Trims leading and trailing whitespace from field values (see next section)
+- Ignores ~rdf:type~ because it's naturally different (~bsdd:Property~ vs ~bsdd:ClassificationProperty~)
+- Ignores ~bsdd:name, bsdd:description~ because minor variations are often present. Example for name:
+  "Inhalt(Menge)jeBestelleinheit" vs "Inhalt_(Menge)_je_Bestelleinheit"
+- Ignores ~bsdd:allowedValue, bsdd:connectedPropertyCode, bsdd:countryOfUse~ because these multi-valued fields are not so easy to compare (separate queries would be needed for this)
+- Ignores ~bsdd:textFormat~ because we saw only invalid values, such as "" and "F.001"
+
+Valid changes include:
+- ~min/maxInclusive/Exclusive~: e.g. "Height" is defined to have a valid range 0..5000, but in the class "Apple" it's restricted to 1..25.
+  However, we have seen this only in sample domains
+- ~unit~, eg from "m" to "mm" or "cm". Ideally, this should happen only if the ~physicalQuantity~ and ~dimension~ are preserved but that is often not the case:
+  - "Pitting": "Profondità in media": unit "²" vs "mm" (which is invalid)
+  - "Pitting": "Entità del fenomeno (sup)": unit "m" vs "m²".
+    It seems there's uncertainty how surface defects (pitting, erosion, patina) should be measured: as length/diameter or as area.
+  
+** Trim Leading, Trailing, Consecutive Whitespace
+
+Many bSDD fields are defined as ~xsd:string~.
+However, certain whitespaces in strings can be confusing and are not semantically meaningful
+(i.e. two values differing only by such whitespace must not be considered to be different):
+- Leading and Trailing whitespaces should not be present
+- Consecutive whitespaces should not be present
+- Tabs should not be used: use spaces instead
+- Newlines are permissible only in a few cases, but should not be used to describe enumerations
+The datatypes ~xsd:TOKEN~ and ~xsd:NMTOKENS~ have restrictions in this regard
+
+The following query finds some of these cases:
+#+begin_src sparql
+select * {
+  ?x ?field ?value
+  filter(regex(str(?value),"^[ \\n\\t]|[ \\n\\t]$"))
+}
+#+end_src
+
+Examples where this happens (not a comprehensive list):
+- ~bsdd:dataType~ (eg "Real "): this is a crucially important key fields that must be controlled!!!
+- ~bsdd:description~ that is an enumeration. Should be expressed as ~allowedValues~. Eg in https://identifier.buildingsmart.org/uri/engisis/RFI-02/prop/S25750_0010:
+
+#+begin_src 
+"EL=Elettronica, 
+SE=Semi-elettronica, 
+EM=Elettromeccanica,
+EMS=Elettromeccanica CPS, 
+STI= Sistema Telef. Integr.(STI).
+
+EL=Centrale Telefonica Elettronica, 
+SE=Centrale Telefonica Semi-Elettronica
+ EM= Centrale Telefonica Elettromeccanica, 
+EMS= Centrale Telefonica Elettromeccanica CPS, 
+STI=  Centrale STI (Sistema Telefonico Integrato)
+"
+#+end_src
+
+The bSDD data entry or data ingest systems should have validations to prevent such whitespace.
+Eg we could define SHACL rules to prevent such cases.
+
+** Unicode Breakage
+
+There are Unicode problems in some ~bsdd:description~.
+Eg in
+https://identifier.buildingsmart.org/uri/buildingsmart-de/bSDTLS-1/prop/02-02-01-010 :
+"Zeit der m�glichen Verarbeitung vor Aush�rtung in [min] bei +23�C und 50% rel. Luftfeuchtigkeit
+"
+(also has a trailing newline)
+
+** Unresolved HTML Entities
+HTML Entities are not resolved in some ~bsdd:description~. I.e. instead of real chars, they are represented as HTML encodings.
+Eg in https://identifier.buildingsmart.org/uri/engisis/RFI-02/prop/S27300_0200 :
+"(*)
+Pu&#242; essere valorizzato un solo valore. SCIA = valorizzabile per le attivit&#224; di tipo A o per le attivit&#224; di tipo B o C nel caso in cui a seguito della valutazione favorevole del progetto si sia presentata la SCIA (ma non sia stato ancora rilasciato copia del verbale della visita tecnica dei VVF -attivit&#224; di tipo A o B- o il CPI -attivit&#224; ...
+
+** Improve Physical Quantities and Units
+
+Props have 3 characteristics that should be closely correlated:
+- ~dimension~: dimension vector as 7 integers in format: 
+  L=Length M=Mass T=Time I=Electric current Θ=Thermodynamic temperature N=Amount of substance J=Luminous intensity.
+  Eg ~"1 1 -2 0 0 0 0"~ represents ~Force=Length*Mass/Time^2~
+- ~unit~: unit of measure, which should be compatible with the dimension.
+  Eg "m, cm, mm, in" are all compatible with Length (~"1 0 0 0 0 0 0"~)
+  - Unfortunately the units are not spelled consistently, nor are compatible with the entity ~Unit~.
+    There is some effort to incorporate (or migrate towards?) the QUDT ontology:
+    some props have attribute ~qudtUnit~ in the JSON API.
+  - But this is not the right approach: ~qudtUnit~ should be attached to ~Unit~, or should replace ~Property.unit~
+  - Also, this migration is not yet implemented
+- ~physicalQuantity~: physical quantity being measured, should be compatible with the dimension.
+  Eg "Height, Width, Diameter" are all compatible with Length
+
+The following query finds all combinations of the 3 characteristics:
+#+begin_src sparql
+PREFIX bsdd: <http://bsdd.buildingsmart.org/def#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+select ?dim ?unit ?quant (count(*) as ?props) {
+  ?x bsdd:unit ?unit; bsdd:physicalQuantity ?quant; bsdd:dimension ?dim
+} group by ?dim ?unit ?quant  order by ?dim
+#+end_src
+There are 60 combinations, too many to present here. A lot of them are due to different spelling of ~physicalQuantity~, which is free text, eg:
+- "Longueur" vs "Länge | de-DE"
+- "Force" vs "Kraft | de-DE"
+- "Epaisseur" vs "Thickness"
+This is not the rigth approach, because eg one cannot find all Thickness properties easily.
+QUDT provides URLs for various measurable quantities, and labels in numerous languages.
+
+Let's ignore ~physicalQuantity~, but allow some of ~dimension, unit~ to be missing:
+#+begin_src sparql
+PREFIX bsdd: <http://bsdd.buildingsmart.org/def#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+select ?dim ?unit (count(*) as ?props) {
+  {?x a bsdd:Property} union {?x a bsdd:ClassificationProperty}
+  optional {?x bsdd:unit ?unit}
+  optional {?x bsdd:dimension ?dim}
+} group by ?dim ?unit order by ?dim
+#+end_src
+Now there are 260 combinations! Specifically:
+- 134698 props have no ~dimension~. This is IMHO not ok
+  - 2434 props have ~dimension~ "" (the empty string). This is not ok
+- 107861 props have no ~unit~. This is ok for enumerated and Boolean props, and may be ok for some of the dimensionless props
+- 104887 props have neither ~unit~ nor ~dimension~. This is ok for enumerated and Boolean props only
+- 29811 props have ~unit~ but no ~dimension~. This is not ok!!! Eg:
+  - 38 props with unit "m" have the correct dimension vector "1 0 0 0 0 0 0", but 1529 props have no dimension.
+  - 579 props with unit "mm" have the correct dimension vector "1 0 0 0 0 0 0", but 14983 props have no dimension, and 4 have the wrong dimension "2 0 3 0 0 0 0"!
+
+Query for the last observation (about unit "mm"):
+#+begin_src sparql
+PREFIX bsdd: <http://bsdd.buildingsmart.org/def#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+select ?dim (count(*) as ?props) {
+  {?x a bsdd:Property} union {?x a bsdd:ClassificationProperty}
+  ?x bsdd:unit "mm"
+  optional {?x bsdd:dimension ?dim}
+} group by ?dim order by ?dim
+#+end_src
+
+We can find these defective props as follows:
+#+begin_src sparql
+PREFIX bsdd: <http://bsdd.buildingsmart.org/def#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+select * {
+  {?x a bsdd:Property} union {?x a bsdd:ClassificationProperty}
+  ?x bsdd:unit "mm"; bsdd:dimension "2 0 3 0 0 0 0"; bsdd:name ?name; bsdd:code ?code
+} 
+#+end_src
+They all represent the prop EF007220 "Busbar thickness"
+
+** No Rules How to Express Lack of Data
+
+There are no rules how to express the lack of ~physicalQuantity~ for dimensionless props (eg count, percentage) or enumerated props (having a list of ~allowedValues~).
+For example:
+- Prop "Caractérisation du sol" ("Soil characterization")
+  in class "Teneur en eau du sol" ("Soil water content")
+  has ~physicalQuantity~ "sans grandeur" ("without magnitude")
+  because it's a dimensionless quantity.
+- Prop "Document de référence de mise en œuvre d'un revêtement de sol résilient" ("Reference document for the implementation of a resilient floor covering")
+  in class "Revêtement de sol résilient PVC à queues d'aronde et type puzzle" ("PVC resilient floor covering with dovetails of type puzzle")
+  has ~physicalQuantity~ "Without"
+  because it's an enumeration.
+- There are 4 props with ~physicalQuantity~ "N/A" but ~unit~ "m": this makes no sense (the quantity should be "Length")
+
+It's better to omit ~physicalQuantity~ altogether, rather than use a variety of phrases to indicate NONE.
 
 ** Add More Classes and Relations
 :PROPERTIES:
@@ -877,7 +1218,6 @@ TODO
 - PropertySet
 - DomainVersion
 - CountrySubdivision
-
 
 
 ** Add GraphQL Pagination
@@ -1253,17 +1593,17 @@ There are various things to fix in the Raw RDF.
 We wrote the SPARQL Update script [[./scripts/transform.ru][transform.ru]] (~.ru~ is teh W3C standard extension for this type of file).
 It does the following:
 - Cut out fractional seconds from date-times, and add datatype ~xsd:dateTime~
-  - This pertains to ~activationDateUtc deActivationDateUtc revisionDateUtc versionDateUtc~
+  - This pertains to ~activationDateUtc deActivationDateUtc lastUpdatedUtc revisionDateUtc versionDateUtc~
   - ~lastUpdatedUtc~ has overly-specific timestamps to the precision of 10e-7 seconds, eg ~2022-12-21T08:24:16.8080608~.
-    We cut out the fractional part of seconds because the GraphQL scalar type ~DateTime~ as currently implemented in the Ontotext Platform doesn't support such precision
-    (nor do we see any business need for it),
+    We cut out the fractional seconds because the GraphQL scalar type ~DateTime~ as currently implemented in the Ontotext Platform doesn't support such precision
+    (nor do we see any business need for it in BSDD),
   - However, XSD allows any number of digits in the [[https://www.w3.org/TR/xmlschema11-2/#nt-seFrag][decimal part of seconds]],
-    so we have posted an enhancement request [[https://ontotext.atlassian.net/browse/PLATFORM-4728][(PLATFORM-4728)]] to allow this. 
+    so we have posted an enhancement request [[https://ontotext.atlassian.net/browse/PLATFORM-4728][(PLATFORM-4728)]] to allow this.
 - Convert strings to URIs, and shorten props as appropriate
   - This pertains to all props called ~*Uri~, and the following are shortened:
 | full                               | short                     | comment                                                                                |
 |------------------------------------+---------------------------+----------------------------------------------------------------------------------------|
-| bsdd:domainNamespaceUri            | bsdd:domain               | We point to the ~Domain~ not to its Uri                                                |
+| bsdd:domainNamespaceUri            | bsdd:domain               | We point to the ~Domain~ not to its URI                                                |
 | bsdd:relatedClassificationUri      | bsdd:related              | We use the pair ~relation/related~ for both ~PropertyRelation, ClassificationRelation~ |
 | bsdd:relatedPropertyUri            | bsdd:related              | We use the pair ~relation/related~ for both ~PropertyRelation, ClassificationRelation~ |
 | bsdd:parentClassificationReference | bsdd:parentClassification | We point to the parent ~Classification~, so "reference" is parasitic                   |

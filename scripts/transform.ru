@@ -9,12 +9,12 @@ delete {?x ?p ?old}
 insert {?x ?p ?new}
 where {
   values ?p {
-      bsdd:activationDateUtc
-      bsdd:deActivationDateUtc
-      bsdd:revisionDateUtc
-      bsdd:versionDateUtc
-      bsdd:lastUpdatedUtc
-    }
+    bsdd:activationDateUtc
+    bsdd:deActivationDateUtc
+    bsdd:lastUpdatedUtc
+    bsdd:revisionDateUtc
+    bsdd:versionDateUtc
+  }
   ?x ?p ?old
   bind(xsd:dateTime(replace(str(?old), "(.*?)\\..*", "$1")) as ?new)
 };
@@ -69,6 +69,7 @@ where {
   values (?plural ?singular) {
     (bsdd:allowedValues                  bsdd:allowedValue                 )
     (bsdd:classificationProperties       bsdd:classificationProperty       )
+    (bsdd:childs                         bsdd:childClassification          )
     (bsdd:connectedPropertyCodes         bsdd:connectedPropertyCode        )
     (bsdd:countriesOfUse                 bsdd:countryOfUse                 )
     (bsdd:dynamicParameterPropertyCodes  bsdd:dynamicParameterPropertyCode )
@@ -176,8 +177,7 @@ where {
 # remove redundant namespaceUri when equal to the node's URI
 delete where {?uri bsdd:namespaceUri ?uri};
 
-# Link domains with their classifications based on their IRIs
-PREFIX bsdd: <http://bsdd.buildingsmart.org/def#>
+# Link domains to classifications based on their IRIs
 insert {
     ?d bsdd:classification ?s
 } where {

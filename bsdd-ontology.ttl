@@ -1,2 +1,6 @@
+# For now we define only some pairs of inverse properties
 
-bsdd:relation owl:inverseOf bsdd:related.
+bsdd:relation            owl:inverseOf bsdd:related.
+bsdd:childClassification owl:inverseOf bsdd:parentClassification.
+
+# TODO: proper definition of BSDD classes and properties

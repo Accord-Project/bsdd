@@ -4,7 +4,7 @@ prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 prefix xsd:  <http://www.w3.org/2001/XMLSchema#>
 
-# Add datatype xsd:dateTime to date-times
+# Cut out fractional seconds from date-times, and add datatype xsd:dateTime
 delete {?x ?p ?old}
 insert {?x ?p ?new}
 where {
@@ -14,7 +14,7 @@ where {
     bsdd:revisionDateUtc
     bsdd:versionDateUtc}
   ?x ?p ?old
-  bind(xsd:dateTime(?old) as ?new)
+  bind(xsd:dateTime(replace(str(?old),"(.*?)\\..*","$1")) as ?new)
 };
 
 # convert strings to URIs, and shorten props as appropriate

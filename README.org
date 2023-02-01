@@ -1242,7 +1242,6 @@ As you can see the structure is very similar, with empty blank nodes in various 
   bsdd:synonyms               []  ;
   bsdd:versionDateUtc         "2022-12-31T00:00:00"
 ] .
-
 #+end_src
 
 ** Transforming RDF using SPARQL Update
@@ -1253,8 +1252,13 @@ As you can see the structure is very similar, with empty blank nodes in various 
 There are various things to fix in the Raw RDF.
 We wrote the SPARQL Update script [[./scripts/transform.ru][transform.ru]] (~.ru~ is teh W3C standard extension for this type of file).
 It does the following:
-- Add datatype ~xsd:dateTime~ to date-times.
-  - This pertains to ~bsdd:activationDateUtc bsdd:deActivationDateUtc bsdd:revisionDateUtc bsdd:versionDateUtc~
+- Cut out fractional seconds from date-times, and add datatype ~xsd:dateTime~
+  - This pertains to ~activationDateUtc deActivationDateUtc revisionDateUtc versionDateUtc~
+  - ~lastUpdatedUtc~ has overly-specific timestamps to the precision of 10e-7 seconds, eg ~2022-12-21T08:24:16.8080608~.
+    We cut out the fractional part of seconds because the GraphQL scalar type ~DateTime~ as currently implemented in the Ontotext Platform doesn't support such precision
+    (nor do we see any business need for it),
+  - However, XSD allows any number of digits in the [[https://www.w3.org/TR/xmlschema11-2/#nt-seFrag][decimal part of seconds]],
+    so we have posted an enhancement request [[https://ontotext.atlassian.net/browse/PLATFORM-4728][(PLATFORM-4728)]] to allow this. 
 - Convert strings to URIs, and shorten props as appropriate
   - This pertains to all props called ~*Uri~, and the following are shortened:
 | full                               | short                     | comment                                                                                |

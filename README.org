@@ -1295,6 +1295,7 @@ It does the following:
   - ~ClassificationRelation~: is just a pair of ~related~ Properties, no own URI
   - ~PropertyRelation~: is just a pair of ~related~ Properties, no own URI
 - Remove redundant ~namespaceUri~ when equal to the node's URI
+- Link domains with their classifications based on their IRIs
 
 This SPARQL Update script is class-independent (works on any Raw bSDD RDF), so it can be used in two ways:
 - On an individual RDF file by using Jena's ~update~, for testing

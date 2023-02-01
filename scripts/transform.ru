@@ -175,3 +175,13 @@ where {
 
 # remove redundant namespaceUri when equal to the node's URI
 delete where {?uri bsdd:namespaceUri ?uri};
+
+# Link domains with their classifications based on their IRIs
+PREFIX bsdd: <http://bsdd.buildingsmart.org/def#>
+insert {
+    ?d bsdd:classification ?s
+} where {
+    ?d a bsdd:Domain .
+    ?s a bsdd:Classification .
+    FILTER(strstarts(str(?s), str(?d)))
+};

@@ -1,24 +1,19 @@
 import json
 
-import requests
 import yaml
+
+from bsdd_graphql_api import introspect
 
 # TODO: Move these to a .conf file that will be read by the tool
 
-# URL of the GraphQL API that this tool will convert to SOML
-GRAPHQL_API = "https://bs-dd-api-prototype.azurewebsites.net/graphql"
-
 # Path to the SOML template to use as a base
-SOML_TEMPLATE = "bssd-soml-template.yaml"
-
-# Path to an introspection GraphQL query
-INTROSPECTION_QUERY = "graphql-IntrospectionQuery.graphql"
+SOML_TEMPLATE = "../bssd-soml-template.yaml"
 
 # Path to a JSON where the introspection schema will be saved to
-INTROSPECTION_JSON = "bsdd-graphql-schema-orig.json"
+INTROSPECTION_JSON = "../bsdd-graphql-schema-orig.json"
 
 # Path to a YAML file where the final SOML schema will be saved to
-PRODUCED_SOML = "bsdd-graphql-soml-orig.yaml"
+PRODUCED_SOML = "../bsdd-graphql-soml-orig.yaml"
 
 # Default namespace
 NAMESPACE = "bsdd:"
@@ -69,19 +64,6 @@ def load_file(path):
 def save_file(path, content):
     with open(path, 'w') as f:
         f.write(content)
-
-
-# Performs an introspection request and returns the JSON schema.
-def introspect(graphql_api, introspection_query):
-    response = requests.post(graphql_api, json={
-        "query": introspection_query,
-        "operationName": "IntrospectionQuery"
-    }, headers={
-        "content-type": "application/json",
-        "accept": "application/json"
-    })
-
-    return response.json()
 
 
 def to_soml_object(t):
@@ -149,7 +131,7 @@ def sanitize_label(label):
 
 
 def to_soml(soml, introspection):
-    types = introspection['data']['__schema']['types']
+    types = introspection['__schema']['types']
 
     objects = soml['objects']
     enums = soml['types']
@@ -170,8 +152,7 @@ def to_soml(soml, introspection):
 
 def main():
     # Introspection
-    introspection_query = load_file(INTROSPECTION_QUERY)
-    introspection_schema = introspect(GRAPHQL_API, introspection_query)
+    introspection_schema = introspect()
     save_file(INTROSPECTION_JSON, json.dumps(introspection_schema, indent=2))
 
     # SOML

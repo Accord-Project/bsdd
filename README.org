@@ -153,7 +153,7 @@ Major goal of this project is to improve the bSDD GraphQL API.
 To achieve this, the existing GraphQL schema will be converted to a [[https://platform.ontotext.com/semantic-objects/soml/index.html][SOML schema]]
 which then will be manually improved and finally used to generate a better GraphQL API with the help of [[https://platform.ontotext.com/semantic-objects/][Ontotext Platform]].
 
-The repository contains a Python utility script [[./graphql2soml.py][graphql2soml.py]] that can generate a
+The repository contains a Python utility script [[./scripts/graphql2soml.py][graphql2soml.py]] that can generate a
 [[https://platform.ontotext.com/semantic-objects/soml/index.html][SOML schema]] from a given GraphQL endpoint.
 
 Executing this script produces two files in the repository:
@@ -167,7 +167,7 @@ Once this is done, the resulting schema will be saved in [[./bsdd-graphql-soml-r
 
 *** GraphQL Data Dumps
 
-The repository includes a Python script ~bsdd2json.py~ that can connect to the bSDD GraphQL API and export all objects in the
+The repository includes a Python script [[./scripts/bsdd2json.py][bsdd2json.py]] that can connect to the bSDD GraphQL API and export all objects in the
 GraphQL schema as JSONs including domains, classifications, classification properties etc.
 
 The exported data will be located under the ~data/~ directory once the script is executed. Running this script takes around ~10 hours due to
@@ -186,25 +186,25 @@ The overall process is of the script is
 
 *** Exporting Data
 
-The repository includes a Python script ~bsdd_export.py~ which works with the GraphQL queries within the ~graphql/~ folder.
+The repository includes a Python script [[./scripts/bsdd_export.py][bsdd_export.py]] which works with the GraphQL queries within the ~graphql/~ folder.
 It can invoke given query with or without variables and return the response to the user in JSON. To work with the script we need to create a virtual Python enthronement:
 
 - Create a virtual environment with ~python3.9 -m venv .venv~
 - Activate it ~source .venv/bin/activate~
-- Install the required libraries ~pip install -r requirements.txt~
+- Install the required libraries ~pip install -r scripts/requirements.txt~
 
 Then, we can ask for particular types. Here are several examples: 
 
 Get all the domains:
 
 #+begin_src bash
-python bsdd_export.py getDomains -o domains.json
+python scripts/bsdd_export.py getDomains -o domains.json
 #+end_src
 
 Get a particular domain:
 
 #+begin_src bash
-python bsdd_export.py getDomain -v "URI=https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3" -o ifc-4.3.json
+python scripts/bsdd_export.py getDomain -v "URI=https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3" -o ifc-4.3.json
 #+end_src
 
 ** Original vs Refactored Files

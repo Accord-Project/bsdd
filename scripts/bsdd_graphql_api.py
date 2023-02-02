@@ -1,4 +1,5 @@
 import logging
+from os.path import abspath
 from pathlib import Path
 import requests
 
@@ -13,13 +14,18 @@ class NoDataException(Exception):
 
 def read_query(query_file):
     current_dir = Path(__file__).parent.absolute()
-    return open(current_dir.as_posix() + '/' + query_file, 'r').read()
+    query_path = abspath(current_dir.as_posix() + '/../graphql/' + query_file)
+    return open(query_path, 'r').read()
 
 
-def query_graphql(endpoint, query, variables=None):
+def query_graphql(endpoint, query, variables=None, query_name=None):
     response = requests.post(endpoint, json={
         "query": query,
+        "operationName": query_name,
         "variables": variables or {}
+    }, headers={
+        "content-type": "application/json",
+        "accept": "application/json"
     })
     json_response = response.json()
     if "errors" in json_response:
@@ -31,6 +37,7 @@ def query_graphql(endpoint, query, variables=None):
     return response.json()["data"]
 
 
+QUERY_INTROSPECTION = read_query('graphql-IntrospectionQuery.graphql')
 QUERY_GET_DOMAINS = read_query('getDomains.graphql')
 QUERY_GET_LANGUAGES = read_query('getLanguages.graphql')
 QUERY_GET_COUNTRIES = read_query('getCountries.graphql')
@@ -38,8 +45,11 @@ QUERY_GET_UNITS = read_query('getUnits.graphql')
 QUERY_GET_REF_DOCUMENTS = read_query('getReferenceDocuments.graphql')
 QUERY_GET_DOMAIN_CLASSIFICATIONS = read_query('getDomainClassifications.graphql')
 QUERY_GET_CLASSIFICATION = read_query('getClassification.graphql')
-QUERY_GET_CLASSIFICATION_PROPERTIES = read_query('../old/getClassificationProperties.graphql')
 QUERY_GET_PROPERTY = read_query('getProperty.graphql')
+
+
+def introspect():
+    return query_graphql(GRAPHQL_API, QUERY_INTROSPECTION, query_name="IntrospectionQuery")
 
 
 def get_domains():
@@ -76,13 +86,6 @@ def get_domain_classifications(domain):
 # This method gets only the literal properties of classifications
 def get_classification(classification):
     return query_graphql(GRAPHQL_API, QUERY_GET_CLASSIFICATION, {
-        "URI": classification
-    })["classification"]
-
-
-# Note: Used only in bsdd2csv
-def get_classification_object_properties(classification):
-    return query_graphql(GRAPHQL_API, QUERY_GET_CLASSIFICATION_PROPERTIES, {
         "URI": classification
     })["classification"]
 

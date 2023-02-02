@@ -1,7 +1,7 @@
 import argparse
 import json
 
-from graphql import bsdd_graphql_api as bsdd_api
+import bsdd_graphql_api
 
 argparser = argparse.ArgumentParser(
     prog="bSDD Data Exporter",
@@ -21,7 +21,7 @@ def save_file(path, content):
 
 def main():
     query_name = arguments.queryname.removesuffix('.graphql')
-    query = bsdd_api.read_query(f"{query_name}.graphql")
+    query = bsdd_graphql_api.read_query(f"{query_name}.graphql")
 
     variables = {}
     if arguments.var:
@@ -29,7 +29,7 @@ def main():
             parts = var.split('=')
             variables[parts[0].strip()] = parts[1].strip()
 
-    response = bsdd_api.query_graphql(bsdd_api.GRAPHQL_API, query, variables)
+    response = bsdd_graphql_api.query_graphql(bsdd_graphql_api.GRAPHQL_API, query, variables)
 
     # Pull the nested response
     if arguments.flat is True:

@@ -4,7 +4,7 @@ import os
 import re
 import sys
 
-from graphql import bsdd_graphql_api, bsdd_graphql_api as bsdd_api
+import bsdd_graphql_api
 
 logging.basicConfig(
     format="%(asctime)s [%(threadName)-12.12s] [%(levelname)-5.5s]  %(message)s",
@@ -13,7 +13,7 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-DATA_DIR = './data/'
+DATA_DIR = '../data/'
 GLOBAL_PROPERTIES_MAPPING_FILE = DATA_DIR + 'properties.json'
 
 BSDD_URI_PREFIX = "https://identifier.buildingsmart.org/uri/"
@@ -29,7 +29,7 @@ def save_file(path, content):
 
 def export_domains(target_dir):
     logger.info("Exporting domains")
-    domains = bsdd_api.get_domains()
+    domains = bsdd_graphql_api.get_domains()
     save_file(target_dir + '/domains.json', json.dumps(domains))
     logger.info(f"Exported {len(domains)} domains")
     return domains
@@ -83,7 +83,7 @@ def export_domain_classifications(target_dir, domains):
         domain_dir = get_domain_folder(target_dir, domain_id)
         os.makedirs(domain_dir, exist_ok=True)
         try:
-            domain_classifications = bsdd_api.get_domain_classifications(domain_id)
+            domain_classifications = bsdd_graphql_api.get_domain_classifications(domain_id)
             count = len(domain_classifications)
             logger.info(f"Exporting {count} classifications for domain {domain_id}")
             for index, classification_metadata in enumerate(domain_classifications):
@@ -91,7 +91,7 @@ def export_domain_classifications(target_dir, domains):
                 classification_name = classification_metadata["name"]
                 classification_code = classification_metadata["code"]
                 try:
-                    classification = bsdd_api.get_classification(classification_id)
+                    classification = bsdd_graphql_api.get_classification(classification_id)
                     save_file(f"{domain_dir}/{classification_code}.json", json.dumps(classification))
                     exported_classifications.append(classification)
                     logger.info(f"Exported classification {classification_name} for domain {domain_id} ({index + 1}/{count})")
@@ -126,7 +126,7 @@ def export_global_properties(target_dir, classifications):
     failed_properties = list()
     for index, property_id in enumerate(unique_properties):
         try:
-            property_data = bsdd_api.get_global_property(property_id)
+            property_data = bsdd_graphql_api.get_global_property(property_id)
             global_properties[property_id] = property_data
             logger.info(f"Processed global property {property_id} ({index + 1}/{len(unique_properties)})")
         except Exception as ex:

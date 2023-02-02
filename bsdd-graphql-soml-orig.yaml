@@ -1,10 +1,10 @@
 id: /soml/bsdd
-label: null
-creator: null
-created: null
+label: SOML schema for buildingSMART Data Dictionary (bSDD)
+creator: Vladimir Alexiev, Mihail Radkov
+created: 2022-01-13
 updated: null
-versionInfo: null
-config: null
+versionInfo: 1.0
+config: {}
 types:
   ClassificationType:
     values:
@@ -23,10 +23,10 @@ types:
     - name: COMPLEX
     - name: COMPLEX_LIST
 prefixes:
-  bsdd: https://identifier.buildingsmart.org/def#
+  bsdd: http://bsdd.buildingsmart.org/def#
 specialPrefixes:
   base_iri: https://identifier.buildingsmart.org/uri/
-  vocab_iri: https://identifier.buildingsmart.org/def#
+  vocab_iri: http://bsdd.buildingsmart.org/def#
   vocab_prefix: bsdd
 properties: {}
 objects:

@@ -1,33 +1,28 @@
+#
+# Refer to https://platform.ontotext.com/semantic-objects/soml/index.html
+#
 id: /soml/bsdd
-label:       # label for the schema
-creator:     # creator for the schema
-created:     # date the schema is created
-updated:     # date the schema is updated
-versionInfo: # version of the schema
-config:
-# optional section with configurations used by the Platform
+label: SOML schema for buildingSMART Data Dictionary (bSDD)
+creator: Vladimir Alexiev, Mihail Radkov
+created: 2022-01-13
+updated:
+versionInfo: 1.0
+
+config: {}
 
 types: {}
-# optional section with configurations used by the Platform
 
 prefixes:
-  bsdd: https://identifier.buildingsmart.org/def#
-# define prefixes for this schema domain
+  bsdd: http://bsdd.buildingsmart.org/def#
 
 specialPrefixes:
-  # base IRI for data (resources)
   base_iri: https://identifier.buildingsmart.org/uri/
-  # default namespace for vocabulary (ontology) terms
-  vocab_iri: https://identifier.buildingsmart.org/def#
-  # prefix corresponding to the vocab IRI
+  vocab_iri: http://bsdd.buildingsmart.org/def#
   vocab_prefix: bsdd
 
 properties: {}
-# define global property definitions
 
 objects: {}
-# define objects and their properties
 
 rbac:
-  # define role based access control to objects and properties
   roles: {}

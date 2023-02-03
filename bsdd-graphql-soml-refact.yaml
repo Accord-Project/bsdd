@@ -75,12 +75,12 @@ objects:
       parentClassification:
         label: Parent classification
         range: Classification
-        inverseOf: childClassification
+        max: 1
+        inverseAlias: childClassification
       childClassification:
         label: Child classification
         max: inf
         range: Classification
-        inverseOf: parentClassification
       activationDateUtc:
         label: Date of activation
         min: 1

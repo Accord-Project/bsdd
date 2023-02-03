@@ -1,6 +1,6 @@
 # rdfize an archive (zip) of files.
 # parameter values:
-# -v zip: zip filename or URL
+# -v folder: name or URL
 # -v file: file regexp pattern (default ~.*~)
 # sparql-anything -q ../rdfize-zip.sparql -v zip=graphql-2023-01-24.zip > raw-rdf.ttl
 # See https://sparql-anything.readthedocs.io/en/latest/Configuration/#from-archive

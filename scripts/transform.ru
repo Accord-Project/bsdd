@@ -19,7 +19,7 @@ where {
   bind(xsd:dateTime(replace(str(?old), "(.*?)\\..*", "$1")) as ?new)
 };
 
-# convert strings to URIs, and shorten props as appropriate
+# Convert strings to URIs, and shorten props as appropriate
 delete {?x ?long  ?old}
 insert {?x ?short ?new}
 where {
@@ -37,7 +37,7 @@ where {
   bind(uri(?old) as ?new)
 };
 
-# drop redundant info of a referenced resource
+# Drop redundant info of a referenced resource
 delete {?x ?redundant ?old}
 where {
   {
@@ -56,7 +56,7 @@ where {
   }
 };
 
-# drop deprecated property bsdd:possibleValues: bsdd:allowedValue is used instead
+# Drop deprecated property bsdd:possibleValues: bsdd:allowedValue is used instead
 delete where {?x bsdd:possibleValues ?node. ?node rdfs:member ?y. ?y ?p ?o};
 
 # Multi-valued props: skip a level and change prop name to singular:
@@ -97,7 +97,7 @@ where {
   filter(isBlank(?blank))
 };
 
-# short-cut references that go through blank nodes, eg bsdd:childClassification/bsdd:namespaceUri to just bsdd:childClassification
+# Short-cut references that go through blank nodes, eg bsdd:childClassification/bsdd:namespaceUri to just bsdd:childClassification
 delete {
   ?x ?rel ?blank.
   ?blank bsdd:namespaceUri ?y; ?p ?o
@@ -111,7 +111,7 @@ where {
   ?blank bsdd:namespaceUri ?y; ?p ?o
 };
 
-# add rdf:type based on GraphQL __typename
+# Add rdf:type based on GraphQL __typename
 delete {?x bsdd:__typename ?old}
 insert {?x a ?new}
 where {
@@ -121,17 +121,17 @@ where {
   bind(if(?new1=bsdd:ClassificationPropertyValue,bsdd:PropertyValue,?new1) as ?new)
 };
 
-# drop parasitic type fx:root
+# Drop parasitic type fx:root
 delete where {?x a fx:root};
 
-# rename ClassificationProperty.namespaceUri to ClassificationProperty.property because that link refers to a Property specifically
+# Rename ClassificationProperty.namespaceUri to ClassificationProperty.property because that link refers to a Property specifically
 delete {?x bsdd:namespaceUri ?y}
 insert {?x bsdd:property ?y}
 where {
   ?x a bsdd:ClassificationProperty; bsdd:namespaceUri ?y
 };
 
-# add meaningful URIs to nodes whenever possible.
+# Add meaningful URIs to nodes whenever possible.
 # First we do the independent nodes:
 delete {?x ?p1 ?blank. ?blank ?p2 ?y}
 insert {?x ?p1 ?uri.   ?uri   ?p2 ?y}
@@ -182,14 +182,5 @@ where {
 # - ClassificationRelation: is just a pair of ~related~ Classifications, no own URI
 # - PropertyRelation: is just a pair of ~related~ Properties, no own URI
 
-# remove redundant namespaceUri when equal to the node's URI
+# Remove redundant namespaceUri when equal to the node's URI
 delete where {?uri bsdd:namespaceUri ?uri};
-
-# Link domains to classifications based on their IRIs
-insert {
-    ?d bsdd:classification ?s
-} where {
-    ?d a bsdd:Domain .
-    ?s a bsdd:Classification .
-    FILTER(strstarts(str(?s), str(?d)))
-};

@@ -115,10 +115,6 @@ objects:
         label: Plain name of the classification
         min: 1
         range: string
-      namespaceUri:
-        label: Unique identification of the classification
-        min: 1
-        range: string
       replacedObjectCode:
         label: Code of the replaced item
         max: inf
@@ -290,10 +286,6 @@ objects:
         label: Plain name of the property
         min: 1
         range: string
-      namespaceUri:
-        label: Unique identification of the property
-        min: 1
-        range: string
       replacedObjectCode:
         label: Code of replaced item
         max: inf
@@ -333,9 +325,6 @@ objects:
     label: Attributes of possible values of a property of a classification.
     name: bsdd:name
     props:
-      namespaceUri:
-        label: Globally unique identification of the property
-        range: string
       code:
         label: Code of the value
         range: string
@@ -378,10 +367,6 @@ objects:
         range: string
       version:
         label: The version of the domain
-        min: 1
-        range: string
-      namespaceUri:
-        label: The unique identification of the domain
         min: 1
         range: string
       status:
@@ -554,10 +539,6 @@ objects:
         label: Plain name of the property
         min: 1
         range: string
-      namespaceUri:
-        label: Unique identification of the property
-        min: 1
-        range: string
       replacedObjectCodes:
         label: List of codes of the replaced items
         max: inf
@@ -597,9 +578,6 @@ objects:
     label: Attributes of possible values of a property.
     name: bsdd:name
     props:
-      namespaceUri:
-        label: Globally unique identification of the property
-        range: string
       code:
         label: Code of the value (unique within the property)
         range: string

@@ -24,12 +24,32 @@ def save_file(path, content):
         f.write(content)
 
 
-# Export functions
+def get_domains_mapping():
+    domains = bsdd_graphql_api.get_domains()
+    mapping = dict()
+    for domain in domains:
+        mapping[domain["namespaceUri"]] = domain
+    return mapping
 
+
+def map_domain_classifications(domains):
+    domains_count = len(domains)
+    for index, domain_id in enumerate(domains.keys()):
+        classifications_metadata = bsdd_graphql_api.get_domain_classifications(domain_id)
+        domains[domain_id]["classifications"] = classifications_metadata
+        logger.info(f"Mapped {len(classifications_metadata)} classifications for domain {domain_id} ({index + 1}/{domains_count})")
+    return domains
+
+
+# Export functions
 
 def export_domains(target_dir):
     logger.info("Exporting domains")
-    domains = bsdd_graphql_api.get_domains()
+
+    domains_mapping = get_domains_mapping()
+    map_domain_classifications(domains_mapping)
+    domains = list(domains_mapping.values())
+
     save_file(target_dir + '/domains.json', json.dumps(domains))
     logger.info(f"Exported {len(domains)} domains")
     return domains
@@ -83,22 +103,23 @@ def export_domain_classifications(target_dir, domains):
         domain_dir = get_domain_folder(target_dir, domain_id)
         os.makedirs(domain_dir, exist_ok=True)
         try:
-            domain_classifications = bsdd_graphql_api.get_domain_classifications(domain_id)
+            domain_classifications = domain["classifications"]
             count = len(domain_classifications)
             logger.info(f"Exporting {count} classifications for domain {domain_id}")
             for index, classification_metadata in enumerate(domain_classifications):
                 classification_id = classification_metadata["namespaceUri"]
-                classification_name = classification_metadata["name"]
                 classification_code = classification_metadata["code"]
                 try:
                     classification = bsdd_graphql_api.get_classification(classification_id)
                     save_file(f"{domain_dir}/{classification_code}.json", json.dumps(classification))
                     exported_classifications.append(classification)
-                    logger.info(f"Exported classification {classification_name} for domain {domain_id} ({index + 1}/{count})")
+                    logger.debug(f"Exported classification {classification_code} for domain {domain_id} ({index + 1}/{count})")
                 except Exception as ex:
-                    logger.error(f"Could not process classification {classification_name} for domain {domain_id}")
+                    logger.error(f"Could not process classification {classification_code} for domain {domain_id}")
                     logger.error(ex)
-            logger.info(f"\nExported {count} classifications for domain {domain_id} ({domain_index + 1}/{len(domains)})\n")
+                if index % 100 == 99:
+                    logger.info(f"Exported {index + 1} of {count} classifications for domain {domain_id}")
+            logger.info(f"Exported {count} classifications for domain {domain_id} ({domain_index + 1}/{len(domains)})")
         except Exception as ex:
             logger.error(f"Could not process domain {domain_id}")
             logger.error(ex)
@@ -115,11 +136,12 @@ def export_global_properties(target_dir, classifications):
     logger.info(f"Collecting unique properties from {len(classifications)} classifications")
 
     for classification in classifications:
-        classification_properties = classification["properties"]
-        if classification_properties is not None:
-            for classification_property in classification_properties:
-                if classification_property is not None:
-                    unique_properties.add(classification_property["namespaceUri"])
+        if classification is not None:
+            classification_properties = classification["properties"]
+            if classification_properties is not None:
+                for classification_property in classification_properties:
+                    if classification_property is not None:
+                        unique_properties.add(classification_property["namespaceUri"])
     logger.info(f"Collected {len(unique_properties)} unique classification properties")
 
     global_properties = {}
@@ -145,11 +167,12 @@ def export_global_properties(target_dir, classifications):
 def main():
     os.makedirs(DATA_DIR, exist_ok=True)
 
-    domains = export_domains(DATA_DIR)
     export_languages(DATA_DIR)
     export_countries(DATA_DIR)
     export_units(DATA_DIR)
     export_reference_documents(DATA_DIR)
+
+    domains = export_domains(DATA_DIR)
 
     classifications = export_domain_classifications(DATA_DIR, domains)
     export_global_properties(DATA_DIR, classifications)

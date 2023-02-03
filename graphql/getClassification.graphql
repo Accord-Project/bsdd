@@ -1,5 +1,5 @@
 query getClassification($URI: String!) {
-  classification(namespaceUri: $URI) {
+  classification(namespaceUri: $URI, includeChilds: true) {
     namespaceUri
     __typename
     classificationType

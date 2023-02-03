@@ -69,6 +69,7 @@ where {
   values (?plural ?singular) {
     (bsdd:allowedValues                  bsdd:allowedValue                 )
     (bsdd:classificationProperties       bsdd:classificationProperty       )
+    (bsdd:classifications                bsdd:classification               )
     (bsdd:childs                         bsdd:childClassification          )
     (bsdd:connectedPropertyCodes         bsdd:connectedPropertyCode        )
     (bsdd:countriesOfUse                 bsdd:countryOfUse                 )
@@ -96,11 +97,18 @@ where {
   filter(isBlank(?blank))
 };
 
-# short-cut bsdd:parentClassificationReference/bsdd:namespaceUri to just bsdd:parentClassification
-delete {?x bsdd:parentClassificationReference ?y. ?y bsdd:namespaceUri ?z}
-insert {?x bsdd:parentClassification ?z}
+# short-cut references that go through blank nodes, eg bsdd:childClassification/bsdd:namespaceUri to just bsdd:childClassification
+delete {
+  ?x ?rel ?blank.
+  ?blank bsdd:namespaceUri ?y; ?p ?o
+} insert {
+  ?x ?rel ?y
+}
 where {
-  ?x bsdd:parentClassificationReference ?y. ?y bsdd:namespaceUri ?z
+  values ?rel {bsdd:classification bsdd:childClassification}
+  ?x ?rel ?blank.
+  filter(isBlank(?blank))
+  ?blank bsdd:namespaceUri ?y; ?p ?o
 };
 
 # add rdf:type based on GraphQL __typename

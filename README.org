@@ -785,6 +785,28 @@ select ?type ?code ?name ?def {
 | http://bsdd.buildingsmart.org/def#ClassificationProperty | PR1964355937 | Skew angle at pile location     | Angle between the bridge axis and the pile axis |
 | http://bsdd.buildingsmart.org/def#ClassificationProperty | PR993801653  | Station at pile location        | Curvilinear abscissa at pile location           |
 
+In case of dynamic properties, for which field ~isDynamic = true~, the supplying field ~dynamicParameterPropertyCodes~(String) is empty
+#+begin_src sparql
+PREFIX bsdd: <http://bsdd.buildingsmart.org/def#>
+select ?d ?value where { 
+    ?d bsdd:dynamicParameterPropertyCodes ?value .
+	?d bsdd:isDynamic ?type .
+	FILTER (?type=true) .
+    }
+#+end_src
+although there is non empty set of properties marked as dynamic:
+#+begin_src sparql
+PREFIX bsdd: <http://bsdd.buildingsmart.org/def#>
+select (count(*) as ?c) ?type where { 
+	?d bsdd:isDynamic ?type
+} group by ?type order by desc(?c)
+#+end_src
+|c	    |type |
+|-------|-----|
+|135250	|false|
+|12385	|true |
+Additionally, ~dynamicParameterPropertyCodes~ ranges in ~String~, however more realistic is to have ~[String]~ - an array of strings to describe relevant compounds of such dynamic properties.
+
 ** All Significant Classes Should Have URL
 :PROPERTIES:
 :CUSTOM_ID: all-significant-classes-should-have-url

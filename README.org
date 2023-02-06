@@ -785,7 +785,7 @@ select ?type ?code ?name ?def {
 | http://bsdd.buildingsmart.org/def#ClassificationProperty | PR1964355937 | Skew angle at pile location     | Angle between the bridge axis and the pile axis |
 | http://bsdd.buildingsmart.org/def#ClassificationProperty | PR993801653  | Station at pile location        | Curvilinear abscissa at pile location           |
 
-In case of dynamic properties, for which field ~isDynamic = true~, the supplying field ~dynamicParameterPropertyCodes~(String) is empty
+In case of dynamic properties, for which field ~isDynamic = true~, the supplying field ~dynamicParameterPropertyCodes~ (String) is empty
 #+begin_src sparql
 PREFIX bsdd: <http://bsdd.buildingsmart.org/def#>
 select ?d ?value where { 

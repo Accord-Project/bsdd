@@ -120,7 +120,7 @@ TODO MAYBE: review more ways of representing classes, props, prop sets. Eg IEC C
 
 Admitting the advances of bSDD community at providing data in RDF format we met some issues where accomodating these data for our purposes in the frame of ACCORD project [[https://github.com/Accord-Project/bsdd]], among them are different results obtained with different APIs, multiple URIs for same entities, various GraphQL implementatuon errors. In this paper we discuss these issues and propose a set of technical improvements following the best practices of Semantic Web and linked data to obtain "a semantically better version" of bSDD. We implemented and made available our solution using Ontotext Platform[[https://bsdd.ontotext.com/workbench/graphql]].
 
-Unlike @oraskariLiveWebOntology2021, we preserve the original bSDD structure (Domain, Classification, Property, etc) and only add specific improvements, described below, and convert the whole bSDD at once, taking more attention to preserving FAIR [[@GarijoPoveda2020]] principles. 
+Unlike @oraskariLiveWebOntology2021, we preserve the original bSDD structure (Domain, Classification, Property, etc) and only add specific improvements, described below, and convert the whole bSDD at once, taking more attention to outlining the discrepancies of the current solution and bringing the Semantic Web best practices and FAIR [[@GarijoPoveda2020]] principles. 
 
 
 ** Benefits of GraphQL
@@ -142,14 +142,14 @@ Overview (uncheck "Show leaf fields"):
 
 [[bsdd-graphql-voyager-Classification-ClassificationProperty.png]] Figure 1b.
 
-As we can see, bSDD has 11 basic object types: Domains, Languages, Countries, Units (of measure), ReferenceDocuments, Classifications, Properties, ClassificationRelations, ClassificationProperties, ClassificationPropertyValues, PropertyValues, PropertyRelations. Properties and ClassificationProperties have most fields the same and differ in five fields: ~connectedPropertyCodes~[String] and ~relations~[PropertyRelation] belongs uniquely to ~Property~, ~isRequired~(Boolean), ~isWritable~(boolean), ~predefinedValue~(String), ~propertySet~(String) and ~symbol~9String) - to ~ClassificationProperty~. 
+As we can see, bSDD has 11 basic object types: Domains, Languages, Countries, Units (of measure), ReferenceDocuments, Classifications, Properties, ClassificationRelations, ClassificationProperties, ClassificationPropertyValues, PropertyValues, PropertyRelations. Properties and ClassificationProperties have most fields the same and differ in five fields: ~connectedPropertyCodes~ [String] and ~relations~ [PropertyRelation] belongs uniquely to ~Property~, ~isRequired~ (Boolean), ~isWritable~ (Boolean), ~predefinedValue~ (String), ~propertySet~ (String) and ~symbol~ (String) - to ~ClassificationProperty~. PropertyValues and ClassificationPropertyValues are essentially the same by current modelling decision.
 
 ** GraphQL Conversion to SOML Schema
 :PROPERTIES:
 :CUSTOM_ID: graphql-conversion-to-soml-schema
 :END:
 
-Major goal of this project is to improve the bSDD GraphQL API.
+Major goal of this work is to improve the bSDD GraphQL API.
 To achieve this, the existing GraphQL schema will be converted to a [[https://platform.ontotext.com/semantic-objects/soml/index.html][SOML schema]]
 which then will be manually improved and finally used to generate a better GraphQL API with the help of [[https://platform.ontotext.com/semantic-objects/][Ontotext Platform]].
 
@@ -173,21 +173,21 @@ GraphQL schema as JSONs including domains, classifications, classification prope
 The exported data will be located under the ~data/~ directory once the script is executed. Running this script takes around ~10 hours due to
 the large quantity of classifications and classification properties in the GraphQL API.
 
-The overall process is of the script is
+The overall process of the script is
 
-- Exports all "root" types with their complete information except relations (object properties)
+- to export all "root" types with their complete information except relations (object properties)
   - bSDD domains in ~data/domains.json~ (~Domain~ in GraphQL)
   - Countries in ~data/domains.json~ (~Country~ in GraphQL)
   - Languages in ~data/languages.json~ (~Language~ in GraphQL)
   - Measurements units in ~data/units.json~ (~Unit~ in GraphQL)
   - Reference documents in ~data/reference_documents.json~ (~ReferenceDocument~ in GraphQL)
-- For each exported domain, it creates a sub directory and exports all classification in that domain in separate JSONs (~Classification~ in GraphQL)
-- Collects all unique classification properties, tries to resolve them as global properties and finally exports them in ~properties.json~ (~Property~ in GraphQL)
+- for each exported domain, to create a subdirectory and to export all classifications in that domain in separate JSONs (~Classification~ in GraphQL)
+- to collect all unique classification properties, trying to resolve them as global properties and finally to export them in ~properties.json~ (~Property~ in GraphQL)
 
 *** Exporting Data
 
 The repository includes a Python script [[./scripts/bsdd_export.py][bsdd_export.py]] which works with the GraphQL queries within the ~graphql/~ folder.
-It can invoke given query with or without variables and return the response to the user in JSON. To work with the script we need to create a virtual Python enthronement:
+It can invoke given query with or without variables and returns the response to the user in JSON. To work with the script we need to create a virtual Python enthronement:
 
 - Create a virtual environment with ~python3.9 -m venv .venv~
 - Activate it ~source .venv/bin/activate~
@@ -211,20 +211,22 @@ python scripts/bsdd_export.py getDomain -v "URI=https://identifier.buildingsmart
 :PROPERTIES:
 :CUSTOM_ID: original-vs-refactored-files
 :END:
-bsdd-graphql-voyager-orig.html
-bsdd-graphql-voyager-refact.html
+Produced files can be found at [[https://github.com/Accord-Project/bsdd]]. 
+VIsualizations of the original and refactored schema 
 
-[[graphql-IntrospectionQuery.graphql]]
+[[bsdd-graphql-voyager-orig.html]] - visualization of the original schema
+[[bsdd-graphql-voyager-refact.html]] - visualization of the refactored schema
 
-bsdd-graphql-schema-orig.json
-bsdd-graphql-soml-orig.json
-bsdd-graphql-soml-orig.yaml
-bsdd-graphql-soml-refact.yaml
+[[bsdd-graphql-schema-orig.json]], 
+[[bsdd-graphql-soml-orig.json]], 
+[[bsdd-graphql-soml-orig.yaml]],
+[[bsdd-graphql-soml-refact.yaml]] - JSON and SOML YAML representations of the original and refactored schemas. 
 
-IFC-cableSegment-rest-orig.json
-IFC-cableSegment-graphql-orig.json
-IFC-cableSegment-orig.ttl
-IFC-cableSegment-refact.ttl
+
+[[IFC-cableSegment-rest-orig.json]],
+[[IFC-cableSegment-graphql-orig.json]],
+[[IFC-cableSegment-orig.ttl]],
+[[IFC-cableSegment-refact.ttl]] - examples representation of IfcCableSegment in various formats.
 
 * Suggestions for Improvement
 :PROPERTIES:
@@ -240,10 +242,10 @@ We have compared three representations returned by the bSDD server:
 - JSON from the REST (entity) API
 - RDF  from the REST (entity) API
 
-We selected the most filled objects of each class (i.e. objects with maximum fields filled) and compared the fields in each of the three APIs, see [[https://github.com/Accord-Project/bsdd/tree/main/samples/1-*.json]]
+We selected the most filled objects of each class (i.e. objects with maximum fields filled) and compared the fields in each of the three APIs, see [[https://github.com/Accord-Project/bsdd/tree/main/samples/*-orig.json]]
 
 There are differences and omissions in some of the formats, as described in the table below.
-It would be better to return the same content in each of the formats.
+it is expected hovewer that the resulting data are the same independently of the protocol.
 
 
 | Type/field | GraphQL      | JSON API                                   | RDF API                |comment
@@ -290,8 +292,7 @@ results in
         {
           "classificationType": "CLASS",
           "name": "IfcWall.ELEMENTEDWALL",
-        },
-        ...
+        }
         }}}
 #+end_src
 

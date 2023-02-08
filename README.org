@@ -25,13 +25,16 @@
   - [[#bsdd][bSDD]]
   - [[#benefits-of-graphql][Benefits of GraphQL]]
   - [[#original-bsdd-schema-graphql-voyager][Original bSDD Schema: GraphQL Voyager]]
+  - [[#related-work][Related Work]]
+- [[#getting-bsdd-data][Getting bSDD Data]]
   - [[#graphql-conversion-to-soml-schema][GraphQL Conversion to SOML Schema]]
-  - [[#original-vs-refactored-files][Original vs Refactored Files]]
-- [[#related-work][Related Work]]
-- [[#suggestions-for-improvement][Suggestions for Improvement]]
+  - [[#graphql-data-dumps][GraphQL Data Dumps]]
+  - [[#files][Files]]
+- [[#statistics][Statistics]]  
+- [[#suggested-improvements][Suggested Improvements]]
   - [[#return-the-same-data-across-apis][Return the Same Data Across APIs]]
   - [[#improve-property-names][Improve Property Names]]
-  - [[#use-the-same-url-for-data-and-for-web-pages][Use the same URL for Data and for Web Pages]]
+  - [[#use-the-same-url-for-data-and-for-web-pages][Use the Same URL for Data and for Web Pages]]
   - [[#graphql-implementation-errors][GraphQL Implementation Errors]]
     - [[#non-nullable-classifications][Non Nullable Classifications]]
     - [[#missing-objects][Missing Objects]]
@@ -40,23 +43,23 @@
     - [[#classification-property-values][Classification Property Values]]
     - [[#classification-properties-without-identity][Classification Properties Without Identity]]
   - [[#improve-url-structure-and-consistency][Improve URL Structure and Consistency]]
-  - [[#declare-urls-to-be-id-and-use-field-name-id][Declare URLs to be ID and use Field Name id]]
-  - [[#all-significant-classes-should-have-url][All Significant Classes Should Have URL]]
+    - [[#declare-urls-to-be-id-and-use-field-name-id][Declare URLs to be ~ID~ and use Field Name ~id~]]
+    - [[#property-vs-classificationproperty-use-distinct-urls][Property vs ClassificationProperty: Use Distinct URLs]]
+    - [[#all-significant-classes-should-have-url][All Significant Classes Should Have URL]]
+    - [[#improve-relations-between-objects][Improve Relations Between Objects]]
+    - [[#improve-the-description-of-local-properties][Improve the Description of Local Properties]]
+  - [[#use-class-inheritance][Use Class Inheritance]]
   - [[#graphql-arrays-and-nullability][GraphQL Arrays and Nullability]]
   - [[#improve-graphql-results-and-eliminate-errors][Improve GraphQL Results and Eliminate Errors]]
-  - [[#improve-relations-between-objects][Improve Relations Between Objects]]
-  - [[#property-vs-classificationproperty-use-distinct-urls][Property vs ClassificationProperty: Use Distinct URLs]]
-  - [[#improve-the-description-of-local-properties][Improve the Description of Local Properties]]
   - [[#improve-rdf-structure][Improve RDF Structure]]
-  - [[#use-class-inheritance][Use Class Inheritance]]
-  - [[#add-more-classes-and-relations][Add More Classes and Relations]]
+    - [[#add-more-classes-and-relations][Add More Classes and Relations]]
+    - [[#eliminate-parallel-links-between-classes][Eliminate Parallel Links Between Classes]]
+    - [[#improve-multilingual-support][Improve Multilingual Support]]
+    - [[#deprecated-properties][Deprecated Properties]]
+    - [[#improve-the-description-of-structured-values][Improve the Description of Structured Values]]
+  - [[#better-representation-of-predefined-values][Better Representation of Predefined Values]]
   - [[#add-graphql-pagination][Add GraphQL Pagination]]
   - [[#improve-graphql-searchability][Improve GraphQL Searchability]]
-  - [[#eliminate-parallel-links-between-classes][Eliminate Parallel Links Between Classes]]
-  - [[#improve-multilingual-support][Improve Multilingual Support]]
-  - [[#deprecated-properties][Deprecated Properties]]
-  - [[#improve-the-description-of-structured-values][Improve the Description of Structured Values]]
-  - [[#better-representation-of-predefined-values][Better Representation of Predefined Values]]
 - [[#implementing-improvements][Implementing Improvements]]
   - [[#fetching-bsdd-graphql-json][Fetching bSDD GraphQL JSON]]
   - [[#converting-json-to-raw-rdf-using-sparql-anything][Converting JSON to Raw RDF using SPARQL Anything]]
@@ -106,23 +109,6 @@ Palos et al. @palosStateoftheartAnalysisProduct2012 noted that bSDD is a very co
 bSDD currently (February 2023) keeps descriptions of nearly 80,000 concepts with translations in multiple languages, with 108 domains ranging from roads and rails to DIN, Omniclass, Uniclass, IFC with extensions etc thus making it a widely accepted source of BIM-oriented and BIM-based data.
 The reference system assigns a Global Unique Identifier (GUID) for all defined terms entered into the system in order to enable data utilization in variety of structured documents and applications.
 
-
-* Related Work
-:PROPERTIES:
-:CUSTOM_ID: related-work
-:END:
-
-According to buildingSMART technical roadmap [[https://www.buildingsmart.org/about/technical-roadmap/]] bSDD service provides output data in various formats and APIs, including RDF, thus making bSDD content higher reusable in Linked Data ecosystem, particularly with geographical data, regulations, product manufacturer data. However, Pauwels et al. in @pauwelsetal2016 note that there is no standard method to generate RDF graphs from bSDD API. Starting from @beetzInteroperableDataModels2014 where "bSDD vocabulary has been transformed into a configurable RDF dataset. On the meta-model level a number of different modeling approaches ranging from OWL to RDFS and SKOS have been implemented to evaluate the advantages and disadvantages of the respective modeling strategies" the work was continued In @pauwelterkaj2016 a complete translation of IFC from EXPRESS to OWL is presented,however lacking modularity and extensibility inherent to best Semantic Web practices @kebedeIntegrationManufacturersProduct2022. In @oraskariLiveWebOntology2021 it is proposed and implemented to generate from bSDD an OWL representation of a selected IFC element together with its property sets on the fly.    
-
-In the survey @kebedeIntegrationManufacturersProduct2022 discussed is the question where and how the bSDD can fit in the Linked building data (LBD) ecosystem. Authors mention that bSDD has undertaken a new round of development showing a shift towards publishing data classifications and properties as Linked Data.
-
-TODO MAYBE: review more ways of representing classes, props, prop sets. Eg IEC CDD (ISO PLIB), eClass...
-
-Admitting the advances of bSDD community at providing data in RDF format we met some issues where accomodating these data for our purposes in the frame of ACCORD project [[https://github.com/Accord-Project/bsdd]], among them are different results obtained with different APIs, multiple URIs for same entities, various GraphQL implementatuon errors. In this paper we discuss these issues and propose a set of technical improvements following the best practices of Semantic Web and linked data to obtain "a semantically better version" of bSDD. We implemented and made available our solution using Ontotext Platform[[https://bsdd.ontotext.com/workbench/graphql]].
-
-Unlike @oraskariLiveWebOntology2021, we preserve the original bSDD structure (Domain, Classification, Property, etc) and only add specific improvements, described below, and convert the whole bSDD at once, taking more attention to outlining the discrepancies of the current solution and bringing the Semantic Web best practices and FAIR [[@GarijoPoveda2020]] principles. 
-
-
 ** Benefits of GraphQL
 :PROPERTIES:
 :CUSTOM_ID: benefits-of-graphql
@@ -143,6 +129,26 @@ Overview (uncheck "Show leaf fields"):
 [[bsdd-graphql-voyager-Classification-ClassificationProperty.png]] Figure 1b.
 
 As we can see, bSDD has 11 basic object types: Domains, Languages, Countries, Units (of measure), ReferenceDocuments, Classifications, Properties, ClassificationRelations, ClassificationProperties, ClassificationPropertyValues, PropertyValues, PropertyRelations. 
+
+** Related Work
+:PROPERTIES:
+:CUSTOM_ID: related-work
+:END:
+
+According to buildingSMART technical roadmap [[https://www.buildingsmart.org/about/technical-roadmap/]] bSDD service provides output data in various formats and APIs, including RDF, thus making bSDD content higher reusable in Linked Data ecosystem, particularly with geographical data, regulations, product manufacturer data. However, Pauwels et al. in @pauwelsetal2016 note that there is no standard method to generate RDF graphs from bSDD API. Starting from @beetzInteroperableDataModels2014 where "bSDD vocabulary has been transformed into a configurable RDF dataset. On the meta-model level a number of different modeling approaches ranging from OWL to RDFS and SKOS have been implemented to evaluate the advantages and disadvantages of the respective modeling strategies" the work was continued In @pauwelterkaj2016 a complete translation of IFC from EXPRESS to OWL is presented,however lacking modularity and extensibility inherent to best Semantic Web practices @kebedeIntegrationManufacturersProduct2022. In @oraskariLiveWebOntology2021 it is proposed and implemented to generate from bSDD an OWL representation of a selected IFC element together with its property sets on the fly.    
+
+In the survey @kebedeIntegrationManufacturersProduct2022 discussed is the question where and how the bSDD can fit in the Linked building data (LBD) ecosystem. Authors mention that bSDD has undertaken a new round of development showing a shift towards publishing data classifications and properties as Linked Data.
+
+TODO MAYBE: review more ways of representing classes, props, prop sets. Eg IEC CDD (ISO PLIB), eClass...
+
+Admitting the advances of bSDD community at providing data in RDF format we met some issues where accomodating these data for our purposes in the frame of ACCORD project [[https://github.com/Accord-Project/bsdd]], among them are different results obtained with different APIs, multiple URIs for same entities, various GraphQL implementatuon errors. In this paper we discuss these issues and propose a set of technical improvements following the best practices of Semantic Web and linked data to obtain "a semantically better version" of bSDD. We implemented and made available our solution using Ontotext Platform[[https://bsdd.ontotext.com/workbench/graphql]].
+
+Unlike @oraskariLiveWebOntology2021, we preserve the original bSDD structure (Domain, Classification, Property, etc) and only add specific improvements, described below, and convert the whole bSDD at once, taking more attention to outlining the discrepancies of the current solution and bringing the Semantic Web best practices and FAIR [[@GarijoPoveda2020]] principles. 
+
+* Getting bSDD Data
+:PROPERTIES:
+:CUSTOM_ID: getting-bsdd-data
+:END:
 
 ** GraphQL Conversion to SOML Schema
 :PROPERTIES:
@@ -165,7 +171,10 @@ The generated SOML schema is valid and can be used immediately. However, there a
 The purpose of the generated SOML schema is to serve as a starting point (instead of starting from scratch) for resolving the issues and improving the schema.
 Once this is done, the resulting schema will be saved in [[./bsdd-graphql-soml-refact.yaml][bsdd-graphql-soml-refact.yaml]].
 
-*** GraphQL Data Dumps
+** GraphQL Data Dumps
+:PROPERTIES:
+:CUSTOM_ID: graphql-data-dumps
+:END:
 
 The repository includes a Python script [[./scripts/bsdd2json.py][bsdd2json.py]] that can connect to the bSDD GraphQL API and export all objects in the
 GraphQL schema as JSONs including domains, classifications, classification properties etc.
@@ -183,8 +192,6 @@ The overall process of the script is
   - Reference documents in ~data/reference_documents.json~ (~ReferenceDocument~ in GraphQL)
 - for each exported domain, to create a subdirectory and to export all classifications in that domain in separate JSONs (~Classification~ in GraphQL)
 - to collect all unique classification properties, trying to resolve them as global properties and finally to export them in ~properties.json~ (~Property~ in GraphQL)
-
-*** Exporting Data
 
 The repository includes a Python script [[./scripts/bsdd_export.py][bsdd_export.py]] which works with the GraphQL queries within the ~graphql/~ folder.
 It can invoke given query with or without variables and returns the response to the user in JSON. To work with the script we need to create a virtual Python enthronement:
@@ -207,15 +214,14 @@ Get a particular domain:
 python scripts/bsdd_export.py getDomain -v "URI=https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3" -o ifc-4.3.json
 #+end_src
 
-** Original vs Refactored Files
+** Files
 :PROPERTIES:
-:CUSTOM_ID: original-vs-refactored-files
+:CUSTOM_ID: files
 :END:
-Produced files can be found at [[https://github.com/Accord-Project/bsdd]]. 
-VIsualizations of the original and refactored schema 
-
-[[bsdd-graphql-voyager-orig.html]] - visualization of the original schema
-[[bsdd-graphql-voyager-refact.html]] - visualization of the refactored schema
+Produced files can be found at [[https://github.com/Accord-Project/bsdd]]. Here in ~/samples~ we keep original sample files (~*-orig.json/ttl~), having most fields filled (see [[#return-the-same-data-across-apis]]), their refactoring (~*-refact.ttl~) and ~makefile~ to export and convert data. in ~/dump~ there are scripts including a docker file to get a full bSDD dump.  ~/graphql~ folder contains GrqphQL queries to get all bSDD entities.  in ~/scripts~  all the necessary scripts to export data in various formats, convert bSDD schema to SOML, transform refactored SOML to RDF/TTL.  
+In the root folder there are visualizations of the original and refactored schema that are shown in, respectively, 
+[[bsdd-graphql-voyager-orig.html]] - visualization of the original schema and
+[[bsdd-graphql-voyager-refact.html]] - visualization of the refactored schema.
 
 [[bsdd-graphql-schema-orig.json]], 
 [[bsdd-graphql-soml-orig.json]], 
@@ -228,12 +234,18 @@ VIsualizations of the original and refactored schema
 [[IFC-cableSegment-orig.ttl]],
 [[IFC-cableSegment-refact.ttl]] - examples representation of IfcCableSegment in various formats.
 
-* Suggestions for Improvement
+* Statistics
 :PROPERTIES:
-:CUSTOM_ID: suggestions-for-improvement
+:CUSTOM_ID: statistics
 :END:
 
-*** Return the Same Data Across APIs
+
+* Suggested Improvements
+:PROPERTIES:
+:CUSTOM_ID: suggested-improvements
+:END:
+
+** Return the Same Data Across APIs
 :PROPERTIES:
 :CUSTOM_ID: return-the-same-data-across-apis
 :END:
@@ -244,18 +256,17 @@ We have compared three representations returned by the bSDD server:
 
 We selected the most filled objects of each class (i.e. objects with maximum fields filled) and compared the fields in each of the three APIs, see [[https://github.com/Accord-Project/bsdd/tree/main/samples/*-orig.json]]
 
-There are differences and omissions in some of the formats, as described in the table below.
+There are differences and omissions in some of the formats, as described in the table below. The complete list of findings can be found at [[bSDD data analysis spreadsheet][https://docs.google.com/spreadsheets/d/1z_NRMlExlVuqWhBbSErQ9iiDBY4O_fKMd3avV3-NCmo/edit?usp=sharing]].
 it is expected hovewer that the resulting data are the same independently of the protocol.
 
-
-| Type/field | GraphQL      | JSON API                                   | RDF API                |comment
-|------------------------+--------------+--------------------------------------------+------------------------+--------------------------------------------|
-| Classification/childs  | childs       | parentClassificationReference.namespaceUri | NONE                   | GraphQL points to child, JSON points to parent (1)
-| Classification/domain  | NONE         | NONE                                       | bsdd:Domain            | GraphQL and JSON API do not return property ~domain~ whereas RDF API returns it  |
-| Classification/domainNamespaceUri | NONE | domainNamespaceUri | NONE | GraphQL and RDF API do not return property ~domainNamespaceUri~ |
-| Property/domain  | NONE         | NONE                                       | bsdd:Domain            | GraphQL and JSON API do not return property ~domain~ whereas RDF API returns it  |
-| Property/domainNamespaceUri | NONE | domainNamespaceUri | NONE | GraphQL and RDF API do not return property ~domainNamespaceUri~ |
-| ClassificationProperty |              |                                            |                        | TODO: ClassificationProperty possesses 5 unique fields: ~isRequired~, ~isWritable~, ~predefinedValue~, ~propertySet~, ~symbol~. Property has uniquely ~connectedPropertyCodes~ and ~relations~ (TODO: think over: GraphQL and JSON overload the URL and use it for both ClassificationProperty and Property (2)            |
+| Type/field                        | GraphQL      | JSON API                                   | RDF API                |comment
+|-----------------------------------+---------+--------------------------------------------+------------------------+--------------------------------------------|
+| Classification/childs             | childs  | parentClassificationReference.namespaceUri | NONE                   | GraphQL points to child, JSON points to parent (1)
+| Classification/domain             | NONE    | NONE                                       | bsdd:Domain            | GraphQL and JSON API do not return property ~domain~ whereas RDF API returns it  |
+| Classification/domainNamespaceUri | NONE    | domainNamespaceUri | NONE | GraphQL and RDF API do not return property ~domainNamespaceUri~ |
+| Property/domain                   | NONE    | NONE                                       | bsdd:Domain            | GraphQL and JSON API do not return property ~domain~ whereas RDF API returns it  |
+| Property/domainNamespaceUri       | NONE    | domainNamespaceUri | NONE | GraphQL and RDF API do not return property ~domainNamespaceUri~ |
+| ClassificationProperty            |         |                                            |                        | GraphQL and JSON overload the URL and use it for both ClassificationProperty and Property (2)            |
 | link to general property   | namespaceUri | namespaceUri                               | propertyNamespaceUri   | GraphQL and JSON have no real link, just the overloaded URL. The RDF prop is a string, should be URL (3) |
 | link to classification     |              |                                            | classificationProperty | RDF prop is misnamed, should be "classification" (4) |
 |                            |              |                                            |                        |                                                                                                          |
@@ -332,7 +343,7 @@ results in
   bsdd:ClassificationProperty <class/IfcCableSegmentCABLESEGMENT>.
 #+end_src
 
-*** Improve Property Names
+** Improve Property Names
 :PROPERTIES:
 :CUSTOM_ID: improve-property-names
 :END:
@@ -356,7 +367,7 @@ Property names should conform to naming conventions and be spelled consistently
   You can see this problem by fetching:
 : curl -s -H Accept:text/turtle  https://identifier.buildingsmart.org/uri/bs-agri/fruitvegs-1.0/class/apple
 
-** Use the same URL for Data and for Web Pages
+** Use the Same URL for Data and for Web Pages
 :PROPERTIES:
 :CUSTOM_ID: use-the-same-url-for-data-and-for-web-pages
 :END:
@@ -625,8 +636,7 @@ http://otl.amsterdam.nl
 http://rdf.vegdata.no/V440/v440-owl
 #+end_src
 
-- DONE: org vs domain vs domain version.
-  According to [[hierarchical URIs design][https://patterns.dataincubator.org/book/hierarchical-uris.html]]] domain URL can by more "hackable" allowing users to navigate the hierarchy by pruning the URI. The proposed URL structure can be 
+According to [[hierarchical URIs design][https://patterns.dataincubator.org/book/hierarchical-uris.html]]] domain URL can by more "hackable" allowing users to navigate the hierarchy by pruning the URI. The proposed URL structure can be 
   ~https://identifier.buildingsmart.org/uri/<org>/<domain>/<version>~
   
 - In some cases the <org> name doesn't quite mesh with the domain name, perhaps due to the way bSDD allocates <org> identifiers to bSDD contributors

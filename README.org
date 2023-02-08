@@ -29,6 +29,7 @@
   - [[#original-vs-refactored-files][Original vs Refactored Files]]
 - [[#related-work][Related Work]]
 - [[#suggestions-for-improvement][Suggestions for Improvement]]
+  - [[#return-the-same-data-across-apis][Return the Same Data Across APIs]]
   - [[#improve-property-names][Improve Property Names]]
   - [[#use-the-same-url-for-data-and-for-web-pages][Use the same URL for Data and for Web Pages]]
   - [[#graphql-implementation-errors][GraphQL Implementation Errors]]
@@ -42,7 +43,6 @@
   - [[#declare-urls-to-be-id-and-use-field-name-id][Declare URLs to be ID and use Field Name id]]
   - [[#all-significant-classes-should-have-url][All Significant Classes Should Have URL]]
   - [[#graphql-arrays-and-nullability][GraphQL Arrays and Nullability]]
-  - [[#return-the-same-data-across-apis][Return the Same Data Across APIs]]
   - [[#improve-graphql-results-and-eliminate-errors][Improve GraphQL Results and Eliminate Errors]]
   - [[#improve-relations-between-objects][Improve Relations Between Objects]]
   - [[#property-vs-classificationproperty-use-distinct-urls][Property vs ClassificationProperty: Use Distinct URLs]]
@@ -233,7 +233,7 @@ VIsualizations of the original and refactored schema
 :CUSTOM_ID: suggestions-for-improvement
 :END:
 
-** Return the Same Data Across APIs
+*** Return the Same Data Across APIs
 :PROPERTIES:
 :CUSTOM_ID: return-the-same-data-across-apis
 :END:
@@ -332,7 +332,7 @@ results in
   bsdd:ClassificationProperty <class/IfcCableSegmentCABLESEGMENT>.
 #+end_src
 
-** Improve Property Names
+*** Improve Property Names
 :PROPERTIES:
 :CUSTOM_ID: improve-property-names
 :END:

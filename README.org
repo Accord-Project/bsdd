@@ -159,7 +159,7 @@ Major goal of this work is to improve the bSDD GraphQL API.
 To achieve this, the existing GraphQL schema will be converted to a [[https://platform.ontotext.com/semantic-objects/soml/index.html][SOML schema]]
 which then will be manually improved and finally used to generate a better GraphQL API with the help of [[https://platform.ontotext.com/semantic-objects/][Ontotext Platform]].
 
-The repository contains a Python utility script [[./scripts/graphql2soml.py][graphql2soml.py]] that can generate a
+Python utility script [[./scripts/graphql2soml.py][graphql2soml.py]] generates a
 [[https://platform.ontotext.com/semantic-objects/soml/index.html][SOML schema]] from a given GraphQL endpoint.
 
 Executing this script produces two files in the repository:
@@ -176,7 +176,7 @@ Once this is done, the resulting schema will be saved in [[./bsdd-graphql-soml-r
 :CUSTOM_ID: graphql-data-dumps
 :END:
 
-The repository includes a Python script [[./scripts/bsdd2json.py][bsdd2json.py]] that can connect to the bSDD GraphQL API and export all objects in the
+Another Python script [[./scripts/bsdd2json.py][bsdd2json.py]] connects to the bSDD GraphQL API and exports all objects in the
 GraphQL schema as JSONs including domains, classifications, classification properties etc.
 
 The exported data will be located under the ~data/~ directory once the script is executed. Running this script takes around ~10 hours due to
@@ -193,7 +193,7 @@ The overall process of the script is
 - for each exported domain, to create a subdirectory and to export all classifications in that domain in separate JSONs (~Classification~ in GraphQL)
 - to collect all unique classification properties, trying to resolve them as global properties and finally to export them in ~properties.json~ (~Property~ in GraphQL)
 
-The repository includes a Python script [[./scripts/bsdd_export.py][bsdd_export.py]] which works with the GraphQL queries within the ~graphql/~ folder.
+Python script [[./scripts/bsdd_export.py][bsdd_export.py]] works with the GraphQL queries within the ~graphql/~ folder.
 It can invoke given query with or without variables and returns the response to the user in JSON. To work with the script we need to create a virtual Python enthronement:
 
 - Create a virtual environment with ~python3.9 -m venv .venv~

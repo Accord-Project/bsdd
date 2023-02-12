@@ -193,7 +193,7 @@ The overall process of the script is
 - for each exported domain, to create a subdirectory and to export all classifications in that domain in separate JSONs (~Classification~ in GraphQL)
 - to collect all unique classification properties, trying to resolve them as global properties and finally to export them in ~properties.json~ (~Property~ in GraphQL)
 
-Python script [[./scripts/bsdd_export.py][bsdd_export.py]] works with the GraphQL queries within the ~graphql/~ folder.
+Python script [[./scripts/bsdd_export.py][bsdd_export.py]] works with the GraphQL queries within the ~/graphql~ folder.
 It can invoke given query with or without variables and returns the response to the user in JSON. To work with the script we need to create a virtual Python enthronement:
 
 - Create a virtual environment with ~python3.9 -m venv .venv~
@@ -246,6 +246,43 @@ In the root folder there are visualizations of the original schema -
 :PROPERTIES:
 :CUSTOM_ID: statistics
 :END:
+
+Currently bSDD contains 31786/31720 Classifications, 
+111792/111556 ClassificationProperties, 
+188374 ClassificationPropertyValues,
+6420 ClassificationRelations,
+36143/36069 Properties,
+214553/214121 PropertyValues,
+610 Units, 484 ReferenceDocuments, 39 Languages, 246 Countries, 108 Domains.
+Correspondent queries are
+```sparql
+PREFIX bsdd: <http://bsdd.buildingsmart.org/def#>
+select ?x (count(*) as ?count)  where { 
+    ?cla a ?x.
+    FILTER (?x IN (bsdd:Domain, bsdd:Classification, bsdd:Property, bsdd:Country, bsdd:Language, bsdd:Unit, bsdd:ReferenceDocument, bsdd:ClassificationProperty, bsdd:ClassificationRelation, bsdd:PropertyValue))
+} group by (?x)
+```
+and to obtain ClassificationPropertyValues
+```sparql
+PREFIX bsdd: <http://bsdd.buildingsmart.org/def#>
+select (count(*) as ?c)  where { 
+    ?cp a bsdd:ClassificationProperty.
+    ?cp bsdd:allowedValue ?x.
+    }
+```
+Field completion percentages are shown in the table:
+| Type                    | Number of fields | Maximum filled | Sample |
+|-------------------------+----------+------+--------| 
+| Classification          |     26   |  19  | https://identifier.buildingsmart.org/uri/bim-de/AutobahnGmbH-1.0/class/006bd5d1-8bd6-431a-8cb9-679363c70110       | 
+| Property                |     47   |  33  | https://identifier.buildingsmart.org/uri/bs-agri/fruitvegs-1.0/prop/volume       |
+| ClassificationProperty  |     51   |  30  | https://identifier.buildingsmart.org/uri/bs-agri/fruitvegs-1.0/prop/volume       |
+| Domain                  |     10   |  10  | https://identifier.buildingsmart.org/uri/dreso/din276plus-1.0       |
+| Country                 |     2    |   2  |        |
+| Unit                    |     2    |   2  |        |
+| ReferenceDocument       |     2    |   2  |        |
+| Language                |     2    |   2  |        |
+| ClassificationRelation  |     4    |   3  |        |
+| PropertyValue           |          |      |        |
 
 
 * Suggested Improvements

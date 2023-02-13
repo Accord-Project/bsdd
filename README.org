@@ -257,22 +257,23 @@ Currently bSDD contains 31786/31720 Classifications,
 
 Correspondent queries are
 
-```sparql
+#+begin_src sparql
 PREFIX bsdd: <http://bsdd.buildingsmart.org/def#>
 select ?x (count(*) as ?count)  where { 
     ?cla a ?x.
     FILTER (?x IN (bsdd:Domain, bsdd:Classification, bsdd:Property, bsdd:Country, bsdd:Language, bsdd:Unit, bsdd:ReferenceDocument, bsdd:ClassificationProperty, bsdd:ClassificationRelation, bsdd:PropertyValue))
 } group by (?x)
-```
+#+end_src
+
 and to obtain ClassificationPropertyValues
 
-```sparql
+#+begin_src sparql
 PREFIX bsdd: <http://bsdd.buildingsmart.org/def#>
 select (count(*) as ?c)  where { 
     ?cp a bsdd:ClassificationProperty.
     ?cp bsdd:allowedValue ?x.
     }
-```
+#+end_src
 
 Field completion percentages are shown in the table:
 

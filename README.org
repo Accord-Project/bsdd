@@ -290,6 +290,7 @@ Field completion percentages are shown in the table:
 | ClassificationRelation  |     4            |   3            |
 | PropertyValue           |     5            |   2            |
 
+Going deeper into details we found that 
 
 * Suggested Improvements
 :PROPERTIES:

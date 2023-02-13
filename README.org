@@ -275,7 +275,7 @@ select (count(*) as ?c)  where {
     }
 #+end_src
 
-Field completion percentages are shown in the table:
+### Field Completion Percentages
 
 | Type                    | Number of fields | Maximum filled |
 |-------------------------+------------------+----------------| 
@@ -290,7 +290,233 @@ Field completion percentages are shown in the table:
 | ClassificationRelation  |     4            |   3            |
 | PropertyValue           |     5            |   2            |
 
-Going deeper into details we found that 
+### Field Values Filling for Classifications
+
+|field                                                    |c    |percentage|
+|---------------------------------------------------------+-----+----------|
+|http://bsdd.buildingsmart.org/def#deprecationExplanation |1    |0.0033%   |
+|http://bsdd.buildingsmart.org/def#visualRepresentationUri|9    |0.0296%   |
+|http://bsdd.buildingsmart.org/def#subdivisionOfUse       |25   |0.0824%   |
+|http://bsdd.buildingsmart.org/def#documentReference      |33   |0.1087%   |
+|http://bsdd.buildingsmart.org/def#uid                    |4251 |14.0034%  |
+|http://bsdd.buildingsmart.org/def#relatedIfcEntityName   |5095 |16.7836%  |
+|http://bsdd.buildingsmart.org/def#relation               |5388 |17.7488%  |
+|http://bsdd.buildingsmart.org/def#creatorLanguageCode    |8317 |27.3973%  |
+|http://bsdd.buildingsmart.org/def#countryOfOrigin        |8405 |27.6872%  |
+|http://bsdd.buildingsmart.org/def#definition             |8906 |29.3375%  |
+|http://bsdd.buildingsmart.org/def#countryOfUse           |9508 |31.3206%  |
+|http://bsdd.buildingsmart.org/def#synonym                |28404|93.5666%  |
+|http://bsdd.buildingsmart.org/def#referenceCode          |29226|96.2743%  |
+|http://bsdd.buildingsmart.org/def#classificationType     |30357|100.0000% |
+|http://bsdd.buildingsmart.org/def#code                   |30357|100.0000% |
+|http://bsdd.buildingsmart.org/def#name                   |30357|100.0000% |
+|http://bsdd.buildingsmart.org/def#status                 |30357|100.0000% |
+|http://www.w3.org/1999/02/22-rdf-syntax-ns#type          |30357|100.0000% |
+
+#+begin_src sparql
+PREFIX bsdd: <http://bsdd.buildingsmart.org/def#>
+select  ?field (count(?field) as ?c)
+where {
+    ?domain a bsdd:Domain; bsdd:classification ?cla.
+    ?cla ?field ?value .
+    FILTER ((?value != "")&& (?value !="[]"))
+} group by ?field order by asc (?c)
+#+end_src
+
+### Field Values Filling for Properties
+
+|field                                                    |c    |percentage|
+|---------------------------------------------------------+-----+----------|
+|http://bsdd.buildingsmart.org/def#textFormat             |1    |0.0028%   |
+|http://bsdd.buildingsmart.org/def#pattern                |2    |0.0057%   |
+|http://bsdd.buildingsmart.org/def#visualRepresentationUri|2    |0.0057%   |
+|http://bsdd.buildingsmart.org/def#methodOfMeasurement    |3    |0.0085%   |
+|http://bsdd.buildingsmart.org/def#subdivisionOfUse       |3    |0.0085%   |
+|http://bsdd.buildingsmart.org/def#connectedPropertyCode  |17   |0.0484%   |
+|http://bsdd.buildingsmart.org/def#dimension              |613  |1.7457%   |
+|http://bsdd.buildingsmart.org/def#documentReference      |656  |1.8681%   |
+|http://bsdd.buildingsmart.org/def#example                |1084 |3.0870%   |
+|http://bsdd.buildingsmart.org/def#definition             |2772 |7.8941%   |
+|http://bsdd.buildingsmart.org/def#physicalQuantity       |3802 |10.8273%  |
+|http://bsdd.buildingsmart.org/def#uid                    |4075 |11.6047%  |
+|http://bsdd.buildingsmart.org/def#unit                   |6073 |17.2946%  |
+|http://bsdd.buildingsmart.org/def#description            |10132|28.8538%  |
+|http://bsdd.buildingsmart.org/def#countryOfUse           |12089|34.4269%  |
+|http://bsdd.buildingsmart.org/def#creatorLanguageCode    |12401|35.3154%  |
+|http://bsdd.buildingsmart.org/def#countryOfOrigin        |12727|36.2438%  |
+|http://bsdd.buildingsmart.org/def#allowedValue           |22600|64.3600%  |
+|http://bsdd.buildingsmart.org/def#dataType               |33273|94.7544%  |
+|http://bsdd.buildingsmart.org/def#code                   |35115|100.0000% |
+|http://bsdd.buildingsmart.org/def#name                   |35115|100.0000% |
+|http://bsdd.buildingsmart.org/def#propertyValueKind      |35115|100.0000% |
+|http://bsdd.buildingsmart.org/def#status                 |35115|100.0000% |
+|http://www.w3.org/1999/02/22-rdf-syntax-ns#type          |35115|100.0000% |
+
+#+begin_src sparql
+PREFIX bsdd: <http://bsdd.buildingsmart.org/def#>
+select  ?field (count(?field) as ?c)
+where {
+    ?prop a bsdd:Property.
+    ?prop ?field ?value .
+    FILTER ((?value != "")&& (?value !="[]"))
+} group by ?field order by asc (?c)
+#+end_src
+
+### Distribution of PropertyValueKind Field Values for Properties
+
+|value |c     |
+|------+------|
+|RANGE |820   |
+|LIST  |1259  |
+|SINGLE|33990 |
+
+#+begin_src sparql
+PREFIX bsdd: <http://bsdd.buildingsmart.org/def#>
+select  ?value (count(?value) as ?c)
+where {
+    ?prop a bsdd:Property.
+    ?prop bsdd:propertyValueKind ?value .
+} group by ?value order by asc (?c)
+#+end_src
+
+### Field Value Fillings for ClassificationProperties
+
+|field                                                    |c     |%        |
+|---------------------------------------------------------+------+---------|
+|http://bsdd.buildingsmart.org/def#visualRepresentationUri|4     |0.0036%  |
+|http://bsdd.buildingsmart.org/def#methodOfMeasurement    |5     |0.0045%  |
+|http://bsdd.buildingsmart.org/def#pattern                |7     |0.0063%  |
+|http://bsdd.buildingsmart.org/def#subdivisionOfUse       |19    |0.0170%  |
+|http://bsdd.buildingsmart.org/def#symbol                 |79    |0.0708%  |
+|http://bsdd.buildingsmart.org/def#documentReference      |859   |0.7699%  |
+|http://bsdd.buildingsmart.org/def#dimension              |940   |0.8426%  |
+|http://bsdd.buildingsmart.org/def#definition             |3964  |3.5531%  |
+|http://bsdd.buildingsmart.org/def#example                |4426  |3.9672%  |
+|http://bsdd.buildingsmart.org/def#predefinedValue        |6219  |5.5743%  |
+|http://bsdd.buildingsmart.org/def#uid                    |11602 |10.3992% |
+|http://bsdd.buildingsmart.org/def#physicalQuantity       |11678 |10.4673% |
+|http://bsdd.buildingsmart.org/def#description            |17067 |15.2977% |
+|http://bsdd.buildingsmart.org/def#propertySet            |17907 |16.0506% |
+|http://bsdd.buildingsmart.org/def#countryOfUse           |19859 |17.8002% |
+|http://bsdd.buildingsmart.org/def#creatorLanguageCode    |19906 |17.8424% |
+|http://bsdd.buildingsmart.org/def#countryOfOrigin        |20768 |18.6150% |
+|http://bsdd.buildingsmart.org/def#unit                   |25231 |22.6153% |
+|http://bsdd.buildingsmart.org/def#dataType               |104960|94.0788% |
+|http://bsdd.buildingsmart.org/def#code                   |111566|100.0000%|
+|http://bsdd.buildingsmart.org/def#name                   |111566|100.0000%|
+|http://bsdd.buildingsmart.org/def#property               |111566|100.0000%|
+|http://bsdd.buildingsmart.org/def#propertyValueKind      |111566|100.0000%|
+|http://bsdd.buildingsmart.org/def#status                 |111566|100.0000%|
+|http://www.w3.org/1999/02/22-rdf-syntax-ns#type          |111566|100.0000%|
+|http://bsdd.buildingsmart.org/def#allowedValue           |188374|168.8453%|
+
+#+begin_src sparql
+PREFIX bsdd: <http://bsdd.buildingsmart.org/def#>
+select  ?field (count(?field) as ?c)
+where {
+    ?prop a bsdd:ClassificationProperty.
+    ?prop ?field ?value .
+    FILTER ((?value != "")&& (?value !="[]"))
+} group by ?field order by asc (?c)
+#+end_src
+
+### Distribution of PropertyValueKind Field for ClassificationProperties:
+
+|value |c     |
+|------+------|
+|RANGE |3490  |
+|LIST  |4837  |
+|SINGLE|103239|
+
+#+begin_src sparql
+PREFIX bsdd: <http://bsdd.buildingsmart.org/def#>
+select  ?value (count(?value) as ?c)
+where {
+    ?prop a bsdd:ClassificationProperty.
+    ?prop bsdd:propertyValueKind ?value .
+} group by ?value order by asc (?c)
+#+end_src
+
+### Status
+
+|c      |type      |
+|-------+----------|
+| 164968| Active   |
+| 14481	| Preview  |
+| 4	    | Inactive |
+
+#+begin_src sparql
+PREFIX bsdd: <http://bsdd.buildingsmart.org/def#>
+select (count(*) as ?c) ?type where { 
+	?d bsdd:status ?type
+} group by ?type order by desc(?c)
+
+#+end_src
+## Dynamic Properites
+
+|c	    |type |
+|-------+-----|
+|135250	|false|
+|12385	|true |
+
+#+begin_src sparql
+PREFIX bsdd: <http://bsdd.buildingsmart.org/def#>
+select (count(*) as ?c) ?type where { 
+	?d bsdd:isDynamic ?type
+} group by ?type order by desc(?c)
+#+end_src
+However, property field one could expect to be filled for the calculation of dynamic property value, `dynamicParameterPropertyCodes (String)`, is empty for all available as of February 2023 domains.
+
+## Writable Properties
+
+| c	   | type  |
+|------+-------|
+| 1653 | true  |
+| 4	   | false |
+
+#+begin_src sparql
+PREFIX bsdd: <http://bsdd.buildingsmart.org/def#>
+select (count(*) as ?c) ?type where { 
+	?d bsdd:isWritable ?type
+} group by ?type order by desc(?c)
+
+#+end_src
+
+## Required Properties
+| c	   | t4481|
+|------+------|
+| 1667 |true  |
+| 2    |false |
+
+#+begin_src sparql
+PREFIX bsdd: <http://bsdd.buildingsmart.org/def#>
+select (count(*) as ?c) ?type where { 
+	?d bsdd:isRequired ?type
+} group by ?type order by desc(?c)
+#+end_src
+
+### Domains Containing Required Writable ClassificationProperties
+
+|domain |
+|--------------------------------------------------------------------|
+|	https://identifier.buildingsmart.org/uri/acca/LCCrg-1.0	           |
+|	https://identifier.buildingsmart.org/uri/bimeta/bimeta-1.0	       |
+|	https://identifier.buildingsmart.org/uri/bs-agri/fruitvegs-1.0	   |
+|	https://identifier.buildingsmart.org/uri/bs-agri/fruitvegs-1.1	   |
+|	https://identifier.buildingsmart.org/uri/limlab/PN001-1.1	         |
+|	https://identifier.buildingsmart.org/uri/uniweimar/uniweimar-0.1   |
+
+#+begin_src sparql
+PREFIX bsdd: <http://bsdd.buildingsmart.org/def#>
+select distinct ?domain 
+where {
+    ?domain a bsdd:Domain; bsdd:classification ?cla.
+    ?cla bsdd:classificationProperty ?x.
+    ?x bsdd:name ?xname; bsdd:isRequired ?req; bsdd:isWritable ?wri.
+    FILTER (?req=true && ?wri=true)
+}
+#+end_src
+We can see that the data in bSDD have rich and appropriate metadata, supplied with proper provenance  (principles F2 and R1 of fair data), however it might be good to have a procedure for a data provider to ensure data completeness (as we see in the example of dynamic properties).
 
 * Suggested Improvements
 :PROPERTIES:

@@ -87,14 +87,14 @@
 :PROPERTIES:
 :CUSTOM_ID: abstract
 :END:
-The buildingSmart Data Dictionary (bSDD) is an important shared resource in the Architecture, Engineering, Construction and Operations (AECO) domain.
-It is a collection of datasets ("domains") that define various classifications (objects representing building components, products and materials) and their properties.
+The buildingSmart Data Dictionary (bSDD) is an important shared resource in the Architecture, Engineering, Construction, and Operations (AECO) domain.
+It is a collection of datasets ("domains") that define various classifications (objects representing building components, products, and materials) and their properties.
 bSDD defines a GraphQL API, as well as REST APIs that return JSON and RDF representations.
 This improves the interoperability of bSDD and its easier deployment in architectural CAD and other AECO software.
 
-However it appears that the data retrieved via different APIs are not identical by structure, these structural differences are not documented, thus lowering the trust to bSDD data quality.  
+However it appears that the data retrieved via different APIs are not identical by structure, these structural differences are not documented, thus lowering the trust in bSDD data quality.  
 
-We conducted the thorough comparison of the data retrieved and the analysis of the results completeness and the fulfillment of FAIR principles by bSDD. Based on the analysis we propose a set of enhancements to make bSDD data more findable, accessible, interoperable and reusable, and provide a SPARQL endpoint where bSDD data are organized into a Semantic bSDD knowledge graph, are more FAIR and are available for browsing and querying with GraphQL and SPARQL. All our findings and suggestions are collected and presented at the [[https://github.com/Accord-Project/bsdd]].
+We conducted a thorough comparison of the data retrieved and the analysis of the results' completeness and the fulfillment of FAIR principles by bSDD. Based on the analysis we propose a set of enhancements to make bSDD data more findable, accessible, interoperable, and reusable, and provide a SPARQL endpoint where bSDD data are organized into a Semantic bSDD knowledge graph, are more FAIR, and are available for browsing and querying with GraphQL and SPARQL. All our findings and suggestions are collected and presented at the [[https://github.com/Accord-Project/bsdd]].
 
 * Keywords
 :PROPERTIES:
@@ -111,27 +111,27 @@ Linked building data, buildingSMART Data Dictionary, FAIR data
 :PROPERTIES:
 :CUSTOM_ID: bsdd
 :END:
-Reusable data dictionaries serving interoperation purposes are widely known in industry, for example, IEC Common Data Dictionary (IEC CDD) [@ieccdd] and eCl@ss[@eclass] - for electronic exchange of digital information across industries, ISO 15926 part 4 Reference Data Libraries [[https://rds.posccaesar.org/]] - for electronic exchange of digital information across process plant industries. buildingSMART Data Dictionary (bSDD) is the solution for the AECO domain.
+Reusable data dictionaries serving interoperation purposes are widely known in the industry, for example, IEC Common Data Dictionary (IEC CDD) [@ieccdd] and eCl@ss[@eclass] - for the electronic exchange of digital information across industries, ISO 15926 part 4 Reference Data Libraries [[https://rds.posccaesar.org/]] - for the electronic exchange of digital information across process plant industries. buildingSMART Data Dictionary (bSDD) is the solution for the AECO domain.
 
 The bSDD [@buildingsmartinternationalBuildingSMARTDataDictionary] is a multilingual hierarchically structured encyclopedia [@oraskariLiveWebOntology2021] of object concepts and their properties used in building information models (BIM). Predefined by some vendors sets of properties extending common property sets of Industry Foundation Classes (IFC) allow to describe specific domains (e.g. transportation) or specific building elements (e.g. doors, windows, stairs). bSDD is
-organised according to the Building Information Modelling methodology defined in ISO 23386 (2020) [@ISO233862020] following the language-independent information model used for the development of dictionaries storing information about construction work defined in ISO 12006-3 (2022) [@ISO1200632022]. 
+organized according to the Building Information Modelling methodology defined in ISO 23386 (2020) [@ISO233862020] following the language-independent information model used for the development of dictionaries storing information about construction work defined in ISO 12006-3 (2022) [@ISO1200632022]. 
 bSDD was initiated to support improved interoperability in the building and construction industry.
-Palos et al. @palosStateoftheartAnalysisProduct2012 noted that bSDD is a very comprehensive solution aiming at provisioning of open complementary product data definitions, identification and distribution methods.
-bSDD currently (February 2023) keeps descriptions of nearly 80,000 concepts with translations in multiple languages, with 108 domains ranging from roads and rails to DIN, Omniclass, Uniclass, IFC with extensions etc thus making it a widely accepted source of BIM-oriented and BIM-based data.
-The reference system assigns a Global Unique Identifier (GUID) for all defined terms entered into the system in order to enable data utilization in variety of structured documents and applications.
+Palos et al. @palosStateoftheartAnalysisProduct2012 noted that bSDD is a very comprehensive solution aiming at the provisioning of open complementary product data definitions, identification, and distribution methods.
+bSDD currently (February 2023) keeps descriptions of nearly 80,000 concepts with translations in multiple languages, with 108 domains ranging from roads and rails to DIN, Omniclass, Uniclass, IFC with extensions, etc thus making it a widely accepted source of BIM-oriented and BIM-based data.
+The reference system assigns a Global Unique Identifier (GUID) for all defined terms entered into the system to enable data utilization in a variety of structured documents and applications.
 
 ** Benefits of GraphQL
 :PROPERTIES:
 :CUSTOM_ID: benefits-of-graphql
 :END:
-GraphQL [[https://graphql.com]] as a query language for APIs and a runtime for fulfilling those queries with the existing data has many benefits over the traditional REST APIs: ability to avoid overfetching by specifying exactly which data and in which structure are to be returned from the server; ability to retrieve many resources in a single request; GraphQL service defines a set of types which completely describe the set of possible data queriable with that service. bSDD makes use of [[graphiql]] - a graphical interactive in-browser GraphQL IDE, available at [[https://test.bsdd.buildingsmart.org/graphiql/]]. 
-Interactive browsing of GraphQL set of types available for bSDD can be obtained with GraphQL Voyager [[https://github.com/IvanGoncharov/graphql-voyager]] or [[https://ivangoncharov.github.io/graphql-voyager/]]. 
+GraphQL [[https://graphql.com]] as a query language for APIs and a runtime for fulfilling those queries with the existing data has many benefits over the traditional REST APIs: the ability to avoid over fetching by specifying exactly which data and in which structure is to be returned from the server; ability to retrieve many resources in a single request; GraphQL service defines a set of types which completely describe the set of possible data queriable with that service. bSDD makes use of [[graphiql]] - a graphical interactive in-browser GraphQL IDE, available at [[https://test.bsdd.buildingsmart.org/graphiql/]]. 
+GraphQL Voyager [[https://github.com/IvanGoncharov/graphql-voyager]] or [[https://ivangoncharov.github.io/graphql-voyager/]] allows to browse the set of types available for bSDD.
 
 ** Original bSDD Schema: GraphQL Voyager
 :PROPERTIES:
 :CUSTOM_ID: original-bsdd-schema-graphql-voyager
 :END:
-We investigated original bSDD schema and datasets available at [[https://test.bsdd.buildingsmart.org]] with [[https://rawgit2.com/Accord-Project/bsdd/main/bsdd-graphql-voyager-orig.html][GraphQL Voyager]]. In the Figure 1 the original schema is depicted in class and class+fields views.
+We investigated the original bSDD schema and datasets available at [[https://test.bsdd.buildingsmart.org]] with [[https://rawgit2.com/Accord-Project/bsdd/main/bsdd-graphql-voyager-orig.html][GraphQL Voyager]]. In Figure 1 the original schema is depicted in class and class+fields views.
 
 Overview (uncheck "Show leaf fields"):
 
@@ -146,13 +146,11 @@ As we can see, bSDD has 11 basic object types: Domains, Languages, Countries, Un
 :CUSTOM_ID: related-work
 :END:
 
-According to buildingSMART technical roadmap [[https://www.buildingsmart.org/about/technical-roadmap/]] bSDD service provides output data in various formats and APIs, including RDF, thus making bSDD content higher reusable in Linked Data ecosystem, particularly with geographical data, regulations, product manufacturer data. However, Pauwels et al. in @pauwelsetal2016 note that there is no standard method to generate RDF graphs from bSDD API. Starting from @beetzInteroperableDataModels2014 where "bSDD vocabulary has been transformed into a configurable RDF dataset. On the meta-model level a number of different modeling approaches ranging from OWL to RDFS and SKOS have been implemented to evaluate the advantages and disadvantages of the respective modeling strategies" the work was continued In @pauwelterkaj2016 a complete translation of IFC from EXPRESS to OWL is presented,however lacking modularity and extensibility inherent to best Semantic Web practices @kebedeIntegrationManufacturersProduct2022. In @oraskariLiveWebOntology2021 it is proposed and implemented to generate from bSDD an OWL representation of a selected IFC element together with its property sets on the fly.    
+According to buildingSMART technical roadmap, [[https://www.buildingsmart.org/about/technical-roadmap/]] bSDD service provides output data in various formats and APIs, including RDF, thus making bSDD content higher reusable in the Linked Data ecosystem, particularly with geographical data, regulations, product manufacturer data. However, Pauwels et al. in @pauwelsetal2016 note that there is no standard method to generate RDF graphs from bSDD API. Starting from @beetzInteroperableDataModels2014 where "bSDD vocabulary has been transformed into a configurable RDF dataset. On the meta-model level several different modeling approaches ranging from OWL to RDFS and SKOS have been implemented to evaluate the advantages and disadvantages of the respective modeling strategies" the work was continued In @pauwelterkaj2016 a complete translation of IFC from EXPRESS to OWL is presented, however lacking modularity and extensibility inherent to best Semantic Web practices @kebedeIntegrationManufacturersProduct2022. In @oraskariLiveWebOntology2021 it is proposed and implemented to generate from bSDD an OWL representation of a selected IFC element together with its property sets on the fly.    
 
-In the survey @kebedeIntegrationManufacturersProduct2022 discussed is the question where and how the bSDD can fit in the Linked building data (LBD) ecosystem. Authors mention that bSDD has undertaken a new round of development showing a shift towards publishing data classifications and properties as Linked Data.
+In the survey @kebedeIntegrationManufacturersProduct2022 discussed the question of where and how the bSDD can fit in the Linked building data (LBD) ecosystem. Authors mention that bSDD has undertaken a new round of development showing a shift towards publishing data classifications and properties as Linked Data.
 
-TODO MAYBE: review more ways of representing classes, props, prop sets. Eg IEC CDD (ISO PLIB), eClass...
-
-Admitting the advances of bSDD community at providing data in RDF format we met some issues where accomodating these data for our purposes in the frame of ACCORD project [[https://github.com/Accord-Project/bsdd]], among them are different results obtained with different APIs, multiple URIs for same entities, various GraphQL implementatuon errors. In this paper we discuss these issues and propose a set of technical improvements following the best practices of Semantic Web and linked data to obtain "a semantically better version" of bSDD. We implemented and made available our solution using Ontotext Platform[[https://bsdd.ontotext.com/workbench/graphql]].
+Admitting the advances of bSDD community at providing data in RDF format we met some issues where accommodating these data for our purposes in the frame of ACCORD project [[https://github.com/Accord-Project/bsdd]], among them are different results obtained with different APIs, multiple URIs for same entities, various GraphQL implementation errors. In this paper, we discuss these issues and propose a set of technical improvements following the best practices of the Semantic Web and linked data to obtain "a semantically better version" of bSDD. We implemented and made available our solution using the Ontotext Platform[[https://bsdd.ontotext.com/workbench/graphql]].
 
 Unlike @oraskariLiveWebOntology2021, we preserve the original bSDD structure (Domain, Classification, Property, etc) and only add specific improvements, described below, and convert the whole bSDD at once, taking more attention to outlining the discrepancies of the current solution and bringing the Semantic Web best practices and FAIR [[@GarijoPoveda2020]] principles. 
 
@@ -166,7 +164,7 @@ Unlike @oraskariLiveWebOntology2021, we preserve the original bSDD structure (Do
 :CUSTOM_ID: graphql-conversion-to-soml-schema
 :END:
 
-Major goal of this work is to improve the bSDD GraphQL API.
+The major goal of this work is to improve the bSDD GraphQL API.
 To achieve this, the existing GraphQL schema will be converted to a [[https://platform.ontotext.com/semantic-objects/soml/index.html][SOML schema]]
 which then will be manually improved and finally used to generate a better GraphQL API with the help of [[https://platform.ontotext.com/semantic-objects/][Ontotext Platform]].
 
@@ -237,9 +235,9 @@ In ~/dump~ there are scripts including a docker file to get a full bSDD dump.
 
 ~/graphql~ folder contains GrqphQL queries to get all bSDD entities.  
 
-In ~/scripts~  all the necessary scripts to export data in various formats, convert bSDD schema to SOML, transform refactored SOML to RDF/TTL.  
+In ~/scripts~  all the necessary scripts to export data in various formats, convert bSDD schema to SOML, and transform refactored SOML to RDF/TTL.  
 
-In the root folder there are visualizations of the original schema -  
+In the root folder, there are visualizations of the original schema -  
 [[bsdd-graphql-voyager-orig.html]], and the refactored one - [[bsdd-graphql-voyager-refact.html]].
 
 [[bsdd-graphql-schema-orig.json]], 
@@ -251,14 +249,14 @@ In the root folder there are visualizations of the original schema -
 [[IFC-cableSegment-rest-orig.json]],
 [[IFC-cableSegment-graphql-orig.json]],
 [[IFC-cableSegment-orig.ttl]],
-[[IFC-cableSegment-refact.ttl]] - examples representation of IfcCableSegment in various formats.
+[[IFC-cableSegment-refact.ttl]] - examples of representation of IfcCableSegment in various formats.
 
 * Statistics
 :PROPERTIES:
 :CUSTOM_ID: statistics
 :END:
 
-Currently bSDD contains 31786/31720 Classifications, 
+Currently bSDD contains 31720 Classifications, 
 111556 ClassificationProperties, 
 188374 ClassificationPropertyValues,
 6420 ClassificationRelations,
@@ -561,7 +559,7 @@ where {
     FILTER (?req=true && ?wri=true)
 }
 #+end_src
-We can see that the data in bSDD have rich and appropriate metadata, supplied with proper provenance  (principles F2 and R1 of fair data), however it might be good to have a procedure for a data provider to ensure data completeness (as we see in the example of dynamic properties).
+We can see that the data in bSDD have rich and appropriate metadata, supplied with proper provenance  (principles F2 and R1 of fair data), however, it might be good to have a procedure for a data provider to ensure data completeness (as we see in the example of dynamic properties).
 
 * Suggested Improvements
 :PROPERTIES:
@@ -577,10 +575,9 @@ We have compared three representations returned by the bSDD server:
 - JSON from the REST (entity) API
 - RDF  from the REST (entity) API
 
-We selected the most filled objects of each class (i.e. objects with maximum fields filled) and compared the fields in each of the three APIs, see [[https://github.com/Accord-Project/bsdd/tree/main/samples/*-orig.json]]
-
-There are differences and omissions in some of the formats, as described in the table below. The complete list of findings can be found at [[bSDD data analysis spreadsheet][https://docs.google.com/spreadsheets/d/1z_NRMlExlVuqWhBbSErQ9iiDBY4O_fKMd3avV3-NCmo/edit?usp=sharing]].
-it is expected hovewer that the resulting data are the same independently of the protocol.
+We selected the objects of each class with maximum fields filled and compared the results returned with each of the three APIs, see [[https://github.com/Accord-Project/bsdd/tree/main/samples/*-orig.json]].
+We detected several differences in the results, as described in the table below. The complete list of findings is presented at [[bSDD data analysis spreadsheet][https://docs.google.com/spreadsheets/d/1z_NRMlExlVuqWhBbSErQ9iiDBY4O_fKMd3avV3-NCmo/edit?usp=sharing]].
+However, the results should be the same independent of the protocol.
 
 | Type/field                        | GraphQL      | JSON API                                   | RDF API                |comment
 |-----------------------------------+---------+--------------------------------------------+------------------------+--------------------------------------------|

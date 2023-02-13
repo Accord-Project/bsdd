@@ -30,7 +30,18 @@
   - [[#graphql-conversion-to-soml-schema][GraphQL Conversion to SOML Schema]]
   - [[#graphql-data-dumps][GraphQL Data Dumps]]
   - [[#files][Files]]
-- [[#statistics][Statistics]]  
+- [[#statistics][Statistics]]
+  - [[field-completion-percentages][Field Completion Percentages]]
+    - [[field-values-filling-classifications][Field Values Filling for Classifications]]
+    - [[field-values-filling-properties][Field Values Filling for Properties]]
+    - [[distribution-propertyvaluekind-properties][Distribution of PropertyValueKind Field Values for Properties]]
+    - [[field-value-filling-classificationproperties][Field Value Fillings for ClassificationProperties]]
+    - [[distribution-propertyvaluekind-classificationproperties][Distribution of PropertyValueKind Field for ClassificationProperties]]
+    - [[status][Status]]
+    - [[dynamic-props][Dynamic Properties]]
+    - [[writable-props][Writable Properties]]
+    - [[required-props][Required Properties]]
+    - [[domains-required-writable-props][Domains Containing Required Writable ClassificationProperties]]
 - [[#suggested-improvements][Suggested Improvements]]
   - [[#return-the-same-data-across-apis][Return the Same Data Across APIs]]
   - [[#improve-property-names][Improve Property Names]]
@@ -248,11 +259,11 @@ In the root folder there are visualizations of the original schema -
 :END:
 
 Currently bSDD contains 31786/31720 Classifications, 
-111792/111556 ClassificationProperties, 
+111556 ClassificationProperties, 
 188374 ClassificationPropertyValues,
 6420 ClassificationRelations,
-36143/36069 Properties,
-214553/214121 PropertyValues,
+36069 Properties,
+214121 PropertyValues,
 610 Units, 484 ReferenceDocuments, 39 Languages, 246 Countries, 108 Domains.
 
 Correspondent queries are
@@ -275,7 +286,10 @@ select (count(*) as ?c)  where {
     }
 #+end_src
 
-### Field Completion Percentages
+** Field Completion Percentages
+:PROPERTIES:
+:CUSTOM_ID: field-completion-percentages
+:END:
 
 | Type                    | Number of fields | Maximum filled |
 |-------------------------+------------------+----------------| 
@@ -290,7 +304,10 @@ select (count(*) as ?c)  where {
 | ClassificationRelation  |     4            |   3            |
 | PropertyValue           |     5            |   2            |
 
-### Field Values Filling for Classifications
+*** Field Values Filling for Classifications
+:PROPERTIES:
+:CUSTOM_ID: field-values-filling-classifications
+:END:
 
 |field                                                    |c    |percentage|
 |---------------------------------------------------------+-----+----------|
@@ -323,7 +340,10 @@ where {
 } group by ?field order by asc (?c)
 #+end_src
 
-### Field Values Filling for Properties
+*** Field Values Filling for Properties
+:PROPERTIES:
+:CUSTOM_ID: field-values-filling-properties
+:END:
 
 |field                                                    |c    |percentage|
 |---------------------------------------------------------+-----+----------|
@@ -362,7 +382,10 @@ where {
 } group by ?field order by asc (?c)
 #+end_src
 
-### Distribution of PropertyValueKind Field Values for Properties
+*** Distribution of PropertyValueKind Field Values for Properties
+:PROPERTIES:
+:CUSTOM_ID: distribution-propertyvaluekind-properties
+:END:
 
 |value |c     |
 |------+------|
@@ -379,7 +402,10 @@ where {
 } group by ?value order by asc (?c)
 #+end_src
 
-### Field Value Fillings for ClassificationProperties
+*** Field Value Fillings for ClassificationProperties
+:PROPERTIES:
+:CUSTOM_ID: field-value-filling-classificationproperties
+:END:
 
 |field                                                    |c     |%        |
 |---------------------------------------------------------+------+---------|
@@ -420,7 +446,10 @@ where {
 } group by ?field order by asc (?c)
 #+end_src
 
-### Distribution of PropertyValueKind Field for ClassificationProperties:
+*** Distribution of PropertyValueKind Field for ClassificationProperties
+:PROPERTIES:
+:CUSTOM_ID: distribution-propertyvaluekind-classificationproperties
+:END:
 
 |value |c     |
 |------+------|
@@ -437,7 +466,10 @@ where {
 } group by ?value order by asc (?c)
 #+end_src
 
-### Status
+*** Status
+:PROPERTIES:
+:CUSTOM_ID: status
+:END:
 
 |c      |type      |
 |-------+----------|
@@ -452,7 +484,10 @@ select (count(*) as ?c) ?type where {
 } group by ?type order by desc(?c)
 
 #+end_src
-## Dynamic Properites
+*** Dynamic Properties
+:PROPERTIES:
+:CUSTOM_ID: dynamic-props
+:END:
 
 |c	    |type |
 |-------+-----|
@@ -467,7 +502,10 @@ select (count(*) as ?c) ?type where {
 #+end_src
 However, property field one could expect to be filled for the calculation of dynamic property value, `dynamicParameterPropertyCodes (String)`, is empty for all available as of February 2023 domains.
 
-## Writable Properties
+*** Writable Properties
+:PROPERTIES:
+:CUSTOM_ID: writable-props
+:END:
 
 | c	   | type  |
 |------+-------|
@@ -482,7 +520,11 @@ select (count(*) as ?c) ?type where {
 
 #+end_src
 
-## Required Properties
+*** Required Properties
+:PROPERTIES:
+:CUSTOM_ID: required-props
+:END:
+
 | c	   | t4481|
 |------+------|
 | 1667 |true  |
@@ -495,7 +537,10 @@ select (count(*) as ?c) ?type where {
 } group by ?type order by desc(?c)
 #+end_src
 
-### Domains Containing Required Writable ClassificationProperties
+*** Domains Containing Required Writable ClassificationProperties
+:PROPERTIES:
+:CUSTOM_ID: domains-required-writable-props
+:END:
 
 |domain |
 |--------------------------------------------------------------------|

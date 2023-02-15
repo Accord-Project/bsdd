@@ -25,7 +25,6 @@
   - [[#bsdd][bSDD]]
   - [[#benefits-of-graphql][Benefits of GraphQL]]
   - [[#original-bsdd-schema-graphql-voyager][Original bSDD Schema: GraphQL Voyager]]
-  - [[#related-work][Related Work]]
 - [[#getting-bsdd-data][Getting bSDD Data]]
   - [[#graphql-conversion-to-soml-schema][GraphQL Conversion to SOML Schema]]
   - [[#graphql-data-dumps][GraphQL Data Dumps]]
@@ -80,7 +79,6 @@
     - [[#original-rdf-example][Original RDF Example]]
     - [[#refactored-rdf-example][Refactored RDF Example]]
 - [[#acknowledgements][Acknowledgements]]
-- [[#references][References]]
 :END:
 
 * Abstract
@@ -111,12 +109,12 @@ Linked building data, buildingSMART Data Dictionary, FAIR data
 :PROPERTIES:
 :CUSTOM_ID: bsdd
 :END:
-Reusable data dictionaries serving interoperation purposes are widely known in the industry, for example, IEC Common Data Dictionary (IEC CDD) [@ieccdd] and eCl@ss[@eclass] - for the electronic exchange of digital information across industries, ISO 15926 part 4 Reference Data Libraries [[https://rds.posccaesar.org/]] - for the electronic exchange of digital information across process plant industries. buildingSMART Data Dictionary (bSDD) is the solution for the AECO domain.
+Reusable data dictionaries serving interoperation purposes are widely known in the industry, for example, IEC Common Data Dictionary (IEC CDD)  and eCl@ss - for the electronic exchange of digital information across industries, ISO 15926 part 4 Reference Data Libraries [[https://rds.posccaesar.org/]] - for the electronic exchange of digital information across process plant industries. buildingSMART Data Dictionary (bSDD) is the solution for the AECO domain.
 
-The bSDD [@buildingsmartinternationalBuildingSMARTDataDictionary] is a multilingual hierarchically structured encyclopedia [@oraskariLiveWebOntology2021] of object concepts and their properties used in building information models (BIM). Predefined by some vendors sets of properties extending common property sets of Industry Foundation Classes (IFC) allow to describe specific domains (e.g. transportation) or specific building elements (e.g. doors, windows, stairs). bSDD is
-organized according to the Building Information Modelling methodology defined in ISO 23386 (2020) [@ISO233862020] following the language-independent information model used for the development of dictionaries storing information about construction work defined in ISO 12006-3 (2022) [@ISO1200632022]. 
+The bSDD is a multilingual hierarchically structured encyclopedia of object concepts and their properties used in building information models (BIM). Predefined by some vendors sets of properties extending common property sets of Industry Foundation Classes (IFC) allow to describe specific domains (e.g. transportation) or specific building elements (e.g. doors, windows, stairs). bSDD is
+organized according to the Building Information Modelling methodology defined in ISO 23386 (2020) following the language-independent information model used for the development of dictionaries storing information about construction work defined in ISO 12006-3 (2022) . 
 bSDD was initiated to support improved interoperability in the building and construction industry.
-Palos et al. @palosStateoftheartAnalysisProduct2012 noted that bSDD is a very comprehensive solution aiming at the provisioning of open complementary product data definitions, identification, and distribution methods.
+bSDD is a very comprehensive solution aiming at the provisioning of open complementary product data definitions, identification, and distribution methods.
 bSDD currently (February 2023) keeps descriptions of nearly 80,000 concepts with translations in multiple languages, with 108 domains ranging from roads and rails to DIN, Omniclass, Uniclass, IFC with extensions, etc thus making it a widely accepted source of BIM-oriented and BIM-based data.
 The reference system assigns a Global Unique Identifier (GUID) for all defined terms entered into the system to enable data utilization in a variety of structured documents and applications.
 
@@ -140,19 +138,6 @@ Overview (uncheck "Show leaf fields"):
 [[bsdd-graphql-voyager-Classification-ClassificationProperty.png]] Figure 1b.
 
 As we can see, bSDD has 11 basic object types: Domains, Languages, Countries, Units (of measure), ReferenceDocuments, Classifications, Properties, ClassificationRelations, ClassificationProperties, ClassificationPropertyValues, PropertyValues, PropertyRelations. 
-
-** Related Work
-:PROPERTIES:
-:CUSTOM_ID: related-work
-:END:
-
-According to buildingSMART technical roadmap, [[https://www.buildingsmart.org/about/technical-roadmap/]] bSDD service provides output data in various formats and APIs, including RDF, thus making bSDD content higher reusable in the Linked Data ecosystem, particularly with geographical data, regulations, product manufacturer data. However, Pauwels et al. in @pauwelsetal2016 note that there is no standard method to generate RDF graphs from bSDD API. Starting from @beetzInteroperableDataModels2014 where "bSDD vocabulary has been transformed into a configurable RDF dataset. On the meta-model level several different modeling approaches ranging from OWL to RDFS and SKOS have been implemented to evaluate the advantages and disadvantages of the respective modeling strategies" the work was continued In @pauwelterkaj2016 a complete translation of IFC from EXPRESS to OWL is presented, however lacking modularity and extensibility inherent to best Semantic Web practices @kebedeIntegrationManufacturersProduct2022. In @oraskariLiveWebOntology2021 it is proposed and implemented to generate from bSDD an OWL representation of a selected IFC element together with its property sets on the fly.    
-
-In the survey @kebedeIntegrationManufacturersProduct2022 discussed the question of where and how the bSDD can fit in the Linked building data (LBD) ecosystem. Authors mention that bSDD has undertaken a new round of development showing a shift towards publishing data classifications and properties as Linked Data.
-
-Admitting the advances of bSDD community at providing data in RDF format we met some issues where accommodating these data for our purposes in the frame of ACCORD project [[https://github.com/Accord-Project/bsdd]], among them are different results obtained with different APIs, multiple URIs for same entities, various GraphQL implementation errors. In this paper, we discuss these issues and propose a set of technical improvements following the best practices of the Semantic Web and linked data to obtain "a semantically better version" of bSDD. We implemented and made available our solution using the Ontotext Platform[[https://bsdd.ontotext.com/workbench/graphql]].
-
-Unlike @oraskariLiveWebOntology2021, we preserve the original bSDD structure (Domain, Classification, Property, etc) and only add specific improvements, described below, and convert the whole bSDD at once, taking more attention to outlining the discrepancies of the current solution and bringing the Semantic Web best practices and FAIR [[@GarijoPoveda2020]] principles. 
 
 * Getting bSDD Data
 :PROPERTIES:
@@ -1327,7 +1312,19 @@ Valid changes include:
 :PROPERTIES:
 :CUSTOM_ID: graphql-arrays-and-nullability
 :END:
-TODO: all of  [Classification], [Classification!], [Classification]!, [Classification!]! are different. Their spec [Classification] allows [null,null,null] as an xanswer
+
+A GraphQL schema can define mandatory/optional status at the level of array or the level of individual elements:
+|type               |meaning                               |valid examples                    |
+|-------------------+--------------------------------------+----------------------------------|
+|[Classification]   |Optional array of optional elements   |null, [], [null], [Classification]|
+|[Classification!]  |Optional array of mandatory elements  |null, [], [Classification]        |
+|[Classification]!  |Mandatory array of optional elements  |[], [null], [Classification]      |
+|[Classification!]! |Mandatory array of mandatory elements |[], [Classification]              |
+
+It means that there is no way to enforce a *non-empty* array in GraphQL.
+
+bSDD specifies arrays like [Classification], which is the most permissive specification. It means that [null, null, null] is a valid answer to a query that returns an array of Classifications. However, such an answer is not suitable because null elements are useless.
+It would be better to use the type [Classification!].
 
 ** Improve GraphQL Results and Eliminate Errors
 :PROPERTIES:
@@ -1613,7 +1610,7 @@ We could think of two possible reasons for this discrepancy:
 :PROPERTIES:
 :CUSTOM_ID: improve-graphql-searchability
 :END:
-Currently there is no way to search arbitrary type or field value with GraphQL, the only exception is the search of classifications within a domain with ~classificationSearch~.
+Currently there is no way to search arbitrary type or field value with bSDD GraphQL, the only exception is the search of classifications within a domain with ~classificationSearch~ query parameter. However, bSDD GraphQL users will benefit from e. g. querying of compound fields, with their constituents, of dynamic fields (although currently none has constituents), classifications with relations, and their related classifications, properties with relations, and their related properties.
 
 *** Unicode Breakage
 There are Unicode problems in some ~bsdd:description~.
@@ -2076,14 +2073,3 @@ This work is part of the ACCORD project that has received funding from the Europ
 DONE compare to [[https://vttgroup.sharepoint.com/:p:/r/sites/EU-projectpreparationDigitalpermitsandcompliancecheck/_layouts/15/Doc.aspx?sourcedoc=%7BB9913B35-D290-4391-9588-0322584EF3BC%7D&file=ACCORD_EAB_meeting_02-12-2022.pptx&action=edit&mobileredirect=true][this pres]].
 
 All source code, scripts and example files are available as open source on Github: https://github.com/Accord-Project/bsdd/
-
-* References
-:PROPERTIES:
-:CUSTOM_ID: references
-:END:
-TODO: proper bibliography using Zotero
-
-- (Beetz 2014) Beetz, J., van den Braak, W., Botter, R., Zlatanova, S., de Laat, R. (2014). Interoperable data models for infrastructural artefacts – A novel IFC extension method using RDF vocabularies exemplified with quay wall structures for harbors. eWork and eBusiness in Architecture, Engineering and Construction, 135–140:
-  https://repository.tudelft.nl/islandora/object/uuid:bb9a7dff-52c7-4aaf-a6b8-898432270620/datastream/OBJ
-- (Oraskari 2021) Live Web Ontology for buildingSMART Data Dictionary, Bauinformatik 2021
-

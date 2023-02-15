@@ -113,8 +113,10 @@ Reusable data dictionaries serving interoperation purposes are widely known in t
 
 The bSDD is a multilingual hierarchically structured encyclopedia of object concepts and their properties used in building information models (BIM). Predefined by some vendors sets of properties extending common property sets of Industry Foundation Classes (IFC) allow to describe specific domains (e.g. transportation) or specific building elements (e.g. doors, windows, stairs). bSDD is
 organized according to the Building Information Modelling methodology defined in ISO 23386 (2020) following the language-independent information model used for the development of dictionaries storing information about construction work defined in ISO 12006-3 (2022) . 
+
 bSDD was initiated to support improved interoperability in the building and construction industry.
 bSDD is a very comprehensive solution aiming at the provisioning of open complementary product data definitions, identification, and distribution methods.
+
 bSDD currently (February 2023) keeps descriptions of nearly 80,000 concepts with translations in multiple languages, with 108 domains ranging from roads and rails to DIN, Omniclass, Uniclass, IFC with extensions, etc thus making it a widely accepted source of BIM-oriented and BIM-based data.
 The reference system assigns a Global Unique Identifier (GUID) for all defined terms entered into the system to enable data utilization in a variety of structured documents and applications.
 
@@ -162,7 +164,9 @@ Executing this script produces two files in the repository:
 - [[./bsdd-graphql-soml-orig.yaml][bsdd-graphql-soml-orig.yaml]] - SOML schema produced from the introspection
 
 The generated SOML schema is valid and can be used immediately. However, there are issues inherited from the GraphQL schema which are described later.
+
 The purpose of the generated SOML schema is to serve as a starting point (instead of starting from scratch) for resolving the issues and improving the schema.
+
 Once this is done, the resulting schema will be saved in [[./bsdd-graphql-soml-refact.yaml][bsdd-graphql-soml-refact.yaml]].
 
 ** GraphQL Data Dumps

@@ -3,7 +3,7 @@
 #+options: inline:t num:t p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t
 #+options: timestamp:nil title:t toc:5 todo:t |:t
 #+title: Semantic bSDD: Improvements to bSDD GraphQL, JSON and RDF Representations
-#+date: <2023-01-25>
+#+date: <2023-02-08>
 #+author: Vladimir Alexiev, Mihail Radkov, Nataliya Keberle
 #+email: vladimir.alexiev@ontotext.com
 #+language: en
@@ -11,6 +11,8 @@
 #+exclude_tags: noexport
 #+creator: Emacs 28.1 (Org mode 9.5.2)
 #+cite_export:
+
+
 
 * Table of Contents                                 :TOC:noexport:
 :PROPERTIES:
@@ -22,63 +24,7 @@
 - [[#abstract][Abstract]]
 - [[#keywords][Keywords]]
 - [[#introduction][Introduction]]
-  - [[#bsdd][bSDD]]
-  - [[#benefits-of-graphql][Benefits of GraphQL]]
-  - [[#original-bsdd-schema-graphql-voyager][Original bSDD Schema: GraphQL Voyager]]
-- [[#getting-bsdd-data][Getting bSDD Data]]
-  - [[#graphql-conversion-to-soml-schema][GraphQL Conversion to SOML Schema]]
-  - [[#graphql-data-dumps][GraphQL Data Dumps]]
-  - [[#files][Files]]
-- [[#statistics][Statistics]]
-  - [[field-completion-percentages][Field Completion Percentages]]
-    - [[field-values-filling-classifications][Field Values Filling for Classifications]]
-    - [[field-values-filling-properties][Field Values Filling for Properties]]
-    - [[distribution-propertyvaluekind-properties][Distribution of PropertyValueKind Field Values for Properties]]
-    - [[field-value-filling-classificationproperties][Field Value Fillings for ClassificationProperties]]
-    - [[distribution-propertyvaluekind-classificationproperties][Distribution of PropertyValueKind Field for ClassificationProperties]]
-  - [[status][Status]]
-  - [[dynamic-props][Dynamic Properties]]
-  - [[writable-props][Writable Properties]]
-  - [[required-props][Required Properties]]
-    - [[domains-required-writable-props][Domains Containing Required Writable ClassificationProperties]]
-- [[#suggested-improvements][Suggested Improvements]]
-  - [[#return-the-same-data-across-apis][Return the Same Data Across APIs]]
-  - [[#improve-property-names][Improve Property Names]]
-  - [[#use-the-same-url-for-data-and-for-web-pages][Use the Same URL for Data and for Web Pages]]
-  - [[#graphql-implementation-errors][GraphQL Implementation Errors]]
-    - [[#non-nullable-classifications][Non Nullable Classifications]]
-    - [[#missing-objects][Missing Objects]]
-    - [[#classification-childs-nullability][Classification Childs Nullability]]
-    - [[#additional-null-issues][Additional Null Issues]]
-    - [[#classification-property-values][Classification Property Values]]
-    - [[#classification-properties-without-identity][Classification Properties Without Identity]]
-  - [[#improve-url-structure-and-consistency][Improve URL Structure and Consistency]]
-    - [[#declare-urls-to-be-id-and-use-field-name-id][Declare URLs to be ~ID~ and use Field Name ~id~]]
-    - [[#property-vs-classificationproperty-use-distinct-urls][Property vs ClassificationProperty: Use Distinct URLs]]
-    - [[#all-significant-classes-should-have-url][All Significant Classes Should Have URL]]
-    - [[#improve-relations-between-objects][Improve Relations Between Objects]]
-    - [[#improve-the-description-of-local-properties][Improve the Description of Local Properties]]
-  - [[#use-class-inheritance][Use Class Inheritance]]
-  - [[#graphql-arrays-and-nullability][GraphQL Arrays and Nullability]]
-  - [[#improve-graphql-results-and-eliminate-errors][Improve GraphQL Results and Eliminate Errors]]
-  - [[#improve-rdf-structure][Improve RDF Structure]]
-    - [[#add-more-classes-and-relations][Add More Classes and Relations]]
-    - [[#eliminate-parallel-links-between-classes][Eliminate Parallel Links Between Classes]]
-    - [[#improve-multilingual-support][Improve Multilingual Support]]
-    - [[#deprecated-properties][Deprecated Properties]]
-    - [[#improve-the-description-of-structured-values][Improve the Description of Structured Values]]
-  - [[#better-representation-of-predefined-values][Better Representation of Predefined Values]]
-  - [[#add-graphql-pagination][Add GraphQL Pagination]]
-  - [[#improve-graphql-searchability][Improve GraphQL Searchability]]
-- [[#implementing-improvements][Implementing Improvements]]
-  - [[#fetching-bsdd-graphql-json][Fetching bSDD GraphQL JSON]]
-  - [[#converting-json-to-raw-rdf-using-sparql-anything][Converting JSON to Raw RDF using SPARQL Anything]]
-    - [[#raw-json-example][Raw JSON Example]]
-    - [[#raw-rdf-example][Raw RDF Example]]
-  - [[#transforming-rdf-using-sparql-update][Transforming RDF using SPARQL Update]]
-    - [[#original-rdf-example][Original RDF Example]]
-    - [[#refactored-rdf-example][Refactored RDF Example]]
-- [[#acknowledgements][Acknowledgements]]
+
 :END:
 
 * Abstract
@@ -92,13 +38,16 @@ This improves the interoperability of bSDD and its easier deployment in architec
 
 However it appears that the data retrieved via different APIs are not identical by structure, these structural differences are not documented, thus lowering the trust in bSDD data quality.  
 
-We conducted a thorough comparison of the data retrieved and the analysis of the results' completeness and the fulfillment of FAIR principles by bSDD. Based on the analysis we propose a set of enhancements to make bSDD data more findable, accessible, interoperable, and reusable, and provide a SPARQL endpoint where bSDD data are organized into a Semantic bSDD knowledge graph, are more FAIR, and are available for browsing and querying with GraphQL and SPARQL. All our findings and suggestions are collected and presented at the [[https://github.com/Accord-Project/bsdd]].
+We conduct a thorough comparison and analysis of bSDD data related to fulfillment of FAIR (findable, accessible, interoperable, and reusable) principles by bSDD. 
+Based on this analysis, we propose a set of enhancements to make bSDD data better structured and more FAIR.
+We implement many of the suggestions and provide GraphQL and SPARQL endpoints where bSDD data is better structured and more "semantic".
+Our detailed work is available at [[https://github.com/Accord-Project/bsdd]] (source) and [[https://bsdd.ontotext.com]] (data and sample queries).
 
 * Keywords
 :PROPERTIES:
 :CUSTOM_ID: keywords
 :END:
-Linked building data, buildingSMART Data Dictionary, FAIR data
+Linked building data, buildingSMART Data Dictionary, FAIR data, TODO more 
 
 * Introduction
 :PROPERTIES:
@@ -124,14 +73,18 @@ The reference system assigns a Global Unique Identifier (GUID) for all defined t
 :PROPERTIES:
 :CUSTOM_ID: benefits-of-graphql
 :END:
-GraphQL [[https://graphql.com]] as a query language for APIs and a runtime for fulfilling those queries with the existing data has many benefits over the traditional REST APIs: the ability to avoid over fetching by specifying exactly which data and in which structure is to be returned from the server; ability to retrieve many resources in a single request; GraphQL service defines a set of types which completely describe the set of possible data queriable with that service. bSDD makes use of [[graphiql]] - a graphical interactive in-browser GraphQL IDE, available at [[https://test.bsdd.buildingsmart.org/graphiql/]]. 
+GraphQL [[https://graphql.com]] as a query language for APIs and a runtime for fulfilling those queries with the existing data has many benefits over traditional REST APIs: 
+ability to avoid over fetching by specifying exactly which data and in which structure is to be returned from the server; 
+ability to retrieve many resources in a single request; GraphQL service defines a set of types which completely describe the set of possible data queriable with that service. 
+bSDD makes use of ~GraphiQL~ - a graphical interactive in-browser GraphQL IDE, available at [[https://test.bsdd.buildingsmart.org/graphiql/]]. 
 GraphQL Voyager [[https://github.com/IvanGoncharov/graphql-voyager]] or [[https://ivangoncharov.github.io/graphql-voyager/]] allows to browse the set of types available for bSDD.
 
 ** Original bSDD Schema: GraphQL Voyager
 :PROPERTIES:
 :CUSTOM_ID: original-bsdd-schema-graphql-voyager
 :END:
-We investigated the original bSDD schema and datasets available at [[https://test.bsdd.buildingsmart.org]] with [[https://rawgit2.com/Accord-Project/bsdd/main/bsdd-graphql-voyager-orig.html][GraphQL Voyager]]. In Figure 1 the original schema is depicted in class and class+fields views.
+We investigated the original bSDD schema and datasets available at [[https://test.bsdd.buildingsmart.org]] with [[https://rawgit2.com/Accord-Project/bsdd/main/bsdd-graphql-voyager-orig.html][GraphQL Voyager]]. 
+In Figure 1 the original schema is depicted in class and class+fields views.
 
 Overview (uncheck "Show leaf fields"):
 
@@ -151,7 +104,7 @@ As we can see, bSDD has 11 basic object types: Domains, Languages, Countries, Un
 :CUSTOM_ID: graphql-conversion-to-soml-schema
 :END:
 
-The major goal of this work is to improve the bSDD GraphQL API.
+The major goal of this work is to improve the bSDD RDF representation and GraphQL API.
 To achieve this, the existing GraphQL schema will be converted to a [[https://platform.ontotext.com/semantic-objects/soml/index.html][SOML schema]]
 which then will be manually improved and finally used to generate a better GraphQL API with the help of [[https://platform.ontotext.com/semantic-objects/][Ontotext Platform]].
 
@@ -174,6 +127,7 @@ Once this is done, the resulting schema will be saved in [[./bsdd-graphql-soml-r
 :CUSTOM_ID: graphql-data-dumps
 :END:
 
+
 Another Python script [[./scripts/bsdd2json.py][bsdd2json.py]] connects to the bSDD GraphQL API and exports all objects in the
 GraphQL schema as JSONs including domains, classifications, classification properties etc.
 
@@ -191,16 +145,15 @@ The overall process of the script is
 - for each exported domain, to create a subdirectory and to export all classifications in that domain in separate JSONs (~Classification~ in GraphQL)
 - to collect all unique classification properties, trying to resolve them as global properties and finally to export them in ~properties.json~ (~Property~ in GraphQL)
 
-Python script [[./scripts/bsdd_export.py][bsdd_export.py]] works with the GraphQL queries within the ~/graphql~ folder.
-It can invoke given query with or without variables and returns the response to the user in JSON. To work with the script we need to create a virtual Python enthronement:
+It can invoke given query with or without variables and returns the response to the user in JSON. To work with the script we need to create a virtual Python environment:
 
-- Create a virtual environment with ~python3.9 -m venv .venv~
-- Activate it ~source .venv/bin/activate~
-- Install the required libraries ~pip install -r scripts/requirements.txt~
+- Create a virtual environment: ~python3.9 -m venv .venv~
+- Activate it: ~source .venv/bin/activate~
+- Install the required libraries: ~pip install -r scripts/requirements.txt~
 
-Then, we can ask for particular types. Here are several examples: 
+Then we can ask for particular types. Here are several examples: 
 
-Get all the domains:
+Get all domains:
 
 #+begin_src bash
 python scripts/bsdd_export.py getDomains -o domains.json
@@ -218,7 +171,9 @@ python scripts/bsdd_export.py getDomain -v "URI=https://identifier.buildingsmart
 :END:
 Produced files can be found at [[https://github.com/Accord-Project/bsdd]]. 
 
-In ~/samples~ we keep original sample files (~*-orig.json/ttl~), having most fields filled (see [[#return-the-same-data-across-apis]]), their refactoring (~*-refact.ttl~) and ~makefile~ to export and convert data. 
+[[bsdd-graphql-voyager-orig.html]] - visualization of the original schema
+
+In ~/samples~ we keep original sample files (~*-orig.json/ttl~), having most fields filled (see [[#return-the-same-data-across-apis]]), their refactoring (~*-refact.ttl~) and ~Makefile~ to export and convert data. 
 
 In ~/dump~ there are scripts including a docker file to get a full bSDD dump.  
 
@@ -245,35 +200,6 @@ In the root folder, there are visualizations of the original schema -
 :CUSTOM_ID: statistics
 :END:
 
-Currently bSDD contains 31720 Classifications, 
-111556 ClassificationProperties, 
-188374 ClassificationPropertyValues,
-6420 ClassificationRelations,
-36069 Properties,
-214121 PropertyValues,
-610 Units, 484 ReferenceDocuments, 39 Languages, 246 Countries, 108 Domains.
-
-Correspondent queries are
-
-#+begin_src sparql
-PREFIX bsdd: <http://bsdd.buildingsmart.org/def#>
-select ?x (count(*) as ?count)  where { 
-    ?cla a ?x.
-    FILTER (?x IN (bsdd:Domain, bsdd:Classification, bsdd:Property, bsdd:Country, bsdd:Language, bsdd:Unit, bsdd:ReferenceDocument, bsdd:ClassificationProperty, bsdd:ClassificationRelation, bsdd:PropertyValue))
-} group by (?x)
-#+end_src
-
-and to obtain ClassificationPropertyValues
-
-#+begin_src sparql
-PREFIX bsdd: <http://bsdd.buildingsmart.org/def#>
-select (count(*) as ?c)  where { 
-    ?cp a bsdd:ClassificationProperty.
-    ?cp bsdd:allowedValue ?x.
-    }
-#+end_src
-
-** Field Completion Percentages
 :PROPERTIES:
 :CUSTOM_ID: field-completion-percentages
 :END:
@@ -568,6 +494,7 @@ We selected the objects of each class with maximum fields filled and compared th
 We detected several differences in the results, as described in the table below. The complete list of findings is presented at [[bSDD data analysis spreadsheet][https://docs.google.com/spreadsheets/d/1z_NRMlExlVuqWhBbSErQ9iiDBY4O_fKMd3avV3-NCmo/edit?usp=sharing]].
 However, the results should be the same independent of the protocol.
 
+There are differences and omissions in some of the formats, as described in the table below.
 | Type/field                        | GraphQL      | JSON API                                   | RDF API                |comment
 |-----------------------------------+---------+--------------------------------------------+------------------------+--------------------------------------------|
 | Classification/childs             | childs  | parentClassificationReference.namespaceUri | NONE                   | GraphQL points to child, JSON points to parent (1)
@@ -942,7 +869,7 @@ http://rdf.vegdata.no/V440/v440-owl
 According to [[hierarchical URIs design][https://patterns.dataincubator.org/book/hierarchical-uris.html]]], domain URL can be more "hackable", allowing users to navigate the hierarchy by pruning the URI. The proposed URL structure can be 
 ~https://identifier.buildingsmart.org/uri/<org>/<domain>/<version>~
   
-- In some cases, the <org> name doesn't quite mesh with the domain name, perhaps due to the way bSDD allocates <org> identifiers to bSDD contributors
+- In some cases, the ~<org>~ name doesn't quite mesh with the domain name, perhaps due to the way bSDD allocates <org> identifiers to bSDD contributors
   - bim-de/DINSPEC91400: the publisher of this spec is DIN (the German standards organization), not the ~bim-de~ initiative
   - digibase/volkerwesselsbv: [[https://www.bimregister.nl/actueel/video/author/89-delanokenepa?start=250][bimregister.nl news from 2018]] suggest that ~digibase~ is a new company/initaitive within Volker Wessel
   - digibase/nen2699: the publisher of this spec is NEN (the Netherlands standards organization), not the ~digibase~ company/initiative
@@ -973,7 +900,6 @@ Most GraphQL implementations call this field simply ~id~,
 whereas bSDD uses unwieldy property names like ~namespaceUri~.
 
 *** Overlap of Entity Classes with classificationType
-Classifications are supposed to be single entities, such as building components or materials.
 
 The key field ~classificationType~ specifies the kind of classification. Let's do a count:
 #+begin_src sparql
@@ -1107,11 +1033,14 @@ For example, the classification indicated below has ClassificationProperties wit
 #+end_src
 
 ** Modeling Issues
-Following the previous section, all significant classes should have ~ID~,
-(which, in the case of linked data, is an URL).
-In addition to pure technical recommendations to ease the findability and accessibility of data in bSDD by improving their URI patterns, we have noticed several modeling issues.
+In addition to pure technical recommendations to ease findability and accessibility of data in bSDD by improving their URI patterns, we have noticed several modeling issues.
+
+
 
 *** Modeling of Complex Properties
+:PROPERTIES:
+:CUSTOM_ID: modeling-of-complex-properties
+:END:
 
 The bSDD data model allows the modeling of complex properties that are composed of other properties:
 The key attribute ~propertyValueKind~ has values "Complex" and "ComplexList" used in combination with ~connectedProperties~.
@@ -1157,7 +1086,7 @@ The examples don't clarify this question.
 
 Instead of using ~connectedPropertyCode~ to describe complex properties, some people have used classifications with the type "COMPOSED_PROPERTY".
 One such example is https://identifier.buildingsmart.org/uri/buildingsmart-fr/BRIDGE-MINnD-1.0/class/609952491
-with the name "Pile location" and the definition "Gather properties to locate a pile."
+with name "Pile location" and definition "Gather properties to locate a pile".
 We can see the properties comprising this "COMPOSED_PROPERTY" by using the usual link ~Classification.classificationProperty~:
 #+begin_src sparql
 PREFIX bsdd: <http://bsdd.buildingsmart.org/def#>
@@ -1320,12 +1249,12 @@ Valid changes include:
 A GraphQL schema can define mandatory/optional status at the level of array or the level of individual elements:
 |type               |meaning                               |valid examples                    |
 |-------------------+--------------------------------------+----------------------------------|
-|[Classification]   |Optional array of optional elements   |null, [], [null], [Classification]|
-|[Classification!]  |Optional array of mandatory elements  |null, [], [Classification]        |
-|[Classification]!  |Mandatory array of optional elements  |[], [null], [Classification]      |
-|[Classification!]! |Mandatory array of mandatory elements |[], [Classification]              |
+|`[Classification]`   |Optional array of optional elements   |`null, [], [null], [Classification]`|
+|`[Classification!]`  |Optional array of mandatory elements  |`null, [], [Classification]`        |
+|`[Classification]!`  |Mandatory array of optional elements  |`[], [null], [Classification]`      |
+|`[Classification!]!` |Mandatory array of mandatory elements |`[], [Classification]`              |
 
-It means that there is no way to enforce a *non-empty* array in GraphQL.
+(It means that there is no way to enforce a *non-empty* array in GraphQL.)
 
 bSDD specifies arrays like [Classification], which is the most permissive specification. It means that [null, null, null] is a valid answer to a query that returns an array of Classifications. However, such an answer is not suitable because null elements are useless.
 It would be better to use the type [Classification!].
@@ -1408,6 +1337,9 @@ This fragment can be corrected as follows:
 #+end_src
 
 ** Trim Leading, Trailing, Consecutive Whitespace
+:PROPERTIES:
+:CUSTOM_ID: trim-leading-trailing-consecutive-whitespace
+:END:
 
 Many bSDD fields are defined as ~xsd:string~.
 However, certain whitespaces in strings can be confusing and are not semantically meaningful
@@ -1449,20 +1381,23 @@ The bSDD data entry or data ingest systems should have validations to prevent su
 E. g. we could define SHACL rules to prevent such cases.
 
 *** Improve Physical Quantities and Units
+:PROPERTIES:
+:CUSTOM_ID: improve-physical-quantities-and-units
+:END:
 
 Properties have three characteristics that should be closely correlated:
 - ~dimension~: dimension vector as 7 integers in the format: 
   L=Length M=Mass T=Time I=Electric current Θ=Thermodynamic temperature N=Amount of substance J=Luminous intensity.
-  E. g. ~"1 1 -2 0 0 0 0"~ represents ~Force=Length*Mass/Time^2~
+  E.g. ~"1 1 -2 0 0 0 0"~ represents ~Force=Length*Mass/Time^2~
 - ~unit~: unit of measure, which should be compatible with the dimension.
-  E. g. "m, cm, mm, in" are all compatible with Length (~"1 0 0 0 0 0 0"~)
+  E.g. "m, cm, mm, in" are all compatible with Length (~"1 0 0 0 0 0 0"~)
   - Unfortunately, the units are not spelled consistently and are incompatible with the type ~Unit~.
     There is some effort to incorporate (or migrate towards) the QUDT ontology:
     some properties have attribute ~qudtUnit~ in the JSON API.
   - But this is not the right approach: ~qudtUnit~ should be attached to ~Unit~, or should replace ~Property.unit~
   - Also, this migration is not yet implemented
 - ~physicalQuantity~: physical quantity being measured, should be compatible with the dimension.
-  E. g. "Height, Width, Diameter" are all compatible with Length.
+  E.g. "Height, Width, Diameter" are all compatible with Length.
 
 The following query finds all combinations of the three characteristics:
 #+begin_src sparql
@@ -1473,11 +1408,11 @@ select ?dim ?unit ?quant (count(*) as ?props) {
 } group by ?dim ?unit ?quant  order by ?dim
 #+end_src
 
-There are 60 combinations, too many to present here. A lot of them are due to different spelling of ~physicalQuantity~, which is free text, e. g.:
+There are 60 combinations, too many to present here. A lot of them are due to different spelling of ~physicalQuantity~, which is free text, e.g.:
 - "Longueur" vs "Länge | de-DE";
 - "Force" vs "Kraft | de-DE";
 - "Epaisseur" vs "Thickness"
-and this is wrong approach, because e. g. one cannot find all Thickness properties easily.
+This approach is wrong, because e.g. one cannot find all Thickness properties easily.
 QUDT provides URLs for various measurable quantities, and labels in numerous languages.
 
 Let's ignore ~physicalQuantity~, but allow some of ~dimension, unit~ to be missing:
@@ -1522,6 +1457,9 @@ select * {
 They all represent the property EF007220 "Busbar thickness"
 
 *** No Rules How to Express Lack of Data
+:PROPERTIES:
+:CUSTOM_ID: no-rules-how-to-express-lack-of-data
+:END:
 
 There are no rules on how to express the lack of ~physicalQuantity~ for dimensionless properties (eg count, percentage) or enumerated properties (having a list of ~allowedValues~).
 For example:
@@ -1616,7 +1554,6 @@ We could think of two possible reasons for this discrepancy:
 :END:
 Currently there is no way to search arbitrary type or field value with bSDD GraphQL, the only exception is the search of classifications within a domain with ~classificationSearch~ query parameter. However, bSDD GraphQL users will benefit from e. g. querying of compound fields, with their constituents, of dynamic fields (although currently none has constituents), classifications with relations, and their related classifications, properties with relations, and their related properties.
 
-*** Unicode Breakage
 There are Unicode problems in some ~bsdd:description~.
 E.g. in
 https://identifier.buildingsmart.org/uri/buildingsmart-de/bSDTLS-1/prop/02-02-01-010 :
@@ -1625,7 +1562,6 @@ https://identifier.buildingsmart.org/uri/buildingsmart-de/bSDTLS-1/prop/02-02-01
 (also has a trailing newline)
 
 *** Unresolved HTML Entities
-HTML Entities are not resolved in some ~bsdd:description~. Instead of real chars, they are represented as HTML encodings.
 Eg in https://identifier.buildingsmart.org/uri/engisis/RFI-02/prop/S27300_0200 :
 "(*)
 Pu&#242; essere valorizzato un solo valore. SCIA = valorizzabile per le attivit&#224; di tipo A o per le attivit&#224; di tipo B o C nel caso in cui a seguito della valutazione favorevole del progetto si sia presentata la SCIA (ma non sia stato ancora rilasciato copia del verbale della visita tecnica dei VVF -attivit&#224; di tipo A o B- o il CPI -attivit&#224; ...".

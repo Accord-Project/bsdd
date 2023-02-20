@@ -1,0 +1,11 @@
+# domains with lang=EN and their classifications
+query domainEn_Class {
+  domain(where: {languageCode: {EQ: "EN"}}) {
+    name
+    classification {
+      id
+      classificationType
+      name
+    }
+  }
+}

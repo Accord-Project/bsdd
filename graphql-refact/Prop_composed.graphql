@@ -1,0 +1,8 @@
+# Classifications of type COMPOSED_PROPERTY and their constituent Properties
+query Prop_composed {
+  classification(where:{classificationType:{EQ:COMPOSED_PROPERTY}}) {
+    code name
+    domain {name}
+    classificationProperty {code name}
+  }
+}

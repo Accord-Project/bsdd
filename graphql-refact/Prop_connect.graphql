@@ -1,0 +1,9 @@
+# Properties that have connected props
+query Prop_connected {
+  property(where: {connectedPropertyCode:{}}) {
+    id
+    code
+    name
+    connectedPropertyCode
+  }
+}

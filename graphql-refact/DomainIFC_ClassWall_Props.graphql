@@ -1,0 +1,13 @@
+# ClassificationProperties in IFC class IfcWall
+query DomainIFC_ClassWall_Props {
+  domain(ID:"https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3") {
+    classification(ID:"https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall") {
+      name
+      classificationProperty {
+        name
+        propertyValueKind
+        propertySet
+      }
+    }
+  }
+}

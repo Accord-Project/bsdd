@@ -449,7 +449,7 @@ We used it to investigate the original bSDD schema:
 </p>
 
 
-<div id="org48b624f" class="figure">
+<div id="org9915388" class="figure">
 <p><img src="./img/bsdd-graphql-voyager-overview.png" alt="bsdd-graphql-voyager-overview.png" />
 </p>
 <p><span class="figure-number">Figure 1: </span>Original bSDD GraphQL Schema: Overview (uncheck "Show leaf fields")</p>
@@ -487,7 +487,7 @@ We can also look at details of the schema:
 </p>
 
 
-<div id="org06d78b1" class="figure">
+<div id="orgf81ec56" class="figure">
 <p><img src="./img/bsdd-graphql-voyager-Classification-ClassificationProperty.png" alt="bsdd-graphql-voyager-Classification-ClassificationProperty.png" />
 </p>
 <p><span class="figure-number">Figure 2: </span>Original bSDD GraphQL Schema: Detail of Classification and ClassificationProperty</p>
@@ -548,7 +548,7 @@ that allows you to explore the refactored schema.
 </p>
 
 
-<div id="org01b88c1" class="figure">
+<div id="orgd5e2ece" class="figure">
 <p><img src="./img/bsdd-graphql-voyager-refact-overview.png" alt="bsdd-graphql-voyager-refact-overview.png" />
 </p>
 <p><span class="figure-number">Figure 3: </span>Refactored bSDD GraphQL Schema: Overview (uncheck "Show leaf fields")</p>
@@ -591,7 +591,7 @@ and strings fields like <code>propertyNamespaceUri</code> are converted to objec
 </p>
 
 
-<div id="org8cb7a7d" class="figure">
+<div id="orgde99ca9" class="figure">
 <p><img src="./img/bsdd-graphql-voyager-refact-Classification-ClassificationProperty.png" alt="bsdd-graphql-voyager-refact-Classification-ClassificationProperty.png" />
 </p>
 <p><span class="figure-number">Figure 4: </span>Refactored bSDD GraphQL Schema: Detail of Classification and ClassificationProperty</p>
@@ -607,7 +607,7 @@ and strings fields like <code>propertyNamespaceUri</code> are converted to objec
 </p>
 
 
-<div id="org6b8419d" class="figure">
+<div id="org0577df7" class="figure">
 <p><img src="./img/graphiql-orig.png" alt="graphiql-orig.png" />
 </p>
 <p><span class="figure-number">Figure 5: </span>GraphiQL Querying of Original bSDD Endpoint</p>
@@ -636,7 +636,7 @@ It provides a number of useful features:
 </p>
 
 
-<div id="org12c4c97" class="figure">
+<div id="org7e1e8da" class="figure">
 <p><img src="./img/graphiql-refact.png" alt="graphiql-refact.png" />
 </p>
 </div>
@@ -802,14 +802,14 @@ Examples:
 <li>Get all domains:</li>
 </ul>
 <div class="org-src-container">
-<pre class="src src-bash">python scripts/bsdd_export.py getDomains -o domains.json
+<pre class="src src-sh">python scripts/bsdd_export.py getDomains -o domains.json
 </pre>
 </div>
 <ul class="org-ul">
 <li>Get a particular domain:</li>
 </ul>
 <div class="org-src-container">
-<pre class="src src-bash">python scripts/bsdd_export.py getDomain -v <span style="color: #8b2252;">"URI=https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3"</span> -o ifc-4.3.json
+<pre class="src src-sh">python scripts/bsdd_export.py getDomain -v <span style="color: #8b2252;">"URI=https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3"</span> -o ifc-4.3.json
 </pre>
 </div>
 </div>
@@ -2301,15 +2301,16 @@ E.g. let's get the classifications of one particular domain:
 <p>
 Nearly none of these are available from the JSON or RDF APIs:
 </p>
-<pre class="example" id="orgf219a2a">
-# JSON API
+<div class="org-src-container">
+<pre class="src src-sh"><span style="color: #b22222;"># </span><span style="color: #b22222;">JSON API</span>
 curl https://identifier.buildingsmart.org/uri/fvhf/vhf-0.002/class/G5
-{"":["Classification with namespace URI 'https://identifier.buildingsmart.org/uri/fvhf/vhf-0.002/class/G5' not found"]}
+{<span style="color: #8b2252;">""</span>:[<span style="color: #8b2252;">"Classification with namespace URI 'https://identifier.buildingsmart.org/uri/fvhf/vhf-0.002/class/G5' not found"</span>]}
 
-# RDF API
+<span style="color: #b22222;"># </span><span style="color: #b22222;">RDF API</span>
 curl -Haccept:text/turtle https://identifier.buildingsmart.org/uri/fvhf/vhf-0.002/class/G5
-{"":["Classification with namespace URI 'https://identifier.buildingsmart.org/uri/fvhf/vhf-0.002/class/G5' not found"]}
+{<span style="color: #8b2252;">""</span>:[<span style="color: #8b2252;">"Classification with namespace URI 'https://identifier.buildingsmart.org/uri/fvhf/vhf-0.002/class/G5' not found"</span>]}
 </pre>
+</div>
 
 <p>
 We selected entities of each class that have the maximum number of filled fields, and compared the results returned by each API.
@@ -2317,7 +2318,7 @@ We found a number of detailed differences, as presented in the <a href="https://
 </p>
 
 
-<div id="org5dc31ba" class="figure">
+<div id="orgddfa1d0" class="figure">
 <p><img src="./img/bsdd-data-analysis-sheet.png" alt="bsdd-data-analysis-sheet.png" />
 </p>
 </div>
@@ -2555,7 +2556,7 @@ The same URL can be used to get a static web page in the browser:
 </p>
 
 
-<div id="orgea7a586" class="figure">
+<div id="org666b5de" class="figure">
 <p><img src="./img/IFC-class-cableSegment-web.png" alt="IFC-class-cableSegment-web.png" />
 </p>
 </div>
@@ -2565,7 +2566,7 @@ However, the interactive <a href="https://search.bsdd.buildingsmart.org">bSDD Se
 </p>
 
 
-<div id="org7950090" class="figure">
+<div id="orgaf0d956" class="figure">
 <p><img src="./img/IFC-class-cableSegment-search.png" alt="IFC-class-cableSegment-search.png" />
 </p>
 </div>
@@ -3466,9 +3467,11 @@ However, most structured values we've seen have only <code>code, value</code>
 <p>
 For example, consider this property:
 </p>
-<pre class="example" id="orgb826ced">
-curl https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/ArrangementType
+<div class="org-src-container">
+<pre class="src src-sh">curl https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/ArrangementType
 </pre>
+</div>
+
 <p>
 Its <code>description</code> includes not just a property description, but is followed by descriptions of values (newline-separated):
 </p>
@@ -4391,10 +4394,18 @@ It's better to omit <code>physicalQuantity</code> altogether, rather than use a 
 <div class="outline-text-4" id="text-unicode-problems">
 <p>
 There are Unicode problems in some <code>bsdd:description</code>.
-E.g. in
-<a href="https://identifier.buildingsmart.org/uri/buildingsmart-de/bSDTLS-1/prop/02-02-01-010">https://identifier.buildingsmart.org/uri/buildingsmart-de/bSDTLS-1/prop/02-02-01-010</a> :
+</p>
+
+<p>
+E.g. in <a href="https://identifier.buildingsmart.org/uri/buildingsmart-de/bSDTLS-1/prop/02-02-01-010">https://identifier.buildingsmart.org/uri/buildingsmart-de/bSDTLS-1/prop/02-02-01-010</a> :
+</p>
+
+<pre class="example">
 "Zeit der m�glichen Verarbeitung vor Aush�rtung in [min] bei +23�C und 50% rel. Luftfeuchtigkeit
 "
+</pre>
+
+<p>
 (also has a trailing newline)
 </p>
 </div>
@@ -4404,10 +4415,17 @@ E.g. in
 <h4 id="unresolved-html-entities"><span class="section-number-4">4.8.5.</span> Unresolved HTML Entities</h4>
 <div class="outline-text-4" id="text-unresolved-html-entities">
 <p>
-Eg in <a href="https://identifier.buildingsmart.org/uri/engisis/RFI-02/prop/S27300_0200">https://identifier.buildingsmart.org/uri/engisis/RFI-02/prop/S27300_0200</a> :
-"(*)
-Pu&amp;#242; essere valorizzato un solo valore. SCIA = valorizzabile per le attivit&amp;#224; di tipo A o per le attivit&amp;#224; di tipo B o C nel caso in cui a seguito della valutazione favorevole del progetto si sia presentata la SCIA (ma non sia stato ancora rilasciato copia del verbale della visita tecnica dei VVF -attivit&amp;#224; di tipo A o B- o il CPI -attivit&amp;#224; &#x2026;".
+There are unresolved HTML entities (encoded chars).
 </p>
+
+<p>
+E.g. in <a href="https://identifier.buildingsmart.org/uri/engisis/RFI-02/prop/S27300_0200">https://identifier.buildingsmart.org/uri/engisis/RFI-02/prop/S27300_0200</a>:
+</p>
+
+<pre class="example">
+"(*)
+Pu&amp;#242; essere valorizzato un solo valore. SCIA = valorizzabile per le attivit&amp;#224; di tipo A o per le attivit&amp;#224; di tipo B o C nel caso in cui a seguito della valutazione favorevole del progetto si sia presentata la SCIA (ma non sia stato ancora rilasciato copia del verbale della visita tecnica dei VVF -attivit&amp;#224; di tipo A o B- o il CPI -attivit&amp;#224; ...".
+</pre>
 </div>
 </div>
 </div>
@@ -4535,12 +4553,16 @@ It uses the <a href="https://github.com/basilapi/basil/wiki/SPARQL-variable-name
 <h4 id="raw-json-example"><span class="section-number-4">5.1.1.</span> Raw JSON Example</h4>
 <div class="outline-text-4" id="text-raw-json-example">
 <p>
-An example classification in JSON obtained with the following command (shortened for brevity):
+An example classification in JSON obtained with the following command:
 </p>
-<pre class="example">
-curl -s https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment | jq . &gt; class-IfcCableSegment-orig1.json
+<div class="org-src-container">
+<pre class="src src-sh">curl -s https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment | jq . &gt; class-IfcCableSegment-orig1.json
 </pre>
+</div>
 
+<p>
+Shortened for brevity:
+</p>
 <div class="org-src-container">
 <pre class="src src-json">{
   <span style="color: #8b2252;">"referenceCode"</span>: <span style="color: #8b2252;">"IfcCableSegment"</span>,
@@ -4996,12 +5018,13 @@ The reason it is so much bigger is that it includes a comprehensive <code>where<
 <p>
 The difference between the two SOML schemas is not so huge:
 </p>
-<pre class="example" id="orgbf1b7c9">
-diff -wu1000 bsdd-graphql-soml-orig.yaml bsdd-graphql-soml-refact.yaml &gt; bsdd-graphql-soml.patch
+<div class="org-src-container">
+<pre class="src src-sh">diff -wu1000 bsdd-graphql-soml-orig.yaml bsdd-graphql-soml-refact.yaml &gt; bsdd-graphql-soml.patch
 </pre>
+</div>
 
 
-<div id="org1c632a4" class="figure">
+<div id="org2193682" class="figure">
 <p><img src="./img/bsdd-graphql-soml-diff.png" alt="bsdd-graphql-soml-diff.png" />
 </p>
 </div>
@@ -5395,10 +5418,12 @@ This work is partially funded by the European Union's Horizon Europe research an
 
 <p>
 Author contributions:
-VA conceived the work, described bSDD shortcomings, implemented GraphQL and RDF refactoring.
-MK wrote GraphQL queries, fetched bSDD data, and deployed GraphDB and Ontotext Platform Semantic Objects.
-NK performed statistics and comparisons of bSDD data and wrote the final paper.
 </p>
+<ul class="org-ul">
+<li>VA conceived the work, described bSDD shortcomings, implemented GraphQL and RDF refactoring.</li>
+<li>MK wrote GraphQL queries, fetched bSDD data, and deployed GraphDB and Ontotext Platform Semantic Objects.</li>
+<li>NK performed statistics and comparisons of bSDD data and wrote the final paper.</li>
+</ul>
 
 <p>
 We thank Léon van Berlo and Erik Bars from buildingSmart International for their help with accessing bSDD.

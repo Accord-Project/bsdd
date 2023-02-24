@@ -384,14 +384,14 @@ Description of all endpoints that this project worked with and produced:
 - [[https://bsdd.ontotext.com]]: home page, includes all of these links
 - [[https://bsdd.ontotext.com/README.html]]: detailed description of the work we did (TODO from .org or .md?)
 - https://bsdd.ontotext.com/ TODO paper
-- [[https://test.bsdd.buildingsmart.org/graphql/]]: original GraphQL endpoint
+- [[https://test.bsdd.buildingsmart.org/graphql/]]: original GraphQL endpoint (protected)
 - [[https://test.bsdd.buildingsmart.org/graphiql/]]: original GraphQL query editor
 - [[https://rawgit2.com/Accord-Project/bsdd/main/bsdd-graphql-voyager-orig.html]]: original GraphQL schema visualization with Voyager
-- [[https://bsdd.ontotext.com/platform]]: Semantic Objects workbench: administrative interface for the Ontotext Platform (implementing GraphQL)
-- [[https://bsdd.ontotext.com/graphql/]]: refactored GraphQL endpoint
+- [[https://bsdd.ontotext.com/platform]]: Semantic Objects workbench: administrative interface for the Ontotext Platform implementing GraphQL (protected)
+- [[https://bsdd.ontotext.com/graphql/]]: refactored GraphQL endpoint (protected)
 - [[https://bsdd.ontotext.com/graphiql/]]: refactored GraphQL query editor
 - [[https://rawgit2.com/Accord-Project/bsdd/main/bsdd-graphql-voyager-refact.html]]: refactored GraphQL schema visualization with Voyager
-- [[https://bsdd.ontotext.com/graphdb]]: GraphDB Workbench: administrative interface for our semantic database
+- [[https://bsdd.ontotext.com/graphdb]]: GraphDB Workbench: administrative interface for our semantic database (protected)
 - [[https://bsdd.ontotext.com/graphdb/repositories/bsdd]]: GraphDB SPARQL endpoint
 - [[https://bsdd.ontotext.com/graphdb/sparql]]: GraphDB SPARQL editor
 

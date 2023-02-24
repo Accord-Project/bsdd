@@ -1,0 +1,6 @@
+query LengthProps {
+  property(where:{dimension:{EQ:"1 0 0 0 0 0 0"}}) {
+    physicalQuantity
+    unit
+  }
+}

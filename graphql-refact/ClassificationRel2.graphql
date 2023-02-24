@@ -1,0 +1,8 @@
+query ClassificationRel2 {
+  classificationRelation {
+    relationType
+    related {
+      id name
+    }
+  }
+}

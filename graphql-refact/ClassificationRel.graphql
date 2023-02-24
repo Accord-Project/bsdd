@@ -1,0 +1,11 @@
+query ClassificationRel {
+  classification(where:{relation:{}}) {
+    id name
+    relation {
+      relationType
+      related {
+        id name
+      }
+    }
+  }
+}

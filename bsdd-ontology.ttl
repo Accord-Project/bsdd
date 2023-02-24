@@ -1,3 +1,4 @@
+@prefix bsdd: <http://bsdd.buildingsmart.org/def#>.
 # For now we define only some pairs of inverse properties
 
 bsdd:relation            owl:inverseOf bsdd:related.

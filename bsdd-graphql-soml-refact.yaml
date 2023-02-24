@@ -2,7 +2,7 @@ id: /soml/bsdd
 label: SOML schema for buildingSMART Data Dictionary (bSDD)
 creator: Vladimir Alexiev, Mihail Radkov
 created: 2022-01-13
-updated: 2022-02-01
+updated: 2022-02-24
 versionInfo: 1.0
 
 types:
@@ -163,7 +163,7 @@ objects:
       allowedValue:
         label: Allowed value
         max: inf
-        range: ClassificationPropertyValue
+        range: PropertyValue
       dataType:
         label: 'Format for expressing the value of the property: Boolean, Character, Date, Enumeration, Integer, Real, String, Time'
         range: string
@@ -235,6 +235,10 @@ objects:
       predefinedValue:
         label: Predefined value for the property
         range: string
+      property:
+        label: General property this ClassificationProperty is based on
+        min: 1
+        range: Property
       propertySet:
         label: Name of the property set
         range: string
@@ -263,7 +267,7 @@ objects:
       creatorLanguageCode:
         label: Language code of the creator
         range: string
-      countriyOfUse:
+      countryOfUse:
         label: Country where used
         max: inf
         range: string
@@ -320,24 +324,6 @@ objects:
       visualRepresentationUri:
         label: Visual representation
         range: iri
-  ClassificationPropertyValue:
-    type: bsdd:ClassificationPropertyValue
-    label: Attributes of possible values of a property of a classification.
-    name: bsdd:name
-    props:
-      code:
-        label: Code of the value
-        range: string
-      description:
-        label: Description of the value
-        range: string
-      bsdd:value:
-        label: The value
-        min: 1
-        range: string
-      sortNumber:
-        label: Sort number (if sorting of the values has been specified)
-        range: int
   ClassificationRelation:
     type: bsdd:ClassificationRelation
     label: Attributes of a relation of a classification with another classification, can be from a different domain.
@@ -421,7 +407,7 @@ objects:
         label: List of allowed values
         max: inf
         range: PropertyValue
-      connectedPropertyCodes:
+      connectedPropertyCode:
         label: List of codes of connected properties
         max: inf
         range: string
@@ -490,10 +476,6 @@ objects:
       propertyValueKind:
         label: 'Indicates kind of value: Single, Range (2 values expected), List (multiple values expected), Complex (use in combination with ConnectedProperties), ComplexList'
         range: PropertyValueKind
-      possibleValues:
-        label: DEPRECATED - please use allowedValues
-        max: inf
-        range: PropertyValue
       relation:
         label: Related properties
         max: inf
@@ -501,8 +483,8 @@ objects:
       textFormat:
         label: The text type, e.g. UTF-8
         range: string
-      units:
-        label: List of units
+      unit:
+        label: Unit of measure
         max: inf
         range: string
       activationDateUtc:
@@ -516,7 +498,7 @@ objects:
       creatorLanguageCode:
         label: Language code of the creator
         range: string
-      countriesOfUse:
+      countryOfUse:
         label: List of countries where used
         max: inf
         range: string
@@ -575,7 +557,7 @@ objects:
         range: iri
   PropertyValue:
     type: bsdd:PropertyValue
-    label: Attributes of possible values of a property.
+    label: Possible values of a Property or ClassificationProperty.
     name: bsdd:name
     props:
       code:

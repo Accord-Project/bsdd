@@ -1,0 +1,7 @@
+query Pagination {
+  domain(ID:"https://identifier.buildingsmart.org/uri/nbs/uniclass2015-1") {
+    classification(offset:100 limit:5) {
+      id name
+    }
+  }
+}

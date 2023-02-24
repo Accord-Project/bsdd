@@ -1,0 +1,758 @@
+--- bsdd-graphql-soml-orig.yaml	2023-02-02 09:50:29.976528600 +0200
++++ bsdd-graphql-soml-refact.yaml	2023-02-24 14:19:18.112202000 +0200
+@@ -1,649 +1,629 @@
+ id: /soml/bsdd
+ label: SOML schema for buildingSMART Data Dictionary (bSDD)
+ creator: Vladimir Alexiev, Mihail Radkov
+ created: 2022-01-13
+-updated: null
++updated: 2022-02-24
+ versionInfo: 1.0
+-config: {}
++
+ types:
+   ClassificationType:
+     values:
+     - name: CLASS
+     - name: COMPOSED_PROPERTY
+     - name: DOMAIN
+     - name: GROUP_OF_PROPERTIES
+     - name: REFERENCE_DOCUMENT
+     - name: ALTERNATIVE_USE
+     - name: MATERIAL
+   PropertyValueKind:
+     values:
+     - name: SINGLE
+     - name: RANGE
+     - name: LIST
+     - name: COMPLEX
+     - name: COMPLEX_LIST
++
+ prefixes:
+   bsdd: http://bsdd.buildingsmart.org/def#
++
+ specialPrefixes:
+   base_iri: https://identifier.buildingsmart.org/uri/
+   vocab_iri: http://bsdd.buildingsmart.org/def#
+   vocab_prefix: bsdd
+-properties: {}
++
+ objects:
+   Country:
+-    type: Country
++    type: bsdd:Country
+     label: Country
++    name: bsdd:name
+     props:
+       code:
+         label: Unique identification of the country
+         min: 1
+         range: string
+       name:
+         label: Country name
+         min: 1
+         range: string
+   Classification:
+-    type: Classification
++    type: bsdd:Classification
+     label: "A classification can be any (abstract) object (e.g. \u201CIfcWall\u201D), abstract concept (e.g. \u201CCosting\u201D) or process (e.g. \u201CInstallation\u201D). Classifications can be organized in a tree like structure. For example: \u201CIfcCurtainWall\u201D is a more specific classification of \u201CIfcWall\u201D. We use the term \u201Cparent\u201D to identify this relation: the parent of \u201CIfcCurtainWall\u201D is \u201CIfcWall\u201D."
++    name: bsdd:name
+     props:
+       classificationType:
+         label: classificationType
+         range: ClassificationType
+-      relatedIfcEntityNames:
+-        label: relatedIfcEntityNames
++      relatedIfcEntityName:
++        label: relatedIfcEntityName
+         max: inf
+         range: string
+-      synonyms:
+-        label: List of synonyms for the classification
++      synonym:
++        label: Synonym for the classification
+         max: inf
+         range: string
+       referenceCode:
+         label: Optional code for domain specific use
+         range: string
+-      properties:
+-        label: properties
++      classificationProperty:
++        label: classification property
+         max: inf
+         range: ClassificationProperty
+-      property:
+-        label: Select a property
+-        range: ClassificationProperty
+-      relations:
+-        label: relations
++      relation:
++        label: relation
+         max: inf
+         range: ClassificationRelation
+-      childs:
+-        label: Include list of childs, with simple properties only. Only available when using the classification function with option 'includeChilds = true'.
++      parentClassification:
++        label: Parent classification
++        range: Classification
++        max: 1
++        inverseAlias: childClassification
++      childClassification:
++        label: Child classification
+         max: inf
+         range: Classification
+       activationDateUtc:
+         label: Date of activation
+         min: 1
+         range: dateTime
+       code:
+         label: Code used originally by the domain
+         min: 1
+         range: string
+       creatorLanguageCode:
+         label: Language code of the creator
+         range: string
+-      countriesOfUse:
+-        label: List of countries where used
++      countryOfUse:
++        label: Country where used
+         max: inf
+         range: string
+       countryOfOrigin:
+         label: Country of origin
+         range: string
+       deActivationDateUtc:
+         label: Date of deactivation
+         range: dateTime
+       definition:
+         label: Definition
+         range: string
+       deprecationExplanation:
+         label: Explanation of the deprecation
+         range: string
+       documentReference:
+         label: Reference to a(n official) document
+         range: string
+       name:
+         label: Plain name of the classification
+         min: 1
+         range: string
+-      namespaceUri:
+-        label: Unique identification of the classification
+-        min: 1
+-        range: string
+-      replacedObjectCodes:
+-        label: List of codes of the replaced items
++      replacedObjectCode:
++        label: Code of the replaced item
+         max: inf
+         range: string
+-      replacingObjectCodes:
+-        label: List of codes of the replacing items
++      replacingObjectCode:
++        label: Code of the replacing item
+         max: inf
+         range: string
+       revisionDateUtc:
+         label: Date of the revision
+         range: dateTime
+       revisionNumber:
+         label: Revision number
+         range: int
+       status:
+         label: 'Status, can be: Preview, Active or Inactive'
+         min: 1
+         range: string
+-      subdivisionsOfUse:
+-        label: List of subdivisions (e.g. states) where used
++      subdivisionOfUse:
++        label: Subdivision (e.g. state) where used
+         max: inf
+         range: string
+       uid:
+         label: Alternative unique global identification
+         range: string
+       versionDateUtc:
+         label: Date of the version
+         range: dateTime
+       versionNumber:
+         label: Version number
+         range: int
+       visualRepresentationUri:
+-        label: URI of a visual representation
+-        range: string
++        label: Visual representation
++        range: iri
++      domain:
++        label: The domain
++        min: 1
++        max: 1
++        range: Domain
++        inverseAlias: classification
+   ClassificationProperty:
+-    type: ClassificationProperty
++    type: bsdd:ClassificationProperty
+     label: Attributes of a property of a classification. A property can be part of many classifications but the restrictions for the property can differ per classification
++    name: bsdd:name
+     props:
+-      allowedValues:
+-        label: List of allowed values
++      allowedValue:
++        label: Allowed value
+         max: inf
+-        range: ClassificationPropertyValue
++        range: PropertyValue
+       dataType:
+         label: 'Format for expressing the value of the property: Boolean, Character, Date, Enumeration, Integer, Real, String, Time'
+         range: string
+       description:
+         label: Plain language description of the property
+         range: string
+       dimension:
+         label: "Dimension of the physical quantity in format 'L M T I \u0398 N J', for example '-2 1 0 0 0 0 0'.\n                                                  With\n                                                    L   Length\n                                                    M   Mass\n                                                    T   Time\n                                                    I   Electric current\n                                                    \u0398   Thermodynamic Temperature\n                                                    N   Amount of substance\n                                                    J   Luminous intensity\n"
+         range: string
+       dimensionLength:
+         label: The Length value of the dimension
+         range: int
+       dimensionMass:
+         label: The Mass value of the dimension
+         range: int
+       dimensionTime:
+         label: The Time value of the dimension
+         range: int
+       dimensionElectricCurrent:
+         label: The Electric Current value of the dimension
+         range: int
+       dimensionThermodynamicTemperature:
+         label: The Thermodynamic Temperature value of the dimension
+         range: int
+       dimensionAmountOfSubstance:
+         label: The Amount Of Substance value of the dimension
+         range: int
+       dimensionLuminousIntensity:
+         label: The Luminous Intensity value of the dimension
+         range: int
+-      dynamicParameterPropertyCodes:
++      dynamicParameterPropertyCode:
+         label: List of codes of the properties which are parameters of the function for a dynamic property. Only applicable for dynamic properties (IsDynamic)
+         max: inf
+         range: string
+       example:
+         label: Illustrate possible use or values of the Property
+         range: string
+       isDynamic:
+         label: True if the value of this property is dependent on other properties (as provided in DynamicParameterPropertyCodes)
+         min: 1
+         range: boolean
+       isRequired:
+         label: Indicates if the property is required to be filled for this classification
+         range: boolean
+       isWritable:
+         label: Indicates if the property value can be changed
+         range: boolean
+       maxExclusive:
+         label: Maximum value of the property, exclusive
+         range: decimal
+       maxInclusive:
+         label: Maximum value of the property, inclusive
+         range: decimal
+       methodOfMeasurement:
+         label: Description of the method of measurement
+         range: string
+       minExclusive:
+         label: Minimum value of the property, exclusive
+         range: decimal
+       minInclusive:
+         label: Minimum value of the property, inclusive
+         range: decimal
+       pattern:
+         label: 'An XML Schema Regular expression for the property value. See for explanation: https://www.regular-expressions.info/xml.html.'
+         range: string
+       physicalQuantity:
+         label: The quantity in plain text
+         range: string
+-      possibleValues:
+-        label: DEPRECATED - please use allowedValues instead
+-        max: inf
+-        range: ClassificationPropertyValue
+       predefinedValue:
+         label: Predefined value for the property
+         range: string
++      property:
++        label: General property this ClassificationProperty is based on
++        min: 1
++        range: Property
+       propertySet:
+         label: Name of the property set
+         range: string
+       propertyValueKind:
+         label: 'Indicates kind of value: Single, Range (2 values expected), List (multiple values expected), Complex (use in combination with ConnectedProperties), ComplexList'
+         range: PropertyValueKind
+       symbol:
+         label: Symbol of the property
+         range: string
+       textFormat:
+         label: The text type, e.g. UTF-8
+         min: 1
+         range: string
+-      units:
+-        label: List of units
++      unit:
++        label: Unit of measure
+         max: inf
+         range: string
+       activationDateUtc:
+         label: Date of activation
+         min: 1
+         range: dateTime
+       code:
+         label: Code used originally by the domain
+         min: 1
+         range: string
+       creatorLanguageCode:
+         label: Language code of the creator
+         range: string
+-      countriesOfUse:
+-        label: List of countries where used
++      countryOfUse:
++        label: Country where used
+         max: inf
+         range: string
+       countryOfOrigin:
+         label: Country of origin
+         range: string
+       deActivationDateUtc:
+         label: Date of deactivation
+         range: dateTime
+       definition:
+         label: Definition
+         range: string
+       deprecationExplanation:
+         label: Explanation of the deprecation
+         range: string
+       documentReference:
+         label: Reference to a(n official) document
+         range: string
+       name:
+         label: Plain name of the property
+         min: 1
+         range: string
+-      namespaceUri:
+-        label: Unique identification of the property
+-        min: 1
+-        range: string
+-      replacedObjectCodes:
+-        label: List of codes of the replaced items
++      replacedObjectCode:
++        label: Code of replaced item
+         max: inf
+         range: string
+-      replacingObjectCodes:
+-        label: List of codes of the replacing items
++      replacingObjectCode:
++        label: Code of replacing item
+         max: inf
+         range: string
+       revisionDateUtc:
+         label: Date of the revision
+         range: dateTime
+       revisionNumber:
+         label: Revision number
+         range: int
+       status:
+         label: 'Status, can be: Preview, Active or Inactive'
+         min: 1
+         range: string
+-      subdivisionsOfUse:
+-        label: List of subdivisions (e.g. states) where used
++      subdivisionOfUse:
++        label: Subdivision (e.g. state) where used
+         max: inf
+         range: string
+       uid:
+         label: Alternative unique global identification
+         range: string
+       versionDateUtc:
+         label: Date of the version
+         range: dateTime
+       versionNumber:
+         label: Version number
+         range: int
+       visualRepresentationUri:
+-        label: URI of a visual representation
+-        range: string
+-  ClassificationPropertyValue:
+-    type: ClassificationPropertyValue
+-    label: Attributes of possible values of a property of a classification.
+-    props:
+-      namespaceUri:
+-        label: Globally unique identification of the property
+-        range: string
+-      code:
+-        label: Code of the value
+-        range: string
+-      description:
+-        label: Description of the value
+-        range: string
+-      bsdd:value:
+-        label: The value
+-        min: 1
+-        range: string
+-      sortNumber:
+-        label: Sort number (if sorting of the values has been specified)
+-        range: int
++        label: Visual representation
++        range: iri
+   ClassificationRelation:
+-    type: ClassificationRelation
++    type: bsdd:ClassificationRelation
+     label: Attributes of a relation of a classification with another classification, can be from a different domain.
++    name: bsdd:name
+     props:
+-      relatedClassificationName:
+-        label: relatedClassificationName
+-        range: string
+-      relatedClassificationUri:
+-        label: The namespace uri of the related classification
+-        min: 1
+-        range: string
++      # relatedClassificationName:
++      #   label: relatedClassificationName
++      #   range: string
++      related:
++        label: Related classification
++        min: 2
++        max: 2
++        range: Classification
++        inverseOf: relation
+       relationType:
+         label: relationType
+         min: 1
+         range: string
+   Domain:
+-    type: Domain
++    type: bsdd:Domain
+     label: Contains general information about the domain and the delivered data.
++    name: bsdd:name
+     props:
+       name:
+         label: The name of the domain
+         min: 1
+         range: string
+       version:
+         label: The version of the domain
+         min: 1
+         range: string
+-      namespaceUri:
+-        label: The unique identification of the domain
+-        min: 1
+-        range: string
+       status:
+         label: status
+         range: string
+       releaseDate:
+         label: releaseDate
+         range: dateTime
+       license:
+         label: The type of license for using data of this domain
+         range: string
+       licenseUrl:
+         label: Url with more info about the license
+         range: string
+       copyrightNotice:
+         label: The domain copyright
+         range: string
+       moreInfoUrl:
+         label: Url with more info about the domain
+         range: string
+       lastUpdatedUtc:
+         label: UTC date this domain was last updated
+         min: 1
+         range: dateTime
+       languageCode:
+         label: The language the results will be returned in if no language specified or if specified language is not available
+         min: 1
+         range: string
+-      classificationSearch:
+-        label: Search for classifications in the domain. Results are limited to max 5000 items.
+-        max: inf
+-        range: Classification
+       classification:
+-        label: Select a classification
++        label: Classifications in the domain
++        max: inf
+         range: Classification
+   Language:
+-    type: Language
++    type: bsdd:Language
+     label: Language
++    name: bsdd:name
+     props:
+       isocode:
+         label: Unique identification of the language
+         min: 1
+         range: string
+       name:
+         label: Language name
+         min: 1
+         range: string
+   Property:
+-    type: Property
++    type: bsdd:Property
+     label: Property
++    name: bsdd:name
+     props:
+       allowedValues:
+         label: List of allowed values
+         max: inf
+         range: PropertyValue
+-      connectedPropertyCodes:
++      connectedPropertyCode:
+         label: List of codes of connected properties
+         max: inf
+         range: string
+       dataType:
+         label: 'Format for expressing the value of the property: Boolean, Character, Date, Enumeration, Integer, Real, String, Time'
+         range: string
+       description:
+         label: Plain language description of the property
+         range: string
+       dimension:
+         label: "Dimension of the physical quantity in format 'L M T I \u0398 N J', for example '-2 1 0 0 0 0 0'.\n                                                  With\n                                                    L   Length\n                                                    M   Mass\n                                                    T   Time\n                                                    I   Electric current\n                                                    \u0398   Thermodynamic Temperature\n                                                    N   Amount of substance\n                                                    J   Luminous intensity\n"
+         range: string
+       dimensionLength:
+         label: The Length value of the dimension
+         range: int
+       dimensionMass:
+         label: The Mass value of the dimension
+         range: int
+       dimensionTime:
+         label: The Time value of the dimension
+         range: int
+       dimensionElectricCurrent:
+         label: The Electric current value of the dimension
+         range: int
+       dimensionThermodynamicTemperature:
+         label: The Thermodynamic temperature value of the dimension
+         range: int
+       dimensionAmountOfSubstance:
+         label: The Amount of substance value of the dimension
+         range: int
+       dimensionLuminousIntensity:
+         label: The Luminous Intensity value of the dimension
+         range: int
+       dynamicParameterPropertyCodes:
+         label: List of codes of the properties which are parameters of the function for a dynamic property. Only applicable for dynamic properties (IsDynamic)
+         max: inf
+         range: string
+       example:
+         label: Illustrate possible use or values of the Property
+         range: string
+       isDynamic:
+         label: True if the value of this property is dependent on other properties (as provided in DynamicParameterPropertyCodes)
+         min: 1
+         range: boolean
+       maxExclusive:
+         label: Maximum value of the property, exclusive
+         range: decimal
+       maxInclusive:
+         label: Maximum value of the property, inclusive
+         range: decimal
+       methodOfMeasurement:
+         label: Description of the method of measurement
+         range: string
+       minExclusive:
+         label: Minimum value of the property, exclusive
+         range: decimal
+       minInclusive:
+         label: Minimum value of the property, inclusive
+         range: decimal
+       pattern:
+         label: 'An XML Schema Regular expression for the property value. See for explanation: https://www.regular-expressions.info/xml.html.'
+         range: string
+       physicalQuantity:
+         label: The quantity in plain text
+         range: string
+       propertyValueKind:
+         label: 'Indicates kind of value: Single, Range (2 values expected), List (multiple values expected), Complex (use in combination with ConnectedProperties), ComplexList'
+         range: PropertyValueKind
+-      possibleValues:
+-        label: DEPRECATED - please use allowedValues
+-        max: inf
+-        range: PropertyValue
+-      relations:
+-        label: List of related properties
++      relation:
++        label: Related properties
+         max: inf
+         range: PropertyRelation
+       textFormat:
+         label: The text type, e.g. UTF-8
+         range: string
+       units:
+         label: List of units
+         max: inf
+         range: string
+       activationDateUtc:
+         label: Date of activation
+         min: 1
+         range: dateTime
+       code:
+         label: Code used originally by the domain
+         min: 1
+         range: string
+       creatorLanguageCode:
+         label: Language code of the creator
+         range: string
+-      countriesOfUse:
++      countryOfUse:
+         label: List of countries where used
+         max: inf
+         range: string
+       countryOfOrigin:
+         label: Country of origin
+         range: string
+       deActivationDateUtc:
+         label: Date of deactivation
+         range: dateTime
+       definition:
+         label: Definition
+         range: string
+       deprecationExplanation:
+         label: Explanation of the deprecation
+         range: string
+       documentReference:
+         label: Reference to a(n official) document
+         range: string
+       name:
+         label: Plain name of the property
+         min: 1
+         range: string
+-      namespaceUri:
+-        label: Unique identification of the property
+-        min: 1
+-        range: string
+       replacedObjectCodes:
+         label: List of codes of the replaced items
+         max: inf
+         range: string
+       replacingObjectCodes:
+         label: List of codes of the replacing items
+         max: inf
+         range: string
+       revisionDateUtc:
+         label: Date of the revision
+         range: dateTime
+       revisionNumber:
+         label: Revision number
+         range: int
+       status:
+         label: 'Status, can be: Preview, Active or Inactive'
+         min: 1
+         range: string
+       subdivisionsOfUse:
+         label: List of subdivisions (e.g. states) where used
+         max: inf
+         range: string
+       uid:
+         label: Alternative unique global identification
+         range: string
+       versionDateUtc:
+         label: Date of the version
+         range: dateTime
+       versionNumber:
+         label: Version number
+         range: int
+       visualRepresentationUri:
+-        label: URI of a visual representation
+-        range: string
++        label: Visual representation
++        range: iri
+   PropertyValue:
+-    type: PropertyValue
+-    label: Attributes of possible values of a property.
++    type: bsdd:PropertyValue
++    label: Possible values of a Property or ClassificationProperty.
++    name: bsdd:name
+     props:
+-      namespaceUri:
+-        label: Globally unique identification of the property
+-        range: string
+       code:
+         label: Code of the value (unique within the property)
+         range: string
+       description:
+         label: Description of the value
+         range: string
+       bsdd:value:
+         label: The value (unique within the property)
+         min: 1
+         range: string
+       sortNumber:
+         label: Sort number (if sorting of the values has been specified)
+         range: int
+   PropertyRelation:
+-    type: PropertyRelation
++    type: bsdd:PropertyRelation
+     label: Attributes of a relation of a property with another property, can be from a different domain.
++    name: bsdd:name
+     props:
+-      relatedPropertyName:
+-        label: Name of the related property
+-        range: string
+-      relatedPropertyUri:
+-        label: The namespace uri of the related property
+-        min: 1
+-        range: string
++      # relatedPropertyName:
++      #   label: Name of the related property
++      #   range: string
++      related:
++        label: Related property
++        min: 2
++        max: 2
++        range: Property
++        inverseOf: relation
+       relationType:
+         label: Type of the relation with the reference property
+         min: 1
+         range: string
+   ReferenceDocument:
+-    type: ReferenceDocument
++    type: bsdd:ReferenceDocument
+     label: ReferenceDocument
++    name: bsdd:name
+     props:
+       title:
+         label: Unique identification of the reference document
+         min: 1
+         range: string
+       name:
+         label: Reference document name
+         min: 1
+         range: string
+       date:
+         label: Reference document date
+         min: 1
+         range: dateTime
+   Unit:
+-    type: Unit
++    type: bsdd:Unit
+     label: Unit
++    name: bsdd:name
+     props:
+       code:
+         label: Unique identification of the unit
+         min: 1
+         range: string
+       name:
+         label: Unit name
+         min: 1
+         range: string
+       symbol:
+         label: Unit symbol
+         range: string
++
+ rbac:
+   roles: {}

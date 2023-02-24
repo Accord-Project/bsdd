@@ -1,5 +1,5 @@
 --- bsdd-graphql-soml-orig.yaml	2023-02-02 09:50:29.976528600 +0200
-+++ bsdd-graphql-soml-refact.yaml	2023-02-24 14:19:18.112202000 +0200
++++ bsdd-graphql-soml-refact.yaml	2023-02-24 15:17:31.062045300 +0200
 @@ -1,649 +1,629 @@
  id: /soml/bsdd
  label: SOML schema for buildingSMART Data Dictionary (bSDD)
@@ -590,8 +590,10 @@
        textFormat:
          label: The text type, e.g. UTF-8
          range: string
-       units:
-         label: List of units
+-      units:
+-        label: List of units
++      unit:
++        label: Unit of measure
          max: inf
          range: string
        activationDateUtc:

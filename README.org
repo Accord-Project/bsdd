@@ -338,11 +338,14 @@ Description of all files in [[https://github.com/Accord-Project/bsdd]]:
 - ~bsdd-graphql-soml.patch~: difference between the two SOML schemas
 - ~bsdd-graphql-voyager-orig.html~: HTML page that displays the original GraphQL schema with Voyager
 - ~bsdd-graphql-voyager-refact.html~:HTML page that displays the refactored GraphQL schema with Voyager
-- ~bsdd-ontology.ttl~: start of a bSDD ontology, very incomplete
-- ~index.html~: home page source
+- ~bsdd-ontology.ttl~: start of a bSDD ontology, very incomplete (just declares some ~owl:inverseOf~)
+- ~bsdd-ontology.ru~: SPARQL update that implements ~owl:inverseOf~ (no need to use when we enable inverse reasoning)
 - ~README.org~: detailed description of the work we did in emacs ~orgmode~ (this file)
 - ~README.md~: detailed description of the work we did, exported to ~markdown~
 - ~README.html~: HTML rendition of the work we did
+- ~index.md~: home page in markdown, with some advanced CSS tricks
+- ~index.html~: home page in HTML
+- ~Makefile~: make ~index.html~ with pandoc and ~bsdd-graphql-soml.patch~ with diff.
 - ~paper~: paper submitted to LDAC 2023
   - ~bsdd.bib~: bibtex file for the paper, made from the [[https://www.zotero.org/groups/3007408/semantic_bim][Zotero semantic BIM library]], we don't use it
   - ~bsdd.biblatex~: biblatex file for the paper, made from the same library, we use this one
@@ -350,9 +353,11 @@ Description of all files in [[https://github.com/Accord-Project/bsdd]]:
   - ~paper.md~: paper as markdown
   - ~paper.tex~: paper as latex, generated with Scholarly Pandoc
   - ~paper.pdf~: paper as PDF
-- ~graphql~: GraphQL queries to get the 9 kinds of entities from the original GraphQL endpoint
+- ~graphql~:
+  - GraphQL queries to get the 9 kinds of entities from the original GraphQL endpoint
   - Also ~schemaIntrospection.graphql~ that gets the GraphQL schema of an endpoint
-- ~graphql-refact~: some sample queries against the refactored GraphQL endpoint (TODO: add more?)
+- ~graphql-refact~:
+  - Some sample queries against the refactored GraphQL endpoint (TODO: add more?)
 - ~scripts~: all necessary scripts to export data in various formats, convert bSDD schema to SOML, convert JSON to RDF, refactor RDF, etc
   - ~bsdd2json.py~: connects to the original GraphQL API and exports all objects of the GraphQL schema as JSON (domains, classifications, classification properties, etc).
     There is no way to get more than 5000 classifications per domain (a limitation of the ~classificationSearch~ field)

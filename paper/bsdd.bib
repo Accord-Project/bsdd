@@ -13,11 +13,25 @@
   keywords = {/have,/unread,buildingSmart Data Dictionary (bSDD)}
 }
 
+@inproceedings{beetzScalableNetworkConcept2014,
+  title = {A {{Scalable Network}} of {{Concept Libraries Using Distributed Graph Databases}}},
+  booktitle = {2014 {{International Conference}} on {{Computing}} in {{Civil}} and {{Building Engineering}}},
+  author = {Beetz, J.},
+  year = {2014},
+  month = jun,
+  pages = {569--576},
+  publisher = {{American Society of Civil Engineers}},
+  doi = {10.1061/9780784413616.071},
+  abstract = {Currently, work on enabling the use of building and construction-related concept libraries is being carried out in a number of disparate initiatives. The Norwegian reference implementation of the building SMART Data Dictionary (bSDD), the Dutch initiative for a concept library for the infrastructural sector (CB-NL), the Concept Model Ontology (CMO) and the generation of meta-data for long-term archival of BIM data in the context of the EU-project "Durable Architectural Knowledge" (DURAARK) share a great number of common aims and goals. These cover the areas of the general conceptual architecture, governance strategies for the content, accessibility and interfaces, as well as technical aspects of implementations and others. In this paper, the ongoing collaborative work on a harmonized framework for networked, distributed concept libraries is introduced and discussed. It is shown how such systems may be used to expose the concepts for semantic mash-up scenarios in the context of the Linked Open Data (LOD) initiative. A number of use-cases that demonstrate the potential applications of such systems in various interoperability scenarios are illustrated and discussed.},
+  langid = {english},
+  keywords = {/have,Architecture,Building Information Modeling (BIM),Buildings,buildingSmart Data Dictionary (bSDD),Databases,Information management,Infrastructure construction,Public buildings,Smart buildings}
+}
+
 @misc{buildingsmartinternationalBuildingSMARTDataDictionary,
   title = {{{buildingSMART Data Dictionary}}},
   author = {{buildingSMART International}},
   journal = {buildingSMART International},
-  abstract = {he buildingSMART Data Dictionary (bSDD) is an online service that hosts classifications and their properties, allowed values, units and translations. The bSDD allows linking between all the content inside the database. It provides a standardized workflow to guarantee data quality and information consistency. BIM modelers use the bSDD to have easy and efficient access to all kinds of standards to enrich their model. BIM Managers use the bSDD to check BIM data for validity. Advanced users use the contents from the bSDD to check compliance, automatically find manufactures products, extend IFC, create Information Delivery Specifications (IDS) and much more. Besides national classification systems (Uniclass, Minnd, etc) and application specific standards (ETIM, UniversalTypes, IfcAirport, etc) project specific, National and company specific standards can be stored in bSDD as well. The internal structure can facilitate ISO 12006-3, ISO 23386 and Linked Data publications.},
+  abstract = {The buildingSMART Data Dictionary (bSDD) is an online service that hosts classifications and their properties, allowed values, units and translations. The bSDD allows linking between all the content inside the database. It provides a standardized workflow to guarantee data quality and information consistency. BIM modelers use the bSDD to have easy and efficient access to all kinds of standards to enrich their model. BIM Managers use the bSDD to check BIM data for validity. Advanced users use the contents from the bSDD to check compliance, automatically find manufactures products, extend IFC, create Information Delivery Specifications (IDS) and much more. Besides national classification systems (Uniclass, Minnd, etc) and application specific standards (ETIM, UniversalTypes, IfcAirport, etc) project specific, National and company specific standards can be stored in bSDD as well. The internal structure can facilitate ISO 12006-3, ISO 23386 and Linked Data publications.},
   howpublished = {https://www.buildingsmart.org/users/services/buildingsmart-data-dictionary/},
   langid = {british},
   keywords = {/unread,buildingSmart Data Dictionary (bSDD)}
@@ -46,19 +60,20 @@
   annotation = {URN: urn:nbn:se:kth:diva-170651 OAI: oai:DiVA.org:kth-170651 DiVA, id: diva2:839483}
 }
 
-@misc{garijoBestPracticesImplementing2020,
+@incollection{garijoBestPracticesImplementing2020a,
   title = {Best {{Practices}} for {{Implementing FAIR Vocabularies}} and {{Ontologies}} on the {{Web}}},
+  booktitle = {Applications and {{Practices}} in {{Ontology Design}}, {{Extraction}}, and {{Reasoning}}},
   author = {Garijo, Daniel and {Poveda-Villal{\'o}n}, Mar{\'i}a},
+  editor = {Cota, Giuseppe and Daquino, Marilena and Pozzato, Gian Luca},
   year = {2020},
-  month = mar,
-  number = {arXiv:2003.13084},
-  eprint = {2003.13084},
-  eprinttype = {arxiv},
-  primaryclass = {cs},
-  publisher = {{arXiv}},
+  month = nov,
+  series = {Studies on the {{Semantic Web}}},
+  volume = {49},
+  publisher = {{IOS Press}},
+  doi = {10.3233/SSW200034},
   abstract = {With the adoption of Semantic Web technologies, an increasing number of vocabularies and ontologies have been developed in different domains, ranging from Biology to Agronomy or Geosciences. However, many of these ontologies are still difficult to find, access and understand by researchers due to a lack of documentation, URI resolving issues, versioning problems, etc. In this chapter we describe guidelines and best practices for creating accessible, understandable and reusable ontologies on the Web, using standard practices and pointing to existing tools and frameworks developed by the Semantic Web community. We illustrate our guidelines with concrete examples, in order to help researchers implement these practices in their future vocabularies.},
-  archiveprefix = {arXiv},
-  keywords = {/unread,best practices,Computer Science - Artificial Intelligence,Computer Science - Databases,Computer Science - Digital Libraries,FAIR data,FAIRness,I.2,I.2.4}
+  isbn = {978-1-64368-142-9 978-1-64368-143-6},
+  annotation = {preprint: http://arxiv.org/abs/2003.13084}
 }
 
 @inproceedings{h.bellBuildingSMARTOntology2006,
@@ -84,30 +99,36 @@
   keywords = {/unread,another data dictionary}
 }
 
-@techreport{internationalstandardizationorganizationISO13584422010,
+@techreport{internationalstandardizationorganizationISO12006320222022,
+  type = {International Standard},
+  title = {{{ISO}} 12006-3:2022 {{Framework}} for Object-Oriented Information},
+  shorttitle = {{{ISO}} 12006-3},
+  author = {{International Standardization Organization}},
+  year = {2022},
+  number = {ISO 12006-3:2022},
+  abstract = {This document specifies a language-independent information model which can be used for the development of dictionaries used to store or provide information about construction works. The model is extended by instantiating content, such as further objects and their relationships, allowing the content to serve as an ontology, taxonomy, meronomy, lexicon and thesaurus. NOTE 1    Lexicons are resources for comprising lexical entries for a given language NOTE 2    Meronomies are type of hierarchies which deals with part-whole relationships NOTE 3    Ontologies are formal, explicit specification of a shared conceptualizationIt enables classification systems, information models, object models, data templates and process models to be cross-referenced from within a common framework. This document provides the description of an API allowing the interconnection of data dictionaries as described in ISO 23386.},
+  langid = {english},
+  keywords = {/unread,buildingSmart Data Dictionary (bSDD)}
+}
+
+@techreport{internationalstandardizationorganizationISO135844220102010,
   type = {International Standard},
   title = {{{ISO}} 13584-42:2010 {{Parts}} Library \textemdash{} {{Description}} Methodology: {{Methodology}} for Structuring Parts Families},
   shorttitle = {{{ISO}} 13584-42},
   author = {{International Standardization Organization}},
+  year = {2010},
   number = {ISO 13584-42:2010},
   abstract = {ISO 13584-42:2010 Industrial automation systems and integration \textemdash{} Parts library \textemdash{} Part 42: Description methodology: Methodology for structuring parts families Specifies the principles to be used for defining characterization classes of parts and properties of parts which provide for characterizing a part independently of any particular supplier-defined identification. \textemdash{} the capability to model constraints on properties by restricting their domain of values; \textemdash{} the capability to model and distinguish characterization classes and categorization classes; \textemdash{} the capability to model aggregation and composition using a single resource mechanism; \textemdash{} the capability to describe strings that carry external references; \textemdash{} the capability to connect classes that belong to different class hierarchies.},
   langid = {english},
   keywords = {/unread,another data dictionary}
 }
 
-@techreport{ISO1200632022,
+@techreport{internationalstandardizationorganizationISO2338620202020,
   type = {International Standard},
-  title = {{{ISO}} 12006-3:2022 {{Building}} Construction \textemdash{} {{Organization}} of Information about Construction Works \textemdash{} {{Part}} 3: {{Framework}} for Object-Oriented Information},
-  shorttitle = {{{ISO}} 12006-3},
-  abstract = {This document specifies a language-independent information model which can be used for the development of dictionaries used to store or provide information about construction works. The model is extended by instantiating content, such as further objects and their relationships, allowing the content to serve as an ontology, taxonomy, meronomy, lexicon and thesaurus. NOTE 1    Lexicons are resources for comprising lexical entries for a given language NOTE 2    Meronomies are type of hierarchies which deals with part-whole relationships NOTE 3    Ontologies are formal, explicit specification of a shared conceptualizationIt enables classification systems, information models, object models, data templates and process models to be cross-referenced from within a common framework. This document provides the description of an API allowing the interconnection of data dictionaries as described in ISO 23386.},
-  langid = {english},
-  keywords = {/unread,buildingSmart Data Dictionary (bSDD)}
-}
-
-@techreport{ISO233862020,
-  type = {International Standard},
-  title = {{{ISO}} 23386:2020 {{Building}} Information Modelling and Other Digital Processes Used in Construction \textemdash{} {{Methodology}} to Describe, Author and Maintain Properties in Interconnected Data Dictionaries},
+  title = {{{ISO}} 23386:2020 {{Methodology}} to Describe, Author and Maintain Properties in Interconnected Data Dictionaries},
   shorttitle = {{{ISO}} 23386},
+  author = {{International Standardization Organization}},
+  year = {2020},
   abstract = {This document establishes the rules for defining properties used in construction and a methodology for authoring and maintaining them, for a confident and seamless digital share among stakeholders following a BIM process. Regarding the definition of properties and groups of properties, this document provides: - definitions of properties and groups of properties as a list of attributes; - definitions of all the provided attributes. Regarding the authoring and maintaining process, this document provides: - definitions and roles of applicants; - definitions and roles of experts and the commission of experts; - definitions of request's attributes; - definitions of expert's attributes; - requirements to establish the management rules to interconnect data dictionaries through the mapping process for properties and groups of properties. To apply the methodology of this document, it is presupposed that the following are in place: - an established governance model for a data dictionary; - a framework for a network of data dictionaries. It is not in the scope of this document to provide the content of the interconnected data dictionaries.},
   langid = {english},
   keywords = {/unread,buildingSmart Data Dictionary (bSDD)}
@@ -149,6 +170,19 @@
   keywords = {/unread,buildingSmart Data Dictionary (bSDD)}
 }
 
+@article{PAUWELS2016100,
+  title = {{{EXPRESS}} to {{OWL}} for Construction Industry: {{Towards}} a Recommendable and Usable {{ifcOWL}} Ontology},
+  author = {Pauwels, Pieter and Terkaj, Walter},
+  year = {2016},
+  journal = {Automation in Construction},
+  volume = {63},
+  pages = {100--133},
+  issn = {0926-5805},
+  doi = {10.1016/j.autcon.2015.12.003},
+  abstract = {An increasing number of information management and information exchange applications in construction industry is relying on semantic web technologies or tools from the Linked Open Data (LOD) domain to support data interoperability, flexible data exchange, distributed data management and the development of reusable tools. These goals tend to be overlapped with the purposes of the Industry Foundation Classes (IFC), which is a standard for the construction industry defined through an EXPRESS schema. A connecting point between semantic web technologies and the IFC standard would be represented by an agreed Web Ontology Language (OWL) ontology for IFC (termed ifcOWL) that allows to (1) keep on using the well-established IFC standard for representing construction data, (2) exploit the enablers of semantic web technologies in terms of data distribution, extensibility of the data model, querying, and reasoning, and (3) re-use general purpose software implementations for data storage, consistency checking and knowledge inference. Therefore, in this paper we will look into existing efforts in obtaining an ifcOWL ontology from the EXPRESS schemas of IFC and analyse which features would be required in a usable and recommendable ifcOWL ontology. In making this analysis, we present our implementations of an EXPRESS-to-OWL converter and the key features of the resulting ifcOWL ontology.},
+  keywords = {/unread,Building,Construction,Industry Foundation Classes (IFC),Information technology,Resource Description Framework (RDF),Semantic web,Web Ontology Language (OWL)}
+}
+
 @misc{pauwelsMakingSenseBuilding2016,
   title = {Making Sense of Building Data and Building Product Data},
   author = {Pauwels, Pieter and Krijnen, Thomas and Beetz, Jakob},
@@ -158,4 +192,12 @@
   abstract = {The architectural design and construction domain works with massive amounts of data (building data, engineering data, product manufacturer data, geographical data, regulation data) on a daily basis. More and more of this data is being handled using semantic web technologies. This position paper documents existing initiatives, focusing on the Industry Foundation Classes (IFC) ISO standard and the buildingSMART Data Dictionary (bSDD) and outlines how a multilingual lexicalized semantic network like BabelNet can make a useful contribution to this particular domain.},
   langid = {english},
   keywords = {/unread}
+}
+
+@misc{posccaesarassociationPCAReferenceData,
+  title = {{{PCA Reference Data}} and {{Services}} ({{RDS}})},
+  author = {{POSC Caesar Association}},
+  abstract = {The POSC Caesar Association (PCA) provides reference data that is developed in a collaboration between the READIJoint Industry Project and the KRAFLA and NOA Oil \& Gas field development projects in Norway. The reference data provided in form of ontologies represented in W3C's Web Ontology Language OWL 2 and it is compliant with ISO 15926-14.},
+  howpublished = {https://rds.posccaesar.org/},
+  langid = {english}
 }

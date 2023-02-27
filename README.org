@@ -1,9 +1,9 @@
-#+options: ':nil *:t -:t ::t <:t H:5 \n:nil ^:{} anchor:t arch:headline author:t
-#+options: broken-links:nil c:nil creator:nil d:(not "LOGBOOK") date:t e:t email:nil f:t
+#+options: ':nil *:t -:t ::t <:t H:5 \n:nil ^:{} arch:headline author:t
+#+options: c:nil creator:nil d:(not "LOGBOOK") date:t e:t email:nil f:t
 #+options: inline:t num:t p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t
 #+options: timestamp:nil title:t toc:5 todo:t |:t
 #+title: Semantic bSDD: Improving the GraphQL, JSON and RDF Representations of buildingSmart Data Dictionary
-#+date: <2023-02-27>
+#+date: <2023-02-24>
 #+author: Vladimir Alexiev, Mihail Radkov, Nataliya Keberle
 #+email: vladimir.alexiev@ontotext.com
 #+keywords: Linked building data, LBD, buildingSMART Data Dictionary, bSDD, FAIR data, data quality
@@ -15,7 +15,7 @@
 
 
 
-* Table of Contents                                 :TOC:QUOTE:noexport:
+* Table of Contents                                 :TOC:noexport:
 :PROPERTIES:
 :TOC:      :include all
 :CUSTOM_ID: table-of-contents
@@ -154,8 +154,8 @@ This is a language-independent model used for the development of dictionaries ac
 bSDD was initiated to improve interoperability in the building and construction industry.
 bSDD is a comprehensive solution that provisions open product data definitions, identification, and distribution methods.
 
-As of February 2023, bSDD has descriptions of nearly 80k Classifications in 108 domains,
-including IFC and extensions; DIN, Omniclass, Uniclass; roads and railways; etc.
+As of February 2023, bSDD keeps descriptions of nearly 80,000 Classifications in 108 domains,
+ranging from roads and rails to DIN, Omniclass, Uniclass, IFC extensions, etc.
 It is a widely accepted source of BIM reference data.
 bSDD uses URLs for nearly all defined entities to enable globalized data use in a variety of AECO applications and structured documents.
 
@@ -178,7 +178,7 @@ bSDD does offer GraphQL access:
 - Production: https://api.bsdd.buildingsmart.org/graphqls/ (secured endpoint).
 - NOTE: we worked with bSI to get access to the production endpoint, but due to delays all our analysis is done on data from the test endpoint.
   Nevertheless, we believe that most of our findings also apply to the production data.
-These use ~GraphiQL~, which is a graphical interactive in-browser GraphQL IDE, available at
+Both endpoints use ~GraphiQL~ - a graphical interactive in-browser [[https://github.com/graphql/graphiql/tree/main/packages/graphiql][GraphQL IDE]].
 
 ** Original GraphQL bSDD Schema: Voyager
 :PROPERTIES:
@@ -337,14 +337,11 @@ Description of all files in [[https://github.com/Accord-Project/bsdd]]:
 - ~bsdd-graphql-soml.patch~: difference between the two SOML schemas
 - ~bsdd-graphql-voyager-orig.html~: HTML page that displays the original GraphQL schema with Voyager
 - ~bsdd-graphql-voyager-refact.html~:HTML page that displays the refactored GraphQL schema with Voyager
-- ~bsdd-ontology.ttl~: start of a bSDD ontology, very incomplete (just declares some ~owl:inverseOf~)
-- ~bsdd-ontology.ru~: SPARQL update that implements ~owl:inverseOf~ (no need to use when we enable inverse reasoning)
+- ~bsdd-ontology.ttl~: start of a bSDD ontology, very incomplete
+- ~index.html~: home page source
 - ~README.org~: detailed description of the work we did in emacs ~orgmode~ (this file)
 - ~README.md~: detailed description of the work we did, exported to ~markdown~
 - ~README.html~: HTML rendition of the work we did
-- ~index.md~: home page in markdown, with some advanced CSS tricks
-- ~index.html~: home page in HTML
-- ~Makefile~: make ~index.html~ with pandoc and ~bsdd-graphql-soml.patch~ with diff.
 - ~paper~: paper submitted to LDAC 2023
   - ~bsdd.bib~: bibtex file for the paper, made from the [[https://www.zotero.org/groups/3007408/semantic_bim][Zotero semantic BIM library]], we don't use it
   - ~bsdd.biblatex~: biblatex file for the paper, made from the same library, we use this one
@@ -352,11 +349,9 @@ Description of all files in [[https://github.com/Accord-Project/bsdd]]:
   - ~paper.md~: paper as markdown
   - ~paper.tex~: paper as latex, generated with Scholarly Pandoc
   - ~paper.pdf~: paper as PDF
-- ~graphql~:
-  - GraphQL queries to get the 9 kinds of entities from the original GraphQL endpoint
+- ~graphql~: GraphQL queries to get the 9 kinds of entities from the original GraphQL endpoint
   - Also ~schemaIntrospection.graphql~ that gets the GraphQL schema of an endpoint
-- ~graphql-refact~:
-  - Some sample queries against the refactored GraphQL endpoint (TODO: add more?)
+- ~graphql-refact~: some sample queries against the refactored GraphQL endpoint (TODO: add more?)
 - ~scripts~: all necessary scripts to export data in various formats, convert bSDD schema to SOML, convert JSON to RDF, refactor RDF, etc
   - ~bsdd2json.py~: connects to the original GraphQL API and exports all objects of the GraphQL schema as JSON (domains, classifications, classification properties, etc).
     There is no way to get more than 5000 classifications per domain (a limitation of the ~classificationSearch~ field)

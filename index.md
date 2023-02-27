@@ -65,6 +65,7 @@ We provide a SPARQL endpoint using [Ontotext GraphDB](https://graphdb.ontotext.c
 |<https://bsdd.ontotext.com/graphdb><br/>GraphDB Workbench: administrative interface for our semantic database|(protected) |
 |<https://bsdd.ontotext.com/graphdb/repositories/bsdd><br/>GraphDB SPARQL endpoint| |
 |<https://bsdd.ontotext.com/graphdb/sparql><br/>GraphDB SPARQL editor|![](img/graphdb-sparql.png)|
+|<https://bsdd.ontotext.com/graphdb/graphs-visualizations><br/>Visual Graph visualizations|![](img/viz-ClassDOMAIN-cropped.png){style="clip-path: ellipse(100% 95% at 50% 0)"} |
 
 <div class="ack">
 |**Acknowledge** | | |

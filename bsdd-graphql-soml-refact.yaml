@@ -327,7 +327,7 @@ objects:
   ClassificationRelation:
     type: bsdd:ClassificationRelation
     label: Attributes of a relation of a classification with another classification, can be from a different domain.
-    name: bsdd:name
+    name: relationType
     props:
       # relatedClassificationName:
       #   label: relatedClassificationName

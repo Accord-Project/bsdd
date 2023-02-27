@@ -3,7 +3,7 @@
 #+options: inline:t num:t p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t
 #+options: timestamp:nil title:t toc:5 todo:t |:t
 #+title: Semantic bSDD: Improving the GraphQL, JSON and RDF Representations of buildingSmart Data Dictionary
-#+date: <2023-02-24>
+#+date: <2023-02-27>
 #+author: Vladimir Alexiev, Mihail Radkov, Nataliya Keberle
 #+email: vladimir.alexiev@ontotext.com
 #+keywords: Linked building data, LBD, buildingSMART Data Dictionary, bSDD, FAIR data, data quality
@@ -15,7 +15,7 @@
 
 
 
-* Table of Contents                                 :TOC:noexport:
+* Table of Contents                                 :TOC:QUOTE:noexport:
 :PROPERTIES:
 :TOC:      :include all
 :CUSTOM_ID: table-of-contents
@@ -154,8 +154,8 @@ This is a language-independent model used for the development of dictionaries ac
 bSDD was initiated to improve interoperability in the building and construction industry.
 bSDD is a comprehensive solution that provisions open product data definitions, identification, and distribution methods.
 
-As of February 2023, bSDD has keeps descriptions of nearly 80,000 Classifications in 108 domains,
-ranging from roads and rails to DIN, Omniclass, Uniclass, IFC extensions, etc.
+As of February 2023, bSDD has descriptions of nearly 80k Classifications in 108 domains,
+including IFC and extensions; DIN, Omniclass, Uniclass; roads and railways; etc.
 It is a widely accepted source of BIM reference data.
 bSDD uses URLs for nearly all defined entities to enable globalized data use in a variety of AECO applications and structured documents.
 
@@ -274,7 +274,6 @@ This does not fix all defects noted with the original diagram.
 The reference entities are still not used by the main entities.
 To fix that would require data cleaning work
 (eg to ensure that Unit code strings used in all Properties and ClassificationProperties are in the reference list).
-Further
 
 We can also take a look at a detail of the refactored schema. It looks pretty similar,
 but all fields are normalized to singular names,

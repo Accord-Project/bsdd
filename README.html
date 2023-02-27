@@ -394,8 +394,8 @@ bSDD is a comprehensive solution that provisions open product data definitions, 
 </p>
 
 <p>
-As of February 2023, bSDD has keeps descriptions of nearly 80,000 Classifications in 108 domains,
-ranging from roads and rails to DIN, Omniclass, Uniclass, IFC extensions, etc.
+As of February 2023, bSDD has descriptions of nearly 80k Classifications in 108 domains,
+including IFC and extensions; DIN, Omniclass, Uniclass; roads and railways; etc.
 It is a widely accepted source of BIM reference data.
 bSDD uses URLs for nearly all defined entities to enable globalized data use in a variety of AECO applications and structured documents.
 </p>
@@ -449,7 +449,7 @@ We used it to investigate the original bSDD schema:
 </p>
 
 
-<div id="org52677cf" class="figure">
+<div id="org79208a5" class="figure">
 <p><img src="./img/bsdd-graphql-voyager-overview.png" alt="bsdd-graphql-voyager-overview.png" />
 </p>
 <p><span class="figure-number">Figure 1: </span>Original bSDD GraphQL Schema: Overview (uncheck "Show leaf fields")</p>
@@ -487,7 +487,7 @@ We can also look at details of the schema:
 </p>
 
 
-<div id="orgc85011d" class="figure">
+<div id="orgf6ea915" class="figure">
 <p><img src="./img/bsdd-graphql-voyager-Classification-ClassificationProperty.png" alt="bsdd-graphql-voyager-Classification-ClassificationProperty.png" />
 </p>
 <p><span class="figure-number">Figure 2: </span>Original bSDD GraphQL Schema: Detail of Classification and ClassificationProperty</p>
@@ -548,7 +548,7 @@ that allows you to explore the refactored schema.
 </p>
 
 
-<div id="orgf9acd90" class="figure">
+<div id="org5767a8b" class="figure">
 <p><img src="./img/bsdd-graphql-voyager-refact-overview.png" alt="bsdd-graphql-voyager-refact-overview.png" />
 </p>
 <p><span class="figure-number">Figure 3: </span>Refactored bSDD GraphQL Schema: Overview (uncheck "Show leaf fields")</p>
@@ -581,7 +581,6 @@ This does not fix all defects noted with the original diagram.
 The reference entities are still not used by the main entities.
 To fix that would require data cleaning work
 (eg to ensure that Unit code strings used in all Properties and ClassificationProperties are in the reference list).
-Further
 </p>
 
 <p>
@@ -591,7 +590,7 @@ and strings fields like <code>propertyNamespaceUri</code> are converted to objec
 </p>
 
 
-<div id="org8f8db56" class="figure">
+<div id="orgbdb0724" class="figure">
 <p><img src="./img/bsdd-graphql-voyager-refact-Classification-ClassificationProperty.png" alt="bsdd-graphql-voyager-refact-Classification-ClassificationProperty.png" />
 </p>
 <p><span class="figure-number">Figure 4: </span>Refactored bSDD GraphQL Schema: Detail of Classification and ClassificationProperty</p>
@@ -607,7 +606,7 @@ and strings fields like <code>propertyNamespaceUri</code> are converted to objec
 </p>
 
 
-<div id="orgfcd3881" class="figure">
+<div id="org1f1ca2f" class="figure">
 <p><img src="./img/graphiql-orig.png" alt="graphiql-orig.png" />
 </p>
 <p><span class="figure-number">Figure 5: </span>GraphiQL Querying of Original bSDD Endpoint</p>
@@ -636,7 +635,7 @@ It provides a number of useful features:
 </p>
 
 
-<div id="org69c4e97" class="figure">
+<div id="org8d5c59e" class="figure">
 <p><img src="./img/graphiql-refact.png" alt="graphiql-refact.png" />
 </p>
 </div>
@@ -2325,7 +2324,7 @@ We found a number of detailed differences, as presented in the <a href="https://
 </p>
 
 
-<div id="orgb8de5af" class="figure">
+<div id="orga96995c" class="figure">
 <p><img src="./img/bsdd-data-analysis-sheet.png" alt="bsdd-data-analysis-sheet.png" />
 </p>
 </div>
@@ -2563,7 +2562,7 @@ The same URL can be used to get a static web page in the browser:
 </p>
 
 
-<div id="org9a480c7" class="figure">
+<div id="orgf115741" class="figure">
 <p><img src="./img/IFC-class-cableSegment-web.png" alt="IFC-class-cableSegment-web.png" />
 </p>
 </div>
@@ -2573,7 +2572,7 @@ However, the interactive <a href="https://search.bsdd.buildingsmart.org">bSDD Se
 </p>
 
 
-<div id="orgf1c17a0" class="figure">
+<div id="orgc298dbe" class="figure">
 <p><img src="./img/IFC-class-cableSegment-search.png" alt="IFC-class-cableSegment-search.png" />
 </p>
 </div>
@@ -5031,7 +5030,7 @@ The difference between the two SOML schemas is not so huge:
 </div>
 
 
-<div id="org6fe671a" class="figure">
+<div id="org409f361" class="figure">
 <p><img src="./img/bsdd-graphql-soml-diff.png" alt="bsdd-graphql-soml-diff.png" />
 </p>
 </div>
@@ -5439,7 +5438,7 @@ We thank Léon van Berlo and Erik Bars from buildingSmart International for thei
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Date: 2023-02-24 Fri 00:00</p>
+<p class="date">Date: 2023-02-27 Mon 00:00</p>
 <p class="author">Author: Vladimir Alexiev, Mihail Radkov, Nataliya Keberle</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>

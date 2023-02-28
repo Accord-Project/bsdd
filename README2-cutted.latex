@@ -1,0 +1,1046 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{ceurart}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={Semantic bSDD: Improving the GraphQL, JSON and RDF Representations of buildingSmart Data Dictionary},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\newenvironment{Shaded}{}{}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{#1}}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.49,0.56,0.16}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.53,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.73,0.13,0.13}{\textit{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.40,0.40,0.40}{#1}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.74,0.48,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.73,0.40,0.53}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.10,0.09,0.49}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifluatex
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newlength{\csllabelwidth}
+\setlength{\csllabelwidth}{3em}
+\newenvironment{CSLReferences}[2] % #1 hanging-ident, #2 entry spacing
+ {% don't indent paragraphs
+  \setlength{\parindent}{0pt}
+  % turn on hanging indent if param 1 is 1
+  \ifodd #1 \everypar{\setlength{\hangindent}{\cslhangindent}}\ignorespaces\fi
+  % set entry spacing
+  \ifnum #2 > 0
+  \setlength{\parskip}{#2\baselineskip}
+  \fi
+ }%
+ {}
+\usepackage{calc}
+\newcommand{\CSLBlock}[1]{#1\hfill\break}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{#1}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{#1}\break}
+\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
+% for compatibility with pandoc 2.10
+\newenvironment{cslreferences}%
+  {}%
+  {\par}
+
+
+\sloppy
+
+\begin{document}
+
+\copyrightyear{2023}
+\copyrightclause{Copyright for this paper by its authors.
+  Use permitted under Creative Commons License Attribution 4.0
+  International (CC BY 4.0).}
+
+\conference{11\textsuperscript{th} Linked Data in Architecture and Construction Workshop, 15--16 June 2023, Matera, Italy}
+
+\title{Semantic bSDD: Improving the GraphQL, JSON and RDF Representations of buildingSmart Data Dictionary}
+
+\author[1]{Vladimir Alexiev}[
+orcid=0000-0001-7508-7428,
+email=vladimir.alexiev@ontotext.com,
+]
+\cormark[1]
+\address[1]{Ontotext, 79, Nikola Gabrovski Str. Twins Centre, fl.3, Sofia 1700, Bulgaria}
+
+\author[1]{Mihail Radkov}[
+email=mihail.radkov@ontotext.com
+]
+\author[1]{Nataliya Keberle}[
+orcid=0000-0001-7398-3464,
+email=nataliya.keberle@ontotext.com
+]
+
+%% Footnotes
+\cortext[1]{Corresponding author.}
+
+\begin{abstract}
+The buildingSmart Data Dictionary (bSDD) is an important shared resource
+in the Architecture, Engineering, Construction, and Operations (AECO)
+domain. It is a collection of datasets (``domains'') that define various
+classifications (objects representing building components, products, and
+materials), their properties, allowed values, etc. bSDD defines a
+GraphQL API, as well as REST APIs that return JSON and RDF
+representations. This improves the interoperability of bSDD and its
+easier deployment in architectural Computer Aided Design (CAD) and other
+AECO software.
+
+However, bSDD data is not structured as well as possible, and data
+retrieved via different APIs is not identical in content and structure.
+This lowers bSDD data quality, usability and trust.
+
+We conduct a thorough comparison and analysis of bSDD data related to
+fulfillment of FAIR (findable, accessible, interoperable, and reusable)
+principles. Based on this analysis, we suggest enhancements to make bSDD
+data better structured and more FAIR.
+
+We implement many of the suggestions by refactoring the original data to
+make it better structured/interconnected, and more ``semantic''. We
+provide a SPARQL endpoint using
+\href{https://graphdb.ontotext.com/}{Ontotext GraphDB}, and GraphQL
+endpoint using
+\href{https://platform.ontotext.com/semantic-objects/}{Ontotext Platform
+Semantic Objects}. Our detailed work is available at
+\url{https://github.com/Accord-Project/bsdd} (open source) and
+\url{https://bsdd.ontotext.com} (home page, schemas, data, sample
+queries).
+\end{abstract}
+
+
+\begin{keywords}
+  Linked building data  \sep 
+  buildingSMART Data Dictionary  \sep 
+  FAIR data
+\end{keywords}
+
+\maketitle
+
+
+\hypertarget{introduction}{%
+\section{Introduction}\label{introduction}}
+
+\hypertarget{bsdd}{%
+\subsection{bSDD}\label{bsdd}}
+
+Reusable data dictionaries are widely used for the electronic exchange
+of product and component information across industries, improving
+interoperation between systems. Examples include:
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://cdd.iec.ch/}{IEC Common Data Dictionary} (IEC CDD):
+  electrical components, units of measure, documents and certificates,
+  etc.
+\item
+  \href{https://eclass.eu/en/}{eCl@ss}: a product classification and
+  parts description for a variety of industries.
+\item
+  ISO 15926 part 4 \href{https://rds.posccaesar.org/}{Reference Data and
+  Services}: for digital information across process plant industries
+  (oil \& gas).
+\item
+  \href{https://bsdd.buildingsmart.org/}{buildingSMART Data Dictionary
+  (bSDD)}: for materials and components in the AECO industry.
+\end{itemize}
+
+The bSDD is a hierarchical dictionary of object concepts
+(Classifications), their Properties and allowed values used in Building
+Information Models (BIM). Property sets are predefined by regulation
+agencies and vendors and extend common property sets of the Industry
+Foundation Classes (IFC). This allows to describe specific domains
+(e.g.~transportation) and building elements (e.g.~doors, windows,
+stairs). bSDD is organized according to the ISO 23386 (2020)
+{[}\protect\hyperlink{ref-ISO233862020}{1}{]} Methodology to describe,
+author and maintain properties in interconnected data dictionaries. This
+is a language-independent model used for the development of dictionaries
+according to ISO 12006-3 (2022)
+{[}\protect\hyperlink{ref-ISO1200632022}{2}{]} Framework for
+object-oriented information.
+
+bSDD was initiated to support improved interoperability in the building
+and construction industry. Palos
+{[}\protect\hyperlink{ref-palosStateoftheartAnalysisProduct2012}{3}{]}
+noted that bSDD is a very comprehensive solution aiming at the
+provisioning of open complementary product data definitions,
+identification, and distribution methods.
+
+As of February 2023, bSDD contains descriptions of nearly 80,000
+Classifications in 108 domains, ranging from roads and rails to DIN,
+Omniclass, Uniclass, IFC extensions, etc. It is a widely accepted source
+of BIM reference data. bSDD uses URLs for nearly all defined entities to
+enable globalized data use in a variety of AECO applications and
+structured documents.
+
+\hypertarget{related-work}{%
+\subsection{Related Work}\label{related-work}}
+
+According to
+\href{ttps://www.buildingsmart.org/about/technical-roadmap/}{buildingSMART
+technical roadmap}, bSDD service provides output data in various formats
+and APIs, including RDF, thus making bSDD content higher reusable in the
+Linked Data ecosystem, particularly with geographical data, regulations,
+product manufacturer data. However, Pauwels et al.~in
+{[}\protect\hyperlink{ref-pauwelsMakingSenseBuilding2016}{4}{]} note
+that there is no standard method to generate RDF graphs from bSDD API.
+Starting from
+{[}\protect\hyperlink{ref-beetzInteroperableDataModels2014}{5}{]} where
+``bSDD vocabulary has been transformed into a configurable RDF dataset.
+On the meta-model level several different modelling approaches ranging
+from OWL to RDFS and SKOS have been implemented to evaluate the
+advantages and disadvantages of the respective modelling strategies'' the
+work was continued. In {[}\protect\hyperlink{ref-PAUWELS2016100}{6}{]} a
+complete translation of IFC from EXPRESS to OWL is presented, however
+lacking modularity and extensibility inherent to best Semantic Web
+practices
+{[}\protect\hyperlink{ref-garijoBestPracticesImplementing2020}{7}{]}. In
+{[}\protect\hyperlink{ref-oraskariLiveWebOntology2021}{8}{]} it is
+proposed and implemented to generate from bSDD an OWL representation of
+a selected IFC element together with its property sets on the fly.
+
+In the survey
+{[}\protect\hyperlink{ref-kebedeIntegrationManufacturersProduct2022}{9}{]}
+discussed the question of where and how the bSDD can fit in the Linked
+building data (LBD) ecosystem. Authors mention that bSDD has undertaken
+a new round of development showing a shift towards publishing data
+classifications and properties as Linked Data.
+
+Admitting the advances of bSDD community at providing data in RDF format
+we met some issues where accommodating these data for our purposes in
+the frame of \href{https://github.com/Accord-Project/bsdd}{ACCORD
+project}, among them are different results obtained with different APIs,
+multiple URIs for same entities, various GraphQL implementation errors.
+In this paper, we discuss these issues and propose a set of technical
+improvements following the best practices of the Semantic Web and linked
+data to obtain ``a semantically better version'' of bSDD. We implemented
+and made available our solution using the
+\href{https://bsdd.ontotext.com/workbench/graphql}{Ontotext Platform}.
+
+Unlike {[}\protect\hyperlink{ref-oraskariLiveWebOntology2021}{8}{]}, we
+preserve the original bSDD structure (Domain, Classification, Property,
+etc) and only add specific improvements, described below, and convert
+the whole bSDD at once, taking more attention to outlining the
+discrepancies of the current solution and bringing the Semantic Web best
+practices and FAIR principles.
+
+\hypertarget{graphql-benefits}{%
+\subsection{GraphQL Benefits}\label{graphql-benefits}}
+
+\href{https://graphql.org/}{GraphQL} as an approach to create simplified
+``facades'' over various storages, and to provide schema, uniform query
+language, API and runtime for handling queries, mutations and
+subscriptions. It has many benefits over traditional REST APIs:
+
+\begin{itemize}
+\tightlist
+\item
+  Avoid over-fetching by specifying exactly which data and in what
+  nested structure should be returned by the server
+\item
+  Data is returned in JSON that is precisely congruent to the shape of
+  the query
+\item
+  Retrieve many resources in a single request; even across storages by
+  using GraphQL Federation
+\item
+  Schema introspection that allows IDEs and query helpers to offer
+  contextual auto-completion at any point in the query
+\item
+  Data validation (for both input through mutations and output through
+  queries) that guarantees type and cardinality conformance
+  (optional/mandatory, single/multi-valued)
+\end{itemize}
+
+bSDD does offer GraphQL access, moreover, the endpoints use \texttt{GraphiQL} - a graphical interactive
+in-browser \href{https://github.com/graphql/graphiql/tree/main/packages/graphiql}{GraphQL IDE}.:
+
+\begin{itemize}
+\tightlist
+\item
+  Test: \url{https://test.bsdd.buildingsmart.org/graphiql/}
+\item
+  Production: \url{https://api.bsdd.buildingsmart.org/graphqls/}
+  (secured endpoint).
+\item
+  NOTE: we worked with bSI to get access to the production endpoint, but
+  due to delays all our analysis is done on data from the test endpoint.
+  Nevertheless, we believe that most of our findings also apply to the
+  production data.
+\end{itemize}
+
+\hypertarget{original-graphql-bsdd-schema-voyager}{%
+\subsection{Original GraphQL bSDD Schema:
+Voyager}\label{original-graphql-bsdd-schema-voyager}}
+
+\href{https://ivangoncharov.github.io/graphql-voyager/}{GraphQL Voyager}
+is a visual application that uses a Schema Introspection query to
+explore a GraphQL endpoint and displays the schema of the endpoint,
+allowing the user to search and browse the available types and queries.
+We used
+\href{https://rawgit2.com/Accord-Project/bsdd/main/bsdd-graphql-voyager-orig.html}{Voyager
+over the bSDD GraphQL endpoint} to investigate the original bSDD schema
+(see Fig. \ref{fig:graphql-overview}):
+
+\begin{figure}
+\hypertarget{fig:graphql-overview}{%
+\centering
+\includegraphics{./img/bsdd-graphql-voyager-overview.png}
+\caption{Original bSDD GraphQL Schema: Overview (uncheck ``Show leaf
+fields'')}\label{fig:graphql-overview}
+}
+\end{figure}
+
+As we can see, bSDD has 12 entities (object types):
+
+\begin{itemize}
+\tightlist
+\item
+  Reference entities:
+  \begin{itemize}
+  \tightlist
+  \item
+    \texttt{Country}
+  \item
+    \texttt{Language}
+  \item
+    \texttt{ReferenceDocument}, such as a standard
+  \item
+    \texttt{Unit}: unit of measure
+  \end{itemize}
+\item
+  \texttt{Domain}: dataset by a single data provider
+\item
+  \texttt{Property}: global property definition
+  \begin{itemize}
+  \tightlist
+  \item
+    \texttt{PropertyRelation}: relation between properties
+  \item
+    \texttt{PropertyValue}: allowed property value for enumerated
+    properties
+  \end{itemize}
+\item
+  \texttt{Classification}: object, material, component
+  \begin{itemize}
+  \tightlist
+  \item
+    \texttt{ClassificationRelation}: relation between classifications
+  \end{itemize}
+\item
+  \texttt{ClassificationProperty}: property that is localized to a
+  classification
+  \begin{itemize}
+  \tightlist
+  \item
+    \texttt{ClassificationPropertyValue}: allowed property value for
+    enumerated properties
+  \end{itemize}
+\end{itemize}
+
+Currently bSDD contains 31720 \texttt{Classifications}, 111556
+\texttt{ClassificationProperties}, 214121 \texttt{ClassificationPropertyValues} and \texttt{PropertyValues} 
+together, because essentially they are the same by structure, 6420
+\texttt{ClassificationRelations}, 36069 \texttt{Properties}, 603
+\texttt{Units}, 484 \texttt{ReferenceDocuments}, 39 \texttt{Languages}, 246 \texttt{Countries}, 108 \texttt{Domains}.
+
+
+\hypertarget{original-graphql-bsdd-schema-problems}{%
+\subsection{Original GraphQL bSDD Schema:
+Problems}\label{original-graphql-bsdd-schema-problems}}
+
+Even in the Schema Overview (at low level of detail) we can notice some
+defects:
+
+\begin{itemize}
+\tightlist
+\item
+  The reference entities
+  (\texttt{Country,\ Language,\ ReferenceDocument,\ Unit}) are
+  disconnected from the rest of the schema, i.e.~not used by the other
+  entities
+\item
+  Relation entities have only an incoming link but no outgoing link.
+  This means that if you want to get some data of a
+  \texttt{Classification} and all its related \texttt{Classifications},
+  you need to issue two queries because you cannot navigate past
+  \texttt{ClassificationRelation}.
+\item
+  Many entities cannot be queried directly from the root, but have to be
+  reached through their respective ``parent'' entity.
+\item
+  There are no backward relations (arrows) to get from a lower-level
+  entity back to its ``parent'' entity.
+\item
+  There are a number of parallel relations (arrows). This is not needed
+  in GraphQL because the schema can use parameters to distinguish
+  between the different uses.
+\end{itemize}
+
+At the high level of detail we can notice more defects:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{Property} and \texttt{ClassificationProperty} are very
+  similar, but there's no inheritance/relation between them
+\item
+  \texttt{PropertyValue} and \texttt{ClassificationPropertyValue} are
+  exactly the same, so can be reduced to one entity
+\end{itemize}
+
+\hypertarget{refactored-graphql-bsdd-schema-voyager}{%
+\subsection{Refactored GraphQL bSDD Schema:
+Voyager}\label{refactored-graphql-bsdd-schema-voyager}}
+
+The main purpose of this work is to refactor the bSDD data and schema in
+order to improve them. The results of our work are put into a web page
+\href{https://rawgit2.com/Accord-Project/bsdd/main/bsdd-graphql-voyager-refact.html}{bsdd-graphql-voyager-refact.html}
+(see Fig. \ref{fig:graphql-refact}) that allows to explore the refactored schema.
+
+\begin{figure}
+\hypertarget{fig:graphql-refact}{%
+\centering
+\includegraphics{./img/bsdd-graphql-voyager-refact-overview.png}
+\caption{Refactored bSDD GraphQL Schema: Overview (uncheck "Show leaf fields")}
+\label{fig:graphql-refact}
+}
+\end{figure}
+
+The proposed improvements are following:
+
+\begin{itemize}
+\tightlist
+\item
+  All entities are queryable directly from the root. Note: There's a
+  common interface \texttt{Object} that provides functionality common to
+  all entities: the dashed arrows show that each entity implements it.
+  This creates some clutter in the diagram, but doesn't complicate
+  querying and navigation.
+\item
+  There are no parallel arrows (relations) between entities; each
+  relation is named the same as the target entity, improving
+  predictability and consistency.
+\item
+  Navigation between entities is bidirectional
+  (e.g.~\texttt{Domain.classification} but also
+  \texttt{Classification.domain}), which is a feature expected of a
+  Knowledge Graph.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    In particular, the \texttt{Classification} hierarchy can be
+    navigated both up and down
+    (\texttt{parentClassification,\ childClassification})
+  \end{itemize}
+\item
+  A query can traverse a \texttt{Relation} entity to get data about the
+  related entity:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \texttt{Classification.relation\ -\textgreater{}\ ClassificationRelation.related\ -\textgreater{}\ Classification}
+  \item
+    \texttt{Property.relation\ -\textgreater{}\ PropertyRelation.related\ -\textgreater{}\ Property}
+  \end{itemize}
+\item
+  A single entity \texttt{PropertyValue} is used by both
+  \texttt{Property} and \texttt{ClassificationProperty}
+\end{itemize}
+
+The solution proposed does not fix all defects noted in the original diagram. The
+reference entities are still not used by the main entities. To fix that it
+would require data cleaning work (e.g. to ensure that Unit code strings
+used in all Properties and ClassificationProperties are in the reference
+list).
+
+\hypertarget{graphiql-querying-of-original-endpoint}{%
+\subsection{GraphiQL Querying of Original
+Endpoint}\label{graphiql-querying-of-original-endpoint}}
+
+\url{https://test.bsdd.buildingsmart.org/graphiql} is the original
+GraphQL endpoint.
+
+\begin{figure}
+\centering
+\includegraphics{./img/graphiql-orig.png}
+\caption{GraphiQL Querying of Original bSDD Endpoint}
+\label{fig:giql-orig}
+\end{figure}
+
+It provides a number of useful features (see Fig. \ref{fig:giql-orig}):
+
+\begin{itemize}
+\tightlist
+\item
+  Online searchable documentation of the GraphQL schema
+\item
+  Auto-completion of field names and parameters at any point in the
+  query: queries practically ``write themselves''!
+\item
+  Ability to parameterize queries through Query Variables
+\item
+  Code formatting (Prettifying) of the query
+\item
+  Syntax highlighting
+\item
+  History of previous queries
+\item
+  JSON results that conform exactly to the form of hate query
+\end{itemize}
+
+\hypertarget{graphiql-querying-of-refactored-endpoint}{%
+\subsection{GraphiQL Querying of Refactored
+Endpoint}\label{graphiql-querying-of-refactored-endpoint}}
+
+\url{https://bsdd.ontotext.com/graphiql/} is the refactored GraphQL
+endpoint:
+
+\begin{figure}
+\centering
+\includegraphics{./img/graphiql-refact.png}
+\caption{GraphiQL for the Refactored Endpoint}
+\label{fig:giql-refact}
+\end{figure}
+
+We have deployed a newer version of GraphiQL that has all benefits
+described in the previous section, and adds some more (see Fig. \ref{fig:giql-refact}):
+
+\begin{itemize}
+\tightlist
+\item
+  A hierarchical Explorer pane that shows the total schema structure and
+  allows you to select fields by clicking rather than typing. The
+  History and Documentation panes are still present (see toggles at the
+  left edge)
+\item
+  Useful keyboard shortcuts
+\item
+  Search in the query text (in addition to search in the Documentation)
+\item
+  Improved syntax highlighting
+\item
+  Multiple query tabs so you can easily access several queries at once
+\item
+  The query response reports errors in addition to returning data (this
+  comes from our GraphQL server implementation, not from the GraphiQL
+  version)
+\end{itemize}
+
+\hypertarget{suggested-improvements}{%
+\section{Suggested Improvements}\label{suggested-improvements}}
+
+In this section we analyze shortcomings of the original bSDD data
+structure, and suggest improvements. We briefly present three groups of shortcomings - 
+representational, modelling, and GraphQL implementation related, highlighting the most interesting. 
+
+\hypertarget{representational-shortcomings}{%
+\subsection{Representational Shortcomings}\label{representational-shortcomings}}
+
+\begin{itemize}
+\item
+\textbf{Return the same data across APIs}. We have compared three representations returned by the bSDD server: 
+JSON from the GraphQL API, JSON from the REST (entity) API, and RDF from the REST (entity) API. 
+We selected entities of each class that have the maximum number of
+filled fields, and compared the results returned by each API. We found a
+number of detailed differences, as presented in the
+\href{https://docs.google.com/spreadsheets/d/1z_NRMlExlVuqWhBbSErQ9iiDBY4O_fKMd3avV3-NCmo/edit}{bSDD
+data analysis spreadsheet} (see Fig. \ref{bsdd-data-analysis})
+
+\begin{figure}
+\centering
+\includegraphics[width=0.75\textwidth,height=\textheight]{./img/bsdd-data-analysis-sheet.png}
+\caption{Analysis of bSDD data returned with different APIs}
+\label{bsdd-data-analysis}
+\end{figure}
+
+\item
+\textbf{Improve Property Names}. Property names should conform to naming conventions and be spelled
+consistently. Property (field) names should be spelled in singular, even when they
+  refer to an array. The arity is reflected in the property kind. 
+  The GraphQL and JSON field \texttt{childs} should be spelled properly
+  as \texttt{children}. RDF properties should conform to the \texttt{lowerCamelCase}
+  convention. \texttt{namespaceUri} is a misnomer since ``namespace'' means a set of
+  URIs sharing the same prefix, but most bSDD URIs are \textbf{single}
+  URIs. RDF properties should use one consistent namespace. Most of them use
+  \texttt{bsdd:\ \textless{}http://bsdd.buildingsmart.org/def\#\textgreater{}},
+  except \texttt{hasReference}, which uses a different namespace:
+  \texttt{\textless{}http://bsdd.buildingsmart.org/relation/def\#\textgreater{}}.
+
+\item
+\textbf{Use the Same URL for Data and for Web Pages}. 
+bSDD has implemented ``entity URLs'', i.e.~for each kind of entity it
+can return its data in JSON or RDF. 
+The same URL can be used to get a static web page in the browser. 
+However, the interactive
+\href{https://search.bsdd.buildingsmart.org}{bSDD Search} UI uses a
+different URL that returns slightly different information.
+There is not really a need for two different web pages showing nearly
+the same info.
+
+\item
+\textbf{Improve URL Structure and Consistency}.
+To facilitate the accessibility of digital artifacts available from
+bSDD, their URLs should be designed uniformly according to
+\href{https://www.w3.org/DesignIssues/LinkedData.html}{Linked Data
+Principles}. Recommendations on ontology URI design, including
+versioning and opaque URIs to maintain evolution and multilingualism
+inherent to bSDD, are described at
+{[}\protect\hyperlink{ref-garijoBestPracticesImplementing2020}{7}{]}.
+Almost all domain URLs have the same structure:
+  \texttt{https://identifier.buildingsmart.org/uri/\textless{}org\textgreater{}/\textless{}domain\textgreater{}-\textless{}version\textgreater{}}.
+
+The Linked Data Patterns book describes a pattern of
+\href{https://patterns.dataincubator.org/book/hierarchical-uris.html}{Hierarchical
+URIs}, that make URLs more ``hackable'', allowing users to navigate the
+hierarchy by pruning the URI. bSDD URLs could become more hierarchical
+if they \textbf{all} follow a structure
+\texttt{https://identifier.buildingsmart.org/uri/<org>/<domain>/<version>}
+which is not a case now. bSDD uses dash not slash to separate the version, in some cases, the \texttt{\textless{}org\textgreater{}} is repeated
+  in the \texttt{\textless{}domain\textgreater{}} part, in some cases, the \texttt{\textless{}org\textgreater{}} name doesn't
+  quite mesh with the domain name, perhaps due to the way bSDD allocates
+  \texttt{\textless{}org\textgreater{}} identifiers to bSDD contributors.
+
+\end{itemize}
+
+We recommend also to \textbf{explicate domain versions}, 
+to \textbf{declare URLs to be} \texttt{ID} and use a mandatory field \texttt{id}, 
+to \textbf{remove the overlap of Entity Classes with} \texttt{classificationType}, 
+to \textbf{disambiguate URLs for} \texttt{Property} and \texttt{ClassificationProperty},
+to \textbf{provide an URL for all the Entities} in the bSDD schema.
+
+\hypertarget{modelling-issues}{%
+\subsection{Modelling Issues}\label{modelling-issues}}
+
+In addition to the technical recommendations above (to ease findability
+and accessibility of data in bSDD by improving URls), we have noticed
+several modelling issues:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Unify different solutions in modelling of Complex Properties}: the bSDD data
+  model allows the modelling of complex properties that are composed of
+  other properties, the key attribute \texttt{propertyValueKind} has
+  values COMPLEX and COMPLEX\_LIST used in combination with
+  \texttt{connectedProperties}. These key values are defined for
+  \texttt{Property} and \texttt{ClassificationProperty}, however,
+  \texttt{connectedPropertyCodes} is defined only for \texttt{Property}
+\item
+  \textbf{Improve modelling of Dynamic Properties}, which is also done partially - while 12385
+  \texttt{Properties} are declared as \texttt{isDynamic} (135250 are
+  not), the field \texttt{dynamicParameterPropertyCode} is always empty.
+\item
+  \textbf{Improve relations between entities}, as shown in Fig. \ref{fig:graphql-refact}.
+\item
+  \textbf{Add more entities} for e.g.\texttt{PhysicalQuantity} to govern allowed \texttt{Units}.
+\item
+  \textbf{Use class inheritance} for \texttt{ClassificationProperty} and \texttt{Property} and whenever possible.
+\item
+  \textbf{Improve representation of PropertyValues}: \texttt{PropertyValue} and
+  \texttt{ClassificationPropertyValue} are structured values with rich
+  fields:
+  \texttt{code,\ value,\ namespaceUri,\ description,\ sortNumber}.
+  However, most structured values we've seen have only
+  \texttt{code,\ value}.
+\item
+  \textbf{Improve representation of }\texttt{predefinedValue}.
+\item
+  \textbf{Improve multilingual support}: while bSDD is advertised as a
+  multilingual dictionary, most domains are unilingual.
+\end{itemize}
+
+\hypertarget{graphql-improvements}{%
+\subsection{GraphQL Improvements}\label{graphql-improvements}}
+
+In this subsection we outline the problems with the original bSDD GraphQL API.
+
+\begin{itemize}
+\tightlist
+\item
+\textbf{Improve searchability and pagination}. Currently, the user is limited to
+  very basic fetching of data: all entities of a class, entity by
+  \texttt{namespaceUri}, or basic full-text search
+  (\texttt{classificationSearch}). There is no pagination, the user cannot get only a portion of the results, and
+  iterate through pages with \texttt{limit/offset}. 
+
+\item  
+\textbf{Eliminate parallel links between entities}, see Fig.\ref{fig:graphql-overview}.
+
+\item
+\textbf{Improve GraphQL arrays and nullability}: e.g., there is no way to enforce a \textbf{non-empty} array in
+GraphQL.
+
+\item
+\textbf{Null classifications error}. Although \texttt{classificationSearch} is declared as nullable, a GraphQL error is returned whenever the backend
+returns \texttt{null}. 
+
+\item
+\textbf{Null classification childs error}. \texttt{Classification.childs} is defined as nullable with type
+\texttt{{[}Classification{]}} However, unless
+\texttt{includeChilds:\ true} is provided as input argument in
+\texttt{classification}, queries return NULL\_REFERENCE errors, thus
+breaking GraphQL specification compliance.
+
+\item
+\textbf{Null ClassificationProperty name error}. Some ClassificationProperties have no \texttt{name}. Although that field
+is declared nullable, bSDD does not return such properties and instead
+returns \texttt{NULL\_REFERENCE} errors. 
+
+\item
+\textbf{Missing domains}. The GraphQL root field \texttt{domains} used to return some domains that
+are not available individually through the field \texttt{domain}.
+
+\item
+\textbf{Deprecated properties}. The field \texttt{possibleValues} is described as ``deprecated''.
+However, the GraphQL specification section
+\href{https://spec.graphql.org/draft/\#sec-Field-Deprecation}{Field
+Deprecation} shows that a specific \texttt{@deprecated} directive should
+be used for this purpose. 
+
+\end{itemize}
+
+We found also many data quality problems in bSDD, 
+but due to the page limits we leave them outside, and redirect a curious reader to the 
+\href{https://github.com/Accord-project/bsdd}{bSDD project Web site}.
+
+
+\hypertarget{implementing-improvements}{%
+\section{Implementing Improvements}\label{implementing-improvements}}
+
+We implemented a lot (but not all) of the improvements suggested above
+by using the following process:
+
+\begin{itemize}
+\tightlist
+
+\item
+  \textbf{Fetch bSDD data as JSON} with the help of a script 
+  \href{https://github.com/Accord-Project/bsdd/blob/main/scripts/bsdd2json.py}{bsdd2json.py} developed to get all the data. 
+
+\item
+  \textbf{Convert it to RDF} using \href{https://sparql-anything.cc/}{SPARQL Anything}. 
+   We developed two scripts: \href{https://github.com/Accord-Project/bsdd/blob/main/scripts/rdfize.sparql}{rdfize.sparql} and 
+\href{https://github.com/Accord-Project/bsdd/blob/main/scripts/rdfize-zip.sparql}{rdfize-zip.sparql} to rdfize either single file or an archive (zip) of files. 
+ 
+\item
+  \textbf{Load it to \href{https://www.ontotext.com/products/graphdb/}{GraphDB}}
+
+\item
+  {Refactor the RDF using SPARQL Update}
+\end{itemize}
+
+As far as raw RDF has drawbacks, we wrote the SPARQL
+Update script \href{https://github.com/Accord-Project/bsdd/blob/main/scripts/transform.ru}{transform.ru} which does the
+following:
+
+\begin{itemize}
+\tightlist
+\item
+  Cut out fractional seconds from date-times, and add datatype
+  \texttt{xsd:dateTime}
+\item
+  Convert strings to URIs, and shorten props as appropriate
+\item
+  Drop redundant information of a referenced resource
+\item
+  Drop deprecated property \texttt{bsdd:possibleValues}, since
+  \texttt{bsdd:allowedValue} is used instead;
+\item
+  Multi-valued properties: skip a level (\texttt{rdfs:member}) and
+  change property name to singular
+\item
+  Shorten the path
+  \texttt{bsdd:parentClassificationReference/bsdd:namespaceUri} to just
+  \texttt{bsdd:parentClassification};
+\item
+  Add \texttt{rdf:type} based on GraphQL \texttt{\_\_typename};
+\item
+  Drop parasitic \texttt{rdf:type\ fx:root};
+\item
+  Because link \texttt{ClassificationProperty.namespaceUri} refers to a \texttt{Property} rename it to 
+  \texttt{ClassificationProperty.property};
+\item
+  Add meaningful URIs to blank nodes whenever possible. In particular (here \texttt{+} indicates concatenation):
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \texttt{ClassificationProperty} gets URI:
+    
+    \texttt{Classification.uri+"/"+propertyCode} 
+    ;
+  \item
+    \texttt{ClassificationPropertyValue} gets URI:
+
+    \texttt{Classification.uri+"/"+ClassificationProperty.propertyCode\ +"/"+value}.
+    This class has \texttt{namespaceUri}, but that is optional and is
+    rarely filled;
+  \item
+    \texttt{PropertyValue} gets URI:
+    
+    \texttt{Classification.uri+"/"+Property.propertyCode\ +"/"+value}.
+    This class has \texttt{namespaceUri}, but that is optional and is
+    rarely filled.
+  \end{itemize}
+\item
+  The following remain blank nodes:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \texttt{ReferenceDocument}: no id field (only
+    \texttt{name,\ title,\ date});
+  \item
+    \texttt{ClassificationRelation}: is just a pair of \texttt{related}
+    Properties, no own URI;
+  \item
+    \texttt{PropertyRelation}: is just a pair of \texttt{related}
+    Properties, no own URI;
+  \end{itemize}
+\item
+  Remove redundant \texttt{namespaceUri} when equal to the node's URI.
+\end{itemize}
+
+\hypertarget{graphql-to-soml-and-back}{%
+\subsection{GraphQL to SOML and Back}\label{graphql-to-soml-and-back}}
+
+The major goal of this work is to improve the bSDD RDF representation
+and GraphQL API. To achieve this, in addition to refactoring RDF:
+
+\begin{itemize}
+\tightlist
+\item
+  The original GraphQL schema was fetched with GraphQL introspection:
+  \texttt{bsdd-graphql-schema-orig.json}, 116kb
+\item
+  Then it was converted to a prototypical
+  \href{https://platform.ontotext.com/semantic-objects/soml/index.html}{SOML
+  schema} using the script \texttt{graphql2soml.py}:
+  \texttt{bsdd-graphql-soml-orig.yaml}, 22kb. This SOML schema has issues inherited from the original
+  GraphQL schema. The purpose of the generated SOML schema is to serve
+  as a starting point (instead of starting from scratch).
+\item
+  The schema was refactored by hand, using similar steps as the RDF
+  refactoring above: \texttt{bsdd-graphql-soml-refact.yaml}, 20kb.
+\item
+  The results were loaded to
+  \href{https://platform.ontotext.com/semantic-objects/}{Ontotext
+  Platform Semantic Objects} to generate a refactored GraphQL schema:
+  \texttt{bsdd-graphql-schema-refact.json}, 867k. The reason it is so
+  much bigger is that it includes a comprehensive \texttt{where} query
+  language
+\end{itemize}
+
+\hypertarget{conclusions-and-future-work}{%
+\section{Conclusions and Future
+Work}\label{conclusions-and-future-work}}
+
+Admitting the advances of bSDD community at providing data in RDF format
+we met some issues where accommodating these data for our purposes in
+the frame of \href{https://accordproject.eu/}{ACCORD project}, among them are different
+results obtained with different APIs, multiple URIs for same entities,
+various GraphQL implementation errors. In the presented work, we
+highlighted these issues and proposed a set of technical improvements
+following the best practices of the Semantic Web and linked data to
+obtain ``a semantically better version'' of bSDD. We implemented and
+made available our solution using the \href{https://bsdd.ontotext.com/workbench/graphql}{Ontotext Platform}.
+
+\hypertarget{acknowledgements}{%
+\section{Acknowledgements}\label{acknowledgements}}
+
+This work is partially funded by the European Union's Horizon Europe
+research and innovation programme under grant agreement no 101056973
+(ACCORD).
+
+Author contributions:
+
+\begin{itemize}
+\tightlist
+\item
+  VA conceived the work, described bSDD shortcomings, implemented
+  GraphQL and RDF refactoring.
+\item
+  MK wrote GraphQL queries, fetched bSDD data, and deployed GraphDB and
+  Ontotext Platform Semantic Objects.
+\item
+  NK performed statistics and comparisons of bSDD data and wrote the
+  final paper.
+\end{itemize}
+
+We thank Léon van Berlo and Erik Baars from buildingSmart International
+for their help with accessing bSDD.
+
+\hypertarget{references}{%
+\section*{References}\label{references}}
+\addcontentsline{toc}{section}{References}
+
+\hypertarget{refs}{}
+\begin{cslreferences}
+\leavevmode\hypertarget{ref-ISO233862020}{}%
+{[}1{]} ``ISO 23386:2020 Building information modelling and other
+digital processes used in construction --- Methodology to describe,
+author and maintain properties in interconnected data dictionaries,''
+international standard {[}Online{]}. Available:
+\url{https://www.iso.org/standard/75401.html}. {[}Accessed: Jan. 25,
+2023{]}
+
+\leavevmode\hypertarget{ref-ISO1200632022}{}%
+{[}2{]} ``ISO 12006-3:2022 Building construction --- Organization of
+information about construction works --- Part 3: Framework for
+object-oriented information,'' international standard {[}Online{]}.
+Available: \url{https://www.iso.org/standard/74932.html}. {[}Accessed:
+Jan. 25, 2023{]}
+
+\leavevmode\hypertarget{ref-palosStateoftheartAnalysisProduct2012}{}%
+{[}3{]} S. Palos, ``State-of-the-art analysis of product data
+definitions usage in BIM,'' in \emph{eWork and eBusiness in
+Architecture, Engineering and Construction: European Conference on
+Product and Process Modelling 2012, ECPPM 2012}, 2012, pp. 397--403.
+
+\leavevmode\hypertarget{ref-pauwelsMakingSenseBuilding2016}{}%
+{[}4{]} P. Pauwels, T. Krijnen, and J. Beetz, ``Making sense of building
+data and building product data,'' Mar. 2016 {[}Online{]}. Available:
+\url{https://pdfs.semanticscholar.org/93f0/278821cf554be5a6f6e2667b24cb39096fe4.pdf}
+
+\leavevmode\hypertarget{ref-beetzInteroperableDataModels2014}{}%
+{[}5{]} J. Beetz, W. Coebergh Van Den Braak, R. Botter, S. Zlatanova,
+and R. De Laat, ``Interoperable data models for infrastructural
+artefacts : A novel IFC extension method using RDF vocabularies
+exemplified with quay wall structures for harbors,'' in \emph{eWork and
+eBusiness in Architecture, Engineering and Construction - Proceedings of
+the 10th European Conference on Product and Process Modelling, ECPPM
+2014}, 2014, pp. 135--136, doi:
+\href{https://doi.org/10.1201/b17396-26}{10.1201/b17396-26}
+{[}Online{]}. Available:
+\url{http://www.scopus.com/inward/record.url?scp=84907300060\&partnerID=8YFLogxK}.
+{[}Accessed: Jan. 25, 2023{]}
+
+\leavevmode\hypertarget{ref-PAUWELS2016100}{}%
+{[}6{]} P. Pauwels and W. Terkaj, ``EXPRESS to OWL for construction
+industry: Towards a recommendable and usable ifcOWL ontology,''
+\emph{Automation in Construction}, vol. 63, pp. 100--133, 2016, doi:
+\href{https://doi.org/https://doi.org/10.1016/j.autcon.2015.12.003}{https://doi.org/10.1016/j.autcon.2015.12.003}.
+{[}Online{]}. Available:
+\url{https://www.sciencedirect.com/science/article/pii/S0926580515002435}
+
+\leavevmode\hypertarget{ref-garijoBestPracticesImplementing2020}{}%
+{[}7{]} D. Garijo and M. Poveda-Villalón, ``Best practices for
+implementing FAIR vocabularies and ontologies on the web,'' in
+\emph{Applications and practices in ontology design, extraction, and
+reasoning}, vol. 49, G. Cota, M. Daquino, and G. L. Pozzato, Eds. IOS
+Press, 2020 {[}Online{]}. Available:
+\url{http://ebooks.iospress.nl/doi/10.3233/SSW200034}. {[}Accessed: Feb.
+15, 2023{]}
+
+\leavevmode\hypertarget{ref-oraskariLiveWebOntology2021}{}%
+{[}8{]} J. Oraskari, ``Live Web Ontology for buildingSMART Data
+Dictionary,'' in \emph{Forum Bauinformatik}, 2021, pp. 166--173
+{[}Online{]}. Available:
+\url{https://www.researchgate.net/profile/Jyrki-Oraskari/publication/355425683_Live_Web_Ontology_for_buildingSMART_Data_Dictionary/links/616fcce1718a2a7099e4d86b/Live-Web-Ontology-for-buildingSMART-Data-Dictionary.pdf}
+
+\leavevmode\hypertarget{ref-kebedeIntegrationManufacturersProduct2022}{}%
+{[}9{]} R. Kebede, A. Moscati, H. Tan, and P. Johansson, ``Integration
+of manufacturers' product data in BIM platforms using semantic web
+technologies,'' \emph{Automation in Construction}, vol. 144, p. 104630,
+Dec. 2022, doi:
+\href{https://doi.org/10.1016/j.autcon.2022.104630}{10.1016/j.autcon.2022.104630}.
+{[}Online{]}. Available:
+\url{https://www.sciencedirect.com/science/article/pii/S0926580522005003}.
+{[}Accessed: Jan. 25, 2023{]}
+\end{cslreferences}
+
+
+\end{document}

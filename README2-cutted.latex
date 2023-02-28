@@ -317,7 +317,7 @@ practices and FAIR principles.
 \hypertarget{graphql-benefits}{%
 \subsection{GraphQL Benefits}\label{graphql-benefits}}
 
-\href{https://graphql.org/}{GraphQL} as an approach to create simplified
+\href{https://graphql.org/}{GraphQL} is an approach to create simplified
 ``facades'' over various storages, and to provide schema, uniform query
 language, API and runtime for handling queries, mutations and
 subscriptions. It has many benefits over traditional REST APIs:

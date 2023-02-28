@@ -1,9 +1,9 @@
 #+options: ':nil *:t -:t ::t <:t H:5 \n:nil ^:{} arch:headline author:t
 #+options: c:nil creator:nil d:(not "LOGBOOK") date:t e:t email:nil f:t
 #+options: inline:t num:t p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t
-#+options: timestamp:nil title:t toc:5 todo:t |:t
+#+options: timestamp:t title:t toc:5 todo:t |:t
 #+title: Semantic bSDD: Improving the GraphQL, JSON and RDF Representations of buildingSmart Data Dictionary
-#+date: <2023-02-24>
+#+date: <2023-02-28>
 #+author: Vladimir Alexiev, Mihail Radkov, Nataliya Keberle
 #+email: vladimir.alexiev@ontotext.com
 #+keywords: Linked building data, LBD, buildingSMART Data Dictionary, bSDD, FAIR data, data quality
@@ -11,8 +11,7 @@
 #+select_tags: export
 #+exclude_tags: noexport
 #+creator: Emacs 28.1 (Org mode 9.5.2)
-#+cite_export:
-
+#+html_head_extra: <link rel="icon" type="image/x-icon" href="img/favicon.ico">
 
 
 * Table of Contents                                 :TOC:noexport:
@@ -89,6 +88,7 @@
     - [[#rules-about-missing-data][Rules About Missing Data]]
     - [[#unicode-problems][Unicode Problems]]
     - [[#unresolved-html-entities][Unresolved HTML Entities]]
+    - [[#bad-classification-relations][Bad Classification Relations]]
 - [[#implementing-improvements][Implementing Improvements]]
   - [[#converting-json-to-raw-rdf-using-sparql-anything][Converting JSON to Raw RDF using SPARQL Anything]]
     - [[#raw-json-example][Raw JSON Example]]
@@ -106,6 +106,11 @@
     - [[#classifications-with-relations][Classifications with Relations]]
     - [[#relations-of-classifications][Relations of Classifications]]
     - [[#length-properties][Length Properties]]
+  - [[#graph-visualizations][Graph Visualizations]]
+    - [[#composed_property-classifications]["COMPOSED_PROPERTY" Classifications]]
+    - [[#domain-classifications]["DOMAIN" Classifications]]
+    - [[#classification-relations][Classification Relations]]
+    - [[#multivalued-propsets][Multivalued propSets]]
 - [[#acknowledgements][Acknowledgements]]
 :END:
 
@@ -2116,6 +2121,38 @@ E.g. in https://identifier.buildingsmart.org/uri/engisis/RFI-02/prop/S27300_0200
 Pu&#242; essere valorizzato un solo valore. SCIA = valorizzabile per le attivit&#224; di tipo A o per le attivit&#224; di tipo B o C nel caso in cui a seguito della valutazione favorevole del progetto si sia presentata la SCIA (ma non sia stato ancora rilasciato copia del verbale della visita tecnica dei VVF -attivit&#224; di tipo A o B- o il CPI -attivit&#224; ...".
 #+end_src
 
+*** Bad Classification Relations
+:PROPERTIES:
+:CUSTOM_ID: bad-classification-relations
+:END:
+Some classifications relate to to a full classification URL, but to
+~https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/~, which is incomplete.
+For example, this query at the original GraphQL endpoint:
+#+begin_src graphql
+{
+  domain(namespaceUri: "https://identifier.buildingsmart.org/uri/BBRI/CCTB-2020") {
+    classification(namespaceUri: "https://identifier.buildingsmart.org/uri/BBRI/CCTB-2020/class/42.15") {
+      relations {
+        relatedClassificationName
+        relatedClassificationUri
+      }
+    }
+  }
+}
+#+end_src
+Returns the following:
+#+begin_src json
+    "domain": {
+      "classification": {
+        "relations": [
+          {
+            "relatedClassificationName": null,
+            "relatedClassificationUri": "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/"
+          }
+        ]
+      }
+    }
+#+end_src
 * Implementing Improvements
 :PROPERTIES:
 :CUSTOM_ID: implementing-improvements
@@ -2896,6 +2933,58 @@ We can now compare the variety associated with such properties, e.g.:
 - ~physicalQuantity~: "Epaisseur", "Longueur", "Länge", "Fläche je Länge | de-DE", etc
 - ~unit~: "mm", "cm" but also stranger units like "mm²/m"
 
+** Graph Visualizations
+:PROPERTIES:
+:CUSTOM_ID: graph-visualizations
+:END:
+In this section we show a couple of [[https://bsdd.ontotext.com/graphdb/graphs-visualizations][GraphDB visualizations]] that we have implemented
+to illustrate some more unusual Classifications and Properties.
+Note: if you have a user account, you can enlarge "Maximum links to show" in Settings to see more nodes.
+
+*** "COMPOSED_PROPERTY" Classifications
+:PROPERTIES:
+:CUSTOM_ID: composed-property-classifications
+:END:
+[[https://bsdd.ontotext.com/graphdb/graphs-visualizations?config=2dc02fd322a646879505aafde547375a][This visualization]] shows classifications of type "COMPOSED_PROPERTY" that serve as a container of related properties.
+
+[[./img/viz-ClassCOMPOSED_PROPERTY.png]]
+#+label: fig:viz-ClassCOMPOSED_PROPERTY
+#+caption: "COMPOSED_PROPERTY" Classifications
+
+*** "DOMAIN" Classifications
+:PROPERTIES:
+:CUSTOM_ID: domain-classifications
+:END:
+[[https://bsdd.ontotext.com/graphdb/graphs-visualizations?config=7ecb0edaf0874c0aa81f2f0eb953b8ee][This visualization]] shows classifications of type "DOMAIN" that serve as a "sub-domain" of Classifications.
+Expanding a node shows its ClassificationProperties.
+
+[[./img/viz-ClassDOMAIN.png]]
+#+label: fig:viz-ClassDOMAIN
+#+caption: "DOMAIN" Classifications
+
+*** Classification Relations
+:PROPERTIES:
+:CUSTOM_ID: classification-relations
+:END:
+[[https://bsdd.ontotext.com/graphdb/graphs-visualizations?config=b977ae2529094192b469f3484029fc48][This visualizations]] shows classifications that have relations (we ignore the relation name).
+It shows a number of French classes relating to ~Space, Slab, Covering~.
+(Please note that another cluster that has "class" in the middle is due to data quality problems in BSDD.)
+
+[[./img/viz-ClassRel.png]]
+#+label: fig:viz-ClassRel
+#+caption: Classification Relations
+
+*** Multivalued propSets
+:PROPERTIES:
+:CUSTOM_ID: multivalued-propsets
+:END:
+~propSet~ is expected to be single-valued by the GraphQL schema, but in fact there are some multi-valued occurrences.
+[[https://bsdd.ontotext.com/graphdb/graphs-visualizations?config=fa3b8af3bc114b9b9046f9ceb11246f7][This visualization]] looks for such cases (e.g. see this [[https://bsdd.ontotext.com/graphdb/graphs-visualizations?saved=56b5379edeeb4a1a80790e9011d8e264][saved visual graph]]).
+
+[[./img/viz-multivaluedPropSet.png]]
+#+label: fig:viz-multivaluedPropSet
+#+caption: Multivalued propSet, showing domain (purple), class (yellow), prop (red), set (blue)
+
 * Acknowledgements
 :PROPERTIES:
 :CUSTOM_ID: acknowledgements
@@ -2907,4 +2996,4 @@ Author contributions:
 - MK wrote GraphQL queries, fetched bSDD data, and deployed GraphDB and Ontotext Platform Semantic Objects.
 - NK performed statistics and comparisons of bSDD data and wrote the final paper.
 
-We thank Léon van Berlo and Erik Bars from buildingSmart International for their help with accessing bSDD.
+We thank Léon van Berlo and Erik Baars from buildingSmart International for their help with accessing bSDD.

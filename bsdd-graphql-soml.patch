@@ -1,5 +1,5 @@
 --- bsdd-graphql-soml-orig.yaml	2023-02-02 09:50:29.976528600 +0200
-+++ bsdd-graphql-soml-refact.yaml	2023-02-24 15:17:31.062045300 +0200
++++ bsdd-graphql-soml-refact.yaml	2023-02-28 12:32:01.165222600 +0200
 @@ -1,649 +1,629 @@
  id: /soml/bsdd
  label: SOML schema for buildingSMART Data Dictionary (bSDD)
@@ -408,7 +408,7 @@
 -    type: ClassificationRelation
 +    type: bsdd:ClassificationRelation
      label: Attributes of a relation of a classification with another classification, can be from a different domain.
-+    name: bsdd:name
++    name: relationType
      props:
 -      relatedClassificationName:
 -        label: relatedClassificationName
@@ -698,7 +698,7 @@
 -    type: PropertyRelation
 +    type: bsdd:PropertyRelation
      label: Attributes of a relation of a property with another property, can be from a different domain.
-+    name: bsdd:name
++    name: relationType
      props:
 -      relatedPropertyName:
 -        label: Name of the related property

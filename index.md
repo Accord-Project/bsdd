@@ -24,6 +24,7 @@ header-includes: |
   .ack tr {vertical-align: middle}
   td, th {text-align: left}
   </style>
+  <link rel="icon" type="image/x-icon" href="img/favicon.ico">
 title: Semantic bSDD
 ---
 

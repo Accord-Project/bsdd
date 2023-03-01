@@ -509,7 +509,7 @@ list).
 Endpoint}\label{graphiql-querying-of-refactored-endpoint}}
 
 \url{https://bsdd.ontotext.com/graphiql/} is the refactored GraphQL
-endpoint:
+endpoint. 
 
 \begin{figure}
 \centering
@@ -680,12 +680,11 @@ In this subsection we outline GraphQL implementation problems.
   iterate through pages with \texttt{limit/offset}. 
 
 \item  
-\textbf{Eliminate parallel links between entities}.A number of parallel relations in the original GraphQL schema, 
+\textbf{Eliminate parallel links between entities}. A number of parallel relations in the original GraphQL schema, 
 e.g. \texttt{Root.{domain,domains}} can be eliminated.
 
 \item
-\textbf{Improve GraphQL arrays and nullability}: e.g., there is no way to enforce a \textbf{non-empty} array in
-GraphQL.
+\textbf{Improve GraphQL arrays and nullability}. It is better to use [Type!] -- optional array of mandatory elements.
 
 \item
 \textbf{Null classifications error}. Although \texttt{classificationSearch} is declared as nullable, a GraphQL error is returned whenever the backend

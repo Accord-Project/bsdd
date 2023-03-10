@@ -4,3 +4,4 @@
 # Except the following paths
 !img/
 !*.html
+!paper/

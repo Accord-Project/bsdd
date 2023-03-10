@@ -1,5 +1,6 @@
 ---
 header-includes: |
+  <link rel="icon" type="image/x-icon" href="img/favicon.ico">
   <style>
   html {line-height: 1}
   body {max-width: 100%}
@@ -24,7 +25,6 @@ header-includes: |
   .ack tr {vertical-align: middle}
   td, th {text-align: left}
   </style>
-  <link rel="icon" type="image/x-icon" href="img/favicon.ico">
 title: Semantic bSDD
 ---
 

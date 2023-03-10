@@ -1,7 +1,7 @@
 #+options: ':nil *:t -:t ::t <:t H:5 \n:nil ^:{} arch:headline author:t
 #+options: c:nil creator:nil d:(not "LOGBOOK") date:t e:t email:nil f:t
 #+options: inline:t num:t p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t
-#+options: timestamp:t title:t toc:5 todo:t |:t
+#+options: timestamp:nil title:t toc:5 todo:t |:t
 #+title: Semantic bSDD: Improving the GraphQL, JSON and RDF Representations of buildingSmart Data Dictionary
 #+date: <2023-02-28>
 #+author: Vladimir Alexiev, Mihail Radkov, Nataliya Keberle

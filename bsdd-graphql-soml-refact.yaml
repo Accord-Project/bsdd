@@ -576,7 +576,7 @@ objects:
   PropertyRelation:
     type: bsdd:PropertyRelation
     label: Attributes of a relation of a property with another property, can be from a different domain.
-    name: bsdd:name
+    name: relationType
     props:
       # relatedPropertyName:
       #   label: Name of the related property

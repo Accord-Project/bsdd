@@ -190,9 +190,9 @@ The complete list of suggestions can be found
 We implement many of the suggestions by refactoring the original data to
 make it better structured/interconnected, and more ``semantic''. We
 provide a SPARQL endpoint using
-\url{https://graphdb.ontotext.com/}{Ontotext GraphDB}, and GraphQL
+\href{https://graphdb.ontotext.com/}{Ontotext GraphDB}, and GraphQL
 endpoint using
-\url{https://platform.ontotext.com/semantic-objects/}{Ontotext Platform
+\href{https://platform.ontotext.com/semantic-objects/}{Ontotext Platform
 Semantic Objects}. Our detailed work is available at
 \url{https://github.com/Accord-Project/bsdd} (open source) and
 \url{https://bsdd.ontotext.com} (home page, schemas, data, sample

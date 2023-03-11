@@ -1,5 +1,5 @@
---- bsdd-graphql-soml-orig.yaml	2023-02-02 09:50:29.976528600 +0200
-+++ bsdd-graphql-soml-refact.yaml	2023-02-28 12:32:01.165222600 +0200
+--- bsdd-graphql-soml-orig.yaml	2023-02-02 10:13:20.662059348 +0200
++++ bsdd-graphql-soml-refact.yaml	2023-03-10 16:11:35.623222527 +0200
 @@ -1,649 +1,629 @@
  id: /soml/bsdd
  label: SOML schema for buildingSMART Data Dictionary (bSDD)

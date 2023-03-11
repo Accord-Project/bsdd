@@ -4,22 +4,15 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <meta name="author" content="Vladimir Alexiev, Mihail Radkov, Nataliya Keberle" />
-  <meta name="keywords" content="Linked building
-data, LBD, buildingSMART Data Dictionary, bSDD, FAIR data, data
-quality" />
   <title>Semantic bSDD</title>
   <style>
     html {
-      font-family: Georgia, serif;
-      font-size: 18px;
-      line-height: 1;
       color: #1a1a1a;
       background-color: #fdfdfd;
     }
     body {
       margin: 0 auto;
-      max-width: 100%;
+      max-width: 36em;
       padding-left: 50px;
       padding-right: 50px;
       padding-top: 50px;
@@ -169,28 +162,28 @@ quality" />
   </style>
   <link rel="icon" type="image/x-icon" href="img/favicon.ico">
   <style>
-    body::before {
-      content: "";
-      z-index: -1;
-      position: absolute;
-      top: 0px;
-      right: 0px;
-      bottom: -5000px;
-      left: 0px;
-      background-image: url("img/background-bridge.avif");
-      transform: scaleX(-1);
-      background-size: 100%;
-      background-repeat: repeat-y;
-      opacity: 0.13;
-    }
-    header {margin-bottom: 0px; text-align: left}
-    h1, h2 {margin-top: 0px}
-    table {border-collapse: unset}
-    tr {vertical-align: top}
-    .ack tr {vertical-align: middle}
-    td, th {text-align: left}
-    .subtitle {font-weight: bold}
-    .author {font-style: italic}
+  html {line-height: 1}
+  body {max-width: 100%}
+  body::before {
+    content: "";
+    z-index: -1;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: -5000px;
+    left: 0px;
+    background-image: url("img/background-bridge.avif");
+    transform: scaleX(-1);
+    background-size: 100%;
+    background-repeat: repeat-y;
+    opacity: 0.13;
+  }
+  header {margin-bottom: 0px; text-align: left}
+  h1, h2 {margin-top: 0px}
+  table {border-collapse: unset}
+  tr {vertical-align: top}
+  .ack tr {vertical-align: middle}
+  td, th {text-align: left}
   </style>
   <!--[if lt IE 9]>
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
@@ -199,10 +192,11 @@ quality" />
 <body>
 <header id="title-block-header">
 <h1 class="title">Semantic bSDD</h1>
-<p class="subtitle">Improving the GraphQL, JSON and RDF Representations
-of buildingSmart Data Dictionary</p>
-<p class="author">Vladimir Alexiev, Mihail Radkov, Nataliya Keberle</p>
 </header>
+<h2
+id="improving-the-graphql-json-and-rdf-representations-of-buildingsmart-data-dictionary">Improving
+the GraphQL, JSON and RDF Representations of buildingSmart Data
+Dictionary</h2>
 <p>The buildingSmart Data Dictionary (bSDD) is an important shared
 resource in the Architecture, Engineering, Construction, and Operations
 (AECO) domain. It is a collection of datasets (“domains”) that define

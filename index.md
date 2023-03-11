@@ -1,34 +1,45 @@
 ---
+title: Semantic bSDD
+subtitle: Improving the GraphQL, JSON and RDF Representations of buildingSmart Data Dictionary
+keywords:
+- Linked building data
+- LBD
+- buildingSMART Data Dictionary
+- bSDD
+- FAIR data
+- data quality
+author: Vladimir Alexiev, Mihail Radkov, Nataliya Keberle
+mainfont: Georgia, serif
+fontsize: 18px
+linestretch: 1
+maxwidth: 100%
 header-includes: |
   <link rel="icon" type="image/x-icon" href="img/favicon.ico">
   <style>
-  html {line-height: 1}
-  body {max-width: 100%}
-  body::before {
-    content: "";
-    z-index: -1;
-    position: absolute;
-    top: 0px;
-    right: 0px;
-    bottom: -5000px;
-    left: 0px;
-    background-image: url("img/background-bridge.avif");
-    transform: scaleX(-1);
-    background-size: 100%;
-    background-repeat: repeat-y;
-    opacity: 0.13;
-  }
-  header {margin-bottom: 0px; text-align: left}
-  h1, h2 {margin-top: 0px}
-  table {border-collapse: unset}
-  tr {vertical-align: top}
-  .ack tr {vertical-align: middle}
-  td, th {text-align: left}
+    body::before {
+      content: "";
+      z-index: -1;
+      position: absolute;
+      top: 0px;
+      right: 0px;
+      bottom: -5000px;
+      left: 0px;
+      background-image: url("img/background-bridge.avif");
+      transform: scaleX(-1);
+      background-size: 100%;
+      background-repeat: repeat-y;
+      opacity: 0.13;
+    }
+    header {margin-bottom: 0px; text-align: left}
+    h1, h2 {margin-top: 0px}
+    table {border-collapse: unset}
+    tr {vertical-align: top}
+    .ack tr {vertical-align: middle}
+    td, th {text-align: left}
+    .subtitle {font-weight: bold}
+    .author {font-style: italic}
   </style>
-title: Semantic bSDD
 ---
-
-## Improving the GraphQL, JSON and RDF Representations of buildingSmart Data Dictionary
 
 The buildingSmart Data Dictionary (bSDD) is an important shared resource in the Architecture, Engineering, Construction, and Operations (AECO) domain.
 It is a collection of datasets ("domains") that define various classifications (objects representing building components, products, and materials),

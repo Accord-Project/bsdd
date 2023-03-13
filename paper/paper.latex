@@ -186,7 +186,7 @@ fulfillment of FAIR (findable, accessible, interoperable, and reusable)
 principles. Based on this analysis, we suggest enhancements to make bSDD
 data better structured and more FAIR. 
 The complete list of suggestions can be found  
-\href{https://github.com/Accord-Project/bsdd/blob/main/README.org}{online}.
+\href{https://github.com/Accord-Project/bsdd/blob/main/README.html}{online}.
 We implement many of the suggestions by refactoring the original data to
 make it better structured/interconnected, and more ``semantic''. We
 provide a SPARQL endpoint using

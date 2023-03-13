@@ -10,7 +10,7 @@ keywords:
 - data quality
 author: Vladimir Alexiev, Mihail Radkov, Nataliya Keberle
 mainfont: Georgia, serif
-fontsize: 18px
+fontsize: 14pt
 linestretch: 1
 maxwidth: 100%
 header-includes: |

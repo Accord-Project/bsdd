@@ -630,7 +630,7 @@ to \textbf{provide an URL for all the Entities} in the bSDD schema.
 \subsection{Modelling Issues}\label{modelling-issues}}
 
 In addition to the technical recommendations above (to ease findability
-and accessibility of data in bSDD by improving URls), we have noticed
+and accessibility of data in bSDD by improving URLs), we have noticed
 several modelling issues:
 
 \begin{itemize}

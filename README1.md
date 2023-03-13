@@ -1,3 +1,17 @@
+---
+author: Vladimir Alexiev, Mihail Radkov, Nataliya Keberle
+date: \<2023-03-14\>
+header-includes:
+- "`<link rel=\"icon\" type=\"image/x-icon\" href=\"img/favicon.ico\">`{=html}"
+institute: Ontotext
+keywords: Linked building data, LBD, buildingSMART Data Dictionary, bSDD, FAIR data, data quality
+lang: en
+subtitle: Improving the GraphQL, JSON and RDF Representations of buildingSmart Data Dictionary
+title: Semantic bSDD
+---
+
+`<link rel="icon" type="image/x-icon" href="img/favicon.ico">`{=html}
+
 # Abstract
 
 The buildingSmart Data Dictionary (bSDD) is an important shared resource in the Architecture, Engineering, Construction, and Operations (AECO) domain.
@@ -266,8 +280,9 @@ Description of all files in <https://github.com/Accord-Project/bsdd>:
 Description of all endpoints that this project worked with and produced:
 
 -   <https://bsdd.ontotext.com>: home page, includes all of these links
--   <https://bsdd.ontotext.com/README.html>: detailed description of the work we did (TODO from .org or .md?)
--   <https://bsdd.ontotext.com/> TODO paper
+-   <https://bsdd.ontotext.com/README.html>: detailed description of the work we did ([issue #14](https://github.com/Accord-Project/bsdd/issues/14): make better version from .md instead of .org)
+-   <https://bsdd.ontotext.com/paper/paper.pdf>: submitted to LDAC 2023
+-   <https://bsdd.ontotext.com/paper/presentation.pdf>: TODO
 -   <https://test.bsdd.buildingsmart.org/graphql/>: original GraphQL endpoint (protected)
 -   <https://test.bsdd.buildingsmart.org/graphiql/>: original GraphQL query editor
 -   <https://rawgit2.com/Accord-Project/bsdd/main/bsdd-graphql-voyager-orig.html>: original GraphQL schema visualization with Voyager

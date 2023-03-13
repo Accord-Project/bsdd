@@ -1,11 +1,13 @@
 #+options: ':nil *:t -:t ::t <:t H:5 \n:nil ^:{} arch:headline author:t
 #+options: c:nil creator:nil d:(not "LOGBOOK") date:t e:t email:nil f:t
-#+options: inline:t num:t p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t
+#+options: inline:t p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t
 #+options: timestamp:nil title:t toc:5 todo:t |:t
-#+title: Semantic bSDD: Improving the GraphQL, JSON and RDF Representations of buildingSmart Data Dictionary
-#+date: <2023-02-28>
+#+title: Semantic bSDD
+#+subtitle: Improving the GraphQL, JSON and RDF Representations of buildingSmart Data Dictionary
+#+date: <2023-03-13>
 #+author: Vladimir Alexiev, Mihail Radkov, Nataliya Keberle
 #+email: vladimir.alexiev@ontotext.com
+#+institute: Ontotext
 #+keywords: Linked building data, LBD, buildingSMART Data Dictionary, bSDD, FAIR data, data quality
 #+language: en
 #+select_tags: export
@@ -17,7 +19,6 @@
 * Table of Contents                                 :TOC:noexport:
 :PROPERTIES:
 :TOC:      :include all
-:CUSTOM_ID: table-of-contents
 :END:
 
 :CONTENTS:
@@ -313,9 +314,9 @@ It provides a number of useful features:
 :END:
 [[https://bsdd.ontotext.com/graphiql/]] is the refactored GraphQL endpoint:
 
-[[./img/graphiql-refact.png]]
 #+label: fig:graphiql-refact
 #+caption: GraphiQL Querying of Refactored bSDD Endpoint
+[[./img/graphiql-refact.png]]
 
 We have deployed a newer version of GraphiQL that has all benefits described in the previous section, and adds some more:
 - A hierarchical Explorer pane that shows the total schema structure and allows you to select fields by clicking rather than typing.
@@ -905,9 +906,9 @@ curl -Haccept:text/turtle https://identifier.buildingsmart.org/uri/fvhf/vhf-0.00
 We selected entities of each class that have the maximum number of filled fields, and compared the results returned by each API.
 We found a number of detailed differences, as presented in the [[https://docs.google.com/spreadsheets/d/1z_NRMlExlVuqWhBbSErQ9iiDBY4O_fKMd3avV3-NCmo/edit][bSDD data analysis]] spreadsheet:
 
-[[./img/bsdd-data-analysis-sheet.png]]
 #+label: fig:bsdd-data-analysis-sheet
 #+caption: Differences between bSDD GraphQL, JSON and RDF Data
+[[./img/bsdd-data-analysis-sheet.png]]
 
 There are differences and omissions in some of the formats, as summarized in the table below.
 | Entity.field                          | GraphQL      | JSON API                                   | RDF API                | comment                                                                                                  |
@@ -1028,16 +1029,16 @@ Note: to pretty-print the JSON, add this to the end of the command: ~| jq .~
 The same URL can be used to get a static web page in the browser:
 https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegmentCABLESEGMENT
 
-[[./img/IFC-class-cableSegment-web.png]]
 #+label: fig:IFC-class-cableSegment-web
 #+caption: CableSegment enity as displayed at the bSDD web site
+[[./img/IFC-class-cableSegment-web.png]]
 
 However, the interactive [[https://search.bsdd.buildingsmart.org][bSDD Search]] UI uses a different URL that returns slightly different information:
 https://search.bsdd.buildingsmart.org/Classification/Index/58453
 
-[[./img/IFC-class-cableSegment-search.png]]
 #+label: fig:IFC-class-cableSegment-search
 #+caption: CableSegment as displayed at the bSDD search site
+[[./img/IFC-class-cableSegment-search.png]]
 
 There is not really a need for two different web pages showing nearly the same info.
 We think that with some modest change in technology, the Search UI can use the first (semantic) URL immediately instead of an internal (non-semantic) ~Index/~ URL.
@@ -2610,9 +2611,9 @@ The difference between the two SOML schemas is not so huge:
 diff -wu1000 bsdd-graphql-soml-orig.yaml bsdd-graphql-soml-refact.yaml > bsdd-graphql-soml.patch
 #+end_src
 
-[[./img/bsdd-graphql-soml-diff.png]]
 #+label: fig:bsdd-graphql-soml-diff
 #+caption: Typical differences between the Original GraphQL schema (red) and the Refactored schema (green)
+[[./img/bsdd-graphql-soml-diff.png]]
 
 We explain the differences seen in this figure:
 - Field names in plural are changed to singular because the field cardinality (~max~) already specifies whether it's single-valued or multi-valued
@@ -2947,9 +2948,9 @@ Note: if you have a user account, you can enlarge "Maximum links to show" in Set
 :END:
 [[https://bsdd.ontotext.com/graphdb/graphs-visualizations?config=2dc02fd322a646879505aafde547375a][This visualization]] shows classifications of type "COMPOSED_PROPERTY" that serve as a container of related properties.
 
-[[./img/viz-ClassCOMPOSED_PROPERTY.png]]
 #+label: fig:viz-ClassCOMPOSED_PROPERTY
 #+caption: "COMPOSED_PROPERTY" Classifications
+[[./img/viz-ClassCOMPOSED_PROPERTY.png]]
 
 *** "DOMAIN" Classifications
 :PROPERTIES:
@@ -2958,9 +2959,9 @@ Note: if you have a user account, you can enlarge "Maximum links to show" in Set
 [[https://bsdd.ontotext.com/graphdb/graphs-visualizations?config=7ecb0edaf0874c0aa81f2f0eb953b8ee][This visualization]] shows classifications of type "DOMAIN" that serve as a "sub-domain" of Classifications.
 Expanding a node shows its ClassificationProperties.
 
-[[./img/viz-ClassDOMAIN.png]]
 #+label: fig:viz-ClassDOMAIN
 #+caption: "DOMAIN" Classifications
+[[./img/viz-ClassDOMAIN.png]]
 
 *** Classification Relations
 :PROPERTIES:
@@ -2970,9 +2971,9 @@ Expanding a node shows its ClassificationProperties.
 It shows a number of French classes relating to ~Space, Slab, Covering~.
 (Please note that another cluster that has "class" in the middle is due to data quality problems in BSDD.)
 
-[[./img/viz-ClassRel.png]]
 #+label: fig:viz-ClassRel
 #+caption: Classification Relations
+[[./img/viz-ClassRel.png]]
 
 *** Multivalued propSets
 :PROPERTIES:
@@ -2981,9 +2982,9 @@ It shows a number of French classes relating to ~Space, Slab, Covering~.
 ~propSet~ is expected to be single-valued by the GraphQL schema, but in fact there are some multi-valued occurrences.
 [[https://bsdd.ontotext.com/graphdb/graphs-visualizations?config=fa3b8af3bc114b9b9046f9ceb11246f7][This visualization]] looks for such cases (e.g. see this [[https://bsdd.ontotext.com/graphdb/graphs-visualizations?saved=56b5379edeeb4a1a80790e9011d8e264][saved visual graph]]).
 
-[[./img/viz-multivaluedPropSet.png]]
 #+label: fig:viz-multivaluedPropSet
 #+caption: Multivalued propSet, showing domain (purple), class (yellow), prop (red), set (blue)
+[[./img/viz-multivaluedPropSet.png]]
 
 * Acknowledgements
 :PROPERTIES:

@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Semantic bSDD: Improving the GraphQL, JSON and RDF Representations of buildingSmart Data Dictionary</title>
+<title>Semantic bSDD</title>
 <meta name="author" content="Vladimir Alexiev, Mihail Radkov, Nataliya Keberle" />
 <meta name="keywords" content="Linked building data, LBD, buildingSMART Data Dictionary, bSDD, FAIR data, data quality" />
 <meta name="generator" content="Org Mode" />
@@ -197,7 +197,10 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">Semantic bSDD: Improving the GraphQL, JSON and RDF Representations of buildingSmart Data Dictionary</h1>
+<h1 class="title">Semantic bSDD
+<br />
+<span class="subtitle">Improving the GraphQL, JSON and RDF Representations of buildingSmart Data Dictionary</span>
+</h1>
 <div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
@@ -457,7 +460,7 @@ We used it to investigate the original bSDD schema:
 </p>
 
 
-<div id="orgbdb20b6" class="figure">
+<div id="orgfd86d5f" class="figure">
 <p><img src="./img/bsdd-graphql-voyager-overview.png" alt="bsdd-graphql-voyager-overview.png" />
 </p>
 <p><span class="figure-number">Figure 1: </span>Original bSDD GraphQL Schema: Overview (uncheck "Show leaf fields")</p>
@@ -495,7 +498,7 @@ We can also look at details of the schema:
 </p>
 
 
-<div id="orge6cfcf6" class="figure">
+<div id="org13a9d0a" class="figure">
 <p><img src="./img/bsdd-graphql-voyager-Classification-ClassificationProperty.png" alt="bsdd-graphql-voyager-Classification-ClassificationProperty.png" />
 </p>
 <p><span class="figure-number">Figure 2: </span>Original bSDD GraphQL Schema: Detail of Classification and ClassificationProperty</p>
@@ -556,7 +559,7 @@ that allows you to explore the refactored schema.
 </p>
 
 
-<div id="orgca25f8c" class="figure">
+<div id="orgfdf99fd" class="figure">
 <p><img src="./img/bsdd-graphql-voyager-refact-overview.png" alt="bsdd-graphql-voyager-refact-overview.png" />
 </p>
 <p><span class="figure-number">Figure 3: </span>Refactored bSDD GraphQL Schema: Overview (uncheck "Show leaf fields")</p>
@@ -598,7 +601,7 @@ and strings fields like <code>propertyNamespaceUri</code> are converted to objec
 </p>
 
 
-<div id="org424e4ce" class="figure">
+<div id="org2203f5c" class="figure">
 <p><img src="./img/bsdd-graphql-voyager-refact-Classification-ClassificationProperty.png" alt="bsdd-graphql-voyager-refact-Classification-ClassificationProperty.png" />
 </p>
 <p><span class="figure-number">Figure 4: </span>Refactored bSDD GraphQL Schema: Detail of Classification and ClassificationProperty</p>
@@ -614,7 +617,7 @@ and strings fields like <code>propertyNamespaceUri</code> are converted to objec
 </p>
 
 
-<div id="org882e161" class="figure">
+<div id="orgdb8f726" class="figure">
 <p><img src="./img/graphiql-orig.png" alt="graphiql-orig.png" />
 </p>
 <p><span class="figure-number">Figure 5: </span>GraphiQL Querying of Original bSDD Endpoint</p>
@@ -643,10 +646,12 @@ It provides a number of useful features:
 </p>
 
 
-<div id="org599ef8b" class="figure">
+<div id="orgaeee2ce" class="figure">
 <p><img src="./img/graphiql-refact.png" alt="graphiql-refact.png" />
 </p>
+<p><span class="figure-number">Figure 6: </span>GraphiQL Querying of Refactored bSDD Endpoint</p>
 </div>
+
 <p>
 We have deployed a newer version of GraphiQL that has all benefits described in the previous section, and adds some more:
 </p>
@@ -2325,10 +2330,12 @@ We found a number of detailed differences, as presented in the <a href="https://
 </p>
 
 
-<div id="org5d4d8ba" class="figure">
+<div id="org3f7329a" class="figure">
 <p><img src="./img/bsdd-data-analysis-sheet.png" alt="bsdd-data-analysis-sheet.png" />
 </p>
+<p><span class="figure-number">Figure 7: </span>Differences between bSDD GraphQL, JSON and RDF Data</p>
 </div>
+
 <p>
 There are differences and omissions in some of the formats, as summarized in the table below.
 </p>
@@ -2563,20 +2570,24 @@ The same URL can be used to get a static web page in the browser:
 </p>
 
 
-<div id="org9bbd5f7" class="figure">
+<div id="org5048c8c" class="figure">
 <p><img src="./img/IFC-class-cableSegment-web.png" alt="IFC-class-cableSegment-web.png" />
 </p>
+<p><span class="figure-number">Figure 8: </span>CableSegment enity as displayed at the bSDD web site</p>
 </div>
+
 <p>
 However, the interactive <a href="https://search.bsdd.buildingsmart.org">bSDD Search</a> UI uses a different URL that returns slightly different information:
 <a href="https://search.bsdd.buildingsmart.org/Classification/Index/58453">https://search.bsdd.buildingsmart.org/Classification/Index/58453</a>
 </p>
 
 
-<div id="orgcea1c87" class="figure">
+<div id="org6e33330" class="figure">
 <p><img src="./img/IFC-class-cableSegment-search.png" alt="IFC-class-cableSegment-search.png" />
 </p>
+<p><span class="figure-number">Figure 9: </span>CableSegment as displayed at the bSDD search site</p>
 </div>
+
 <p>
 There is not really a need for two different web pages showing nearly the same info.
 We think that with some modest change in technology, the Search UI can use the first (semantic) URL immediately instead of an internal (non-semantic) <code>Index/</code> URL.
@@ -5070,10 +5081,12 @@ The difference between the two SOML schemas is not so huge:
 </div>
 
 
-<div id="orge6c9680" class="figure">
+<div id="orgf108355" class="figure">
 <p><img src="./img/bsdd-graphql-soml-diff.png" alt="bsdd-graphql-soml-diff.png" />
 </p>
+<p><span class="figure-number">Figure 10: </span>Typical differences between the Original GraphQL schema (red) and the Refactored schema (green)</p>
 </div>
+
 <p>
 We explain the differences seen in this figure:
 </p>
@@ -5472,9 +5485,10 @@ Note: if you have a user account, you can enlarge "Maximum links to show" in Set
 </p>
 
 
-<div id="orgfbc3e57" class="figure">
+<div id="orgcea8b70" class="figure">
 <p><img src="./img/viz-ClassCOMPOSED_PROPERTY.png" alt="viz-ClassCOMPOSED_PROPERTY.png" />
 </p>
+<p><span class="figure-number">Figure 11: </span>"COMPOSED_PROPERTY" Classifications</p>
 </div>
 </div>
 </div>
@@ -5488,9 +5502,10 @@ Expanding a node shows its ClassificationProperties.
 </p>
 
 
-<div id="orgcf1d56c" class="figure">
+<div id="orgd28b5d0" class="figure">
 <p><img src="./img/viz-ClassDOMAIN.png" alt="viz-ClassDOMAIN.png" />
 </p>
+<p><span class="figure-number">Figure 12: </span>"DOMAIN" Classifications</p>
 </div>
 </div>
 </div>
@@ -5505,9 +5520,10 @@ It shows a number of French classes relating to <code>Space, Slab, Covering</cod
 </p>
 
 
-<div id="orge4d6cd5" class="figure">
+<div id="org77cd9e3" class="figure">
 <p><img src="./img/viz-ClassRel.png" alt="viz-ClassRel.png" />
 </p>
+<p><span class="figure-number">Figure 13: </span>Classification Relations</p>
 </div>
 </div>
 </div>
@@ -5521,9 +5537,10 @@ It shows a number of French classes relating to <code>Space, Slab, Covering</cod
 </p>
 
 
-<div id="org2a761cd" class="figure">
+<div id="org33307f7" class="figure">
 <p><img src="./img/viz-multivaluedPropSet.png" alt="viz-multivaluedPropSet.png" />
 </p>
+<p><span class="figure-number">Figure 14: </span>Multivalued propSet, showing domain (purple), class (yellow), prop (red), set (blue)</p>
 </div>
 </div>
 </div>
@@ -5553,7 +5570,7 @@ We thank Léon van Berlo and Erik Baars from buildingSmart International for the
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Date: 2023-02-28 Tue 00:00</p>
+<p class="date">Date: 2023-03-13 Mon 00:00</p>
 <p class="author">Author: Vladimir Alexiev, Mihail Radkov, Nataliya Keberle</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>

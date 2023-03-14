@@ -7,7 +7,7 @@ bsdd-graphql-soml.patch: bsdd-graphql-soml-orig.yaml bsdd-graphql-soml-refact.ya
 	-diff  -wu1000 $^ > $@
 
 README1.md: README.org
-	pandoc --wrap=preserve -s -t markdown+implicit_figures -o $@ $^
+	pandoc --wrap=preserve -s -t markdown-simple_tables -o $@ $^
 
 # TODO Viktor: use our much improved export with docker
 README1.html: README1.md

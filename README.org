@@ -926,7 +926,7 @@ There are differences and omissions in some of the formats, as summarized in the
 Illustrations of the points above:
 - (1) GraphQL field ~childs~ appears when one queries for ~classification (namespaceUri:"...", includeChilds:true)~.
   It includes a list of children classifications but with simple properties only.
-#+begin_src
+#+begin_src graphql
 {
   classification(namespaceUri: "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall", includeChilds: true) {
     name

@@ -186,7 +186,7 @@ fulfillment of FAIR (findable, accessible, interoperable, and reusable)
 principles. Based on this analysis, we suggest enhancements to make bSDD
 data better structured and more FAIR. 
 The complete list of suggestions can be found  
-\href{https://github.com/Accord-Project/bsdd/blob/main/README.html}{online}.
+\href{https://bsdd.ontotext.com/README.html}{online}.
 We implement many of the suggestions by refactoring the original data to
 make it better structured/interconnected, and more ``semantic''. We
 provide a SPARQL endpoint using
@@ -304,7 +304,7 @@ complies better with Semantic Web practices and FAIR principles.
 \section{GraphQL and bSDD}\label{graphql-benefits}}
 
 \href{https://graphql.org/}{GraphQL} is an approach to create simplified
-``facades'' over various storages, and to provide schema, uniform query
+``fa\c{c}ades'' over various storages, and to provide schema, uniform query
 language, API and runtime for handling queries, mutations and
 subscriptions. It has many benefits over traditional REST APIs:
 
@@ -361,7 +361,7 @@ over the bSDD GraphQL endpoint} to investigate the original bSDD schema
 \begin{figure}
 \hypertarget{fig:graphql-overview}{%
 \centering
-\includegraphics{./img/bsdd-graphql-voyager-overview.png}
+\includegraphics{../img/bsdd-graphql-voyager-overview.png}
 \caption{Original bSDD GraphQL Schema: Overview (uncheck ``Show leaf
 fields'')}\label{fig:graphql-overview}
 }
@@ -454,7 +454,7 @@ order to improve them. The \href{https://rawgit2.com/Accord-Project/bsdd/main/bs
 \begin{figure}
 \hypertarget{fig:graphql-refact}{%
 \centering
-\includegraphics{./img/bsdd-graphql-voyager-refact-overview.png}
+\includegraphics{../img/bsdd-graphql-voyager-refact-overview.png}
 \caption{Refactored bSDD GraphQL Schema: Overview (uncheck "Show leaf fields")}
 \label{fig:graphql-refact}
 }
@@ -513,7 +513,7 @@ endpoint.
 
 \begin{figure}
 \centering
-\includegraphics{./img/graphiql-refact.png}
+\includegraphics{../img/graphiql-refact.png}
 \caption{GraphiQL Querying of Refactoring bSDD Endpoint}
 \label{fig:giql-refact}
 \end{figure}
@@ -566,7 +566,7 @@ data analysis spreadsheet} (see Fig. \ref{bsdd-data-analysis})
 
 \begin{figure}
 \centering
-\includegraphics[width=0.75\textwidth,height=\textheight]{./img/bsdd-data-analysis-sheet.png}
+\includegraphics[width=0.75\textwidth,height=\textheight]{../img/bsdd-data-analysis-sheet.png}
 \caption{Analysis of bSDD data returned with different APIs}
 \label{bsdd-data-analysis}
 \end{figure}

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="generator" content="pandoc">
+    <meta name="description" content="">
+    $for(author-meta)$
+    <meta name="author" content="$author-meta$">
+    $endfor$
+    $if(date-meta)$
+    <meta name="dcterms.date" content="$date-meta$">
+    $endif$
+    $if(keywords)$
+    <meta name="keywords" content="$for(keywords)$$keywords$$sep$, $endfor$">
+    $endif$
+    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
+
+    <title>$if(title-prefix)$$title-prefix$ – $endif$$pagetitle$</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/dashboard.css" rel="stylesheet">
+
+    $if(toc)$
+    <style type="text/css">.sidebar ul{padding-left: 10px;}</style>
+    $endif$
+    $if(quotes)$
+    <style type="text/css">q { quotes: "“" "”" "‘" "’"; }</style>
+    $endif$
+    $if(highlighting-css)$
+    <style type="text/css">
+        $highlighting-css$
+    </style>
+    $endif$
+    $for(css)$
+    <link rel="stylesheet" href="$css$" $if(html5)$$else$type="text/css" $endif$/>
+    <link rel="stylesheet" href="$css$" $if(html5)$$else$type="text/css" $endif$/>
+    $endfor$
+    $if(math)$
+    $math$
+    $endif$
+    $for(header-includes)$
+    $header-includes$
+    $endfor$
+</head>
+<body>
+
+<div class="container-fluid">
+    <div class="row">
+        <div id="sidebar" class="col-sm-3 col-md-3 sidebar">
+            <p style="font-size: 1em; font-weight: bold; text-shadow: 0 0 black; text-align: center"> $if(title-prefix)$$title-prefix$ – $endif$$pagetitle$ </p>
+            <hr style="border-top: 4px solid #eee;">
+            $toc$
+        </div>
+        <div class="col-sm-9 col-sm-offset-4 col-md-9 col-md-offset-3 main">
+
+            <!-- Main page start -->
+            <div class="title">$title$</div>
+            <div class="subtitle">$subtitle$</div>
+            <br>
+            <br>
+            <div class="date">Last updated: $date$</div>
+            <div class="authors">Authors: <br>
+                $for(author-meta)$
+                <span>$author-meta$</span>
+                $endfor$
+            </div>
+            <!-- This will insert the front-page.html-->
+            $for(include-before)$
+            $include-before$
+            $endfor$
+
+            <!-- Separates the main page from the md file body, used for PDF generation -->
+            <div style="page-break-before:always">&nbsp;</div>
+
+            <!-- Important! Do NOT have the $body$ indented it messes up with the code blocks indentation -->
+            $body$
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<!--
+    * anchors.js - transforms numbered lists to anchors
+    * todo-red.js - colors all TODOs in red
+    * add_img_class.js - adds spotlight class to all images
+    * mockup.js - adds styles for mockups.
+    * trySparql.js - if variable gdbUrl is set it will place Try it option for the query block
+-->
+<script src="js/add_img_class.js"></script>
+<script src="js/spotlight.bundle.js"></script>
+<script src="js/mockup.js"></script>
+<script src="js/anchors.js"></script>
+<script src="js/todo-red.js"></script>
+<script src="js/jquery.min.js"></script>
+<script src="js/trySparql.js"></script>
+<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+<script src="js/bootstrap.min.js"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="js/ie10-viewport-bug-workaround.js"></script>
+<script>
+
+    /* ajust the height when click the toc
+       the code is from https://github.com/twbs/bootstrap/issues/1768
+    */
+    var shiftWindow = function() { scrollBy(0, -50) };
+    window.addEventListener("hashchange", shiftWindow);
+    function load() { if (window.location.hash) shiftWindow(); }
+
+    /*add Bootstrap styles to tables*/
+    var tables = document.getElementsByTagName("table");
+    for(var i = 0; i < tables.length; ++i){
+        // Customization for tables with class about - stillization won't be applied.
+        if (tables[i].className.includes("about")){
+            tables[i].className += "table";
+        } else {
+            tables[i].className += "table table-bordered table-hover";
+        }
+    }
+</script>
+$for(include-after)$
+$include-after$
+$endfor$
+</div>
+</body>
+</html>

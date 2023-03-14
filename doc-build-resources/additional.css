@@ -2,3 +2,8 @@ figcaption {
     text-align: center;
     font-style: italic;
 }
+
+.subtitle {
+    text-align: center;
+    font-size: larger;
+}

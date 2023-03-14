@@ -702,7 +702,7 @@ The distribution of number of Classifications per domain is as follows:</p>
 </tbody>
 </table>
 <p>Domains with no classifications:</p>
-<pre><code>http://identifier.buildingsmart.org/uri/spr/spr-cfhios-0.1
+<pre class="example"><code>http://identifier.buildingsmart.org/uri/spr/spr-cfhios-0.1
 https://identifier.buildingsmart.org/uri/ArcDox/ArcDox-1.0
 https://identifier.buildingsmart.org/uri/BBRI/BBRI-0.1
 https://identifier.buildingsmart.org/uri/FCSI/keq-0.1
@@ -715,7 +715,7 @@ https://identifier.buildingsmart.org/uri/ethz/hosszu-0.1
 https://identifier.buildingsmart.org/uri/growingcircle/transsmart-0.1
 https://identifier.buildingsmart.org/uri/ifcrail/ifcrail-0.1</code></pre>
 <p>One domain has more than 5000 classifications, but returns only 5000 due to lack of pagination in the GraphQL API:</p>
-<pre><code>https://identifier.buildingsmart.org/uri/nbs/uniclass2015-1</code></pre>
+<pre class="example"><code>https://identifier.buildingsmart.org/uri/nbs/uniclass2015-1</code></pre>
 <h3 data-number="3.2.3" id="fields-used"><span class="header-section-number">3.2.3</span> Fields Used</h3>
 <p>This shows the total number of defined fields, and fields that are actually used in various entities.</p>
 <table>
@@ -1787,8 +1787,8 @@ You can see this problem by fetching:</li>
 <pre class="example"><code>curl -s -H Accept:text/turtle  https://identifier.buildingsmart.org/uri/bs-agri/fruitvegs-1.0/class/apple</code></pre>
 <h2 data-number="4.3" id="use-the-same-url-for-data-and-for-web-pages"><span class="header-section-number">4.3</span> Use the Same URL for Data and for Web Pages</h2>
 <p>bSDD has implemented "entity URLs", i.e. for each kind of entity it can return its data in JSON or RDF:</p>
-<pre><code>curl -s                      https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegmentCABLESEGMENT
-curl -s -Haccept:text/turtle https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegmentCABLESEGMENT</code></pre>
+<div class="sourceCode" id="cb28" data-org-language="sh"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-s</span>                      https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegmentCABLESEGMENT</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-s</span> <span class="at">-Haccept:text</span>/turtle https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegmentCABLESEGMENT</span></code></pre></div>
 <p>Note: to pretty-print the JSON, add this to the end of the command: <code>| jq .</code></p>
 <p>The same URL can be used to get a static web page in the browser:
 <a href="https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegmentCABLESEGMENT" class="uri">https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegmentCABLESEGMENT</a></p>
@@ -1818,8 +1818,7 @@ Proper bSDD domain URL design should take into account the following observation
 <li>Almost all domain URLs have the same structure: <code>https://identifier.buildingsmart.org/uri/&lt;org&gt;/&lt;domain&gt;-&lt;version&gt;</code>.
 There are only two exceptions:</li>
 </ul>
-<!-- -->
-<pre><code>http://otl.amsterdam.nl
+<pre class="example"><code>http://otl.amsterdam.nl
 http://rdf.vegdata.no/V440/v440-owl</code></pre>
 <p>The Linked Data Patterns book describes a pattern of <a href="https://patterns.dataincubator.org/book/hierarchical-uris.html">Hierarchical URIs</a>,
 that make URLs more "hackable", allowing users to navigate the hierarchy by pruning the URI.
@@ -1838,8 +1837,7 @@ bSDD URLs could become more hierarchical if they follow this structure:</p>
 </ul></li>
 <li>A few domains use <code>http</code> whereas all others use <code>https</code>. All modern servers prefer <code>https</code> due to its better security.</li>
 </ul>
-<!-- -->
-<pre><code>http://identifier.buildingsmart.org/uri/spr/spr-cfhios-0.1
+<pre class="example"><code>http://identifier.buildingsmart.org/uri/spr/spr-cfhios-0.1
 http://otl.amsterdam.nl
 http://rdf.vegdata.no/V440/v440-owl</code></pre>
 <h3 data-number="4.4.1" id="explicate-domain-versions"><span class="header-section-number">4.4.1</span> Explicate Domain Versions</h3>
@@ -2069,10 +2067,10 @@ select ?code ?name ?type where {
 The same URL is overloaded to identify entities of both classes.
 <code>ClassificationProperty</code> are thus "second class" entities and are not returned separately by the JSON or RDF entity API,
 but only as part of the respective <code>Classification</code>:</p>
-<pre><code>curl https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegmentCABLESEGMENT/ACResistance
-{&quot;&quot;:[&quot;Classification with namespace URI
- &#39;https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegmentCABLESEGMENT/ACResistance&#39;
-  not found&quot;]}</code></pre>
+<div class="sourceCode" id="cb36" data-org-language="sh"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegmentCABLESEGMENT/ACResistance</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="ex">{</span><span class="st">&quot;&quot;</span><span class="ex">:[</span><span class="st">&quot;Classification with namespace URI</span></span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a><span class="st"> &#39;https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegmentCABLESEGMENT/ACResistance&#39;</span></span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a><span class="st">  not found&quot;</span><span class="ex">]}</span></span></code></pre></div>
 <p><code>ClassificationProperty</code> is identified only in RDF since this format forces one to use different identities for different nodes:</p>
 <pre class="turtle"><code>&lt;https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegmentCABLESEGMENT/ACResistance&gt;
   bsdd:ClassificationProperty &lt;https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegmentCABLESEGMENT&gt;;
@@ -2914,8 +2912,7 @@ However, certain whitespaces in strings can be confusing and are not semanticall
 <li><code>bsdd:dataType</code> (eg "Real "): this is a crucially important key field that must be controlled.</li>
 <li><code>bsdd:description</code> that is an enumeration. Should be expressed as <code>allowedValues</code>. e.g. in <a href="https://identifier.buildingsmart.org/uri/engisis/RFI-02/prop/S25750_0010" class="uri">https://identifier.buildingsmart.org/uri/engisis/RFI-02/prop/S25750_0010</a>:</li>
 </ul>
-<!-- -->
-<pre><code>&quot;EL=Elettronica,
+<pre class="example"><code>&quot;EL=Elettronica,
 SE=Semi-elettronica,
 EM=Elettromeccanica,
 EMS=Elettromeccanica CPS,
@@ -3018,13 +3015,13 @@ because it's an enumeration.</li>
 <h3 data-number="4.8.4" id="unicode-problems"><span class="header-section-number">4.8.4</span> Unicode Problems</h3>
 <p>There are Unicode problems in some <code>bsdd:description</code>.</p>
 <p>E.g. in <a href="https://identifier.buildingsmart.org/uri/buildingsmart-de/bSDTLS-1/prop/02-02-01-010" class="uri">https://identifier.buildingsmart.org/uri/buildingsmart-de/bSDTLS-1/prop/02-02-01-010</a> :</p>
-<pre><code>&quot;Zeit der m�glichen Verarbeitung vor Aush�rtung in [min] bei +23�C und 50% rel. Luftfeuchtigkeit
+<pre class="example"><code>&quot;Zeit der m�glichen Verarbeitung vor Aush�rtung in [min] bei +23�C und 50% rel. Luftfeuchtigkeit
 &quot;</code></pre>
 <p>(also has a trailing newline)</p>
 <h3 data-number="4.8.5" id="unresolved-html-entities"><span class="header-section-number">4.8.5</span> Unresolved HTML Entities</h3>
 <p>There are unresolved HTML entities (encoded chars).</p>
 <p>E.g. in <a href="https://identifier.buildingsmart.org/uri/engisis/RFI-02/prop/S27300_0200" class="uri">https://identifier.buildingsmart.org/uri/engisis/RFI-02/prop/S27300_0200</a>:</p>
-<pre><code>&quot;(*)
+<pre class="example"><code>&quot;(*)
 Pu&amp;#242; essere valorizzato un solo valore. SCIA = valorizzabile per le attivit&amp;#224; di tipo A o per le attivit&amp;#224; di tipo B o C nel caso in cui a seguito della valutazione favorevole del progetto si sia presentata la SCIA (ma non sia stato ancora rilasciato copia del verbale della visita tecnica dei VVF -attivit&amp;#224; di tipo A o B- o il CPI -attivit&amp;#224; ...&quot;.</code></pre>
 <h3 data-number="4.8.6" id="bad-classification-relations"><span class="header-section-number">4.8.6</span> Bad Classification Relations</h3>
 <p>Some classifications relate to to a full classification URL, but to
@@ -3718,7 +3715,7 @@ Eg here we fetch 5 classifications from the largest domain, starting at number 1
 <span id="cb99-8"><a href="#cb99-8" aria-hidden="true" tabindex="-1"></a>      }</span>
 <span id="cb99-9"><a href="#cb99-9" aria-hidden="true" tabindex="-1"></a>    }</span>
 <span id="cb99-10"><a href="#cb99-10" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb99-11"><a href="#cb99-11" aria-hidden="true" tabindex="-1"></a>}    </span></code></pre></div>
+<span id="cb99-11"><a href="#cb99-11" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p>Please note that for each relation, this returns both the original Classification we started from, and the target Classification.
 The reason is that the node <code>ClassificationRelation</code> has two <code>related</code> links:</p>
 <div class="sourceCode" id="cb100"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb100-1"><a href="#cb100-1" aria-hidden="true" tabindex="-1"></a><span class="er">&quot;classification&quot;:</span> <span class="ot">[</span></span>

@@ -12,6 +12,9 @@ title: Semantic bSDD
 
 `<link rel="icon" type="image/x-icon" href="img/favicon.ico">`{=html}
 
+```{=org}
+#+startup: showeverything
+```
 # Abstract
 
 The buildingSmart Data Dictionary (bSDD) is an important shared resource in the Architecture, Engineering, Construction, and Operations (AECO) domain.
@@ -387,22 +390,26 @@ The distribution of number of Classifications per domain is as follows:
 
 Domains with no classifications:
 
-    http://identifier.buildingsmart.org/uri/spr/spr-cfhios-0.1
-    https://identifier.buildingsmart.org/uri/ArcDox/ArcDox-1.0
-    https://identifier.buildingsmart.org/uri/BBRI/BBRI-0.1
-    https://identifier.buildingsmart.org/uri/FCSI/keq-0.1
-    https://identifier.buildingsmart.org/uri/MTR/MTR-1
-    https://identifier.buildingsmart.org/uri/bimeta/bimeta-0.1
-    https://identifier.buildingsmart.org/uri/bimlib/bimlib-ru-temp-1
-    https://identifier.buildingsmart.org/uri/buildingsmart/demo-2-1.1
-    https://identifier.buildingsmart.org/uri/csi/omniclass-1
-    https://identifier.buildingsmart.org/uri/ethz/hosszu-0.1
-    https://identifier.buildingsmart.org/uri/growingcircle/transsmart-0.1
-    https://identifier.buildingsmart.org/uri/ifcrail/ifcrail-0.1
+``` example
+http://identifier.buildingsmart.org/uri/spr/spr-cfhios-0.1
+https://identifier.buildingsmart.org/uri/ArcDox/ArcDox-1.0
+https://identifier.buildingsmart.org/uri/BBRI/BBRI-0.1
+https://identifier.buildingsmart.org/uri/FCSI/keq-0.1
+https://identifier.buildingsmart.org/uri/MTR/MTR-1
+https://identifier.buildingsmart.org/uri/bimeta/bimeta-0.1
+https://identifier.buildingsmart.org/uri/bimlib/bimlib-ru-temp-1
+https://identifier.buildingsmart.org/uri/buildingsmart/demo-2-1.1
+https://identifier.buildingsmart.org/uri/csi/omniclass-1
+https://identifier.buildingsmart.org/uri/ethz/hosszu-0.1
+https://identifier.buildingsmart.org/uri/growingcircle/transsmart-0.1
+https://identifier.buildingsmart.org/uri/ifcrail/ifcrail-0.1
+```
 
 One domain has more than 5000 classifications, but returns only 5000 due to lack of pagination in the GraphQL API:
 
-    https://identifier.buildingsmart.org/uri/nbs/uniclass2015-1
+``` example
+https://identifier.buildingsmart.org/uri/nbs/uniclass2015-1
+```
 
 ### Fields Used
 
@@ -928,8 +935,10 @@ curl -s -H Accept:text/turtle  https://identifier.buildingsmart.org/uri/bs-agri/
 
 bSDD has implemented \"entity URLs\", i.e. for each kind of entity it can return its data in JSON or RDF:
 
-    curl -s                      https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegmentCABLESEGMENT
-    curl -s -Haccept:text/turtle https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegmentCABLESEGMENT
+``` {.bash org-language="sh"}
+curl -s                      https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegmentCABLESEGMENT
+curl -s -Haccept:text/turtle https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegmentCABLESEGMENT
+```
 
 Note: to pretty-print the JSON, add this to the end of the command: `| jq .`
 
@@ -963,11 +972,10 @@ Proper bSDD domain URL design should take into account the following observation
 -   Almost all domain URLs have the same structure: `https://identifier.buildingsmart.org/uri/<org>/<domain>-<version>`.
     There are only two exceptions:
 
-```{=html}
-<!-- -->
+``` example
+http://otl.amsterdam.nl
+http://rdf.vegdata.no/V440/v440-owl
 ```
-    http://otl.amsterdam.nl
-    http://rdf.vegdata.no/V440/v440-owl
 
 The Linked Data Patterns book describes a pattern of [Hierarchical URIs](https://patterns.dataincubator.org/book/hierarchical-uris.html),
 that make URLs more \"hackable\", allowing users to navigate the hierarchy by pruning the URI.
@@ -988,12 +996,11 @@ Problems:
     -   \"digibase/digibasebouwlagen\": perhaps the org name `digibase` should not be repeated as the prefix of the domain `bouwlagen` (building layers)
 -   A few domains use `http` whereas all others use `https`. All modern servers prefer `https` due to its better security.
 
-```{=html}
-<!-- -->
+``` example
+http://identifier.buildingsmart.org/uri/spr/spr-cfhios-0.1
+http://otl.amsterdam.nl
+http://rdf.vegdata.no/V440/v440-owl
 ```
-    http://identifier.buildingsmart.org/uri/spr/spr-cfhios-0.1
-    http://otl.amsterdam.nl
-    http://rdf.vegdata.no/V440/v440-owl
 
 ### Explicate Domain Versions
 
@@ -1125,10 +1132,12 @@ The same URL is overloaded to identify entities of both classes.
 `ClassificationProperty` are thus \"second class\" entities and are not returned separately by the JSON or RDF entity API,
 but only as part of the respective `Classification`:
 
-    curl https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegmentCABLESEGMENT/ACResistance
-    {"":["Classification with namespace URI
-     'https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegmentCABLESEGMENT/ACResistance'
-      not found"]}
+``` {.bash org-language="sh"}
+curl https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegmentCABLESEGMENT/ACResistance
+{"":["Classification with namespace URI
+ 'https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegmentCABLESEGMENT/ACResistance'
+  not found"]}
+```
 
 `ClassificationProperty` is identified only in RDF since this format forces one to use different identities for different nodes:
 
@@ -1939,21 +1948,20 @@ Examples where this happens (not a comprehensive list):
 -   `bsdd:dataType` (eg \"Real \"): this is a crucially important key field that must be controlled.
 -   `bsdd:description` that is an enumeration. Should be expressed as `allowedValues`. e.g. in <https://identifier.buildingsmart.org/uri/engisis/RFI-02/prop/S25750_0010>:
 
-```{=html}
-<!-- -->
-```
-    "EL=Elettronica,
-    SE=Semi-elettronica,
-    EM=Elettromeccanica,
-    EMS=Elettromeccanica CPS,
-    STI= Sistema Telef. Integr.(STI).
+``` example
+"EL=Elettronica,
+SE=Semi-elettronica,
+EM=Elettromeccanica,
+EMS=Elettromeccanica CPS,
+STI= Sistema Telef. Integr.(STI).
 
-    EL=Centrale Telefonica Elettronica,
-    SE=Centrale Telefonica Semi-Elettronica
-     EM= Centrale Telefonica Elettromeccanica,
-    EMS= Centrale Telefonica Elettromeccanica CPS,
-    STI=  Centrale STI (Sistema Telefonico Integrato)
-    "
+EL=Centrale Telefonica Elettronica,
+SE=Centrale Telefonica Semi-Elettronica
+ EM= Centrale Telefonica Elettromeccanica,
+EMS= Centrale Telefonica Elettromeccanica CPS,
+STI=  Centrale STI (Sistema Telefonico Integrato)
+"
+```
 
 The bSDD data entry or data ingest systems should have validations to prevent such whitespace.
 e.g. we could define SHACL rules to prevent such cases.
@@ -2065,8 +2073,10 @@ There are Unicode problems in some `bsdd:description`.
 
 E.g. in <https://identifier.buildingsmart.org/uri/buildingsmart-de/bSDTLS-1/prop/02-02-01-010> :
 
-    "Zeit der m�glichen Verarbeitung vor Aush�rtung in [min] bei +23�C und 50% rel. Luftfeuchtigkeit
-    "
+``` example
+"Zeit der m�glichen Verarbeitung vor Aush�rtung in [min] bei +23�C und 50% rel. Luftfeuchtigkeit
+"
+```
 
 (also has a trailing newline)
 
@@ -2076,8 +2086,10 @@ There are unresolved HTML entities (encoded chars).
 
 E.g. in <https://identifier.buildingsmart.org/uri/engisis/RFI-02/prop/S27300_0200>:
 
-    "(*)
-    Pu&#242; essere valorizzato un solo valore. SCIA = valorizzabile per le attivit&#224; di tipo A o per le attivit&#224; di tipo B o C nel caso in cui a seguito della valutazione favorevole del progetto si sia presentata la SCIA (ma non sia stato ancora rilasciato copia del verbale della visita tecnica dei VVF -attivit&#224; di tipo A o B- o il CPI -attivit&#224; ...".
+``` example
+"(*)
+Pu&#242; essere valorizzato un solo valore. SCIA = valorizzabile per le attivit&#224; di tipo A o per le attivit&#224; di tipo B o C nel caso in cui a seguito della valutazione favorevole del progetto si sia presentata la SCIA (ma non sia stato ancora rilasciato copia del verbale della visita tecnica dei VVF -attivit&#224; di tipo A o B- o il CPI -attivit&#224; ...".
+```
 
 ### Bad Classification Relations
 
@@ -2829,7 +2841,7 @@ query ClassificationRel {
       }
     }
   }
-}    
+}
 ```
 
 Please note that for each relation, this returns both the original Classification we started from, and the target Classification.

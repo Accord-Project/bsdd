@@ -2,6 +2,7 @@
 #+options: c:nil creator:nil d:(not "LOGBOOK") date:t e:t email:nil f:t
 #+options: inline:t p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t
 #+options: timestamp:nil title:t toc:5 todo:t |:t
+#+startup: showeverything
 #+title: Semantic bSDD
 #+subtitle: Improving the GraphQL, JSON and RDF Representations of buildingSmart Data Dictionary
 #+date: <2023-03-14>
@@ -495,7 +496,7 @@ The distribution of number of Classifications per domain is as follows:
 |       1 |       5000 |     5000 | Has more than 5000, but returns only 5000 due to lack of pagination in the GraphQL API |
 
 Domains with no classifications:
-#+begin_src
+#+begin_example
 http://identifier.buildingsmart.org/uri/spr/spr-cfhios-0.1
 https://identifier.buildingsmart.org/uri/ArcDox/ArcDox-1.0
 https://identifier.buildingsmart.org/uri/BBRI/BBRI-0.1
@@ -508,12 +509,12 @@ https://identifier.buildingsmart.org/uri/csi/omniclass-1
 https://identifier.buildingsmart.org/uri/ethz/hosszu-0.1
 https://identifier.buildingsmart.org/uri/growingcircle/transsmart-0.1
 https://identifier.buildingsmart.org/uri/ifcrail/ifcrail-0.1
-#+end_src
+#+end_example
 
 One domain has more than 5000 classifications, but returns only 5000 due to lack of pagination in the GraphQL API:
-#+begin_src
+#+begin_example
 https://identifier.buildingsmart.org/uri/nbs/uniclass2015-1
-#+end_src
+#+end_example
 
 *** Fields Used
 :PROPERTIES:
@@ -1021,7 +1022,7 @@ Property names should conform to naming conventions and be spelled consistently
 :CUSTOM_ID: use-the-same-url-for-data-and-for-web-pages
 :END:
 bSDD has implemented "entity URLs", i.e. for each kind of entity it can return its data in JSON or RDF:
-#+begin_src
+#+begin_src sh
 curl -s                      https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegmentCABLESEGMENT
 curl -s -Haccept:text/turtle https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegmentCABLESEGMENT
 #+end_src
@@ -1055,14 +1056,16 @@ Recommendations on ontology URI design, including versioning and opaque URIs to 
 Proper bSDD domain URL design should take into account the following observations:
 - Almost all domain URLs have the same structure: ~https://identifier.buildingsmart.org/uri/<org>/<domain>-<version>~.
   There are only two exceptions:
-#+begin_src
+#+begin_example
 http://otl.amsterdam.nl
 http://rdf.vegdata.no/V440/v440-owl
-#+end_src
+#+end_example
 The Linked Data Patterns book describes a pattern of [[https://patterns.dataincubator.org/book/hierarchical-uris.html][Hierarchical URIs]],
 that make URLs more "hackable", allowing users to navigate the hierarchy by pruning the URI.
 bSDD URLs could become more hierarchical if they follow this structure:
-: https://identifier.buildingsmart.org/uri/<org>/<domain>/<version>
+#+begin_example
+https://identifier.buildingsmart.org/uri/<org>/<domain>/<version>
+#+end_example
 
 Problems:
 - bSDD uses dash not slash to separate the versoion
@@ -1073,11 +1076,11 @@ Problems:
   - "digibase/nen2699": the publisher of this spec is NEN (the Netherlands standards organization), not the ~digibase~ company/initiative
   - "digibase/digibasebouwlagen": perhaps the org name ~digibase~ should not be repeated as the prefix of the domain ~bouwlagen~ (building layers)
 - A few domains use ~http~ whereas all others use ~https~. All modern servers prefer ~https~ due to its better security.
-#+begin_src
+#+begin_example
 http://identifier.buildingsmart.org/uri/spr/spr-cfhios-0.1
 http://otl.amsterdam.nl
 http://rdf.vegdata.no/V440/v440-owl
-#+end_src
+#+end_example
 
 *** Explicate Domain Versions
 :PROPERTIES:
@@ -1203,7 +1206,7 @@ We can posit (guess) two reasons for this structural problem:
 The same URL is overloaded to identify entities of both classes.
 ~ClassificationProperty~ are thus "second class" entities and are not returned separately by the JSON or RDF entity API,
 but only as part of the respective ~Classification~:
-#+begin_src
+#+begin_src sh
 curl https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegmentCABLESEGMENT/ACResistance
 {"":["Classification with namespace URI
  'https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegmentCABLESEGMENT/ACResistance'
@@ -1324,7 +1327,7 @@ select ?type ?code ?name ?def {
 :CUSTOM_ID: modeling-of-dynamic-properties
 :END:
 12385 ~Properties~ are declared as ~isDynamic~ (135250 are not).
-However, the field ~dynamicParameterPropertyCode~ is always empty, so one 
+However, the field ~dynamicParameterPropertyCode~ is always empty, so one
 #+begin_src sparql
 select * {
   ?prop bsdd:isDynamic true.
@@ -1351,7 +1354,7 @@ Problems related to this approach:
 Here is a list of all strings that are candidates to be converted to object properties (relations). ~[Foo]~ indicates an array (multivalued property):
 - ~connectedPropertyCodes~: should become ~[Property]~
 - ~countriesOfUse~: should become ~[Country]~
-- ~countryOfOrigin~: should become ~Country~ 
+- ~countryOfOrigin~: should become ~Country~
 - ~creatorLanguagecode~: should become ~Language~
 - ~documentReference~: unclear whether it should be a URL, a bibliographic reference, a title, or some other free text. Should become ~ReferenceDocument~
 - ~dynamicParameterPropertyCodes~: should become ~[Property]~
@@ -1984,7 +1987,7 @@ Examples where this happens (not a comprehensive list):
 - ~bsdd:dataType~ (eg "Real "): this is a crucially important key field that must be controlled.
 - ~bsdd:description~ that is an enumeration. Should be expressed as ~allowedValues~. e.g. in https://identifier.buildingsmart.org/uri/engisis/RFI-02/prop/S25750_0010:
 
-#+begin_src
+#+begin_example
 "EL=Elettronica,
 SE=Semi-elettronica,
 EM=Elettromeccanica,
@@ -1997,7 +2000,7 @@ SE=Centrale Telefonica Semi-Elettronica
 EMS= Centrale Telefonica Elettromeccanica CPS,
 STI=  Centrale STI (Sistema Telefonico Integrato)
 "
-#+end_src
+#+end_example
 
 The bSDD data entry or data ingest systems should have validations to prevent such whitespace.
 e.g. we could define SHACL rules to prevent such cases.
@@ -2103,10 +2106,10 @@ There are Unicode problems in some ~bsdd:description~.
 
 E.g. in https://identifier.buildingsmart.org/uri/buildingsmart-de/bSDTLS-1/prop/02-02-01-010 :
 
-#+begin_src 
+#+begin_example
 "Zeit der m�glichen Verarbeitung vor Aush�rtung in [min] bei +23�C und 50% rel. Luftfeuchtigkeit
 "
-#+end_src
+#+end_example
 
 (also has a trailing newline)
 
@@ -2118,10 +2121,10 @@ There are unresolved HTML entities (encoded chars).
 
 E.g. in https://identifier.buildingsmart.org/uri/engisis/RFI-02/prop/S27300_0200:
 
-#+begin_src 
+#+begin_example
 "(*)
 Pu&#242; essere valorizzato un solo valore. SCIA = valorizzabile per le attivit&#224; di tipo A o per le attivit&#224; di tipo B o C nel caso in cui a seguito della valutazione favorevole del progetto si sia presentata la SCIA (ma non sia stato ancora rilasciato copia del verbale della visita tecnica dei VVF -attivit&#224; di tipo A o B- o il CPI -attivit&#224; ...".
-#+end_src
+#+end_example
 
 *** Bad Classification Relations
 :PROPERTIES:
@@ -2861,7 +2864,7 @@ query ClassificationRel {
       }
     }
   }
-}    
+}
 #+end_src
 Please note that for each relation, this returns both the original Classification we started from, and the target Classification.
 The reason is that the node ~ClassificationRelation~ has two ~related~ links:

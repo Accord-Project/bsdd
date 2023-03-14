@@ -7,3 +7,9 @@ figcaption {
     text-align: center;
     font-size: larger;
 }
+
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}

@@ -90,10 +90,7 @@ and displays the schema of the endpoint, allowing the user to search and browse 
 We wrote a page [bsdd-graphql-voyager-orig](https://rawgit2.com/Accord-Project/bsdd/main/bsdd-graphql-voyager-orig.html) (see `bsdd-graphql-voyager-orig.html`) that deploys Voyager over the bSDD GraphQL endpoint.
 We used it to investigate the original bSDD schema:
 
-<figure id="fig:bsdd-graphql-voyager-orig-overview">
-<img src="./img/bsdd-graphql-voyager-overview.png" />
-<figcaption>Original bSDD GraphQL Schema: Overview (uncheck "Show leaf fields")</figcaption>
-</figure>
+![Original bSDD GraphQL Schema: Overview (uncheck \"Show leaf fields\")](./img/bsdd-graphql-voyager-overview.png){#fig:bsdd-graphql-voyager-orig-overview}
 
 As we can see, bSDD has 12 entities (object types):
 
@@ -113,10 +110,7 @@ As we can see, bSDD has 12 entities (object types):
 
 We can also look at details of the schema:
 
-<figure id="fig:bsdd-graphql-voyager-orig-detail">
-<img src="./img/bsdd-graphql-voyager-Classification-ClassificationProperty.png" />
-<figcaption>Original bSDD GraphQL Schema: Detail of Classification and ClassificationProperty</figcaption>
-</figure>
+![Original bSDD GraphQL Schema: Detail of Classification and ClassificationProperty](./img/bsdd-graphql-voyager-Classification-ClassificationProperty.png){#fig:bsdd-graphql-voyager-orig-detail}
 
 Last but not least, Voyager presents detailed and searchable documentation about the schema;
 the same is available in the GraphiQL query tool.
@@ -153,10 +147,7 @@ But we show the refactored schema here in order to compare it to the original sc
 We wrote the web page [bsdd-graphql-voyager-refact.html](https://rawgit2.com/Accord-Project/bsdd/main/bsdd-graphql-voyager-refact.html) (see `bsdd-graphql-voyager-refact.html`)
 that allows you to explore the refactored schema.
 
-<figure id="fig:bsdd-graphql-voyager-refact-overview">
-<img src="./img/bsdd-graphql-voyager-refact-overview.png" />
-<figcaption>Refactored bSDD GraphQL Schema: Overview (uncheck "Show leaf fields")</figcaption>
-</figure>
+![Refactored bSDD GraphQL Schema: Overview (uncheck \"Show leaf fields\")](./img/bsdd-graphql-voyager-refact-overview.png){#fig:bsdd-graphql-voyager-refact-overview}
 
 Improvements:
 
@@ -182,19 +173,13 @@ We can also take a look at a detail of the refactored schema. It looks pretty si
 but all fields are normalized to singular names,
 and strings fields like `propertyNamespaceUri` are converted to object fields like `Property`.
 
-<figure id="fig:bsdd-graphql-voyager-refact-detail">
-<img src="./img/bsdd-graphql-voyager-refact-Classification-ClassificationProperty.png" />
-<figcaption>Refactored bSDD GraphQL Schema: Detail of Classification and ClassificationProperty</figcaption>
-</figure>
+![Refactored bSDD GraphQL Schema: Detail of Classification and ClassificationProperty](./img/bsdd-graphql-voyager-refact-Classification-ClassificationProperty.png){#fig:bsdd-graphql-voyager-refact-detail}
 
 ## GraphiQL Querying of Original Endpoint
 
 <https://test.bsdd.buildingsmart.org/graphiql> is the original GraphQL endpoint.
 
-<figure id="fig:graphiql-orig">
-<img src="./img/graphiql-orig.png" />
-<figcaption>GraphiQL Querying of Original bSDD Endpoint</figcaption>
-</figure>
+![GraphiQL Querying of Original bSDD Endpoint](./img/graphiql-orig.png){#fig:graphiql-orig}
 
 It provides a number of useful features:
 
@@ -210,10 +195,7 @@ It provides a number of useful features:
 
 <https://bsdd.ontotext.com/graphiql/> is the refactored GraphQL endpoint:
 
-<figure id="fig:graphiql-refact">
-<img src="./img/graphiql-refact.png" />
-<figcaption>GraphiQL Querying of Refactored bSDD Endpoint</figcaption>
-</figure>
+![GraphiQL Querying of Refactored bSDD Endpoint](./img/graphiql-refact.png){#fig:graphiql-refact}
 
 We have deployed a newer version of GraphiQL that has all benefits described in the previous section, and adds some more:
 
@@ -809,10 +791,7 @@ curl -Haccept:text/turtle https://identifier.buildingsmart.org/uri/fvhf/vhf-0.00
 We selected entities of each class that have the maximum number of filled fields, and compared the results returned by each API.
 We found a number of detailed differences, as presented in the [bSDD data analysis](https://docs.google.com/spreadsheets/d/1z_NRMlExlVuqWhBbSErQ9iiDBY4O_fKMd3avV3-NCmo/edit) spreadsheet:
 
-<figure id="fig:bsdd-data-analysis-sheet">
-<img src="./img/bsdd-data-analysis-sheet.png" />
-<figcaption>Differences between bSDD GraphQL, JSON and RDF Data</figcaption>
-</figure>
+![Differences between bSDD GraphQL, JSON and RDF Data](./img/bsdd-data-analysis-sheet.png){#fig:bsdd-data-analysis-sheet}
 
 There are differences and omissions in some of the formats, as summarized in the table below.
 
@@ -945,18 +924,12 @@ Note: to pretty-print the JSON, add this to the end of the command: `| jq .`
 The same URL can be used to get a static web page in the browser:
 <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegmentCABLESEGMENT>
 
-<figure id="fig:IFC-class-cableSegment-web">
-<img src="./img/IFC-class-cableSegment-web.png" />
-<figcaption>CableSegment enity as displayed at the bSDD web site</figcaption>
-</figure>
+![CableSegment enity as displayed at the bSDD web site](./img/IFC-class-cableSegment-web.png){#fig:IFC-class-cableSegment-web}
 
 However, the interactive [bSDD Search](https://search.bsdd.buildingsmart.org) UI uses a different URL that returns slightly different information:
 <https://search.bsdd.buildingsmart.org/Classification/Index/58453>
 
-<figure id="fig:IFC-class-cableSegment-search">
-<img src="./img/IFC-class-cableSegment-search.png" />
-<figcaption>CableSegment as displayed at the bSDD search site</figcaption>
-</figure>
+![CableSegment as displayed at the bSDD search site](./img/IFC-class-cableSegment-search.png){#fig:IFC-class-cableSegment-search}
 
 There is not really a need for two different web pages showing nearly the same info.
 We think that with some modest change in technology, the Search UI can use the first (semantic) URL immediately instead of an internal (non-semantic) `Index/` URL.
@@ -2590,10 +2563,7 @@ The difference between the two SOML schemas is not so huge:
 diff -wu1000 bsdd-graphql-soml-orig.yaml bsdd-graphql-soml-refact.yaml > bsdd-graphql-soml.patch
 ```
 
-<figure id="fig:bsdd-graphql-soml-diff">
-<img src="./img/bsdd-graphql-soml-diff.png" />
-<figcaption>Typical differences between the Original GraphQL schema (red) and the Refactored schema (green)</figcaption>
-</figure>
+![Typical differences between the Original GraphQL schema (red) and the Refactored schema (green)](./img/bsdd-graphql-soml-diff.png){#fig:bsdd-graphql-soml-diff}
 
 We explain the differences seen in this figure:
 
@@ -2928,20 +2898,14 @@ Note: if you have a user account, you can enlarge \"Maximum links to show\" in S
 
 [This visualization](https://bsdd.ontotext.com/graphdb/graphs-visualizations?config=2dc02fd322a646879505aafde547375a) shows classifications of type \"COMPOSED_PROPERTY\" that serve as a container of related properties.
 
-<figure id="fig:viz-ClassCOMPOSED_PROPERTY">
-<img src="./img/viz-ClassCOMPOSED_PROPERTY.png" />
-<figcaption>"COMPOSED_PROPERTY" Classifications</figcaption>
-</figure>
+![\"COMPOSED_PROPERTY\" Classifications](./img/viz-ClassCOMPOSED_PROPERTY.png){#fig:viz-ClassCOMPOSED_PROPERTY}
 
 ### \"DOMAIN\" Classifications
 
 [This visualization](https://bsdd.ontotext.com/graphdb/graphs-visualizations?config=7ecb0edaf0874c0aa81f2f0eb953b8ee) shows classifications of type \"DOMAIN\" that serve as a \"sub-domain\" of Classifications.
 Expanding a node shows its ClassificationProperties.
 
-<figure id="fig:viz-ClassDOMAIN">
-<img src="./img/viz-ClassDOMAIN.png" />
-<figcaption>"DOMAIN" Classifications</figcaption>
-</figure>
+![\"DOMAIN\" Classifications](./img/viz-ClassDOMAIN.png){#fig:viz-ClassDOMAIN}
 
 ### Classification Relations
 
@@ -2949,20 +2913,14 @@ Expanding a node shows its ClassificationProperties.
 It shows a number of French classes relating to `Space, Slab, Covering`.
 (Please note that another cluster that has \"class\" in the middle is due to data quality problems in BSDD.)
 
-<figure id="fig:viz-ClassRel">
-<img src="./img/viz-ClassRel.png" />
-<figcaption>Classification Relations</figcaption>
-</figure>
+![Classification Relations](./img/viz-ClassRel.png){#fig:viz-ClassRel}
 
 ### Multivalued propSets
 
 `propSet` is expected to be single-valued by the GraphQL schema, but in fact there are some multi-valued occurrences.
 [This visualization](https://bsdd.ontotext.com/graphdb/graphs-visualizations?config=fa3b8af3bc114b9b9046f9ceb11246f7) looks for such cases (e.g. see this [saved visual graph](https://bsdd.ontotext.com/graphdb/graphs-visualizations?saved=56b5379edeeb4a1a80790e9011d8e264)).
 
-<figure id="fig:viz-multivaluedPropSet">
-<img src="./img/viz-multivaluedPropSet.png" />
-<figcaption>Multivalued propSet, showing domain (purple), class (yellow), prop (red), set (blue)</figcaption>
-</figure>
+![Multivalued propSet, showing domain (purple), class (yellow), prop (red), set (blue)](./img/viz-multivaluedPropSet.png){#fig:viz-multivaluedPropSet}
 
 # Acknowledgements
 

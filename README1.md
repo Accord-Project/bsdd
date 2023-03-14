@@ -90,7 +90,10 @@ and displays the schema of the endpoint, allowing the user to search and browse 
 We wrote a page [bsdd-graphql-voyager-orig](https://rawgit2.com/Accord-Project/bsdd/main/bsdd-graphql-voyager-orig.html) (see `bsdd-graphql-voyager-orig.html`) that deploys Voyager over the bSDD GraphQL endpoint.
 We used it to investigate the original bSDD schema:
 
-![Original bSDD GraphQL Schema: Overview (uncheck \"Show leaf fields\")](./img/bsdd-graphql-voyager-overview.png){#fig:bsdd-graphql-voyager-orig-overview}
+<figure id="fig:bsdd-graphql-voyager-orig-overview">
+<img src="./img/bsdd-graphql-voyager-overview.png" />
+<figcaption>Original bSDD GraphQL Schema: Overview (uncheck "Show leaf fields")</figcaption>
+</figure>
 
 As we can see, bSDD has 12 entities (object types):
 
@@ -110,7 +113,10 @@ As we can see, bSDD has 12 entities (object types):
 
 We can also look at details of the schema:
 
-![Original bSDD GraphQL Schema: Detail of Classification and ClassificationProperty](./img/bsdd-graphql-voyager-Classification-ClassificationProperty.png){#fig:bsdd-graphql-voyager-orig-detail}
+<figure id="fig:bsdd-graphql-voyager-orig-detail">
+<img src="./img/bsdd-graphql-voyager-Classification-ClassificationProperty.png" />
+<figcaption>Original bSDD GraphQL Schema: Detail of Classification and ClassificationProperty</figcaption>
+</figure>
 
 Last but not least, Voyager presents detailed and searchable documentation about the schema;
 the same is available in the GraphiQL query tool.
@@ -147,7 +153,10 @@ But we show the refactored schema here in order to compare it to the original sc
 We wrote the web page [bsdd-graphql-voyager-refact.html](https://rawgit2.com/Accord-Project/bsdd/main/bsdd-graphql-voyager-refact.html) (see `bsdd-graphql-voyager-refact.html`)
 that allows you to explore the refactored schema.
 
-![Refactored bSDD GraphQL Schema: Overview (uncheck \"Show leaf fields\")](./img/bsdd-graphql-voyager-refact-overview.png){#fig:bsdd-graphql-voyager-refact-overview}
+<figure id="fig:bsdd-graphql-voyager-refact-overview">
+<img src="./img/bsdd-graphql-voyager-refact-overview.png" />
+<figcaption>Refactored bSDD GraphQL Schema: Overview (uncheck "Show leaf fields")</figcaption>
+</figure>
 
 Improvements:
 
@@ -173,13 +182,19 @@ We can also take a look at a detail of the refactored schema. It looks pretty si
 but all fields are normalized to singular names,
 and strings fields like `propertyNamespaceUri` are converted to object fields like `Property`.
 
-![Refactored bSDD GraphQL Schema: Detail of Classification and ClassificationProperty](./img/bsdd-graphql-voyager-refact-Classification-ClassificationProperty.png){#fig:bsdd-graphql-voyager-refact-detail}
+<figure id="fig:bsdd-graphql-voyager-refact-detail">
+<img src="./img/bsdd-graphql-voyager-refact-Classification-ClassificationProperty.png" />
+<figcaption>Refactored bSDD GraphQL Schema: Detail of Classification and ClassificationProperty</figcaption>
+</figure>
 
 ## GraphiQL Querying of Original Endpoint
 
 <https://test.bsdd.buildingsmart.org/graphiql> is the original GraphQL endpoint.
 
-![GraphiQL Querying of Original bSDD Endpoint](./img/graphiql-orig.png){#fig:graphiql-orig}
+<figure id="fig:graphiql-orig">
+<img src="./img/graphiql-orig.png" />
+<figcaption>GraphiQL Querying of Original bSDD Endpoint</figcaption>
+</figure>
 
 It provides a number of useful features:
 
@@ -195,7 +210,10 @@ It provides a number of useful features:
 
 <https://bsdd.ontotext.com/graphiql/> is the refactored GraphQL endpoint:
 
-![GraphiQL Querying of Refactored bSDD Endpoint](./img/graphiql-refact.png){#fig:graphiql-refact}
+<figure id="fig:graphiql-refact">
+<img src="./img/graphiql-refact.png" />
+<figcaption>GraphiQL Querying of Refactored bSDD Endpoint</figcaption>
+</figure>
 
 We have deployed a newer version of GraphiQL that has all benefits described in the previous section, and adds some more:
 
@@ -334,18 +352,18 @@ Although the bSDD schema is rich, we find that some features are rarely used.
 
 ### Total Entities
 
-| type                   | c      | Comment                                                                                          |
-|------------------------|--------|--------------------------------------------------------------------------------------------------|
-| Classification         | 31720  |                                                                                                  |
+| type                   |      c | Comment                                                                                          |
+|------------------------|-------:|--------------------------------------------------------------------------------------------------|
+| Classification         |  31720 |                                                                                                  |
 | ClassificationProperty | 111566 |                                                                                                  |
-| ClassificationRelation | 6420   |                                                                                                  |
-| Country                | 246    |                                                                                                  |
-| Domain                 | 108    |                                                                                                  |
-| Language               | 39     |                                                                                                  |
-| Property               | 36069  |                                                                                                  |
+| ClassificationRelation |   6420 |                                                                                                  |
+| Country                |    246 |                                                                                                  |
+| Domain                 |    108 |                                                                                                  |
+| Language               |     39 |                                                                                                  |
+| Property               |  36069 |                                                                                                  |
 | PropertyValue          | 214121 | We merged `PropertyValue` and `ClassificationPropertyValue` because they have the same structure |
-| ReferenceDocument      | 484    |                                                                                                  |
-| Unit                   | 603    |                                                                                                  |
+| ReferenceDocument      |    484 |                                                                                                  |
+| Unit                   |    603 |                                                                                                  |
 
 We used this query but then removed uninteresting RDF classes:
 
@@ -361,14 +379,14 @@ The GraphQL API returns 108 Domains.
 The distribution of number of Classifications per domain is as follows:
 
 | domains | class from | class to | Note                                                                                   |
-|---------|------------|----------|----------------------------------------------------------------------------------------|
-| 12      | 0          | 0        | 12 domains have no data at all (no classifications)                                    |
-| 28      | 1          | 9        |                                                                                        |
-| 19      | 11         | 99       |                                                                                        |
-| 15      | 100        | 499      |                                                                                        |
-| 3       | 500        | 999      |                                                                                        |
-| 9       | 1000       | 4999     |                                                                                        |
-| 1       | 5000       | 5000     | Has more than 5000, but returns only 5000 due to lack of pagination in the GraphQL API |
+|--------:|-----------:|---------:|----------------------------------------------------------------------------------------|
+|      12 |          0 |        0 | 12 domains have no data at all (no classifications)                                    |
+|      28 |          1 |        9 |                                                                                        |
+|      19 |         11 |       99 |                                                                                        |
+|      15 |        100 |      499 |                                                                                        |
+|       3 |        500 |      999 |                                                                                        |
+|       9 |       1000 |     4999 |                                                                                        |
+|       1 |       5000 |     5000 | Has more than 5000, but returns only 5000 due to lack of pagination in the GraphQL API |
 
 Domains with no classifications:
 
@@ -398,42 +416,42 @@ https://identifier.buildingsmart.org/uri/nbs/uniclass2015-1
 This shows the total number of defined fields, and fields that are actually used in various entities.
 
 | type                   | total | used | percentage |
-|------------------------|-------|------|------------|
-| Classification         | 26    | 19   | 73.08%     |
-| ClassificationProperty | 51    | 30   | 58.82%     |
-| ClassificationRelation | 4     | 3    | 75.00%     |
-| Country                | 2     | 2    | 100.00%    |
-| Domain                 | 10    | 10   | 100.00%    |
-| Language               | 2     | 2    | 100.00%    |
-| Property               | 47    | 33   | 70.21%     |
-| PropertyValue          | 5     | 2    | 40.00%     |
-| ReferenceDocument      | 2     | 2    | 100.00%    |
-| Unit                   | 2     | 2    | 100.00%    |
+|------------------------|------:|-----:|-----------:|
+| Classification         |    26 |   19 |     73.08% |
+| ClassificationProperty |    51 |   30 |     58.82% |
+| ClassificationRelation |     4 |    3 |     75.00% |
+| Country                |     2 |    2 |    100.00% |
+| Domain                 |    10 |   10 |    100.00% |
+| Language               |     2 |    2 |    100.00% |
+| Property               |    47 |   33 |     70.21% |
+| PropertyValue          |     5 |    2 |     40.00% |
+| ReferenceDocument      |     2 |    2 |    100.00% |
+| Unit                   |     2 |    2 |    100.00% |
 
 ### Fields Used in Classification
 
 This shows the percentage of use of fields in Classification.
 It ignores null values like `""` and `"[]"`.
 
-| field                        | c     | percentage |
-|------------------------------|-------|------------|
-| bsdd:classificationType      | 30357 | 100.0000%  |
-| bsdd:code                    | 30357 | 100.0000%  |
-| bsdd:countryOfOrigin         | 8405  | 27.6872%   |
-| bsdd:countryOfUse            | 9508  | 31.3206%   |
-| bsdd:creatorLanguageCode     | 8317  | 27.3973%   |
-| bsdd:definition              | 8906  | 29.3375%   |
-| bsdd:deprecationExplanation  | 1     | 0.0033%    |
-| bsdd:documentReference       | 33    | 0.1087%    |
-| bsdd:name                    | 30357 | 100.0000%  |
-| bsdd:referenceCode           | 29226 | 96.2743%   |
-| bsdd:relatedIfcEntityName    | 5095  | 16.7836%   |
-| bsdd:relation                | 5388  | 17.7488%   |
-| bsdd:status                  | 30357 | 100.0000%  |
-| bsdd:subdivisionOfUse        | 25    | 0.0824%    |
-| bsdd:synonym                 | 28404 | 93.5666%   |
-| bsdd:uid                     | 4251  | 14.0034%   |
-| bsdd:visualRepresentationUri | 9     | 0.0296%    |
+| field                        |     c | percentage |
+|------------------------------|------:|-----------:|
+| bsdd:classificationType      | 30357 |  100.0000% |
+| bsdd:code                    | 30357 |  100.0000% |
+| bsdd:countryOfOrigin         |  8405 |   27.6872% |
+| bsdd:countryOfUse            |  9508 |   31.3206% |
+| bsdd:creatorLanguageCode     |  8317 |   27.3973% |
+| bsdd:definition              |  8906 |   29.3375% |
+| bsdd:deprecationExplanation  |     1 |    0.0033% |
+| bsdd:documentReference       |    33 |    0.1087% |
+| bsdd:name                    | 30357 |  100.0000% |
+| bsdd:referenceCode           | 29226 |   96.2743% |
+| bsdd:relatedIfcEntityName    |  5095 |   16.7836% |
+| bsdd:relation                |  5388 |   17.7488% |
+| bsdd:status                  | 30357 |  100.0000% |
+| bsdd:subdivisionOfUse        |    25 |    0.0824% |
+| bsdd:synonym                 | 28404 |   93.5666% |
+| bsdd:uid                     |  4251 |   14.0034% |
+| bsdd:visualRepresentationUri |     9 |    0.0296% |
 
 ``` sparql
 prefix bsdd: <http://bsdd.buildingsmart.org/def#>
@@ -448,33 +466,33 @@ where {
 
 This shows the percentage of use of fields in ClassificationProperty.
 
-| field                        | c      | percentage |
-|------------------------------|--------|------------|
-| bsdd:allowedValue            | 21277  | 19.0712%   |
-| bsdd:code                    | 111566 | 100.0000%  |
-| bsdd:countryOfOrigin         | 20768  | 18.6150%   |
-| bsdd:countryOfUse            | 19859  | 17.8002%   |
-| bsdd:creatorLanguageCode     | 19906  | 17.8424%   |
-| bsdd:dataType                | 104960 | 94.0788%   |
-| bsdd:definition              | 3964   | 3.5531%    |
-| bsdd:description             | 17067  | 15.2977%   |
-| bsdd:dimension               | 940    | 0.8426%    |
-| bsdd:documentReference       | 859    | 0.7699%    |
-| bsdd:example                 | 4426   | 3.9672%    |
-| bsdd:methodOfMeasurement     | 5      | 0.0045%    |
-| bsdd:name                    | 111566 | 100.0000%  |
-| bsdd:pattern                 | 7      | 0.0063%    |
-| bsdd:physicalQuantity        | 11678  | 10.4673%   |
-| bsdd:predefinedValue         | 6219   | 5.5743%    |
-| bsdd:property                | 111566 | 100.0000%  |
-| bsdd:propertySet             | 17907  | 16.0506%   |
-| bsdd:propertyValueKind       | 111566 | 100.0000%  |
-| bsdd:status                  | 111566 | 100.0000%  |
-| bsdd:subdivisionOfUse        | 19     | 0.0170%    |
-| bsdd:symbol                  | 79     | 0.0708%    |
-| bsdd:uid                     | 11602  | 10.3992%   |
-| bsdd:unit                    | 25231  | 22.6153%   |
-| bsdd:visualRepresentationUri | 4      | 0.0036%    |
+| field                        |      c | percentage |
+|------------------------------|-------:|-----------:|
+| bsdd:allowedValue            |  21277 |   19.0712% |
+| bsdd:code                    | 111566 |  100.0000% |
+| bsdd:countryOfOrigin         |  20768 |   18.6150% |
+| bsdd:countryOfUse            |  19859 |   17.8002% |
+| bsdd:creatorLanguageCode     |  19906 |   17.8424% |
+| bsdd:dataType                | 104960 |   94.0788% |
+| bsdd:definition              |   3964 |    3.5531% |
+| bsdd:description             |  17067 |   15.2977% |
+| bsdd:dimension               |    940 |    0.8426% |
+| bsdd:documentReference       |    859 |    0.7699% |
+| bsdd:example                 |   4426 |    3.9672% |
+| bsdd:methodOfMeasurement     |      5 |    0.0045% |
+| bsdd:name                    | 111566 |  100.0000% |
+| bsdd:pattern                 |      7 |    0.0063% |
+| bsdd:physicalQuantity        |  11678 |   10.4673% |
+| bsdd:predefinedValue         |   6219 |    5.5743% |
+| bsdd:property                | 111566 |  100.0000% |
+| bsdd:propertySet             |  17907 |   16.0506% |
+| bsdd:propertyValueKind       | 111566 |  100.0000% |
+| bsdd:status                  | 111566 |  100.0000% |
+| bsdd:subdivisionOfUse        |     19 |    0.0170% |
+| bsdd:symbol                  |     79 |    0.0708% |
+| bsdd:uid                     |  11602 |   10.3992% |
+| bsdd:unit                    |  25231 |   22.6153% |
+| bsdd:visualRepresentationUri |      4 |    0.0036% |
 
 ``` sparql
 PREFIX bsdd: <http://bsdd.buildingsmart.org/def#>
@@ -498,31 +516,31 @@ select (count(*) as ?c) {
 
 This shows the percentage of use of fields in Property.
 
-| field                        | c     | percentage |
-|------------------------------|-------|------------|
-| bsdd:allowedValue            | 5059  | 14.4069%   |
-| bsdd:code                    | 35115 | 100.0000%  |
-| bsdd:connectedPropertyCode   | 17    | 0.0484%    |
-| bsdd:countryOfOrigin         | 12727 | 36.2438%   |
-| bsdd:countryOfUse            | 12089 | 34.4269%   |
-| bsdd:creatorLanguageCode     | 12401 | 35.3154%   |
-| bsdd:dataType                | 33273 | 94.7544%   |
-| bsdd:definition              | 2772  | 7.8941%    |
-| bsdd:description             | 10132 | 28.8538%   |
-| bsdd:dimension               | 613   | 1.7457%    |
-| bsdd:documentReference       | 656   | 1.8681%    |
-| bsdd:example                 | 1084  | 3.0870%    |
-| bsdd:methodOfMeasurement     | 3     | 0.0085%    |
-| bsdd:name                    | 35115 | 100.0000%  |
-| bsdd:pattern                 | 2     | 0.0057%    |
-| bsdd:physicalQuantity        | 3802  | 10.8273%   |
-| bsdd:propertyValueKind       | 35115 | 100.0000%  |
-| bsdd:status                  | 35115 | 100.0000%  |
-| bsdd:subdivisionOfUse        | 3     | 0.0085%    |
-| bsdd:textFormat              | 1     | 0.0028%    |
-| bsdd:uid                     | 4075  | 11.6047%   |
-| bsdd:unit                    | 6073  | 17.2946%   |
-| bsdd:visualRepresentationUri | 2     | 0.0057%    |
+| field                        |     c | percentage |
+|------------------------------|------:|-----------:|
+| bsdd:allowedValue            |  5059 |   14.4069% |
+| bsdd:code                    | 35115 |  100.0000% |
+| bsdd:connectedPropertyCode   |    17 |    0.0484% |
+| bsdd:countryOfOrigin         | 12727 |   36.2438% |
+| bsdd:countryOfUse            | 12089 |   34.4269% |
+| bsdd:creatorLanguageCode     | 12401 |   35.3154% |
+| bsdd:dataType                | 33273 |   94.7544% |
+| bsdd:definition              |  2772 |    7.8941% |
+| bsdd:description             | 10132 |   28.8538% |
+| bsdd:dimension               |   613 |    1.7457% |
+| bsdd:documentReference       |   656 |    1.8681% |
+| bsdd:example                 |  1084 |    3.0870% |
+| bsdd:methodOfMeasurement     |     3 |    0.0085% |
+| bsdd:name                    | 35115 |  100.0000% |
+| bsdd:pattern                 |     2 |    0.0057% |
+| bsdd:physicalQuantity        |  3802 |   10.8273% |
+| bsdd:propertyValueKind       | 35115 |  100.0000% |
+| bsdd:status                  | 35115 |  100.0000% |
+| bsdd:subdivisionOfUse        |     3 |    0.0085% |
+| bsdd:textFormat              |     1 |    0.0028% |
+| bsdd:uid                     |  4075 |   11.6047% |
+| bsdd:unit                    |  6073 |   17.2946% |
+| bsdd:visualRepresentationUri |     2 |    0.0057% |
 
 ``` sparql
 PREFIX bsdd: <http://bsdd.buildingsmart.org/def#>
@@ -539,11 +557,11 @@ where {
 This shows the percentage of use of fields in PropertyValue (`allowedValues`).
 Note: we have merged the classes `PropertyValue` and `ClassificationPropertyValue` into one, because they have exactly the same structure.
 
-| field        | c      | Comments                                                   |
-|--------------|--------|------------------------------------------------------------|
+| field        |      c | Comments                                                   |
+|--------------|-------:|------------------------------------------------------------|
 | code         | 214122 | TODO: use this field in the URL                            |
-| description  | 3751   |                                                            |
-| namespaceUri | 24553  | TODO: In the rare cases when filled, use this field as URL |
+| description  |   3751 |                                                            |
+| namespaceUri |  24553 | TODO: In the rare cases when filled, use this field as URL |
 | value        | 214121 | Currently use this field in the URL                        |
 
 ``` sparql
@@ -572,13 +590,13 @@ Again, we see that some bSDD features are not really used.
 
 ### ClassificationType
 
-| type               | c     |
-|--------------------|-------|
+| type               |     c |
+|--------------------|------:|
 | CLASS              | 30792 |
-| COMPOSED_PROPERTY  | 387   |
-| DOMAIN             | 30    |
-| MATERIAL           | 493   |
-| REFERENCE_DOCUMENT | 18    |
+| COMPOSED_PROPERTY  |   387 |
+| DOMAIN             |    30 |
+| MATERIAL           |   493 |
+| REFERENCE_DOCUMENT |    18 |
 
 ``` sparql
 select ?type (count(*) as ?c)  {
@@ -601,12 +619,12 @@ However, the other values in the table above cannot be justified:
 
 We have listed all possible values in the table, and two of them are not used:
 
-| value        | c      |
-|--------------|--------|
-| COMPLEX      | 0      |
-| COMPLEX_LIST | 0      |
-| LIST         | 4837   |
-| RANGE        | 3490   |
+| value        |      c |
+|--------------|-------:|
+| COMPLEX      |      0 |
+| COMPLEX_LIST |      0 |
+| LIST         |   4837 |
+| RANGE        |   3490 |
 | SINGLE       | 103239 |
 
 ``` sparql
@@ -620,12 +638,12 @@ select ?value (count(?value) as ?c) {
 
 We have listed all possible values in the table, and two of them are not used:
 
-| value        | c     |
-|--------------|-------|
-| COMPLEX      | 0     |
-| COMPLEX_LIST | 0     |
-| LIST         | 1259  |
-| RANGE        | 820   |
+| value        |     c |
+|--------------|------:|
+| COMPLEX      |     0 |
+| COMPLEX_LIST |     0 |
+| LIST         |  1259 |
+| RANGE        |   820 |
 | SINGLE       | 33990 |
 
 ``` sparql
@@ -643,11 +661,11 @@ Breakdown of main entities by status.
 -   We also noticed that some Domains lack any value!
 
 | status   | Classification | ClassificationProperty | Domain | Property |
-|----------|----------------|------------------------|--------|----------|
-| Active   | 22543          | 107746                 | 52     | 34627    |
-| Preview  | 9176           | 3819                   | 45     | 1441     |
-| Inactive | 1              | 1                      | 1      | 1        |
-| NONE     |                |                        | 10     |          |
+|----------|---------------:|-----------------------:|-------:|---------:|
+| Active   |          22543 |                 107746 |     52 |    34627 |
+| Preview  |           9176 |                   3819 |     45 |     1441 |
+| Inactive |              1 |                      1 |      1 |        1 |
+| NONE     |                |                        |     10 |          |
 
 We used this query, but then changed the table to 2-dimensional:
 
@@ -661,10 +679,10 @@ select ?type ?status (count(*) as ?c) {
 
 Dynamic properties are interesting because they are calculated from other properties:
 
-| isDynamic | c      |
-|-----------|--------|
+| isDynamic |      c |
+|-----------|-------:|
 | false     | 135250 |
-| true      | 12385  |
+| true      |  12385 |
 
 ``` sparql
 select (count(*) as ?c) ?isDynamic where {
@@ -682,10 +700,10 @@ Most Properties don\'t have such characteristic.
 We don\'t think the default is `false`, which means that the field is badly under-specified.
 
 |       | ClassificationProperty | Property |
-|-------|------------------------|----------|
-| false | 4                      |          |
-| true  | 1653                   |          |
-| UNDEF | 109909                 | 36069    |
+|-------|-----------------------:|---------:|
+| false |                      4 |          |
+| true  |                   1653 |          |
+| UNDEF |                 109909 |    36069 |
 
 We used this query, but then made a 2-dimensional table:
 
@@ -705,10 +723,10 @@ Similar to the previous section, most Properties don\'t have such characteristic
 But maybe here `false` is a suitable default.
 
 |       | ClassificationProperty | Property |
-|-------|------------------------|----------|
-| false | 2                      |          |
-| true  | 1667                   |          |
-| UNDEF | 109897                 | 36069    |
+|-------|-----------------------:|---------:|
+| false |                      2 |          |
+| true  |                   1667 |          |
+| UNDEF |                 109897 |    36069 |
 
 We used this query, but then made a 2-dimensional table:
 
@@ -725,18 +743,18 @@ select ?type ?isRequired (count(*) as ?c) {
 
 Let\'s find all domains that have `isWritable` and `isRequired` `Properties`, and count such properties:
 
-| domain                                                             | domainName                            | c    |
-|--------------------------------------------------------------------|---------------------------------------|------|
+| domain                                                             | domainName                            |    c |
+|--------------------------------------------------------------------|---------------------------------------|-----:|
 | <https://identifier.buildingsmart.org/uri/bimeta/bimeta-1.0>       | Bauteiltypen nach DIN 276+x (geprüft) | 1615 |
-| <https://identifier.buildingsmart.org/uri/bs-agri/fruitvegs-1.0>   | Fruit and vegetables                  | 5    |
-| <https://identifier.buildingsmart.org/uri/bs-agri/fruitvegs-1.1>   | Fruit and vegetables                  | 5    |
-| <https://identifier.buildingsmart.org/uri/v5/fruitvegs-1.0>        | Fruit and vegetables                  | 5    |
-| <https://identifier.buildingsmart.org/uri/v5/fruitvegs-v5-5.0>     | Fruit and vegetables                  | 5    |
-| <https://identifier.buildingsmart.org/uri/acca/LCCrg-1.0>          | LCC_RG                                | 4    |
-| <https://identifier.buildingsmart.org/uri/limlab/PN001-1.1>        | Ponti_ClassificazioneDegrado          | 2    |
-| <https://identifier.buildingsmart.org/uri/alma/TestMaterial-0.4>   | TestMaterial                          | 1    |
-| <https://identifier.buildingsmart.org/uri/alma/TestMaterial-0.5>   | TestMaterial                          | 1    |
-| <https://identifier.buildingsmart.org/uri/uniweimar/uniweimar-0.1> | Uniweimar                             | 8    |
+| <https://identifier.buildingsmart.org/uri/bs-agri/fruitvegs-1.0>   | Fruit and vegetables                  |    5 |
+| <https://identifier.buildingsmart.org/uri/bs-agri/fruitvegs-1.1>   | Fruit and vegetables                  |    5 |
+| <https://identifier.buildingsmart.org/uri/v5/fruitvegs-1.0>        | Fruit and vegetables                  |    5 |
+| <https://identifier.buildingsmart.org/uri/v5/fruitvegs-v5-5.0>     | Fruit and vegetables                  |    5 |
+| <https://identifier.buildingsmart.org/uri/acca/LCCrg-1.0>          | LCC_RG                                |    4 |
+| <https://identifier.buildingsmart.org/uri/limlab/PN001-1.1>        | Ponti_ClassificazioneDegrado          |    2 |
+| <https://identifier.buildingsmart.org/uri/alma/TestMaterial-0.4>   | TestMaterial                          |    1 |
+| <https://identifier.buildingsmart.org/uri/alma/TestMaterial-0.5>   | TestMaterial                          |    1 |
+| <https://identifier.buildingsmart.org/uri/uniweimar/uniweimar-0.1> | Uniweimar                             |    8 |
 
 ``` sparql
 select ?domain ?domainName (count(*) as ?c) {
@@ -791,7 +809,10 @@ curl -Haccept:text/turtle https://identifier.buildingsmart.org/uri/fvhf/vhf-0.00
 We selected entities of each class that have the maximum number of filled fields, and compared the results returned by each API.
 We found a number of detailed differences, as presented in the [bSDD data analysis](https://docs.google.com/spreadsheets/d/1z_NRMlExlVuqWhBbSErQ9iiDBY4O_fKMd3avV3-NCmo/edit) spreadsheet:
 
-![Differences between bSDD GraphQL, JSON and RDF Data](./img/bsdd-data-analysis-sheet.png){#fig:bsdd-data-analysis-sheet}
+<figure id="fig:bsdd-data-analysis-sheet">
+<img src="./img/bsdd-data-analysis-sheet.png" />
+<figcaption>Differences between bSDD GraphQL, JSON and RDF Data</figcaption>
+</figure>
 
 There are differences and omissions in some of the formats, as summarized in the table below.
 
@@ -924,12 +945,18 @@ Note: to pretty-print the JSON, add this to the end of the command: `| jq .`
 The same URL can be used to get a static web page in the browser:
 <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegmentCABLESEGMENT>
 
-![CableSegment enity as displayed at the bSDD web site](./img/IFC-class-cableSegment-web.png){#fig:IFC-class-cableSegment-web}
+<figure id="fig:IFC-class-cableSegment-web">
+<img src="./img/IFC-class-cableSegment-web.png" />
+<figcaption>CableSegment enity as displayed at the bSDD web site</figcaption>
+</figure>
 
 However, the interactive [bSDD Search](https://search.bsdd.buildingsmart.org) UI uses a different URL that returns slightly different information:
 <https://search.bsdd.buildingsmart.org/Classification/Index/58453>
 
-![CableSegment as displayed at the bSDD search site](./img/IFC-class-cableSegment-search.png){#fig:IFC-class-cableSegment-search}
+<figure id="fig:IFC-class-cableSegment-search">
+<img src="./img/IFC-class-cableSegment-search.png" />
+<figcaption>CableSegment as displayed at the bSDD search site</figcaption>
+</figure>
 
 There is not really a need for two different web pages showing nearly the same info.
 We think that with some modest change in technology, the Search UI can use the first (semantic) URL immediately instead of an internal (non-semantic) `Index/` URL.
@@ -981,7 +1008,7 @@ bSDD includes multiple versions of some domains.
 For example, here are all `ACCAtest` domain versions:
 
 | dom                                                           | ver  |
-|---------------------------------------------------------------|------|
+|---------------------------------------------------------------|:-----|
 | <https://identifier.buildingsmart.org/uri/acca/ACCAtest-0.1>  | 0.1  |
 | <https://identifier.buildingsmart.org/uri/acca/ACCAtest-0.35> | 0.35 |
 | <https://identifier.buildingsmart.org/uri/acca/ACCAtest-0.40> | 0.40 |
@@ -1040,13 +1067,13 @@ select (count(*) as ?c) ?type where {
 
 Here are the results, and we see that some `classificationType` overlap with predefined entity types:
 
-| c     | type                   | overlaps with       |
-|-------|------------------------|---------------------|
+|     c | type                   | overlaps with       |
+|------:|------------------------|---------------------|
 | 29434 | \"CLASS\"              | ok                  |
-| 489   | \"MATERIAL\"           | ok                  |
-| 387   | \"COMPOSED_PROPERTY\"  | see next section    |
-| 29    | \"DOMAIN\"             | `Domain`            |
-| 18    | \"REFERENCE_DOCUMENT\" | `ReferenceDocument` |
+|   489 | \"MATERIAL\"           | ok                  |
+|   387 | \"COMPOSED_PROPERTY\"  | see next section    |
+|    29 | \"DOMAIN\"             | `Domain`            |
+|    18 | \"REFERENCE_DOCUMENT\" | `ReferenceDocument` |
 
 We can examine some of these unusual classifications with this query:
 
@@ -1077,7 +1104,7 @@ select ?code ?name ?type where {
 ```
 
 | code  | name                  | type   |
-|-------|-----------------------|--------|
+|:------|-----------------------|--------|
 | 06    | Bridge Superstructure | DOMAIN |
 | 06.01 | Bearing               | CLASS  |
 | 06.02 | Curb                  | CLASS  |
@@ -2355,41 +2382,41 @@ Its structure is very similar to the original one, with empty blank nodes in var
 @prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
 @prefix xyz:  <http://sparql.xyz/facade-x/data/> .
 
-[ rdf:type                    fx:root ;
-  bsdd:__typename             "Classification" ;
-  bsdd:activationDateUtc      "2022-12-31T00:00:00" ;
-  bsdd:classificationType     "CLASS" ;
-  bsdd:code                   "IfcCableSegment" ;
-  bsdd:definition             "A cable segment is a flow segment used to carry electrical power, data, or telecommunications signals..." ;
-  bsdd:name                   "IfcCableSegment" ;
-  bsdd:namespaceUri           "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment" ;
+[ rdf:type                   fx:root ;
+  bsdd:__typename            "Classification" ;
+  bsdd:activationDateUtc     "2022-12-31T00:00:00" ;
+  bsdd:classificationType    "CLASS" ;
+  bsdd:code                  "IfcCableSegment" ;
+  bsdd:definition            "A cable segment is a flow segment used to carry electrical power, data, or telecommunications signals..." ;
+  bsdd:name                  "IfcCableSegment" ;
+  bsdd:namespaceUri          "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment" ;
   bsdd:properties [
     rdfs:member  [
-    bsdd:__typename         "ClassificationProperty" ;
-    bsdd:activationDateUtc  "2022-12-31T00:00:00" ;
+    bsdd:__typename          "ClassificationProperty" ;
+    bsdd:activationDateUtc   "2022-12-31T00:00:00" ;
     bsdd:allowedValues [
       rdfs:member  [
-      bsdd:__typename  "ClassificationPropertyValue" ;
-      bsdd:code        "BELOWCEILING" ;
-      bsdd:value       "BELOWCEILING"
+      bsdd:__typename        "ClassificationPropertyValue" ;
+      bsdd:code              "BELOWCEILING" ;
+      bsdd:value             "BELOWCEILING"
     ]] ;
-    bsdd:code               "InstallationMethodFlagEnum" ;
-    bsdd:dataType           "String" ;
-    bsdd:description        "Special installation conditions relating to particular types of installation based on IEC60364-5-52:2001 reference installation methods C and D." ;
-    bsdd:isDynamic          false ;
-    bsdd:name               "InstallationMethodFlagEnum" ;
-    bsdd:namespaceUri       "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/InstallationMethodFlagEnum" ;
-    bsdd:propertySet        "Pset_CableSegmentOccurrence" ;
-    bsdd:propertyValueKind  "SINGLE" ;
-    bsdd:status             "Active" ;
-    bsdd:versionDateUtc     "2022-12-31T00:00:00"
+    bsdd:code                "InstallationMethodFlagEnum" ;
+    bsdd:dataType            "String" ;
+    bsdd:description         "Special installation conditions relating to particular types of installation based on IEC60364-5-52:2001 reference installation methods C and D." ;
+    bsdd:isDynamic           false ;
+    bsdd:name                "InstallationMethodFlagEnum" ;
+    bsdd:namespaceUri        "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/InstallationMethodFlagEnum" ;
+    bsdd:propertySet         "Pset_CableSegmentOccurrence" ;
+    bsdd:propertyValueKind   "SINGLE" ;
+    bsdd:status              "Active" ;
+    bsdd:versionDateUtc      "2022-12-31T00:00:00"
   ]] ;
-  bsdd:referenceCode          "IfcCableSegment" ;
-  bsdd:relatedIfcEntityNames  []  ;
-  bsdd:relations              []  ;
-  bsdd:status                 "Preview" ;
-  bsdd:synonyms               []  ;
-  bsdd:versionDateUtc         "2022-12-31T00:00:00"
+  bsdd:referenceCode         "IfcCableSegment" ;
+  bsdd:relatedIfcEntityNames []  ;
+  bsdd:relations             []  ;
+  bsdd:status                "Preview" ;
+  bsdd:synonyms              []  ;
+  bsdd:versionDateUtc        "2022-12-31T00:00:00"
 ] .
 ```
 
@@ -2563,7 +2590,10 @@ The difference between the two SOML schemas is not so huge:
 diff -wu1000 bsdd-graphql-soml-orig.yaml bsdd-graphql-soml-refact.yaml > bsdd-graphql-soml.patch
 ```
 
-![Typical differences between the Original GraphQL schema (red) and the Refactored schema (green)](./img/bsdd-graphql-soml-diff.png){#fig:bsdd-graphql-soml-diff}
+<figure id="fig:bsdd-graphql-soml-diff">
+<img src="./img/bsdd-graphql-soml-diff.png" />
+<figcaption>Typical differences between the Original GraphQL schema (red) and the Refactored schema (green)</figcaption>
+</figure>
 
 We explain the differences seen in this figure:
 
@@ -2898,14 +2928,20 @@ Note: if you have a user account, you can enlarge \"Maximum links to show\" in S
 
 [This visualization](https://bsdd.ontotext.com/graphdb/graphs-visualizations?config=2dc02fd322a646879505aafde547375a) shows classifications of type \"COMPOSED_PROPERTY\" that serve as a container of related properties.
 
-![\"COMPOSED_PROPERTY\" Classifications](./img/viz-ClassCOMPOSED_PROPERTY.png){#fig:viz-ClassCOMPOSED_PROPERTY}
+<figure id="fig:viz-ClassCOMPOSED_PROPERTY">
+<img src="./img/viz-ClassCOMPOSED_PROPERTY.png" />
+<figcaption>"COMPOSED_PROPERTY" Classifications</figcaption>
+</figure>
 
 ### \"DOMAIN\" Classifications
 
 [This visualization](https://bsdd.ontotext.com/graphdb/graphs-visualizations?config=7ecb0edaf0874c0aa81f2f0eb953b8ee) shows classifications of type \"DOMAIN\" that serve as a \"sub-domain\" of Classifications.
 Expanding a node shows its ClassificationProperties.
 
-![\"DOMAIN\" Classifications](./img/viz-ClassDOMAIN.png){#fig:viz-ClassDOMAIN}
+<figure id="fig:viz-ClassDOMAIN">
+<img src="./img/viz-ClassDOMAIN.png" />
+<figcaption>"DOMAIN" Classifications</figcaption>
+</figure>
 
 ### Classification Relations
 
@@ -2913,14 +2949,20 @@ Expanding a node shows its ClassificationProperties.
 It shows a number of French classes relating to `Space, Slab, Covering`.
 (Please note that another cluster that has \"class\" in the middle is due to data quality problems in BSDD.)
 
-![Classification Relations](./img/viz-ClassRel.png){#fig:viz-ClassRel}
+<figure id="fig:viz-ClassRel">
+<img src="./img/viz-ClassRel.png" />
+<figcaption>Classification Relations</figcaption>
+</figure>
 
 ### Multivalued propSets
 
 `propSet` is expected to be single-valued by the GraphQL schema, but in fact there are some multi-valued occurrences.
 [This visualization](https://bsdd.ontotext.com/graphdb/graphs-visualizations?config=fa3b8af3bc114b9b9046f9ceb11246f7) looks for such cases (e.g. see this [saved visual graph](https://bsdd.ontotext.com/graphdb/graphs-visualizations?saved=56b5379edeeb4a1a80790e9011d8e264)).
 
-![Multivalued propSet, showing domain (purple), class (yellow), prop (red), set (blue)](./img/viz-multivaluedPropSet.png){#fig:viz-multivaluedPropSet}
+<figure id="fig:viz-multivaluedPropSet">
+<img src="./img/viz-multivaluedPropSet.png" />
+<figcaption>Multivalued propSet, showing domain (purple), class (yellow), prop (red), set (blue)</figcaption>
+</figure>
 
 # Acknowledgements
 

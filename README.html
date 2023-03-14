@@ -465,7 +465,7 @@ We used it to investigate the original bSDD schema:
 </p>
 
 
-<div id="org929bec2" class="figure">
+<div id="orgd66a82e" class="figure">
 <p><img src="./img/bsdd-graphql-voyager-overview.png" alt="bsdd-graphql-voyager-overview.png" />
 </p>
 <p><span class="figure-number">Figure 1: </span>Original bSDD GraphQL Schema: Overview (uncheck "Show leaf fields")</p>
@@ -503,7 +503,7 @@ We can also look at details of the schema:
 </p>
 
 
-<div id="org0b85f89" class="figure">
+<div id="org11498e6" class="figure">
 <p><img src="./img/bsdd-graphql-voyager-Classification-ClassificationProperty.png" alt="bsdd-graphql-voyager-Classification-ClassificationProperty.png" />
 </p>
 <p><span class="figure-number">Figure 2: </span>Original bSDD GraphQL Schema: Detail of Classification and ClassificationProperty</p>
@@ -564,7 +564,7 @@ that allows you to explore the refactored schema.
 </p>
 
 
-<div id="org78446b3" class="figure">
+<div id="org713c7af" class="figure">
 <p><img src="./img/bsdd-graphql-voyager-refact-overview.png" alt="bsdd-graphql-voyager-refact-overview.png" />
 </p>
 <p><span class="figure-number">Figure 3: </span>Refactored bSDD GraphQL Schema: Overview (uncheck "Show leaf fields")</p>
@@ -606,7 +606,7 @@ and strings fields like <code>propertyNamespaceUri</code> are converted to objec
 </p>
 
 
-<div id="org65df441" class="figure">
+<div id="org5172a1b" class="figure">
 <p><img src="./img/bsdd-graphql-voyager-refact-Classification-ClassificationProperty.png" alt="bsdd-graphql-voyager-refact-Classification-ClassificationProperty.png" />
 </p>
 <p><span class="figure-number">Figure 4: </span>Refactored bSDD GraphQL Schema: Detail of Classification and ClassificationProperty</p>
@@ -622,7 +622,7 @@ and strings fields like <code>propertyNamespaceUri</code> are converted to objec
 </p>
 
 
-<div id="org59d20c1" class="figure">
+<div id="org8c30608" class="figure">
 <p><img src="./img/graphiql-orig.png" alt="graphiql-orig.png" />
 </p>
 <p><span class="figure-number">Figure 5: </span>GraphiQL Querying of Original bSDD Endpoint</p>
@@ -651,7 +651,7 @@ It provides a number of useful features:
 </p>
 
 
-<div id="org180b12f" class="figure">
+<div id="org48894b9" class="figure">
 <p><img src="./img/graphiql-refact.png" alt="graphiql-refact.png" />
 </p>
 <p><span class="figure-number">Figure 6: </span>GraphiQL Querying of Refactored bSDD Endpoint</p>
@@ -1024,7 +1024,7 @@ The distribution of number of Classifications per domain is as follows:
 <p>
 Domains with no classifications:
 </p>
-<pre class="example">
+<pre class="example" id="org3c4b2d2">
 http://identifier.buildingsmart.org/uri/spr/spr-cfhios-0.1
 https://identifier.buildingsmart.org/uri/ArcDox/ArcDox-1.0
 https://identifier.buildingsmart.org/uri/BBRI/BBRI-0.1
@@ -1042,7 +1042,7 @@ https://identifier.buildingsmart.org/uri/ifcrail/ifcrail-0.1
 <p>
 One domain has more than 5000 classifications, but returns only 5000 due to lack of pagination in the GraphQL API:
 </p>
-<pre class="example">
+<pre class="example" id="org46a3a72">
 https://identifier.buildingsmart.org/uri/nbs/uniclass2015-1
 </pre>
 </div>
@@ -2072,32 +2072,32 @@ We don't think the default is <code>false</code>, which means that the field is 
 
 <col  class="org-right" />
 
-<col  class="org-left" />
+<col  class="org-right" />
 </colgroup>
 <thead>
 <tr>
 <th scope="col" class="org-left">&#xa0;</th>
 <th scope="col" class="org-right">ClassificationProperty</th>
-<th scope="col" class="org-left">Property</th>
+<th scope="col" class="org-right">Property</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="org-left">false</td>
 <td class="org-right">4</td>
-<td class="org-left">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
 </tr>
 
 <tr>
 <td class="org-left">true</td>
 <td class="org-right">1653</td>
-<td class="org-left">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
 </tr>
 
 <tr>
 <td class="org-left">UNDEF</td>
 <td class="org-right">109909</td>
-<td class="org-left">36069</td>
+<td class="org-right">36069</td>
 </tr>
 </tbody>
 </table>
@@ -2132,32 +2132,32 @@ But maybe here <code>false</code> is a suitable default.
 
 <col  class="org-right" />
 
-<col  class="org-left" />
+<col  class="org-right" />
 </colgroup>
 <thead>
 <tr>
 <th scope="col" class="org-left">&#xa0;</th>
 <th scope="col" class="org-right">ClassificationProperty</th>
-<th scope="col" class="org-left">Property</th>
+<th scope="col" class="org-right">Property</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="org-left">false</td>
 <td class="org-right">2</td>
-<td class="org-left">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
 </tr>
 
 <tr>
 <td class="org-left">true</td>
 <td class="org-right">1667</td>
-<td class="org-left">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
 </tr>
 
 <tr>
 <td class="org-left">UNDEF</td>
 <td class="org-right">109897</td>
-<td class="org-left">36069</td>
+<td class="org-right">36069</td>
 </tr>
 </tbody>
 </table>
@@ -2336,7 +2336,7 @@ We found a number of detailed differences, as presented in the <a href="https://
 </p>
 
 
-<div id="orgfb83e10" class="figure">
+<div id="orgaa0b9db" class="figure">
 <p><img src="./img/bsdd-data-analysis-sheet.png" alt="bsdd-data-analysis-sheet.png" />
 </p>
 <p><span class="figure-number">Figure 7: </span>Differences between bSDD GraphQL, JSON and RDF Data</p>
@@ -2442,9 +2442,9 @@ Illustrations of the points above:
 <li>(1) GraphQL field <code>childs</code> appears when one queries for <code>classification (namespaceUri:"...", includeChilds:true)</code>.
 It includes a list of children classifications but with simple properties only.</li>
 </ul>
-<pre class="example">
-{
-  classification(namespaceUri: "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall", includeChilds: true) {
+<div class="org-src-container">
+<pre class="src src-graphql">{
+  classification(namespaceUri: <span style="color: #8b2252;">"https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall"</span>, includeChilds: <span style="color: #008b8b;">true</span>) {
     name
     code
     namespaceUri
@@ -2455,6 +2455,7 @@ It includes a list of children classifications but with simple properties only.<
   }
 }
 </pre>
+</div>
 <p>
 results in
 </p>
@@ -2562,10 +2563,11 @@ curl -s -H Accept:text/turtle  https://identifier.buildingsmart.org/uri/bs-agri/
 <p>
 bSDD has implemented "entity URLs", i.e. for each kind of entity it can return its data in JSON or RDF:
 </p>
-<pre class="example">
-curl -s                      https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegmentCABLESEGMENT
+<div class="org-src-container">
+<pre class="src src-sh">curl -s                      https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegmentCABLESEGMENT
 curl -s -Haccept:text/turtle https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegmentCABLESEGMENT
 </pre>
+</div>
 <p>
 Note: to pretty-print the JSON, add this to the end of the command: <code>| jq .</code>
 </p>
@@ -2576,7 +2578,7 @@ The same URL can be used to get a static web page in the browser:
 </p>
 
 
-<div id="org0a7b6df" class="figure">
+<div id="orgbd4baea" class="figure">
 <p><img src="./img/IFC-class-cableSegment-web.png" alt="IFC-class-cableSegment-web.png" />
 </p>
 <p><span class="figure-number">Figure 8: </span>CableSegment enity as displayed at the bSDD web site</p>
@@ -2588,7 +2590,7 @@ However, the interactive <a href="https://search.bsdd.buildingsmart.org">bSDD Se
 </p>
 
 
-<div id="org5bd1567" class="figure">
+<div id="org623b04a" class="figure">
 <p><img src="./img/IFC-class-cableSegment-search.png" alt="IFC-class-cableSegment-search.png" />
 </p>
 <p><span class="figure-number">Figure 9: </span>CableSegment as displayed at the bSDD search site</p>
@@ -2615,7 +2617,7 @@ Proper bSDD domain URL design should take into account the following observation
 <li>Almost all domain URLs have the same structure: <code>https://identifier.buildingsmart.org/uri/&lt;org&gt;/&lt;domain&gt;-&lt;version&gt;</code>.
 There are only two exceptions:</li>
 </ul>
-<pre class="example">
+<pre class="example" id="org0491991">
 http://otl.amsterdam.nl
 http://rdf.vegdata.no/V440/v440-owl
 </pre>
@@ -2624,10 +2626,9 @@ The Linked Data Patterns book describes a pattern of <a href="https://patterns.d
 that make URLs more "hackable", allowing users to navigate the hierarchy by pruning the URI.
 bSDD URLs could become more hierarchical if they follow this structure:
 </p>
-<pre class="example">
+<pre class="example" id="org4da12fd">
 https://identifier.buildingsmart.org/uri/&lt;org&gt;/&lt;domain&gt;/&lt;version&gt;
 </pre>
-
 
 <p>
 Problems:
@@ -2644,7 +2645,7 @@ Problems:
 </ul></li>
 <li>A few domains use <code>http</code> whereas all others use <code>https</code>. All modern servers prefer <code>https</code> due to its better security.</li>
 </ul>
-<pre class="example">
+<pre class="example" id="orga153ef8">
 http://identifier.buildingsmart.org/uri/spr/spr-cfhios-0.1
 http://otl.amsterdam.nl
 http://rdf.vegdata.no/V440/v440-owl
@@ -2664,48 +2665,48 @@ For example, here are all <code>ACCAtest</code> domain versions:
 <colgroup>
 <col  class="org-left" />
 
-<col  class="org-right" />
+<col  class="org-left" />
 </colgroup>
 <thead>
 <tr>
 <th scope="col" class="org-left">dom</th>
-<th scope="col" class="org-right">ver</th>
+<th scope="col" class="org-left">ver</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="org-left"><a href="https://identifier.buildingsmart.org/uri/acca/ACCAtest-0.1">https://identifier.buildingsmart.org/uri/acca/ACCAtest-0.1</a></td>
-<td class="org-right">0.1</td>
+<td class="org-left">0.1</td>
 </tr>
 
 <tr>
 <td class="org-left"><a href="https://identifier.buildingsmart.org/uri/acca/ACCAtest-0.35">https://identifier.buildingsmart.org/uri/acca/ACCAtest-0.35</a></td>
-<td class="org-right">0.35</td>
+<td class="org-left">0.35</td>
 </tr>
 
 <tr>
 <td class="org-left"><a href="https://identifier.buildingsmart.org/uri/acca/ACCAtest-0.40">https://identifier.buildingsmart.org/uri/acca/ACCAtest-0.40</a></td>
-<td class="org-right">0.40</td>
+<td class="org-left">0.40</td>
 </tr>
 
 <tr>
 <td class="org-left"><a href="https://identifier.buildingsmart.org/uri/acca/ACCAtest-0.41">https://identifier.buildingsmart.org/uri/acca/ACCAtest-0.41</a></td>
-<td class="org-right">0.41</td>
+<td class="org-left">0.41</td>
 </tr>
 
 <tr>
 <td class="org-left"><a href="https://identifier.buildingsmart.org/uri/acca/ACCAtest-1.0">https://identifier.buildingsmart.org/uri/acca/ACCAtest-1.0</a></td>
-<td class="org-right">1.0</td>
+<td class="org-left">1.0</td>
 </tr>
 
 <tr>
 <td class="org-left"><a href="https://identifier.buildingsmart.org/uri/acca/ACCAtest-8.0">https://identifier.buildingsmart.org/uri/acca/ACCAtest-8.0</a></td>
-<td class="org-right">8.0</td>
+<td class="org-left">8.0</td>
 </tr>
 
 <tr>
 <td class="org-left"><a href="https://identifier.buildingsmart.org/uri/acca/ACCAtest-9.0">https://identifier.buildingsmart.org/uri/acca/ACCAtest-9.0</a></td>
-<td class="org-right">9.0</td>
+<td class="org-left">9.0</td>
 </tr>
 </tbody>
 </table>
@@ -2867,7 +2868,7 @@ But bSDD accommodates classification hierarchies, so why "Bridge Superstructure"
 
 
 <colgroup>
-<col  class="org-right" />
+<col  class="org-left" />
 
 <col  class="org-left" />
 
@@ -2875,92 +2876,92 @@ But bSDD accommodates classification hierarchies, so why "Bridge Superstructure"
 </colgroup>
 <thead>
 <tr>
-<th scope="col" class="org-right">code</th>
+<th scope="col" class="org-left">code</th>
 <th scope="col" class="org-left">name</th>
 <th scope="col" class="org-left">type</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="org-right">06</td>
+<td class="org-left">06</td>
 <td class="org-left">Bridge Superstructure</td>
 <td class="org-left">DOMAIN</td>
 </tr>
 
 <tr>
-<td class="org-right">06.01</td>
+<td class="org-left">06.01</td>
 <td class="org-left">Bearing</td>
 <td class="org-left">CLASS</td>
 </tr>
 
 <tr>
-<td class="org-right">06.02</td>
+<td class="org-left">06.02</td>
 <td class="org-left">Curb</td>
 <td class="org-left">CLASS</td>
 </tr>
 
 <tr>
-<td class="org-right">06.03</td>
+<td class="org-left">06.03</td>
 <td class="org-left">Deck</td>
 <td class="org-left">CLASS</td>
 </tr>
 
 <tr>
-<td class="org-right">06.04</td>
+<td class="org-left">06.04</td>
 <td class="org-left">Deck Drain</td>
 <td class="org-left">CLASS</td>
 </tr>
 
 <tr>
-<td class="org-right">06.05</td>
+<td class="org-left">06.05</td>
 <td class="org-left">Deck Joints</td>
 <td class="org-left">CLASS</td>
 </tr>
 
 <tr>
-<td class="org-right">06.06</td>
+<td class="org-left">06.06</td>
 <td class="org-left">Haunch</td>
 <td class="org-left">CLASS</td>
 </tr>
 
 <tr>
-<td class="org-right">06.07</td>
+<td class="org-left">06.07</td>
 <td class="org-left">Girder</td>
 <td class="org-left">CLASS</td>
 </tr>
 
 <tr>
-<td class="org-right">06.08</td>
+<td class="org-left">06.08</td>
 <td class="org-left">Median</td>
 <td class="org-left">CLASS</td>
 </tr>
 
 <tr>
-<td class="org-right">06.09</td>
+<td class="org-left">06.09</td>
 <td class="org-left">Parapet (Barrier)</td>
 <td class="org-left">CLASS</td>
 </tr>
 
 <tr>
-<td class="org-right">06.10</td>
+<td class="org-left">06.10</td>
 <td class="org-left">Railing</td>
 <td class="org-left">CLASS</td>
 </tr>
 
 <tr>
-<td class="org-right">06.11</td>
+<td class="org-left">06.11</td>
 <td class="org-left">Sidewalk</td>
 <td class="org-left">CLASS</td>
 </tr>
 
 <tr>
-<td class="org-right">06.12</td>
+<td class="org-left">06.12</td>
 <td class="org-left">Sound Wall (Barrier)</td>
 <td class="org-left">CLASS</td>
 </tr>
 
 <tr>
-<td class="org-right">06.13</td>
+<td class="org-left">06.13</td>
 <td class="org-left">Transverse Member</td>
 <td class="org-left">CLASS</td>
 </tr>
@@ -2986,12 +2987,13 @@ The same URL is overloaded to identify entities of both classes.
 <code>ClassificationProperty</code> are thus "second class" entities and are not returned separately by the JSON or RDF entity API,
 but only as part of the respective <code>Classification</code>:
 </p>
-<pre class="example">
-curl https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegmentCABLESEGMENT/ACResistance
-{"":["Classification with namespace URI
- 'https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegmentCABLESEGMENT/ACResistance'
-  not found"]}
+<div class="org-src-container">
+<pre class="src src-sh">curl https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegmentCABLESEGMENT/ACResistance
+{<span style="color: #8b2252;">""</span>:[<span style="color: #8b2252;">"Classification with namespace URI</span>
+<span style="color: #8b2252;"> 'https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegmentCABLESEGMENT/ACResistance'</span>
+<span style="color: #8b2252;">  not found"</span>]}
 </pre>
+</div>
 
 <p>
 <code>ClassificationProperty</code> is identified only in RDF since this format forces one to use different identities for different nodes:
@@ -3255,7 +3257,7 @@ We can see the properties comprising this "COMPOSED_PROPERTY" by using the link 
 <div class="outline-text-4" id="text-modeling-of-dynamic-properties">
 <p>
 12385 <code>Properties</code> are declared as <code>isDynamic</code> (135250 are not).
-However, the field <code>dynamicParameterPropertyCode</code> is always empty, so one 
+However, the field <code>dynamicParameterPropertyCode</code> is always empty, so one
 </p>
 <div class="org-src-container">
 <pre class="src src-sparql"><span style="color: #a020f0;">select</span> * {
@@ -4256,7 +4258,7 @@ Examples where this happens (not a comprehensive list):
 <li><code>bsdd:description</code> that is an enumeration. Should be expressed as <code>allowedValues</code>. e.g. in <a href="https://identifier.buildingsmart.org/uri/engisis/RFI-02/prop/S25750_0010">https://identifier.buildingsmart.org/uri/engisis/RFI-02/prop/S25750_0010</a>:</li>
 </ul>
 
-<pre class="example">
+<pre class="example" id="orgacd39ba">
 "EL=Elettronica,
 SE=Semi-elettronica,
 EM=Elettromeccanica,
@@ -4424,7 +4426,7 @@ There are Unicode problems in some <code>bsdd:description</code>.
 E.g. in <a href="https://identifier.buildingsmart.org/uri/buildingsmart-de/bSDTLS-1/prop/02-02-01-010">https://identifier.buildingsmart.org/uri/buildingsmart-de/bSDTLS-1/prop/02-02-01-010</a> :
 </p>
 
-<pre class="example">
+<pre class="example" id="org8360f3c">
 "Zeit der m�glichen Verarbeitung vor Aush�rtung in [min] bei +23�C und 50% rel. Luftfeuchtigkeit
 "
 </pre>
@@ -4446,7 +4448,7 @@ There are unresolved HTML entities (encoded chars).
 E.g. in <a href="https://identifier.buildingsmart.org/uri/engisis/RFI-02/prop/S27300_0200">https://identifier.buildingsmart.org/uri/engisis/RFI-02/prop/S27300_0200</a>:
 </p>
 
-<pre class="example">
+<pre class="example" id="org17aa816">
 "(*)
 Pu&amp;#242; essere valorizzato un solo valore. SCIA = valorizzabile per le attivit&amp;#224; di tipo A o per le attivit&amp;#224; di tipo B o C nel caso in cui a seguito della valutazione favorevole del progetto si sia presentata la SCIA (ma non sia stato ancora rilasciato copia del verbale della visita tecnica dei VVF -attivit&amp;#224; di tipo A o B- o il CPI -attivit&amp;#224; ...".
 </pre>
@@ -4794,41 +4796,41 @@ Its structure is very similar to the original one, with empty blank nodes in var
 <span style="color: #a020f0;">@prefix</span> <span style="color: #228b22;">xsd:</span><span style="color: #008b8b;"> </span> <span style="color: #0000ff;">&lt;http://www.w3.org/2001/XMLSchema#&gt;</span><span style="color: #b22222;"> .</span>
 <span style="color: #a020f0;">@prefix</span> <span style="color: #228b22;">xyz:</span><span style="color: #008b8b;"> </span> <span style="color: #0000ff;">&lt;http://sparql.xyz/facade-x/data/&gt;</span> .
 
-[ <span style="color: #228b22;">rdf:</span><span style="color: #008b8b;">type</span>                    <span style="color: #228b22;">fx:</span><span style="color: #008b8b;">root</span> ;
-  <span style="color: #228b22;">bsdd:</span><span style="color: #008b8b;">__typename</span>             <span style="color: #8b2252;">"Classification"</span> ;
-  <span style="color: #228b22;">bsdd:</span><span style="color: #008b8b;">activationDateUtc</span>      <span style="color: #8b2252;">"2022-12-31T00:00:00"</span> ;
-  <span style="color: #228b22;">bsdd:</span><span style="color: #008b8b;">classificationType</span>     <span style="color: #8b2252;">"CLASS"</span> ;
-  <span style="color: #228b22;">bsdd:</span><span style="color: #008b8b;">code</span>                   <span style="color: #8b2252;">"IfcCableSegment"</span> ;
-  <span style="color: #228b22;">bsdd:</span><span style="color: #008b8b;">definition</span>             <span style="color: #8b2252;">"A cable segment is a flow segment used to carry electrical power, data, or telecommunications signals..."</span> ;
-  <span style="color: #228b22;">bsdd:</span><span style="color: #008b8b;">name</span>                   <span style="color: #8b2252;">"IfcCableSegment"</span> ;
-  <span style="color: #228b22;">bsdd:</span><span style="color: #008b8b;">namespaceUri</span>           <span style="color: #8b2252;">"https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment"</span> ;
+[ <span style="color: #228b22;">rdf:</span><span style="color: #008b8b;">type</span>                   <span style="color: #228b22;">fx:</span><span style="color: #008b8b;">root</span> ;
+  <span style="color: #228b22;">bsdd:</span><span style="color: #008b8b;">__typename</span>            <span style="color: #8b2252;">"Classification"</span> ;
+  <span style="color: #228b22;">bsdd:</span><span style="color: #008b8b;">activationDateUtc</span>     <span style="color: #8b2252;">"2022-12-31T00:00:00"</span> ;
+  <span style="color: #228b22;">bsdd:</span><span style="color: #008b8b;">classificationType</span>    <span style="color: #8b2252;">"CLASS"</span> ;
+  <span style="color: #228b22;">bsdd:</span><span style="color: #008b8b;">code</span>                  <span style="color: #8b2252;">"IfcCableSegment"</span> ;
+  <span style="color: #228b22;">bsdd:</span><span style="color: #008b8b;">definition</span>            <span style="color: #8b2252;">"A cable segment is a flow segment used to carry electrical power, data, or telecommunications signals..."</span> ;
+  <span style="color: #228b22;">bsdd:</span><span style="color: #008b8b;">name</span>                  <span style="color: #8b2252;">"IfcCableSegment"</span> ;
+  <span style="color: #228b22;">bsdd:</span><span style="color: #008b8b;">namespaceUri</span>          <span style="color: #8b2252;">"https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment"</span> ;
   <span style="color: #228b22;">bsdd:</span><span style="color: #008b8b;">properties</span> [
     <span style="color: #228b22;">rdfs:</span><span style="color: #008b8b;">member</span>  [
-    <span style="color: #228b22;">bsdd:</span><span style="color: #008b8b;">__typename</span>         <span style="color: #8b2252;">"ClassificationProperty"</span> ;
-    <span style="color: #228b22;">bsdd:</span><span style="color: #008b8b;">activationDateUtc</span>  <span style="color: #8b2252;">"2022-12-31T00:00:00"</span> ;
+    <span style="color: #228b22;">bsdd:</span><span style="color: #008b8b;">__typename</span>          <span style="color: #8b2252;">"ClassificationProperty"</span> ;
+    <span style="color: #228b22;">bsdd:</span><span style="color: #008b8b;">activationDateUtc</span>   <span style="color: #8b2252;">"2022-12-31T00:00:00"</span> ;
     <span style="color: #228b22;">bsdd:</span><span style="color: #008b8b;">allowedValues</span> [
       <span style="color: #228b22;">rdfs:</span><span style="color: #008b8b;">member</span>  [
-      <span style="color: #228b22;">bsdd:</span><span style="color: #008b8b;">__typename</span>  <span style="color: #8b2252;">"ClassificationPropertyValue"</span> ;
-      <span style="color: #228b22;">bsdd:</span><span style="color: #008b8b;">code</span>        <span style="color: #8b2252;">"BELOWCEILING"</span> ;
-      <span style="color: #228b22;">bsdd:</span><span style="color: #008b8b;">value</span>       <span style="color: #8b2252;">"BELOWCEILING"</span>
+      <span style="color: #228b22;">bsdd:</span><span style="color: #008b8b;">__typename</span>        <span style="color: #8b2252;">"ClassificationPropertyValue"</span> ;
+      <span style="color: #228b22;">bsdd:</span><span style="color: #008b8b;">code</span>              <span style="color: #8b2252;">"BELOWCEILING"</span> ;
+      <span style="color: #228b22;">bsdd:</span><span style="color: #008b8b;">value</span>             <span style="color: #8b2252;">"BELOWCEILING"</span>
     ]] ;
-    <span style="color: #228b22;">bsdd:</span><span style="color: #008b8b;">code</span>               <span style="color: #8b2252;">"InstallationMethodFlagEnum"</span> ;
-    <span style="color: #228b22;">bsdd:</span><span style="color: #008b8b;">dataType</span>           <span style="color: #8b2252;">"String"</span> ;
-    <span style="color: #228b22;">bsdd:</span><span style="color: #008b8b;">description</span>        <span style="color: #8b2252;">"Special installation conditions relating to particular types of installation based on IEC60364-5-52:2001 reference installation methods C and D."</span> ;
-    <span style="color: #228b22;">bsdd:</span><span style="color: #008b8b;">isDynamic</span>          false ;
-    <span style="color: #228b22;">bsdd:</span><span style="color: #008b8b;">name</span>               <span style="color: #8b2252;">"InstallationMethodFlagEnum"</span> ;
-    <span style="color: #228b22;">bsdd:</span><span style="color: #008b8b;">namespaceUri</span>       <span style="color: #8b2252;">"https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/InstallationMethodFlagEnum"</span> ;
-    <span style="color: #228b22;">bsdd:</span><span style="color: #008b8b;">propertySet</span>        <span style="color: #8b2252;">"Pset_CableSegmentOccurrence"</span> ;
-    <span style="color: #228b22;">bsdd:</span><span style="color: #008b8b;">propertyValueKind</span>  <span style="color: #8b2252;">"SINGLE"</span> ;
-    <span style="color: #228b22;">bsdd:</span><span style="color: #008b8b;">status</span>             <span style="color: #8b2252;">"Active"</span> ;
-    <span style="color: #228b22;">bsdd:</span><span style="color: #008b8b;">versionDateUtc</span>     <span style="color: #8b2252;">"2022-12-31T00:00:00"</span>
+    <span style="color: #228b22;">bsdd:</span><span style="color: #008b8b;">code</span>                <span style="color: #8b2252;">"InstallationMethodFlagEnum"</span> ;
+    <span style="color: #228b22;">bsdd:</span><span style="color: #008b8b;">dataType</span>            <span style="color: #8b2252;">"String"</span> ;
+    <span style="color: #228b22;">bsdd:</span><span style="color: #008b8b;">description</span>         <span style="color: #8b2252;">"Special installation conditions relating to particular types of installation based on IEC60364-5-52:2001 reference installation methods C and D."</span> ;
+    <span style="color: #228b22;">bsdd:</span><span style="color: #008b8b;">isDynamic</span>           false ;
+    <span style="color: #228b22;">bsdd:</span><span style="color: #008b8b;">name</span>                <span style="color: #8b2252;">"InstallationMethodFlagEnum"</span> ;
+    <span style="color: #228b22;">bsdd:</span><span style="color: #008b8b;">namespaceUri</span>        <span style="color: #8b2252;">"https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/InstallationMethodFlagEnum"</span> ;
+    <span style="color: #228b22;">bsdd:</span><span style="color: #008b8b;">propertySet</span>         <span style="color: #8b2252;">"Pset_CableSegmentOccurrence"</span> ;
+    <span style="color: #228b22;">bsdd:</span><span style="color: #008b8b;">propertyValueKind</span>   <span style="color: #8b2252;">"SINGLE"</span> ;
+    <span style="color: #228b22;">bsdd:</span><span style="color: #008b8b;">status</span>              <span style="color: #8b2252;">"Active"</span> ;
+    <span style="color: #228b22;">bsdd:</span><span style="color: #008b8b;">versionDateUtc</span>      <span style="color: #8b2252;">"2022-12-31T00:00:00"</span>
   ]] ;
-  <span style="color: #228b22;">bsdd:</span><span style="color: #008b8b;">referenceCode</span>          <span style="color: #8b2252;">"IfcCableSegment"</span> ;
-  <span style="color: #228b22;">bsdd:</span><span style="color: #008b8b;">relatedIfcEntityNames</span>  []  ;
-  <span style="color: #228b22;">bsdd:</span><span style="color: #008b8b;">relations</span>              []  ;
-  <span style="color: #228b22;">bsdd:</span><span style="color: #008b8b;">status</span>                 <span style="color: #8b2252;">"Preview"</span> ;
-  <span style="color: #228b22;">bsdd:</span><span style="color: #008b8b;">synonyms</span>               []  ;
-  <span style="color: #228b22;">bsdd:</span><span style="color: #008b8b;">versionDateUtc</span>         <span style="color: #8b2252;">"2022-12-31T00:00:00"</span>
+  <span style="color: #228b22;">bsdd:</span><span style="color: #008b8b;">referenceCode</span>         <span style="color: #8b2252;">"IfcCableSegment"</span> ;
+  <span style="color: #228b22;">bsdd:</span><span style="color: #008b8b;">relatedIfcEntityNames</span> []  ;
+  <span style="color: #228b22;">bsdd:</span><span style="color: #008b8b;">relations</span>             []  ;
+  <span style="color: #228b22;">bsdd:</span><span style="color: #008b8b;">status</span>                <span style="color: #8b2252;">"Preview"</span> ;
+  <span style="color: #228b22;">bsdd:</span><span style="color: #008b8b;">synonyms</span>              []  ;
+  <span style="color: #228b22;">bsdd:</span><span style="color: #008b8b;">versionDateUtc</span>        <span style="color: #8b2252;">"2022-12-31T00:00:00"</span>
 ] .
 </pre>
 </div>
@@ -5087,7 +5089,7 @@ The difference between the two SOML schemas is not so huge:
 </div>
 
 
-<div id="org3c507b5" class="figure">
+<div id="org73a791f" class="figure">
 <p><img src="./img/bsdd-graphql-soml-diff.png" alt="bsdd-graphql-soml-diff.png" />
 </p>
 <p><span class="figure-number">Figure 10: </span>Typical differences between the Original GraphQL schema (red) and the Refactored schema (green)</p>
@@ -5379,7 +5381,7 @@ We can easily find Classifications that have relations, then fetch data of their
       }
     }
   }
-}    
+}
 </pre>
 </div>
 <p>
@@ -5491,7 +5493,7 @@ Note: if you have a user account, you can enlarge "Maximum links to show" in Set
 </p>
 
 
-<div id="org475d44d" class="figure">
+<div id="org3e0b410" class="figure">
 <p><img src="./img/viz-ClassCOMPOSED_PROPERTY.png" alt="viz-ClassCOMPOSED_PROPERTY.png" />
 </p>
 <p><span class="figure-number">Figure 11: </span>"COMPOSED_PROPERTY" Classifications</p>
@@ -5508,7 +5510,7 @@ Expanding a node shows its ClassificationProperties.
 </p>
 
 
-<div id="orgd2c86f0" class="figure">
+<div id="org7c08710" class="figure">
 <p><img src="./img/viz-ClassDOMAIN.png" alt="viz-ClassDOMAIN.png" />
 </p>
 <p><span class="figure-number">Figure 12: </span>"DOMAIN" Classifications</p>
@@ -5526,7 +5528,7 @@ It shows a number of French classes relating to <code>Space, Slab, Covering</cod
 </p>
 
 
-<div id="orgf14c438" class="figure">
+<div id="org543eb83" class="figure">
 <p><img src="./img/viz-ClassRel.png" alt="viz-ClassRel.png" />
 </p>
 <p><span class="figure-number">Figure 13: </span>Classification Relations</p>
@@ -5543,7 +5545,7 @@ It shows a number of French classes relating to <code>Space, Slab, Covering</cod
 </p>
 
 
-<div id="orgb1d72f6" class="figure">
+<div id="org750c68a" class="figure">
 <p><img src="./img/viz-multivaluedPropSet.png" alt="viz-multivaluedPropSet.png" />
 </p>
 <p><span class="figure-number">Figure 14: </span>Multivalued propSet, showing domain (purple), class (yellow), prop (red), set (blue)</p>

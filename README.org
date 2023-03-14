@@ -1,11 +1,14 @@
 #+options: ':nil *:t -:t ::t <:t H:5 \n:nil ^:{} arch:headline author:t
 #+options: c:nil creator:nil d:(not "LOGBOOK") date:t e:t email:nil f:t
-#+options: inline:t num:t p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t
+#+options: inline:t p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t
 #+options: timestamp:nil title:t toc:5 todo:t |:t
-#+title: Semantic bSDD: Improving the GraphQL, JSON and RDF Representations of buildingSmart Data Dictionary
-#+date: <2023-02-28>
+#+startup: showeverything
+#+title: Semantic bSDD
+#+subtitle: Improving the GraphQL, JSON and RDF Representations of buildingSmart Data Dictionary
+#+date: <2023-03-14>
 #+author: Vladimir Alexiev, Mihail Radkov, Nataliya Keberle
 #+email: vladimir.alexiev@ontotext.com
+#+institute: Ontotext
 #+keywords: Linked building data, LBD, buildingSMART Data Dictionary, bSDD, FAIR data, data quality
 #+language: en
 #+select_tags: export
@@ -17,7 +20,6 @@
 * Table of Contents                                 :TOC:noexport:
 :PROPERTIES:
 :TOC:      :include all
-:CUSTOM_ID: table-of-contents
 :END:
 
 :CONTENTS:
@@ -313,9 +315,9 @@ It provides a number of useful features:
 :END:
 [[https://bsdd.ontotext.com/graphiql/]] is the refactored GraphQL endpoint:
 
-[[./img/graphiql-refact.png]]
 #+label: fig:graphiql-refact
 #+caption: GraphiQL Querying of Refactored bSDD Endpoint
+[[./img/graphiql-refact.png]]
 
 We have deployed a newer version of GraphiQL that has all benefits described in the previous section, and adds some more:
 - A hierarchical Explorer pane that shows the total schema structure and allows you to select fields by clicking rather than typing.
@@ -386,8 +388,9 @@ Description of all files in [[https://github.com/Accord-Project/bsdd]]:
 :END:
 Description of all endpoints that this project worked with and produced:
 - [[https://bsdd.ontotext.com]]: home page, includes all of these links
-- [[https://bsdd.ontotext.com/README.html]]: detailed description of the work we did (TODO from .org or .md?)
-- https://bsdd.ontotext.com/ TODO paper
+- [[https://bsdd.ontotext.com/README.html]]: detailed description of the work we did ([[https://github.com/Accord-Project/bsdd/issues/14][issue #14]]: make better version from .md instead of .org)
+- https://bsdd.ontotext.com/paper/paper.pdf: submitted to LDAC 2023
+- https://bsdd.ontotext.com/paper/presentation.pdf: TODO
 - [[https://test.bsdd.buildingsmart.org/graphql/]]: original GraphQL endpoint (protected)
 - [[https://test.bsdd.buildingsmart.org/graphiql/]]: original GraphQL query editor
 - [[https://rawgit2.com/Accord-Project/bsdd/main/bsdd-graphql-voyager-orig.html]]: original GraphQL schema visualization with Voyager
@@ -493,7 +496,7 @@ The distribution of number of Classifications per domain is as follows:
 |       1 |       5000 |     5000 | Has more than 5000, but returns only 5000 due to lack of pagination in the GraphQL API |
 
 Domains with no classifications:
-#+begin_src
+#+begin_example
 http://identifier.buildingsmart.org/uri/spr/spr-cfhios-0.1
 https://identifier.buildingsmart.org/uri/ArcDox/ArcDox-1.0
 https://identifier.buildingsmart.org/uri/BBRI/BBRI-0.1
@@ -506,12 +509,12 @@ https://identifier.buildingsmart.org/uri/csi/omniclass-1
 https://identifier.buildingsmart.org/uri/ethz/hosszu-0.1
 https://identifier.buildingsmart.org/uri/growingcircle/transsmart-0.1
 https://identifier.buildingsmart.org/uri/ifcrail/ifcrail-0.1
-#+end_src
+#+end_example
 
 One domain has more than 5000 classifications, but returns only 5000 due to lack of pagination in the GraphQL API:
-#+begin_src
+#+begin_example
 https://identifier.buildingsmart.org/uri/nbs/uniclass2015-1
-#+end_src
+#+end_example
 
 *** Fields Used
 :PROPERTIES:
@@ -905,9 +908,9 @@ curl -Haccept:text/turtle https://identifier.buildingsmart.org/uri/fvhf/vhf-0.00
 We selected entities of each class that have the maximum number of filled fields, and compared the results returned by each API.
 We found a number of detailed differences, as presented in the [[https://docs.google.com/spreadsheets/d/1z_NRMlExlVuqWhBbSErQ9iiDBY4O_fKMd3avV3-NCmo/edit][bSDD data analysis]] spreadsheet:
 
-[[./img/bsdd-data-analysis-sheet.png]]
 #+label: fig:bsdd-data-analysis-sheet
 #+caption: Differences between bSDD GraphQL, JSON and RDF Data
+[[./img/bsdd-data-analysis-sheet.png]]
 
 There are differences and omissions in some of the formats, as summarized in the table below.
 | Entity.field                          | GraphQL      | JSON API                                   | RDF API                | comment                                                                                                  |
@@ -924,7 +927,7 @@ There are differences and omissions in some of the formats, as summarized in the
 Illustrations of the points above:
 - (1) GraphQL field ~childs~ appears when one queries for ~classification (namespaceUri:"...", includeChilds:true)~.
   It includes a list of children classifications but with simple properties only.
-#+begin_src
+#+begin_src graphql
 {
   classification(namespaceUri: "https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall", includeChilds: true) {
     name
@@ -1019,7 +1022,7 @@ Property names should conform to naming conventions and be spelled consistently
 :CUSTOM_ID: use-the-same-url-for-data-and-for-web-pages
 :END:
 bSDD has implemented "entity URLs", i.e. for each kind of entity it can return its data in JSON or RDF:
-#+begin_src
+#+begin_src sh
 curl -s                      https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegmentCABLESEGMENT
 curl -s -Haccept:text/turtle https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegmentCABLESEGMENT
 #+end_src
@@ -1028,16 +1031,16 @@ Note: to pretty-print the JSON, add this to the end of the command: ~| jq .~
 The same URL can be used to get a static web page in the browser:
 https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegmentCABLESEGMENT
 
-[[./img/IFC-class-cableSegment-web.png]]
 #+label: fig:IFC-class-cableSegment-web
 #+caption: CableSegment enity as displayed at the bSDD web site
+[[./img/IFC-class-cableSegment-web.png]]
 
 However, the interactive [[https://search.bsdd.buildingsmart.org][bSDD Search]] UI uses a different URL that returns slightly different information:
 https://search.bsdd.buildingsmart.org/Classification/Index/58453
 
-[[./img/IFC-class-cableSegment-search.png]]
 #+label: fig:IFC-class-cableSegment-search
 #+caption: CableSegment as displayed at the bSDD search site
+[[./img/IFC-class-cableSegment-search.png]]
 
 There is not really a need for two different web pages showing nearly the same info.
 We think that with some modest change in technology, the Search UI can use the first (semantic) URL immediately instead of an internal (non-semantic) ~Index/~ URL.
@@ -1053,14 +1056,16 @@ Recommendations on ontology URI design, including versioning and opaque URIs to 
 Proper bSDD domain URL design should take into account the following observations:
 - Almost all domain URLs have the same structure: ~https://identifier.buildingsmart.org/uri/<org>/<domain>-<version>~.
   There are only two exceptions:
-#+begin_src
+#+begin_example
 http://otl.amsterdam.nl
 http://rdf.vegdata.no/V440/v440-owl
-#+end_src
+#+end_example
 The Linked Data Patterns book describes a pattern of [[https://patterns.dataincubator.org/book/hierarchical-uris.html][Hierarchical URIs]],
 that make URLs more "hackable", allowing users to navigate the hierarchy by pruning the URI.
 bSDD URLs could become more hierarchical if they follow this structure:
-: https://identifier.buildingsmart.org/uri/<org>/<domain>/<version>
+#+begin_example
+https://identifier.buildingsmart.org/uri/<org>/<domain>/<version>
+#+end_example
 
 Problems:
 - bSDD uses dash not slash to separate the versoion
@@ -1071,11 +1076,11 @@ Problems:
   - "digibase/nen2699": the publisher of this spec is NEN (the Netherlands standards organization), not the ~digibase~ company/initiative
   - "digibase/digibasebouwlagen": perhaps the org name ~digibase~ should not be repeated as the prefix of the domain ~bouwlagen~ (building layers)
 - A few domains use ~http~ whereas all others use ~https~. All modern servers prefer ~https~ due to its better security.
-#+begin_src
+#+begin_example
 http://identifier.buildingsmart.org/uri/spr/spr-cfhios-0.1
 http://otl.amsterdam.nl
 http://rdf.vegdata.no/V440/v440-owl
-#+end_src
+#+end_example
 
 *** Explicate Domain Versions
 :PROPERTIES:
@@ -1201,7 +1206,7 @@ We can posit (guess) two reasons for this structural problem:
 The same URL is overloaded to identify entities of both classes.
 ~ClassificationProperty~ are thus "second class" entities and are not returned separately by the JSON or RDF entity API,
 but only as part of the respective ~Classification~:
-#+begin_src
+#+begin_src sh
 curl https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegmentCABLESEGMENT/ACResistance
 {"":["Classification with namespace URI
  'https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegmentCABLESEGMENT/ACResistance'
@@ -1322,7 +1327,7 @@ select ?type ?code ?name ?def {
 :CUSTOM_ID: modeling-of-dynamic-properties
 :END:
 12385 ~Properties~ are declared as ~isDynamic~ (135250 are not).
-However, the field ~dynamicParameterPropertyCode~ is always empty, so one 
+However, the field ~dynamicParameterPropertyCode~ is always empty, so one
 #+begin_src sparql
 select * {
   ?prop bsdd:isDynamic true.
@@ -1349,7 +1354,7 @@ Problems related to this approach:
 Here is a list of all strings that are candidates to be converted to object properties (relations). ~[Foo]~ indicates an array (multivalued property):
 - ~connectedPropertyCodes~: should become ~[Property]~
 - ~countriesOfUse~: should become ~[Country]~
-- ~countryOfOrigin~: should become ~Country~ 
+- ~countryOfOrigin~: should become ~Country~
 - ~creatorLanguagecode~: should become ~Language~
 - ~documentReference~: unclear whether it should be a URL, a bibliographic reference, a title, or some other free text. Should become ~ReferenceDocument~
 - ~dynamicParameterPropertyCodes~: should become ~[Property]~
@@ -1982,7 +1987,7 @@ Examples where this happens (not a comprehensive list):
 - ~bsdd:dataType~ (eg "Real "): this is a crucially important key field that must be controlled.
 - ~bsdd:description~ that is an enumeration. Should be expressed as ~allowedValues~. e.g. in https://identifier.buildingsmart.org/uri/engisis/RFI-02/prop/S25750_0010:
 
-#+begin_src
+#+begin_example
 "EL=Elettronica,
 SE=Semi-elettronica,
 EM=Elettromeccanica,
@@ -1995,7 +2000,7 @@ SE=Centrale Telefonica Semi-Elettronica
 EMS= Centrale Telefonica Elettromeccanica CPS,
 STI=  Centrale STI (Sistema Telefonico Integrato)
 "
-#+end_src
+#+end_example
 
 The bSDD data entry or data ingest systems should have validations to prevent such whitespace.
 e.g. we could define SHACL rules to prevent such cases.
@@ -2101,10 +2106,10 @@ There are Unicode problems in some ~bsdd:description~.
 
 E.g. in https://identifier.buildingsmart.org/uri/buildingsmart-de/bSDTLS-1/prop/02-02-01-010 :
 
-#+begin_src 
+#+begin_example
 "Zeit der m�glichen Verarbeitung vor Aush�rtung in [min] bei +23�C und 50% rel. Luftfeuchtigkeit
 "
-#+end_src
+#+end_example
 
 (also has a trailing newline)
 
@@ -2116,10 +2121,10 @@ There are unresolved HTML entities (encoded chars).
 
 E.g. in https://identifier.buildingsmart.org/uri/engisis/RFI-02/prop/S27300_0200:
 
-#+begin_src 
+#+begin_example
 "(*)
 Pu&#242; essere valorizzato un solo valore. SCIA = valorizzabile per le attivit&#224; di tipo A o per le attivit&#224; di tipo B o C nel caso in cui a seguito della valutazione favorevole del progetto si sia presentata la SCIA (ma non sia stato ancora rilasciato copia del verbale della visita tecnica dei VVF -attivit&#224; di tipo A o B- o il CPI -attivit&#224; ...".
-#+end_src
+#+end_example
 
 *** Bad Classification Relations
 :PROPERTIES:
@@ -2610,9 +2615,9 @@ The difference between the two SOML schemas is not so huge:
 diff -wu1000 bsdd-graphql-soml-orig.yaml bsdd-graphql-soml-refact.yaml > bsdd-graphql-soml.patch
 #+end_src
 
-[[./img/bsdd-graphql-soml-diff.png]]
 #+label: fig:bsdd-graphql-soml-diff
 #+caption: Typical differences between the Original GraphQL schema (red) and the Refactored schema (green)
+[[./img/bsdd-graphql-soml-diff.png]]
 
 We explain the differences seen in this figure:
 - Field names in plural are changed to singular because the field cardinality (~max~) already specifies whether it's single-valued or multi-valued
@@ -2859,7 +2864,7 @@ query ClassificationRel {
       }
     }
   }
-}    
+}
 #+end_src
 Please note that for each relation, this returns both the original Classification we started from, and the target Classification.
 The reason is that the node ~ClassificationRelation~ has two ~related~ links:
@@ -2947,9 +2952,9 @@ Note: if you have a user account, you can enlarge "Maximum links to show" in Set
 :END:
 [[https://bsdd.ontotext.com/graphdb/graphs-visualizations?config=2dc02fd322a646879505aafde547375a][This visualization]] shows classifications of type "COMPOSED_PROPERTY" that serve as a container of related properties.
 
-[[./img/viz-ClassCOMPOSED_PROPERTY.png]]
 #+label: fig:viz-ClassCOMPOSED_PROPERTY
 #+caption: "COMPOSED_PROPERTY" Classifications
+[[./img/viz-ClassCOMPOSED_PROPERTY.png]]
 
 *** "DOMAIN" Classifications
 :PROPERTIES:
@@ -2958,9 +2963,9 @@ Note: if you have a user account, you can enlarge "Maximum links to show" in Set
 [[https://bsdd.ontotext.com/graphdb/graphs-visualizations?config=7ecb0edaf0874c0aa81f2f0eb953b8ee][This visualization]] shows classifications of type "DOMAIN" that serve as a "sub-domain" of Classifications.
 Expanding a node shows its ClassificationProperties.
 
-[[./img/viz-ClassDOMAIN.png]]
 #+label: fig:viz-ClassDOMAIN
 #+caption: "DOMAIN" Classifications
+[[./img/viz-ClassDOMAIN.png]]
 
 *** Classification Relations
 :PROPERTIES:
@@ -2970,9 +2975,9 @@ Expanding a node shows its ClassificationProperties.
 It shows a number of French classes relating to ~Space, Slab, Covering~.
 (Please note that another cluster that has "class" in the middle is due to data quality problems in BSDD.)
 
-[[./img/viz-ClassRel.png]]
 #+label: fig:viz-ClassRel
 #+caption: Classification Relations
+[[./img/viz-ClassRel.png]]
 
 *** Multivalued propSets
 :PROPERTIES:
@@ -2981,9 +2986,9 @@ It shows a number of French classes relating to ~Space, Slab, Covering~.
 ~propSet~ is expected to be single-valued by the GraphQL schema, but in fact there are some multi-valued occurrences.
 [[https://bsdd.ontotext.com/graphdb/graphs-visualizations?config=fa3b8af3bc114b9b9046f9ceb11246f7][This visualization]] looks for such cases (e.g. see this [[https://bsdd.ontotext.com/graphdb/graphs-visualizations?saved=56b5379edeeb4a1a80790e9011d8e264][saved visual graph]]).
 
-[[./img/viz-multivaluedPropSet.png]]
 #+label: fig:viz-multivaluedPropSet
 #+caption: Multivalued propSet, showing domain (purple), class (yellow), prop (red), set (blue)
+[[./img/viz-multivaluedPropSet.png]]
 
 * Acknowledgements
 :PROPERTIES:

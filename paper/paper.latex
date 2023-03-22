@@ -185,8 +185,7 @@ We conduct a thorough comparison and analysis of bSDD data related to
 fulfillment of FAIR (findable, accessible, interoperable, and reusable)
 principles. Based on this analysis, we suggest enhancements to make bSDD
 data better structured and more FAIR. 
-The complete list of suggestions can be found  
-\href{https://bsdd.ontotext.com/README.html}{online}.
+The complete list of suggestions can be found at https://bsdd.ontotext.com/README.html.
 We implement many of the suggestions by refactoring the original data to
 make it better structured/interconnected, and more ``semantic''. We
 provide a SPARQL endpoint using
@@ -630,7 +629,7 @@ to \textbf{provide an URL for all the Entities} in the bSDD schema.
 \subsection{Modelling Issues}\label{modelling-issues}}
 
 In addition to the technical recommendations above (to ease findability
-and accessibility of data in bSDD by improving URLs), we have noticed
+and accessibility of data in bSDD by improving URls), we have noticed
 several modelling issues:
 
 \begin{itemize}
@@ -716,7 +715,7 @@ be used for this purpose.
 
 We found also many data quality problems in bSDD, 
 but due to page limits we leave them out, see more details  
-\href{https://github.com/Accord-Project/bsdd#58-data-quality-problems}{online}.
+\href{https://bsdd.ontotext.com/README.html#data-quality-problems}{online}.
 
 
 \hypertarget{implementing-improvements}{%

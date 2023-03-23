@@ -39,6 +39,7 @@ header-includes: |
     .subtitle {font-weight: bold}
     .author {font-style: italic}
   </style>
+include-before: <div><img src='./img/SemBSDD-Logo-400px.png'/></div>
 ---
 
 The buildingSmart Data Dictionary (bSDD) is an important shared resource in the Architecture, Engineering, Construction, and Operations (AECO) domain.

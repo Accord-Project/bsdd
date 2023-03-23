@@ -463,7 +463,7 @@ We used it to investigate the original bSDD schema:
 </p>
 
 
-<div id="orgd59f06f" class="figure">
+<div id="orge05b372" class="figure">
 <p><img src="./img/bsdd-graphql-voyager-overview.png" alt="bsdd-graphql-voyager-overview.png" />
 </p>
 <p><span class="figure-number">Figure 1: </span>Original bSDD GraphQL Schema: Overview (uncheck "Show leaf fields")</p>
@@ -501,7 +501,7 @@ We can also look at details of the schema:
 </p>
 
 
-<div id="org4ad1717" class="figure">
+<div id="org0ee6e16" class="figure">
 <p><img src="./img/bsdd-graphql-voyager-Classification-ClassificationProperty.png" alt="bsdd-graphql-voyager-Classification-ClassificationProperty.png" />
 </p>
 <p><span class="figure-number">Figure 2: </span>Original bSDD GraphQL Schema: Detail of Classification and ClassificationProperty</p>
@@ -562,7 +562,7 @@ that allows you to explore the refactored schema.
 </p>
 
 
-<div id="org1c7d1bd" class="figure">
+<div id="org1693ffb" class="figure">
 <p><img src="./img/bsdd-graphql-voyager-refact-overview.png" alt="bsdd-graphql-voyager-refact-overview.png" />
 </p>
 <p><span class="figure-number">Figure 3: </span>Refactored bSDD GraphQL Schema: Overview (uncheck "Show leaf fields")</p>
@@ -604,7 +604,7 @@ and strings fields like <code>propertyNamespaceUri</code> are converted to objec
 </p>
 
 
-<div id="org46bc1a6" class="figure">
+<div id="org635c4ba" class="figure">
 <p><img src="./img/bsdd-graphql-voyager-refact-Classification-ClassificationProperty.png" alt="bsdd-graphql-voyager-refact-Classification-ClassificationProperty.png" />
 </p>
 <p><span class="figure-number">Figure 4: </span>Refactored bSDD GraphQL Schema: Detail of Classification and ClassificationProperty</p>
@@ -620,7 +620,7 @@ and strings fields like <code>propertyNamespaceUri</code> are converted to objec
 </p>
 
 
-<div id="org6c76186" class="figure">
+<div id="org9096d5b" class="figure">
 <p><img src="./img/graphiql-orig.png" alt="graphiql-orig.png" />
 </p>
 <p><span class="figure-number">Figure 5: </span>GraphiQL Querying of Original bSDD Endpoint</p>
@@ -649,7 +649,7 @@ It provides a number of useful features:
 </p>
 
 
-<div id="org5334311" class="figure">
+<div id="org947f823" class="figure">
 <p><img src="./img/graphiql-refact.png" alt="graphiql-refact.png" />
 </p>
 <p><span class="figure-number">Figure 6: </span>GraphiQL Querying of Refactored bSDD Endpoint</p>
@@ -1022,7 +1022,7 @@ The distribution of number of Classifications per domain is as follows:
 <p>
 Domains with no classifications:
 </p>
-<pre class="example" id="org4fd1100">
+<pre class="example" id="orge31f640">
 http://identifier.buildingsmart.org/uri/spr/spr-cfhios-0.1
 https://identifier.buildingsmart.org/uri/ArcDox/ArcDox-1.0
 https://identifier.buildingsmart.org/uri/BBRI/BBRI-0.1
@@ -1040,7 +1040,7 @@ https://identifier.buildingsmart.org/uri/ifcrail/ifcrail-0.1
 <p>
 One domain has more than 5000 classifications, but returns only 5000 due to lack of pagination in the GraphQL API:
 </p>
-<pre class="example" id="org0fa2716">
+<pre class="example" id="org44d4530">
 https://identifier.buildingsmart.org/uri/nbs/uniclass2015-1
 </pre>
 </div>
@@ -2334,7 +2334,7 @@ We found a number of detailed differences, as presented in the <a href="https://
 </p>
 
 
-<div id="org1376e74" class="figure">
+<div id="org8ebb8c2" class="figure">
 <p><img src="./img/bsdd-data-analysis-sheet.png" alt="bsdd-data-analysis-sheet.png" />
 </p>
 <p><span class="figure-number">Figure 7: </span>Differences between bSDD GraphQL, JSON and RDF Data</p>
@@ -2576,7 +2576,7 @@ The same URL can be used to get a static web page in the browser:
 </p>
 
 
-<div id="org5fdfc80" class="figure">
+<div id="orgc75e854" class="figure">
 <p><img src="./img/IFC-class-cableSegment-web.png" alt="IFC-class-cableSegment-web.png" />
 </p>
 <p><span class="figure-number">Figure 8: </span>CableSegment enity as displayed at the bSDD web site</p>
@@ -2588,7 +2588,7 @@ However, the interactive <a href="https://search.bsdd.buildingsmart.org">bSDD Se
 </p>
 
 
-<div id="org807aa2b" class="figure">
+<div id="org9ee4657" class="figure">
 <p><img src="./img/IFC-class-cableSegment-search.png" alt="IFC-class-cableSegment-search.png" />
 </p>
 <p><span class="figure-number">Figure 9: </span>CableSegment as displayed at the bSDD search site</p>
@@ -2615,7 +2615,7 @@ Proper bSDD domain URL design should take into account the following observation
 <li>Almost all domain URLs have the same structure: <code>https://identifier.buildingsmart.org/uri/&lt;org&gt;/&lt;domain&gt;-&lt;version&gt;</code>.
 There are only two exceptions:</li>
 </ul>
-<pre class="example" id="org6b881d1">
+<pre class="example" id="orga524793">
 http://otl.amsterdam.nl
 http://rdf.vegdata.no/V440/v440-owl
 </pre>
@@ -2624,7 +2624,7 @@ The Linked Data Patterns book describes a pattern of <a href="https://patterns.d
 that make URLs more "hackable", allowing users to navigate the hierarchy by pruning the URI.
 bSDD URLs could become more hierarchical if they follow this structure:
 </p>
-<pre class="example" id="org2a8db43">
+<pre class="example" id="org8416a27">
 https://identifier.buildingsmart.org/uri/&lt;org&gt;/&lt;domain&gt;/&lt;version&gt;
 </pre>
 
@@ -2643,7 +2643,7 @@ Problems:
 </ul></li>
 <li>A few domains use <code>http</code> whereas all others use <code>https</code>. All modern servers prefer <code>https</code> due to its better security.</li>
 </ul>
-<pre class="example" id="org0458391">
+<pre class="example" id="org25a795e">
 http://identifier.buildingsmart.org/uri/spr/spr-cfhios-0.1
 http://otl.amsterdam.nl
 http://rdf.vegdata.no/V440/v440-owl
@@ -4256,7 +4256,7 @@ Examples where this happens (not a comprehensive list):
 <li><code>bsdd:description</code> that is an enumeration. Should be expressed as <code>allowedValues</code>. e.g. in <a href="https://identifier.buildingsmart.org/uri/engisis/RFI-02/prop/S25750_0010">https://identifier.buildingsmart.org/uri/engisis/RFI-02/prop/S25750_0010</a>:</li>
 </ul>
 
-<pre class="example" id="orgad5960c">
+<pre class="example" id="orga014f55">
 "EL=Elettronica,
 SE=Semi-elettronica,
 EM=Elettromeccanica,
@@ -4424,7 +4424,7 @@ There are Unicode problems in some <code>bsdd:description</code>.
 E.g. in <a href="https://identifier.buildingsmart.org/uri/buildingsmart-de/bSDTLS-1/prop/02-02-01-010">https://identifier.buildingsmart.org/uri/buildingsmart-de/bSDTLS-1/prop/02-02-01-010</a> :
 </p>
 
-<pre class="example" id="org93f2120">
+<pre class="example" id="org3f56c3c">
 "Zeit der m�glichen Verarbeitung vor Aush�rtung in [min] bei +23�C und 50% rel. Luftfeuchtigkeit
 "
 </pre>
@@ -4446,7 +4446,7 @@ There are unresolved HTML entities (encoded chars).
 E.g. in <a href="https://identifier.buildingsmart.org/uri/engisis/RFI-02/prop/S27300_0200">https://identifier.buildingsmart.org/uri/engisis/RFI-02/prop/S27300_0200</a>:
 </p>
 
-<pre class="example" id="orgfc3fc46">
+<pre class="example" id="orgf657981">
 "(*)
 Pu&amp;#242; essere valorizzato un solo valore. SCIA = valorizzabile per le attivit&amp;#224; di tipo A o per le attivit&amp;#224; di tipo B o C nel caso in cui a seguito della valutazione favorevole del progetto si sia presentata la SCIA (ma non sia stato ancora rilasciato copia del verbale della visita tecnica dei VVF -attivit&amp;#224; di tipo A o B- o il CPI -attivit&amp;#224; ...".
 </pre>
@@ -5087,7 +5087,7 @@ The difference between the two SOML schemas is not so huge:
 </div>
 
 
-<div id="orge29dd41" class="figure">
+<div id="org5d203a2" class="figure">
 <p><img src="./img/bsdd-graphql-soml-diff.png" alt="bsdd-graphql-soml-diff.png" />
 </p>
 <p><span class="figure-number">Figure 10: </span>Typical differences between the Original GraphQL schema (red) and the Refactored schema (green)</p>
@@ -5491,7 +5491,7 @@ Note: if you have a user account, you can enlarge "Maximum links to show" in Set
 </p>
 
 
-<div id="org0e70072" class="figure">
+<div id="orgc1c3bf7" class="figure">
 <p><img src="./img/viz-ClassCOMPOSED_PROPERTY.png" alt="viz-ClassCOMPOSED_PROPERTY.png" />
 </p>
 <p><span class="figure-number">Figure 11: </span>"COMPOSED_PROPERTY" Classifications</p>
@@ -5508,7 +5508,7 @@ Expanding a node shows its ClassificationProperties.
 </p>
 
 
-<div id="org01daf8b" class="figure">
+<div id="orgff2011a" class="figure">
 <p><img src="./img/viz-ClassDOMAIN.png" alt="viz-ClassDOMAIN.png" />
 </p>
 <p><span class="figure-number">Figure 12: </span>"DOMAIN" Classifications</p>
@@ -5526,7 +5526,7 @@ It shows a number of French classes relating to <code>Space, Slab, Covering</cod
 </p>
 
 
-<div id="orgddb4630" class="figure">
+<div id="org4669f14" class="figure">
 <p><img src="./img/viz-ClassRel.png" alt="viz-ClassRel.png" />
 </p>
 <p><span class="figure-number">Figure 13: </span>Classification Relations</p>
@@ -5543,7 +5543,7 @@ It shows a number of French classes relating to <code>Space, Slab, Covering</cod
 </p>
 
 
-<div id="org6e4e7e9" class="figure">
+<div id="orgee9d8d3" class="figure">
 <p><img src="./img/viz-multivaluedPropSet.png" alt="viz-multivaluedPropSet.png" />
 </p>
 <p><span class="figure-number">Figure 14: </span>Multivalued propSet, showing domain (purple), class (yellow), prop (red), set (blue)</p>

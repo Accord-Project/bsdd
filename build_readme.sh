@@ -17,7 +17,7 @@ docker-compose -f docker-compose-readme.yaml down -v
 docker-compose -f docker-compose-readme.yaml up
 
 cd ./html_generation
-zip -r readme.zip ./css ./fonts ./img ./js ./README1.html
+zip -r readme.zip ./css ./fonts ./img ./js ./README1.html ./additional.css
 
 # Comment the following lines when testing
 rm -rf ./img

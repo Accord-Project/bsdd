@@ -21,7 +21,7 @@ title: Semantic bSDD
 # Abstract
 
 The buildingSmart Data Dictionary (bSDD) is an important shared resource in the Architecture, Engineering, Construction, and Operations (AECO) domain.
-It is a collection of datasets (\"domains\") that define various classifications (objects representing building components, products, and materials),
+It is a collection of datasets ("domains") that define various classifications (objects representing building components, products, and materials),
 their properties, allowed values, etc.
 bSDD defines a GraphQL API, as well as REST APIs that return JSON and RDF representations.
 This improves the interoperability of bSDD and its easier deployment in architectural Computer Aided Design (CAD) and other AECO software.
@@ -32,7 +32,7 @@ This lowers bSDD data quality, usability and trust.
 We conduct a thorough comparison and analysis of bSDD data related to fulfillment of FAIR (findable, accessible, interoperable, and reusable) principles.
 Based on this analysis, we suggest enhancements to make bSDD data better structured and more FAIR.
 
-We implement many of the suggestions by refactoring the original data to make it better structured/interconnected, and more \"semantic\".
+We implement many of the suggestions by refactoring the original data to make it better structured/interconnected, and more "semantic".
 We provide a SPARQL endpoint using [Ontotext GraphDB](https://graphdb.ontotext.com/), and GraphQL endpoint using [Ontotext Platform Semantic Objects](https://platform.ontotext.com/semantic-objects/).
 Our detailed work is available at <https://github.com/Accord-Project/bsdd> (open source) and <https://bsdd.ontotext.com> (home page, schemas, data, sample queries).
 
@@ -64,7 +64,7 @@ bSDD uses URLs for nearly all defined entities to enable globalized data use in 
 
 ## GraphQL Benefits
 
-[GraphQL](https://graphql.org/) as an approach to create simplified \"facades\" over various storages,
+[GraphQL](https://graphql.org/) as an approach to create simplified "facades" over various storages,
 and to provide schema, uniform query language, API and runtime
 for handling queries, mutations and subscriptions.
 It has many benefits over traditional REST APIs:
@@ -93,10 +93,7 @@ and displays the schema of the endpoint, allowing the user to search and browse 
 We wrote a page [bsdd-graphql-voyager-orig](https://rawgit2.com/Accord-Project/bsdd/main/bsdd-graphql-voyager-orig.html) (see `bsdd-graphql-voyager-orig.html`) that deploys Voyager over the bSDD GraphQL endpoint.
 We used it to investigate the original bSDD schema:
 
-<figure id="fig:bsdd-graphql-voyager-orig-overview">
-<img src="./img/bsdd-graphql-voyager-overview.png" />
-<figcaption>Original bSDD GraphQL Schema: Overview (uncheck "Show leaf fields")</figcaption>
-</figure>
+![Original bSDD GraphQL Schema: Overview (uncheck "Show leaf fields")](./img/bsdd-graphql-voyager-overview.png){#fig:bsdd-graphql-voyager-orig-overview}
 
 As we can see, bSDD has 12 entities (object types):
 
@@ -116,10 +113,7 @@ As we can see, bSDD has 12 entities (object types):
 
 We can also look at details of the schema:
 
-<figure id="fig:bsdd-graphql-voyager-orig-detail">
-<img src="./img/bsdd-graphql-voyager-Classification-ClassificationProperty.png" />
-<figcaption>Original bSDD GraphQL Schema: Detail of Classification and ClassificationProperty</figcaption>
-</figure>
+![Original bSDD GraphQL Schema: Detail of Classification and ClassificationProperty](./img/bsdd-graphql-voyager-Classification-ClassificationProperty.png){#fig:bsdd-graphql-voyager-orig-detail}
 
 Last but not least, Voyager presents detailed and searchable documentation about the schema;
 the same is available in the GraphiQL query tool.
@@ -134,18 +128,18 @@ Even in the Schema Overview (at low level of detail) we can notice some defects:
     This means that if you want to get some data of a `Classification`
     and all its related `Classifications`, you need to issue two queries
     because you cannot navigate past `ClassificationRelation`.
--   Many entities cannot be queried directly from the root, but have to be reached through their respective \"parent\" entity.
--   There are no backward relations (arrows) to get from a lower-level entity back to its \"parent\" entity.
+-   Many entities cannot be queried directly from the root, but have to be reached through their respective "parent" entity.
+-   There are no backward relations (arrows) to get from a lower-level entity back to its "parent" entity.
 -   There are a number of parallel relations (arrows).
     This is not needed in GraphQL because the schema can use parameters to distinguish between the different uses.
 
 At the high level of detail we can notice more defects:
 
--   `Property` and `ClassificationProperty` are very similar, but there\'s no inheritace/relation between them
+-   `Property` and `ClassificationProperty` are very similar, but there's no inheritace/relation between them
 -   `PropertyValue` and `ClassificationPropertyValue` are exactly the same, so can be reduced to one entity
 
-We\'ll have a lot more to say about this in further sections.
-But first let\'s look at a refactored (improved) schema.
+We'll have a lot more to say about this in further sections.
+But first let's look at a refactored (improved) schema.
 
 ## Refactored GraphQL bSDD Schema: Voyager
 
@@ -156,16 +150,13 @@ But we show the refactored schema here in order to compare it to the original sc
 We wrote the web page [bsdd-graphql-voyager-refact.html](https://rawgit2.com/Accord-Project/bsdd/main/bsdd-graphql-voyager-refact.html) (see `bsdd-graphql-voyager-refact.html`)
 that allows you to explore the refactored schema.
 
-<figure id="fig:bsdd-graphql-voyager-refact-overview">
-<img src="./img/bsdd-graphql-voyager-refact-overview.png" />
-<figcaption>Refactored bSDD GraphQL Schema: Overview (uncheck "Show leaf fields")</figcaption>
-</figure>
+![Refactored bSDD GraphQL Schema: Overview (uncheck "Show leaf fields")](./img/bsdd-graphql-voyager-refact-overview.png){#fig:bsdd-graphql-voyager-refact-overview}
 
 Improvements:
 
 -   All entities are queryable directly from the root.
-    Note: There\'s a common interface `Object` that provides functionality common to all entities: the dashed arrows show that each entity implements it.
-    This creates some clutter in the diagram, but doesn\'t complicate querying and navigation.
+    Note: There's a common interface `Object` that provides functionality common to all entities: the dashed arrows show that each entity implements it.
+    This creates some clutter in the diagram, but doesn't complicate querying and navigation.
 -   There are no parallel arrows (relations) between entities;
     each relation is named the same as the target entity, improving predictability and consistency.
 -   Navigation between entities is bidirectional (e.g. `Domain.classification` but also `Classification.domain`),
@@ -185,24 +176,18 @@ We can also take a look at a detail of the refactored schema. It looks pretty si
 but all fields are normalized to singular names,
 and strings fields like `propertyNamespaceUri` are converted to object fields like `Property`.
 
-<figure id="fig:bsdd-graphql-voyager-refact-detail">
-<img src="./img/bsdd-graphql-voyager-refact-Classification-ClassificationProperty.png" />
-<figcaption>Refactored bSDD GraphQL Schema: Detail of Classification and ClassificationProperty</figcaption>
-</figure>
+![Refactored bSDD GraphQL Schema: Detail of Classification and ClassificationProperty](./img/bsdd-graphql-voyager-refact-Classification-ClassificationProperty.png){#fig:bsdd-graphql-voyager-refact-detail}
 
 ## GraphiQL Querying of Original Endpoint
 
 <https://test.bsdd.buildingsmart.org/graphiql> is the original GraphQL endpoint.
 
-<figure id="fig:graphiql-orig">
-<img src="./img/graphiql-orig.png" />
-<figcaption>GraphiQL Querying of Original bSDD Endpoint</figcaption>
-</figure>
+![GraphiQL Querying of Original bSDD Endpoint](./img/graphiql-orig.png){#fig:graphiql-orig}
 
 It provides a number of useful features:
 
 -   Online searchable documentation of the GraphQL schema
--   Auto-completion of field names and parameters at any point in the query: queries practically \"write themselves\"!
+-   Auto-completion of field names and parameters at any point in the query: queries practically "write themselves"!
 -   Ability to parameterize queries through Query Variables
 -   Code formatting (Prettifying) of the query
 -   Syntax highlighting
@@ -213,10 +198,7 @@ It provides a number of useful features:
 
 <https://bsdd.ontotext.com/graphiql/> is the refactored GraphQL endpoint:
 
-<figure id="fig:graphiql-refact">
-<img src="./img/graphiql-refact.png" />
-<figcaption>GraphiQL Querying of Refactored bSDD Endpoint</figcaption>
-</figure>
+![GraphiQL Querying of Refactored bSDD Endpoint](./img/graphiql-refact.png){#fig:graphiql-refact}
 
 We have deployed a newer version of GraphiQL that has all benefits described in the previous section, and adds some more:
 
@@ -249,7 +231,7 @@ Description of all files in <https://github.com/Accord-Project/bsdd>:
 -   `README.md`: detailed description of the work we did, exported to `markdown`
 -   `README.html`: HTML rendition of the work we did
 -   `paper`: paper submitted to LDAC 2023
-    -   `bsdd.bib`: bibtex file for the paper, made from the [Zotero semantic BIM library](https://www.zotero.org/groups/3007408/semantic_bim), we don\'t use it
+    -   `bsdd.bib`: bibtex file for the paper, made from the [Zotero semantic BIM library](https://www.zotero.org/groups/3007408/semantic_bim), we don't use it
     -   `bsdd.biblatex`: biblatex file for the paper, made from the same library, we use this one
     -   `Makefile`: update the bibliography files
     -   `paper.md`: paper as markdown
@@ -267,7 +249,7 @@ Description of all files in <https://github.com/Accord-Project/bsdd>:
     -   `list-zip.sparql`: list all files in a zip using SPARQL Anything
     -   `rdfize.sparql`: RDFize a bSDD JSON file using SPARQL Anything
     -   `rdfize-folder.sparql`: RDFize a folder of bSDD JSON files using SPARQL Anything
-    -   `rdfize-zip.sparql`: RDFize a zip of bSDD JSON files using SPARQL Anything (doesn\'t work: <https://github.com/SPARQL-Anything/sparql.anything/issues/335>)
+    -   `rdfize-zip.sparql`: RDFize a zip of bSDD JSON files using SPARQL Anything (doesn't work: <https://github.com/SPARQL-Anything/sparql.anything/issues/335>)
     -   `transform.ru`: transform (refactor) RDF data. Described in detail below
 -   `dump`: scripts to get the complete original bSDD data from the original GraphQL endpoint
     -   `docker-compose.yaml, Dockerfile`: docker files
@@ -275,7 +257,7 @@ Description of all files in <https://github.com/Accord-Project/bsdd>:
     -   `sparql-anything.bat`: batch file to invoke SPARQL Anything
 -   `samples`: sample bSDD entities:
     whole sets (e.g. `units`)
-    or selected \"interesting\" entities with most fields filled (e.g. `class-IfcWall, prop-Ifc-ACResistance`)
+    or selected "interesting" entities with most fields filled (e.g. `class-IfcWall, prop-Ifc-ACResistance`)
     -   `*-orig.json`: original files from GraphQL endpoint or JSON API
     -   `*-orig.ttl`: original files from RDF API (not all can be obtained this way, e.g. Domains cannot)
     -   `*-refact.ttl`: refactored RDF files
@@ -319,7 +301,7 @@ To work with the script, use a virtual Python environment:
 
 The overall process of the script is:
 
--   Export all \"root\" types with their attributes, but not relations (object properties)
+-   Export all "root" types with their attributes, but not relations (object properties)
     -   Domains in `data/domains.json` (`Domain` in GraphQL)
     -   Countries in `data/domains.json` (`Country` in GraphQL)
     -   Languages in `data/languages.json` (`Language` in GraphQL)
@@ -616,7 +598,7 @@ Classification is a fairly generic entity, which can designate:
 However, the other values in the table above cannot be justified:
 
 -   DOMAIN: there is a specific entity `Domain`, so `Classification` should not have such type
--   REFERENCE_DOCUMENT: `Classification` has such a field, and there\'s a specific entity `ReferenceDocument`, so `Classification` should not have such type
+-   REFERENCE_DOCUMENT: `Classification` has such a field, and there's a specific entity `ReferenceDocument`, so `Classification` should not have such type
 
 ### PropertyValueKind of ClassificationProperty
 
@@ -660,7 +642,7 @@ select ?value (count(?value) as ?c) {
 
 Breakdown of main entities by status.
 
--   Despite the endpoint being listed as \"test\", most objects are \"Active\"
+-   Despite the endpoint being listed as "test", most objects are "Active"
 -   We also noticed that some Domains lack any value!
 
 | status   | Classification | ClassificationProperty | Domain | Property |
@@ -699,8 +681,8 @@ However, `dynamicParameterPropertyCodes` is always empty, so there is no indicat
 ### isWritable Property
 
 `isWritable` specifies whether the Property can be edited.
-Most Properties don\'t have such characteristic.
-We don\'t think the default is `false`, which means that the field is badly under-specified.
+Most Properties don't have such characteristic.
+We don't think the default is `false`, which means that the field is badly under-specified.
 
 |       | ClassificationProperty | Property |
 |-------|-----------------------:|---------:|
@@ -722,7 +704,7 @@ select ?type ?isWritable (count(*) as ?c) {
 ### isRequired Property
 
 `isRequired` specifies whether the Property must be present in an object of the respective Classification.
-Similar to the previous section, most Properties don\'t have such characteristic.
+Similar to the previous section, most Properties don't have such characteristic.
 But maybe here `false` is a suitable default.
 
 |       | ClassificationProperty | Property |
@@ -744,7 +726,7 @@ select ?type ?isRequired (count(*) as ?c) {
 
 ### Domains with isWritable and isRequired Properties
 
-Let\'s find all domains that have `isWritable` and `isRequired` `Properties`, and count such properties:
+Let's find all domains that have `isWritable` and `isRequired` `Properties`, and count such properties:
 
 | domain                                                             | domainName                            |    c |
 |--------------------------------------------------------------------|---------------------------------------|-----:|
@@ -769,8 +751,8 @@ select ?domain ?domainName (count(*) as ?c) {
 
 As you can see, the vast majority of `isWritable` and `isRequired` Properties are in this Domain:
 
--   <https://identifier.buildingsmart.org/uri/bimeta/bimeta-1.0> \"Bauteiltypen nach DIN 276+x (geprüft)\".
-    For example class \"421.43 - Abgaswärmetauscher\" has property \"Hersteller\" that `isWritable` and `isRequired`.
+-   <https://identifier.buildingsmart.org/uri/bimeta/bimeta-1.0> "Bauteiltypen nach DIN 276+x (geprüft)".
+    For example class "421.43 - Abgaswärmetauscher" has property "Hersteller" that `isWritable` and `isRequired`.
 -   The rest are 6 test domains, and `LCC_RG, Ponti_ClassificazioneDegrado, Uniweimar`
 
 # Suggested Improvements
@@ -786,7 +768,7 @@ We have compared three representations returned by the bSDD server:
 -   RDF from the REST (entity) API
 
 Importantly, some objects returned by GraphQL are not returned by the JSON and RDF APIs.
-E.g. let\'s get the classifications of one particular domain:
+E.g. let's get the classifications of one particular domain:
 
 ``` graphql
 {
@@ -812,10 +794,7 @@ curl -Haccept:text/turtle https://identifier.buildingsmart.org/uri/fvhf/vhf-0.00
 We selected entities of each class that have the maximum number of filled fields, and compared the results returned by each API.
 We found a number of detailed differences, as presented in the [bSDD data analysis](https://docs.google.com/spreadsheets/d/1z_NRMlExlVuqWhBbSErQ9iiDBY4O_fKMd3avV3-NCmo/edit) spreadsheet:
 
-<figure id="fig:bsdd-data-analysis-sheet">
-<img src="./img/bsdd-data-analysis-sheet.png" />
-<figcaption>Differences between bSDD GraphQL, JSON and RDF Data</figcaption>
-</figure>
+![Differences between bSDD GraphQL, JSON and RDF Data](./img/bsdd-data-analysis-sheet.png){#fig:bsdd-data-analysis-sheet}
 
 There are differences and omissions in some of the formats, as summarized in the table below.
 
@@ -828,7 +807,7 @@ There are differences and omissions in some of the formats, as summarized in the
 | Property.domainNamespaceUri           | NONE         | domainNamespaceUri                         | NONE                   | GraphQL and RDF do not return `domainNamespaceUri`                                                       |
 | ClassificationProperty                |              |                                            |                        | GraphQL and JSON overload the URL and use it for both `ClassificationProperty` and `Property` (2)        |
 | ClassificationProperty.property       | namespaceUri | namespaceUri                               | propertyNamespaceUri   | GraphQL and JSON have no real link, just the overloaded URL. The RDF prop is a string, should be URL (3) |
-| ClassificationProperty.classification |              |                                            | classificationProperty | RDF prop is misnamed, should be \"classification\" (4)                                                   |
+| ClassificationProperty.classification |              |                                            | classificationProperty | RDF prop is misnamed, should be "classification" (4)                                                     |
 
 Illustrations of the points above:
 
@@ -916,12 +895,12 @@ results in
 Property names should conform to naming conventions and be spelled consistently
 
 -   Property (field) names should be spelled in singular, even when they refer to an array.
-    The arity is reflected in the property kind, e.g. in GraphQL, that\'s `SCALAR` vs `ARRAY`.
+    The arity is reflected in the property kind, e.g. in GraphQL, that's `SCALAR` vs `ARRAY`.
     For example, `String` is a scalar string, whereas `[String]` is an array of strings.
--   The GraphQL and JSON field `childs` should be spelled properly as `children` (unless it\'s spelled in singular, see above)
+-   The GraphQL and JSON field `childs` should be spelled properly as `children` (unless it's spelled in singular, see above)
 -   RDF properties should conform to the `lowerCamelCase` convention, i.e. start with a lowercase letter.
     Most ontologies conform to this convention, eg see the [Schema.org Styleguide](https://schema.org/docs/styleguide.html)
--   `namespaceUri` is a misnomer since \"namespace\" means a set of URIs sharing the same prefix, but most bSDD URIs are **single** URIs.
+-   `namespaceUri` is a misnomer since "namespace" means a set of URIs sharing the same prefix, but most bSDD URIs are **single** URIs.
     URI is a general term that includes both URNs (non-resolvable) and URLs (resolvable).
     According to Linked Data principles, it is better to use resolvable URLs.
 -   RDF properties should use one consistent namespace.
@@ -936,7 +915,7 @@ curl -s -H Accept:text/turtle  https://identifier.buildingsmart.org/uri/bs-agri/
 
 ## Use the Same URL for Data and for Web Pages
 
-bSDD has implemented \"entity URLs\", i.e. for each kind of entity it can return its data in JSON or RDF:
+bSDD has implemented "entity URLs", i.e. for each kind of entity it can return its data in JSON or RDF:
 
 ``` {.bash org-language="sh"}
 curl -s                      https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegmentCABLESEGMENT
@@ -948,18 +927,12 @@ Note: to pretty-print the JSON, add this to the end of the command: `| jq .`
 The same URL can be used to get a static web page in the browser:
 <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegmentCABLESEGMENT>
 
-<figure id="fig:IFC-class-cableSegment-web">
-<img src="./img/IFC-class-cableSegment-web.png" />
-<figcaption>CableSegment enity as displayed at the bSDD web site</figcaption>
-</figure>
+![CableSegment enity as displayed at the bSDD web site](./img/IFC-class-cableSegment-web.png){#fig:IFC-class-cableSegment-web}
 
 However, the interactive [bSDD Search](https://search.bsdd.buildingsmart.org) UI uses a different URL that returns slightly different information:
 <https://search.bsdd.buildingsmart.org/Classification/Index/58453>
 
-<figure id="fig:IFC-class-cableSegment-search">
-<img src="./img/IFC-class-cableSegment-search.png" />
-<figcaption>CableSegment as displayed at the bSDD search site</figcaption>
-</figure>
+![CableSegment as displayed at the bSDD search site](./img/IFC-class-cableSegment-search.png){#fig:IFC-class-cableSegment-search}
 
 There is not really a need for two different web pages showing nearly the same info.
 We think that with some modest change in technology, the Search UI can use the first (semantic) URL immediately instead of an internal (non-semantic) `Index/` URL.
@@ -981,7 +954,7 @@ http://rdf.vegdata.no/V440/v440-owl
 ```
 
 The Linked Data Patterns book describes a pattern of [Hierarchical URIs](https://patterns.dataincubator.org/book/hierarchical-uris.html),
-that make URLs more \"hackable\", allowing users to navigate the hierarchy by pruning the URI.
+that make URLs more "hackable", allowing users to navigate the hierarchy by pruning the URI.
 bSDD URLs could become more hierarchical if they follow this structure:
 
 ``` example
@@ -992,11 +965,11 @@ Problems:
 
 -   bSDD uses dash not slash to separate the versoion
 -   In some cases, the `<org>` is repeated in the `<domain>` part
--   In some cases, the `<org>` name doesn\'t quite mesh with the domain name, perhaps due to the way bSDD allocates `<org>` identifiers to bSDD contributors
-    -   \"bim-de/DINSPEC91400\": the publisher of this spec is DIN (the German standards organization), not the `bim-de` initiative
-    -   \"digibase/volkerwesselsbv\": [bimregister.nl news from 2018](https://www.bimregister.nl/actueel/video/author/89-delanokenepa?start=250) suggest that `digibase` is a new company/initaitive within Volker Wessel
-    -   \"digibase/nen2699\": the publisher of this spec is NEN (the Netherlands standards organization), not the `digibase` company/initiative
-    -   \"digibase/digibasebouwlagen\": perhaps the org name `digibase` should not be repeated as the prefix of the domain `bouwlagen` (building layers)
+-   In some cases, the `<org>` name doesn't quite mesh with the domain name, perhaps due to the way bSDD allocates `<org>` identifiers to bSDD contributors
+    -   "bim-de/DINSPEC91400": the publisher of this spec is DIN (the German standards organization), not the `bim-de` initiative
+    -   "digibase/volkerwesselsbv": [bimregister.nl news from 2018](https://www.bimregister.nl/actueel/video/author/89-delanokenepa?start=250) suggest that `digibase` is a new company/initaitive within Volker Wessel
+    -   "digibase/nen2699": the publisher of this spec is NEN (the Netherlands standards organization), not the `digibase` company/initiative
+    -   "digibase/digibasebouwlagen": perhaps the org name `digibase` should not be repeated as the prefix of the domain `bouwlagen` (building layers)
 -   A few domains use `http` whereas all others use `https`. All modern servers prefer `https` due to its better security.
 
 ``` example
@@ -1045,13 +1018,13 @@ We believe it is worth explicating versions:
 ### Declare URLs to be `ID` and Use a Mandatory Field `id`
 
 The [GraphQL specification sec 3.5.5 ID](https://spec.graphql.org/draft/#sec-ID) states:
-\"The `ID` scalar type represents a unique identifier,
-often used to re-fetch an object or as the key for a cache.\"
+"The `ID` scalar type represents a unique identifier,
+often used to re-fetch an object or as the key for a cache."
 This data type is similar to `String`, but is specifically used for identifiers.
 
 Furthermore, the [Global Object Identification Guide for GraphQL](https://graphql.org/learn/global-object-identification/#node-interface) recommends
 that a;; objects should have a field `id` that returns non-null `ID!` (through the `Node` interface).
-The `id` should be a \"globally unique identifier\" for the object,
+The `id` should be a "globally unique identifier" for the object,
 and given just this `id`, the server should be able to re-fetch that object.
 
 -   Most GraphQL implementations call this field simply `id`, whereas bSDD uses unwieldy property names like `namespaceUri`.
@@ -1059,7 +1032,7 @@ and given just this `id`, the server should be able to re-fetch that object.
 
 ### Overlap of Entity Classes with `classificationType`
 
-The key field `classificationType` specifies the kind of classification. Let\'s do a count:
+The key field `classificationType` specifies the kind of classification. Let's do a count:
 
 ``` sparql
 PREFIX bsdd: <http://bsdd.buildingsmart.org/def#>
@@ -1070,13 +1043,13 @@ select (count(*) as ?c) ?type where {
 
 Here are the results, and we see that some `classificationType` overlap with predefined entity types:
 
-|     c | type                   | overlaps with       |
-|------:|------------------------|---------------------|
-| 29434 | \"CLASS\"              | ok                  |
-|   489 | \"MATERIAL\"           | ok                  |
-|   387 | \"COMPOSED_PROPERTY\"  | see next section    |
-|    29 | \"DOMAIN\"             | `Domain`            |
-|    18 | \"REFERENCE_DOCUMENT\" | `ReferenceDocument` |
+|     c | type                 | overlaps with       |
+|------:|----------------------|---------------------|
+| 29434 | "CLASS"              | ok                  |
+|   489 | "MATERIAL"           | ok                  |
+|   387 | "COMPOSED_PROPERTY"  | see next section    |
+|    29 | "DOMAIN"             | `Domain`            |
+|    18 | "REFERENCE_DOCUMENT" | `ReferenceDocument` |
 
 We can examine some of these unusual classifications with this query:
 
@@ -1091,12 +1064,12 @@ select ?x ?name ?type {
 Examples of unusual classifications:
 
 -   <https://identifier.buildingsmart.org/uri/ATALANE/REX-OBJ-1.0/class/589b06ad-f802-468b-939c-e60436601a7a>
-    is a \"REFERENCE_DOCUMENT\" with name \"décret 2011-321 (23/03/2011)\".
+    is a "REFERENCE_DOCUMENT" with name "décret 2011-321 (23/03/2011)".
     Why is it not a `ReferenceDocument` entity?
 -   <https://identifier.buildingsmart.org/uri/acca/AASHTO-1.0/class/06>
-    is a \"DOMAIN\" with name \"Bridge Superstructure\".
+    is a "DOMAIN" with name "Bridge Superstructure".
     This reflects the hierarchical nature of the AASHTO-1.0 classification, which we can see clearly with the following query.
-    But bSDD accommodates classification hierarchies, so why \"Bridge Superstructure\" is \"DOMAIN\" and not \"CLASS\"?
+    But bSDD accommodates classification hierarchies, so why "Bridge Superstructure" is "DOMAIN" and not "CLASS"?
 
 ``` sparql
 PREFIX bsdd: <http://bsdd.buildingsmart.org/def#>
@@ -1126,13 +1099,13 @@ select ?code ?name ?type where {
 We can posit (guess) two reasons for this structural problem:
 
 -   The bSDD data model does not provide a way to model sub-domains or attach reference documents to specific domains
--   Some bSDD data contributors use `Classification` as a \"dump\" of all kinds of data, not just single entities
+-   Some bSDD data contributors use `Classification` as a "dump" of all kinds of data, not just single entities
 
 ### Property vs ClassificationProperty: Use Distinct URLs
 
 `Property` and `ClassificationProperty` are two different classes, but the latter does not have a distinct URL in GraphQL and JSON.
 The same URL is overloaded to identify entities of both classes.
-`ClassificationProperty` are thus \"second class\" entities and are not returned separately by the JSON or RDF entity API,
+`ClassificationProperty` are thus "second class" entities and are not returned separately by the JSON or RDF entity API,
 but only as part of the respective `Classification`:
 
 ``` {.bash org-language="sh"}
@@ -1156,13 +1129,13 @@ curl https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCab
 Following the thinking of the previous section, all significant classes should have `ID`,
 (which in the case of RDF data is the node URL).
 
-However, many bSDD classes don\'t have such a field:
+However, many bSDD classes don't have such a field:
 
 -   `Domain, Property, Classification` do have `namespaceUri`
--   `Country, Language, Unit` don\'t have an ID but have a field (`code, isocode`)
+-   `Country, Language, Unit` don't have an ID but have a field (`code, isocode`)
     that can be used to make an `ID`, when prepended with an appropriate prefix.
     However, `Unit.code` is not always fit to be used in a URL
--   `ClassificationProperty` doesn\'t have an ID in GraphQL.
+-   `ClassificationProperty` doesn't have an ID in GraphQL.
     We follow the bSDD RDF representation and assign a URL
     from the URL of the owning object (`Classification`) and its own `propertyCode`:
 
@@ -1171,7 +1144,7 @@ However, many bSDD classes don\'t have such a field:
 ```
 
 -   `PropertyValue, ClassificationPropertyValue` have `namespaceUri`
-    but it\'s optional and is rarely filled.
+    but it's optional and is rarely filled.
     We assign URLs similarly to the previous case:
     from the URL of the owning object and its `value`:
 
@@ -1222,27 +1195,27 @@ select ?prop (group_concat(?code) as ?connectedPropCodes) where {
 } group by ?prop
 ```
 
-| prop                                                                                  | connectedPropCodes              | comments                                                 |
-|---------------------------------------------------------------------------------------|---------------------------------|----------------------------------------------------------|
-| <https://identifier.buildingsmart.org/uri/bs-agri/fruitvegs-1.0/prop/volume>          | \"height depth width diameter\" | Just a sample, not a real domain                         |
-| <https://identifier.buildingsmart.org/uri/bs-agri/fruitvegs-1.1/prop/volume>          | \"height depth width diameter\" | Just a sample, not a real domain                         |
-| <https://identifier.buildingsmart.org/uri/uniweimar/uniweimar-0.1/prop/TestObjective> | \"ComponentID StructureID\"     | TestObjective relates to ComponentID and StructureID     |
-| <https://identifier.buildingsmart.org/uri/uniweimar/uniweimar-0.1/prop/ExpansionWave> | \"Frequency\"                   | Seems the connection should be symmetric, why is it not? |
-| <https://identifier.buildingsmart.org/uri/uniweimar/uniweimar-0.1/prop/CPicture>      | \"BPicture APicture\"           | A complete cluster of 3 connected props                  |
-| <https://identifier.buildingsmart.org/uri/uniweimar/uniweimar-0.1/prop/BPicture>      | \"CPicture APicture\"           | A complete cluster of 3 connected props                  |
-| <https://identifier.buildingsmart.org/uri/uniweimar/uniweimar-0.1/prop/APicture>      | \"CPicture BPicture\"           | A complete cluster of 3 connected props                  |
+| prop                                                                                  | connectedPropCodes            | comments                                                 |
+|---------------------------------------------------------------------------------------|-------------------------------|----------------------------------------------------------|
+| <https://identifier.buildingsmart.org/uri/bs-agri/fruitvegs-1.0/prop/volume>          | "height depth width diameter" | Just a sample, not a real domain                         |
+| <https://identifier.buildingsmart.org/uri/bs-agri/fruitvegs-1.1/prop/volume>          | "height depth width diameter" | Just a sample, not a real domain                         |
+| <https://identifier.buildingsmart.org/uri/uniweimar/uniweimar-0.1/prop/TestObjective> | "ComponentID StructureID"     | TestObjective relates to ComponentID and StructureID     |
+| <https://identifier.buildingsmart.org/uri/uniweimar/uniweimar-0.1/prop/ExpansionWave> | "Frequency"                   | Seems the connection should be symmetric, why is it not? |
+| <https://identifier.buildingsmart.org/uri/uniweimar/uniweimar-0.1/prop/CPicture>      | "BPicture APicture"           | A complete cluster of 3 connected props                  |
+| <https://identifier.buildingsmart.org/uri/uniweimar/uniweimar-0.1/prop/BPicture>      | "CPicture APicture"           | A complete cluster of 3 connected props                  |
+| <https://identifier.buildingsmart.org/uri/uniweimar/uniweimar-0.1/prop/APicture>      | "CPicture BPicture"           | A complete cluster of 3 connected props                  |
 
 The meaning of `connectedPropertyCodes` is not defined:
 
 -   Is it a symmetric/equivalence relation between properties?
--   Or is it used to point from a \"master\" property to its \"subsidiary properties\"?
+-   Or is it used to point from a "master" property to its "subsidiary properties"?
 
-The examples don\'t clarify this question.
+The examples don't clarify this question.
 
-Instead of using `connectedPropertyCode` to describe complex properties, some people have used classifications with the type \"COMPOSED_PROPERTY\".
+Instead of using `connectedPropertyCode` to describe complex properties, some people have used classifications with the type "COMPOSED_PROPERTY".
 One such example is <https://identifier.buildingsmart.org/uri/buildingsmart-fr/BRIDGE-MINnD-1.0/class/609952491>
-with name \"Pile location\" and definition \"Gather properties to locate a pile\".
-We can see the properties comprising this \"COMPOSED_PROPERTY\" by using the link `Classification.classificationProperty`:
+with name "Pile location" and definition "Gather properties to locate a pile".
+We can see the properties comprising this "COMPOSED_PROPERTY" by using the link `Classification.classificationProperty`:
 
 ``` sparql
 PREFIX bsdd: <http://bsdd.buildingsmart.org/def#>
@@ -1289,7 +1262,7 @@ Problems related to this approach:
 -   One cannot easily navigate in the GraphQL graph.
     e.g. to find the country name for `countriesOfUse: ["BG"]`, one needs to make a second query, get all countries, and look for that code.
 -   It represents data denormalization that creates opportunities for data inconsistency or redundancy,
-    e.g. if `countriesOfUse` includes a code \"XX\" not defined in `Country`, is that a mistake, or is `Country` just an advisory table?
+    e.g. if `countriesOfUse` includes a code "XX" not defined in `Country`, is that a mistake, or is `Country` just an advisory table?
 
 Here is a list of all strings that are candidates to be converted to object properties (relations). `[Foo]` indicates an array (multivalued property):
 
@@ -1299,12 +1272,12 @@ Here is a list of all strings that are candidates to be converted to object prop
 -   `creatorLanguagecode`: should become `Language`
 -   `documentReference`: unclear whether it should be a URL, a bibliographic reference, a title, or some other free text. Should become `ReferenceDocument`
 -   `dynamicParameterPropertyCodes`: should become `[Property]`
--   `example` \"Illustrate possible use or values of the Property\": could become `PropertyValue` if it\'s used consistently to show an example value (not a free text)
+-   `example` "Illustrate possible use or values of the Property": could become `PropertyValue` if it's used consistently to show an example value (not a free text)
 -   `languageCode`: should become `Language`
 -   `physicalQuantity`: could become a separate entity, since it governs what possible `units` are allowed. See detailed analysis of units later on
 -   `predefinedValue`: should become `PropertyValue`.
     Actually this is a more difficult point because a predefined value could be a number thus not represented as `PropertyValue`.
--   `propertySet`: should be made an entity, it\'s too important to be a mere string
+-   `propertySet`: should be made an entity, it's too important to be a mere string
 -   `relatedClassificationUri`: should become `Classification` (in our refactoring, we rename it to simply `related` to use the same name for both kinds of relation)
 -   `relatedIfcEntityNames`: since IFC is present as a bSDD Domain, should become a relation to the respective IFC Classification.
 -   `relatedPropertyUri`: should become `Property` (in our refactoring, we rename it to simply `related` to use the same name for both kinds of relation)
@@ -1328,7 +1301,7 @@ Summarizing findings from previous sections, we recommend creating the following
 The following types are very similar, and most of their fields are duplicated between them, with no modularity or inheritance:
 
 -   `PropertyValue` and `ClassificationPropertyValue`: in fact are the same.
-    These are \"value objects\" (simple immutable objects), so there\'s no need to have two different types.
+    These are "value objects" (simple immutable objects), so there's no need to have two different types.
 -   `Property` and `ClassificationProperty`.
     They differ by only 5 fields:
     -   `connectedPropertyCodes` (String) and `relations` (PropertyRelation) belong uniquely to `Property`
@@ -1339,8 +1312,8 @@ But since there are no rules on which fields of `Property` to reuse in `Classifi
 the latter type copies most of the fields from the former.
 
 For example, the property <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/HandicapAccessible>
-\"Indication that this object is designed to be accessible by the handicapped\"
-is used for all kinds of spaces, as indicated by its `propertySet` \"Pset_SpaceCommon\".
+"Indication that this object is designed to be accessible by the handicapped"
+is used for all kinds of spaces, as indicated by its `propertySet` "Pset_SpaceCommon".
 There are over 300 Classisifaction Propertiess that use the indicated property:
 
 ``` sparql
@@ -1396,26 +1369,26 @@ It does the following:
 
 -   Allows for differences of optional fields, i.e. present in Property but missing in ClassificationProperty or vice versa
 -   Trims leading and trailing whitespace from field values (see next section)
--   Ignores `rdf:type` because it\'s naturally different (`bsdd:Property` vs `bsdd:ClassificationProperty`)
+-   Ignores `rdf:type` because it's naturally different (`bsdd:Property` vs `bsdd:ClassificationProperty`)
 -   Ignores `bsdd:name, bsdd:description` because minor variations are often present. Example for `bsdd:name` are:
-    \"Inhalt(Menge)jeBestelleinheit\" vs \"Inhalt~(Menge)~\_je_Bestelleinheit\"
+    "Inhalt(Menge)jeBestelleinheit" vs "Inhalt~(Menge)~\_je_Bestelleinheit"
 -   Ignores `bsdd:allowedValue, bsdd:connectedPropertyCode, bsdd:countryOfUse` because these multi-valued fields are not so easy to compare (separate queries would be needed for this)
--   Ignores `bsdd:textFormat` because we saw only invalid values, such as \"\" and \"F.001\"
+-   Ignores `bsdd:textFormat` because we saw only invalid values, such as "" and "F.001"
 
 Valid changes include:
 
--   `min/maxInclusive/Exclusive`: e.g. \"Height\" is defined to have a valid range 0..5000, but in the class \"Apple\" it\'s restricted to 1..25.
+-   `min/maxInclusive/Exclusive`: e.g. "Height" is defined to have a valid range 0..5000, but in the class "Apple" it's restricted to 1..25.
     However, we have seen this only in sample domains.
--   `unit`, e.g. from \"m\" to \"mm\" or \"cm.\" Ideally, this should happen if the `physicalQuantity` and `dimension` are preserved but it is often not the case:
-    -   \"Pitting\": \"Profondità in media\": unit \"²\" vs \"mm\" (which is invalid).
-    -   \"Pitting\": \"Entità del fenomeno (sup)\": unit \"m\" vs \"m²\".
+-   `unit`, e.g. from "m" to "mm" or "cm." Ideally, this should happen if the `physicalQuantity` and `dimension` are preserved but it is often not the case:
+    -   "Pitting": "Profondità in media": unit "²" vs "mm" (which is invalid).
+    -   "Pitting": "Entità del fenomeno (sup)": unit "m" vs "m²".
         It seems there is an uncertainty how surface defects (pitting, erosion, patina) should be measured: as length/diameter or as area.
 
 ### Improve Description of ClassificationProperties
 
 Perhaps because there is no clearly defined distinction between global properties (`Property`) and local properties (`ClassificationProperty`),
 and there are no rules on what fields they can inherit from one to the other, several local properties lack adequate descriptions.
-For example, let\'s look at the local property `Status` in classification [IfcAirTerminalBox](https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcAirTerminalBox):
+For example, let's look at the local property `Status` in classification [IfcAirTerminalBox](https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcAirTerminalBox):
 
 ``` json
 "name": "Status",
@@ -1426,7 +1399,7 @@ For example, let\'s look at the local property `Status` in classification [IfcAi
 ```
 
 The local definition refers to an appropriate propertySet `Pset_AirTerminalBoxTypeCommon`,
-but the `description` is not suitable to that classification (an \"AirTerminalBox\" is not a \"permit\"!).
+but the `description` is not suitable to that classification (an "AirTerminalBox" is not a "permit"!).
 
 ### Improve Representation of PropertyValues
 
@@ -1437,7 +1410,7 @@ These fields allow:
 -   Potentially multilingual translations in the future (if `value, description` are made multivalued and attached a language tag)
 -   The logical ordering of values through `sortNumber` (as opposed to alphabetical ordering)
 
-However, most structured values we\'ve seen have only `code, value`
+However, most structured values we've seen have only `code, value`
 
 For example, consider this property:
 
@@ -1476,13 +1449,13 @@ This has multiple problems:
 
 -   Individual values have no description (`description` is not filled out)
 -   Some values are described in the property definition, intermingling multiple descriptions together
--   The \"standard\" values NOTKNOWN, OTHER, UNSET are not described at all.
+-   The "standard" values NOTKNOWN, OTHER, UNSET are not described at all.
 -   Values have no `namespaceUri`, precluding unique identification.
 
 ### Improve Representation of predefinedValue
 
 `allowedValues` (and its deprecated variant `possibleValues`) store structured values (`ClassificationPropertyValue`).
-However, their \"sibling\" property `predefinedValue` holds a mere string and not a structured value, which means that even in the future, `predefinedValue` cannot be an enumeration value identified globally with a URL.
+However, their "sibling" property `predefinedValue` holds a mere string and not a structured value, which means that even in the future, `predefinedValue` cannot be an enumeration value identified globally with a URL.
 We could think of two possible reasons for this discrepancy:
 
 -   `predefinedValue` needs to hold not just enumeration values but also Real, String, Boolean, etc.
@@ -1503,7 +1476,7 @@ However, each domain seems to be present in one language only (**unilingual**).
 When you fetch a Classification or Property from the REST API:
 
 -   Text properties like `name` and `description` are single-valued and present in one language only
--   There\'s a single-valued prop `creatorLanguageCode`
+-   There's a single-valued prop `creatorLanguageCode`
 -   Unlike `rdf:langString` that are self-describing (e.g. `"wall"@en` vs `"wand"@de`),
     bSDD text fields do not carry a lang code with them
 
@@ -1512,7 +1485,7 @@ In contrast, [Ontotext Platform Semantic Objects](https://platform.ontotext.com/
 ## Improve RDF Structure
 
 Overall, bSDD RDF represents the scope of bSDD data faithfully, although there are various omissions. We highlight the problems to be corrected.
-Let\'s examine the RDF Turtle for `ClassificationProperty` \"IfcCableSegmentCABLESEGMENT/ACResistance\":
+Let's examine the RDF Turtle for `ClassificationProperty` "IfcCableSegmentCABLESEGMENT/ACResistance":
 
 ``` turtle
 <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegmentCABLESEGMENT/ACResistance>
@@ -1573,7 +1546,7 @@ There are a number of parallel relations (arrows) in the original GraphQL schema
 
 This is not needed in GraphQL because the schema can use parameters to distinguish between different uses of the same field
 (e.g. fetch one entity by URL vs search for entities).
-It\'s best practice for the relation to be named the same as the target entity.
+It's best practice for the relation to be named the same as the target entity.
 We have eliminated such parallel links from the refactored schema.
 
 ### GraphQL Arrays and Nullability
@@ -1777,8 +1750,8 @@ The GraphQL root field `domains` used to return some domains that are not availa
 ```
 
 The second response for `domain` will be `null` although the domain is present in the `domains` response.
-We saw this problem in January 2023, but it\'s not present in February 2023.
-Note: `cfhios` above is misspelled, because the name of that data standard is \"CFIHOS\".
+We saw this problem in January 2023, but it's not present in February 2023.
+Note: `cfhios` above is misspelled, because the name of that data standard is "CFIHOS".
 
 ### Unexpected Multiple Values
 
@@ -1868,9 +1841,9 @@ Rteurns the offending property 3 times, without getting any warning:
 ```
 
 This will be an unpleasant surprise for processing applications that expect to get each property once,
-and you see that the 3 copies of \"ContactWireStagger\" are not even returned consecutively.
+and you see that the 3 copies of "ContactWireStagger" are not even returned consecutively.
 
-Let\'s try a similar query at our refactored GraphQL endpoint:
+Let's try a similar query at our refactored GraphQL endpoint:
 
 ``` graphql
 query DomainIFC_ClassWall_Props {
@@ -1916,7 +1889,7 @@ but we think that `propertySet` should in fact be single-valued, so the data sho
 
 ### Deprecated Properties
 
-The field `possibleValues` is described as \"deprecated\".
+The field `possibleValues` is described as "deprecated".
 However, the GraphQL spec section [Field Deprecation](https://spec.graphql.org/draft/#sec-Field-Deprecation) shows that a specific `@deprecated` directive should be used for this purpose.
 In the refactored RDF data and GraphQL schema, we removed this field since it just duplicates the function of `allowedValues`.
 
@@ -1948,7 +1921,7 @@ select * {
 
 Examples where this happens (not a comprehensive list):
 
--   `bsdd:dataType` (eg \"Real \"): this is a crucially important key field that must be controlled.
+-   `bsdd:dataType` (eg "Real "): this is a crucially important key field that must be controlled.
 -   `bsdd:description` that is an enumeration. Should be expressed as `allowedValues`. e.g. in <https://identifier.buildingsmart.org/uri/engisis/RFI-02/prop/S25750_0010>:
 
 ``` example
@@ -1977,14 +1950,14 @@ Properties have three characteristics that should be closely correlated:
     L=Length M=Mass T=Time I=Electric current Θ=Thermodynamic temperature N=Amount of substance J=Luminous intensity.
     E.g. `"1 1 -2 0 0 0 0"` represents `Force=Length*Mass/Time^2`
 -   `unit`: unit of measure, which should be compatible with the dimension.
-    E.g. \"m, cm, mm, in\" are all compatible with Length (`"1 0 0 0 0 0 0"`)
+    E.g. "m, cm, mm, in" are all compatible with Length (`"1 0 0 0 0 0 0"`)
     -   Unfortunately, the units are not spelled consistently and are incompatible with the type `Unit`.
         There is some effort to incorporate (or migrate towards) the QUDT ontology:
         some properties have attribute `qudtUnit` in the JSON API.
     -   But this is not the right approach: `qudtUnit` should be attached to `Unit`, or should replace `Property.unit`
     -   Also, this migration is not yet implemented
 -   `physicalQuantity`: physical quantity being measured, should be compatible with the dimension.
-    E.g. \"Height, Width, Diameter\" are all compatible with Length.
+    E.g. "Height, Width, Diameter" are all compatible with Length.
 
 The following query finds all combinations of the three characteristics:
 
@@ -1998,14 +1971,14 @@ select ?dim ?unit ?quant (count(*) as ?props) {
 
 There are 60 combinations, too many to present here. A lot of them are due to different spelling of `physicalQuantity`, which is free text, e.g.:
 
--   \"Longueur\" vs \"Länge \| de-DE\";
--   \"Force\" vs \"Kraft \| de-DE\";
--   \"Epaisseur\" vs \"Thickness\"
+-   "Longueur" vs "Länge \| de-DE";
+-   "Force" vs "Kraft \| de-DE";
+-   "Epaisseur" vs "Thickness"
 
 This approach is wrong, because e.g. one cannot find all Thickness properties easily.
 QUDT provides URLs for various measurable quantities, and labels in numerous languages.
 
-Let\'s ignore `physicalQuantity`, but allow some of `dimension, unit` to be missing:
+Let's ignore `physicalQuantity`, but allow some of `dimension, unit` to be missing:
 
 ``` sparql
 PREFIX bsdd: <http://bsdd.buildingsmart.org/def#>
@@ -2020,14 +1993,14 @@ select ?dim ?unit (count(*) as ?props) {
 There are 260 combinations, specifically:
 
 -   134698 properties have no `dimension`.
-    -   2434 properties have `dimension` \"\" (the empty string).
+    -   2434 properties have `dimension` "" (the empty string).
 -   107861 properties have no `unit`, which is acceptable for enumerated and Boolean properties, and may be used for some dimensionless properties.
 -   104887 properties have neither `unit` nor `dimension`, which is acceptable for enumerated and Boolean properties only.
 -   29811 properties have `unit` but no `dimension`. e.g.
-    -   38 properties with unit \"m\" have the correct dimension vector \"1 0 0 0 0 0 0\", but 1529 properties have no dimension.
-    -   579 properties with unit \"mm\" have the correct dimension vector \"1 0 0 0 0 0 0\", but 14983 properties have no dimension, and 4 have the wrong dimension \"2 0 3 0 0 0 0\".
+    -   38 properties with unit "m" have the correct dimension vector "1 0 0 0 0 0 0", but 1529 properties have no dimension.
+    -   579 properties with unit "mm" have the correct dimension vector "1 0 0 0 0 0 0", but 14983 properties have no dimension, and 4 have the wrong dimension "2 0 3 0 0 0 0".
 
-Query for the last observation (about unit \"mm\"):
+Query for the last observation (about unit "mm"):
 
 ``` sparql
 PREFIX bsdd: <http://bsdd.buildingsmart.org/def#>
@@ -2050,7 +2023,7 @@ select * {
 }
 ```
 
-They all represent the property EF007220 \"Busbar thickness\"
+They all represent the property EF007220 "Busbar thickness"
 
 ### Rules About Missing Data
 
@@ -2058,17 +2031,17 @@ bSDD should define rules how to express missing data.
 It is ok to have no `physicalQuantity` for dimensionless properties (e.g. count, percentage) or enumerated properties (having a list of `allowedValues`).
 But such missing data is expressed as various free texts:
 
--   Property \"Caractérisation du sol\" (\"Soil characterization\")
-    in class \"Teneur en eau du sol\" (\"Soil water content\")
-    has `physicalQuantity` \"sans grandeur\" (\"without magnitude\")
-    because it\'s a dimensionless quantity.
--   Property \"Document de référence de mise en œuvre d\'un revêtement de sol résilient\" (\"Reference document for the implementation of a resilient floor covering\")
-    in class \"Revêtement de sol résilient PVC à queues d\'aronde et type puzzle\" (\"PVC resilient floor covering with dovetails of type puzzle\")
-    has `physicalQuantity` \"Without\"
-    because it\'s an enumeration.
--   There are 4 properties with `physicalQuantity` \"N/A\" but `unit` \"m\": this makes no sense (the quantity should be \"Length\")
+-   Property "Caractérisation du sol" ("Soil characterization")
+    in class "Teneur en eau du sol" ("Soil water content")
+    has `physicalQuantity` "sans grandeur" ("without magnitude")
+    because it's a dimensionless quantity.
+-   Property "Document de référence de mise en œuvre d'un revêtement de sol résilient" ("Reference document for the implementation of a resilient floor covering")
+    in class "Revêtement de sol résilient PVC à queues d'aronde et type puzzle" ("PVC resilient floor covering with dovetails of type puzzle")
+    has `physicalQuantity` "Without"
+    because it's an enumeration.
+-   There are 4 properties with `physicalQuantity` "N/A" but `unit` "m": this makes no sense (the quantity should be "Length")
 
-It\'s better to omit `physicalQuantity` altogether, rather than use a variety of phrases to indicate NONE.
+It's better to omit `physicalQuantity` altogether, rather than use a variety of phrases to indicate NONE.
 
 ### Unicode Problems
 
@@ -2198,7 +2171,7 @@ construct {?s ?p ?o} where {?s ?p ?o}
 -   SPARQL Anything uses the prefix `fx:` for its features and functions.
 -   We define the `bsdd:` ontology namespace the same as the existing bSDD RDF data.
 -   SPARQL Anything uses the prefix `xyz:` to emit the output data.
-    However, we use `fx:properties fx:namespace` to cast the data to the `bsdd:` namespace, so we don\'t use the `xyz:` prefix.
+    However, we use `fx:properties fx:namespace` to cast the data to the `bsdd:` namespace, so we don't use the `xyz:` prefix.
     The argument of this parameter is a string, so we use `bind(str(bsdd:) as ?bsdd)` to convert the respective namespace URL to a string
 -   We use the option `fx:properties fx:use-rdfs-member true` to emit JSON array members as multiple values of `rdfs:member` rather than the predicates `rdf:_1, rdf:_2 ...`
 
@@ -2374,7 +2347,7 @@ The JSON representation obtained from the GraphQL API is very similar but not id
 
 ### Raw RDF Example
 
-The example GraphQL JSON is converted to the following \"raw\" RDF (shortened for brevity).
+The example GraphQL JSON is converted to the following "raw" RDF (shortened for brevity).
 Its structure is very similar to the original one, with empty blank nodes in various places, strings instead of URLs, etc.
 
 ``` turtle
@@ -2432,7 +2405,7 @@ It does the following:
 -   Cut out fractional seconds from date-times, and add datatype `xsd:dateTime`
     -   This pertains to `activationDateUtc deActivationDateUtc lastUpdatedUtc revisionDateUtc versionDateUtc`
     -   `lastUpdatedUtc` has overly-specific timestamps to the precision of 10e-7 seconds, eg `2022-12-21T08:24:16.8080608`.
-        We cut out the fractional seconds because the GraphQL scalar type `DateTime` as currently implemented in the Ontotext Platform doesn\'t support such precision (nor do we see any business need for it in bSDD),
+        We cut out the fractional seconds because the GraphQL scalar type `DateTime` as currently implemented in the Ontotext Platform doesn't support such precision (nor do we see any business need for it in bSDD),
     -   However, XSD allows any number of digits in the [decimal part of seconds](https://www.w3.org/TR/xmlschema11-2/#nt-seFrag), so we have posted an enhancement request [(PLATFORM-4728)](https://ontotext.atlassian.net/browse/PLATFORM-4728) to allow this.
 -   Convert strings to URIs, and shorten props as appropriate
     -   This pertains to all props called `*Uri`, and the following are shortened:
@@ -2442,7 +2415,7 @@ It does the following:
 | bsdd:domainNamespaceUri            | bsdd:domain               | We point to the `Domain` not to its URI                                                |
 | bsdd:relatedClassificationUri      | bsdd:related              | We use the pair `relation/related` for both `PropertyRelation, ClassificationRelation` |
 | bsdd:relatedPropertyUri            | bsdd:related              | We use the pair `relation/related` for both `PropertyRelation, ClassificationRelation` |
-| bsdd:parentClassificationReference | bsdd:parentClassification | We point to the parent `Classification`, so \"reference\" is parasitic                 |
+| bsdd:parentClassificationReference | bsdd:parentClassification | We point to the parent `Classification`, so "reference" is parasitic                   |
 
 -   Drop redundant information of a referenced resource
     -   e.g. inside `parentClassificationReference`, the properties `code, name` are dropped because they are defined in the master record of that classification, thus are redundant in the reference;
@@ -2467,16 +2440,16 @@ It does the following:
     -   `ReferenceDocument`: no id field (only `name, title, date`);
     -   `ClassificationRelation`: is just a pair of `related` Properties, no own URI;
     -   `PropertyRelation`: is just a pair of `related` Properties, no own URI;
--   Remove redundant `namespaceUri` when equal to the node\'s URI.
+-   Remove redundant `namespaceUri` when equal to the node's URI.
 
 This SPARQL Update script is class-independent (works on any Raw bSDD RDF), so it can be used in two ways:
 
--   On an individual RDF file by using Jena\'s `update`, for testing
+-   On an individual RDF file by using Jena's `update`, for testing
 -   After loading all data to [GraphDB](https://www.ontotext.com/products/graphdb/), to transform all of it in one go
 
 ### Original RDF Example
 
-Now let\'s take a look at the original bSDD RDF `class-IfcCableSegment-orig.ttl` obtained with the following (shortened for brevity):
+Now let's take a look at the original bSDD RDF `class-IfcCableSegment-orig.ttl` obtained with the following (shortened for brevity):
 
 ``` example
 curl -s -Haccept:text/turtle https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegment > class-IfcCableSegment-orig.ttl
@@ -2519,7 +2492,7 @@ curl -s -Haccept:text/turtle https://identifier.buildingsmart.org/uri/buildingsm
 It has numerous problems:
 
 -   RDF naming conventions are not followed (prop names are in uppercase)
--   Classification Properties don\'t have `rdf:type bsdd:ClassificationProperty`
+-   Classification Properties don't have `rdf:type bsdd:ClassificationProperty`
 -   The relation from Classification Property to Classification is in the wrong direction
     (or should be renamed from `bsdd:ClassificationProperty` to `bsdd:classification`)
 -   `bsdd:PropertyNamespaceUri` should be a URL (object property) instead of string (datatype property)
@@ -2593,22 +2566,19 @@ The difference between the two SOML schemas is not so huge:
 diff -wu1000 bsdd-graphql-soml-orig.yaml bsdd-graphql-soml-refact.yaml > bsdd-graphql-soml.patch
 ```
 
-<figure id="fig:bsdd-graphql-soml-diff">
-<img src="./img/bsdd-graphql-soml-diff.png" />
-<figcaption>Typical differences between the Original GraphQL schema (red) and the Refactored schema (green)</figcaption>
-</figure>
+![Typical differences between the Original GraphQL schema (red) and the Refactored schema (green)](./img/bsdd-graphql-soml-diff.png){#fig:bsdd-graphql-soml-diff}
 
 We explain the differences seen in this figure:
 
--   Field names in plural are changed to singular because the field cardinality (`max`) already specifies whether it\'s single-valued or multi-valued
+-   Field names in plural are changed to singular because the field cardinality (`max`) already specifies whether it's single-valued or multi-valued
 -   Field names are changed to reflect the target class.
     E.g. `Classification.properties` is renamed to `Classification.classificationProperty` because it points to `ClassificationProperty`
 -   Parallel links (e.g. `property, properties`) are eliminated because
     the same relation field (e.g. `classificationProperty`) can be used to fetch all or a single target entity, by URL (`ID`) or by search.
 -   `childClassification` in the refactored schema is always available,
-    unlike `childs` in the original schema that\'s available only if the current Classification was fetched with `includeChilds: true`.
-    Please note that such \"hidden dependencies\" violate the GraphQL typing specification.
--   Bidirectional navigation was added by using so-called \"virtual inverses (`inverseAlias`)
+    unlike `childs` in the original schema that's available only if the current Classification was fetched with `includeChilds: true`.
+    Please note that such "hidden dependencies" violate the GraphQL typing specification.
+-   Bidirectional navigation was added by using so-called "virtual inverses (`inverseAlias`)
     (e.g. `parentClassification` can be used, even though there is no such relation recorded in the RDF repository).
 
 ## Sample Queries
@@ -2784,7 +2754,7 @@ Part of the result:
 
 ### Pagination
 
-A significant limit of the original implementation is that it doesn\'t support pagination, i.e. fetching results in sections.
+A significant limit of the original implementation is that it doesn't support pagination, i.e. fetching results in sections.
 The refactored implementation supports this for any object.
 Eg here we fetch 5 classifications from the largest domain, starting at number 100:
 
@@ -2905,7 +2875,7 @@ query ClassificationRel2 {
 
 ### Length Properties
 
-Let\'s find all Properties with `dimension` vector indicating \"length\":
+Let's find all Properties with `dimension` vector indicating "length":
 
 ``` graphql
 query LengthProps {
@@ -2918,58 +2888,46 @@ query LengthProps {
 
 We can now compare the variety associated with such properties, e.g.:
 
--   `physicalQuantity`: \"Epaisseur\", \"Longueur\", \"Länge\", \"Fläche je Länge \| de-DE\", etc
--   `unit`: \"mm\", \"cm\" but also stranger units like \"mm²/m\"
+-   `physicalQuantity`: "Epaisseur", "Longueur", "Länge", "Fläche je Länge \| de-DE", etc
+-   `unit`: "mm", "cm" but also stranger units like "mm²/m"
 
 ## Graph Visualizations
 
 In this section we show a couple of [GraphDB visualizations](https://bsdd.ontotext.com/graphdb/graphs-visualizations) that we have implemented
 to illustrate some more unusual Classifications and Properties.
-Note: if you have a user account, you can enlarge \"Maximum links to show\" in Settings to see more nodes.
+Note: if you have a user account, you can enlarge "Maximum links to show" in Settings to see more nodes.
 
-### \"COMPOSED_PROPERTY\" Classifications {#composed-property-classifications}
+### "COMPOSED_PROPERTY" Classifications {#composed-property-classifications}
 
-[This visualization](https://bsdd.ontotext.com/graphdb/graphs-visualizations?config=2dc02fd322a646879505aafde547375a) shows classifications of type \"COMPOSED_PROPERTY\" that serve as a container of related properties.
+[This visualization](https://bsdd.ontotext.com/graphdb/graphs-visualizations?config=2dc02fd322a646879505aafde547375a) shows classifications of type "COMPOSED_PROPERTY" that serve as a container of related properties.
 
-<figure id="fig:viz-ClassCOMPOSED_PROPERTY">
-<img src="./img/viz-ClassCOMPOSED_PROPERTY.png" />
-<figcaption>"COMPOSED_PROPERTY" Classifications</figcaption>
-</figure>
+!["COMPOSED_PROPERTY" Classifications](./img/viz-ClassCOMPOSED_PROPERTY.png){#fig:viz-ClassCOMPOSED_PROPERTY}
 
-### \"DOMAIN\" Classifications
+### "DOMAIN" Classifications
 
-[This visualization](https://bsdd.ontotext.com/graphdb/graphs-visualizations?config=7ecb0edaf0874c0aa81f2f0eb953b8ee) shows classifications of type \"DOMAIN\" that serve as a \"sub-domain\" of Classifications.
+[This visualization](https://bsdd.ontotext.com/graphdb/graphs-visualizations?config=7ecb0edaf0874c0aa81f2f0eb953b8ee) shows classifications of type "DOMAIN" that serve as a "sub-domain" of Classifications.
 Expanding a node shows its ClassificationProperties.
 
-<figure id="fig:viz-ClassDOMAIN">
-<img src="./img/viz-ClassDOMAIN.png" />
-<figcaption>"DOMAIN" Classifications</figcaption>
-</figure>
+!["DOMAIN" Classifications](./img/viz-ClassDOMAIN.png){#fig:viz-ClassDOMAIN}
 
 ### Classification Relations
 
 [This visualizations](https://bsdd.ontotext.com/graphdb/graphs-visualizations?config=b977ae2529094192b469f3484029fc48) shows classifications that have relations (we ignore the relation name).
 It shows a number of French classes relating to `Space, Slab, Covering`.
-(Please note that another cluster that has \"class\" in the middle is due to data quality problems in BSDD.)
+(Please note that another cluster that has "class" in the middle is due to data quality problems in BSDD.)
 
-<figure id="fig:viz-ClassRel">
-<img src="./img/viz-ClassRel.png" />
-<figcaption>Classification Relations</figcaption>
-</figure>
+![Classification Relations](./img/viz-ClassRel.png){#fig:viz-ClassRel}
 
 ### Multivalued propSets
 
 `propSet` is expected to be single-valued by the GraphQL schema, but in fact there are some multi-valued occurrences.
 [This visualization](https://bsdd.ontotext.com/graphdb/graphs-visualizations?config=fa3b8af3bc114b9b9046f9ceb11246f7) looks for such cases (e.g. see this [saved visual graph](https://bsdd.ontotext.com/graphdb/graphs-visualizations?saved=56b5379edeeb4a1a80790e9011d8e264)).
 
-<figure id="fig:viz-multivaluedPropSet">
-<img src="./img/viz-multivaluedPropSet.png" />
-<figcaption>Multivalued propSet, showing domain (purple), class (yellow), prop (red), set (blue)</figcaption>
-</figure>
+![Multivalued propSet, showing domain (purple), class (yellow), prop (red), set (blue)](./img/viz-multivaluedPropSet.png){#fig:viz-multivaluedPropSet}
 
 # Acknowledgements
 
-This work is partially funded by the European Union\'s Horizon Europe research and innovation programme under grant agreement no 101056973 (ACCORD).
+This work is partially funded by the European Union's Horizon Europe research and innovation programme under grant agreement no 101056973 (ACCORD).
 
 Author contributions:
 

@@ -1345,7 +1345,9 @@ select ?type ?code ?name ?def {
 :CUSTOM_ID: modeling-of-dynamic-properties
 :END:
 12385 ~Properties~ are declared as ~isDynamic~ (135250 are not).
-However, the field ~dynamicParameterPropertyCode~ is always empty, so one
+However, the field ~dynamicParameterPropertyCode~
+(used to compute the dynamic property)
+is always empty, so how can one know which "sub-properties" to use?
 #+begin_src sparql
 select * {
   ?prop bsdd:isDynamic true.
@@ -1353,7 +1355,8 @@ select * {
 } order by desc(?dyn)
 #+end_src
 
-Additionally, ~dynamicParameterPropertyCodes~ is ~String~, but should be ~[Property]~, i.e. an array of ~Properties~ used to compute the dynamic property.
+Additionally, ~dynamicParameterPropertyCodes~ is ~String~,
+but should be ~[Property]~, i.e. an array of ~Properties~ .
 
 *** Improve Relations Between Entities
 :PROPERTIES:

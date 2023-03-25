@@ -60,11 +60,11 @@ We provide a SPARQL endpoint using [Ontotext GraphDB](https://graphdb.ontotext.c
 |**Links**| |
 |---------|---------------------------------------------------------------------------|
 |<https://bsdd.ontotext.com><br/>This home page: schemas, data, sample queries| |
-|<https://github.com/Accord-Project/bsdd><br/>Technical work (open source)|![](img/github-contributions.png)|
+|<https://github.com/Accord-Project/bsdd><br/>Technical work (open source): scripts to get and refactor data, obtain GraphQL schema, generate and refactor SOML|![](img/github-contributions.png)|
 |[README.html](https://bsdd.ontotext.com/README.html)<br/>Detailed description of the work we did, 40 pages|![](img/readme-TOC-cropped.png){style="clip-path: ellipse(100% 95% at 50% 0)"} |
-|[paper.pdf](https://bsdd.ontotext.com/paper/paper.pdf)|Paper accepted at 11th [Linked Data in Architecture and Construction Workshop (LDAC 2023)](https://linkedbuildingdata.net/ldac2023/), 15-16 June 2023 |
+|[paper.pdf](https://bsdd.ontotext.com/paper/paper.pdf)<br/>Accepted at 11th [Linked Data in Architecture and Construction Workshop (LDAC 2023)](https://linkedbuildingdata.net/ldac2023/), 15-16 June 2023 |![](img/paper-footer.png) |
 |[presentation.pdf](https://bsdd.ontotext.com/paper/presentation.pdf)|Presentation at LDAC 2023: TODO |
-| TODO | Webinar video, presented on 24 Mar 2023 |
+|[webinar video](https://drive.google.com/open?id=1Mhts8JwbdJFUmQHGULCqduijZ0NpEoxX)<br/>Presented on 24 Mar 2023, includes transcript (if it's important for you, ask us to edit it) and brief notes with some links |![](img/video-folder.png) |
 |**Original Endpoints**| |
 |<https://test.bsdd.buildingsmart.org/graphql><br/>Original GraphQL endpoint|(protected)|
 |<https://test.bsdd.buildingsmart.org/graphiql><br/>Original GraphQL query editor|![](img/graphiql-orig.png){style="clip-path: ellipse(100% 95% at 50% 0)"} |

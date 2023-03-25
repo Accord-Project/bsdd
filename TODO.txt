@@ -1,0 +1,7 @@
+Jakob Beetz: Might this be adressed by ABAC or RBAC to protect IP / the business cases for bSI and the content creators in the contexts?
+Artur Tomczak: https://github.com/buildingSMART/bSDD/blob/master/Documentation/bSDD%20JSON%20import%20model.md describes the bSDD data model, eg what happens if a ClassificationProperty atribute is missing (it is inherited from the respective Property)
+Artur Tomczak: an example (IfcWall) with ClassificationProperties as recorded in the bSDD database:
+https://search.bsdd.buildingsmart.org/json/classification?namespaceuri=https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcWall
+
+ISO 23336 with control mechanism/auditing trail
+Validate with SHACL?

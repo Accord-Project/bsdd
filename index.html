@@ -5,9 +5,7 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta name="author" content="Vladimir Alexiev, Mihail Radkov, Nataliya Keberle" />
-  <meta name="keywords" content="Linked building
-data, LBD, buildingSMART Data Dictionary, bSDD, FAIR data, data
-quality" />
+  <meta name="keywords" content="Linked building data, LBD, buildingSMART Data Dictionary, bSDD, FAIR data, data quality" />
   <title>Semantic bSDD</title>
   <style>
     html {
@@ -200,33 +198,20 @@ quality" />
 <img src='./img/SemBSDD-Logo-400px.png'/>
 <header id="title-block-header">
 <h1 class="title">Semantic bSDD</h1>
-<p class="subtitle">Improving the GraphQL, JSON and RDF Representations
-of buildingSmart Data Dictionary</p>
+<p class="subtitle">Improving the GraphQL, JSON and RDF Representations of buildingSmart Data Dictionary</p>
 <p class="author">Vladimir Alexiev, Mihail Radkov, Nataliya Keberle</p>
 </header>
-<p>The buildingSmart Data Dictionary (bSDD) is an important shared
-resource in the Architecture, Engineering, Construction, and Operations
-(AECO) domain. It is a collection of datasets (“domains”) that define
-various classifications (objects representing building components,
-products, and materials), their properties, allowed values, etc. bSDD
-defines a GraphQL API, as well as REST APIs that return JSON and RDF
-representations. This improves the interoperability of bSDD and its
-easier deployment in architectural Computer Aided Design (CAD) and other
-AECO software.</p>
-<p>However, bSDD data is not structured as well as possible, and data
-retrieved via different APIs is not identical in content and structure.
+<p>The buildingSmart Data Dictionary (bSDD) is an important shared resource in the Architecture, Engineering, Construction, and Operations (AECO) domain.
+It is a collection of datasets (“domains”) that define various classifications (objects representing building components, products, and materials),
+their properties, allowed values, etc.
+bSDD defines a GraphQL API, as well as REST APIs that return JSON and RDF representations.
+This improves the interoperability of bSDD and its easier deployment in architectural Computer Aided Design (CAD) and other AECO software.</p>
+<p>However, bSDD data is not structured as well as possible, and data retrieved via different APIs is not identical in content and structure.
 This lowers bSDD data quality, usability and trust.</p>
-<p>We conduct a thorough comparison and analysis of bSDD data related to
-fulfillment of FAIR (findable, accessible, interoperable, and reusable)
-principles. Based on this analysis, we suggest enhancements to make bSDD
-data better structured and more FAIR.</p>
-<p>We implement many of the suggestions by refactoring the original data
-to make it better structured/interconnected, and more “semantic”. We
-provide a SPARQL endpoint using <a
-href="https://graphdb.ontotext.com/">Ontotext GraphDB</a>, and GraphQL
-endpoint using <a
-href="https://platform.ontotext.com/semantic-objects/">Ontotext Platform
-Semantic Objects</a>.</p>
+<p>We conduct a thorough comparison and analysis of bSDD data related to fulfillment of FAIR (findable, accessible, interoperable, and reusable) principles.
+Based on this analysis, we suggest enhancements to make bSDD data better structured and more FAIR.</p>
+<p>We implement many of the suggestions by refactoring the original data to make it better structured/interconnected, and more “semantic”.
+We provide a SPARQL endpoint using <a href="https://graphdb.ontotext.com/">Ontotext GraphDB</a>, and GraphQL endpoint using <a href="https://platform.ontotext.com/semantic-objects/">Ontotext Platform Semantic Objects</a>.</p>
 <table>
 <colgroup>
 <col style="width: 10%" />
@@ -240,131 +225,88 @@ Semantic Objects</a>.</p>
 </thead>
 <tbody>
 <tr class="odd">
-<td><a href="https://bsdd.ontotext.com"
-class="uri">https://bsdd.ontotext.com</a><br/>This home page: schemas,
-data, sample queries</td>
+<td><a href="https://bsdd.ontotext.com" class="uri">https://bsdd.ontotext.com</a><br/>This home page: schemas, data, sample queries</td>
 <td></td>
 </tr>
 <tr class="even">
-<td><a href="https://github.com/Accord-Project/bsdd"
-class="uri">https://github.com/Accord-Project/bsdd</a><br/>Technical
-work (open source)</td>
+<td><a href="https://github.com/Accord-Project/bsdd" class="uri">https://github.com/Accord-Project/bsdd</a><br/>Technical work (open source): scripts to get and refactor data, obtain GraphQL schema, generate and refactor SOML</td>
 <td><img src="img/github-contributions.png" /></td>
 </tr>
 <tr class="odd">
-<td><a
-href="https://bsdd.ontotext.com/README.html">README.html</a><br/>Detailed
-description of the work we did, 40 pages</td>
-<td><img src="img/readme-TOC-cropped.png"
-style="clip-path: ellipse(100% 95% at 50% 0)" /></td>
+<td><a href="https://bsdd.ontotext.com/README.html">README.html</a><br/>Detailed description of the work we did, 40 pages</td>
+<td><img src="img/readme-TOC-cropped.png" style="clip-path: ellipse(100% 95% at 50% 0)" /></td>
 </tr>
 <tr class="even">
-<td><a
-href="https://bsdd.ontotext.com/paper/paper.pdf">paper.pdf</a></td>
-<td>Paper accepted at 11th <a
-href="https://linkedbuildingdata.net/ldac2023/">Linked Data in
-Architecture and Construction Workshop (LDAC 2023)</a>, 15-16 June
-2023</td>
+<td><a href="https://bsdd.ontotext.com/paper/paper.pdf">paper.pdf</a><br/>Accepted at 11th <a href="https://linkedbuildingdata.net/ldac2023/">Linked Data in Architecture and Construction Workshop (LDAC 2023)</a>, 15-16 June 2023</td>
+<td><img src="img/paper-footer.png" /></td>
 </tr>
 <tr class="odd">
-<td><a
-href="https://bsdd.ontotext.com/paper/presentation.pdf">presentation.pdf</a></td>
+<td><a href="https://bsdd.ontotext.com/paper/presentation.pdf">presentation.pdf</a></td>
 <td>Presentation at LDAC 2023: TODO</td>
 </tr>
 <tr class="even">
-<td>TODO</td>
-<td>Webinar video, presented on 24 Mar 2023</td>
+<td><a href="https://drive.google.com/open?id=1Mhts8JwbdJFUmQHGULCqduijZ0NpEoxX">webinar video</a><br/>Presented on 24 Mar 2023, includes transcript (if it’s important for you, ask us to edit it) and brief notes with some links</td>
+<td><img src="img/video-folder.png" /></td>
 </tr>
 <tr class="odd">
 <td><strong>Original Endpoints</strong></td>
 <td></td>
 </tr>
 <tr class="even">
-<td><a href="https://test.bsdd.buildingsmart.org/graphql"
-class="uri">https://test.bsdd.buildingsmart.org/graphql</a><br/>Original
-GraphQL endpoint</td>
+<td><a href="https://test.bsdd.buildingsmart.org/graphql" class="uri">https://test.bsdd.buildingsmart.org/graphql</a><br/>Original GraphQL endpoint</td>
 <td>(protected)</td>
 </tr>
 <tr class="odd">
-<td><a href="https://test.bsdd.buildingsmart.org/graphiql"
-class="uri">https://test.bsdd.buildingsmart.org/graphiql</a><br/>Original
-GraphQL query editor</td>
-<td><img src="img/graphiql-orig.png"
-style="clip-path: ellipse(100% 95% at 50% 0)" /></td>
+<td><a href="https://test.bsdd.buildingsmart.org/graphiql" class="uri">https://test.bsdd.buildingsmart.org/graphiql</a><br/>Original GraphQL query editor</td>
+<td><img src="img/graphiql-orig.png" style="clip-path: ellipse(100% 95% at 50% 0)" /></td>
 </tr>
 <tr class="even">
-<td><a
-href="https://rawgit2.com/Accord-Project/bsdd/main/bsdd-graphql-voyager-orig.html">bsdd-graphql-voyager-orig.html</a><br/>Original
-GraphQL schema visualization with Voyager</td>
+<td><a href="https://rawgit2.com/Accord-Project/bsdd/main/bsdd-graphql-voyager-orig.html">bsdd-graphql-voyager-orig.html</a><br/>Original GraphQL schema visualization with Voyager</td>
 <td><img src="img/bsdd-graphql-voyager-overview.png" /></td>
 </tr>
 <tr class="odd">
-<td><a
-href="https://docs.google.com/spreadsheets/d/1z_NRMlExlVuqWhBbSErQ9iiDBY4O_fKMd3avV3-NCmo/edit">Analysis
-Sheet</a><br/>Analysis of differences between GraphQL, JSON and RDF
-representations</td>
-<td><img src="img/bsdd-data-analysis-sheet-cropped.png"
-style="clip-path: ellipse(100% 95% at 50% 0)" /></td>
+<td><a href="https://docs.google.com/spreadsheets/d/1z_NRMlExlVuqWhBbSErQ9iiDBY4O_fKMd3avV3-NCmo/edit">Analysis Sheet</a><br/>Analysis of differences between GraphQL, JSON and RDF representations</td>
+<td><img src="img/bsdd-data-analysis-sheet-cropped.png" style="clip-path: ellipse(100% 95% at 50% 0)" /></td>
 </tr>
 <tr class="even">
 <td><strong>Refactored Endpoints</strong></td>
 <td></td>
 </tr>
 <tr class="odd">
-<td><a href="https://bsdd.ontotext.com/platform"
-class="uri">https://bsdd.ontotext.com/platform</a><br/>Semantic Objects
-workbench: administrative interface for the Ontotext Platform
-implementing GraphQL (protected)</td>
+<td><a href="https://bsdd.ontotext.com/platform" class="uri">https://bsdd.ontotext.com/platform</a><br/>Semantic Objects workbench: administrative interface for the Ontotext Platform implementing GraphQL (protected)</td>
 <td><img src="img/graphql-workbench.png" /></td>
 </tr>
 <tr class="even">
-<td><a href="https://bsdd.ontotext.com/graphql"
-class="uri">https://bsdd.ontotext.com/graphql</a><br/>Refactored GraphQL
-endpoint</td>
+<td><a href="https://bsdd.ontotext.com/graphql" class="uri">https://bsdd.ontotext.com/graphql</a><br/>Refactored GraphQL endpoint</td>
 <td>(protected)</td>
 </tr>
 <tr class="odd">
-<td><a href="https://bsdd.ontotext.com/graphiql"
-class="uri">https://bsdd.ontotext.com/graphiql</a><br/>Refactored
-GraphQL query editor</td>
+<td><a href="https://bsdd.ontotext.com/graphiql" class="uri">https://bsdd.ontotext.com/graphiql</a><br/>Refactored GraphQL query editor</td>
 <td><img src="img/graphiql-refact.png" /></td>
 </tr>
 <tr class="even">
-<td><a
-href="https://rawgit2.com/Accord-Project/bsdd/main/bsdd-graphql-voyager-refact.html">bsdd-graphql-voyager-refact.html</a><br/>Refactored
-GraphQL schema visualization with Voyager</td>
+<td><a href="https://rawgit2.com/Accord-Project/bsdd/main/bsdd-graphql-voyager-refact.html">bsdd-graphql-voyager-refact.html</a><br/>Refactored GraphQL schema visualization with Voyager</td>
 <td><img src="img/bsdd-graphql-voyager-refact-overview.png" /></td>
 </tr>
 <tr class="odd">
-<td><a
-href="https://github.com/Accord-Project/bsdd/blob/main/bsdd-graphql-soml.patch">bsdd-graphql-soml.patch</a><br/>Differences
-betwen original and refactored schema (as SOML)</td>
+<td><a href="https://github.com/Accord-Project/bsdd/blob/main/bsdd-graphql-soml.patch">bsdd-graphql-soml.patch</a><br/>Differences betwen original and refactored schema (as SOML)</td>
 <td><img src="img/bsdd-graphql-soml-diff.png" /></td>
 </tr>
 <tr class="even">
-<td><a href="https://bsdd.ontotext.com/graphdb"
-class="uri">https://bsdd.ontotext.com/graphdb</a><br/>GraphDB Workbench:
-administrative interface for our semantic database</td>
+<td><a href="https://bsdd.ontotext.com/graphdb" class="uri">https://bsdd.ontotext.com/graphdb</a><br/>GraphDB Workbench: administrative interface for our semantic database</td>
 <td>(protected)</td>
 </tr>
 <tr class="odd">
-<td><a href="https://bsdd.ontotext.com/graphdb/repositories/bsdd"
-class="uri">https://bsdd.ontotext.com/graphdb/repositories/bsdd</a><br/>GraphDB
-SPARQL endpoint</td>
+<td><a href="https://bsdd.ontotext.com/graphdb/repositories/bsdd" class="uri">https://bsdd.ontotext.com/graphdb/repositories/bsdd</a><br/>GraphDB SPARQL endpoint</td>
 <td></td>
 </tr>
 <tr class="even">
-<td><a href="https://bsdd.ontotext.com/graphdb/sparql"
-class="uri">https://bsdd.ontotext.com/graphdb/sparql</a><br/>GraphDB
-SPARQL editor</td>
+<td><a href="https://bsdd.ontotext.com/graphdb/sparql" class="uri">https://bsdd.ontotext.com/graphdb/sparql</a><br/>GraphDB SPARQL editor</td>
 <td><img src="img/graphdb-sparql.png" /></td>
 </tr>
 <tr class="odd">
-<td><a href="https://bsdd.ontotext.com/graphdb/graphs-visualizations"
-class="uri">https://bsdd.ontotext.com/graphdb/graphs-visualizations</a><br/>Visual
-Graph visualizations</td>
-<td><img src="img/viz-ClassDOMAIN-cropped.png"
-style="clip-path: ellipse(100% 95% at 50% 0)" /></td>
+<td><a href="https://bsdd.ontotext.com/graphdb/graphs-visualizations" class="uri">https://bsdd.ontotext.com/graphdb/graphs-visualizations</a><br/>Visual Graph visualizations</td>
+<td><img src="img/viz-ClassDOMAIN-cropped.png" style="clip-path: ellipse(100% 95% at 50% 0)" /></td>
 </tr>
 </tbody>
 </table>
@@ -391,8 +333,7 @@ style="clip-path: ellipse(100% 95% at 50% 0)" /></td>
 <tr class="even">
 <td>Funded by</td>
 <td><img src="img/accord.png" width="200" /></td>
-<td>Horizon Europe <a href="https://accordproject.eu/">Project
-ACCORD</a> (101056973)</td>
+<td>Horizon Europe <a href="https://accordproject.eu/">Project ACCORD</a> (101056973)</td>
 </tr>
 <tr class="odd">
 <td>Powered by</td>
@@ -402,15 +343,12 @@ ACCORD</a> (101056973)</td>
 <tr class="even">
 <td>Powered by</td>
 <td><img src="img/ontotext-platform.png" width="200" /></td>
-<td><a href="https://platform.ontotext.com/semantic-objects/">Ontotext
-Platform Semantic Objects</a></td>
+<td><a href="https://platform.ontotext.com/semantic-objects/">Ontotext Platform Semantic Objects</a></td>
 </tr>
 <tr class="odd">
 <td>Data from</td>
 <td><img src="img/bsdd.png" width="200" /></td>
-<td><a
-href="https://www.buildingsmart.org/users/services/buildingsmart-data-dictionary/">buildingSMART
-Data Dictionary</a></td>
+<td><a href="https://www.buildingsmart.org/users/services/buildingsmart-data-dictionary/">buildingSMART Data Dictionary</a></td>
 </tr>
 </tbody>
 </table>

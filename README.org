@@ -1,4 +1,3 @@
-#+comment: -*- org-html-preamble: "<p class='author'>Author: %a<br/>(%e)</p><p class='date'>Date: %d</p><p><img src='./img/SemBSDD-Logo-400px.png'/></p>" -*-
 #+options: ':nil *:t -:t ::t <:t H:5 \n:nil ^:{} arch:headline author:t
 #+options: c:nil creator:nil d:(not "LOGBOOK") date:t e:t email:nil f:t
 #+options: inline:t p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t
@@ -6,7 +5,7 @@
 #+startup: showeverything
 #+title: Semantic bSDD
 #+subtitle: Improving the GraphQL, JSON and RDF Representations of buildingSmart Data Dictionary
-#+date: <2023-03-23>
+#+date: <2023-03-26>
 #+author: Vladimir Alexiev, Mihail Radkov, Nataliya Keberle
 #+email: vladimir.alexiev@ontotext.com
 #+institute: Ontotext
@@ -16,6 +15,7 @@
 #+exclude_tags: noexport
 #+creator: Emacs 28.1 (Org mode 9.5.2)
 #+html_head_extra: <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+#+options: html-preamble:"<p class='author'>Author: %a<br/>(%e)</p><p class='date'>Date: %d</p><p><img src='./img/SemBSDD-Logo-400px.png'/></p>"
 
 * Table of Contents                                 :TOC:noexport:
 :PROPERTIES:

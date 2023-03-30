@@ -65,6 +65,7 @@ We provide a SPARQL endpoint using [Ontotext GraphDB](https://graphdb.ontotext.c
 |[paper.pdf](https://bsdd.ontotext.com/paper/paper.pdf)<br/>Accepted at 11th [Linked Data in Architecture and Construction Workshop (LDAC 2023)](https://linkedbuildingdata.net/ldac2023/), 15-16 June 2023 |![](img/paper-footer.png) |
 |[presentation.pdf](https://bsdd.ontotext.com/paper/presentation.pdf)|Presentation at LDAC 2023: TODO |
 |[webinar video](https://drive.google.com/open?id=1Mhts8JwbdJFUmQHGULCqduijZ0NpEoxX)<br/>Presented on 24 Mar 2023, includes transcript (if it's important for you, ask us to edit it) and brief notes with some links |![](img/video-folder.png) |
+|[discussion](https://forums.buildingsmart.org/t/semantic-bsdd/4669/5)<br/>At bSI forum: please contribute!|![](img/bSI-forum.png)|
 |**Original Endpoints**| |
 |<https://test.bsdd.buildingsmart.org/graphql><br/>Original GraphQL endpoint|(protected)|
 |<https://test.bsdd.buildingsmart.org/graphiql><br/>Original GraphQL query editor|![](img/graphiql-orig.png){style="clip-path: ellipse(100% 95% at 50% 0)"} |

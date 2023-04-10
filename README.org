@@ -5,7 +5,7 @@
 #+startup: showeverything
 #+title: Semantic bSDD
 #+subtitle: Improving the GraphQL, JSON and RDF Representations of buildingSmart Data Dictionary
-#+date: <2023-03-26>
+#+date: <2023-04-10>
 #+author: Vladimir Alexiev, Mihail Radkov, Nataliya Keberle
 #+email: vladimir.alexiev@ontotext.com
 #+institute: Ontotext
@@ -72,7 +72,11 @@
     - [[#improve-description-of-classificationproperties][Improve Description of ClassificationProperties]]
     - [[#improve-representation-of-propertyvalues][Improve Representation of PropertyValues]]
     - [[#improve-representation-of-predefinedvalue][Improve Representation of predefinedValue]]
-    - [[#improve-multilingual-support][Improve Multilingual Support]]
+  - [[#improve-multilingual-support][Improve Multilingual Support]]
+    - [[#self-describing-langstrings][Self-Describing langStrings]]
+    - [[#language-fallback][Language Fallback]]
+    - [[#use-language-content-negotiation][Use Language Content Negotiation]]
+    - [[#improve-lang-tags][Improve Lang Tags]]
   - [[#improve-rdf-structure][Improve RDF Structure]]
   - [[#graphql-improvements][GraphQL Improvements]]
     - [[#searchability-and-pagination][Searchability and Pagination]]
@@ -1558,24 +1562,116 @@ We could think of two possible reasons for this discrepancy:
   Then it should be structured as a variant and not be cast down to String.
 - It may be related to the poor description of PropertyValue
 
-*** Improve Multilingual Support
+** Improve Multilingual Support
 :PROPERTIES:
 :CUSTOM_ID: improve-multilingual-support
 :END:
+(See more details in the discussion [[https://forums.buildingsmart.org/t/proper-way-to-access-translations-of-ifc-entities][Proper way to access translations of IFC entities?]] at the bSI forum.)
+
 bSDD is advertised as a multilingual dictionary.
 In the GraphQL API, one can specify a desired language when fetching classifications and properties:
 #+begin_src graphql
 classification(includeChilds: Boolean, languageCode: String, namespaceUri: String!) {...}
 property(languageCode: String, namespaceUri: String!) {...}
 #+end_src
+However, most domains are present in one language only (*unilingual*):
+As explained by bSI, the reason is that there are no approved translations of bSDD domains at present.
 
-However, each domain seems to be present in one language only (*unilingual*).
-When you fetch a Classification or Property from the REST API:
-- Text properties like ~name~ and ~description~ are single-valued and present in one language only
-- There's a single-valued prop ~creatorLanguageCode~
-- Unlike ~rdf:langString~ that are self-describing (e.g. ~"wall"@en~ vs ~"wand"@de~),
-  bSDD text fields do not carry a lang code with them
-In contrast, [[https://platform.ontotext.com/semantic-objects/tutorials/graphql-query.html#filtering-literal-values][Ontotext Platform Semantic Objects]] includes comprehensive facilities for selecting labels per language, including language fallback.
+The only domain that has translations is the demo domain "Fruits and Vegetables".
+For example, look at [[https://search-test.bsdd.buildingsmart.org/Classification/Index/97762][apple]] and use the Language toggle to see its name, description and related properties in 3 langs (~en, nl, pl~).
+You can also use the REST API to obtain multilingual variants of Classifications, e.g.:
+- JSON:
+: curl "https://test.bsdd.buildingsmart.org/api/Classification/v4?namespaceUri=https://identifier.buildingsmart.org/uri/bs-agri/fruitvegs-1.0/class/apple&languageCode=pl-PL"
+- RDF Turtle:
+: curl -Haccept:text/turtle "https://test.bsdd.buildingsmart.org/api/Classification/v4?namespaceUri=https://identifier.buildingsmart.org/uri/bs-agri/fruitvegs-1.0/class/apple&languageCode=pl-PL"
+
+*** Self-Describing langStrings
+RDF is well suited to carry multilingual data because:
+- Any property can carry multiple values
+- ~rdf:langString~ literals are self-describing by carrying a lang tag (e.g. ~"wall"@en~ vs ~"wand"@de~)
+For example, the ~ClassificatonProperty~ apple/volume is represented like this in RDF:
+#+begin_src turtle
+<https://identifier.buildingsmart.org/uri/bs-agri/fruitvegs-1.0/class/apple/volume>
+  bsdd:Description "The volume of an apple"@pl-pl;
+  bsdd:Example "For example, the space that a substance or 3D shape occupies or contains."@pl-pl;
+  bsdd:Name "Objętość"@pl-pl;
+  bsdd:PhysicalQuantity "Volume"@pl-pl;
+  bsdd:PropertyDomainName "Fruit and vegetables";
+  bsdd:DataType "Real";
+  bsdd:PropertyCode "volume";
+#+end_src
+Notes:
+- Some of the values are correctly unilingual and shouldn't be translated because they are identifiers (~DataType, PropertyCode~)
+- Other values are not translated, so their lang tag is misleading (~Description, Example~).
+- ~PropertyDomainName~ is in fact redundant because there are links ~ClassificatonProperty-Classificaton-Domain~, so it should be removed.
+
+But there's no lang tag information in JSON:
+#+begin_src json
+"description": "The volume of an apple",
+"name": "Objętość",
+#+end_src
+
+*** Language Fallback
+Currently bSDD assumes that a domain and all its sub-objects will be translated *fully* to multiple languages.
+(Translatable fields are specified in the [[https://github.com/buildingSMART/bSDD/blob/master/Documentation/bSDD%20JSON%20import%20model.md][buildingSMART Data Dictionary model]]).
+That's why it doesn't bother to store the lang tag of individual strings individually.
+As you can see in the Turtle example above, that leads to incorrect and misleading lang tags (e.g. ~"The volume of an apple"@pl-pl~ is in English not Polish).
+
+From our experience with large thesauri, the assumption that everything will be translated is unrealistic.
+For example, the Getty AAT (a major thesaurus in Cultural Heritage) had 109 languages as of Nov 2016,
+but only 4 that cover all 40k concepts, and only 9 that have more than 1k labels (see [[https://vocab.getty.edu/doc/queries/#Count_Terms_by_Language][Count_Terms_by_Language]]).
+
+Such assumption makes it harder to deploy a translation: it has to be 100% translated before it can be deployed.
+It is better to allow a mix of languages to be stored, and let the user pick desired language(s) by preference.
+This can be done by:
+- Allowing translatable fields like ~name~ and ~description~ to carry multiple values
+- Ensuring that translatable strings in the payload indicate their language tag (be self-describing)
+- Having "language fallback" logic. For example, [[https://platform.ontotext.com/semantic-objects/tutorials/graphql-query.html#filtering-literal-values][Ontotext Platform Semantic Objects]] include comprehensive facilities for selecting labels per language, including language fallback.
+  For example, the following GraphQL query will fetch only one ~name~ value, preferring Polish, then English, then German:
+
+#+begin_src graphql
+classification {
+  code
+  name(lang:"pl,en,de")
+}
+#+end_src
+
+*** Use Language Content Negotiation
+According to basic principles of the Web Architecture, URIs (or their better sibling: resolvable URLs)
+are identifiers of resources (information resources or real-world things), so they shouldn’t reflect implementation or representation details.
+This is further elaborated in the blogs [[https://www.w3.org/TR/cooluris][Cool URIs for the Semantic Web]] and [[https://www.w3.org/Provider/Style/URI][Cool URIs don't change]].
+When fetching an entity, it is preferred to use a constant URL, and specify representation details with HTTP headers.
+This happens through a process of [[https://en.wikipedia.org/wiki/Content_negotiation][Content negotiation]] using standard headers (see [[https://en.wikipedia.org/wiki/List_of_HTTP_header_fields][List of HTTP header fields]]).
+- The client uses ~Accept~ for desired MIME type and ~Accept-Language~ for a list of preferred languages
+- The server uses ~Content-Type~ to indicate the returned MIME type, and ~Language~ to indicate the language
+
+For example, to fetch the classification "apple" in Polish (or English, or German) in Turtle, one should be able to use:
+: curl -L -Haccept-language:pl,en,de -Haccept:text/turtle \
+:   https://identifier.buildingsmart.org/uri/bs-agri/fruitvegs-1.0/class/apple
+
+And to fetch it in English (or German) in JSON, one should be able to use:
+: curl -L -Haccept-language:en,de -Haccept:application/json \
+:   https://identifier.buildingsmart.org/uri/bs-agri/fruitvegs-1.0/class/apple
+
+You will notice that we've used the same ("semantic") URL, and varied only the headers.
+Contrast this approach to the current one illustrated in sec [[*Improve Multilingual Support]].
+
+The Ontotext Platform uses a pseudo "lang tag" ~BROWSER~ to indicate where to use the Accept-Language header,
+see [[https://platform.ontotext.com/semantic-objects/tutorials/graphql-query.html#graphql-query-tutorial-http-accept-language][GraphQL Query Tutorial: HTTP Accept-Language]].
+
+*** Improve Lang Tags
+The current bSDD approach is to always append a region code to the lang tag,
+e.g. ~de-DE, de-AT, pl-PL~ etc (see https://api.bsdd.buildingsmart.org/api/Language/v1).
+However, [[https://www.rfc-editor.org/rfc/rfc5646.html#section-2.2.4][RFC 5646: Tags for Identifying Languages]] specifies:
+#+begin_quote
+Region subtags are used to indicate linguistic variations associated with or appropriate to a specific country, territory, or region.
+Typically, a region subtag is used to indicate variations such as regional dialects or usage, or region-specific spelling conventions.
+#+end_quote
+
+~pl-PL~ means "Polish as spoken in Poland", but the language spoken there is just Polish, so using the region subtag is not right.
+Similarly, forcing a difference between ~de-DE~ and ~de-AT~ will lead to a lot of unnecessary duplication,
+because Standard Austrian German is mostly identical to the Standard German of Germany, but with some vocabulary differences (see [[https://en.wikipedia.org/wiki/Austria#Language][Wikipedia]]).
+It's better to use ~de~ for the majority of translatable strings, and use ~de-AT~ only for specifically Austrian words.
 
 ** Improve RDF Structure
 :PROPERTIES:
@@ -3016,6 +3112,26 @@ It shows a number of French classes relating to ~Space, Slab, Covering~.
 :CUSTOM_ID: acknowledgements
 :END:
 This work is partially funded by the European Union's Horizon Europe research and innovation programme under grant agreement no 101056973 (ACCORD).
+- Developed by:
+  #+ATTR_HTML: :width 200px
+  [[./img/ontotext.png]]  
+  [[https://ontotext.com/][Ontotext (Sirma AI)]]                       
+- Funded by:
+  #+ATTR_HTML: :width 200px
+  [[./img/accord.png]]    
+  Horizon Europe [[https://accordproject.eu/][Project ACCORD]] (101056973) 
+- Powered by:
+  #+ATTR_HTML: :width 200px
+  [[./img/graphdb.png]]      
+  [[https://graphdb.ontotext.com/][Ontotext GraphDB]]                          
+- Powered by:
+  #+ATTR_HTML: :width 200px
+  [[./img/ontotext-platform.png]] 
+  [[https://platform.ontotext.com/semantic-objects/][Ontotext Platform Semantic Objects]]        
+- Data from:
+  #+ATTR_HTML: :width 200px
+  [[./img/bsdd.png]]  
+  [[https://www.buildingsmart.org/users/services/buildingsmart-data-dictionary/][buildingSMART Data Dictionary]]             
 
 Author contributions:
 - VA conceived the work, described bSDD shortcomings, implemented GraphQL and RDF refactoring.
@@ -3023,3 +3139,4 @@ Author contributions:
 - NK performed statistics and comparisons of bSDD data and wrote the final paper.
 
 We thank Léon van Berlo and Erik Baars from buildingSmart International for their help with accessing bSDD.
+

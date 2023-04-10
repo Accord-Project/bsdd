@@ -1,6 +1,6 @@
 ---
 author: Vladimir Alexiev, Mihail Radkov, Nataliya Keberle
-date: \<2023-03-23\>
+date: \<2023-04-10\>
 header-includes:
 - "`<link rel=\"icon\" type=\"image/x-icon\" href=\"img/favicon.ico\">`{=html}"
 institute: Ontotext
@@ -12,9 +12,6 @@ title: Semantic bSDD
 
 `<link rel="icon" type="image/x-icon" href="img/favicon.ico">`{=html}
 
-```{=org}
-#+comment: -*- org-html-preamble: "<p class='author'>Author: %a<br/>(%e)</p><p class='date'>Date: %d</p><p><img src='./img/SemBSDD-Logo-400px.png'/></p>" -*-
-```
 ```{=org}
 #+startup: showeverything
 ```
@@ -93,7 +90,10 @@ and displays the schema of the endpoint, allowing the user to search and browse 
 We wrote a page [bsdd-graphql-voyager-orig](https://rawgit2.com/Accord-Project/bsdd/main/bsdd-graphql-voyager-orig.html) (see `bsdd-graphql-voyager-orig.html`) that deploys Voyager over the bSDD GraphQL endpoint.
 We used it to investigate the original bSDD schema:
 
-![Original bSDD GraphQL Schema: Overview (uncheck "Show leaf fields")](./img/bsdd-graphql-voyager-overview.png){#fig:bsdd-graphql-voyager-orig-overview}
+<figure id="fig:bsdd-graphql-voyager-orig-overview">
+<img src="./img/bsdd-graphql-voyager-overview.png" />
+<figcaption>Original bSDD GraphQL Schema: Overview (uncheck "Show leaf fields")</figcaption>
+</figure>
 
 As we can see, bSDD has 12 entities (object types):
 
@@ -113,7 +113,10 @@ As we can see, bSDD has 12 entities (object types):
 
 We can also look at details of the schema:
 
-![Original bSDD GraphQL Schema: Detail of Classification and ClassificationProperty](./img/bsdd-graphql-voyager-Classification-ClassificationProperty.png){#fig:bsdd-graphql-voyager-orig-detail}
+<figure id="fig:bsdd-graphql-voyager-orig-detail">
+<img src="./img/bsdd-graphql-voyager-Classification-ClassificationProperty.png" />
+<figcaption>Original bSDD GraphQL Schema: Detail of Classification and ClassificationProperty</figcaption>
+</figure>
 
 Last but not least, Voyager presents detailed and searchable documentation about the schema;
 the same is available in the GraphiQL query tool.
@@ -150,7 +153,10 @@ But we show the refactored schema here in order to compare it to the original sc
 We wrote the web page [bsdd-graphql-voyager-refact.html](https://rawgit2.com/Accord-Project/bsdd/main/bsdd-graphql-voyager-refact.html) (see `bsdd-graphql-voyager-refact.html`)
 that allows you to explore the refactored schema.
 
-![Refactored bSDD GraphQL Schema: Overview (uncheck "Show leaf fields")](./img/bsdd-graphql-voyager-refact-overview.png){#fig:bsdd-graphql-voyager-refact-overview}
+<figure id="fig:bsdd-graphql-voyager-refact-overview">
+<img src="./img/bsdd-graphql-voyager-refact-overview.png" />
+<figcaption>Refactored bSDD GraphQL Schema: Overview (uncheck "Show leaf fields")</figcaption>
+</figure>
 
 Improvements:
 
@@ -176,13 +182,19 @@ We can also take a look at a detail of the refactored schema. It looks pretty si
 but all fields are normalized to singular names,
 and strings fields like `propertyNamespaceUri` are converted to object fields like `Property`.
 
-![Refactored bSDD GraphQL Schema: Detail of Classification and ClassificationProperty](./img/bsdd-graphql-voyager-refact-Classification-ClassificationProperty.png){#fig:bsdd-graphql-voyager-refact-detail}
+<figure id="fig:bsdd-graphql-voyager-refact-detail">
+<img src="./img/bsdd-graphql-voyager-refact-Classification-ClassificationProperty.png" />
+<figcaption>Refactored bSDD GraphQL Schema: Detail of Classification and ClassificationProperty</figcaption>
+</figure>
 
 ## GraphiQL Querying of Original Endpoint
 
 <https://test.bsdd.buildingsmart.org/graphiql> is the original GraphQL endpoint.
 
-![GraphiQL Querying of Original bSDD Endpoint](./img/graphiql-orig.png){#fig:graphiql-orig}
+<figure id="fig:graphiql-orig">
+<img src="./img/graphiql-orig.png" />
+<figcaption>GraphiQL Querying of Original bSDD Endpoint</figcaption>
+</figure>
 
 It provides a number of useful features:
 
@@ -198,7 +210,10 @@ It provides a number of useful features:
 
 <https://bsdd.ontotext.com/graphiql/> is the refactored GraphQL endpoint:
 
-![GraphiQL Querying of Refactored bSDD Endpoint](./img/graphiql-refact.png){#fig:graphiql-refact}
+<figure id="fig:graphiql-refact">
+<img src="./img/graphiql-refact.png" />
+<figcaption>GraphiQL Querying of Refactored bSDD Endpoint</figcaption>
+</figure>
 
 We have deployed a newer version of GraphiQL that has all benefits described in the previous section, and adds some more:
 
@@ -794,7 +809,10 @@ curl -Haccept:text/turtle https://identifier.buildingsmart.org/uri/fvhf/vhf-0.00
 We selected entities of each class that have the maximum number of filled fields, and compared the results returned by each API.
 We found a number of detailed differences, as presented in the [bSDD data analysis](https://docs.google.com/spreadsheets/d/1z_NRMlExlVuqWhBbSErQ9iiDBY4O_fKMd3avV3-NCmo/edit) spreadsheet:
 
-![Differences between bSDD GraphQL, JSON and RDF Data](./img/bsdd-data-analysis-sheet.png){#fig:bsdd-data-analysis-sheet}
+<figure id="fig:bsdd-data-analysis-sheet">
+<img src="./img/bsdd-data-analysis-sheet.png" />
+<figcaption>Differences between bSDD GraphQL, JSON and RDF Data</figcaption>
+</figure>
 
 There are differences and omissions in some of the formats, as summarized in the table below.
 
@@ -927,12 +945,18 @@ Note: to pretty-print the JSON, add this to the end of the command: `| jq .`
 The same URL can be used to get a static web page in the browser:
 <https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegmentCABLESEGMENT>
 
-![CableSegment enity as displayed at the bSDD web site](./img/IFC-class-cableSegment-web.png){#fig:IFC-class-cableSegment-web}
+<figure id="fig:IFC-class-cableSegment-web">
+<img src="./img/IFC-class-cableSegment-web.png" />
+<figcaption>CableSegment enity as displayed at the bSDD web site</figcaption>
+</figure>
 
 However, the interactive [bSDD Search](https://search.bsdd.buildingsmart.org) UI uses a different URL that returns slightly different information:
 <https://search.bsdd.buildingsmart.org/Classification/Index/58453>
 
-![CableSegment as displayed at the bSDD search site](./img/IFC-class-cableSegment-search.png){#fig:IFC-class-cableSegment-search}
+<figure id="fig:IFC-class-cableSegment-search">
+<img src="./img/IFC-class-cableSegment-search.png" />
+<figcaption>CableSegment as displayed at the bSDD search site</figcaption>
+</figure>
 
 There is not really a need for two different web pages showing nearly the same info.
 We think that with some modest change in technology, the Search UI can use the first (semantic) URL immediately instead of an internal (non-semantic) `Index/` URL.
@@ -1238,7 +1262,9 @@ select ?type ?code ?name ?def {
 ### Modeling of Dynamic Properties
 
 12385 `Properties` are declared as `isDynamic` (135250 are not).
-However, the field `dynamicParameterPropertyCode` is always empty, so one
+However, the field `dynamicParameterPropertyCode`
+(used to compute the dynamic property)
+is always empty, so how can one know which "sub-properties" to use?
 
 ``` sparql
 select * {
@@ -1247,7 +1273,8 @@ select * {
 } order by desc(?dyn)
 ```
 
-Additionally, `dynamicParameterPropertyCodes` is `String`, but should be `[Property]`, i.e. an array of `Properties` used to compute the dynamic property.
+Additionally, `dynamicParameterPropertyCodes` is `String`,
+but should be `[Property]`, i.e. an array of `Properties` .
 
 ### Improve Relations Between Entities
 
@@ -1462,7 +1489,9 @@ We could think of two possible reasons for this discrepancy:
     Then it should be structured as a variant and not be cast down to String.
 -   It may be related to the poor description of PropertyValue
 
-### Improve Multilingual Support
+## Improve Multilingual Support
+
+(See more details in the discussion [Proper way to access translations of IFC entities?](https://forums.buildingsmart.org/t/proper-way-to-access-translations-of-ifc-entities) at the bSI forum.)
 
 bSDD is advertised as a multilingual dictionary.
 In the GraphQL API, one can specify a desired language when fetching classifications and properties:
@@ -1472,15 +1501,129 @@ classification(includeChilds: Boolean, languageCode: String, namespaceUri: Strin
 property(languageCode: String, namespaceUri: String!) {...}
 ```
 
-However, each domain seems to be present in one language only (**unilingual**).
-When you fetch a Classification or Property from the REST API:
+However, most domains are present in one language only (**unilingual**):
+As explained by bSI, the reason is that there are no approved translations of bSDD domains at present.
 
--   Text properties like `name` and `description` are single-valued and present in one language only
--   There's a single-valued prop `creatorLanguageCode`
--   Unlike `rdf:langString` that are self-describing (e.g. `"wall"@en` vs `"wand"@de`),
-    bSDD text fields do not carry a lang code with them
+The only domain that has translations is the demo domain "Fruits and Vegetables".
+For example, look at [apple](https://search-test.bsdd.buildingsmart.org/Classification/Index/97762) and use the Language toggle to see its name, description and related properties in 3 langs (`en, nl, pl`).
+You can also use the REST API to obtain multilingual variants of Classifications, e.g.:
 
-In contrast, [Ontotext Platform Semantic Objects](https://platform.ontotext.com/semantic-objects/tutorials/graphql-query.html#filtering-literal-values) includes comprehensive facilities for selecting labels per language, including language fallback.
+-   JSON:
+
+``` example
+curl "https://test.bsdd.buildingsmart.org/api/Classification/v4?namespaceUri=https://identifier.buildingsmart.org/uri/bs-agri/fruitvegs-1.0/class/apple&languageCode=pl-PL"
+```
+
+-   RDF Turtle:
+
+``` example
+curl -Haccept:text/turtle "https://test.bsdd.buildingsmart.org/api/Classification/v4?namespaceUri=https://identifier.buildingsmart.org/uri/bs-agri/fruitvegs-1.0/class/apple&languageCode=pl-PL"
+```
+
+### Self-Describing langStrings
+
+RDF is well suited to carry multilingual data because:
+
+-   Any property can carry multiple values
+-   `rdf:langString` literals are self-describing by carrying a lang tag (e.g. `"wall"@en` vs `"wand"@de`)
+
+For example, the `ClassificatonProperty` apple/volume is represented like this in RDF:
+
+``` turtle
+<https://identifier.buildingsmart.org/uri/bs-agri/fruitvegs-1.0/class/apple/volume>
+  bsdd:Description "The volume of an apple"@pl-pl;
+  bsdd:Example "For example, the space that a substance or 3D shape occupies or contains."@pl-pl;
+  bsdd:Name "Objętość"@pl-pl;
+  bsdd:PhysicalQuantity "Volume"@pl-pl;
+  bsdd:PropertyDomainName "Fruit and vegetables";
+  bsdd:DataType "Real";
+  bsdd:PropertyCode "volume";
+```
+
+Notes:
+
+-   Some of the values are correctly unilingual and shouldn't be translated because they are identifiers (`DataType, PropertyCode`)
+-   Other values are not translated, so their lang tag is misleading (`Description, Example`).
+-   `PropertyDomainName` is in fact redundant because there are links `ClassificatonProperty-Classificaton-Domain`, so it should be removed.
+
+But there's no lang tag information in JSON:
+
+``` json
+"description": "The volume of an apple",
+"name": "Objętość",
+```
+
+### Language Fallback
+
+Currently bSDD assumes that a domain and all its sub-objects will be translated **fully** to multiple languages.
+(Translatable fields are specified in the [buildingSMART Data Dictionary model](https://github.com/buildingSMART/bSDD/blob/master/Documentation/bSDD%20JSON%20import%20model.md)).
+That's why it doesn't bother to store the lang tag of individual strings individually.
+As you can see in the Turtle example above, that leads to incorrect and misleading lang tags (e.g. `"The volume of an apple"@pl-pl` is in English not Polish).
+
+From our experience with large thesauri, the assumption that everything will be translated is unrealistic.
+For example, the Getty AAT (a major thesaurus in Cultural Heritage) had 109 languages as of Nov 2016,
+but only 4 that cover all 40k concepts, and only 9 that have more than 1k labels (see [Count_Terms_by_Language](https://vocab.getty.edu/doc/queries/#Count_Terms_by_Language)).
+
+Such assumption makes it harder to deploy a translation: it has to be 100% translated before it can be deployed.
+It is better to allow a mix of languages to be stored, and let the user pick desired language(s) by preference.
+This can be done by:
+
+-   Allowing translatable fields like `name` and `description` to carry multiple values
+-   Ensuring that translatable strings in the payload indicate their language tag (be self-describing)
+-   Having "language fallback" logic. For example, [Ontotext Platform Semantic Objects](https://platform.ontotext.com/semantic-objects/tutorials/graphql-query.html#filtering-literal-values) include comprehensive facilities for selecting labels per language, including language fallback.
+    For example, the following GraphQL query will fetch only one `name` value, preferring Polish, then English, then German:
+
+``` graphql
+classification {
+  code
+  name(lang:"pl,en,de")
+}
+```
+
+### Use Language Content Negotiation
+
+According to basic principles of the Web Architecture, URIs (or their better sibling: resolvable URLs)
+are identifiers of resources (information resources or real-world things), so they shouldn’t reflect implementation or representation details.
+This is further elaborated in the blogs [Cool URIs for the Semantic Web](https://www.w3.org/TR/cooluris) and [Cool URIs don't change](https://www.w3.org/Provider/Style/URI).
+When fetching an entity, it is preferred to use a constant URL, and specify representation details with HTTP headers.
+This happens through a process of [Content negotiation](https://en.wikipedia.org/wiki/Content_negotiation) using standard headers (see [List of HTTP header fields](https://en.wikipedia.org/wiki/List_of_HTTP_header_fields)).
+
+-   The client uses `Accept` for desired MIME type and `Accept-Language` for a list of preferred languages
+-   The server uses `Content-Type` to indicate the returned MIME type, and `Language` to indicate the language
+
+For example, to fetch the classification "apple" in Polish (or English, or German) in Turtle, one should be able to use:
+
+``` example
+curl -L -Haccept-language:pl,en,de -Haccept:text/turtle \
+  https://identifier.buildingsmart.org/uri/bs-agri/fruitvegs-1.0/class/apple
+```
+
+And to fetch it in English (or German) in JSON, one should be able to use:
+
+``` example
+curl -L -Haccept-language:en,de -Haccept:application/json \
+  https://identifier.buildingsmart.org/uri/bs-agri/fruitvegs-1.0/class/apple
+```
+
+You will notice that we've used the same ("semantic") URL, and varied only the headers.
+Contrast this approach to the current one illustrated in sec [*\*Improve Multilingual Support*]{.spurious-link target="*Improve Multilingual Support"}.
+
+The Ontotext Platform uses a pseudo "lang tag" `BROWSER` to indicate where to use the Accept-Language header,
+see [GraphQL Query Tutorial: HTTP Accept-Language](https://platform.ontotext.com/semantic-objects/tutorials/graphql-query.html#graphql-query-tutorial-http-accept-language).
+
+### Improve Lang Tags
+
+The current bSDD approach is to always append a region code to the lang tag,
+e.g. `de-DE, de-AT, pl-PL` etc (see <https://api.bsdd.buildingsmart.org/api/Language/v1>).
+However, [RFC 5646: Tags for Identifying Languages](https://www.rfc-editor.org/rfc/rfc5646.html#section-2.2.4) specifies:
+
+> Region subtags are used to indicate linguistic variations associated with or appropriate to a specific country, territory, or region.
+> Typically, a region subtag is used to indicate variations such as regional dialects or usage, or region-specific spelling conventions.
+
+`pl-PL` means "Polish as spoken in Poland", but the language spoken there is just Polish, so using the region subtag is not right.
+Similarly, forcing a difference between `de-DE` and `de-AT` will lead to a lot of unnecessary duplication,
+because Standard Austrian German is mostly identical to the Standard German of Germany, but with some vocabulary differences (see [Wikipedia](https://en.wikipedia.org/wiki/Austria#Language)).
+It's better to use `de` for the majority of translatable strings, and use `de-AT` only for specifically Austrian words.
 
 ## Improve RDF Structure
 
@@ -2566,7 +2709,10 @@ The difference between the two SOML schemas is not so huge:
 diff -wu1000 bsdd-graphql-soml-orig.yaml bsdd-graphql-soml-refact.yaml > bsdd-graphql-soml.patch
 ```
 
-![Typical differences between the Original GraphQL schema (red) and the Refactored schema (green)](./img/bsdd-graphql-soml-diff.png){#fig:bsdd-graphql-soml-diff}
+<figure id="fig:bsdd-graphql-soml-diff">
+<img src="./img/bsdd-graphql-soml-diff.png" />
+<figcaption>Typical differences between the Original GraphQL schema (red) and the Refactored schema (green)</figcaption>
+</figure>
 
 We explain the differences seen in this figure:
 
@@ -2901,14 +3047,20 @@ Note: if you have a user account, you can enlarge "Maximum links to show" in Set
 
 [This visualization](https://bsdd.ontotext.com/graphdb/graphs-visualizations?config=2dc02fd322a646879505aafde547375a) shows classifications of type "COMPOSED_PROPERTY" that serve as a container of related properties.
 
-!["COMPOSED_PROPERTY" Classifications](./img/viz-ClassCOMPOSED_PROPERTY.png){#fig:viz-ClassCOMPOSED_PROPERTY}
+<figure id="fig:viz-ClassCOMPOSED_PROPERTY">
+<img src="./img/viz-ClassCOMPOSED_PROPERTY.png" />
+<figcaption>"COMPOSED_PROPERTY" Classifications</figcaption>
+</figure>
 
 ### "DOMAIN" Classifications
 
 [This visualization](https://bsdd.ontotext.com/graphdb/graphs-visualizations?config=7ecb0edaf0874c0aa81f2f0eb953b8ee) shows classifications of type "DOMAIN" that serve as a "sub-domain" of Classifications.
 Expanding a node shows its ClassificationProperties.
 
-!["DOMAIN" Classifications](./img/viz-ClassDOMAIN.png){#fig:viz-ClassDOMAIN}
+<figure id="fig:viz-ClassDOMAIN">
+<img src="./img/viz-ClassDOMAIN.png" />
+<figcaption>"DOMAIN" Classifications</figcaption>
+</figure>
 
 ### Classification Relations
 
@@ -2916,18 +3068,64 @@ Expanding a node shows its ClassificationProperties.
 It shows a number of French classes relating to `Space, Slab, Covering`.
 (Please note that another cluster that has "class" in the middle is due to data quality problems in BSDD.)
 
-![Classification Relations](./img/viz-ClassRel.png){#fig:viz-ClassRel}
+<figure id="fig:viz-ClassRel">
+<img src="./img/viz-ClassRel.png" />
+<figcaption>Classification Relations</figcaption>
+</figure>
 
 ### Multivalued propSets
 
 `propSet` is expected to be single-valued by the GraphQL schema, but in fact there are some multi-valued occurrences.
 [This visualization](https://bsdd.ontotext.com/graphdb/graphs-visualizations?config=fa3b8af3bc114b9b9046f9ceb11246f7) looks for such cases (e.g. see this [saved visual graph](https://bsdd.ontotext.com/graphdb/graphs-visualizations?saved=56b5379edeeb4a1a80790e9011d8e264)).
 
-![Multivalued propSet, showing domain (purple), class (yellow), prop (red), set (blue)](./img/viz-multivaluedPropSet.png){#fig:viz-multivaluedPropSet}
+<figure id="fig:viz-multivaluedPropSet">
+<img src="./img/viz-multivaluedPropSet.png" />
+<figcaption>Multivalued propSet, showing domain (purple), class (yellow), prop (red), set (blue)</figcaption>
+</figure>
 
 # Acknowledgements
 
 This work is partially funded by the European Union's Horizon Europe research and innovation programme under grant agreement no 101056973 (ACCORD).
+
+-   Developed by:
+
+    ```{=org}
+    #+ATTR_HTML: :width 200px
+    ```
+    ![](./img/ontotext.png)
+    [Ontotext (Sirma AI)](https://ontotext.com/)
+
+-   Funded by:
+
+    ```{=org}
+    #+ATTR_HTML: :width 200px
+    ```
+    ![](./img/accord.png)
+    Horizon Europe [Project ACCORD](https://accordproject.eu/) (101056973)
+
+-   Powered by:
+
+    ```{=org}
+    #+ATTR_HTML: :width 200px
+    ```
+    ![](./img/graphdb.png)
+    [Ontotext GraphDB](https://graphdb.ontotext.com/)
+
+-   Powered by:
+
+    ```{=org}
+    #+ATTR_HTML: :width 200px
+    ```
+    ![](./img/ontotext-platform.png)
+    [Ontotext Platform Semantic Objects](https://platform.ontotext.com/semantic-objects/)
+
+-   Data from:
+
+    ```{=org}
+    #+ATTR_HTML: :width 200px
+    ```
+    ![](./img/bsdd.png)
+    [buildingSMART Data Dictionary](https://www.buildingsmart.org/users/services/buildingsmart-data-dictionary/)
 
 Author contributions:
 

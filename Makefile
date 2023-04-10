@@ -7,7 +7,7 @@ bsdd-graphql-soml.patch: bsdd-graphql-soml-orig.yaml bsdd-graphql-soml-refact.ya
 	-diff  -wu1000 $^ > $@
 
 README1.md: README.org
-	pandoc --wrap=preserve -s -t markdown-simple_tables+implicit_figures-smart-fancy_lists -o $@ $^
+	grep -v "options: html-preamble" $^ | pandoc --wrap=preserve -s -f org -t markdown-simple_tables+implicit_figures-smart-fancy_lists -o $@
 
 README1.html: README1.md
 	bash build_readme.sh

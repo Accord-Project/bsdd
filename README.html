@@ -191,14 +191,14 @@
     { font-size: 10px; font-weight: bold; white-space: nowrap; }
   .org-info-js_search-highlight
     { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { width: 90%; }
+  .org-svg { }
 </style>
 <style> #content {max-width: 120em; margin: auto} h1,h2,h3,h4,h5,h6,h7 {font-family: Arial} .author, .date, .creator {-webkit-margin-before: 0em; -webkit-margin-after: 0em} .abstract {margin: 1em; padding: 1em; border: 1px solid black} .abstract:before {content: 'Abstract: '; font-weight: bold} #preamble p {font-size: 110%%; margin-left: auto; margin-right: auto; text-align: center} th.org-left   {text-align:left} th.org-right  {text-align:right} th.org-center {text-align:center} th, td {line-height: 1em; border-width: 1px; border-style: solid solid; border-spacing: 2px 2px; padding: 2px 1px} .CANCELED {color: blue} .MAYBE {color: blue} .POSTPONED {color: blue} .SAME {color: blue} .APPLIED {color: orange} .FOLLOW {color: orange} .INPROGRESS {color: orange} .NEXT {color: orange} .IER {color: orange}.underline {text-decoration:underline} </style>
 <link rel="icon" type="image/x-icon" href="img/favicon.ico">
 </head>
 <body>
 <div id="preamble" class="status">
-<p class='author'>Author: Vladimir Alexiev, Mihail Radkov, Nataliya Keberle<br/>(<a href="mailto:vladimir.alexiev@ontotext.com">vladimir.alexiev@ontotext.com</a>)</p><p class='date'>Date: 2023-03-26</p><p><img src='./img/SemBSDD-Logo-400px.png'/></p>
+<p class='author'>Author: Vladimir Alexiev, Mihail Radkov, Nataliya Keberle<br/>(<a href="mailto:vladimir.alexiev@ontotext.com">vladimir.alexiev@ontotext.com</a>)</p><p class='date'>Date: 2023-04-10</p><p><img src='./img/SemBSDD-Logo-400px.png'/></p>
 </div>
 <div id="content" class="content">
 <h1 class="title">Semantic bSDD
@@ -275,31 +275,38 @@
 <li><a href="#improve-description-of-classificationproperties">4.5.6. Improve Description of ClassificationProperties</a></li>
 <li><a href="#improve-representation-of-propertyvalues">4.5.7. Improve Representation of PropertyValues</a></li>
 <li><a href="#improve-representation-of-predefinedvalue">4.5.8. Improve Representation of predefinedValue</a></li>
-<li><a href="#improve-multilingual-support">4.5.9. Improve Multilingual Support</a></li>
 </ul>
 </li>
-<li><a href="#improve-rdf-structure">4.6. Improve RDF Structure</a></li>
-<li><a href="#graphql-improvements">4.7. GraphQL Improvements</a>
+<li><a href="#improve-multilingual-support">4.6. Improve Multilingual Support</a>
 <ul>
-<li><a href="#searchability-and-pagination">4.7.1. Searchability and Pagination</a></li>
-<li><a href="#eliminate-parallel-links-between-entities">4.7.2. Eliminate Parallel Links Between Entities</a></li>
-<li><a href="#graphql-arrays-and-nullability">4.7.3. GraphQL Arrays and Nullability</a></li>
-<li><a href="#null-classifications-error">4.7.4. Null Classifications Error</a></li>
-<li><a href="#null-classification-childs-error">4.7.5. Null Classification Childs Error</a></li>
-<li><a href="#null-classificationproperty-name-error">4.7.6. Null ClassificationProperty Name Error</a></li>
-<li><a href="#missing-domains">4.7.7. Missing Domains</a></li>
-<li><a href="#unexpected-multiple-values">4.7.8. Unexpected Multiple Values</a></li>
-<li><a href="#deprecated-properties">4.7.9. Deprecated Properties</a></li>
+<li><a href="#org0af676b">4.6.1. Self-Describing langStrings</a></li>
+<li><a href="#org9614e27">4.6.2. Language Fallback</a></li>
+<li><a href="#org0ecfa6a">4.6.3. Use Language Content Negotiation</a></li>
+<li><a href="#org6ac6630">4.6.4. Improve Lang Tags</a></li>
 </ul>
 </li>
-<li><a href="#data-quality-problems">4.8. Data Quality Problems</a>
+<li><a href="#improve-rdf-structure">4.7. Improve RDF Structure</a></li>
+<li><a href="#graphql-improvements">4.8. GraphQL Improvements</a>
 <ul>
-<li><a href="#trim-leading-trailing-consecutive-whitespace">4.8.1. Trim Leading, Trailing, Consecutive Whitespace</a></li>
-<li><a href="#improve-physical-quantities-and-units">4.8.2. Improve Physical Quantities and Units</a></li>
-<li><a href="#rules-about-missing-data">4.8.3. Rules About Missing Data</a></li>
-<li><a href="#unicode-problems">4.8.4. Unicode Problems</a></li>
-<li><a href="#unresolved-html-entities">4.8.5. Unresolved HTML Entities</a></li>
-<li><a href="#bad-classification-relations">4.8.6. Bad Classification Relations</a></li>
+<li><a href="#searchability-and-pagination">4.8.1. Searchability and Pagination</a></li>
+<li><a href="#eliminate-parallel-links-between-entities">4.8.2. Eliminate Parallel Links Between Entities</a></li>
+<li><a href="#graphql-arrays-and-nullability">4.8.3. GraphQL Arrays and Nullability</a></li>
+<li><a href="#null-classifications-error">4.8.4. Null Classifications Error</a></li>
+<li><a href="#null-classification-childs-error">4.8.5. Null Classification Childs Error</a></li>
+<li><a href="#null-classificationproperty-name-error">4.8.6. Null ClassificationProperty Name Error</a></li>
+<li><a href="#missing-domains">4.8.7. Missing Domains</a></li>
+<li><a href="#unexpected-multiple-values">4.8.8. Unexpected Multiple Values</a></li>
+<li><a href="#deprecated-properties">4.8.9. Deprecated Properties</a></li>
+</ul>
+</li>
+<li><a href="#data-quality-problems">4.9. Data Quality Problems</a>
+<ul>
+<li><a href="#trim-leading-trailing-consecutive-whitespace">4.9.1. Trim Leading, Trailing, Consecutive Whitespace</a></li>
+<li><a href="#improve-physical-quantities-and-units">4.9.2. Improve Physical Quantities and Units</a></li>
+<li><a href="#rules-about-missing-data">4.9.3. Rules About Missing Data</a></li>
+<li><a href="#unicode-problems">4.9.4. Unicode Problems</a></li>
+<li><a href="#unresolved-html-entities">4.9.5. Unresolved HTML Entities</a></li>
+<li><a href="#bad-classification-relations">4.9.6. Bad Classification Relations</a></li>
 </ul>
 </li>
 </ul>
@@ -463,7 +470,7 @@ We used it to investigate the original bSDD schema:
 </p>
 
 
-<div id="org4eb03b9" class="figure">
+<div id="orgaf47484" class="figure">
 <p><img src="./img/bsdd-graphql-voyager-overview.png" alt="bsdd-graphql-voyager-overview.png" />
 </p>
 <p><span class="figure-number">Figure 1: </span>Original bSDD GraphQL Schema: Overview (uncheck "Show leaf fields")</p>
@@ -501,7 +508,7 @@ We can also look at details of the schema:
 </p>
 
 
-<div id="orgf2a237f" class="figure">
+<div id="orgb9e47e7" class="figure">
 <p><img src="./img/bsdd-graphql-voyager-Classification-ClassificationProperty.png" alt="bsdd-graphql-voyager-Classification-ClassificationProperty.png" />
 </p>
 <p><span class="figure-number">Figure 2: </span>Original bSDD GraphQL Schema: Detail of Classification and ClassificationProperty</p>
@@ -562,7 +569,7 @@ that allows you to explore the refactored schema.
 </p>
 
 
-<div id="org558848c" class="figure">
+<div id="orgb612671" class="figure">
 <p><img src="./img/bsdd-graphql-voyager-refact-overview.png" alt="bsdd-graphql-voyager-refact-overview.png" />
 </p>
 <p><span class="figure-number">Figure 3: </span>Refactored bSDD GraphQL Schema: Overview (uncheck "Show leaf fields")</p>
@@ -604,7 +611,7 @@ and strings fields like <code>propertyNamespaceUri</code> are converted to objec
 </p>
 
 
-<div id="org2672f98" class="figure">
+<div id="orgf7daf68" class="figure">
 <p><img src="./img/bsdd-graphql-voyager-refact-Classification-ClassificationProperty.png" alt="bsdd-graphql-voyager-refact-Classification-ClassificationProperty.png" />
 </p>
 <p><span class="figure-number">Figure 4: </span>Refactored bSDD GraphQL Schema: Detail of Classification and ClassificationProperty</p>
@@ -620,7 +627,7 @@ and strings fields like <code>propertyNamespaceUri</code> are converted to objec
 </p>
 
 
-<div id="org6528ab0" class="figure">
+<div id="org93eabc5" class="figure">
 <p><img src="./img/graphiql-orig.png" alt="graphiql-orig.png" />
 </p>
 <p><span class="figure-number">Figure 5: </span>GraphiQL Querying of Original bSDD Endpoint</p>
@@ -649,7 +656,7 @@ It provides a number of useful features:
 </p>
 
 
-<div id="org4664a27" class="figure">
+<div id="org9e05d69" class="figure">
 <p><img src="./img/graphiql-refact.png" alt="graphiql-refact.png" />
 </p>
 <p><span class="figure-number">Figure 6: </span>GraphiQL Querying of Refactored bSDD Endpoint</p>
@@ -1022,7 +1029,7 @@ The distribution of number of Classifications per domain is as follows:
 <p>
 Domains with no classifications:
 </p>
-<pre class="example" id="orgd1c073b">
+<pre class="example" id="orgfae224b">
 http://identifier.buildingsmart.org/uri/spr/spr-cfhios-0.1
 https://identifier.buildingsmart.org/uri/ArcDox/ArcDox-1.0
 https://identifier.buildingsmart.org/uri/BBRI/BBRI-0.1
@@ -1040,7 +1047,7 @@ https://identifier.buildingsmart.org/uri/ifcrail/ifcrail-0.1
 <p>
 One domain has more than 5000 classifications, but returns only 5000 due to lack of pagination in the GraphQL API:
 </p>
-<pre class="example" id="orgdc3399b">
+<pre class="example" id="orgcfa920d">
 https://identifier.buildingsmart.org/uri/nbs/uniclass2015-1
 </pre>
 </div>
@@ -2334,7 +2341,7 @@ We found a number of detailed differences, as presented in the <a href="https://
 </p>
 
 
-<div id="orgb007718" class="figure">
+<div id="org8db535d" class="figure">
 <p><img src="./img/bsdd-data-analysis-sheet.png" alt="bsdd-data-analysis-sheet.png" />
 </p>
 <p><span class="figure-number">Figure 7: </span>Differences between bSDD GraphQL, JSON and RDF Data</p>
@@ -2576,7 +2583,7 @@ The same URL can be used to get a static web page in the browser:
 </p>
 
 
-<div id="org0cb5b68" class="figure">
+<div id="org5c6b729" class="figure">
 <p><img src="./img/IFC-class-cableSegment-web.png" alt="IFC-class-cableSegment-web.png" />
 </p>
 <p><span class="figure-number">Figure 8: </span>CableSegment enity as displayed at the bSDD web site</p>
@@ -2588,7 +2595,7 @@ However, the interactive <a href="https://search.bsdd.buildingsmart.org">bSDD Se
 </p>
 
 
-<div id="org8ac0991" class="figure">
+<div id="org621212f" class="figure">
 <p><img src="./img/IFC-class-cableSegment-search.png" alt="IFC-class-cableSegment-search.png" />
 </p>
 <p><span class="figure-number">Figure 9: </span>CableSegment as displayed at the bSDD search site</p>
@@ -2615,7 +2622,7 @@ Proper bSDD domain URL design should take into account the following observation
 <li>Almost all domain URLs have the same structure: <code>https://identifier.buildingsmart.org/uri/&lt;org&gt;/&lt;domain&gt;-&lt;version&gt;</code>.
 There are only two exceptions:</li>
 </ul>
-<pre class="example" id="org27ce912">
+<pre class="example" id="org184caab">
 http://otl.amsterdam.nl
 http://rdf.vegdata.no/V440/v440-owl
 </pre>
@@ -2624,7 +2631,7 @@ The Linked Data Patterns book describes a pattern of <a href="https://patterns.d
 that make URLs more "hackable", allowing users to navigate the hierarchy by pruning the URI.
 bSDD URLs could become more hierarchical if they follow this structure:
 </p>
-<pre class="example" id="orgae9835c">
+<pre class="example" id="org1e255cc">
 https://identifier.buildingsmart.org/uri/&lt;org&gt;/&lt;domain&gt;/&lt;version&gt;
 </pre>
 
@@ -2643,7 +2650,7 @@ Problems:
 </ul></li>
 <li>A few domains use <code>http</code> whereas all others use <code>https</code>. All modern servers prefer <code>https</code> due to its better security.</li>
 </ul>
-<pre class="example" id="org93120da">
+<pre class="example" id="orgc927fc3">
 http://identifier.buildingsmart.org/uri/spr/spr-cfhios-0.1
 http://otl.amsterdam.nl
 http://rdf.vegdata.no/V440/v440-owl
@@ -3588,10 +3595,15 @@ Then it should be structured as a variant and not be cast down to String.</li>
 </ul>
 </div>
 </div>
+</div>
 
-<div id="outline-container-improve-multilingual-support" class="outline-4">
-<h4 id="improve-multilingual-support"><span class="section-number-4">4.5.9.</span> Improve Multilingual Support</h4>
-<div class="outline-text-4" id="text-improve-multilingual-support">
+<div id="outline-container-improve-multilingual-support" class="outline-3">
+<h3 id="improve-multilingual-support"><span class="section-number-3">4.6.</span> Improve Multilingual Support</h3>
+<div class="outline-text-3" id="text-improve-multilingual-support">
+<p>
+(See more details in the discussion <a href="https://forums.buildingsmart.org/t/proper-way-to-access-translations-of-ifc-entities">Proper way to access translations of IFC entities?</a> at the bSI forum.)
+</p>
+
 <p>
 bSDD is advertised as a multilingual dictionary.
 In the GraphQL API, one can specify a desired language when fetching classifications and properties:
@@ -3601,26 +3613,185 @@ In the GraphQL API, one can specify a desired language when fetching classificat
 property(languageCode: <span style="color: #228b22;">String</span>, namespaceUri: <span style="color: #228b22;">String</span>!) {...}
 </pre>
 </div>
+<p>
+However, most domains are present in one language only (<b>unilingual</b>):
+As explained by bSI, the reason is that there are no approved translations of bSDD domains at present.
+</p>
 
 <p>
-However, each domain seems to be present in one language only (<b>unilingual</b>).
-When you fetch a Classification or Property from the REST API:
+The only domain that has translations is the demo domain "Fruits and Vegetables".
+For example, look at <a href="https://search-test.bsdd.buildingsmart.org/Classification/Index/97762">apple</a> and use the Language toggle to see its name, description and related properties in 3 langs (<code>en, nl, pl</code>).
+You can also use the REST API to obtain multilingual variants of Classifications, e.g.:
 </p>
 <ul class="org-ul">
-<li>Text properties like <code>name</code> and <code>description</code> are single-valued and present in one language only</li>
-<li>There's a single-valued prop <code>creatorLanguageCode</code></li>
-<li>Unlike <code>rdf:langString</code> that are self-describing (e.g. <code>"wall"@en</code> vs <code>"wand"@de</code>),
-bSDD text fields do not carry a lang code with them</li>
+<li>JSON:</li>
+</ul>
+<pre class="example">
+curl "https://test.bsdd.buildingsmart.org/api/Classification/v4?namespaceUri=https://identifier.buildingsmart.org/uri/bs-agri/fruitvegs-1.0/class/apple&amp;languageCode=pl-PL"
+</pre>
+
+<ul class="org-ul">
+<li>RDF Turtle:</li>
+</ul>
+<pre class="example">
+curl -Haccept:text/turtle "https://test.bsdd.buildingsmart.org/api/Classification/v4?namespaceUri=https://identifier.buildingsmart.org/uri/bs-agri/fruitvegs-1.0/class/apple&amp;languageCode=pl-PL"
+</pre>
+</div>
+
+<div id="outline-container-org0af676b" class="outline-4">
+<h4 id="org0af676b"><span class="section-number-4">4.6.1.</span> Self-Describing langStrings</h4>
+<div class="outline-text-4" id="text-4-6-1">
+<p>
+RDF is well suited to carry multilingual data because:
+</p>
+<ul class="org-ul">
+<li>Any property can carry multiple values</li>
+<li><code>rdf:langString</code> literals are self-describing by carrying a lang tag (e.g. <code>"wall"@en</code> vs <code>"wand"@de</code>)</li>
 </ul>
 <p>
-In contrast, <a href="https://platform.ontotext.com/semantic-objects/tutorials/graphql-query.html#filtering-literal-values">Ontotext Platform Semantic Objects</a> includes comprehensive facilities for selecting labels per language, including language fallback.
+For example, the <code>ClassificatonProperty</code> apple/volume is represented like this in RDF:
+</p>
+<div class="org-src-container">
+<pre class="src src-turtle"><span style="color: #0000ff;">&lt;https://identifier.buildingsmart.org/uri/bs-agri/fruitvegs-1.0/class/apple/volume&gt;</span>
+  <span style="color: #228b22;">bsdd:</span><span style="color: #008b8b;">Description</span> <span style="color: #8b2252;">"The volume of an apple"</span>@pl-pl;
+  <span style="color: #228b22;">bsdd:</span><span style="color: #008b8b;">Example</span> <span style="color: #8b2252;">"For example, the space that a substance or 3D shape occupies or contains."</span>@pl-pl;
+  <span style="color: #228b22;">bsdd:</span><span style="color: #008b8b;">Name</span> <span style="color: #8b2252;">"Obj&#281;to&#347;&#263;"</span>@pl-pl;
+  <span style="color: #228b22;">bsdd:</span><span style="color: #008b8b;">PhysicalQuantity</span> <span style="color: #8b2252;">"Volume"</span>@pl-pl;
+  <span style="color: #228b22;">bsdd:</span><span style="color: #008b8b;">PropertyDomainName</span> <span style="color: #8b2252;">"Fruit and vegetables"</span>;
+  <span style="color: #228b22;">bsdd:</span><span style="color: #008b8b;">DataType</span> <span style="color: #8b2252;">"Real"</span>;
+  <span style="color: #228b22;">bsdd:</span><span style="color: #008b8b;">PropertyCode</span> <span style="color: #8b2252;">"volume"</span>;
+</pre>
+</div>
+<p>
+Notes:
+</p>
+<ul class="org-ul">
+<li>Some of the values are correctly unilingual and shouldn't be translated because they are identifiers (<code>DataType, PropertyCode</code>)</li>
+<li>Other values are not translated, so their lang tag is misleading (<code>Description, Example</code>).</li>
+<li><code>PropertyDomainName</code> is in fact redundant because there are links <code>ClassificatonProperty-Classificaton-Domain</code>, so it should be removed.</li>
+</ul>
+
+<p>
+But there's no lang tag information in JSON:
+</p>
+<div class="org-src-container">
+<pre class="src src-json"><span style="color: #8b2252;">"description"</span>: <span style="color: #8b2252;">"The volume of an apple"</span>,
+<span style="color: #8b2252;">"name"</span>: <span style="color: #8b2252;">"Obj&#281;to&#347;&#263;"</span>,
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org9614e27" class="outline-4">
+<h4 id="org9614e27"><span class="section-number-4">4.6.2.</span> Language Fallback</h4>
+<div class="outline-text-4" id="text-4-6-2">
+<p>
+Currently bSDD assumes that a domain and all its sub-objects will be translated <b>fully</b> to multiple languages.
+(Translatable fields are specified in the <a href="https://github.com/buildingSMART/bSDD/blob/master/Documentation/bSDD%20JSON%20import%20model.md">buildingSMART Data Dictionary model</a>).
+That's why it doesn't bother to store the lang tag of individual strings individually.
+As you can see in the Turtle example above, that leads to incorrect and misleading lang tags (e.g. <code>"The volume of an apple"@pl-pl</code> is in English not Polish).
+</p>
+
+<p>
+From our experience with large thesauri, the assumption that everything will be translated is unrealistic.
+For example, the Getty AAT (a major thesaurus in Cultural Heritage) had 109 languages as of Nov 2016,
+but only 4 that cover all 40k concepts, and only 9 that have more than 1k labels (see <a href="https://vocab.getty.edu/doc/queries/#Count_Terms_by_Language">Count_Terms_by_Language</a>).
+</p>
+
+<p>
+Such assumption makes it harder to deploy a translation: it has to be 100% translated before it can be deployed.
+It is better to allow a mix of languages to be stored, and let the user pick desired language(s) by preference.
+This can be done by:
+</p>
+<ul class="org-ul">
+<li>Allowing translatable fields like <code>name</code> and <code>description</code> to carry multiple values</li>
+<li>Ensuring that translatable strings in the payload indicate their language tag (be self-describing)</li>
+<li>Having "language fallback" logic. For example, <a href="https://platform.ontotext.com/semantic-objects/tutorials/graphql-query.html#filtering-literal-values">Ontotext Platform Semantic Objects</a> include comprehensive facilities for selecting labels per language, including language fallback.
+For example, the following GraphQL query will fetch only one <code>name</code> value, preferring Polish, then English, then German:</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-graphql">classification {
+  code
+  name(lang:<span style="color: #8b2252;">"pl,en,de"</span>)
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org0ecfa6a" class="outline-4">
+<h4 id="org0ecfa6a"><span class="section-number-4">4.6.3.</span> Use Language Content Negotiation</h4>
+<div class="outline-text-4" id="text-4-6-3">
+<p>
+According to basic principles of the Web Architecture, URIs (or their better sibling: resolvable URLs)
+are identifiers of resources (information resources or real-world things), so they shouldn’t reflect implementation or representation details.
+This is further elaborated in the blogs <a href="https://www.w3.org/TR/cooluris">Cool URIs for the Semantic Web</a> and <a href="https://www.w3.org/Provider/Style/URI">Cool URIs don't change</a>.
+When fetching an entity, it is preferred to use a constant URL, and specify representation details with HTTP headers.
+This happens through a process of <a href="https://en.wikipedia.org/wiki/Content_negotiation">Content negotiation</a> using standard headers (see <a href="https://en.wikipedia.org/wiki/List_of_HTTP_header_fields">List of HTTP header fields</a>).
+</p>
+<ul class="org-ul">
+<li>The client uses <code>Accept</code> for desired MIME type and <code>Accept-Language</code> for a list of preferred languages</li>
+<li>The server uses <code>Content-Type</code> to indicate the returned MIME type, and <code>Language</code> to indicate the language</li>
+</ul>
+
+<p>
+For example, to fetch the classification "apple" in Polish (or English, or German) in Turtle, one should be able to use:
+</p>
+<pre class="example">
+curl -L -Haccept-language:pl,en,de -Haccept:text/turtle \
+  https://identifier.buildingsmart.org/uri/bs-agri/fruitvegs-1.0/class/apple
+</pre>
+
+
+<p>
+And to fetch it in English (or German) in JSON, one should be able to use:
+</p>
+<pre class="example">
+curl -L -Haccept-language:en,de -Haccept:application/json \
+  https://identifier.buildingsmart.org/uri/bs-agri/fruitvegs-1.0/class/apple
+</pre>
+
+
+<p>
+You will notice that we've used the same ("semantic") URL, and varied only the headers.
+Contrast this approach to the current one illustrated in sec <a href="#improve-multilingual-support">4.6</a>.
+</p>
+
+<p>
+The Ontotext Platform uses a pseudo "lang tag" <code>BROWSER</code> to indicate where to use the Accept-Language header,
+see <a href="https://platform.ontotext.com/semantic-objects/tutorials/graphql-query.html#graphql-query-tutorial-http-accept-language">GraphQL Query Tutorial: HTTP Accept-Language</a>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org6ac6630" class="outline-4">
+<h4 id="org6ac6630"><span class="section-number-4">4.6.4.</span> Improve Lang Tags</h4>
+<div class="outline-text-4" id="text-4-6-4">
+<p>
+The current bSDD approach is to always append a region code to the lang tag,
+e.g. <code>de-DE, de-AT, pl-PL</code> etc (see <a href="https://api.bsdd.buildingsmart.org/api/Language/v1">https://api.bsdd.buildingsmart.org/api/Language/v1</a>).
+However, <a href="https://www.rfc-editor.org/rfc/rfc5646.html#section-2.2.4">RFC 5646: Tags for Identifying Languages</a> specifies:
+</p>
+<blockquote>
+<p>
+Region subtags are used to indicate linguistic variations associated with or appropriate to a specific country, territory, or region.
+Typically, a region subtag is used to indicate variations such as regional dialects or usage, or region-specific spelling conventions.
+</p>
+</blockquote>
+
+<p>
+<code>pl-PL</code> means "Polish as spoken in Poland", but the language spoken there is just Polish, so using the region subtag is not right.
+Similarly, forcing a difference between <code>de-DE</code> and <code>de-AT</code> will lead to a lot of unnecessary duplication,
+because Standard Austrian German is mostly identical to the Standard German of Germany, but with some vocabulary differences (see <a href="https://en.wikipedia.org/wiki/Austria#Language">Wikipedia</a>).
+It's better to use <code>de</code> for the majority of translatable strings, and use <code>de-AT</code> only for specifically Austrian words.
 </p>
 </div>
 </div>
 </div>
 
 <div id="outline-container-improve-rdf-structure" class="outline-3">
-<h3 id="improve-rdf-structure"><span class="section-number-3">4.6.</span> Improve RDF Structure</h3>
+<h3 id="improve-rdf-structure"><span class="section-number-3">4.7.</span> Improve RDF Structure</h3>
 <div class="outline-text-3" id="text-improve-rdf-structure">
 <p>
 Overall, bSDD RDF represents the scope of bSDD data faithfully, although there are various omissions. We highlight the problems to be corrected.
@@ -3659,14 +3830,14 @@ This Turtle can be corrected as follows:
 </div>
 
 <div id="outline-container-graphql-improvements" class="outline-3">
-<h3 id="graphql-improvements"><span class="section-number-3">4.7.</span> GraphQL Improvements</h3>
+<h3 id="graphql-improvements"><span class="section-number-3">4.8.</span> GraphQL Improvements</h3>
 <div class="outline-text-3" id="text-graphql-improvements">
 <p>
 In this section we describe problems with the original bSDD GraphQL API.
 </p>
 </div>
 <div id="outline-container-searchability-and-pagination" class="outline-4">
-<h4 id="searchability-and-pagination"><span class="section-number-4">4.7.1.</span> Searchability and Pagination</h4>
+<h4 id="searchability-and-pagination"><span class="section-number-4">4.8.1.</span> Searchability and Pagination</h4>
 <div class="outline-text-4" id="text-searchability-and-pagination">
 <p>
 The most important shortcomings of the original GraphQL API are:
@@ -3694,7 +3865,7 @@ You can see some sample queries towards the end.
 </div>
 
 <div id="outline-container-eliminate-parallel-links-between-entities" class="outline-4">
-<h4 id="eliminate-parallel-links-between-entities"><span class="section-number-4">4.7.2.</span> Eliminate Parallel Links Between Entities</h4>
+<h4 id="eliminate-parallel-links-between-entities"><span class="section-number-4">4.8.2.</span> Eliminate Parallel Links Between Entities</h4>
 <div class="outline-text-4" id="text-eliminate-parallel-links-between-entities">
 <p>
 There are a number of parallel relations (arrows) in the original GraphQL schema.
@@ -3716,7 +3887,7 @@ We have eliminated such parallel links from the refactored schema.
 </div>
 
 <div id="outline-container-graphql-arrays-and-nullability" class="outline-4">
-<h4 id="graphql-arrays-and-nullability"><span class="section-number-4">4.7.3.</span> GraphQL Arrays and Nullability</h4>
+<h4 id="graphql-arrays-and-nullability"><span class="section-number-4">4.8.3.</span> GraphQL Arrays and Nullability</h4>
 <div class="outline-text-4" id="text-graphql-arrays-and-nullability">
 <p>
 A GraphQL schema can declare mandatory/optional status at the level of array and at the level of individual elements:
@@ -3778,7 +3949,7 @@ It would be better to use the type <code>[Classification!]</code>.
 </div>
 
 <div id="outline-container-null-classifications-error" class="outline-4">
-<h4 id="null-classifications-error"><span class="section-number-4">4.7.4.</span> Null Classifications Error</h4>
+<h4 id="null-classifications-error"><span class="section-number-4">4.8.4.</span> Null Classifications Error</h4>
 <div class="outline-text-4" id="text-null-classifications-error">
 <p>
 Although <code>classificationSearch</code> is declared as nullable (see previous section), a GraphQL error is returned whenever the backend returns <code>null</code>.
@@ -3832,7 +4003,7 @@ Returns such an error:
 </div>
 
 <div id="outline-container-null-classification-childs-error" class="outline-4">
-<h4 id="null-classification-childs-error"><span class="section-number-4">4.7.5.</span> Null Classification Childs Error</h4>
+<h4 id="null-classification-childs-error"><span class="section-number-4">4.8.5.</span> Null Classification Childs Error</h4>
 <div class="outline-text-4" id="text-null-classification-childs-error">
 <p>
 <code>Classification.childs</code> is defined as nullable: with type <code>[Classification]</code>
@@ -3890,7 +4061,7 @@ Returns this error:
 </div>
 
 <div id="outline-container-null-classificationproperty-name-error" class="outline-4">
-<h4 id="null-classificationproperty-name-error"><span class="section-number-4">4.7.6.</span> Null ClassificationProperty Name Error</h4>
+<h4 id="null-classificationproperty-name-error"><span class="section-number-4">4.8.6.</span> Null ClassificationProperty Name Error</h4>
 <div class="outline-text-4" id="text-null-classificationproperty-name-error">
 <p>
 Some ClassificationProperties have no <code>name</code>.
@@ -3963,7 +4134,7 @@ This query returns four out of five properties: the 4th property is returned as 
 </div>
 
 <div id="outline-container-missing-domains" class="outline-4">
-<h4 id="missing-domains"><span class="section-number-4">4.7.7.</span> Missing Domains</h4>
+<h4 id="missing-domains"><span class="section-number-4">4.8.7.</span> Missing Domains</h4>
 <div class="outline-text-4" id="text-missing-domains">
 <p>
 The GraphQL root field <code>domains</code> used to return some domains that are not available individually through the field <code>domain</code>, e.g.
@@ -3988,7 +4159,7 @@ Note: <code>cfhios</code> above is misspelled, because the name of that data sta
 </div>
 
 <div id="outline-container-unexpected-multiple-values" class="outline-4">
-<h4 id="unexpected-multiple-values"><span class="section-number-4">4.7.8.</span> Unexpected Multiple Values</h4>
+<h4 id="unexpected-multiple-values"><span class="section-number-4">4.8.8.</span> Unexpected Multiple Values</h4>
 <div class="outline-text-4" id="text-unexpected-multiple-values">
 <p>
 The attribute <code>propertySet</code> is defined as single (SCALAR), see <code>bsdd-graphql-schema-orig.json</code>:
@@ -4203,7 +4374,7 @@ but we think that <code>propertySet</code> should in fact be single-valued, so t
 </div>
 
 <div id="outline-container-deprecated-properties" class="outline-4">
-<h4 id="deprecated-properties"><span class="section-number-4">4.7.9.</span> Deprecated Properties</h4>
+<h4 id="deprecated-properties"><span class="section-number-4">4.8.9.</span> Deprecated Properties</h4>
 <div class="outline-text-4" id="text-deprecated-properties">
 <p>
 The field <code>possibleValues</code> is described as "deprecated".
@@ -4215,7 +4386,7 @@ In the refactored RDF data and GraphQL schema, we removed this field since it ju
 </div>
 
 <div id="outline-container-data-quality-problems" class="outline-3">
-<h3 id="data-quality-problems"><span class="section-number-3">4.8.</span> Data Quality Problems</h3>
+<h3 id="data-quality-problems"><span class="section-number-3">4.9.</span> Data Quality Problems</h3>
 <div class="outline-text-3" id="text-data-quality-problems">
 <p>
 We found many data quality problems in bSDD, as described below.
@@ -4223,7 +4394,7 @@ We found many data quality problems in bSDD, as described below.
 </div>
 
 <div id="outline-container-trim-leading-trailing-consecutive-whitespace" class="outline-4">
-<h4 id="trim-leading-trailing-consecutive-whitespace"><span class="section-number-4">4.8.1.</span> Trim Leading, Trailing, Consecutive Whitespace</h4>
+<h4 id="trim-leading-trailing-consecutive-whitespace"><span class="section-number-4">4.9.1.</span> Trim Leading, Trailing, Consecutive Whitespace</h4>
 <div class="outline-text-4" id="text-trim-leading-trailing-consecutive-whitespace">
 <p>
 Many bSDD fields are defined as <code>xsd:string</code>.
@@ -4259,7 +4430,7 @@ Examples where this happens (not a comprehensive list):
 <li><code>bsdd:description</code> that is an enumeration. Should be expressed as <code>allowedValues</code>. e.g. in <a href="https://identifier.buildingsmart.org/uri/engisis/RFI-02/prop/S25750_0010">https://identifier.buildingsmart.org/uri/engisis/RFI-02/prop/S25750_0010</a>:</li>
 </ul>
 
-<pre class="example" id="org5035c97">
+<pre class="example" id="org0e7e510">
 "EL=Elettronica,
 SE=Semi-elettronica,
 EM=Elettromeccanica,
@@ -4282,7 +4453,7 @@ e.g. we could define SHACL rules to prevent such cases.
 </div>
 
 <div id="outline-container-improve-physical-quantities-and-units" class="outline-4">
-<h4 id="improve-physical-quantities-and-units"><span class="section-number-4">4.8.2.</span> Improve Physical Quantities and Units</h4>
+<h4 id="improve-physical-quantities-and-units"><span class="section-number-4">4.9.2.</span> Improve Physical Quantities and Units</h4>
 <div class="outline-text-4" id="text-improve-physical-quantities-and-units">
 <p>
 Properties have three characteristics that should be closely correlated:
@@ -4392,7 +4563,7 @@ They all represent the property EF007220 "Busbar thickness"
 </div>
 
 <div id="outline-container-rules-about-missing-data" class="outline-4">
-<h4 id="rules-about-missing-data"><span class="section-number-4">4.8.3.</span> Rules About Missing Data</h4>
+<h4 id="rules-about-missing-data"><span class="section-number-4">4.9.3.</span> Rules About Missing Data</h4>
 <div class="outline-text-4" id="text-rules-about-missing-data">
 <p>
 bSDD should define rules how to express missing data.
@@ -4417,7 +4588,7 @@ It's better to omit <code>physicalQuantity</code> altogether, rather than use a 
 </div>
 
 <div id="outline-container-unicode-problems" class="outline-4">
-<h4 id="unicode-problems"><span class="section-number-4">4.8.4.</span> Unicode Problems</h4>
+<h4 id="unicode-problems"><span class="section-number-4">4.9.4.</span> Unicode Problems</h4>
 <div class="outline-text-4" id="text-unicode-problems">
 <p>
 There are Unicode problems in some <code>bsdd:description</code>.
@@ -4427,7 +4598,7 @@ There are Unicode problems in some <code>bsdd:description</code>.
 E.g. in <a href="https://identifier.buildingsmart.org/uri/buildingsmart-de/bSDTLS-1/prop/02-02-01-010">https://identifier.buildingsmart.org/uri/buildingsmart-de/bSDTLS-1/prop/02-02-01-010</a> :
 </p>
 
-<pre class="example" id="org6f0fe1a">
+<pre class="example" id="orgd198861">
 "Zeit der m�glichen Verarbeitung vor Aush�rtung in [min] bei +23�C und 50% rel. Luftfeuchtigkeit
 "
 </pre>
@@ -4439,7 +4610,7 @@ E.g. in <a href="https://identifier.buildingsmart.org/uri/buildingsmart-de/bSDTL
 </div>
 
 <div id="outline-container-unresolved-html-entities" class="outline-4">
-<h4 id="unresolved-html-entities"><span class="section-number-4">4.8.5.</span> Unresolved HTML Entities</h4>
+<h4 id="unresolved-html-entities"><span class="section-number-4">4.9.5.</span> Unresolved HTML Entities</h4>
 <div class="outline-text-4" id="text-unresolved-html-entities">
 <p>
 There are unresolved HTML entities (encoded chars).
@@ -4449,7 +4620,7 @@ There are unresolved HTML entities (encoded chars).
 E.g. in <a href="https://identifier.buildingsmart.org/uri/engisis/RFI-02/prop/S27300_0200">https://identifier.buildingsmart.org/uri/engisis/RFI-02/prop/S27300_0200</a>:
 </p>
 
-<pre class="example" id="orgbea488a">
+<pre class="example" id="org2fac354">
 "(*)
 Pu&amp;#242; essere valorizzato un solo valore. SCIA = valorizzabile per le attivit&amp;#224; di tipo A o per le attivit&amp;#224; di tipo B o C nel caso in cui a seguito della valutazione favorevole del progetto si sia presentata la SCIA (ma non sia stato ancora rilasciato copia del verbale della visita tecnica dei VVF -attivit&amp;#224; di tipo A o B- o il CPI -attivit&amp;#224; ...".
 </pre>
@@ -4457,7 +4628,7 @@ Pu&amp;#242; essere valorizzato un solo valore. SCIA = valorizzabile per le atti
 </div>
 
 <div id="outline-container-bad-classification-relations" class="outline-4">
-<h4 id="bad-classification-relations"><span class="section-number-4">4.8.6.</span> Bad Classification Relations</h4>
+<h4 id="bad-classification-relations"><span class="section-number-4">4.9.6.</span> Bad Classification Relations</h4>
 <div class="outline-text-4" id="text-bad-classification-relations">
 <p>
 Some classifications relate to to a full classification URL, but to
@@ -5090,7 +5261,7 @@ The difference between the two SOML schemas is not so huge:
 </div>
 
 
-<div id="org6051233" class="figure">
+<div id="orgdc1cc99" class="figure">
 <p><img src="./img/bsdd-graphql-soml-diff.png" alt="bsdd-graphql-soml-diff.png" />
 </p>
 <p><span class="figure-number">Figure 10: </span>Typical differences between the Original GraphQL schema (red) and the Refactored schema (green)</p>
@@ -5494,7 +5665,7 @@ Note: if you have a user account, you can enlarge "Maximum links to show" in Set
 </p>
 
 
-<div id="orge8e11c6" class="figure">
+<div id="org26d5c28" class="figure">
 <p><img src="./img/viz-ClassCOMPOSED_PROPERTY.png" alt="viz-ClassCOMPOSED_PROPERTY.png" />
 </p>
 <p><span class="figure-number">Figure 11: </span>"COMPOSED_PROPERTY" Classifications</p>
@@ -5511,7 +5682,7 @@ Expanding a node shows its ClassificationProperties.
 </p>
 
 
-<div id="orge5c26da" class="figure">
+<div id="orgf1c31fd" class="figure">
 <p><img src="./img/viz-ClassDOMAIN.png" alt="viz-ClassDOMAIN.png" />
 </p>
 <p><span class="figure-number">Figure 12: </span>"DOMAIN" Classifications</p>
@@ -5529,7 +5700,7 @@ It shows a number of French classes relating to <code>Space, Slab, Covering</cod
 </p>
 
 
-<div id="orge6cff56" class="figure">
+<div id="orgcf4c1b1" class="figure">
 <p><img src="./img/viz-ClassRel.png" alt="viz-ClassRel.png" />
 </p>
 <p><span class="figure-number">Figure 13: </span>Classification Relations</p>
@@ -5546,7 +5717,7 @@ It shows a number of French classes relating to <code>Space, Slab, Covering</cod
 </p>
 
 
-<div id="org71a260a" class="figure">
+<div id="orga286705" class="figure">
 <p><img src="./img/viz-multivaluedPropSet.png" alt="viz-multivaluedPropSet.png" />
 </p>
 <p><span class="figure-number">Figure 14: </span>Multivalued propSet, showing domain (purple), class (yellow), prop (red), set (blue)</p>
@@ -5562,6 +5733,43 @@ It shows a number of French classes relating to <code>Space, Slab, Covering</cod
 <p>
 This work is partially funded by the European Union's Horizon Europe research and innovation programme under grant agreement no 101056973 (ACCORD).
 </p>
+<ul class="org-ul">
+<li><p>
+Developed by:
+</p>
+<p width="200px">
+<img src="./img/ontotext.png" alt="ontotext.png" width="200px" />  
+<a href="https://ontotext.com/">Ontotext (Sirma AI)</a>                       
+</p></li>
+<li><p>
+Funded by:
+</p>
+<p width="200px">
+<img src="./img/accord.png" alt="accord.png" width="200px" />    
+Horizon Europe <a href="https://accordproject.eu/">Project ACCORD</a> (101056973) 
+</p></li>
+<li><p>
+Powered by:
+</p>
+<p width="200px">
+<img src="./img/graphdb.png" alt="graphdb.png" width="200px" />      
+<a href="https://graphdb.ontotext.com/">Ontotext GraphDB</a>                          
+</p></li>
+<li><p>
+Powered by:
+</p>
+<p width="200px">
+<img src="./img/ontotext-platform.png" alt="ontotext-platform.png" width="200px" /> 
+<a href="https://platform.ontotext.com/semantic-objects/">Ontotext Platform Semantic Objects</a>        
+</p></li>
+<li><p>
+Data from:
+</p>
+<p width="200px">
+<img src="./img/bsdd.png" alt="bsdd.png" width="200px" />  
+<a href="https://www.buildingsmart.org/users/services/buildingsmart-data-dictionary/">buildingSMART Data Dictionary</a>             
+</p></li>
+</ul>
 
 <p>
 Author contributions:

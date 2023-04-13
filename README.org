@@ -5,7 +5,7 @@
 #+startup: showeverything
 #+title: Semantic bSDD
 #+subtitle: Improving the GraphQL, JSON and RDF Representations of buildingSmart Data Dictionary
-#+date: <2023-04-10>
+#+date: <2023-04-13>
 #+author: Vladimir Alexiev, Mihail Radkov, Nataliya Keberle
 #+email: vladimir.alexiev@ontotext.com
 #+institute: Ontotext
@@ -1366,7 +1366,7 @@ but should be ~[Property]~, i.e. an array of ~Properties~ .
 :PROPERTIES:
 :CUSTOM_ID: improve-relations-between-entities
 :END:
-bSDD includes numerous string attributes (codes or URLs) that should be converted to relations (object fields) to improve the connectedness of the bSDD has many string attributes (codes or URLs) that should be converted to the relations (object fields) to improve the connectedness of the GraphQL graph.
+bSDD includes numerous string attributes (codes or URLs) that should be converted to relations (object fields) to improve the connectedness of the bSDD GraphQL graph.
 - ~ClassificationRelation~ and ~PropertyRelation~ do not have any outgoing relations. Instead, they use strings (e.g. ~relatedPropertyUri~), thus blocking further GraphQL navigation.
 - There are several entities (~Country, Language, ReferenceDocument, Unit~) that are not used anywhere.
   Instead of relations pointing to these types, the other types have properties  (e.g. ~countryOfOrigin~, ~countriesOfUse~) representing the same information as ~String~.

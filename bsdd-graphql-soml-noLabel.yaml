@@ -1,0 +1,463 @@
+id: /soml/bsdd
+label: SOML schema for buildingSMART Data Dictionary (bSDD)
+creator: Vladimir Alexiev, Mihail Radkov
+created: 2022-01-13
+updated: 2022-02-24
+versionInfo: 1.0
+
+types:
+  ClassificationType:
+    values:
+      - name: CLASS
+      - name: COMPOSED_PROPERTY
+      - name: DOMAIN
+      - name: GROUP_OF_PROPERTIES
+      - name: REFERENCE_DOCUMENT
+      - name: ALTERNATIVE_USE
+      - name: MATERIAL
+  PropertyValueKind:
+    values:
+      - name: SINGLE
+      - name: RANGE
+      - name: LIST
+      - name: COMPLEX
+      - name: COMPLEX_LIST
+
+prefixes:
+  bsdd: http://bsdd.buildingsmart.org/def#
+
+specialPrefixes:
+  base_iri: https://identifier.buildingsmart.org/uri/
+  vocab_iri: http://bsdd.buildingsmart.org/def#
+  vocab_prefix: bsdd
+
+objects:
+  Country:
+    type: bsdd:Country
+    name: bsdd:name
+    props:
+      code:
+        min: 1
+        range: string
+      name:
+        min: 1
+        range: string
+  Classification:
+    type: bsdd:Classification
+    name: bsdd:name
+    props:
+      classificationType:
+        range: ClassificationType
+      relatedIfcEntityName:
+        max: inf
+        range: string
+      synonym:
+        max: inf
+        range: string
+      referenceCode:
+        range: string
+      classificationProperty:
+        max: inf
+        range: ClassificationProperty
+      relation:
+        max: inf
+        range: ClassificationRelation
+      parentClassification:
+        range: Classification
+        max: 1
+        inverseAlias: childClassification
+      childClassification:
+        max: inf
+        range: Classification
+      activationDateUtc:
+        min: 1
+        range: dateTime
+      code:
+        min: 1
+        range: string
+      creatorLanguageCode:
+        range: string
+      countryOfUse:
+        max: inf
+        range: string
+      countryOfOrigin:
+        range: string
+      deActivationDateUtc:
+        range: dateTime
+      definition:
+        range: string
+      deprecationExplanation:
+        range: string
+      documentReference:
+        range: string
+      name:
+        min: 1
+        range: string
+      replacedObjectCode:
+        max: inf
+        range: string
+      replacingObjectCode:
+        max: inf
+        range: string
+      revisionDateUtc:
+        range: dateTime
+      revisionNumber:
+        range: int
+      status:
+        min: 1
+        range: string
+      subdivisionOfUse:
+        max: inf
+        range: string
+      uid:
+        range: string
+      versionDateUtc:
+        range: dateTime
+      versionNumber:
+        range: int
+      visualRepresentationUri:
+        range: iri
+      domain:
+        min: 1
+        range: Domain
+        inverseAlias: classification
+  ClassificationProperty:
+    type: bsdd:ClassificationProperty
+    name: bsdd:name
+    props:
+      allowedValue:
+        max: inf
+        range: PropertyValue
+      classification:
+        min: 1
+        range: Classification
+        inverseAlias: classificationProperty
+      dataType:
+        range: string
+      description:
+        range: string
+      dimension:
+        range: string
+      dimensionLength:
+        range: int
+      dimensionMass:
+        range: int
+      dimensionTime:
+        range: int
+      dimensionElectricCurrent:
+        range: int
+      dimensionThermodynamicTemperature:
+        range: int
+      dimensionAmountOfSubstance:
+        range: int
+      dimensionLuminousIntensity:
+        range: int
+      dynamicParameterPropertyCode:
+        max: inf
+        range: string
+      example:
+        range: string
+      isDynamic:
+        min: 1
+        range: boolean
+      isRequired:
+        range: boolean
+      isWritable:
+        range: boolean
+      maxExclusive:
+        range: decimal
+      maxInclusive:
+        range: decimal
+      methodOfMeasurement:
+        range: string
+      minExclusive:
+        range: decimal
+      minInclusive:
+        range: decimal
+      pattern:
+        range: string
+      physicalQuantity:
+        range: string
+      predefinedValue:
+        range: string
+      property:
+        min: 1
+        range: Property
+      propertySet:
+        range: string
+      propertyValueKind:
+        range: PropertyValueKind
+      symbol:
+        range: string
+      textFormat:
+        min: 1
+        range: string
+      unit:
+        max: inf
+        range: string
+      activationDateUtc:
+        min: 1
+        range: dateTime
+      code:
+        min: 1
+        range: string
+      creatorLanguageCode:
+        range: string
+      countryOfUse:
+        max: inf
+        range: string
+      countryOfOrigin:
+        range: string
+      deActivationDateUtc:
+        range: dateTime
+      definition:
+        range: string
+      deprecationExplanation:
+        range: string
+      documentReference:
+        range: string
+      name:
+        min: 1
+        range: string
+      replacedObjectCode:
+        max: inf
+        range: string
+      replacingObjectCode:
+        max: inf
+        range: string
+      revisionDateUtc:
+        range: dateTime
+      revisionNumber:
+        range: int
+      status:
+        min: 1
+        range: string
+      subdivisionOfUse:
+        max: inf
+        range: string
+      uid:
+        range: string
+      versionDateUtc:
+        range: dateTime
+      versionNumber:
+        range: int
+      visualRepresentationUri:
+        range: iri
+  ClassificationRelation:
+    type: bsdd:ClassificationRelation
+    name: relationType
+    props:
+      related:
+        min: 2
+        max: 2
+        range: Classification
+        inverseOf: relation
+      relationType:
+        min: 1
+        range: string
+  Domain:
+    type: bsdd:Domain
+    name: bsdd:name
+    props:
+      name:
+        min: 1
+        range: string
+      version:
+        min: 1
+        range: string
+      status:
+        range: string
+      releaseDate:
+        range: dateTime
+      license:
+        range: string
+      licenseUrl:
+        range: string
+      copyrightNotice:
+        range: string
+      moreInfoUrl:
+        range: string
+      lastUpdatedUtc:
+        min: 1
+        range: dateTime
+      languageCode:
+        min: 1
+        range: string
+      classification:
+        max: inf
+        range: Classification
+  Language:
+    type: bsdd:Language
+    name: bsdd:name
+    props:
+      isocode:
+        min: 1
+        range: string
+      name:
+        min: 1
+        range: string
+  Property:
+    type: bsdd:Property
+    name: bsdd:name
+    props:
+      allowedValues:
+        max: inf
+        range: PropertyValue
+      connectedPropertyCode:
+        max: inf
+        range: string
+      dataType:
+        range: string
+      description:
+        range: string
+      dimension:
+        range: string
+      dimensionLength:
+        range: int
+      dimensionMass:
+        range: int
+      dimensionTime:
+        range: int
+      dimensionElectricCurrent:
+        range: int
+      dimensionThermodynamicTemperature:
+        range: int
+      dimensionAmountOfSubstance:
+        range: int
+      dimensionLuminousIntensity:
+        range: int
+      dynamicParameterPropertyCodes:
+        max: inf
+        range: string
+      example:
+        range: string
+      isDynamic:
+        min: 1
+        range: boolean
+      maxExclusive:
+        range: decimal
+      maxInclusive:
+        range: decimal
+      methodOfMeasurement:
+        range: string
+      minExclusive:
+        range: decimal
+      minInclusive:
+        range: decimal
+      pattern:
+        range: string
+      physicalQuantity:
+        range: string
+      propertyValueKind:
+        range: PropertyValueKind
+      relation:
+        max: inf
+        range: PropertyRelation
+      textFormat:
+        range: string
+      unit:
+        max: inf
+        range: string
+      activationDateUtc:
+        min: 1
+        range: dateTime
+      classificationProperty:
+        max: inf
+        range: ClassificationProperty
+        inverseAlias: property
+      code:
+        min: 1
+        range: string
+      creatorLanguageCode:
+        range: string
+      countryOfUse:
+        max: inf
+        range: string
+      countryOfOrigin:
+        range: string
+      deActivationDateUtc:
+        range: dateTime
+      definition:
+        range: string
+      deprecationExplanation:
+        range: string
+      documentReference:
+        range: string
+      name:
+        min: 1
+        range: string
+      replacedObjectCodes:
+        max: inf
+        range: string
+      replacingObjectCodes:
+        max: inf
+        range: string
+      revisionDateUtc:
+        range: dateTime
+      revisionNumber:
+        range: int
+      status:
+        min: 1
+        range: string
+      subdivisionsOfUse:
+        max: inf
+        range: string
+      uid:
+        range: string
+      versionDateUtc:
+        range: dateTime
+      versionNumber:
+        range: int
+      visualRepresentationUri:
+        range: iri
+  PropertyValue:
+    type: bsdd:PropertyValue
+    name: bsdd:name
+    props:
+      code:
+        range: string
+      description:
+        range: string
+      bsdd:value:
+        min: 1
+        range: string
+      sortNumber:
+        range: int
+  PropertyRelation:
+    type: bsdd:PropertyRelation
+    name: relationType
+    props:
+      related:
+        min: 2
+        max: 2
+        range: Property
+        inverseOf: relation
+      relationType:
+        min: 1
+        range: string
+  ReferenceDocument:
+    type: bsdd:ReferenceDocument
+    name: bsdd:name
+    props:
+      title:
+        min: 1
+        range: string
+      name:
+        min: 1
+        range: string
+      date:
+        min: 1
+        range: dateTime
+  Unit:
+    type: bsdd:Unit
+    name: bsdd:name
+    props:
+      code:
+        min: 1
+        range: string
+      name:
+        min: 1
+        range: string
+      symbol:
+        range: string
+

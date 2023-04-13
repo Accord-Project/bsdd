@@ -1,10 +1,13 @@
-all: index.html bsdd-graphql-soml.patch README1.md README1.html
+all: index.html bsdd-graphql-soml.patch bsdd-graphql-soml-noLabel.yaml README1.md README1.html
 
 index.html: index.md
 	pandoc --wrap=preserve -s -o $@ $^
 
 bsdd-graphql-soml.patch: bsdd-graphql-soml-orig.yaml bsdd-graphql-soml-refact.yaml
 	-diff  -wu1000 $^ > $@
+
+bsdd-graphql-soml-noLabel.yaml: bsdd-graphql-soml-refact.yaml
+	perl -ne 'm{ (#|label:) } and next; m{^rbac:} and last; print' $^ >$@
 
 README1.md: README.org
 	grep -v "options: html-preamble" $^ | pandoc --wrap=preserve -s -f org -t markdown-simple_tables+implicit_figures-smart-fancy_lists -o $@

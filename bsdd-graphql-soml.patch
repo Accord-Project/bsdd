@@ -1,6 +1,6 @@
---- bsdd-graphql-soml-orig.yaml	2023-02-02 10:13:20.662059348 +0200
-+++ bsdd-graphql-soml-refact.yaml	2023-03-10 16:11:35.623222527 +0200
-@@ -1,649 +1,629 @@
+--- bsdd-graphql-soml-orig.yaml	2023-02-02 09:50:29.976528600 +0200
++++ bsdd-graphql-soml-refact.yaml	2023-04-13 11:53:09.122632600 +0300
+@@ -1,649 +1,638 @@
  id: /soml/bsdd
  label: SOML schema for buildingSMART Data Dictionary (bSDD)
  creator: Vladimir Alexiev, Mihail Radkov
@@ -187,7 +187,6 @@
 +      domain:
 +        label: The domain
 +        min: 1
-+        max: 1
 +        range: Domain
 +        inverseAlias: classification
    ClassificationProperty:
@@ -203,6 +202,11 @@
          max: inf
 -        range: ClassificationPropertyValue
 +        range: PropertyValue
++      classification:
++        label: Classification in which this ClassificationProperty resides
++        min: 1
++        range: Classification
++        inverseAlias: classificationProperty
        dataType:
          label: 'Format for expressing the value of the property: Boolean, Character, Date, Enumeration, Integer, Real, String, Time'
          range: string
@@ -600,6 +604,11 @@
          label: Date of activation
          min: 1
          range: dateTime
++      classificationProperty:
++        label: ClassificationProperties that use this general property
++        max: inf
++        range: ClassificationProperty
++        inverseAlias: property
        code:
          label: Code used originally by the domain
          min: 1

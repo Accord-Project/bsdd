@@ -407,7 +407,7 @@ objects:
     label: Property
     name: bsdd:name
     props:
-      allowedValues:
+      allowedValue:
         label: List of allowed values
         max: inf
         range: PropertyValue

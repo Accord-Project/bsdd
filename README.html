@@ -198,7 +198,7 @@
 </head>
 <body>
 <div id="preamble" class="status">
-<p class='author'>Author: Vladimir Alexiev, Mihail Radkov, Nataliya Keberle<br/>(<a href="mailto:vladimir.alexiev@ontotext.com">vladimir.alexiev@ontotext.com</a>)</p><p class='date'>Date: 2023-04-13</p><p><img src='./img/SemBSDD-Logo-400px.png'/></p>
+<p class='author'>Author: Vladimir Alexiev, Mihail Radkov, Nataliya Keberle<br/>(<a href="mailto:vladimir.alexiev@ontotext.com">vladimir.alexiev@ontotext.com</a>)</p><p class='date'>Date: 2023-04-18</p><p><img src='./img/SemBSDD-Logo-400px.png'/></p>
 </div>
 <div id="content" class="content">
 <h1 class="title">Semantic bSDD
@@ -217,10 +217,12 @@
 <li><a href="#original-graphql-bsdd-schema-voyager">2.3. Original GraphQL bSDD Schema: Voyager</a></li>
 <li><a href="#original-graphql-bsdd-schema-problems">2.4. Original GraphQL bSDD Schema: Problems</a></li>
 <li><a href="#refactored-graphql-bsdd-schema-voyager">2.5. Refactored GraphQL bSDD Schema: Voyager</a></li>
-<li><a href="#graphiql-querying-of-original-endpoint">2.6. GraphiQL Querying of Original Endpoint</a></li>
-<li><a href="#graphiql-querying-of-refactored-endpoint">2.7. GraphiQL Querying of Refactored Endpoint</a></li>
-<li><a href="#files">2.8. Files</a></li>
-<li><a href="#endpoints-and-pages">2.9. Endpoints and Pages</a></li>
+<li><a href="#refactored-bsdd-schema-plantuml-overview-diagram">2.6. Refactored bSDD Schema: PlantUML Overview Diagram</a></li>
+<li><a href="#refactored-bsdd-schema-plantuml-full-diagram">2.7. Refactored bSDD Schema: PlantUML Full Diagram</a></li>
+<li><a href="#graphiql-querying-of-original-endpoint">2.8. GraphiQL Querying of Original Endpoint</a></li>
+<li><a href="#graphiql-querying-of-refactored-endpoint">2.9. GraphiQL Querying of Refactored Endpoint</a></li>
+<li><a href="#files">2.10. Files</a></li>
+<li><a href="#endpoints-and-pages">2.11. Endpoints and Pages</a></li>
 </ul>
 </li>
 <li><a href="#original-bsdd-data">3. Original bSDD Data</a>
@@ -279,10 +281,10 @@
 </li>
 <li><a href="#improve-multilingual-support">4.6. Improve Multilingual Support</a>
 <ul>
-<li><a href="#org9705dec">4.6.1. Self-Describing langStrings</a></li>
-<li><a href="#org526ee5d">4.6.2. Language Fallback</a></li>
-<li><a href="#orgb1a379a">4.6.3. Use Language Content Negotiation</a></li>
-<li><a href="#org2acf76e">4.6.4. Improve Lang Tags</a></li>
+<li><a href="#self-describing-langstrings">4.6.1. Self-Describing langStrings</a></li>
+<li><a href="#language-fallback">4.6.2. Language Fallback</a></li>
+<li><a href="#use-language-content-negotiation">4.6.3. Use Language Content Negotiation</a></li>
+<li><a href="#improve-lang-tags">4.6.4. Improve Lang Tags</a></li>
 </ul>
 </li>
 <li><a href="#improve-rdf-structure">4.7. Improve RDF Structure</a></li>
@@ -348,7 +350,12 @@
 </li>
 </ul>
 </li>
-<li><a href="#acknowledgements">6. Acknowledgements</a></li>
+<li><a href="#conclusions">6. Conclusions</a>
+<ul>
+<li><a href="#future-work">6.1. Future Work</a></li>
+<li><a href="#acknowledgements">6.2. Acknowledgements</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -470,7 +477,7 @@ We used it to investigate the original bSDD schema:
 </p>
 
 
-<div id="orgedbc9b8" class="figure">
+<div id="org5eac8da" class="figure">
 <p><img src="./img/bsdd-graphql-voyager-overview.png" alt="bsdd-graphql-voyager-overview.png" />
 </p>
 <p><span class="figure-number">Figure 1: </span>Original bSDD GraphQL Schema: Overview (uncheck "Show leaf fields")</p>
@@ -508,7 +515,7 @@ We can also look at details of the schema:
 </p>
 
 
-<div id="orga0c80df" class="figure">
+<div id="orge0b137b" class="figure">
 <p><img src="./img/bsdd-graphql-voyager-Classification-ClassificationProperty.png" alt="bsdd-graphql-voyager-Classification-ClassificationProperty.png" />
 </p>
 <p><span class="figure-number">Figure 2: </span>Original bSDD GraphQL Schema: Detail of Classification and ClassificationProperty</p>
@@ -569,7 +576,7 @@ that allows you to explore the refactored schema.
 </p>
 
 
-<div id="org8066aad" class="figure">
+<div id="org8479403" class="figure">
 <p><img src="./img/bsdd-graphql-voyager-refact-overview.png" alt="bsdd-graphql-voyager-refact-overview.png" />
 </p>
 <p><span class="figure-number">Figure 3: </span>Refactored bSDD GraphQL Schema: Overview (uncheck "Show leaf fields")</p>
@@ -611,7 +618,7 @@ and strings fields like <code>propertyNamespaceUri</code> are converted to objec
 </p>
 
 
-<div id="org157ca74" class="figure">
+<div id="org217aed9" class="figure">
 <p><img src="./img/bsdd-graphql-voyager-refact-Classification-ClassificationProperty.png" alt="bsdd-graphql-voyager-refact-Classification-ClassificationProperty.png" />
 </p>
 <p><span class="figure-number">Figure 4: </span>Refactored bSDD GraphQL Schema: Detail of Classification and ClassificationProperty</p>
@@ -619,18 +626,63 @@ and strings fields like <code>propertyNamespaceUri</code> are converted to objec
 </div>
 </div>
 
+<div id="outline-container-refactored-bsdd-schema-plantuml-overview-diagram" class="outline-3">
+<h3 id="refactored-bsdd-schema-plantuml-overview-diagram"><span class="section-number-3">2.6.</span> Refactored bSDD Schema: PlantUML Overview Diagram</h3>
+<div class="outline-text-3" id="text-refactored-bsdd-schema-plantuml-overview-diagram">
+<p>
+<a href="https://github.com/VladimirAlexiev/soml/tree/master/soml2puml">soml2puml</a> is a new open source tool that uses PlantUML to generate diagrams from SOML schemas.
+</p>
+<ul class="org-ul">
+<li>They include nice visualizations of classes and attribute types using emoji</li>
+<li>Unlike Voyager, these are static diagrams. They can still be rendered as SVG, to make them searchable</li>
+</ul>
+
+<p>
+We used a slightly modified SOML schema <code>bsdd-graphql-soml-withDiagram-noLabel.yaml</code>
+that adds <code>diagram</code> keys (node <code>rank</code> and <code>emoji</code>).
+</p>
+
+<p>
+The overview diagram shows classes but not attributes:
+</p>
+
+
+<div id="org8cafc1d" class="figure">
+<p><img src="./img/bsdd-graphql-soml-diagram-overview.png" alt="bsdd-graphql-soml-diagram-overview.png" />
+</p>
+<p><span class="figure-number">Figure 5: </span>Refactored bSDD Schema: PlantUML Overview Diagram</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-refactored-bsdd-schema-plantuml-full-diagram" class="outline-3">
+<h3 id="refactored-bsdd-schema-plantuml-full-diagram"><span class="section-number-3">2.7.</span> Refactored bSDD Schema: PlantUML Full Diagram</h3>
+<div class="outline-text-3" id="text-refactored-bsdd-schema-plantuml-full-diagram">
+<p>
+The full schema uses the same layout, but also adds attributes:
+</p>
+
+
+<div id="orge1c8095" class="figure">
+<p><img src="./img/bsdd-graphql-soml-diagram.png" alt="bsdd-graphql-soml-diagram.png" style="width:1200px" />
+</p>
+<p><span class="figure-number">Figure 6: </span>Refactored bSDD Schema: PlantUML Full Diagram</p>
+</div>
+</div>
+</div>
+
 <div id="outline-container-graphiql-querying-of-original-endpoint" class="outline-3">
-<h3 id="graphiql-querying-of-original-endpoint"><span class="section-number-3">2.6.</span> GraphiQL Querying of Original Endpoint</h3>
+<h3 id="graphiql-querying-of-original-endpoint"><span class="section-number-3">2.8.</span> GraphiQL Querying of Original Endpoint</h3>
 <div class="outline-text-3" id="text-graphiql-querying-of-original-endpoint">
 <p>
 <a href="https://test.bsdd.buildingsmart.org/graphiql">https://test.bsdd.buildingsmart.org/graphiql</a> is the original GraphQL endpoint.
 </p>
 
 
-<div id="org34b5586" class="figure">
+<div id="org4fb1045" class="figure">
 <p><img src="./img/graphiql-orig.png" alt="graphiql-orig.png" />
 </p>
-<p><span class="figure-number">Figure 5: </span>GraphiQL Querying of Original bSDD Endpoint</p>
+<p><span class="figure-number">Figure 7: </span>GraphiQL Querying of Original bSDD Endpoint</p>
 </div>
 
 <p>
@@ -649,17 +701,17 @@ It provides a number of useful features:
 </div>
 
 <div id="outline-container-graphiql-querying-of-refactored-endpoint" class="outline-3">
-<h3 id="graphiql-querying-of-refactored-endpoint"><span class="section-number-3">2.7.</span> GraphiQL Querying of Refactored Endpoint</h3>
+<h3 id="graphiql-querying-of-refactored-endpoint"><span class="section-number-3">2.9.</span> GraphiQL Querying of Refactored Endpoint</h3>
 <div class="outline-text-3" id="text-graphiql-querying-of-refactored-endpoint">
 <p>
 <a href="https://bsdd.ontotext.com/graphiql/">https://bsdd.ontotext.com/graphiql/</a> is the refactored GraphQL endpoint:
 </p>
 
 
-<div id="orgf64e131" class="figure">
+<div id="orgc0259c2" class="figure">
 <p><img src="./img/graphiql-refact.png" alt="graphiql-refact.png" />
 </p>
-<p><span class="figure-number">Figure 6: </span>GraphiQL Querying of Refactored bSDD Endpoint</p>
+<p><span class="figure-number">Figure 8: </span>GraphiQL Querying of Refactored bSDD Endpoint</p>
 </div>
 
 <p>
@@ -679,7 +731,7 @@ The History and Documentation panes are still present (see toggles at the left e
 </div>
 
 <div id="outline-container-files" class="outline-3">
-<h3 id="files"><span class="section-number-3">2.8.</span> Files</h3>
+<h3 id="files"><span class="section-number-3">2.10.</span> Files</h3>
 <div class="outline-text-3" id="text-files">
 <p>
 Description of all files in <a href="https://github.com/Accord-Project/bsdd">https://github.com/Accord-Project/bsdd</a>:
@@ -747,7 +799,7 @@ or selected "interesting" entities with most fields filled (e.g. <code>class-Ifc
 </div>
 
 <div id="outline-container-endpoints-and-pages" class="outline-3">
-<h3 id="endpoints-and-pages"><span class="section-number-3">2.9.</span> Endpoints and Pages</h3>
+<h3 id="endpoints-and-pages"><span class="section-number-3">2.11.</span> Endpoints and Pages</h3>
 <div class="outline-text-3" id="text-endpoints-and-pages">
 <p>
 Description of all endpoints that this project worked with and produced:
@@ -1029,7 +1081,7 @@ The distribution of number of Classifications per domain is as follows:
 <p>
 Domains with no classifications:
 </p>
-<pre class="example" id="org1db619c">
+<pre class="example" id="org8e4a863">
 http://identifier.buildingsmart.org/uri/spr/spr-cfhios-0.1
 https://identifier.buildingsmart.org/uri/ArcDox/ArcDox-1.0
 https://identifier.buildingsmart.org/uri/BBRI/BBRI-0.1
@@ -1047,7 +1099,7 @@ https://identifier.buildingsmart.org/uri/ifcrail/ifcrail-0.1
 <p>
 One domain has more than 5000 classifications, but returns only 5000 due to lack of pagination in the GraphQL API:
 </p>
-<pre class="example" id="org9c58b73">
+<pre class="example" id="org772a2c4">
 https://identifier.buildingsmart.org/uri/nbs/uniclass2015-1
 </pre>
 </div>
@@ -2341,10 +2393,10 @@ We found a number of detailed differences, as presented in the <a href="https://
 </p>
 
 
-<div id="org775a3d1" class="figure">
+<div id="org9ff793f" class="figure">
 <p><img src="./img/bsdd-data-analysis-sheet.png" alt="bsdd-data-analysis-sheet.png" />
 </p>
-<p><span class="figure-number">Figure 7: </span>Differences between bSDD GraphQL, JSON and RDF Data</p>
+<p><span class="figure-number">Figure 9: </span>Differences between bSDD GraphQL, JSON and RDF Data</p>
 </div>
 
 <p>
@@ -2583,10 +2635,10 @@ The same URL can be used to get a static web page in the browser:
 </p>
 
 
-<div id="org229369a" class="figure">
+<div id="org9babe87" class="figure">
 <p><img src="./img/IFC-class-cableSegment-web.png" alt="IFC-class-cableSegment-web.png" />
 </p>
-<p><span class="figure-number">Figure 8: </span>CableSegment enity as displayed at the bSDD web site</p>
+<p><span class="figure-number">Figure 10: </span>CableSegment enity as displayed at the bSDD web site</p>
 </div>
 
 <p>
@@ -2595,10 +2647,10 @@ However, the interactive <a href="https://search.bsdd.buildingsmart.org">bSDD Se
 </p>
 
 
-<div id="org01ce567" class="figure">
+<div id="orgc47d443" class="figure">
 <p><img src="./img/IFC-class-cableSegment-search.png" alt="IFC-class-cableSegment-search.png" />
 </p>
-<p><span class="figure-number">Figure 9: </span>CableSegment as displayed at the bSDD search site</p>
+<p><span class="figure-number">Figure 11: </span>CableSegment as displayed at the bSDD search site</p>
 </div>
 
 <p>
@@ -2622,7 +2674,7 @@ Proper bSDD domain URL design should take into account the following observation
 <li>Almost all domain URLs have the same structure: <code>https://identifier.buildingsmart.org/uri/&lt;org&gt;/&lt;domain&gt;-&lt;version&gt;</code>.
 There are only two exceptions:</li>
 </ul>
-<pre class="example" id="orgaa0eab6">
+<pre class="example" id="orgb43a45a">
 http://otl.amsterdam.nl
 http://rdf.vegdata.no/V440/v440-owl
 </pre>
@@ -2631,7 +2683,7 @@ The Linked Data Patterns book describes a pattern of <a href="https://patterns.d
 that make URLs more "hackable", allowing users to navigate the hierarchy by pruning the URI.
 bSDD URLs could become more hierarchical if they follow this structure:
 </p>
-<pre class="example" id="org5740126">
+<pre class="example" id="org9c6e4da">
 https://identifier.buildingsmart.org/uri/&lt;org&gt;/&lt;domain&gt;/&lt;version&gt;
 </pre>
 
@@ -2650,7 +2702,7 @@ Problems:
 </ul></li>
 <li>A few domains use <code>http</code> whereas all others use <code>https</code>. All modern servers prefer <code>https</code> due to its better security.</li>
 </ul>
-<pre class="example" id="orgbc9dbb4">
+<pre class="example" id="org9bf7fed">
 http://identifier.buildingsmart.org/uri/spr/spr-cfhios-0.1
 http://otl.amsterdam.nl
 http://rdf.vegdata.no/V440/v440-owl
@@ -3638,9 +3690,9 @@ curl -Haccept:text/turtle "https://test.bsdd.buildingsmart.org/api/Classificatio
 </pre>
 </div>
 
-<div id="outline-container-org9705dec" class="outline-4">
-<h4 id="org9705dec"><span class="section-number-4">4.6.1.</span> Self-Describing langStrings</h4>
-<div class="outline-text-4" id="text-4-6-1">
+<div id="outline-container-self-describing-langstrings" class="outline-4">
+<h4 id="self-describing-langstrings"><span class="section-number-4">4.6.1.</span> Self-Describing langStrings</h4>
+<div class="outline-text-4" id="text-self-describing-langstrings">
 <p>
 RDF is well suited to carry multilingual data because:
 </p>
@@ -3682,9 +3734,9 @@ But there's no lang tag information in JSON:
 </div>
 </div>
 
-<div id="outline-container-org526ee5d" class="outline-4">
-<h4 id="org526ee5d"><span class="section-number-4">4.6.2.</span> Language Fallback</h4>
-<div class="outline-text-4" id="text-4-6-2">
+<div id="outline-container-language-fallback" class="outline-4">
+<h4 id="language-fallback"><span class="section-number-4">4.6.2.</span> Language Fallback</h4>
+<div class="outline-text-4" id="text-language-fallback">
 <p>
 Currently bSDD assumes that a domain and all its sub-objects will be translated <b>fully</b> to multiple languages.
 (Translatable fields are specified in the <a href="https://github.com/buildingSMART/bSDD/blob/master/Documentation/bSDD%20JSON%20import%20model.md">buildingSMART Data Dictionary model</a>).
@@ -3720,9 +3772,9 @@ For example, the following GraphQL query will fetch only one <code>name</code> v
 </div>
 </div>
 
-<div id="outline-container-orgb1a379a" class="outline-4">
-<h4 id="orgb1a379a"><span class="section-number-4">4.6.3.</span> Use Language Content Negotiation</h4>
-<div class="outline-text-4" id="text-4-6-3">
+<div id="outline-container-use-language-content-negotiation" class="outline-4">
+<h4 id="use-language-content-negotiation"><span class="section-number-4">4.6.3.</span> Use Language Content Negotiation</h4>
+<div class="outline-text-4" id="text-use-language-content-negotiation">
 <p>
 According to basic principles of the Web Architecture, URIs (or their better sibling: resolvable URLs)
 are identifiers of resources (information resources or real-world things), so they shouldn’t reflect implementation or representation details.
@@ -3765,9 +3817,9 @@ see <a href="https://platform.ontotext.com/semantic-objects/tutorials/graphql-qu
 </div>
 </div>
 
-<div id="outline-container-org2acf76e" class="outline-4">
-<h4 id="org2acf76e"><span class="section-number-4">4.6.4.</span> Improve Lang Tags</h4>
-<div class="outline-text-4" id="text-4-6-4">
+<div id="outline-container-improve-lang-tags" class="outline-4">
+<h4 id="improve-lang-tags"><span class="section-number-4">4.6.4.</span> Improve Lang Tags</h4>
+<div class="outline-text-4" id="text-improve-lang-tags">
 <p>
 The current bSDD approach is to always append a region code to the lang tag,
 e.g. <code>de-DE, de-AT, pl-PL</code> etc (see <a href="https://api.bsdd.buildingsmart.org/api/Language/v1">https://api.bsdd.buildingsmart.org/api/Language/v1</a>).
@@ -4430,7 +4482,7 @@ Examples where this happens (not a comprehensive list):
 <li><code>bsdd:description</code> that is an enumeration. Should be expressed as <code>allowedValues</code>. e.g. in <a href="https://identifier.buildingsmart.org/uri/engisis/RFI-02/prop/S25750_0010">https://identifier.buildingsmart.org/uri/engisis/RFI-02/prop/S25750_0010</a>:</li>
 </ul>
 
-<pre class="example" id="org8d40b45">
+<pre class="example" id="orgb7f281b">
 "EL=Elettronica,
 SE=Semi-elettronica,
 EM=Elettromeccanica,
@@ -4598,7 +4650,7 @@ There are Unicode problems in some <code>bsdd:description</code>.
 E.g. in <a href="https://identifier.buildingsmart.org/uri/buildingsmart-de/bSDTLS-1/prop/02-02-01-010">https://identifier.buildingsmart.org/uri/buildingsmart-de/bSDTLS-1/prop/02-02-01-010</a> :
 </p>
 
-<pre class="example" id="org797a5a9">
+<pre class="example" id="org8247733">
 "Zeit der m�glichen Verarbeitung vor Aush�rtung in [min] bei +23�C und 50% rel. Luftfeuchtigkeit
 "
 </pre>
@@ -4620,7 +4672,7 @@ There are unresolved HTML entities (encoded chars).
 E.g. in <a href="https://identifier.buildingsmart.org/uri/engisis/RFI-02/prop/S27300_0200">https://identifier.buildingsmart.org/uri/engisis/RFI-02/prop/S27300_0200</a>:
 </p>
 
-<pre class="example" id="org4353811">
+<pre class="example" id="org8fb91e0">
 "(*)
 Pu&amp;#242; essere valorizzato un solo valore. SCIA = valorizzabile per le attivit&amp;#224; di tipo A o per le attivit&amp;#224; di tipo B o C nel caso in cui a seguito della valutazione favorevole del progetto si sia presentata la SCIA (ma non sia stato ancora rilasciato copia del verbale della visita tecnica dei VVF -attivit&amp;#224; di tipo A o B- o il CPI -attivit&amp;#224; ...".
 </pre>
@@ -5261,10 +5313,10 @@ The difference between the two SOML schemas is not so huge:
 </div>
 
 
-<div id="org3604592" class="figure">
+<div id="orgd34ede3" class="figure">
 <p><img src="./img/bsdd-graphql-soml-diff.png" alt="bsdd-graphql-soml-diff.png" />
 </p>
-<p><span class="figure-number">Figure 10: </span>Typical differences between the Original GraphQL schema (red) and the Refactored schema (green)</p>
+<p><span class="figure-number">Figure 12: </span>Typical differences between the Original GraphQL schema (red) and the Refactored schema (green)</p>
 </div>
 
 <p>
@@ -5665,10 +5717,10 @@ Note: if you have a user account, you can enlarge "Maximum links to show" in Set
 </p>
 
 
-<div id="orgdcb9cee" class="figure">
+<div id="org063f54d" class="figure">
 <p><img src="./img/viz-ClassCOMPOSED_PROPERTY.png" alt="viz-ClassCOMPOSED_PROPERTY.png" />
 </p>
-<p><span class="figure-number">Figure 11: </span>"COMPOSED_PROPERTY" Classifications</p>
+<p><span class="figure-number">Figure 13: </span>"COMPOSED_PROPERTY" Classifications</p>
 </div>
 </div>
 </div>
@@ -5682,10 +5734,10 @@ Expanding a node shows its ClassificationProperties.
 </p>
 
 
-<div id="org60de681" class="figure">
+<div id="orgbb1e673" class="figure">
 <p><img src="./img/viz-ClassDOMAIN.png" alt="viz-ClassDOMAIN.png" />
 </p>
-<p><span class="figure-number">Figure 12: </span>"DOMAIN" Classifications</p>
+<p><span class="figure-number">Figure 14: </span>"DOMAIN" Classifications</p>
 </div>
 </div>
 </div>
@@ -5700,10 +5752,10 @@ It shows a number of French classes relating to <code>Space, Slab, Covering</cod
 </p>
 
 
-<div id="org46b9109" class="figure">
+<div id="orgdf61732" class="figure">
 <p><img src="./img/viz-ClassRel.png" alt="viz-ClassRel.png" />
 </p>
-<p><span class="figure-number">Figure 13: </span>Classification Relations</p>
+<p><span class="figure-number">Figure 15: </span>Classification Relations</p>
 </div>
 </div>
 </div>
@@ -5717,19 +5769,63 @@ It shows a number of French classes relating to <code>Space, Slab, Covering</cod
 </p>
 
 
-<div id="orgca97193" class="figure">
+<div id="org201f2de" class="figure">
 <p><img src="./img/viz-multivaluedPropSet.png" alt="viz-multivaluedPropSet.png" />
 </p>
-<p><span class="figure-number">Figure 14: </span>Multivalued propSet, showing domain (purple), class (yellow), prop (red), set (blue)</p>
+<p><span class="figure-number">Figure 16: </span>Multivalued propSet, showing domain (purple), class (yellow), prop (red), set (blue)</p>
 </div>
 </div>
 </div>
 </div>
 </div>
 
-<div id="outline-container-acknowledgements" class="outline-2">
-<h2 id="acknowledgements"><span class="section-number-2">6.</span> Acknowledgements</h2>
-<div class="outline-text-2" id="text-acknowledgements">
+<div id="outline-container-conclusions" class="outline-2">
+<h2 id="conclusions"><span class="section-number-2">6.</span> Conclusions</h2>
+<div class="outline-text-2" id="text-conclusions">
+<p>
+We conducted a thorough comparison and analysis of bSDD data related to fulfillment of FAIR (findable, accessible, interoperable, and reusable) principles.
+Based on this analysis, we suggested enhancements to make bSDD data better structured and more FAIR.
+We implemented some of the suggestions by refactoring the original data to make it better structured/interconnected and more "semantic",
+and provided a SPARQL endpoint using <a href="https://graphdb.ontotext.com/">Ontotext GraphDB</a>, and GraphQL endpoint using <a href="https://platform.ontotext.com/semantic-objects/">Ontotext Platform Semantic Objects</a>.
+</p>
+
+<p>
+However, not all improvement suggestions are implemented, and many data quality improvements are still possible.
+</p>
+</div>
+
+<div id="outline-container-future-work" class="outline-3">
+<h3 id="future-work"><span class="section-number-3">6.1.</span> Future Work</h3>
+<div class="outline-text-3" id="text-future-work">
+<p>
+Here are further ideas for improvement:
+</p>
+<ul class="org-ul">
+<li>Take the draft bSDD ontology <a href="https://github.com/buildingSMART/bSDD/blob/master/RDF/preview-bsdd-rdfs-0.4.ttl">preview-bsdd-rdfs-0.4.ttl</a> (May 2022) and improve it.</li>
+<li>Take the SHACL shapes generated by Semantic Objects and add more checks
+(e.g. that entity names and descriptions should not include leading, trailing or consecutive spaces, i.e. should conform to <code>xsd:TOKEN</code> semantics)</li>
+<li>Run SHACL validation, save all <code>ValidationResults</code>, classify them somehow, and present a detailed error analysis</li>
+<li>Parse out enumeration values from <code>Property/ClassificationProperty</code> descriptions and create respective <code>PropertyValue</code> lists</li>
+<li>Implement data cleaning scripts to fix more problems</li>
+<li>Deepen the data quality analysis, e.g. 
+<ul class="org-ul">
+<li>Correlation between dimension vectors, units of measure and physical quantity</li>
+<li>Correlation between attribute values of <code>ClassificationProperty</code> and <code>Property</code>:
+the former uses values from the latter as default, so the former values should be sparsely populated and don't need to be equal to the latter values: but is that so?</li>
+</ul></li>
+<li>Link bSDD Units of measure to QUDT</li>
+<li>Implement more radical data model refactorings by turning more
+"strings" (e.g. country, language, reference document codes, predefined values) to
+"things" (object links to the respective entities)</li>
+<li>Make more graph visualizations</li>
+<li>Obtain more interesting statistics using SPARQL</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-acknowledgements" class="outline-3">
+<h3 id="acknowledgements"><span class="section-number-3">6.2.</span> Acknowledgements</h3>
+<div class="outline-text-3" id="text-acknowledgements">
 <p>
 This work is partially funded by the European Union's Horizon Europe research and innovation programme under grant agreement no 101056973 (ACCORD).
 </p>
@@ -5783,6 +5879,7 @@ Author contributions:
 <p>
 We thank Léon van Berlo and Erik Baars from buildingSmart International for their help with accessing bSDD.
 </p>
+</div>
 </div>
 </div>
 </div>

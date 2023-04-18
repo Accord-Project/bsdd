@@ -1,11 +1,11 @@
 #+options: ':nil *:t -:t ::t <:t H:5 \n:nil ^:{} arch:headline author:t
 #+options: c:nil creator:nil d:(not "LOGBOOK") date:t e:t email:nil f:t
-#+options: inline:t p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t
+#+options: inline:t p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t anchor:t
 #+options: timestamp:nil title:t toc:5 todo:t |:t
 #+startup: showeverything
 #+title: Semantic bSDD
 #+subtitle: Improving the GraphQL, JSON and RDF Representations of buildingSmart Data Dictionary
-#+date: <2023-04-13>
+#+date: <2023-04-18>
 #+author: Vladimir Alexiev, Mihail Radkov, Nataliya Keberle
 #+email: vladimir.alexiev@ontotext.com
 #+institute: Ontotext
@@ -20,6 +20,7 @@
 * Table of Contents                                 :TOC:noexport:
 :PROPERTIES:
 :TOC:      :include all
+:CUSTOM_ID: table-of-contents
 :END:
 
 :CONTENTS:
@@ -30,6 +31,8 @@
   - [[#original-graphql-bsdd-schema-voyager][Original GraphQL bSDD Schema: Voyager]]
   - [[#original-graphql-bsdd-schema-problems][Original GraphQL bSDD Schema: Problems]]
   - [[#refactored-graphql-bsdd-schema-voyager][Refactored GraphQL bSDD Schema: Voyager]]
+  - [[#refactored-bsdd-schema-plantuml-overview-diagram][Refactored bSDD Schema: PlantUML Overview Diagram]]
+  - [[#refactored-bsdd-schema-plantuml-full-diagram][Refactored bSDD Schema: PlantUML Full Diagram]]
   - [[#graphiql-querying-of-original-endpoint][GraphiQL Querying of Original Endpoint]]
   - [[#graphiql-querying-of-refactored-endpoint][GraphiQL Querying of Refactored Endpoint]]
   - [[#files][Files]]
@@ -117,7 +120,9 @@
     - [[#domain-classifications]["DOMAIN" Classifications]]
     - [[#classification-relations][Classification Relations]]
     - [[#multivalued-propsets][Multivalued propSets]]
-- [[#acknowledgements][Acknowledgements]]
+- [[#conclusions][Conclusions]]
+  - [[#future-work][Future Work]]
+  - [[#acknowledgements][Acknowledgements]]
 :END:
 
 * Abstract
@@ -293,6 +298,36 @@ and strings fields like ~propertyNamespaceUri~ are converted to object fields li
 #+label: fig:bsdd-graphql-voyager-refact-detail
 #+caption: Refactored bSDD GraphQL Schema: Detail of Classification and ClassificationProperty
 [[./img/bsdd-graphql-voyager-refact-Classification-ClassificationProperty.png]]
+
+** Refactored bSDD Schema: PlantUML Overview Diagram
+:PROPERTIES:
+:CUSTOM_ID: refactored-bsdd-schema-plantuml-overview-diagram
+:END:
+
+[[https://github.com/VladimirAlexiev/soml/tree/master/soml2puml][soml2puml]] is a new open source tool that uses PlantUML to generate diagrams from SOML schemas.
+- They include nice visualizations of classes and attribute types using emoji
+- Unlike Voyager, these are static diagrams. They can still be rendered as SVG, to make them searchable
+
+We used a slightly modified SOML schema ~bsdd-graphql-soml-withDiagram-noLabel.yaml~
+that adds ~diagram~ keys (node ~rank~ and ~emoji~).
+
+The overview diagram shows classes but not attributes:
+
+#+label: fig:bsdd-graphql-diagram-overview
+#+caption: Refactored bSDD Schema: PlantUML Overview Diagram
+[[./img/bsdd-graphql-soml-diagram-overview.png]]
+
+** Refactored bSDD Schema: PlantUML Full Diagram
+:PROPERTIES:
+:CUSTOM_ID: refactored-bsdd-schema-plantuml-full-diagram
+:END:
+
+The full schema uses the same layout, but also adds attributes:
+
+#+label: fig:bsdd-graphql-diagram-full
+#+caption: Refactored bSDD Schema: PlantUML Full Diagram
+#+ATTR_HTML: :style width:1200px
+[[./img/bsdd-graphql-soml-diagram.png]]
 
 ** GraphiQL Querying of Original Endpoint
 :PROPERTIES:
@@ -1586,6 +1621,9 @@ You can also use the REST API to obtain multilingual variants of Classifications
 : curl -Haccept:text/turtle "https://test.bsdd.buildingsmart.org/api/Classification/v4?namespaceUri=https://identifier.buildingsmart.org/uri/bs-agri/fruitvegs-1.0/class/apple&languageCode=pl-PL"
 
 *** Self-Describing langStrings
+:PROPERTIES:
+:CUSTOM_ID: self-describing-langstrings
+:END:
 RDF is well suited to carry multilingual data because:
 - Any property can carry multiple values
 - ~rdf:langString~ literals are self-describing by carrying a lang tag (e.g. ~"wall"@en~ vs ~"wand"@de~)
@@ -1612,6 +1650,9 @@ But there's no lang tag information in JSON:
 #+end_src
 
 *** Language Fallback
+:PROPERTIES:
+:CUSTOM_ID: language-fallback
+:END:
 Currently bSDD assumes that a domain and all its sub-objects will be translated *fully* to multiple languages.
 (Translatable fields are specified in the [[https://github.com/buildingSMART/bSDD/blob/master/Documentation/bSDD%20JSON%20import%20model.md][buildingSMART Data Dictionary model]]).
 That's why it doesn't bother to store the lang tag of individual strings individually.
@@ -1637,6 +1678,9 @@ classification {
 #+end_src
 
 *** Use Language Content Negotiation
+:PROPERTIES:
+:CUSTOM_ID: use-language-content-negotiation
+:END:
 According to basic principles of the Web Architecture, URIs (or their better sibling: resolvable URLs)
 are identifiers of resources (information resources or real-world things), so they shouldn’t reflect implementation or representation details.
 This is further elaborated in the blogs [[https://www.w3.org/TR/cooluris][Cool URIs for the Semantic Web]] and [[https://www.w3.org/Provider/Style/URI][Cool URIs don't change]].
@@ -1660,6 +1704,9 @@ The Ontotext Platform uses a pseudo "lang tag" ~BROWSER~ to indicate where to us
 see [[https://platform.ontotext.com/semantic-objects/tutorials/graphql-query.html#graphql-query-tutorial-http-accept-language][GraphQL Query Tutorial: HTTP Accept-Language]].
 
 *** Improve Lang Tags
+:PROPERTIES:
+:CUSTOM_ID: improve-lang-tags
+:END:
 The current bSDD approach is to always append a region code to the lang tag,
 e.g. ~de-DE, de-AT, pl-PL~ etc (see https://api.bsdd.buildingsmart.org/api/Language/v1).
 However, [[https://www.rfc-editor.org/rfc/rfc5646.html#section-2.2.4][RFC 5646: Tags for Identifying Languages]] specifies:
@@ -3107,7 +3154,40 @@ It shows a number of French classes relating to ~Space, Slab, Covering~.
 #+caption: Multivalued propSet, showing domain (purple), class (yellow), prop (red), set (blue)
 [[./img/viz-multivaluedPropSet.png]]
 
-* Acknowledgements
+* Conclusions
+:PROPERTIES:
+:CUSTOM_ID: conclusions
+:END:
+We conducted a thorough comparison and analysis of bSDD data related to fulfillment of FAIR (findable, accessible, interoperable, and reusable) principles.
+Based on this analysis, we suggested enhancements to make bSDD data better structured and more FAIR.
+We implemented some of the suggestions by refactoring the original data to make it better structured/interconnected and more "semantic",
+and provided a SPARQL endpoint using [[https://graphdb.ontotext.com/][Ontotext GraphDB]], and GraphQL endpoint using [[https://platform.ontotext.com/semantic-objects/][Ontotext Platform Semantic Objects]].
+
+However, not all improvement suggestions are implemented, and many data quality improvements are still possible.
+
+** Future Work
+:PROPERTIES:
+:CUSTOM_ID: future-work
+:END:
+Here are further ideas for improvement:
+- Take the draft bSDD ontology [[https://github.com/buildingSMART/bSDD/blob/master/RDF/preview-bsdd-rdfs-0.4.ttl][preview-bsdd-rdfs-0.4.ttl]] (May 2022) and improve it.
+- Take the SHACL shapes generated by Semantic Objects and add more checks
+  (e.g. that entity names and descriptions should not include leading, trailing or consecutive spaces, i.e. should conform to ~xsd:TOKEN~ semantics)
+- Run SHACL validation, save all ~ValidationResults~, classify them somehow, and present a detailed error analysis
+- Parse out enumeration values from ~Property/ClassificationProperty~ descriptions and create respective ~PropertyValue~ lists
+- Implement data cleaning scripts to fix more problems
+- Deepen the data quality analysis, e.g. 
+  - Correlation between dimension vectors, units of measure and physical quantity
+  - Correlation between attribute values of ~ClassificationProperty~ and ~Property~:
+    the former uses values from the latter as default, so the former values should be sparsely populated and don't need to be equal to the latter values: but is that so?
+- Link bSDD Units of measure to QUDT
+- Implement more radical data model refactorings by turning more
+  "strings" (e.g. country, language, reference document codes, predefined values) to
+  "things" (object links to the respective entities)
+- Make more graph visualizations
+- Obtain more interesting statistics using SPARQL
+
+** Acknowledgements
 :PROPERTIES:
 :CUSTOM_ID: acknowledgements
 :END:

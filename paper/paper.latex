@@ -863,7 +863,10 @@ Namely, we revealed new potential entities, improved relations, making bSDD Grap
 We implemented and
 made available our solution using the \href{https://bsdd.ontotext.com/workbench/graphql}{Ontotext Platform}. 
 
-In the future, we plan to work with bSI to implement more of the suggested improvements and to deploy the official bSDD using Ontotext software.
+In the future, we plan to work with bSI to implement more of the suggested improvements and to deploy the official bSDD using Ontotext software. 
+Among the directions are: improvement of \href{https://github.com/buildingSMART/bSDD/blob/master/RDF/preview-bsdd-rdfs-0.4.ttl}{bSDD ontology}, implementation of more radical data model refactoring to convert "strings" (countries, reference documents, etc.) into "things", linkage of bSDD units of measure to \href{http://qudt.org/2.1/schema/qudt}{QUDT ontology}.
+We also plan to perform deeper data quality analysis using SHACL shapes generation and validation provided by \href{https://platform.ontotext.com/semantic-objects/}{Ontotext
+  Platform Semantic Objects}; to address and resolve more data quality issues, including seeking correlation between dimension vectors, units of measure and physical quantity, parsing out enumeration values from \texttt{Property/ClassificationProperty} descriptions and creation of corresponding \texttt{PropertyValue} lists.
 
 \hypertarget{acknowledgements}{%
 \section{Acknowledgements}\label{acknowledgements}}

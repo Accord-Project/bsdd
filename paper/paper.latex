@@ -177,7 +177,7 @@ materials), their properties, allowed values, etc. bSDD defines a
 GraphQL API, as well as REST APIs that return JSON and RDF
 representations. This improves the interoperability of bSDD and its
 easier deployment in architectural Computer-Aided Design (CAD) and other
-AECO software.
+AECO software. 
 However, bSDD data is not structured as well as possible, and data
 retrieved via different APIs is not identical in content and structure.
 This lowers bSDD data quality, usability and trust.
@@ -199,7 +199,8 @@ queries).
 
 \begin{keywords}
   Linked building data  \sep 
-  buildingSMART Data Dictionary  \sep 
+  buildingSMART Data Dictionary  \sep
+  Linked data best practices 
 \end{keywords}
 
 \maketitle

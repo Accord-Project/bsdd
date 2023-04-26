@@ -1,0 +1,136 @@
+---
+title: "SemanticBSDD"
+subtitle: "Improving the GraphQL, JSON and RDF Representations of buildingSmart Data Dictionary"
+author: "Vladimir Alexiev, Mihail Radkov, Nataliya Keberle"
+format:
+  revealjs: 
+    incremental: true
+    footer: "11th Linked Data in Architecture and Construction Workshop, 15--16 June 2023, Matera, Italy"
+    slide-number: c/t
+    theme: dark
+title-slide-attributes:
+  data-background-image: ./img/background-ontotext-w-partners.png
+  data-background-size: cover
+  data-background-opacity: "1"
+---
+## Objective {background-color="white"}
+::: footer
+![](../img/ontotext-footer.png){.absolute bottom=0 right=0 width="1680" height="80"}
+:::
+
+- highlight the defects in the original GraphQL implementation of bSDD
+- overview the refactored solution proposed by Ontotext
+- overview the proposed improvements
+
+## Original GraphQL bSDD Schema: Voyager  {background-color="white"}
+::: footer
+![](../img/ontotext-footer.png){.absolute bottom=0 right=0 width="1680" height="80"}
+:::
+
+![Original Schema, visualized with Voyager](../img/bsdd-graphql-voyager-overview.png)
+
+## Original GraphQL Schema: PlantUML {background-color="white" .smaller}
+::: footer
+![](../img/ontotext-footer.png){.absolute bottom=0 right=0 width="1680" height="80"}
+:::
+
+PlantUML is used with [soml2puml](https://github.com/VladimirAlexiev/soml/tree/master/soml2puml) convertor tool
+
+![](../img/bsdd-graphql-soml-diagram-overview.png)
+
+## Original GraphQL: problems (1/3) {background-color="white" .smaller}
+::: footer
+![](../img/ontotext-footer.png){.absolute bottom=0 right=0 width="1680" height="80"}
+:::
+
+From the bird-eye view:
+
+- reference entities Country, Language, ReferenceDocument, Unit
+  are disconnected from the rest of the schema
+- relation entities have only an incoming link but no outgoing link.
+- many entities cannot be queried directly from the root 
+- no backward relations (arrows) to get from a lower-level entity back to its "parent" entity
+- a number of parallel relations (arrows).
+  This is not needed in GraphQL because the schema can use parameters to distinguish between the different uses.
+
+## Original GraphQL: problems (2/3) {background-color="white"}
+::: footer
+![](../img/ontotext-footer.png){.absolute bottom=0 right=0 width="1680" height="80"}
+:::
+
+At the high level of detail:
+
+- Property and ClassificationProperty are very similar, but there's no inheritance/relation between them
+- PropertyValue and ClassificationPropertyValue are exactly the same, so can be reduced to one entity
+
+## Original GraphQL: fragment {.scrollable background-color="white"}
+::: footer
+![](../img/ontotext-footer.png){.absolute bottom=0 right=0 width="1680" height="80"}
+:::
+
+![](../img/bsdd-graphql-voyager-Classification-ClassificationProperty.png)
+
+## Original GraphQL: problems (3/3) {background-color="white"}
+::: footer
+![](../img/ontotext-footer.png){.absolute bottom=0 right=0 width="1680" height="80"}
+:::
+Even more details:
+
+- mixture of singular/plural in property names (~property/properties~, relations, synonyms, countriesOfUse, relatedIfcPropertyNames, etc.)
+
+## Refactored GraphQL  {background-color="white"}
+::: footer
+![](../img/ontotext-footer.png){.absolute bottom=0 right=0 width="1680" height="80"}
+:::
+
+![Refactored Schema in Voyager: Overview](../img/bsdd-graphql-voyager-refact-overview.png)
+
+## Refactored GraphQL: improvements {background-color="white"}
+::: footer
+![](../img/ontotext-footer.png){.absolute bottom=0 right=0 width="1680" height="80"}
+:::
+
+- link deduplication (only link to an array of properties, [ClassificaionProperty])
+- property names in singular
+- clear "parent-child" relation handling
+
+## Refactored GraphQL: fragment {.scrollable background-color="white"}
+::: footer
+![](../img/ontotext-footer.png){.absolute bottom=0 right=0 width="1680" height="80"}
+:::
+
+![Classification-ClassificationProperty-ClassificationPropertyValue](../img/bsdd-graphql-voyager-refact-Classification-ClassificationProperty.png)
+
+# Suggested Improvements {background-color="white"}
+::: footer
+![](../img/ontotext-footer.png){.absolute bottom=0 right=0 width="1680" height="80"}
+:::
+
+## Presentation {background-color="white"}
+::: footer
+![](../img/ontotext-footer.png){.absolute bottom=0 right=0 width="1680" height="80"}
+:::
+
+- uniform identification for the search
+- uniform URI design
+- equal data retrieved from different API
+
+## Modelling {background-color="white"}
+::: footer
+![](../img/ontotext-footer.png){.absolute bottom=0 right=0 width="1680" height="80"}
+:::
+
+## Data quality {background-color="white"}
+::: footer
+![](../img/ontotext-footer.png){.absolute bottom=0 right=0 width="1680" height="80"}
+:::
+
+## Refactoring {background-color="white"}
+::: footer
+![](../img/ontotext-footer.png){.absolute bottom=0 right=0 width="1680" height="80"}
+:::
+
+## Conclusions and Future Work {background-color="white"}
+::: footer
+![](../img/ontotext-footer.png){.absolute bottom=0 right=0 width="1680" height="80"}
+:::

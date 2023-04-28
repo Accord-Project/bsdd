@@ -11,7 +11,7 @@ bsdd-graphql-soml-noLabel.yaml: bsdd-graphql-soml-refact.yaml
 	perl -ne 'm{ (#|label:) } and next; m{^rbac:} and last; print' $^ >$@
 
 README1.md: README.org
-	grep -v "options: html-preamble" $^ | pandoc --wrap=preserve -s -f org -t markdown-simple_tables+implicit_figures-smart-fancy_lists -o $@
+	grep -vE "options: (html-preamble|anchor)" $^ | pandoc --wrap=preserve -s -f org -t markdown-simple_tables+implicit_figures-smart-fancy_lists -o $@
 
 README1.html: README1.md
 	bash build_readme.sh

@@ -64,7 +64,7 @@ We provide a SPARQL endpoint using [Ontotext GraphDB](https://graphdb.ontotext.c
 |[README.html](https://bsdd.ontotext.com/README.html)<br/>Detailed description of the work we did, 40 pages|![](img/readme-TOC-cropped.png){style="clip-path: ellipse(100% 95% at 50% 0)"} |
 |[paper.pdf](https://bsdd.ontotext.com/paper/paper.pdf)<br/>Accepted at 11th [Linked Data in Architecture and Construction Workshop (LDAC 2023)](https://linkedbuildingdata.net/ldac2023/), 15-16 June 2023 |![](img/paper-footer.png) |
 |[presentation.pdf](https://bsdd.ontotext.com/paper/presentation.pdf)|Presentation at LDAC 2023: TODO |
-|[webinar video](https://drive.google.com/open?id=1Mhts8JwbdJFUmQHGULCqduijZ0NpEoxX)<br/>Presented on 24 Mar 2023, includes transcript (if it's important for you, ask us to edit it) and brief notes with some links |![](img/video-folder.png) |
+| webinars: video, transcript (if important, ask us to edit it), brief notes<br/>[24 Mar 2023 to ACCORD](https://drive.google.com/open?id=1Mhts8JwbdJFUmQHGULCqduijZ0NpEoxX), [26 Apr 2023 to bSI](https://drive.google.com/open?id=1iW05O6VcR4fhs2Q_vxM18s14tvHFejzY), 22 May 2023 to LBD|![](img/video-folder.png) |
 |[discussion](https://forums.buildingsmart.org/t/semantic-bsdd/4669/5)<br/>At bSI forum: please contribute!|![](img/bSI-forum.png)|
 |**Refactored Endpoints**| |
 |[Voyager Refactored](https://rawgit2.com/Accord-Project/bsdd/main/bsdd-graphql-voyager-refact.html)<br/>Refactored GraphQL schema visualization with Voyager |![](img/bsdd-graphql-voyager-refact-overview.png)|

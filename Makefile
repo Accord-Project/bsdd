@@ -1,4 +1,5 @@
-all: index.html bsdd-graphql-soml.patch bsdd-graphql-soml-noLabel.yaml README1.md README1.html
+all: index.html bsdd-graphql-soml.patch README1.md README1.html
+once: bsdd-graphql-soml-noLabel.yaml
 
 index.html: index.md
 	pandoc --wrap=preserve -s -o $@ $^

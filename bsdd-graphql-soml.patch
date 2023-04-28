@@ -1,5 +1,5 @@
---- bsdd-graphql-soml-orig.yaml	2023-02-02 09:50:29.976528600 +0200
-+++ bsdd-graphql-soml-refact.yaml	2023-04-13 11:53:09.122632600 +0300
+--- bsdd-graphql-soml-orig.yaml	2023-04-13 12:00:03.741809600 +0300
++++ bsdd-graphql-soml-refact.yaml	2023-04-16 22:31:17.435909900 +0300
 @@ -1,649 +1,638 @@
  id: /soml/bsdd
  label: SOML schema for buildingSMART Data Dictionary (bSDD)
@@ -507,7 +507,8 @@
      label: Property
 +    name: bsdd:name
      props:
-       allowedValues:
+-      allowedValues:
++      allowedValue:
          label: List of allowed values
          max: inf
          range: PropertyValue

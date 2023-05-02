@@ -61,7 +61,7 @@ At the high level of detail:
 - `Property` and `ClassificationProperty` are very similar, but there's no inheritance/relation between them
 - `PropertyValue` and `ClassificationPropertyValue` are exactly the same, so can be reduced to one entity
 
-## Original GraphQL: fragment {.scrollable}
+## Original GraphQL: Fragment {.scrollable}
 
 ![](../img/bsdd-graphql-voyager-Classification-ClassificationProperty.png)
 
@@ -70,6 +70,7 @@ At the high level of detail:
 Even more details:
 
 - mixture of singular/plural in property names
+
   `property/properties`, 
   `relations`, 
   `synonyms`, 
@@ -91,28 +92,90 @@ Even more details:
 
 ## Refactored GraphQL: Fragment {.scrollable}
 
-![Classification-ClassificationProperty-ClassificationPropertyValue](../img/bsdd-graphql-voyager-refact-Classification-ClassificationProperty.png)
+![](../img/bsdd-graphql-voyager-refact-Classification-ClassificationProperty.png)
 
 ## Graph _i_ QL
 ::: {.panel-tabset}
 
 ### Original
 
-[![](../img/graphiql-orig.png)](https://test.bsdd.buildingsmart.org/graphiql){preview-link="true"}
+[![](../img/graphiql-orig.png)](https://test.bsdd.buildingsmart.org/graphiql)
 
 ### Refactored 
 
-[![](../img/graphiql-refact.png)](https://bsdd.ontotext.com/graphiql/){preview-link="true"}
+[![](../img/graphiql-refact.png)](https://bsdd.ontotext.com/graphiql/)
 
 :::
 
 # Suggested Improvements
 
-## Presentation
+## Presentation (1/3)
 
 - uniform identification for the search
-- uniform URI design
 - equal data retrieved from different API
+- uniform URI design
+
+## Uniform Identification for the Search(1/3) {.smaller}
+![](../img/bSI-search-page.png)
+
+::: {.fragment .highlight-blue}
+February 2023: **IfcCableSegment** has id: 
+[https://search.bsdd.buildingsmart.org/Classification/Index/58453](https://search.bsdd.buildingsmart.org/Classification/Index/58453)
+:::
+
+::: {.fragment .highlight-red} 
+May 2023: **IfcCableSegment** has another id: [https://search.bsdd.buildingsmart.org/Classification/Index/70992](https://search.bsdd.buildingsmart.org/Classification/Index/70992)
+:::
+
+![](../img/IFC-class-cableSegment-search.png){align="center"}
+
+
+## Uniform Identification for the Search(2/3) {.smaller}
+
+IfcCableSegment has also unique URI: 
+
+[https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegmentCABLESEGMENT](https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegmentCABLESEGMENT)
+
+:::: {.columns}
+::: {.column width="20%"}
+CableSegment entity as displayed at the bSDD web site
+:::
+::: {.column width="80%"}
+[![](../img/IFC-class-cableSegment-web.png)](https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegmentCABLESEGMENT)
+:::
+::::
+
+## Uniform Identification for the Search(3/3) {.smaller}
+
+Non-unique identification violates FAIR Findability principle 
+
+F1: (Meta)data are assigned a globally unique and persistent identifier
+
+## Equal Data Retrieved from Different API (1/2) {.smaller}
+
+We have compared three representations returned by the bSDD server:
+
+- JSON from the GraphQL API 
+  - ```https://test.bsdd.buildingsmart.org/graphiql/```, 
+- JSON from the REST (entity) API
+  - ```curl https://identifier.buildingsmart.org/uri/buildingsmart/```
+    ```<domain>/class|prop/<name>```
+and 
+- RDF from the REST (entity) API
+  - ```curl -Haccept:text/turtle \\```
+    ```      https://identifier.buildingsmart.org/uri/buildingsmart/```
+    ```<domain>/class|prop/<name> ```
+
+## Equal Data Retrieved from Different API (2/2) {.smaller}
+
+We selected entities of each class that have the **maximum number of filled fields**, and compared the results returned by each API. 
+
+The differences are here:  
+[![](../img/bsdd-data-analysis-sheet-cropped.png)](https://docs.google.com/spreadsheets/d/1z_NRMlExlVuqWhBbSErQ9iiDBY4O_fKMd3avV3-NCmo/edit)
+
+## Uniform URI Design
+
+
 
 ## Modelling
 

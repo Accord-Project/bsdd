@@ -252,7 +252,7 @@ Even in the Schema Overview (at low level of detail) we can notice some defects:
 - There are a number of parallel relations (arrows).
   This is not needed in GraphQL because the schema can use parameters to distinguish between the different uses.
 At the high level of detail we can notice more defects:
-- ~Property~ and ~ClassificationProperty~ are very similar, but there's no inheritace/relation between them
+- ~Property~ and ~ClassificationProperty~ are very similar, but there's no inheritance/relation between them
 - ~PropertyValue~ and ~ClassificationPropertyValue~ are exactly the same, so can be reduced to one entity
 
 We'll have a lot more to say about this in further sections.
@@ -1087,11 +1087,11 @@ The same URL can be used to get a static web page in the browser:
 https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegmentCABLESEGMENT
 
 #+label: fig:IFC-class-cableSegment-web
-#+caption: CableSegment enity as displayed at the bSDD web site
+#+caption: CableSegment entity as displayed at the bSDD web site
 [[./img/IFC-class-cableSegment-web.png]]
 
 However, the interactive [[https://search.bsdd.buildingsmart.org][bSDD Search]] UI uses a different URL that returns slightly different information:
-https://search.bsdd.buildingsmart.org/Classification/Index/58453
+https://search.bsdd.buildingsmart.org/Classification/Index/70992
 
 #+label: fig:IFC-class-cableSegment-search
 #+caption: CableSegment as displayed at the bSDD search site
@@ -2295,7 +2295,7 @@ Pu&#242; essere valorizzato un solo valore. SCIA = valorizzabile per le attivit&
 :PROPERTIES:
 :CUSTOM_ID: bad-classification-relations
 :END:
-Some classifications relate to to a full classification URL, but to
+Some classifications relate not to a full classification URL, but to
 ~https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/~, which is incomplete.
 For example, this query at the original GraphQL endpoint:
 #+begin_src graphql

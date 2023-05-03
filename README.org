@@ -1101,6 +1101,29 @@ There is not really a need for two different web pages showing nearly the same i
 We think that with some modest change in technology, the Search UI can use the first (semantic) URL immediately instead of an internal (non-semantic) ~Index/~ URL.
 Otherwise, there is a danger that people will start copying these non-semantic URLs in communication and (even worse) in AECO data.
 
+** Cool URIs don't change
+:PROPERTIES:
+:CUSTOM_ID: cool-uris-dont-change
+:END:
+We noticed that search results for the same queries is time-dependent. 
+E.g., search for the term "CableSegment" using the interactive [[https://search.bsdd.buildingsmart.org][bSDD Search]] UI returns in May 2023 IfcCableSegment with URI
+https://search.bsdd.buildingsmart.org/Classification/Index/70992, 
+whereas the same query posted in February 2023 with the same UI returned IfcCableSegment with URI https://search.bsdd.buildingsmart.org/Classification/Index/58453.
+(To check the difference, we compare the versions of README.org dated February 2023 and May 2023).
+#+begin_src sh
+@@ -1033 +1090,2 @@
+-#+caption: CableSegment enity as displayed at the bSDD web site
++#+caption: CableSegment entity as displayed at the bSDD web site
++[[./img/IFC-class-cableSegment-web.png]]
+@@ -1036 +1094 @@
+-https://search.bsdd.buildingsmart.org/Classification/Index/58453
++https://search.bsdd.buildingsmart.org/Classification/Index/70992
+@@ -1038 +1095,0 @@
+-[[./img/IFC-class-cableSegment-search.png]]
+@@ -1040,0 +1098 @@
++[[./img/IFC-class-cableSegment-search.png]]
+#+end_src
+
 ** Improve URL Structure and Consistency
 :PROPERTIES:
 :CUSTOM_ID: improve-url-structure-and-consistency

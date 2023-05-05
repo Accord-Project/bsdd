@@ -113,22 +113,30 @@ Even more details:
 
 - uniform identification for the search
 - equal data retrieved from different API
-- uniform URI design
+- improve URL structure and consistency
 
 ## Uniform Identification for the Search(1/3) {.smaller}
-![](../img/bSI-search-page.png)
 
-::: {.fragment .highlight-blue}
+:::: {.columns}
+
+::: {.column width="50%"}
+![](../img/bSI-search-page.png)
+:::
+
+::: {.column width="50%"}
+![](../img/IFC-class-cableSegment-search.png)
+:::
+
+::::
+
+::: {.fragment .fade-in-then-semi-out}
 February 2023: **IfcCableSegment** has id: 
 [https://search.bsdd.buildingsmart.org/Classification/Index/58453](https://search.bsdd.buildingsmart.org/Classification/Index/58453)
 :::
 
-::: {.fragment .highlight-red} 
+::: {.fragment .fade-in} 
 May 2023: **IfcCableSegment** has another id: [https://search.bsdd.buildingsmart.org/Classification/Index/70992](https://search.bsdd.buildingsmart.org/Classification/Index/70992)
 :::
-
-![](../img/IFC-class-cableSegment-search.png){align="center"}
-
 
 ## Uniform Identification for the Search(2/3) {.smaller}
 
@@ -149,7 +157,7 @@ CableSegment entity as displayed at the bSDD web site
 
 Non-unique identification violates FAIR Findability principle 
 
-F1: (Meta)data are assigned a globally unique and persistent identifier
+```F1: (Meta)data are assigned a globally unique and persistent identifier```
 
 ## Equal Data Retrieved from Different API (1/2) {.smaller}
 
@@ -173,11 +181,123 @@ We selected entities of each class that have the **maximum number of filled fiel
 The differences are here:  
 [![](../img/bsdd-data-analysis-sheet-cropped.png)](https://docs.google.com/spreadsheets/d/1z_NRMlExlVuqWhBbSErQ9iiDBY4O_fKMd3avV3-NCmo/edit)
 
-## Uniform URI Design
+## Improve URL Structure and Consistency (1/7){.smaller}
+
+Recommendations on ontology URI design, including versioning and opaque URIs to maintain evolution and multilingualism inherent to bSDD, are described in [Garijo & Poveda-Villalon, 2020](http://ebooks.iospress.nl/doi/10.3233/SSW200034).
+
+Almost all bSDD domain URLs now have the same structure:
+```https://identifier.buildingsmart.org/uri/<org>/<domain>-<version>```
+
+URIs can be more ``hackable'', allowing users to navigate the
+hierarchy by pruning the URI:
+```https://identifier.buildingsmart.org/uri/<org>/<domain>/<version>```
+
+::: aside
+[L. Dodds and I. Davis, ``Linked data patterns: A pattern catalogue for modelling, publishing, and consuming linked data. Linked data patterns,'' Sep. 06, 2022.](https://patterns.dataincubator.org/book/hierarchical-uris.html)
+:::
+
+## Improve URL Structure and Consistency (2/7){.smaller}
+
+- In some cases, the ```<org>``` is repeated in the ```<domain>``` part
+- In some cases, the ```<org>``` name doesn't quite mesh with the domain name, perhaps due to the way bSDD allocates ```<org>``` identifiers to bSDD contributors
+  - ```bim-de/DINSPEC91400```: the publisher of this spec is DIN (the German standards organization), not the ```bim-de``` initiative
+  - ```digibase/volkerwesselsbv```: [bimregister.nl news from 2018](https://www.bimregister.nl/actueel/video/author/89-delanokenepa?start=250) suggest that ```digibase``` is a new company/initaitive within Volker Wessel
+  - ```digibase/nen2699```: the publisher of this spec is NEN (the Netherlands standards organization), not the ```digibase``` company/initiative
+  - ```digibase/digibasebouwlagen```: perhaps the org name ```digibase``` should not be repeated as the prefix of the domain ```bouwlagen``` (building layers)
+
+## Improve URL Structure and Consistency (3/7){.smaller}
+
+- Explicate domain versions:
+
+```https://identifier.buildingsmart.org/uri/acca/ACCAtest-0.1``` 
+
+can become
+
+```https://identifier.buildingsmart.org/uri/acca/ACCAtest/0.1```
+
+A new entity ```DomainVersion``` can provide linking all versions of a domain to its master ```Domain``` entity.
+
+## Improve URL Structure and Consistency (4/7) {.smaller}
+
+- Declare URLs to be ```ID``` and use a mandatory field ```id```{.smaller}
+  - Most GraphQL implementations call this field simply ```id```, whereas bSDD uses ```namespaceUri```
+  - Many nodes do not have their own ```namespaceUri``` field, or it is not fully populated
+
+## Improve URL Structure and Consistency (5/7) {.smaller}
+
+- Remove the overlap of Entity Classes with classificationTypes
+
+The key field ```classificationType``` specifies the kind of classification.
+
+|       c | classificationType     | overlaps with entity|
+|---------+------------------------+---------------------|
+|  **29** | "DOMAIN"               | ```Domain```            |
+|  **18** | "REFERENCE_DOCUMENT"   | ```ReferenceDocument``` |
+
+Examples of unusual _classifications_:
+
+```https://identifier.buildingsmart.org/uri/ATALANE/REX-OBJ-1.0/class/589b06ad-f802-468b-939c-e60436601a7a```
+  is a "REFERENCE_DOCUMENT" with name "décret 2011-321 (23/03/2011)".
+  
+  Why is it not a ```ReferenceDocument``` entity?
+
+## Improve URL Stucture and Consistency (6/7) {.smaller}
+
+- All entities should have URL
+
+All significant classes should have ```ID```, which in the case of RDF data is the node URL.
+
+However, many bSDD classes don't have such a field:
+
+- ```Domain, Property, Classification``` do have ```namespaceUri```
+- ```Country, Language, Unit``` don't have an ID but have a field (```code, isocode```)
+  that can be used to make an ```ID```, when prepended with an appropriate prefix.
+
+## Improve URL Stucture and Consistency (7/7) {.smaller}
+
+```Property``` and ```ClassificationProperty``` are two different classes, but the latter does not have a distinct URL in GraphQL and JSON.
+
+The same URL is overloaded to identify entities of both classes.
+
+```ClassificationProperty``` are thus "second class" entities and are not returned separately by the JSON or RDF entity API, but only as part of the respective ```Classification```
 
 
+```
+curl https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegmentCABLESEGMENT/ACResistance
 
-## Modelling
+{"":["Classification with namespace URI
+ 'https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegmentCABLESEGMENT/ACResistance'
+  not found"]}
+```
+::: aside
+```ACResistance``` is a ClassificationProperty of ```IfcCableSegment.CABLESEGMENT``` classification.
+:::
+
+## Modelling issues
+
+## Modelling issues
+- Unify different solutions in the modelling of Complex Properties
+
+## Modelling issues
+- Improve modelling of Dynamic Properties
+
+## Modelling issues
+- Improve relations between entities
+
+## Modelling issues
+- Add more entities
+
+## Modelling issues
+- Use class inheritance
+
+## Modelling issues
+- Improve representation of ```PropertyValues```
+
+## Modelling issues
+- Improve representation of ```predefinedValue```
+
+## Modelling issues
+- Improve multilingual support
 
 ## Data quality
 

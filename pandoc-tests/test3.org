@@ -1,0 +1,9 @@
+| field | comment                            |
+|-------+------------------------------------|
+| foo   | See important "remark" below (1)   |
+| bar   | See important "note" below (2)     |
+| baz   | See important "notation" below (3) |
+
+Important remarks
+- (1) This "remark" is remarkable
+- (2,3) These "notes" are notable

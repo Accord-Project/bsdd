@@ -1,0 +1,3 @@
+#+label: fig:bsdd-graphql-voyager-orig-detail
+#+caption: Original bSDD GraphQL Schema: Detail of Classification and ClassificationProperty
+[[./img/bsdd-graphql-voyager-Classification-ClassificationProperty.png]]

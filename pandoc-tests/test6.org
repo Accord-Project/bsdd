@@ -1,0 +1,5 @@
+| left-align             | also left | right-align |
+|------------------------+-----------+-------------|
+|                        |           |         <r> |
+| Classification         | comment 1 |       31720 |
+| ClassificationProperty | cmt 2     |      111566 |

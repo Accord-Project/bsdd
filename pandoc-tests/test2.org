@@ -1,0 +1,8 @@
+
+
+A table
+
+| field | value |
+|-------+-------|
+| foo   | bar   |
+| baz   | barf  |

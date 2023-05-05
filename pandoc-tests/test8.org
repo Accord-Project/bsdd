@@ -1,0 +1,14 @@
+
+Image with width:
+#+ATTR_HTML: :width 200px
+[[./img/sample.png]]
+
+Image with width, placement:
+#+ATTR_HTML: :width 75% :placement [!htb]
+[[./img/sample.png]]
+
+Image with width, placement, caption:
+#+ATTR_HTML: :width 75% :placement [!htb]
+#+CAPTION: An example of a multi-domain network.
+[[./img/sample.png]]
+

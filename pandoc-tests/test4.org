@@ -1,0 +1,4 @@
+#+title: Title
+#+html_head_extra: <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+
+Body text

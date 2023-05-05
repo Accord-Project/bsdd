@@ -8,5 +8,3 @@ graphql/__pycache__/*
 # Export
 data/
 
-# Some tests
-pandoc-tests/

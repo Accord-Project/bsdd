@@ -1,0 +1,13 @@
+Image with width, placement, caption:
+#+ATTR_HTML: :width 75% :placement [!htb]
+#+CAPTION: An example of a multi-domain network.
+[[./img/sample.png]]
+
+Image with width:
+#+ATTR_HTML: :width 200px
+[[./img/sample.png]]
+
+Image with width, followed by link:
+#+ATTR_HTML: :width 200px
+[[./img/sample.png]]
+[[https://graphdb.ontotext.com/][Ontotext GraphDB]]

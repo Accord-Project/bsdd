@@ -1147,7 +1147,7 @@ https://identifier.buildingsmart.org/uri/<org>/<domain>/<version>
 #+end_example
 
 Problems:
-- bSDD uses dash not slash to separate the versoion
+- bSDD uses dash not slash to separate the version
 - In some cases, the ~<org>~ is repeated in the ~<domain>~ part
 - In some cases, the ~<org>~ name doesn't quite mesh with the domain name, perhaps due to the way bSDD allocates ~<org>~ identifiers to bSDD contributors
   - "bim-de/DINSPEC91400": the publisher of this spec is DIN (the German standards organization), not the ~bim-de~ initiative
@@ -1204,7 +1204,7 @@ often used to re-fetch an object or as the key for a cache."
 This data type is similar to ~String~, but is specifically used for identifiers.
 
 Furthermore, the [[https://graphql.org/learn/global-object-identification/#node-interface][Global Object Identification Guide for GraphQL]] recommends
-that a;; objects should have a field ~id~ that returns non-null ~ID!~ (through the ~Node~ interface).
+that all objects should have a field ~id~ that returns non-null ~ID!~ (through the ~Node~ interface).
 The ~id~ should be a "globally unique identifier" for the object,
 and given just this ~id~, the server should be able to re-fetch that object.
 

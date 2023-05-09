@@ -21,9 +21,9 @@ title-slide-attributes:
 ---
 ## Objective
 
-- highlight the defects in the original GraphQL implementation of bSDD
-- overview the refactored solution proposed by Ontotext
-- overview the proposed improvements
+- Highlight the defects in the original GraphQL implementation of bSDD
+- Overview the refactored solution proposed by Ontotext
+- Overview the proposed improvements
 
 ## bSDD GraphQL Schema: Voyager 
 ::: {.panel-tabset}
@@ -46,12 +46,13 @@ PlantUML is used with [soml2puml](https://github.com/VladimirAlexiev/soml/tree/m
 
 ## Original GraphQL: Findings (1/3) {.smaller}
 
-- reference entities `ReferenceDocument`, `Country`, `Unit`, `Language`
+
+- Reference entities `ReferenceDocument`, `Country`, `Unit`, `Language`
   are disconnected from the rest of the schema
-- relation entities have only an incoming link but no outgoing link
-- many entities cannot be queried directly from the `Root` 
-- no backward arrows to get from a lower-level entity back to its "parent" entity
-- a number of parallel arrows. GraphQL schema can use parameters to distinguish between the different uses
+- Relation entities have only an incoming link but no outgoing link
+- Many entities cannot be queried directly from the `Root` 
+- No backward arrows to get from a lower-level entity back to its "parent" entity
+- A number of parallel arrows. GraphQL schema can use parameters to distinguish between the different uses
 
 
 ## Original GraphQL: Findings (2/3) {.smaller}
@@ -61,15 +62,15 @@ At the high level of detail:
 - `Property` and `ClassificationProperty` are very similar, but there's no inheritance/relation between them
 - `PropertyValue` and `ClassificationPropertyValue` are exactly the same, so can be reduced to one entity
 
-## Original GraphQL: Fragment {.scrollable}
-
-![](../img/bsdd-graphql-voyager-Classification-ClassificationProperty.png)
-
 ## Original GraphQL: Findings (3/3) {.smaller}
 
-Even more details:
+::::{.columns}
+::: {.column width="50%"}
+![](../img/bsdd-graphql-voyager-Classification-ClassificationProperty.png)
+:::
+::: {.column width="50%"}
 
-- mixture of singular/plural in property names
+Mixture of singular/plural in property names
 
   `property/properties`, 
   `relations`, 
@@ -77,22 +78,20 @@ Even more details:
   `countriesOfUse`, 
   `relatedIfcPropertyNames`, 
   etc.
+:::
+::::
 
 ## Refactored GraphQL: Improvements {.smaller}
 
-- all entities are queryable directly from the `Root`
-- link deduplication
-- each link is named the same as target entity
-- navigation between entities is bidirectional, e.g., `Classification` hierarchy can be navigated both up and down (`parentClassification`, `childClassification`)
-- a query can traverse a `Relation` entity to get data about the related entity:
+- All entities are queryable directly from the `Root`
+- Link deduplication
+- Each link is named the same as target entity
+- Navigation between entities is bidirectional, e.g., `Classification` hierarchy can be navigated both up and down (`parentClassification`, `childClassification`)
+- A query can traverse a `Relation` entity to get data about the related entity:
   - `Classification.relation` -> `ClassificationRelation.related` -> `Classification`
   - `Property.relation` -> `PropertyRelation.related` -> `Property`
-- a single entity `PropertyValue` is used by both `Property` and `ClassificationProperty`
-- property names are in singular
-
-## Refactored GraphQL: Fragment {.scrollable}
-
-![](../img/bsdd-graphql-voyager-refact-Classification-ClassificationProperty.png)
+- A single entity `PropertyValue` is used by both `Property` and `ClassificationProperty`
+- Property names are in singular
 
 ## Graph _i_ QL
 ::: {.panel-tabset}
@@ -107,13 +106,17 @@ Even more details:
 
 :::
 
+## Refactored bSDD: SPARQL endpoint
+
+[![](../img/graphdb-sparql.png)](https://bsdd.ontotext.com/graphdb/sparql/)
+
 # Suggested Improvements
 
-## Presentation (1/3)
+## Presentation
 
-- uniform identification for the search
-- equal data retrieved from different API
-- improve URL structure and consistency
+- Uniform identification for the search
+- Equal data retrieved from different API
+- Improve URL structure and consistency
 
 ## Uniform Identification for the Search(1/3) {.smaller}
 
@@ -273,35 +276,106 @@ curl https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCab
 ```ACResistance``` is a ClassificationProperty of ```IfcCableSegment.CABLESEGMENT``` classification.
 :::
 
-## Modelling issues
+# Modelling issues
 
-## Modelling issues
-- Unify different solutions in the modelling of Complex Properties
+## Modelling issues (1/8): Unify Solutions to Model Complex Properties {.smaller}
 
-## Modelling issues
-- Improve modelling of Dynamic Properties
+:::: {.columns}
+::: {.column width="50%"}
+The key attribute ```propertyValueKind``` has values COMPLEX and COMPLEX_LIST used in combination with ```connectedProperties```.
+These key values are defined for ```Property``` and ```ClassificationProperty```
+:::
+::: {.column width="50%"}
+![](../img/propertyValueKind-values.png)
+:::
+::::
+- However, ```connectedPropertyCodes``` is defined only for ```Property```
+- More importantly, these key values are never used
+- ```connectedProperty``` is used only on **7** ```Properties``` (and not ```ClassificationProperties```)
 
-## Modelling issues
-- Improve relations between entities
+Instead of using ```connectedPropertyCodes``` to describe complex properties, some providers have used classifications with the type COMPOSED_PROPERTY.
 
-## Modelling issues
-- Add more entities
+## Modelling issues (2/8): Improve Modelling of Dynamic Properties {.smaller}
 
-## Modelling issues
-- Use class inheritance
+12385 ```Properties``` are declared as ```isDynamic``` (**135250** are not).
 
-## Modelling issues
-- Improve representation of ```PropertyValues```
+However, the field ```dynamicParameterPropertyCode``` (used to compute the dynamic property)
+is **always** empty, so how can one know which "sub-properties" to use?
 
-## Modelling issues
-- Improve representation of ```predefinedValue```
+Additionally, ```dynamicParameterPropertyCodes``` is ```String```,
+but should be ```[Property]```, i.e. an array of ```Properties``` .
 
-## Modelling issues
-- Improve multilingual support
+## Modelling issues (3/8): Improve Relations Between Entities
+
+![](../img/new-relations.png){.absolute top=170 left=200}
+
+## Modelling issues (4/8): Add More Entities {.smaller}
+bSDD includes numerous string attributes (codes or URLs) that should be converted to relations (object fields) to improve the connectedness of the bSDD GraphQL graph
+
+| is a classification field (String) |  should be     |
+| --------------------------+----------------|
+|```physicalQuantity```| (New) ```PhysicalQuantity```|
+|```propertySet```| (New) ```PropertySet``` |
+|```subdivisionsOfUse```| (New) ```[CountrySubdivision```|
+|```version``` | (New) ```DomainVersion```|
+|```replaced/(-ing)ObjectCodes```| some kind of objects. Currently they are empty |
+
+## Modelling issues (5/8): Use Class Inheritance  {.smaller}
+
+ ```Property``` and ```ClassificationProperty```: differ in only 5 fields:
+
+  - ```connectedPropertyCodes``` (String) and ```relations``` (PropertyRelation) belong uniquely to ```Property```
+  - ```isRequired``` (Boolean), ```isWritable``` (Boolean), ```predefinedValue``` (String), ```propertySet``` (String) and ```symbol``` (String) below uniquely to ```ClassificationProperty```.
+
+Since there are no rules on which fields of ```Property``` to reuse in  ```ClassificationProperty```,
+the latter type copies most of the fields from the former.
+
+## Modelling issues (6/8): Improve Representation of ```PropertyValues```  {.smaller}
+
+```PropertyValue``` and ```ClassificationPropertyValue``` are structured values with rich fields: ```code, value, namespaceUri, description, sortNumber```, allowing to:
+
+However, most structured values we've seen have only ```code, value```.
+
+This has multiple problems:
+
+- Individual values have no description (```description``` is not filled out)
+- Some values are described in the property definition, intermingling multiple descriptions together
+- The "standard" values NOTKNOWN, OTHER, UNSET are not described at all.
+- Values have no ```namespaceUri```, precluding unique identification.
+
+## Modelling issues (7/8): Improve representation of ```predefinedValue```{.smaller}
+
+```allowedValues``` (and its deprecated variant ```possibleValues```) store structured values (```ClassificationPropertyValue```)
+
+However, their "sibling" property ```predefinedValue``` holds just a String, which means that even in the future, ```predefinedValue``` cannot be an enumeration value identified globally with a URL.
+
+## Modelling issues (8/8): Improve Multilingual Support
+
+bSDD is advertised as a multilingual dictionary.
+In the GraphQL API, one can specify a desired language when fetching classifications and properties:
+However, most domains are present in one language only (*unilingual*).
 
 ## Data quality
 
-## Refactoring
+We encountered various data quality issues:
+
+- leading, trailing, consecutive whitespace
+- improve physical quantities and units
+- no rules on missing data
+- Unicode problems
+- unresolved HTML entities
+- bad clasification relations (broken links)
+
+## Implementing Improvements {.smaller}
+
+We implemented a lot (but not all) of the improvements suggested above by using the following process:
+
+- Fetching bSDD data as JSON
+- Converting it to RDF using [SPARQL Anything](https://sparql-anything.cc/)
+- Loading it to [GraphDB](https://www.ontotext.com/products/graphdb/)
+- Refactoring the RDF using SPARQL Update
+
+The results are available at the endpoint [![](../img/graphdb-sparql.png)](https://bsdd.ontotext.com/graphdb/sparql/)
 
 ## Conclusions and Future Work {.smaller}
 

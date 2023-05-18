@@ -23,9 +23,12 @@ title-slide-attributes:
 
 - Highlight the defects in the original GraphQL implementation of bSDD
 - Overview the refactored solution proposed by Ontotext
+- Overview data quality issues
 - Overview the proposed improvements
 
-## bSDD GraphQL Schema: Voyager 
+# bSDD GraphQL Schema: Voyager 
+
+## Voyager
 ::: {.panel-tabset}
 
 ### Original
@@ -38,14 +41,7 @@ title-slide-attributes:
 
 :::
 
-## bSDD Refactored Schema: PlantUML 
-
-PlantUML is used with [soml2puml](https://github.com/VladimirAlexiev/soml/tree/master/soml2puml) convertor tool
-
-![](../img/bsdd-graphql-soml-diagram-overview.png)
-
 ## Original GraphQL: Findings (1/3) {.smaller}
-
 
 - Reference entities `ReferenceDocument`, `Country`, `Unit`, `Language`
   are disconnected from the rest of the schema
@@ -53,7 +49,6 @@ PlantUML is used with [soml2puml](https://github.com/VladimirAlexiev/soml/tree/m
 - Many entities cannot be queried directly from the `Root` 
 - No backward arrows to get from a lower-level entity back to its "parent" entity
 - A number of parallel arrows. GraphQL schema can use parameters to distinguish between the different uses
-
 
 ## Original GraphQL: Findings (2/3) {.smaller}
 
@@ -70,7 +65,7 @@ At the high level of detail:
 :::
 ::: {.column width="50%"}
 
-Mixture of singular/plural in property names
+Mixture of singular/plural in property names(*)
 
   `property/properties`, 
   `relations`, 
@@ -81,12 +76,22 @@ Mixture of singular/plural in property names
 :::
 ::::
 
+::: aside
+(*) - already discussing at [forums.buildingsmart.org](https://forums.buildingsmart.org/t/changes-to-bsdd-data-model-names/4753)
+:::
+
+## bSDD Refactored Schema: PlantUML 
+
+PlantUML is used with [soml2puml](https://github.com/VladimirAlexiev/soml/tree/master/soml2puml) convertor tool
+
+![](../img/bsdd-graphql-soml-diagram-overview.png)
+
 ## Refactored GraphQL: Improvements {.smaller}
 
 - All entities are queryable directly from the `Root`
 - No parallel links, use GraphQL query parameters instead
 - Pagination for bulk query results
-- GraphQL full language
+- GraphQL syntax highlight, keyboard shortcuts, search in the query text, query response errors
 - Each link is named the same as target entity
 - Navigation between entities is bidirectional
 - A query can traverse a `Relation` entity to get data about the related entity:
@@ -120,7 +125,7 @@ Mixture of singular/plural in property names
 - Equal data retrieved from different API
 - Improve URL structure and consistency
 
-## Uniform Identification for the Search(1/3) {.smaller}
+## Uniform Identification {.smaller}
 
 :::: {.columns}
 
@@ -134,18 +139,14 @@ Mixture of singular/plural in property names
 
 ::::
 
-::: {.fragment .fade-in-then-semi-out}
-February 2023: **IfcCableSegment** in Web UI has URL: 
+- February 2023: **IfcCableSegment** in Web UI has URL: 
 [https://search.bsdd.buildingsmart.org/Classification/Index/58453](https://search.bsdd.buildingsmart.org/Classification/Index/58453)
-:::
 
-::: {.fragment .fade-in} 
-May 2023: **IfcCableSegment** in Web UI has another URL: [https://search.bsdd.buildingsmart.org/Classification/Index/70992](https://search.bsdd.buildingsmart.org/Classification/Index/70992)
-:::
+- May 2023: **IfcCableSegment** in Web UI has another URL: [https://search.bsdd.buildingsmart.org/Classification/Index/70992](https://search.bsdd.buildingsmart.org/Classification/Index/70992)
 
-## Uniform Identification for the Search(2/3) {.smaller}
+## Uniform Identification {.smaller}
 
-IfcCableSegment has also semantic URI: 
+IfcCableSegment has also URI assigned by a data provider: 
 
 [https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegmentCABLESEGMENT](https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegmentCABLESEGMENT)
 
@@ -158,13 +159,13 @@ CableSegment entity as displayed at the bSDD web site
 :::
 ::::
 
-## Uniform Identification for the Search(3/3) {.smaller}
+## Uniform Identification {.smaller}
 
 Non-unique identification violates FAIR Findability principle 
 
 ```F1: (Meta)data are assigned a globally unique and persistent identifier```
 
-## Equal Data Retrieved from Different API (1/2) {.smaller}
+## Equal Data Retrieved from Different API {.smaller}
 
 We have compared three representations returned by the bSDD server:
 
@@ -179,15 +180,14 @@ and
     ```      https://identifier.buildingsmart.org/uri/buildingsmart/```
     ```<domain>/class|prop/<name> ```
 
-## Equal Data Retrieved from Different API (2/2) {.smaller}
+## Equal Data Retrieved from Different API {.smaller}
 
 We selected entities of each class that have the **maximum number of filled fields**, and compared the results returned by each API. 
 
 [![](../img/bsdd-data-analysis-sheet-cropped.png)](https://docs.google.com/spreadsheets/d/1z_NRMlExlVuqWhBbSErQ9iiDBY4O_fKMd3avV3-NCmo/edit)
 
-## Improve URL Structure and Consistency (1/2){.smaller}
+## Improve URL Structure and Consistency {.smaller}
 
-Recommendations on ontology URI design, including versioning and opaque URIs to maintain evolution and multilingualism inherent to bSDD, are described in [Garijo & Poveda-Villalon, 2020](http://ebooks.iospress.nl/doi/10.3233/SSW200034).
 
 Almost all bSDD domain URLs now have the same structure:
 ```https://identifier.buildingsmart.org/uri/<org>/<domain>-<version>```
@@ -197,10 +197,14 @@ hierarchy by pruning the URI:
 ```https://identifier.buildingsmart.org/uri/<org>/<domain>/<version>```
 
 ::: aside
+[D. Garijo and M. Poveda-Villalón, ``Best practices for implementing FAIR vocabularies and ontologies on the web,'', 2020](http://ebooks.iospress.nl/doi/10.3233/SSW200034)
+:::
+
+::: aside
 [L. Dodds and I. Davis, ``Linked data patterns: A pattern catalogue for modelling, publishing, and consuming linked data. Linked data patterns,'' Sep. 06, 2022.](https://patterns.dataincubator.org/book/hierarchical-uris.html)
 :::
 
-## Improve URL Structure and Consistency (1/2) {.smaller}
+## Improve URL Structure and Consistency {.smaller}
 
 - In some cases, the ```<org>``` is repeated in the ```<domain>``` part
 - In some cases, the ```<org>``` name doesn't quite mesh with the domain name, perhaps due to the way bSDD allocates ```<org>``` identifiers to bSDD contributors
@@ -219,13 +223,13 @@ can become
 
 A new entity ```DomainVersion``` can provide linking all versions of a domain to its master ```Domain``` entity.
 
-## Improve URL Structure and Consistency (4/7) {.smaller}
+## Improve URL Structure and Consistency {.smaller}
 
 - Declare URLs to be ```ID``` and use a mandatory field ```id```{.smaller}
   - Most GraphQL implementations call this field simply ```id```, whereas bSDD uses ```namespaceUri```
   - Many nodes do not have their own ```namespaceUri``` field, or it is not fully populated
 
-## Remove the overlap of Entity Classes with classificationTypes {.smaller}
+## Entity Classes vs classificationTypes {.smaller}
 
 The key field ```classificationType``` specifies the kind of classification.
 
@@ -234,10 +238,7 @@ The key field ```classificationType``` specifies the kind of classification.
 |  **29** | "DOMAIN"               | ```Domain```            |
 |  **18** | "REFERENCE_DOCUMENT"   | ```ReferenceDocument``` |
 
-Examples of unusual _classifications_:
-
-```https://identifier.buildingsmart.org/uri/ATALANE/REX-OBJ-1.0/class/589b06ad-f802-468b-939c-e60436601a7a```
-  is a "REFERENCE_DOCUMENT" with name "décret 2011-321 (23/03/2011)".
+E.g.,  there is the  classification with name **[décret 2011-321 (23/03/2011)](https://identifier.buildingsmart.org/uri/ATALANE/REX-OBJ-1.0/class/589b06ad-f802-468b-939c-e60436601a7a)** from ATALANE/REX-OBJ-1.0 domain **and** with classificationType="REFERENCE_DOCUMENT", that it is not in the list of ReferenceDocuments.
   
   Why is it not a ```ReferenceDocument``` entity?
 
@@ -292,7 +293,9 @@ Instead of using ```connectedPropertyCodes``` to describe complex properties, so
 
 ## Improve Modelling of Dynamic Properties {.smaller}
 
-12385 ```Properties``` are declared as ```isDynamic``` (**135250** are not).
+**12385** ```Properties``` are declared as ```isDynamic``` 
+
+**135250** are not.
 
 However, the field ```dynamicParameterPropertyCode``` (used to compute the dynamic property)
 is **always** empty, so how can one know which "sub-properties" to use?
@@ -317,42 +320,51 @@ bSDD includes numerous string attributes (codes or URLs) that should be converte
 
 ## Use Class Inheritance  {.smaller}
 
- ```Property``` and ```ClassificationProperty```: differ in only 5 fields:
+ ```Property``` and ```ClassificationProperty```: have **46** fields in common, differ in only 5 fields:
 
-  - ```connectedPropertyCodes``` (String) and ```relations``` (PropertyRelation) belong uniquely to ```Property```
-  - ```isRequired``` (Boolean), ```isWritable``` (Boolean), ```predefinedValue``` (String), ```propertySet``` (String) and ```symbol``` (String) below uniquely to ```ClassificationProperty```.
+| belongs uniquely to ```Property``` | belongs uniquely to ```ClassificationProperty```|
+|-----------------------------------+--------------------------------|
+|```connectedPropertyCodes``` (String) | ```isRequired``` (Boolean) | 
+|```relations``` (PropertyRelation)    | ```isWritable``` (Boolean)| 
+|                                      | ```predefinedValue``` (String)| 
+|                                      | ```propertySet``` (String)|
+|                                      | ```symbol``` (String)|
 
 Since there are no rules on which fields of ```Property``` to reuse in  ```ClassificationProperty```,
 the latter type copies most of the fields from the former.
 
-## Improve Representation of ```PropertyValues```  {.smaller}
+## Improve ```PropertyValues```  {.smaller}
 
-```PropertyValue``` and ```ClassificationPropertyValue``` are structured values with rich fields: ```code, value, namespaceUri, description, sortNumber```, allowing to:
+- ```PropertyValue``` and ```ClassificationPropertyValue``` are structured values with rich fields: 
 
-However, most structured values we've seen have only ```code, value```.
+```code, value, namespaceUri, description, sortNumber```
 
-This has multiple problems:
+- However, most structured values we've seen have only 
 
-- Individual values have no description (```description``` is not filled out)
-- Some values are described in the property definition, intermingling multiple descriptions together
-- The "standard" values NOTKNOWN, OTHER, UNSET are not described at all.
-- Values have no ```namespaceUri```, precluding unique identification.
+```code, value```.
 
-## Improve representation of ```predefinedValue```{.smaller}
+- This has multiple problems:
 
-```allowedValues``` (and its deprecated variant ```possibleValues```) store structured values (```ClassificationPropertyValue```)
+  - Individual values have no description (```description``` is not filled out)
+  - Some values are described in the property definition, intermingling multiple descriptions together
+  - The "standard" values NOTKNOWN, OTHER, UNSET are not described at all.
+  - Values have no ```namespaceUri```, precluding unique identification.
 
-However, their "sibling" property ```predefinedValue``` holds just a String, which means that even in the future, ```predefinedValue``` cannot be an enumeration value identified globally with a URL.
+## Improve ```predefinedValue```{.smaller}
+
+- ```allowedValues``` (and its deprecated variant ```possibleValues```) store structured values (```ClassificationPropertyValue```)
+
+- However, their "sibling" property ```predefinedValue``` holds just a String, which means that even in the future, ```predefinedValue``` cannot be an enumeration value identified globally with a URL.
 
 ## Improve Multilingual Support
 
-bSDD is advertised as a multilingual dictionary.
-In the GraphQL API, one can specify a desired language when fetching classifications and properties:
-However, most domains are present in one language only (*unilingual*).
+- bSDD is advertised as a multilingual dictionary
+- In the GraphQL API, one can specify a desired language when fetching classifications and properties
+- However, currently most domains are present in one language only (*unilingual*).
 
-# Data quality
+# Data Quality
 
-## Data quality issues
+## Data Quality Issues
 
 - leading, trailing, consecutive whitespace
 - improve physical quantities and units
@@ -361,29 +373,29 @@ However, most domains are present in one language only (*unilingual*).
 - unresolved HTML entities
 - bad clasification relations (broken links)
 
-## Implementing Improvements {.smaller}
+# Implementing Improvements {.smaller}
 
 We implemented a lot (but not all) of the improvements suggested above by using the following process:
 
-- Fetching bSDD data as JSON
-- Drafting [SOML schema](https://platform.ontotext.com/semantic-objects/soml/index.html)
-- Converting it to RDF using [SPARQL Anything](https://sparql-anything.cc/)
-- Loading it to [GraphDB](https://www.ontotext.com/products/graphdb/)
-- Refactoring the RDF using SPARQL Update
+- Fetch bSDD data as JSON
+- Draft [SOML schema](https://platform.ontotext.com/semantic-objects/soml/index.html)
+- Convert it to RDF using [SPARQL Anything](https://sparql-anything.cc/)
+- Load it to [GraphDB](https://www.ontotext.com/products/graphdb/)
+- Refactor the RDF using SPARQL Update
 
-The results are available at the endpoint
+The results are available at [the SPARQL endpoint](https://bsdd.ontotext.com/graphdb/sparql/) and in [GraphQL](https://bsdd.ontotext.com/graphiql/)
 
 ## Conclusions and Future Work {.smaller}
 
 Here are further ideas for improvement:
 
-- improvement of [bSDD ontology](https://github.com/buildingSMART/bSDD/blob/master/RDF/preview-bsdd-rdfs-0.4.ttl)
+- improve [bSDD ontology](https://github.com/buildingSMART/bSDD/blob/master/RDF/preview-bsdd-rdfs-0.4.ttl)
 - implement more radical data model refactoring to convert "strings" (countries, reference documents, etc.) into "things"
 - link bSDD units of measure to [QUDT ontology](http://qudt.org/2.1/schema/qudt)
 - perform deeper data quality analysis using SHACL shapes generation and validation provided by [Ontotext Platform Semantic Objects](https://platform.ontotext.com/semantic-objects/)
 - address and resolve more data quality issues, including 
   - seeking correlation between dimension vectors, units of measure and physical quantity, 
-  - parsing out enumeration values from `Property/ClassificationProperty` descriptions and creation of corresponding `PropertyValue` lists
+  - parse out enumeration values from `Property/ClassificationProperty` descriptions and creation of corresponding `PropertyValue` lists
 - make more graph visualizations
 - obtain more interesting statistics using SPARQL
 
@@ -398,5 +410,5 @@ Here are further ideas for improvement:
 
 - Powered by:
 
-- [Ontotext GraphDB](https://graphdb.ontotext.com/)
-- [Ontotext Platform Semantic Objects](https://platform.ontotext.com/semantic-objects/)
+  - [Ontotext GraphDB](https://graphdb.ontotext.com/)
+  - [Ontotext Platform Semantic Objects](https://platform.ontotext.com/semantic-objects/)

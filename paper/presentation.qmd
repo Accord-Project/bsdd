@@ -100,7 +100,7 @@ PlantUML is used with [soml2puml](https://github.com/VladimirAlexiev/soml/tree/m
 - A single entity `PropertyValue` is used by both `Property` and `ClassificationProperty`
 - Property names are in singular
 
-## Graph _i_ QL
+## Graph<i>i</i>QL
 ::: {.panel-tabset}
 
 ### Original

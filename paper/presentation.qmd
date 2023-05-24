@@ -9,11 +9,8 @@ format:
     slide-number: c/t
     theme: simple
     logo: ../img/ontotext.png
-    embed-resources: true
-    #parallax-background-image: ../img/background-bridge.png
-    #parallax-background-size: "2100px 900px"
-    #parallax-background-horizontal: 200
-    #parallax-background-vertical: 50
+    embed-resources: false
+    margin: 0.1
 title-slide-attributes:
   data-background-image: ../img/background-bridge.avif
   data-background-size: cover
@@ -26,7 +23,7 @@ title-slide-attributes:
 - Overview data quality issues
 - Overview the proposed improvements
 
-# bSDD GraphQL Schema: Voyager 
+# bSDD GraphQL Schema: Voyager {.smaller}
 
 ## Voyager
 ::: {.panel-tabset}
@@ -94,13 +91,10 @@ PlantUML is used with [soml2puml](https://github.com/VladimirAlexiev/soml/tree/m
 - GraphQL syntax highlight, keyboard shortcuts, search in the query text, query response errors
 - Each link is named the same as target entity
 - Navigation between entities is bidirectional
-- A query can traverse a `Relation` entity to get data about the related entity:
-  - `Classification.relation` -> `ClassificationRelation.related` -> `Classification`
-  - `Property.relation` -> `PropertyRelation.related` -> `Property`
 - A single entity `PropertyValue` is used by both `Property` and `ClassificationProperty`
 - Property names are in singular
 
-## Graph<i>i</i>QL
+## Graph<i style="font-style:italic;font-family:serif;">i</i>QL
 ::: {.panel-tabset}
 
 ### Original
@@ -127,26 +121,17 @@ PlantUML is used with [soml2puml](https://github.com/VladimirAlexiev/soml/tree/m
 
 ## Uniform Identification {.smaller}
 
-:::: {.columns}
-
-::: {.column width="50%"}
-![](../img/bSI-search-page.png)
-:::
-
-::: {.column width="50%"}
-![](../img/IFC-class-cableSegment-search.png)
-:::
-
-::::
-
 - February 2023: **IfcCableSegment** in Web UI has URL: 
 [https://search.bsdd.buildingsmart.org/Classification/Index/58453](https://search.bsdd.buildingsmart.org/Classification/Index/58453)
 
 - May 2023: **IfcCableSegment** in Web UI has another URL: [https://search.bsdd.buildingsmart.org/Classification/Index/70992](https://search.bsdd.buildingsmart.org/Classification/Index/70992)
 
+![](../img/IFC-class-cableSegment-search.png){.absolute width=800 height=500}
+
+
 ## Uniform Identification {.smaller}
 
-IfcCableSegment has also URI assigned by a data provider: 
+IfcCableSegment has also **URI assigned by a data provider**: 
 
 [https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegmentCABLESEGMENT](https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegmentCABLESEGMENT)
 
@@ -163,38 +148,40 @@ CableSegment entity as displayed at the bSDD web site
 
 Non-unique identification violates FAIR Findability principle 
 
-```F1: (Meta)data are assigned a globally unique and persistent identifier```
+`F1: (Meta)data are assigned a globally unique and persistent identifier`
 
 ## Equal Data Retrieved from Different API {.smaller}
 
 We have compared three representations returned by the bSDD server:
 
 - JSON from the GraphQL API 
-  - ```https://test.bsdd.buildingsmart.org/graphiql/``` 
+  - `https://test.bsdd.buildingsmart.org/graphiql/` 
 - JSON from the REST (entity) API
-  - ```curl https://identifier.buildingsmart.org/uri/buildingsmart/```
-    ```<domain>/class|prop/<name>```
+  - `curl https://identifier.buildingsmart.org/uri/buildingsmart/`
+    `<domain>/class|prop/<name>`
 and 
 - RDF from the REST (entity) API
-  - ```curl -Haccept:text/turtle \```
-    ```      https://identifier.buildingsmart.org/uri/buildingsmart/```
-    ```<domain>/class|prop/<name> ```
+  - `curl -Haccept:text/turtle \`
+    `      https://identifier.buildingsmart.org/uri/buildingsmart/`
+    `<domain>/class|prop/<name> `
 
 ## Equal Data Retrieved from Different API {.smaller}
 
-We selected entities of each class that have the **maximum number of filled fields**, and compared the results returned by each API. 
+We selected entities of each class that have the **maximum number of filled fields**, and [compared the results returned by each API](https://docs.google.com/spreadsheets/d/1z_NRMlExlVuqWhBbSErQ9iiDBY4O_fKMd3avV3-NCmo/edit). 
 
 [![](../img/bsdd-data-analysis-sheet-cropped.png)](https://docs.google.com/spreadsheets/d/1z_NRMlExlVuqWhBbSErQ9iiDBY4O_fKMd3avV3-NCmo/edit)
 
 ## Improve URL Structure and Consistency {.smaller}
 
 
-Almost all bSDD domain URLs now have the same structure:
-```https://identifier.buildingsmart.org/uri/<org>/<domain>-<version>```
+- Almost all bSDD domain URLs now have the same structure:
+`https://identifier.buildingsmart.org/uri/<org>/<domain>-<version>`
 
-URIs can be more ``hackable'', allowing users to navigate the
+- URIs can be more "hackable", allowing users to navigate the
 hierarchy by pruning the URI:
-```https://identifier.buildingsmart.org/uri/<org>/<domain>/<version>```
+`https://identifier.buildingsmart.org/uri/<org>/<domain>/<version>`
+
+- In some cases, the `<org>` is repeated in the `<domain>` part
 
 ::: aside
 [D. Garijo and M. Poveda-Villalón, ``Best practices for implementing FAIR vocabularies and ontologies on the web,'', 2020](http://ebooks.iospress.nl/doi/10.3233/SSW200034)
@@ -206,70 +193,74 @@ hierarchy by pruning the URI:
 
 ## Improve URL Structure and Consistency {.smaller}
 
-- In some cases, the ```<org>``` is repeated in the ```<domain>``` part
-- In some cases, the ```<org>``` name doesn't quite mesh with the domain name, perhaps due to the way bSDD allocates ```<org>``` identifiers to bSDD contributors
-  - ```bim-de/DINSPEC91400```: the publisher of this spec is DIN (the German standards organization), not the ```bim-de``` initiative
-  - ```digibase/volkerwesselsbv```: [bimregister.nl news from 2018](https://www.bimregister.nl/actueel/video/author/89-delanokenepa?start=250) suggest that ```digibase``` is a new company/initaitive within Volker Wessel
-  - ```digibase/nen2699```: the publisher of this spec is NEN (the Netherlands standards organization), not the ```digibase``` company/initiative
-  - ```digibase/digibasebouwlagen```: perhaps the org name ```digibase``` should not be repeated as the prefix of the domain ```bouwlagen``` (building layers)
+- In some cases, the `<org>` name doesn't quite mesh with the domain name, perhaps due to the way bSDD allocates `<org>` identifiers to bSDD contributors
+
+  - `bim-de/DINSPEC91400`: the publisher of this spec is DIN (the German standards organization), not the `bim-de` initiative
+  - `digibase/volkerwesselsbv`: [bimregister.nl news from 2018](https://www.bimregister.nl/actueel/video/author/89-delanokenepa?start=250) suggest that `digibase` is a new company/initaitive within Volker Wessel
+  - `digibase/nen2699`: the publisher of this spec is NEN (the Netherlands standards organization), not the `digibase` company/initiative
+  - `digibase/digibasebouwlagen`: perhaps the org name `digibase` should not be repeated as the prefix of the domain `bouwlagen` (building layers)
 
 ## Explicate domain versions {.smaller}
 
-```https://identifier.buildingsmart.org/uri/acca/ACCAtest-0.1``` 
+`https://identifier.buildingsmart.org/uri/acca/ACCAtest-0.1` 
 
 can become
 
-```https://identifier.buildingsmart.org/uri/acca/ACCAtest/0.1```
+`https://identifier.buildingsmart.org/uri/acca/ACCAtest/0.1`
 
-A new entity ```DomainVersion``` can provide linking all versions of a domain to its master ```Domain``` entity.
+A new entity `DomainVersion` can provide linking all versions of a domain to its master `Domain` entity.
 
 ## Improve URL Structure and Consistency {.smaller}
 
-- Declare URLs to be ```ID``` and use a mandatory field ```id```{.smaller}
-  - Most GraphQL implementations call this field simply ```id```, whereas bSDD uses ```namespaceUri```
-  - Many nodes do not have their own ```namespaceUri``` field, or it is not fully populated
+- Declare URLs to be `ID` and use a mandatory field `id`{.smaller}
+  - Most GraphQL implementations call this field simply `id`, whereas bSDD uses `namespaceUri`
+  - Many nodes do not have their own `namespaceUri` field, or it is not fully populated
 
 ## Entity Classes vs classificationTypes {.smaller}
 
-The key field ```classificationType``` specifies the kind of classification.
+The key field `classificationType` specifies the kind of classification.
 
 |       c | classificationType     | overlaps with entity|
 |---------+------------------------+---------------------|
-|  **29** | "DOMAIN"               | ```Domain```            |
-|  **18** | "REFERENCE_DOCUMENT"   | ```ReferenceDocument``` |
+|  **29** | "DOMAIN"               | `Domain`            |
+|  **18** | "REFERENCE_DOCUMENT"   | `ReferenceDocument` |
 
 E.g.,  there is the  classification with name **[décret 2011-321 (23/03/2011)](https://identifier.buildingsmart.org/uri/ATALANE/REX-OBJ-1.0/class/589b06ad-f802-468b-939c-e60436601a7a)** from ATALANE/REX-OBJ-1.0 domain **and** with classificationType="REFERENCE_DOCUMENT", that it is not in the list of ReferenceDocuments.
   
-  Why is it not a ```ReferenceDocument``` entity?
+  Why is it not a `ReferenceDocument` entity?
 
 ## All entities should have URL {.smaller}
 
-All significant classes should have ```ID```, which in the case of RDF data is the node URL.
+All significant classes should have `ID`, which in the case of RDF data is the node URL.
 
 However, many bSDD classes don't have such a field:
 
-- ```Domain, Property, Classification``` do have ```namespaceUri```
-- ```Country, Language, Unit``` don't have an ID but have a field (```code, isocode```)
-  that can be used to make an ```ID```, when prepended with an appropriate prefix.
+- `Domain, Property, Classification` do have `namespaceUri`
+- `Country, Language, Unit` don't have an ID but have a field (`code, isocode`)
+  that can be used to make an `ID`, when prepended with an appropriate prefix.
 
-## URI for ClassificationProperty {.smaller}
+## URL for ClassificationProperty {.smaller}
 
-```Property``` and ```ClassificationProperty``` are two different classes, but the latter does not have a distinct URL in GraphQL and JSON.
+- `Property` and `ClassificationProperty` are two different classes, but the latter does not have a distinct URL(*) in GraphQL and JSON.
+- The same URL is overloaded to identify entities of both classes.
+- `ClassificationProperty` are not returned separately by the JSON or RDF entity API, but only as part of the respective `Classification`
 
-The same URL is overloaded to identify entities of both classes.
-
-```ClassificationProperty``` are thus "second class" entities and are not returned separately by the JSON or RDF entity API, but only as part of the respective ```Classification```
-
+E.g., IfcCableSegment.CABLESEGMENT classification has **ACResistance** as a ClassificationProperty, but
 
 ```
 curl https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegmentCABLESEGMENT/ACResistance
-
-{"":["Classification with namespace URI
- 'https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegmentCABLESEGMENT/ACResistance'
-  not found"]}
 ```
+returns
+
+```
+{"":["Classification with namespace URI
+ 'https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegmentCABLESEGMENT/ACResistance' not found"]}
+ ```
+
+
+
 ::: aside
-```ACResistance``` is a ClassificationProperty of ```IfcCableSegment.CABLESEGMENT``` classification.
+(*) Artur Tomczak, 19 May 2023: ["We’re adding identifiers to the resources lacking it, like the ClassificationProperty"](https://forums.buildingsmart.org/t/changes-to-bsdd-data-model-names/4753/8)
 :::
 
 # Modelling issues
@@ -278,30 +269,29 @@ curl https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCab
 
 :::: {.columns}
 ::: {.column width="50%"}
-The key attribute ```propertyValueKind``` has values COMPLEX and COMPLEX_LIST used in combination with ```connectedProperties```.
-These key values are defined for ```Property``` and ```ClassificationProperty```
+The key attribute `propertyValueKind` has values COMPLEX and COMPLEX_LIST used in combination with `connectedProperties`.
+These key values are defined for `Property` and `ClassificationProperty`
 :::
 ::: {.column width="50%"}
 ![](../img/propertyValueKind-values.png)
 :::
 ::::
-- However, ```connectedPropertyCodes``` is defined only for ```Property```
+- However, `connectedPropertyCodes` is defined only for `Property`
 - More importantly, these key values are never used
-- ```connectedProperty``` is used only on **7** ```Properties``` (and not ```ClassificationProperties```)
-
-Instead of using ```connectedPropertyCodes``` to describe complex properties, some providers have used classifications with the type COMPOSED_PROPERTY.
+- `connectedProperty` is used only on **7** `Properties` (and not `ClassificationProperties`)
+- Instead of using `connectedPropertyCodes` to describe complex properties, some providers have used classifications with the type COMPOSED_PROPERTY.
 
 ## Improve Modelling of Dynamic Properties {.smaller}
 
-**12385** ```Properties``` are declared as ```isDynamic``` 
+**12385** `Properties` are declared with `isDynamic`=true 
 
 **135250** are not.
 
-However, the field ```dynamicParameterPropertyCode``` (used to compute the dynamic property)
+However, the field `dynamicParameterPropertyCode` (used to compute the dynamic property)
 is **always** empty, so how can one know which "sub-properties" to use?
 
-Additionally, ```dynamicParameterPropertyCodes``` is ```String```,
-but should be ```[Property]```, i.e. an array of ```Properties``` .
+Additionally, `dynamicParameterPropertyCodes` is `String`,
+but should be `[Property]`, i.e. an array of `Properties` .
 
 ## Improve Relations Between Entities
 
@@ -312,49 +302,49 @@ bSDD includes numerous string attributes (codes or URLs) that should be converte
 
 | is a classification field (String) |  should be     |
 | --------------------------+----------------|
-|```physicalQuantity```| (New) ```PhysicalQuantity```|
-|```propertySet```| (New) ```PropertySet``` |
-|```subdivisionsOfUse```| (New) ```CountrySubdivision```|
-|```version``` | (New) ```DomainVersion```|
-|```replaced/(-ing)ObjectCodes```| some kind of objects. Currently they are empty |
+|`physicalQuantity`| (New) `PhysicalQuantity`|
+|`propertySet`| (New) `PropertySet` |
+|`subdivisionsOfUse`| (New) `CountrySubdivision`|
+|`version` | (New) `DomainVersion`|
+|`replaced/(-ing)ObjectCodes`| some kind of objects. Currently they are empty |
 
 ## Use Class Inheritance  {.smaller}
 
- ```Property``` and ```ClassificationProperty```: have **46** fields in common, differ in only 5 fields:
+ `Property` and `ClassificationProperty`: have **46** fields in common, differ in only 5 fields:
 
-| belongs uniquely to ```Property``` | belongs uniquely to ```ClassificationProperty```|
+| belongs uniquely to `Property` | belongs uniquely to `ClassificationProperty`|
 |-----------------------------------+--------------------------------|
-|```connectedPropertyCodes``` (String) | ```isRequired``` (Boolean) | 
-|```relations``` (PropertyRelation)    | ```isWritable``` (Boolean)| 
-|                                      | ```predefinedValue``` (String)| 
-|                                      | ```propertySet``` (String)|
-|                                      | ```symbol``` (String)|
+|`connectedPropertyCodes` (String) | `isRequired` (Boolean) | 
+|`relations` (PropertyRelation)    | `isWritable` (Boolean)| 
+|                                      | `predefinedValue` (String)| 
+|                                      | `propertySet` (String)|
+|                                      | `symbol` (String)|
 
-Since there are no rules on which fields of ```Property``` to reuse in  ```ClassificationProperty```,
+Since there are no rules on which fields of `Property` to reuse in  `ClassificationProperty`,
 the latter type copies most of the fields from the former.
 
-## Improve ```PropertyValues```  {.smaller}
+## Improve `PropertyValues`  {.smaller}
 
-- ```PropertyValue``` and ```ClassificationPropertyValue``` are structured values with rich fields: 
+- `PropertyValue` and `ClassificationPropertyValue` are structured values with rich fields: 
 
-```code, value, namespaceUri, description, sortNumber```
+`code, value, namespaceUri, description, sortNumber`
 
 - However, most structured values we've seen have only 
 
-```code, value```.
+`code, value`.
 
 - This has multiple problems:
 
-  - Individual values have no description (```description``` is not filled out)
+  - Individual values have no description (`description` is not filled out)
   - Some values are described in the property definition, intermingling multiple descriptions together
   - The "standard" values NOTKNOWN, OTHER, UNSET are not described at all.
-  - Values have no ```namespaceUri```, precluding unique identification.
+  - Values have no `namespaceUri`, precluding unique identification.
 
-## Improve ```predefinedValue```{.smaller}
+## Improve `predefinedValue`{.smaller}
 
-- ```allowedValues``` (and its deprecated variant ```possibleValues```) store structured values (```ClassificationPropertyValue```)
+- `allowedValues` store structured values (`ClassificationPropertyValue`)
 
-- However, their "sibling" property ```predefinedValue``` holds just a String, which means that even in the future, ```predefinedValue``` cannot be an enumeration value identified globally with a URL.
+- However, their "sibling" property `predefinedValue` holds just a String, which means that even in the future, `predefinedValue` cannot be an enumeration value identified globally with a URL.
 
 ## Improve Multilingual Support
 
@@ -366,15 +356,16 @@ the latter type copies most of the fields from the former.
 
 ## Data Quality Issues
 
-- leading, trailing, consecutive whitespace
-- improve physical quantities and units
-- no rules on missing data
+- Leading, trailing, consecutive whitespace
+- Improve physical quantities and units
+- No rules on missing data
 - Unicode problems
-- unresolved HTML entities
-- bad clasification relations (broken links)
+- Unresolved HTML entities
+- Bad clasification relations (broken links)
 
-# Implementing Improvements {.smaller}
+# Implementing Improvements 
 
+## {.smaller}
 We implemented a lot (but not all) of the improvements suggested above by using the following process:
 
 - Fetch bSDD data as JSON
@@ -385,7 +376,7 @@ We implemented a lot (but not all) of the improvements suggested above by using 
 
 The results are available at [the SPARQL endpoint](https://bsdd.ontotext.com/graphdb/sparql/) and in [GraphQL](https://bsdd.ontotext.com/graphiql/)
 
-## Conclusions and Future Work {.smaller}
+## Conclusions and Future Work {.smaller} 
 
 Here are further ideas for improvement:
 
@@ -394,8 +385,8 @@ Here are further ideas for improvement:
 - link bSDD units of measure to [QUDT ontology](http://qudt.org/2.1/schema/qudt)
 - perform deeper data quality analysis using SHACL shapes generation and validation provided by [Ontotext Platform Semantic Objects](https://platform.ontotext.com/semantic-objects/)
 - address and resolve more data quality issues, including 
-  - seeking correlation between dimension vectors, units of measure and physical quantity, 
-  - parse out enumeration values from `Property/ClassificationProperty` descriptions and creation of corresponding `PropertyValue` lists
+  - seek correlation between dimension vectors, units of measure and physical quantity, 
+  - parse out enumeration values from `Property/ClassificationProperty` descriptions and create corresponding `PropertyValue` lists
 - make more graph visualizations
 - obtain more interesting statistics using SPARQL
 

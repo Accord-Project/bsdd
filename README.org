@@ -5,7 +5,7 @@
 #+startup: showeverything
 #+title: Semantic bSDD
 #+subtitle: Improving the GraphQL, JSON and RDF Representations of buildingSmart Data Dictionary
-#+date: <2023-04-28>
+#+date: <2023-05-25>
 #+author: Vladimir Alexiev, Mihail Radkov, Nataliya Keberle
 #+email: vladimir.alexiev@ontotext.com
 #+institute: Ontotext
@@ -61,7 +61,7 @@
   - [[#return-the-same-data-across-apis][Return the Same Data Across APIs]]
   - [[#improve-property-names][Improve Property Names]]
   - [[#use-the-same-url-for-data-and-for-web-pages][Use the Same URL for Data and for Web Pages]]
-  - [[#time-dependent-search-uris][Time-Dependent Search URIs]]
+  - [[#time-dependent-search-uris][Time-Dependent search URIs]]
   - [[#improve-url-structure-and-consistency][Improve URL Structure and Consistency]]
     - [[#explicate-domain-versions][Explicate Domain Versions]]
     - [[#declare-urls-to-be-id-and-use-a-mandatory-field-id][Declare URLs to be ID and Use a Mandatory Field id]]

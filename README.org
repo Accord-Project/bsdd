@@ -165,7 +165,7 @@ Examples include:
 
 The bSDD is a hierarchical dictionary of object concepts (Classifications), their Properties and allowed values used in Building Information Models (BIM).
 Property sets are predefined by regulation agencies and vendors and extend common property sets of the Industry Foundation Classes (IFC).
-This allows to describe specific domains (e.g. transportation) and building elements (e.g. doors, windows, stairs).
+This allows us to describe specific domains (e.g. transportation) and building elements (e.g. doors, windows, stairs).
 bSDD is organized according to the ISO 23386 (2020) Methodology to describe, author and maintain properties in interconnected data dictionaries.
 This is a language-independent model used for the development of dictionaries according to ISO 12006-3 (2022) Framework for object-oriented information.
 
@@ -291,11 +291,11 @@ Improvements:
 This does not fix all defects noted with the original diagram.
 The reference entities are still not used by the main entities.
 To fix that would require data cleaning work
-(eg to ensure that Unit code strings used in all Properties and ClassificationProperties are in the reference list).
+(e.g., to ensure that Unit code strings used in all Properties and ClassificationProperties are in the reference list).
 
 We can also take a look at a detail of the refactored schema. It looks pretty similar,
 but all fields are normalized to singular names,
-and strings fields like ~propertyNamespaceUri~ are converted to object fields like ~Property~.
+and string fields like ~propertyNamespaceUri~ are converted to object fields like ~Property~.
 
 #+label: fig:bsdd-graphql-voyager-refact-detail
 #+caption: Refactored bSDD GraphQL Schema: Detail of Classification and ClassificationProperty
@@ -454,7 +454,7 @@ Description of all endpoints that this project worked with and produced:
 :END:
 Although bSDD is available in RDF, we decided to fetch all data in GraphQL JSON due to RDF defects described below.
 
-We use the script ~bsdd2json.py~ to connects to the original GraphQL API
+We use the script ~bsdd2json.py~ to connect to the original GraphQL API
 and export all objects of the GraphQL schema as JSON (domains, classifications, classification properties, etc).
 Running this script takes around 10 hours due to the large number of objects.
 After it finishes, the exported data will be located in the ~data/~ directory (not included in Github).
@@ -741,7 +741,7 @@ For example:
 :PROPERTIES:
 :CUSTOM_ID: key-fields
 :END:
-In this section we look at the distribution of values for key fields that have impact on how data is modeled.
+In this section we look at the distribution of values for key fields that have an impact on how data is modeled.
 Again, we see that some bSDD features are not really used.
 *** ClassificationType
 :PROPERTIES:
@@ -853,8 +853,8 @@ However, ~dynamicParameterPropertyCodes~ is always empty, so there is no indicat
 :CUSTOM_ID: iswritable-property
 :END:
 ~isWritable~  specifies whether the Property can be edited.
-Most Properties don't have such characteristic.
-We don't think the default is ~false~, which means that the field is badly under-specified.
+Most Properties don't have such a characteristic.
+Unless the default is ~false~, this characteristic is badly under-specified.
 |       | ClassificationProperty | Property |
 |-------+------------------------+----------|
 |       |                    <r> |      <r> |
@@ -876,8 +876,8 @@ select ?type ?isWritable (count(*) as ?c) {
 :CUSTOM_ID: isrequired-property
 :END:
 ~isRequired~ specifies whether the Property must be present in an object of the respective Classification.
-Similar to the previous section, most Properties  don't have such characteristic.
-But maybe here ~false~ is a suitable default.
+Similar to the previous section, most Properties  don't have such a characteristic.
+Maybe here ~false~ is a suitable default.
 |       | ClassificationProperty | Property |
 |-------+------------------------+----------|
 |       |                    <r> |      <r> |
@@ -1151,7 +1151,7 @@ Problems:
 - In some cases, the ~<org>~ is repeated in the ~<domain>~ part
 - In some cases, the ~<org>~ name doesn't quite mesh with the domain name, perhaps due to the way bSDD allocates ~<org>~ identifiers to bSDD contributors
   - "bim-de/DINSPEC91400": the publisher of this spec is DIN (the German standards organization), not the ~bim-de~ initiative
-  - "digibase/volkerwesselsbv": [[https://www.bimregister.nl/actueel/video/author/89-delanokenepa?start=250][bimregister.nl news from 2018]] suggest that ~digibase~ is a new company/initaitive within Volker Wessel
+  - "digibase/volkerwesselsbv": [[https://www.bimregister.nl/actueel/video/author/89-delanokenepa?start=250][bimregister.nl news from 2018]] suggest that ~digibase~ is a new company/initiative within Volker Wessel
   - "digibase/nen2699": the publisher of this spec is NEN (the Netherlands standards organization), not the ~digibase~ company/initiative
   - "digibase/digibasebouwlagen": perhaps the org name ~digibase~ should not be repeated as the prefix of the domain ~bouwlagen~ (building layers)
 - A few domains use ~http~ whereas all others use ~https~. All modern servers prefer ~https~ due to its better security.
@@ -1186,7 +1186,7 @@ select * {
   filter(contains(str(?dom),"ACCAtest"))
 } order by xsd:decimal(?ver)
 #+end_src
-We have seen no guidance how version numbers should be formatted.
+We have seen no guidance on how version numbers should be formatted.
 - If they are decimal number, they should be recorded with type ~xsd:decimal~ so they can be compared and sorted
   (we cast them to that datatype in the query above)
 - But if they can have more decimal components (e.g. ~1.0.1~) then they should not be recorded as ~xsd:decimal~
@@ -1307,7 +1307,7 @@ curl https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCab
 :PROPERTIES:
 :CUSTOM_ID: all-entities-should-have-url
 :END:
-Following the thinking of the previous section, all significant classes should have ~ID~,
+Following the thinking of the previous section, all significant classes should have an ~ID~,
 (which in the case of RDF data is the node URL).
 
 However, many bSDD classes don't have such a field:
@@ -1452,7 +1452,7 @@ Here is a list of all strings that are candidates to be converted to object prop
 - ~relatedClassificationUri~: should become ~Classification~ (in our refactoring, we rename it to simply ~related~ to use the same name for both kinds of relation)
 - ~relatedIfcEntityNames~: since IFC is present as a bSDD Domain, should become a relation to the respective IFC Classification.
 - ~relatedPropertyUri~: should become ~Property~ (in our refactoring, we rename it to simply ~related~ to use the same name for both kinds of relation)
-- ~replacedObjectCodes, replacingObjectCodes~: should become some kind of objects. But because the field is never filled, we cannot tell what kind of objects
+- ~replacedObjectCodes, replacingObjectCodes~: should become some kind of object. But because the field is never filled, we cannot tell what kind of objects
 - ~subdivisionsOfUse~: should be made an entity and become ~[CountrySubdivision]~:
   Just like the entity ~Country~ should be used as a lookup table for ~countriesOfUse~.
   Furthermore,  subdivisions are subjugated to countries, so each ~CountrySubdivision~ must have a relation to its parent ~Country~
@@ -1486,7 +1486,7 @@ the latter type copies most of the fields from the former.
 For example, the property https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/prop/HandicapAccessible
 "Indication that this object is designed to be accessible by the handicapped"
 is used for all kinds of spaces, as indicated by its ~propertySet~ "Pset_SpaceCommon".
-There are over 300 Classisifaction Propertiess that use the indicated property:
+There are over 300 Classification Properties that use the indicated property:
 #+begin_src sparql
 PREFIX bsdd: <http://bsdd.buildingsmart.org/def#>
 select ?propName ?class ?className ?classPropName where {
@@ -1687,7 +1687,7 @@ From our experience with large thesauri, the assumption that everything will be 
 For example, the Getty AAT (a major thesaurus in Cultural Heritage) had 109 languages as of Nov 2016,
 but only 4 that cover all 40k concepts, and only 9 that have more than 1k labels (see [[https://vocab.getty.edu/doc/queries/#Count_Terms_by_Language][Count_Terms_by_Language]]).
 
-Such assumption makes it harder to deploy a translation: it has to be 100% translated before it can be deployed.
+Such an assumption makes it harder to deploy a translation: it has to be 100% translated before it can be deployed.
 It is better to allow a mix of languages to be stored, and let the user pick desired language(s) by preference.
 This can be done by:
 - Allowing translatable fields like ~name~ and ~description~ to carry multiple values
@@ -1760,8 +1760,8 @@ Let's examine the RDF Turtle for ~ClassificationProperty~ "IfcCableSegmentCABLES
 
 It has these defects:
 - Lacks ~rdf:type~
-- RDF property names should start in lowercase
-- String attributes should be converted to relations whenever possiblek applicable
+- RDF property names should start with lowercase
+- String attributes should be converted to relations whenever applicable
 - URLs should be object properties instead of strings
 
 This Turtle can be corrected as follows:
@@ -1794,7 +1794,7 @@ The most important shortcomings of the original GraphQL API are:
 - No pagination.
   One cannot get only a portion of the results, and iterate through pages with ~limit/offset~.
   Due to this limitation, one cannot get more than 5000 classifications per domain.
-These shortcomings are not present in our refactored GraphQL endpoint, whcih includes a comprehensive ~where~ query language.
+These shortcomings are not present in our refactored GraphQL endpoint, which includes a comprehensive ~where~ query language.
 You can see some sample queries towards the end.
 
 *** Eliminate Parallel Links Between Entities
@@ -1828,7 +1828,7 @@ A GraphQL schema can declare mandatory/optional status at the level of array and
 
 bSDD specifies arrays as ~[Classification]~, which is the most permissive specification.
 It means that ~[null, null, null]~ is a valid result of a query that returns an array of Classifications.
-However, such result is not suitable because null elements are useless.
+However, such a result is not suitable because null elements are useless.
 It would be better to use the type ~[Classification!]~.
 
 *** Null Classifications Error
@@ -2029,7 +2029,7 @@ The attribute ~propertySet~ is defined as single (SCALAR), see ~bsdd-graphql-sch
   "ofType": null
 },
 #+end_src
-But in fact there are 1924 ~ClassificationProperty~ where this attribute is multi-valued:
+But in fact there are 1924 ~ClassificationProperty~ where this attribute is multivalued:
 #+begin_src sparql
 PREFIX bsdd: <http://bsdd.buildingsmart.org/def#>
 select * where {
@@ -2066,7 +2066,7 @@ The original bSDD GraphQL endpoint happily returns such mis-declared values. E.g
   }
 }
 #+end_src
-Rteurns the offending property 3 times, without getting any warning:
+Returns the offending property 3 times, without getting any warning:
 #+begin_src json
 {
   "name": "ContactWireStagger",
@@ -2273,7 +2273,7 @@ They all represent the property EF007220 "Busbar thickness"
 :PROPERTIES:
 :CUSTOM_ID: rules-about-missing-data
 :END:
-bSDD should define rules how to express missing data.
+bSDD should define rules on how to express missing data.
 It is ok to have no ~physicalQuantity~ for dimensionless properties (e.g. count, percentage) or enumerated properties (having a list of ~allowedValues~).
 But such missing data is expressed as various free texts:
 - Property "Caractérisation du sol" ("Soil characterization")
@@ -2370,7 +2370,7 @@ We developed two scripts:
   - ~-v file~: file (local) or URL
 - [[./scripts/rdfize-zip.sparql][rdfize-zip.sparql]] rdfizes an archive (zip) of files. Parameters:
   - ~-v zip~: zip filename or URL
-  - ~-v file~: file regexp pattern (default ~.*~)
+  - ~-v file~: file regex pattern (default ~.*~)
 
 The scripts invoke like this:
 : java -jar sparql-anything.jar -q rdfize.sparql    -v file=bSDD/ifc-4.3/IfcCableSegmentCABLESEGMENT.json
@@ -2642,7 +2642,7 @@ Its structure is very similar to the original one, with empty blank nodes in var
 :END:
 
 There are various things to fix in the Raw RDF.
-We wrote the SPARQL Update script [[./scripts/transform.ru][transform.ru]] (~.ru~ is teh W3C standard extension for this type of file).
+We wrote the SPARQL Update script [[./scripts/transform.ru][transform.ru]] (~.ru~ is the W3C standard extension for this type of file).
 It does the following:
 - Cut out fractional seconds from date-times, and add datatype ~xsd:dateTime~
   - This pertains to ~activationDateUtc deActivationDateUtc lastUpdatedUtc revisionDateUtc versionDateUtc~
@@ -3160,7 +3160,7 @@ Expanding a node shows its ClassificationProperties.
 :PROPERTIES:
 :CUSTOM_ID: classification-relations
 :END:
-[[https://bsdd.ontotext.com/graphdb/graphs-visualizations?config=b977ae2529094192b469f3484029fc48][This visualizations]] shows classifications that have relations (we ignore the relation name).
+[[https://bsdd.ontotext.com/graphdb/graphs-visualizations?config=b977ae2529094192b469f3484029fc48][This visualization]] shows classifications that have relations (we ignore the relation name).
 It shows a number of French classes relating to ~Space, Slab, Covering~.
 (Please note that another cluster that has "class" in the middle is due to data quality problems in BSDD.)
 

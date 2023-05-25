@@ -2082,6 +2082,7 @@ but we think that `propertySet` should in fact be single-valued, so the data sho
 The field `possibleValues` is described as "deprecated".
 However, the GraphQL spec section [Field Deprecation](https://spec.graphql.org/draft/#sec-Field-Deprecation) shows that a specific `@deprecated` directive should be used for this purpose.
 In the refactored RDF data and GraphQL schema, we removed this field since it just duplicates the function of `allowedValues`.
+UDP (19 May 2023): bSI took our suggestion and removed deprecated field `possibleValues`.
 
 Data Quality Problems
 ---------------------

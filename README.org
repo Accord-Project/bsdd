@@ -1806,7 +1806,7 @@ There are a number of parallel relations (arrows) in the original GraphQL schema
 - ~Root.{domain,domains}~
 - ~Domain.{classification,classificationSearch}~
 - ~Classification.{property,properties}~
-- ~Property.{allowedValues,possibleValues}~: ~possibleValues~ is deprecated and should be removed
+- ~Property.{allowedValues,possibleValues}~: ~possibleValues~ is deprecated and should be removed. UPD (19 May 2023): bSI [[took our suggestion][https://github.com/buildingSMART/bSDD/commit/f72e627a45540716a06168eb6292ce3005ee4911]] and removed deprecated field ~possibleValues~.
 - ~ClassificationProperty.{allowedValues,possibleValues}~: same
 This is not needed in GraphQL because the schema can use parameters to distinguish between different uses of the same field
 (e.g. fetch one entity by URL vs search for entities).
@@ -2145,7 +2145,7 @@ The field ~possibleValues~ is described as "deprecated".
 However, the GraphQL spec section [[https://spec.graphql.org/draft/#sec-Field-Deprecation][Field Deprecation]] shows that a specific ~@deprecated~ directive should be used for this purpose.
 In the refactored RDF data and GraphQL schema, we removed this field since it just duplicates the function of ~allowedValues~.
 
-UDP (19 May 2023): bSI [[took our suggestion][https://github.com/buildingSMART/bSDD/commit/f72e627a45540716a06168eb6292ce3005ee4911]] and removed deprecated field ~possibleValues~.
+UPD (19 May 2023): bSI [[took our suggestion][https://github.com/buildingSMART/bSDD/commit/f72e627a45540716a06168eb6292ce3005ee4911]] and removed deprecated field ~possibleValues~.
 
 ** Data Quality Problems
 :PROPERTIES:

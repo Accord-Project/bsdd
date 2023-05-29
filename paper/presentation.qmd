@@ -11,6 +11,8 @@ format:
     logo: ../img/ontotext.png
     embed-resources: false
     margin: 0.1
+  pptx:
+    incremental: false
 title-slide-attributes:
   data-background-image: ../img/background-bridge.avif
   data-background-size: cover

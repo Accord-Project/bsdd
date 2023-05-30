@@ -399,7 +399,7 @@ Description of all files in [[https://github.com/Accord-Project/bsdd]]:
   - ~paper.pdf~: paper as PDF
 - ~graphql~: GraphQL queries to get the 9 kinds of entities from the original GraphQL endpoint
   - Also ~schemaIntrospection.graphql~ that gets the GraphQL schema of an endpoint
-- ~graphql-refact~: some sample queries against the refactored GraphQL endpoint (TODO: add more?)
+    (you can find more at the [[https://bsdd.ontotext.com/graphiql/][Refactored GraphiQL Endpoint]])
 - ~scripts~: all necessary scripts to export data in various formats, convert bSDD schema to SOML, convert JSON to RDF, refactor RDF, etc
   - ~bsdd2json.py~: connects to the original GraphQL API and exports all objects of the GraphQL schema as JSON (domains, classifications, classification properties, etc).
     There is no way to get more than 5000 classifications per domain (a limitation of the ~classificationSearch~ field)
@@ -430,8 +430,8 @@ Description of all files in [[https://github.com/Accord-Project/bsdd]]:
 Description of all endpoints that this project worked with and produced:
 - [[https://bsdd.ontotext.com]]: home page, includes all of these links
 - [[https://bsdd.ontotext.com/README.html]]: detailed description of the work we did ([[https://github.com/Accord-Project/bsdd/issues/14][issue #14]]: make better version from .md instead of .org)
-- https://bsdd.ontotext.com/paper/paper.pdf: submitted to LDAC 2023
-- https://bsdd.ontotext.com/paper/presentation.pdf: TODO
+- [[https://bsdd.ontotext.com/paper/paper.pdf]]: accepted to LDAC 2023
+- [[https://bsdd.ontotext.com/paper/presentation.html]]: presentation for LDAC 2023 
 - [[https://test.bsdd.buildingsmart.org/graphql/]]: original GraphQL endpoint (protected)
 - [[https://test.bsdd.buildingsmart.org/graphiql/]]: original GraphQL query editor
 - [[https://rawgit2.com/Accord-Project/bsdd/main/bsdd-graphql-voyager-orig.html]]: original GraphQL schema visualization with Voyager

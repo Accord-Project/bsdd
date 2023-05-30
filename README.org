@@ -436,7 +436,7 @@ Description of all endpoints that this project worked with and produced:
 - [[https://bsdd.ontotext.com]]: home page, includes all of these links
 - [[https://bsdd.ontotext.com/README.html]]: detailed description of the work we did ([[https://github.com/Accord-Project/bsdd/issues/14][issue #14]]: make better version from .md instead of .org)
 - [[https://bsdd.ontotext.com/paper/paper.pdf]]: accepted to LDAC 2023
-- [[https://bsdd.ontotext.com/paper/presentation.html]]: presentation for LDAC 2023 
+- [[https://bsdd.ontotext.com/presentation/presentation.html]]: presentation for LDAC 2023 
 - [[https://test.bsdd.buildingsmart.org/graphql/]]: original GraphQL endpoint (protected)
 - [[https://test.bsdd.buildingsmart.org/graphiql/]]: original GraphQL query editor
 - [[https://rawgit2.com/Accord-Project/bsdd/main/bsdd-graphql-voyager-orig.html]]: original GraphQL schema visualization with Voyager

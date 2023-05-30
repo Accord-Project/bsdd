@@ -264,13 +264,18 @@ Description of all files in <https://github.com/Accord-Project/bsdd>:
 -   `README.org`: detailed description of the work we did in emacs `orgmode` (this file)
 -   `README.md`: detailed description of the work we did, exported to `markdown`
 -   `README.html`: HTML rendition of the work we did
--   `paper`: paper submitted to LDAC 2023
+-   `paper`: paper accepted to LDAC 2023
     -   `bsdd.bib`: bibtex file for the paper, made from the [Zotero semantic BIM library](https://www.zotero.org/groups/3007408/semantic_bim), we don't use it
     -   `bsdd.biblatex`: biblatex file for the paper, made from the same library, we use this one
     -   `Makefile`: update the bibliography files
     -   `paper.md`: paper as markdown
     -   `paper.tex`: paper as latex, generated with Scholarly Pandoc
     -   `paper.pdf`: paper as PDF
+-   `presentation`: presentation for the paper accepted to LDAC 2023
+    -   `presentation.qmd`: Quarto markdown
+    -   `presentation.html`: html rendition in reveal.js
+    -   `presentation_files`: auxiliary folder for reveal.js resources
+    -   `SemanticBSDD-W3CLBD-15-May-2023.pdf`: presentation for W3C linked Building Data Community Group, 15 May 2023
 -   `graphql`: GraphQL queries to get the 9 kinds of entities from the original GraphQL endpoint
     -   Also `schemaIntrospection.graphql` that gets the GraphQL schema of an endpoint
         (you can find more at the [Refactored GraphiQL Endpoint](https://bsdd.ontotext.com/graphiql/))
@@ -305,7 +310,7 @@ Description of all endpoints that this project worked with and produced:
 -   <https://bsdd.ontotext.com>: home page, includes all of these links
 -   <https://bsdd.ontotext.com/README.html>: detailed description of the work we did ([issue \#14](https://github.com/Accord-Project/bsdd/issues/14): make better version from .md instead of .org)
 -   <https://bsdd.ontotext.com/paper/paper.pdf>: accepted to LDAC 2023
--   <https://bsdd.ontotext.com/paper/presentation.html>: presentation for LDAC 2023
+-   <https://bsdd.ontotext.com/presentation/presentation.html>: presentation for LDAC 2023
 -   <https://test.bsdd.buildingsmart.org/graphql/>: original GraphQL endpoint (protected)
 -   <https://test.bsdd.buildingsmart.org/graphiql/>: original GraphQL query editor
 -   <https://rawgit2.com/Accord-Project/bsdd/main/bsdd-graphql-voyager-orig.html>: original GraphQL schema visualization with Voyager

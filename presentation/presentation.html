@@ -324,7 +324,7 @@
   <div class="reveal">
     <div class="slides">
 
-<section id="title-slide" data-background-image="../img/background-bridge.avif" data-background-opacity="0.2" data-background-size="cover" class="quarto-title-block center">
+<section id="title-slide" data-background-image="../img/background-bridge.avif" data-background-opacity="0.1" data-background-size="cover" class="quarto-title-block center">
   <h1 class="title">SemanticBSDD</h1>
   <p class="subtitle">Improving the GraphQL, JSON and RDF Representations of buildingSmart Data Dictionary</p>
 
@@ -347,7 +347,7 @@ Vladimir Alexiev, Mihail Radkov, Nataliya Keberle
 </ul>
 </section>
 <section>
-<section id="bsdd-graphql-schema-voyager" class="title-slide slide level1 smaller center">
+<section id="bsdd-graphql-schema-voyager" class="title-slide slide level1 center">
 <h1>bSDD GraphQL Schema: Voyager</h1>
 
 </section>
@@ -359,21 +359,21 @@ Vladimir Alexiev, Mihail Radkov, Nataliya Keberle
 <div id="tabset-1-1">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><a href="https://rawgit2.com/Accord-Project/bsdd/main/bsdd-graphql-voyager-orig.html"><img data-src="../img/bsdd-graphql-voyager-overview.png"></a></p>
+<p><a href="https://rawgit2.com/Accord-Project/bsdd/main/bsdd-graphql-voyager-orig.html"><img data-src="../img/bsdd-graphql-voyager-overview.png" style="width:150.0%"></a></p>
 </figure>
 </div>
 </div>
 <div id="tabset-1-2">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><a href="https://rawgit2.com/Accord-Project/bsdd/main/bsdd-graphql-voyager-refact.html"><img data-src="../img/bsdd-graphql-voyager-refact-overview.png"></a></p>
+<p><a href="https://rawgit2.com/Accord-Project/bsdd/main/bsdd-graphql-voyager-refact.html"><img data-src="../img/bsdd-graphql-voyager-refact-overview.png" style="width:150.0%"></a></p>
 </figure>
 </div>
 </div>
 </div>
 </div>
 </section>
-<section id="original-graphql-findings-13" class="slide level2 smaller">
+<section id="original-graphql-findings-13" class="slide level2">
 <h2>Original GraphQL: Findings (1/3)</h2>
 <ul>
 <li>Reference entities <code>ReferenceDocument</code>, <code>Country</code>, <code>Unit</code>, <code>Language</code> are disconnected from the rest of the schema</li>
@@ -383,7 +383,7 @@ Vladimir Alexiev, Mihail Radkov, Nataliya Keberle
 <li>A number of parallel arrows. GraphQL schema can use parameters to distinguish between the different uses</li>
 </ul>
 </section>
-<section id="original-graphql-findings-23" class="slide level2 smaller">
+<section id="original-graphql-findings-23" class="slide level2">
 <h2>Original GraphQL: Findings (2/3)</h2>
 <p>At the high level of detail:</p>
 <ul>
@@ -391,26 +391,24 @@ Vladimir Alexiev, Mihail Radkov, Nataliya Keberle
 <li><code>PropertyValue</code> and <code>ClassificationPropertyValue</code> are exactly the same, so can be reduced to one entity</li>
 </ul>
 </section>
-<section id="original-graphql-findings-33" class="slide level2 smaller">
+<section id="original-graphql-findings-33" class="slide level2">
 <h2>Original GraphQL: Findings (3/3)</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
-<p><img data-src="../img/bsdd-graphql-voyager-Classification-ClassificationProperty.png"></p>
+<p><img data-src="../img/bsdd-graphql-voyager-Classification-ClassificationProperty.png" style="width:100.0%"></p>
 </div><div class="column" style="width:50%;">
 <p>Mixture of singular/plural in property names(*)</p>
 <p><code>property/properties</code>, <code>relations</code>, <code>synonyms</code>, <code>countriesOfUse</code>, <code>relatedIfcPropertyNames</code>, etc.</p>
+<p>(*) - already discussed at <a href="https://forums.buildingsmart.org/t/changes-to-bsdd-data-model-names/4753">forums.buildingsmart.org</a></p>
 </div>
 </div>
-
-<aside><div>
-<p>(*) - already discussing at <a href="https://forums.buildingsmart.org/t/changes-to-bsdd-data-model-names/4753">forums.buildingsmart.org</a></p>
-</div></aside></section>
+</section>
 <section id="bsdd-refactored-schema-plantuml" class="slide level2">
 <h2>bSDD Refactored Schema: PlantUML</h2>
 <p>PlantUML is used with <a href="https://github.com/VladimirAlexiev/soml/tree/master/soml2puml">soml2puml</a> convertor tool</p>
 
 <img data-src="../img/bsdd-graphql-soml-diagram-overview.png" class="r-stretch"></section>
-<section id="refactored-graphql-improvements" class="slide level2 smaller">
+<section id="refactored-graphql-improvements" class="slide level2">
 <h2>Refactored GraphQL: Improvements</h2>
 <ul>
 <li>All entities are queryable directly from the <code>Root</code></li>
@@ -431,14 +429,14 @@ Vladimir Alexiev, Mihail Radkov, Nataliya Keberle
 <div id="tabset-2-1">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><a href="https://test.bsdd.buildingsmart.org/graphiql"><img data-src="../img/graphiql-orig.png"></a></p>
+<p><a href="https://test.bsdd.buildingsmart.org/graphiql"><img data-src="../img/graphiql-orig.png" style="width:150.0%"></a></p>
 </figure>
 </div>
 </div>
 <div id="tabset-2-2">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><a href="https://bsdd.ontotext.com/graphiql/"><img data-src="../img/graphiql-refact.png"></a></p>
+<p><a href="https://bsdd.ontotext.com/graphiql/"><img data-src="../img/graphiql-refact.png" style="width:150.0%"></a></p>
 </figure>
 </div>
 </div>
@@ -446,13 +444,14 @@ Vladimir Alexiev, Mihail Radkov, Nataliya Keberle
 </div>
 </section>
 <section id="refactored-bsdd-sparql-endpoint" class="slide level2">
-<h2>Refactored bSDD: SPARQL endpoint</h2>
+<h2>Refactored bSDD: SPARQL Endpoint</h2>
 
 <img data-src="../img/graphdb-sparql.png" class="r-stretch quarto-figure-center"></section></section>
 <section>
 <section id="suggested-improvements" class="title-slide slide level1 center">
 <h1>Suggested Improvements</h1>
-
+<p>buildingSMART started to analyse and implement the suggested improvements.</p>
+<p>Current status of the efforts is available in a <a href="https://buildingsmart.sharepoint.com/:x:/g/EVSqTM85IwtHoJgYlRNDUxUBjnWGOyNnFuXp9OQANeHK4A?e=qtJMqM">spreadsheet</a></p>
 </section>
 <section id="presentation" class="slide level2">
 <h2>Presentation</h2>
@@ -462,7 +461,7 @@ Vladimir Alexiev, Mihail Radkov, Nataliya Keberle
 <li>Improve URL structure and consistency</li>
 </ul>
 </section>
-<section id="uniform-identification" class="slide level2 smaller">
+<section id="uniform-identification" class="slide level2">
 <h2>Uniform Identification</h2>
 <ul>
 <li><p>February 2023: <strong>IfcCableSegment</strong> in Web UI has URL: <a href="https://search.bsdd.buildingsmart.org/Classification/Index/58453">https://search.bsdd.buildingsmart.org/Classification/Index/58453</a></p></li>
@@ -470,7 +469,7 @@ Vladimir Alexiev, Mihail Radkov, Nataliya Keberle
 </ul>
 <p><img data-src="../img/IFC-class-cableSegment-search.png" class="absolute" style="width: 800px; height: 500px; "></p>
 </section>
-<section id="uniform-identification-1" class="slide level2 smaller">
+<section id="uniform-identification-1" class="slide level2">
 <h2>Uniform Identification</h2>
 <p>IfcCableSegment has also <strong>URI assigned by a data provider</strong>:</p>
 <p><a href="https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegmentCABLESEGMENT">https://identifier.buildingsmart.org/uri/buildingsmart/ifc-4.3/class/IfcCableSegmentCABLESEGMENT</a></p>
@@ -486,12 +485,12 @@ Vladimir Alexiev, Mihail Radkov, Nataliya Keberle
 </div>
 </div>
 </section>
-<section id="uniform-identification-2" class="slide level2 smaller">
+<section id="uniform-identification-2" class="slide level2">
 <h2>Uniform Identification</h2>
 <p>Non-unique identification violates FAIR Findability principle</p>
 <p><code>F1: (Meta)data are assigned a globally unique and persistent identifier</code></p>
 </section>
-<section id="equal-data-retrieved-from-different-api" class="slide level2 smaller">
+<section id="equal-data-retrieved-from-different-api" class="slide level2">
 <h2>Equal Data Retrieved from Different API</h2>
 <p>We have compared three representations returned by the bSDD server:</p>
 <ul>
@@ -509,12 +508,12 @@ Vladimir Alexiev, Mihail Radkov, Nataliya Keberle
 </ul></li>
 </ul>
 </section>
-<section id="equal-data-retrieved-from-different-api-1" class="slide level2 smaller">
+<section id="equal-data-retrieved-from-different-api-1" class="slide level2">
 <h2>Equal Data Retrieved from Different API</h2>
 <p>We selected entities of each class that have the <strong>maximum number of filled fields</strong>, and <a href="https://docs.google.com/spreadsheets/d/1z_NRMlExlVuqWhBbSErQ9iiDBY4O_fKMd3avV3-NCmo/edit">compared the results returned by each API</a>.</p>
 
 <img data-src="../img/bsdd-data-analysis-sheet-cropped.png" class="r-stretch quarto-figure-center"></section>
-<section id="improve-url-structure-and-consistency" class="slide level2 smaller">
+<section id="improve-url-structure-and-consistency" class="slide level2">
 <h2>Improve URL Structure and Consistency</h2>
 <ul>
 <li><p>Almost all bSDD domain URLs now have the same structure: <code>https://identifier.buildingsmart.org/uri/&lt;org&gt;/&lt;domain&gt;-&lt;version&gt;</code></p></li>
@@ -528,7 +527,7 @@ Vladimir Alexiev, Mihail Radkov, Nataliya Keberle
 </div><div>
 <p><a href="https://patterns.dataincubator.org/book/hierarchical-uris.html">L. Dodds and I. Davis, ``Linked data patterns: A pattern catalogue for modelling, publishing, and consuming linked data. Linked data patterns,’’ Sep.&nbsp;06, 2022.</a></p>
 </div></aside></section>
-<section id="improve-url-structure-and-consistency-1" class="slide level2 smaller">
+<section id="improve-url-structure-and-consistency-1" class="slide level2">
 <h2>Improve URL Structure and Consistency</h2>
 <ul>
 <li><p>In some cases, the <code>&lt;org&gt;</code> name doesn’t quite mesh with the domain name, perhaps due to the way bSDD allocates <code>&lt;org&gt;</code> identifiers to bSDD contributors</p>
@@ -540,14 +539,14 @@ Vladimir Alexiev, Mihail Radkov, Nataliya Keberle
 </ul></li>
 </ul>
 </section>
-<section id="explicate-domain-versions" class="slide level2 smaller">
+<section id="explicate-domain-versions" class="slide level2">
 <h2>Explicate domain versions</h2>
 <p><code>https://identifier.buildingsmart.org/uri/acca/ACCAtest-0.1</code></p>
 <p>can become</p>
 <p><code>https://identifier.buildingsmart.org/uri/acca/ACCAtest/0.1</code></p>
 <p>A new entity <code>DomainVersion</code> can provide linking all versions of a domain to its master <code>Domain</code> entity.</p>
 </section>
-<section id="improve-url-structure-and-consistency-2" class="slide level2 smaller">
+<section id="improve-url-structure-and-consistency-2" class="slide level2">
 <h2>Improve URL Structure and Consistency</h2>
 <ul>
 <li>Declare URLs to be <code>ID</code> and use a mandatory field <code class="smaller">id</code>
@@ -557,7 +556,7 @@ Vladimir Alexiev, Mihail Radkov, Nataliya Keberle
 </ul></li>
 </ul>
 </section>
-<section id="entity-classes-vs-classificationtypes" class="slide level2 smaller">
+<section id="entity-classes-vs-classificationtypes" class="slide level2">
 <h2>Entity Classes vs classificationTypes</h2>
 <p>The key field <code>classificationType</code> specifies the kind of classification.</p>
 <table>
@@ -584,7 +583,7 @@ Vladimir Alexiev, Mihail Radkov, Nataliya Keberle
 <p>E.g., there is the classification with name <strong><a href="https://identifier.buildingsmart.org/uri/ATALANE/REX-OBJ-1.0/class/589b06ad-f802-468b-939c-e60436601a7a">décret 2011-321 (23/03/2011)</a></strong> from ATALANE/REX-OBJ-1.0 domain <strong>and</strong> with classificationType=“REFERENCE_DOCUMENT”, that it is not in the list of ReferenceDocuments.</p>
 <p>Why is it not a <code>ReferenceDocument</code> entity?</p>
 </section>
-<section id="all-entities-should-have-url" class="slide level2 smaller">
+<section id="all-entities-should-have-url" class="slide level2">
 <h2>All entities should have URL</h2>
 <p>All significant classes should have <code>ID</code>, which in the case of RDF data is the node URL.</p>
 <p>However, many bSDD classes don’t have such a field:</p>
@@ -593,7 +592,7 @@ Vladimir Alexiev, Mihail Radkov, Nataliya Keberle
 <li><code>Country, Language, Unit</code> don’t have an ID but have a field (<code>code, isocode</code>) that can be used to make an <code>ID</code>, when prepended with an appropriate prefix.</li>
 </ul>
 </section>
-<section id="url-for-classificationproperty" class="slide level2 smaller">
+<section id="url-for-classificationproperty" class="slide level2">
 <h2>URL for ClassificationProperty</h2>
 <ul>
 <li><code>Property</code> and <code>ClassificationProperty</code> are two different classes, but the latter does not have a distinct URL(*) in GraphQL and JSON.</li>
@@ -614,13 +613,13 @@ Vladimir Alexiev, Mihail Radkov, Nataliya Keberle
 <h1>Modelling issues</h1>
 
 </section>
-<section id="unify-solutions-to-model-complex-properties" class="slide level2 smaller">
+<section id="unify-solutions-to-model-complex-properties" class="slide level2">
 <h2>Unify Solutions to Model Complex Properties</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
 <p>The key attribute <code>propertyValueKind</code> has values COMPLEX and COMPLEX_LIST used in combination with <code>connectedProperties</code>. These key values are defined for <code>Property</code> and <code>ClassificationProperty</code></p>
 </div><div class="column" style="width:50%;">
-<p><img data-src="../img/propertyValueKind-values.png"></p>
+<p><img data-src="../img/propertyValueKind-values.png" style="width:100.0%"></p>
 </div>
 </div>
 <ul>
@@ -630,7 +629,7 @@ Vladimir Alexiev, Mihail Radkov, Nataliya Keberle
 <li>Instead of using <code>connectedPropertyCodes</code> to describe complex properties, some providers have used classifications with the type COMPOSED_PROPERTY.</li>
 </ul>
 </section>
-<section id="improve-modelling-of-dynamic-properties" class="slide level2 smaller">
+<section id="improve-modelling-of-dynamic-properties" class="slide level2">
 <h2>Improve Modelling of Dynamic Properties</h2>
 <p><strong>12385</strong> <code>Properties</code> are declared with <code>isDynamic</code>=true</p>
 <p><strong>135250</strong> are not.</p>
@@ -639,9 +638,9 @@ Vladimir Alexiev, Mihail Radkov, Nataliya Keberle
 </section>
 <section id="improve-relations-between-entities" class="slide level2">
 <h2>Improve Relations Between Entities</h2>
-<p><img data-src="../img/new-relations.png" class="absolute" style="top: 170px; left: 200px; "></p>
-</section>
-<section id="add-more-entities" class="slide level2 smaller">
+
+<img data-src="../img/new-relations.png" style="width:150.0%" class="r-stretch"></section>
+<section id="add-more-entities" class="slide level2">
 <h2>Add More Entities</h2>
 <p>bSDD includes numerous string attributes (codes or URLs) that should be converted to relations (object fields) to improve the connectedness of the bSDD GraphQL graph</p>
 <table>
@@ -679,7 +678,7 @@ Vladimir Alexiev, Mihail Radkov, Nataliya Keberle
 </tbody>
 </table>
 </section>
-<section id="use-class-inheritance" class="slide level2 smaller">
+<section id="use-class-inheritance" class="slide level2">
 <h2>Use Class Inheritance</h2>
 <p><code>Property</code> and <code>ClassificationProperty</code>: have <strong>46</strong> fields in common, differ in only 5 fields:</p>
 <table>
@@ -718,7 +717,7 @@ Vladimir Alexiev, Mihail Radkov, Nataliya Keberle
 </table>
 <p>Since there are no rules on which fields of <code>Property</code> to reuse in <code>ClassificationProperty</code>, the latter type copies most of the fields from the former.</p>
 </section>
-<section id="improve-propertyvalues" class="slide level2 smaller">
+<section id="improve-propertyvalues" class="slide level2">
 <h2>Improve <code>PropertyValues</code></h2>
 <ul>
 <li><code>PropertyValue</code> and <code>ClassificationPropertyValue</code> are structured values with rich fields:</li>
@@ -739,7 +738,7 @@ Vladimir Alexiev, Mihail Radkov, Nataliya Keberle
 </ul>
 </section>
 <section id="improve-predefinedvalue" class="slide level2">
-<h2>Improve <code class="smaller">predefinedValue</code></h2>
+<h2>Improve <code>predefinedValue</code></h2>
 <ul>
 <li><p><code>allowedValues</code> store structured values (<code>ClassificationPropertyValue</code>)</p></li>
 <li><p>However, their “sibling” property <code>predefinedValue</code> holds just a String, which means that even in the future, <code>predefinedValue</code> cannot be an enumeration value identified globally with a URL.</p></li>
@@ -774,8 +773,8 @@ Vladimir Alexiev, Mihail Radkov, Nataliya Keberle
 <h1>Implementing Improvements</h1>
 
 </section>
-<section id="section" class="slide level2 smaller">
-<h2></h2>
+<section id="implementation-steps" class="slide level2">
+<h2>Implementation Steps</h2>
 <p>We implemented a lot (but not all) of the improvements suggested above by using the following process:</p>
 <ul>
 <li>Fetch bSDD data as JSON</li>
@@ -786,7 +785,7 @@ Vladimir Alexiev, Mihail Radkov, Nataliya Keberle
 </ul>
 <p>The results are available at <a href="https://bsdd.ontotext.com/graphdb/sparql/">the SPARQL endpoint</a> and in <a href="https://bsdd.ontotext.com/graphiql/">GraphQL</a></p>
 </section>
-<section id="conclusions-and-future-work" class="slide level2 smaller">
+<section id="conclusions-and-future-work" class="slide level2">
 <h2>Conclusions and Future Work</h2>
 <p>Here are further ideas for improvement:</p>
 <ul>
@@ -803,7 +802,7 @@ Vladimir Alexiev, Mihail Radkov, Nataliya Keberle
 <li>obtain more interesting statistics using SPARQL</li>
 </ul>
 </section>
-<section id="acknowledgements" class="slide level2 smaller">
+<section id="acknowledgements" class="slide level2">
 <h2>Acknowledgements</h2>
 <p><img data-src="../img/accord.png" width="200"> <img data-src="../img/bsdd.png" width="200"> <img data-src="../img/graphdb.png" width="200"> <img data-src="../img/ontotext-platform.png" width="200"></p>
 <ul>
@@ -997,9 +996,9 @@ Vladimir Alexiev, Mihail Radkov, Nataliya Keberle
         // The "normal" size of the presentation, aspect ratio will be preserved
         // when the presentation is scaled to fit different resolutions. Can be
         // specified using percentage units.
-        width: 1050,
+        width: 1920,
 
-        height: 700,
+        height: 1080,
 
         // Factor of the display size that should remain empty around the content
         margin: 0.1,

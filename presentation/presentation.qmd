@@ -11,12 +11,14 @@ format:
     logo: ../img/ontotext.png
     embed-resources: false
     margin: 0.1
+    width: 1920
+    height: 1080
   pptx:
     incremental: false
 title-slide-attributes:
   data-background-image: ../img/background-bridge.avif
   data-background-size: cover
-  data-background-opacity: "0.2"
+  data-background-opacity: "0.1"
 ---
 ## Outline
 
@@ -25,22 +27,22 @@ title-slide-attributes:
 - Overview data quality issues
 - Overview the proposed improvements
 
-# bSDD GraphQL Schema: Voyager {.smaller}
+# bSDD GraphQL Schema: Voyager 
 
 ## Voyager
 ::: {.panel-tabset}
 
 ### Original
 
-[![](../img/bsdd-graphql-voyager-overview.png)](https://rawgit2.com/Accord-Project/bsdd/main/bsdd-graphql-voyager-orig.html)
+[![](../img/bsdd-graphql-voyager-overview.png){width=150%}](https://rawgit2.com/Accord-Project/bsdd/main/bsdd-graphql-voyager-orig.html)
 
 ### Refactored 
 
-[![](../img/bsdd-graphql-voyager-refact-overview.png)](https://rawgit2.com/Accord-Project/bsdd/main/bsdd-graphql-voyager-refact.html)
+[![](../img/bsdd-graphql-voyager-refact-overview.png){width=150%}](https://rawgit2.com/Accord-Project/bsdd/main/bsdd-graphql-voyager-refact.html)
 
 :::
 
-## Original GraphQL: Findings (1/3) {.smaller}
+## Original GraphQL: Findings (1/3)
 
 - Reference entities `ReferenceDocument`, `Country`, `Unit`, `Language`
   are disconnected from the rest of the schema
@@ -49,21 +51,20 @@ title-slide-attributes:
 - No backward arrows to get from a lower-level entity back to its "parent" entity
 - A number of parallel arrows. GraphQL schema can use parameters to distinguish between the different uses
 
-## Original GraphQL: Findings (2/3) {.smaller}
+## Original GraphQL: Findings (2/3)
 
 At the high level of detail:
 
 - `Property` and `ClassificationProperty` are very similar, but there's no inheritance/relation between them
 - `PropertyValue` and `ClassificationPropertyValue` are exactly the same, so can be reduced to one entity
 
-## Original GraphQL: Findings (3/3) {.smaller}
+## Original GraphQL: Findings (3/3)
 
 ::::{.columns}
 ::: {.column width="50%"}
-![](../img/bsdd-graphql-voyager-Classification-ClassificationProperty.png)
+![](../img/bsdd-graphql-voyager-Classification-ClassificationProperty.png){width=100%}
 :::
 ::: {.column width="50%"}
-
 Mixture of singular/plural in property names(*)
 
   `property/properties`, 
@@ -72,12 +73,13 @@ Mixture of singular/plural in property names(*)
   `countriesOfUse`, 
   `relatedIfcPropertyNames`, 
   etc.
+
+(*) - already discussed at [forums.buildingsmart.org](https://forums.buildingsmart.org/t/changes-to-bsdd-data-model-names/4753)
+
 :::
 ::::
 
-::: aside
-(*) - already discussing at [forums.buildingsmart.org](https://forums.buildingsmart.org/t/changes-to-bsdd-data-model-names/4753)
-:::
+
 
 ## bSDD Refactored Schema: PlantUML 
 
@@ -85,7 +87,7 @@ PlantUML is used with [soml2puml](https://github.com/VladimirAlexiev/soml/tree/m
 
 ![](../img/bsdd-graphql-soml-diagram-overview.png)
 
-## Refactored GraphQL: Improvements {.smaller}
+## Refactored GraphQL: Improvements
 
 - All entities are queryable directly from the `Root`
 - No parallel links, use GraphQL query parameters instead
@@ -101,19 +103,23 @@ PlantUML is used with [soml2puml](https://github.com/VladimirAlexiev/soml/tree/m
 
 ### Original
 
-[![](../img/graphiql-orig.png)](https://test.bsdd.buildingsmart.org/graphiql)
+[![](../img/graphiql-orig.png){width=150%}](https://test.bsdd.buildingsmart.org/graphiql)
 
 ### Refactored 
 
-[![](../img/graphiql-refact.png)](https://bsdd.ontotext.com/graphiql/)
+[![](../img/graphiql-refact.png){width=150%}](https://bsdd.ontotext.com/graphiql/)
 
 :::
 
-## Refactored bSDD: SPARQL endpoint
+## Refactored bSDD: SPARQL Endpoint
 
 [![](../img/graphdb-sparql.png)](https://bsdd.ontotext.com/graphdb/sparql/)
 
 # Suggested Improvements
+
+buildingSMART started to analyse and implement the suggested improvements.
+
+Current status of the efforts is available in a [spreadsheet](https://buildingsmart.sharepoint.com/:x:/g/EVSqTM85IwtHoJgYlRNDUxUBjnWGOyNnFuXp9OQANeHK4A?e=qtJMqM) 
 
 ## Presentation
 
@@ -121,7 +127,7 @@ PlantUML is used with [soml2puml](https://github.com/VladimirAlexiev/soml/tree/m
 - Equal data retrieved from different API
 - Improve URL structure and consistency
 
-## Uniform Identification {.smaller}
+## Uniform Identification
 
 - February 2023: **IfcCableSegment** in Web UI has URL: 
 [https://search.bsdd.buildingsmart.org/Classification/Index/58453](https://search.bsdd.buildingsmart.org/Classification/Index/58453)
@@ -131,7 +137,7 @@ PlantUML is used with [soml2puml](https://github.com/VladimirAlexiev/soml/tree/m
 ![](../img/IFC-class-cableSegment-search.png){.absolute width=800 height=500}
 
 
-## Uniform Identification {.smaller}
+## Uniform Identification 
 
 IfcCableSegment has also **URI assigned by a data provider**: 
 
@@ -146,13 +152,13 @@ CableSegment entity as displayed at the bSDD web site
 :::
 ::::
 
-## Uniform Identification {.smaller}
+## Uniform Identification
 
 Non-unique identification violates FAIR Findability principle 
 
 `F1: (Meta)data are assigned a globally unique and persistent identifier`
 
-## Equal Data Retrieved from Different API {.smaller}
+## Equal Data Retrieved from Different API
 
 We have compared three representations returned by the bSDD server:
 
@@ -167,13 +173,13 @@ and
     `      https://identifier.buildingsmart.org/uri/buildingsmart/`
     `<domain>/class|prop/<name> `
 
-## Equal Data Retrieved from Different API {.smaller}
+## Equal Data Retrieved from Different API
 
 We selected entities of each class that have the **maximum number of filled fields**, and [compared the results returned by each API](https://docs.google.com/spreadsheets/d/1z_NRMlExlVuqWhBbSErQ9iiDBY4O_fKMd3avV3-NCmo/edit). 
 
 [![](../img/bsdd-data-analysis-sheet-cropped.png)](https://docs.google.com/spreadsheets/d/1z_NRMlExlVuqWhBbSErQ9iiDBY4O_fKMd3avV3-NCmo/edit)
 
-## Improve URL Structure and Consistency {.smaller}
+## Improve URL Structure and Consistency
 
 
 - Almost all bSDD domain URLs now have the same structure:
@@ -193,7 +199,7 @@ hierarchy by pruning the URI:
 [L. Dodds and I. Davis, ``Linked data patterns: A pattern catalogue for modelling, publishing, and consuming linked data. Linked data patterns,'' Sep. 06, 2022.](https://patterns.dataincubator.org/book/hierarchical-uris.html)
 :::
 
-## Improve URL Structure and Consistency {.smaller}
+## Improve URL Structure and Consistency
 
 - In some cases, the `<org>` name doesn't quite mesh with the domain name, perhaps due to the way bSDD allocates `<org>` identifiers to bSDD contributors
 
@@ -202,7 +208,7 @@ hierarchy by pruning the URI:
   - `digibase/nen2699`: the publisher of this spec is NEN (the Netherlands standards organization), not the `digibase` company/initiative
   - `digibase/digibasebouwlagen`: perhaps the org name `digibase` should not be repeated as the prefix of the domain `bouwlagen` (building layers)
 
-## Explicate domain versions {.smaller}
+## Explicate domain versions
 
 `https://identifier.buildingsmart.org/uri/acca/ACCAtest-0.1` 
 
@@ -212,13 +218,13 @@ can become
 
 A new entity `DomainVersion` can provide linking all versions of a domain to its master `Domain` entity.
 
-## Improve URL Structure and Consistency {.smaller}
+## Improve URL Structure and Consistency
 
 - Declare URLs to be `ID` and use a mandatory field `id`{.smaller}
   - Most GraphQL implementations call this field simply `id`, whereas bSDD uses `namespaceUri`
   - Many nodes do not have their own `namespaceUri` field, or it is not fully populated
 
-## Entity Classes vs classificationTypes {.smaller}
+## Entity Classes vs classificationTypes
 
 The key field `classificationType` specifies the kind of classification.
 
@@ -231,7 +237,7 @@ E.g.,  there is the  classification with name **[décret 2011-321 (23/03/2011)](
   
   Why is it not a `ReferenceDocument` entity?
 
-## All entities should have URL {.smaller}
+## All entities should have URL 
 
 All significant classes should have `ID`, which in the case of RDF data is the node URL.
 
@@ -241,7 +247,7 @@ However, many bSDD classes don't have such a field:
 - `Country, Language, Unit` don't have an ID but have a field (`code, isocode`)
   that can be used to make an `ID`, when prepended with an appropriate prefix.
 
-## URL for ClassificationProperty {.smaller}
+## URL for ClassificationProperty 
 
 - `Property` and `ClassificationProperty` are two different classes, but the latter does not have a distinct URL(*) in GraphQL and JSON.
 - The same URL is overloaded to identify entities of both classes.
@@ -267,7 +273,7 @@ returns
 
 # Modelling issues
 
-## Unify Solutions to Model Complex Properties {.smaller}
+## Unify Solutions to Model Complex Properties 
 
 :::: {.columns}
 ::: {.column width="50%"}
@@ -275,7 +281,7 @@ The key attribute `propertyValueKind` has values COMPLEX and COMPLEX_LIST used i
 These key values are defined for `Property` and `ClassificationProperty`
 :::
 ::: {.column width="50%"}
-![](../img/propertyValueKind-values.png)
+![](../img/propertyValueKind-values.png){width=100%}
 :::
 ::::
 - However, `connectedPropertyCodes` is defined only for `Property`
@@ -283,7 +289,7 @@ These key values are defined for `Property` and `ClassificationProperty`
 - `connectedProperty` is used only on **7** `Properties` (and not `ClassificationProperties`)
 - Instead of using `connectedPropertyCodes` to describe complex properties, some providers have used classifications with the type COMPOSED_PROPERTY.
 
-## Improve Modelling of Dynamic Properties {.smaller}
+## Improve Modelling of Dynamic Properties 
 
 **12385** `Properties` are declared with `isDynamic`=true 
 
@@ -297,9 +303,9 @@ but should be `[Property]`, i.e. an array of `Properties` .
 
 ## Improve Relations Between Entities
 
-![](../img/new-relations.png){.absolute top=170 left=200}
+![](../img/new-relations.png){width=150%}
 
-## Add More Entities {.smaller}
+## Add More Entities 
 bSDD includes numerous string attributes (codes or URLs) that should be converted to relations (object fields) to improve the connectedness of the bSDD GraphQL graph
 
 | is a classification field (String) |  should be     |
@@ -310,7 +316,7 @@ bSDD includes numerous string attributes (codes or URLs) that should be converte
 |`version` | (New) `DomainVersion`|
 |`replaced/(-ing)ObjectCodes`| some kind of objects. Currently they are empty |
 
-## Use Class Inheritance  {.smaller}
+## Use Class Inheritance  
 
  `Property` and `ClassificationProperty`: have **46** fields in common, differ in only 5 fields:
 
@@ -325,7 +331,7 @@ bSDD includes numerous string attributes (codes or URLs) that should be converte
 Since there are no rules on which fields of `Property` to reuse in  `ClassificationProperty`,
 the latter type copies most of the fields from the former.
 
-## Improve `PropertyValues`  {.smaller}
+## Improve `PropertyValues`  
 
 - `PropertyValue` and `ClassificationPropertyValue` are structured values with rich fields: 
 
@@ -342,7 +348,7 @@ the latter type copies most of the fields from the former.
   - The "standard" values NOTKNOWN, OTHER, UNSET are not described at all.
   - Values have no `namespaceUri`, precluding unique identification.
 
-## Improve `predefinedValue`{.smaller}
+## Improve `predefinedValue`
 
 - `allowedValues` store structured values (`ClassificationPropertyValue`)
 
@@ -367,7 +373,8 @@ the latter type copies most of the fields from the former.
 
 # Implementing Improvements 
 
-## {.smaller}
+## Implementation Steps
+
 We implemented a lot (but not all) of the improvements suggested above by using the following process:
 
 - Fetch bSDD data as JSON
@@ -378,7 +385,7 @@ We implemented a lot (but not all) of the improvements suggested above by using 
 
 The results are available at [the SPARQL endpoint](https://bsdd.ontotext.com/graphdb/sparql/) and in [GraphQL](https://bsdd.ontotext.com/graphiql/)
 
-## Conclusions and Future Work {.smaller} 
+## Conclusions and Future Work  
 
 Here are further ideas for improvement:
 
@@ -392,7 +399,7 @@ Here are further ideas for improvement:
 - make more graph visualizations
 - obtain more interesting statistics using SPARQL
 
-## Acknowledgements {.smaller}
+## Acknowledgements 
 
 ![](../img/accord.png){width=200px} ![](../img/bsdd.png){width=200px} ![](../img/graphdb.png){width=200px} ![](../img/ontotext-platform.png){width=200px}
 

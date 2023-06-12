@@ -450,8 +450,50 @@ Vladimir Alexiev, Mihail Radkov, Nataliya Keberle
 <section>
 <section id="suggested-improvements" class="title-slide slide level1 center">
 <h1>Suggested Improvements</h1>
-<p>buildingSMART started to analyse and implement the suggested improvements.</p>
-<p>Current status of the efforts is available in a <a href="https://buildingsmart.sharepoint.com/:x:/g/EVSqTM85IwtHoJgYlRNDUxUBjnWGOyNnFuXp9OQANeHK4A?e=qtJMqM">spreadsheet</a></p>
+
+</section>
+<section id="buildingsmart-feedback" class="slide level2">
+<h2>buildingSMART Feedback</h2>
+<p>buildingSMART International started to analyse the suggested improvements</p>
+<table>
+<thead>
+<tr class="header">
+<th>Status</th>
+<th>Count</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>DISMISSED</td>
+<td>6</td>
+</tr>
+<tr class="even">
+<td>NEED MORE INFO</td>
+<td>5</td>
+</tr>
+<tr class="odd">
+<td>SOLUTION IN PROGRESS</td>
+<td>12</td>
+</tr>
+<tr class="even">
+<td>SOLVED</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td>TO BE ANALYSED</td>
+<td>21</td>
+</tr>
+<tr class="even">
+<td>TO DO</td>
+<td>13</td>
+</tr>
+<tr class="odd">
+<td>Grand Total</td>
+<td>61</td>
+</tr>
+</tbody>
+</table>
+<p><a href="https://buildingsmart.sharepoint.com/:x:/g/EVSqTM85IwtHoJgYlRNDUxUBjnWGOyNnFuXp9OQANeHK4A?e=qtJMqM">Live spreadsheet with status/solution for each of suggested improvements</a></p>
 </section>
 <section id="presentation" class="slide level2">
 <h2>Presentation</h2>
@@ -748,10 +790,13 @@ Vladimir Alexiev, Mihail Radkov, Nataliya Keberle
 <h2>Improve Multilingual Support</h2>
 <ul>
 <li>bSDD is advertised as a multilingual dictionary</li>
-<li>In the GraphQL API, one can specify a desired language when fetching classifications and properties</li>
+<li>In the GraphQL API, one can specify a desired language(*) when fetching classifications and properties</li>
 <li>However, currently most domains are present in one language only (<em>unilingual</em>).</li>
 </ul>
-</section></section>
+
+<aside><div>
+<p>(*) Artur Tomczak, 26 April 2023 <a href="https://forums.buildingsmart.org/t/proper-way-to-access-translations-of-ifc-entities/4092/16">Proper way to access translations of IFC entities: language header is working</a></p>
+</div></aside></section></section>
 <section>
 <section id="data-quality" class="title-slide slide level1 center">
 <h1>Data Quality</h1>
@@ -765,7 +810,7 @@ Vladimir Alexiev, Mihail Radkov, Nataliya Keberle
 <li>No rules on missing data</li>
 <li>Unicode problems</li>
 <li>Unresolved HTML entities</li>
-<li>Bad clasification relations (broken links)</li>
+<li>Bad classification relations (broken links)</li>
 </ul>
 </section></section>
 <section>
@@ -996,12 +1041,12 @@ Vladimir Alexiev, Mihail Radkov, Nataliya Keberle
         // The "normal" size of the presentation, aspect ratio will be preserved
         // when the presentation is scaled to fit different resolutions. Can be
         // specified using percentage units.
-        width: 1920,
+        width: 1600,
 
-        height: 1080,
+        height: 900,
 
         // Factor of the display size that should remain empty around the content
-        margin: 0.1,
+        margin: 3.0e-2,
 
         math: {
           mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',

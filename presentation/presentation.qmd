@@ -10,9 +10,9 @@ format:
     theme: simple
     logo: ../img/ontotext.png
     embed-resources: false
-    margin: 0.1
-    width: 1920
-    height: 1080
+    margin: 0.03
+    width: 1600
+    height: 900
   pptx:
     incremental: false
 title-slide-attributes:
@@ -80,7 +80,6 @@ Mixture of singular/plural in property names(*)
 ::::
 
 
-
 ## bSDD Refactored Schema: PlantUML 
 
 PlantUML is used with [soml2puml](https://github.com/VladimirAlexiev/soml/tree/master/soml2puml) convertor tool
@@ -117,9 +116,22 @@ PlantUML is used with [soml2puml](https://github.com/VladimirAlexiev/soml/tree/m
 
 # Suggested Improvements
 
-buildingSMART started to analyse and implement the suggested improvements.
+## buildingSMART Feedback
 
-Current status of the efforts is available in a [spreadsheet](https://buildingsmart.sharepoint.com/:x:/g/EVSqTM85IwtHoJgYlRNDUxUBjnWGOyNnFuXp9OQANeHK4A?e=qtJMqM) 
+buildingSMART International started to analyse the suggested improvements
+
+| Status               | Count           |
+| -------------------- | --------------- |
+| DISMISSED            | 6               |
+| NEED MORE INFO       | 5               |
+| SOLUTION IN PROGRESS | 12              |
+| SOLVED               | 4               |
+| TO BE ANALYSED       | 21              |
+| TO DO                | 13              |
+| Grand Total          | 61              |
+
+[Live spreadsheet with status/solution for each of suggested improvements](https://buildingsmart.sharepoint.com/:x:/g/EVSqTM85IwtHoJgYlRNDUxUBjnWGOyNnFuXp9OQANeHK4A?e=qtJMqM)
+
 
 ## Presentation
 
@@ -180,7 +192,6 @@ We selected entities of each class that have the **maximum number of filled fiel
 [![](../img/bsdd-data-analysis-sheet-cropped.png)](https://docs.google.com/spreadsheets/d/1z_NRMlExlVuqWhBbSErQ9iiDBY4O_fKMd3avV3-NCmo/edit)
 
 ## Improve URL Structure and Consistency
-
 
 - Almost all bSDD domain URLs now have the same structure:
 `https://identifier.buildingsmart.org/uri/<org>/<domain>-<version>`
@@ -357,8 +368,12 @@ the latter type copies most of the fields from the former.
 ## Improve Multilingual Support
 
 - bSDD is advertised as a multilingual dictionary
-- In the GraphQL API, one can specify a desired language when fetching classifications and properties
+- In the GraphQL API, one can specify a desired language(*) when fetching classifications and properties
 - However, currently most domains are present in one language only (*unilingual*).
+
+:::aside
+(*) Artur Tomczak, 26 April 2023 [Proper way to access translations of IFC entities: language header is working](https://forums.buildingsmart.org/t/proper-way-to-access-translations-of-ifc-entities/4092/16)
+:::
 
 # Data Quality
 
@@ -369,7 +384,7 @@ the latter type copies most of the fields from the former.
 - No rules on missing data
 - Unicode problems
 - Unresolved HTML entities
-- Bad clasification relations (broken links)
+- Bad classification relations (broken links)
 
 # Implementing Improvements 
 
@@ -384,6 +399,7 @@ We implemented a lot (but not all) of the improvements suggested above by using 
 - Refactor the RDF using SPARQL Update
 
 The results are available at [the SPARQL endpoint](https://bsdd.ontotext.com/graphdb/sparql/) and in [GraphQL](https://bsdd.ontotext.com/graphiql/)
+
 
 ## Conclusions and Future Work  
 

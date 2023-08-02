@@ -8,12 +8,162 @@
   <meta name="keywords" content="Linked building data, LBD, buildingSMART Data Dictionary, bSDD, FAIR data, data quality" />
   <title>Semantic bSDD</title>
   <style>
+    html {
+      font-family: Georgia, serif;
+      font-size: 14pt;
+      line-height: 1;
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 100%;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="icon" type="image/x-icon" href="img/favicon.ico">
   <style>
@@ -40,11 +190,12 @@
     .subtitle {font-weight: bold}
     .author {font-style: italic}
   </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
 </head>
 <body>
-<div>
 <img src='./img/SemBSDD-Logo-400px.png'/>
-</div>
 <header id="title-block-header">
 <h1 class="title">Semantic bSDD</h1>
 <p class="subtitle">Improving the GraphQL, JSON and RDF Representations of buildingSmart Data Dictionary</p>
@@ -86,8 +237,8 @@ We provide a SPARQL endpoint using <a href="https://graphdb.ontotext.com/">Ontot
 <td><img src="img/readme-TOC-cropped.png" style="clip-path: ellipse(100% 95% at 50% 0)" /></td>
 </tr>
 <tr class="even">
-<td><a href="https://bsdd.ontotext.com/new/">new README.html</a></td>
-<td>new README: left navigation pane, but some minor typographic problems</td>
+<td><a href="https://bsdd.ontotext.com/new/">new README</a></td>
+<td>new README: navigation is in left pane, but some minor typographic problems</td>
 </tr>
 <tr class="odd">
 <td><a href="https://bsdd.ontotext.com/paper/paper.pdf">paper.pdf</a><br/>Accepted at 11th <a href="https://linkedbuildingdata.net/ldac2023/">Linked Data in Architecture and Construction Workshop (LDAC 2023)</a>, 15-16 June 2023</td>
@@ -99,11 +250,11 @@ We provide a SPARQL endpoint using <a href="https://graphdb.ontotext.com/">Ontot
 </tr>
 <tr class="odd">
 <td>Webinars: video, transcript (if important, ask us to edit it), brief notes</td>
-<td>* <a href="https://drive.google.com/drive/folders/1iVMezn9jgRtEdOwkybdLYrLAdSKl56WJ">24 Mar 2023 to ACCORD (17 participants from universities and industry, ACCORD project and external)</a><br/> * <a href="https://drive.google.com/open?id=1iW05O6VcR4fhs2Q_vxM18s14tvHFejzY">26 Apr 2023 to bSI (4 participants, including 2 from buildingSMART International)</a><br/> * <a href="https://github.com/w3c-lbd-cg/lbd/blob/gh-pages/minutes/W3C_LBDCG_Teleconf_20230515.pdf">15 May 2023 to W3C Linked Building Data CG (20 participants from universities and industry)</a><br/> * 26 May 2023, <b style='color:red;'>Natural Language Querying with ChatGPT, SOML, and GraphQL</b> <a href="https://t.co/mr0YQbJuNH">Ontotext Last Friday presentation (40 participants from Ontotext)</a><br/> * <b style='color:red;'>LDAC BSDD session</b> <a href="https://forums.buildingsmart.org/t/bsdd-session-at-ldac-mid-june-2023/4700/5">We’re looking forward to see you at that session, and please vote for the topics to be discussed!</a><br/><img src="img/LDAC-session-topics-vote.png" style="clip-path: ellipse(100% 95% at 50% 0)" /></td>
+<td><a href="https://drive.google.com/drive/folders/1iVMezn9jgRtEdOwkybdLYrLAdSKl56WJ">24 Mar 2023 to ACCORD (17 participants from universities and industry, ACCORD project and external)</a><br/> <a href="https://drive.google.com/open?id=1iW05O6VcR4fhs2Q_vxM18s14tvHFejzY">26 Apr 2023 to bSI (4 participants, including 2 from buildingSMART International)</a><br/> <a href="https://github.com/w3c-lbd-cg/lbd/blob/gh-pages/minutes/W3C_LBDCG_Teleconf_20230515.pdf">15 May 2023 to W3C Linked Building Data CG (20 participants from universities and industry)</a><br/> <a href="https://drive.google.com/file/d/1TOHrtlleOAkv4oZYhlAWa22mUqtvsV7o/view">26 May 2023 at Ontotext Last Friday (40 participants from Ontotext)</a> <b style='color:red;'>Natural Language Querying with ChatGPT, SOML, and GraphQL</b><br/><a href="https://forums.buildingsmart.org/t/bsdd-session-at-ldac-mid-june-2023/4700/5">23 June 2023, BSDD session at LDAC</a></td>
 </tr>
 <tr class="even">
 <td>Discussion at bSI forum: please contribute!</td>
-<td>* <a href="https://forums.buildingsmart.org/t/changes-to-bsdd-data-model-names/4753">Changes to bSDD data model names</a><br/> * <a href="https://forums.buildingsmart.org/t/bsdd-schema-diagrams/4719">bSDD schema diagrams</a><br/> * <a href="https://forums.buildingsmart.org/t/semantic-bsdd/4669">Semantic bSDD</a><br/> <img src="img/bSI-forum.png" /></td>
+<td><a href="https://forums.buildingsmart.org/t/changes-to-bsdd-data-model-names/4753">Changes to bSDD data model names</a><br/> <a href="https://forums.buildingsmart.org/t/bsdd-schema-diagrams/4719">bSDD schema diagrams</a><br/> <a href="https://forums.buildingsmart.org/t/semantic-bsdd/4669">Semantic bSDD</a><br/> <img src="img/bSI-forum.png" /></td>
 </tr>
 <tr class="odd">
 <td><strong>Refactored Endpoints</strong></td>
@@ -177,6 +328,11 @@ We provide a SPARQL endpoint using <a href="https://graphdb.ontotext.com/">Ontot
 </table>
 <div class="ack">
 <table>
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 13%" />
+<col style="width: 76%" />
+</colgroup>
 <thead>
 <tr class="header">
 <th><strong>Acknowledge</strong></th>

@@ -94,3 +94,20 @@ We provide a SPARQL endpoint using [Ontotext GraphDB](https://graphdb.ontotext.c
 |Powered by  |![](img/ontotext-platform.png){width=200} |[Ontotext Platform Semantic Objects](https://platform.ontotext.com/semantic-objects/)|
 |Data from   |![](img/bsdd.png){width=200}              |[buildingSMART Data Dictionary](https://www.buildingsmart.org/users/services/buildingsmart-data-dictionary/) |
 </div>
+
+The work is distributed under [MIT license](https://github.com/Accord-Project/bsdd/blob/main/LICENSE).
+You can cite the paper as:
+
+```bibtex
+@inproceedings{SemanticBSDD-LDAC-2023,
+	location = {Matera, Italy},
+	title = {Semantic {bSDD}: Improving the {GraphQL}, {JSON} and {RDF} representations of {buildingSmart} data dictionary},
+	url = {https://linkedbuildingdata.net/ldac2023/files/papers/papers/LDAC2023_paper_1547.pdf},
+	booktitle = {Linked data in architecture and construction ({LDAC} 2023)},
+	author = {Alexiev, Vladimir and Radkov, Mihail and Keberle, Nataliya},
+	date = {2023-06},
+	keywords = {FAIR data, LBD, Linked building data, bSDD, buildingSMART Data Dictionary, data quality},
+}
+```
+To cite the demonstrator use [Citation.cff](./CITATION.cff)
+

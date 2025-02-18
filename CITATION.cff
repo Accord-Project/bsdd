@@ -1,0 +1,45 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: Semantic bSDD
+message: >-
+  Improving the GraphQL, JSON and RDF representations of
+  {buildingSmart} data dictionary
+type: dataset
+authors:
+  - given-names: Vladimir
+    family-names: Alexiev
+    email: vladimir.alexiev@graphwise.ai
+    affiliation: GRAPHWISE
+    orcid: 'https://orcid.org/0000-0001-7508-7428'
+  - given-names: Mihail
+    family-names: Radkov
+    email: mihail.radkov@graphwise.ai
+    affiliation: GRAPHWISE
+  - given-names: Nataliya
+    family-names: Keberle
+    email: nataliya.keberle@graphwise.ai
+    orcid: 'https://orcid.org/0000-0001-7398-3464'
+    affiliation: GRAPHWISE
+identifiers:
+  - type: url
+    value: 'https://bsdd.ontotext.com/'
+    description: Semantic bSDD demonstrator
+  - type: url
+    value: >-
+      https://linkedbuildingdata.net/ldac2023/files/papers/papers/LDAC2023_paper_1547.pdf
+    description: >-
+      The paper presented at the 11th Linked Data in
+      Architecture and Construction Workshop (LDAC 2023)
+repository-code: 'https://github.com/Accord-Project/bsdd'
+url: 'https://bsdd.ontotext.com'
+abstract: >-
+  The buildingSmart Data Dictionary (bSDD) is an important shared resource in the Architecture, Engineering, Construction, and Operations (AECO) domain. It is a collection of datasets ("domains") that define various classifications (objects representing building components, products, and materials), their properties, allowed values, etc. bSDD defines a GraphQL API, as well as REST APIs that return JSON and RDF representations. This improves the interoperability of bSDD and its easier deployment in architectural Computer Aided Design (CAD) and other AECO software. However, bSDD data is not
+  structured as well as possible, and data retrieved via different APIs is not identical in content and structure. This lowers bSDD data quality, usability and trust. We conduct a thorough comparison and analysis of bSDD data related to fulfillment of FAIR (findable, accessible, interoperable, and reusable) principles. Based on this analysis, we suggest enhancements to make bSDD data better structured and more FAIR. We implement many of the suggestions by refactoring the original data to make it better structured/interconnected, and more "semantic". We provide a SPARQL endpoint using Ontotext GraphDB, and GraphQL endpoint using Ontotext Platform Semantic Objects. Our detailed work is available at https://github.com/Accord-Project/bsdd (open source) and https://bsdd.ontotext.com (home page, schemas, data, sample queries).
+keywords:
+  - >-
+    Linked building data, buildingSMART Data Dictionary, Linked data best practices, LBD, BSDD, buildingSMART Data Dictionary, data quality
+license: MIT
+version: '1.0'
+date-released: '2023-02-24'
